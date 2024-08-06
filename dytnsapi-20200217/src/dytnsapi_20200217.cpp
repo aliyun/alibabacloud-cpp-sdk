@@ -37,6 +37,55 @@ string Alibabacloud_Dytnsapi20200217::Client::getEndpoint(shared_ptr<string> pro
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CertNoThreeElementVerificationResponse Alibabacloud_Dytnsapi20200217::Client::certNoThreeElementVerificationWithOptions(shared_ptr<CertNoThreeElementVerificationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
+    query->insert(pair<string, string>("AuthCode", *request->authCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certName)) {
+    query->insert(pair<string, string>("CertName", *request->certName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certNo)) {
+    query->insert(pair<string, string>("CertNo", *request->certNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certPicture)) {
+    query->insert(pair<string, string>("CertPicture", *request->certPicture));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mask)) {
+    query->insert(pair<string, string>("Mask", *request->mask));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CertNoThreeElementVerification"))},
+    {"version", boost::any(string("2020-02-17"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CertNoThreeElementVerificationResponse(callApi(params, req, runtime));
+}
+
+CertNoThreeElementVerificationResponse Alibabacloud_Dytnsapi20200217::Client::certNoThreeElementVerification(shared_ptr<CertNoThreeElementVerificationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return certNoThreeElementVerificationWithOptions(request, runtime);
+}
+
 CertNoTwoElementVerificationResponse Alibabacloud_Dytnsapi20200217::Client::certNoTwoElementVerificationWithOptions(shared_ptr<CertNoTwoElementVerificationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
