@@ -69,3 +69,36 @@ AISearchResponse Alibabacloud_LinkedmallRetrieval20240501::Client::aISearch(shar
   return aISearchWithOptions(request, headers, runtime);
 }
 
+AISearchV2Response Alibabacloud_LinkedmallRetrieval20240501::Client::aISearchV2WithOptions(shared_ptr<AISearchV2Request> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
+    query->insert(pair<string, string>("query", *request->query));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    query->insert(pair<string, string>("sessionId", *request->sessionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AISearchV2"))},
+    {"version", boost::any(string("2024-05-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/linked-retrieval/linked-retrieval-entry/v2/linkedRetrieval/commands/aiSearch"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AISearchV2Response(callApi(params, req, runtime));
+}
+
+AISearchV2Response Alibabacloud_LinkedmallRetrieval20240501::Client::aISearchV2(shared_ptr<AISearchV2Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return aISearchV2WithOptions(request, headers, runtime);
+}
+
