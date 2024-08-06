@@ -18324,19 +18324,33 @@ class DescribeSQLPatternsResponseBodyPatternDetails : public Darabonba::Model {
 public:
   shared_ptr<string> accessIp{};
   shared_ptr<double> averageExecutionTime{};
+  shared_ptr<double> averageOperatorCost{};
   shared_ptr<double> averagePeakMemory{};
   shared_ptr<double> averageQueryTime{};
+  shared_ptr<double> averageScanCost{};
   shared_ptr<double> averageScanSize{};
   shared_ptr<bool> blockable{};
   shared_ptr<long> failedCount{};
   shared_ptr<long> maxExecutionTime{};
+  shared_ptr<double> maxOperatorCost{};
   shared_ptr<long> maxPeakMemory{};
   shared_ptr<long> maxQueryTime{};
+  shared_ptr<double> maxScanCost{};
   shared_ptr<long> maxScanSize{};
+  shared_ptr<double> operatorCostPercentage{};
+  shared_ptr<double> operatorCostSum{};
   shared_ptr<string> patternCreationTime{};
   shared_ptr<string> patternId{};
+  shared_ptr<double> peakMemoryPercentage{};
+  shared_ptr<double> peakMemorySum{};
   shared_ptr<long> queryCount{};
+  shared_ptr<double> queryTimePercentage{};
+  shared_ptr<double> queryTimeSum{};
   shared_ptr<string> SQLPattern{};
+  shared_ptr<double> scanCostPercentage{};
+  shared_ptr<double> scanCostSum{};
+  shared_ptr<double> scanSizePercentage{};
+  shared_ptr<double> scanSizeSum{};
   shared_ptr<string> tables{};
   shared_ptr<string> user{};
 
@@ -18356,11 +18370,17 @@ public:
     if (averageExecutionTime) {
       res["AverageExecutionTime"] = boost::any(*averageExecutionTime);
     }
+    if (averageOperatorCost) {
+      res["AverageOperatorCost"] = boost::any(*averageOperatorCost);
+    }
     if (averagePeakMemory) {
       res["AveragePeakMemory"] = boost::any(*averagePeakMemory);
     }
     if (averageQueryTime) {
       res["AverageQueryTime"] = boost::any(*averageQueryTime);
+    }
+    if (averageScanCost) {
+      res["AverageScanCost"] = boost::any(*averageScanCost);
     }
     if (averageScanSize) {
       res["AverageScanSize"] = boost::any(*averageScanSize);
@@ -18374,14 +18394,26 @@ public:
     if (maxExecutionTime) {
       res["MaxExecutionTime"] = boost::any(*maxExecutionTime);
     }
+    if (maxOperatorCost) {
+      res["MaxOperatorCost"] = boost::any(*maxOperatorCost);
+    }
     if (maxPeakMemory) {
       res["MaxPeakMemory"] = boost::any(*maxPeakMemory);
     }
     if (maxQueryTime) {
       res["MaxQueryTime"] = boost::any(*maxQueryTime);
     }
+    if (maxScanCost) {
+      res["MaxScanCost"] = boost::any(*maxScanCost);
+    }
     if (maxScanSize) {
       res["MaxScanSize"] = boost::any(*maxScanSize);
+    }
+    if (operatorCostPercentage) {
+      res["OperatorCostPercentage"] = boost::any(*operatorCostPercentage);
+    }
+    if (operatorCostSum) {
+      res["OperatorCostSum"] = boost::any(*operatorCostSum);
     }
     if (patternCreationTime) {
       res["PatternCreationTime"] = boost::any(*patternCreationTime);
@@ -18389,11 +18421,35 @@ public:
     if (patternId) {
       res["PatternId"] = boost::any(*patternId);
     }
+    if (peakMemoryPercentage) {
+      res["PeakMemoryPercentage"] = boost::any(*peakMemoryPercentage);
+    }
+    if (peakMemorySum) {
+      res["PeakMemorySum"] = boost::any(*peakMemorySum);
+    }
     if (queryCount) {
       res["QueryCount"] = boost::any(*queryCount);
     }
+    if (queryTimePercentage) {
+      res["QueryTimePercentage"] = boost::any(*queryTimePercentage);
+    }
+    if (queryTimeSum) {
+      res["QueryTimeSum"] = boost::any(*queryTimeSum);
+    }
     if (SQLPattern) {
       res["SQLPattern"] = boost::any(*SQLPattern);
+    }
+    if (scanCostPercentage) {
+      res["ScanCostPercentage"] = boost::any(*scanCostPercentage);
+    }
+    if (scanCostSum) {
+      res["ScanCostSum"] = boost::any(*scanCostSum);
+    }
+    if (scanSizePercentage) {
+      res["ScanSizePercentage"] = boost::any(*scanSizePercentage);
+    }
+    if (scanSizeSum) {
+      res["ScanSizeSum"] = boost::any(*scanSizeSum);
     }
     if (tables) {
       res["Tables"] = boost::any(*tables);
@@ -18411,11 +18467,17 @@ public:
     if (m.find("AverageExecutionTime") != m.end() && !m["AverageExecutionTime"].empty()) {
       averageExecutionTime = make_shared<double>(boost::any_cast<double>(m["AverageExecutionTime"]));
     }
+    if (m.find("AverageOperatorCost") != m.end() && !m["AverageOperatorCost"].empty()) {
+      averageOperatorCost = make_shared<double>(boost::any_cast<double>(m["AverageOperatorCost"]));
+    }
     if (m.find("AveragePeakMemory") != m.end() && !m["AveragePeakMemory"].empty()) {
       averagePeakMemory = make_shared<double>(boost::any_cast<double>(m["AveragePeakMemory"]));
     }
     if (m.find("AverageQueryTime") != m.end() && !m["AverageQueryTime"].empty()) {
       averageQueryTime = make_shared<double>(boost::any_cast<double>(m["AverageQueryTime"]));
+    }
+    if (m.find("AverageScanCost") != m.end() && !m["AverageScanCost"].empty()) {
+      averageScanCost = make_shared<double>(boost::any_cast<double>(m["AverageScanCost"]));
     }
     if (m.find("AverageScanSize") != m.end() && !m["AverageScanSize"].empty()) {
       averageScanSize = make_shared<double>(boost::any_cast<double>(m["AverageScanSize"]));
@@ -18429,14 +18491,26 @@ public:
     if (m.find("MaxExecutionTime") != m.end() && !m["MaxExecutionTime"].empty()) {
       maxExecutionTime = make_shared<long>(boost::any_cast<long>(m["MaxExecutionTime"]));
     }
+    if (m.find("MaxOperatorCost") != m.end() && !m["MaxOperatorCost"].empty()) {
+      maxOperatorCost = make_shared<double>(boost::any_cast<double>(m["MaxOperatorCost"]));
+    }
     if (m.find("MaxPeakMemory") != m.end() && !m["MaxPeakMemory"].empty()) {
       maxPeakMemory = make_shared<long>(boost::any_cast<long>(m["MaxPeakMemory"]));
     }
     if (m.find("MaxQueryTime") != m.end() && !m["MaxQueryTime"].empty()) {
       maxQueryTime = make_shared<long>(boost::any_cast<long>(m["MaxQueryTime"]));
     }
+    if (m.find("MaxScanCost") != m.end() && !m["MaxScanCost"].empty()) {
+      maxScanCost = make_shared<double>(boost::any_cast<double>(m["MaxScanCost"]));
+    }
     if (m.find("MaxScanSize") != m.end() && !m["MaxScanSize"].empty()) {
       maxScanSize = make_shared<long>(boost::any_cast<long>(m["MaxScanSize"]));
+    }
+    if (m.find("OperatorCostPercentage") != m.end() && !m["OperatorCostPercentage"].empty()) {
+      operatorCostPercentage = make_shared<double>(boost::any_cast<double>(m["OperatorCostPercentage"]));
+    }
+    if (m.find("OperatorCostSum") != m.end() && !m["OperatorCostSum"].empty()) {
+      operatorCostSum = make_shared<double>(boost::any_cast<double>(m["OperatorCostSum"]));
     }
     if (m.find("PatternCreationTime") != m.end() && !m["PatternCreationTime"].empty()) {
       patternCreationTime = make_shared<string>(boost::any_cast<string>(m["PatternCreationTime"]));
@@ -18444,11 +18518,35 @@ public:
     if (m.find("PatternId") != m.end() && !m["PatternId"].empty()) {
       patternId = make_shared<string>(boost::any_cast<string>(m["PatternId"]));
     }
+    if (m.find("PeakMemoryPercentage") != m.end() && !m["PeakMemoryPercentage"].empty()) {
+      peakMemoryPercentage = make_shared<double>(boost::any_cast<double>(m["PeakMemoryPercentage"]));
+    }
+    if (m.find("PeakMemorySum") != m.end() && !m["PeakMemorySum"].empty()) {
+      peakMemorySum = make_shared<double>(boost::any_cast<double>(m["PeakMemorySum"]));
+    }
     if (m.find("QueryCount") != m.end() && !m["QueryCount"].empty()) {
       queryCount = make_shared<long>(boost::any_cast<long>(m["QueryCount"]));
     }
+    if (m.find("QueryTimePercentage") != m.end() && !m["QueryTimePercentage"].empty()) {
+      queryTimePercentage = make_shared<double>(boost::any_cast<double>(m["QueryTimePercentage"]));
+    }
+    if (m.find("QueryTimeSum") != m.end() && !m["QueryTimeSum"].empty()) {
+      queryTimeSum = make_shared<double>(boost::any_cast<double>(m["QueryTimeSum"]));
+    }
     if (m.find("SQLPattern") != m.end() && !m["SQLPattern"].empty()) {
       SQLPattern = make_shared<string>(boost::any_cast<string>(m["SQLPattern"]));
+    }
+    if (m.find("ScanCostPercentage") != m.end() && !m["ScanCostPercentage"].empty()) {
+      scanCostPercentage = make_shared<double>(boost::any_cast<double>(m["ScanCostPercentage"]));
+    }
+    if (m.find("ScanCostSum") != m.end() && !m["ScanCostSum"].empty()) {
+      scanCostSum = make_shared<double>(boost::any_cast<double>(m["ScanCostSum"]));
+    }
+    if (m.find("ScanSizePercentage") != m.end() && !m["ScanSizePercentage"].empty()) {
+      scanSizePercentage = make_shared<double>(boost::any_cast<double>(m["ScanSizePercentage"]));
+    }
+    if (m.find("ScanSizeSum") != m.end() && !m["ScanSizeSum"].empty()) {
+      scanSizeSum = make_shared<double>(boost::any_cast<double>(m["ScanSizeSum"]));
     }
     if (m.find("Tables") != m.end() && !m["Tables"].empty()) {
       tables = make_shared<string>(boost::any_cast<string>(m["Tables"]));
