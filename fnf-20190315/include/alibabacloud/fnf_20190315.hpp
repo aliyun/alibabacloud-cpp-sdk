@@ -2810,6 +2810,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> output{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> roleArn{};
   shared_ptr<string> startedTime{};
   shared_ptr<string> status{};
   shared_ptr<string> stoppedTime{};
@@ -2842,6 +2843,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (roleArn) {
+      res["RoleArn"] = boost::any(*roleArn);
+    }
     if (startedTime) {
       res["StartedTime"] = boost::any(*startedTime);
     }
@@ -2872,6 +2876,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RoleArn") != m.end() && !m["RoleArn"].empty()) {
+      roleArn = make_shared<string>(boost::any_cast<string>(m["RoleArn"]));
     }
     if (m.find("StartedTime") != m.end() && !m["StartedTime"].empty()) {
       startedTime = make_shared<string>(boost::any_cast<string>(m["StartedTime"]));
