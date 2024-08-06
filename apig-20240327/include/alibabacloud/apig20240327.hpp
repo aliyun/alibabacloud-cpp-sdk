@@ -10697,6 +10697,162 @@ public:
 
   virtual ~ListGatewaysResponseBodyDataItemsLoadBalancers() = default;
 };
+class ListGatewaysResponseBodyDataItemsSecurityGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> securityGroupId{};
+
+  ListGatewaysResponseBodyDataItemsSecurityGroup() {}
+
+  explicit ListGatewaysResponseBodyDataItemsSecurityGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (securityGroupId) {
+      res["securityGroupId"] = boost::any(*securityGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("securityGroupId") != m.end() && !m["securityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["securityGroupId"]));
+    }
+  }
+
+
+  virtual ~ListGatewaysResponseBodyDataItemsSecurityGroup() = default;
+};
+class ListGatewaysResponseBodyDataItemsVSwitch : public Darabonba::Model {
+public:
+  shared_ptr<string> vSwitchId{};
+
+  ListGatewaysResponseBodyDataItemsVSwitch() {}
+
+  explicit ListGatewaysResponseBodyDataItemsVSwitch(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vSwitchId) {
+      res["vSwitchId"] = boost::any(*vSwitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("vSwitchId") != m.end() && !m["vSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["vSwitchId"]));
+    }
+  }
+
+
+  virtual ~ListGatewaysResponseBodyDataItemsVSwitch() = default;
+};
+class ListGatewaysResponseBodyDataItemsVpc : public Darabonba::Model {
+public:
+  shared_ptr<string> vpcId{};
+
+  ListGatewaysResponseBodyDataItemsVpc() {}
+
+  explicit ListGatewaysResponseBodyDataItemsVpc(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vpcId) {
+      res["vpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("vpcId") != m.end() && !m["vpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["vpcId"]));
+    }
+  }
+
+
+  virtual ~ListGatewaysResponseBodyDataItemsVpc() = default;
+};
+class ListGatewaysResponseBodyDataItemsZonesVSwitch : public Darabonba::Model {
+public:
+  shared_ptr<string> vSwitchId{};
+
+  ListGatewaysResponseBodyDataItemsZonesVSwitch() {}
+
+  explicit ListGatewaysResponseBodyDataItemsZonesVSwitch(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vSwitchId) {
+      res["vSwitchId"] = boost::any(*vSwitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("vSwitchId") != m.end() && !m["vSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["vSwitchId"]));
+    }
+  }
+
+
+  virtual ~ListGatewaysResponseBodyDataItemsZonesVSwitch() = default;
+};
+class ListGatewaysResponseBodyDataItemsZones : public Darabonba::Model {
+public:
+  shared_ptr<ListGatewaysResponseBodyDataItemsZonesVSwitch> vSwitch{};
+  shared_ptr<string> zoneId{};
+
+  ListGatewaysResponseBodyDataItemsZones() {}
+
+  explicit ListGatewaysResponseBodyDataItemsZones(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vSwitch) {
+      res["vSwitch"] = vSwitch ? boost::any(vSwitch->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (zoneId) {
+      res["zoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("vSwitch") != m.end() && !m["vSwitch"].empty()) {
+      if (typeid(map<string, boost::any>) == m["vSwitch"].type()) {
+        ListGatewaysResponseBodyDataItemsZonesVSwitch model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["vSwitch"]));
+        vSwitch = make_shared<ListGatewaysResponseBodyDataItemsZonesVSwitch>(model1);
+      }
+    }
+    if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
+    }
+  }
+
+
+  virtual ~ListGatewaysResponseBodyDataItemsZones() = default;
+};
 class ListGatewaysResponseBodyDataItems : public Darabonba::Model {
 public:
   shared_ptr<string> chargeType{};
@@ -10707,11 +10863,15 @@ public:
   shared_ptr<vector<ListGatewaysResponseBodyDataItemsLoadBalancers>> loadBalancers{};
   shared_ptr<string> name{};
   shared_ptr<string> replicas{};
+  shared_ptr<ListGatewaysResponseBodyDataItemsSecurityGroup> securityGroup{};
   shared_ptr<string> spec{};
   shared_ptr<string> status{};
   shared_ptr<string> targetVersion{};
   shared_ptr<long> updateTimestamp{};
+  shared_ptr<ListGatewaysResponseBodyDataItemsVSwitch> vSwitch{};
   shared_ptr<string> version{};
+  shared_ptr<ListGatewaysResponseBodyDataItemsVpc> vpc{};
+  shared_ptr<vector<ListGatewaysResponseBodyDataItemsZones>> zones{};
 
   ListGatewaysResponseBodyDataItems() {}
 
@@ -10751,6 +10911,9 @@ public:
     if (replicas) {
       res["replicas"] = boost::any(*replicas);
     }
+    if (securityGroup) {
+      res["securityGroup"] = securityGroup ? boost::any(securityGroup->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (spec) {
       res["spec"] = boost::any(*spec);
     }
@@ -10763,8 +10926,21 @@ public:
     if (updateTimestamp) {
       res["updateTimestamp"] = boost::any(*updateTimestamp);
     }
+    if (vSwitch) {
+      res["vSwitch"] = vSwitch ? boost::any(vSwitch->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (version) {
       res["version"] = boost::any(*version);
+    }
+    if (vpc) {
+      res["vpc"] = vpc ? boost::any(vpc->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (zones) {
+      vector<boost::any> temp1;
+      for(auto item1:*zones){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["zones"] = boost::any(temp1);
     }
     return res;
   }
@@ -10804,6 +10980,13 @@ public:
     if (m.find("replicas") != m.end() && !m["replicas"].empty()) {
       replicas = make_shared<string>(boost::any_cast<string>(m["replicas"]));
     }
+    if (m.find("securityGroup") != m.end() && !m["securityGroup"].empty()) {
+      if (typeid(map<string, boost::any>) == m["securityGroup"].type()) {
+        ListGatewaysResponseBodyDataItemsSecurityGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["securityGroup"]));
+        securityGroup = make_shared<ListGatewaysResponseBodyDataItemsSecurityGroup>(model1);
+      }
+    }
     if (m.find("spec") != m.end() && !m["spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["spec"]));
     }
@@ -10816,8 +10999,35 @@ public:
     if (m.find("updateTimestamp") != m.end() && !m["updateTimestamp"].empty()) {
       updateTimestamp = make_shared<long>(boost::any_cast<long>(m["updateTimestamp"]));
     }
+    if (m.find("vSwitch") != m.end() && !m["vSwitch"].empty()) {
+      if (typeid(map<string, boost::any>) == m["vSwitch"].type()) {
+        ListGatewaysResponseBodyDataItemsVSwitch model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["vSwitch"]));
+        vSwitch = make_shared<ListGatewaysResponseBodyDataItemsVSwitch>(model1);
+      }
+    }
     if (m.find("version") != m.end() && !m["version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["version"]));
+    }
+    if (m.find("vpc") != m.end() && !m["vpc"].empty()) {
+      if (typeid(map<string, boost::any>) == m["vpc"].type()) {
+        ListGatewaysResponseBodyDataItemsVpc model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["vpc"]));
+        vpc = make_shared<ListGatewaysResponseBodyDataItemsVpc>(model1);
+      }
+    }
+    if (m.find("zones") != m.end() && !m["zones"].empty()) {
+      if (typeid(vector<boost::any>) == m["zones"].type()) {
+        vector<ListGatewaysResponseBodyDataItemsZones> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["zones"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListGatewaysResponseBodyDataItemsZones model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        zones = make_shared<vector<ListGatewaysResponseBodyDataItemsZones>>(expect1);
+      }
     }
   }
 
