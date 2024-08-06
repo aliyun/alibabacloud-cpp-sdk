@@ -20062,6 +20062,7 @@ public:
 };
 class GetClusterAuditProjectResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<bool> auditEnabled{};
   shared_ptr<string> slsProjectName{};
 
   GetClusterAuditProjectResponseBody() {}
@@ -20074,6 +20075,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (auditEnabled) {
+      res["audit_enabled"] = boost::any(*auditEnabled);
+    }
     if (slsProjectName) {
       res["sls_project_name"] = boost::any(*slsProjectName);
     }
@@ -20081,6 +20085,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("audit_enabled") != m.end() && !m["audit_enabled"].empty()) {
+      auditEnabled = make_shared<bool>(boost::any_cast<bool>(m["audit_enabled"]));
+    }
     if (m.find("sls_project_name") != m.end() && !m["sls_project_name"].empty()) {
       slsProjectName = make_shared<string>(boost::any_cast<string>(m["sls_project_name"]));
     }
