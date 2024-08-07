@@ -178,11 +178,17 @@ BindSlbResponse Alibabacloud_Sae20190506::Client::bindSlbWithOptions(shared_ptr<
   if (!Darabonba_Util::Client::isUnset<string>(request->internet)) {
     query->insert(pair<string, string>("Internet", *request->internet));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->internetSlbChargeType)) {
+    query->insert(pair<string, string>("InternetSlbChargeType", *request->internetSlbChargeType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->internetSlbId)) {
     query->insert(pair<string, string>("InternetSlbId", *request->internetSlbId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->intranet)) {
     query->insert(pair<string, string>("Intranet", *request->intranet));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->intranetSlbChargeType)) {
+    query->insert(pair<string, string>("IntranetSlbChargeType", *request->intranetSlbChargeType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->intranetSlbId)) {
     query->insert(pair<string, string>("IntranetSlbId", *request->intranetSlbId));

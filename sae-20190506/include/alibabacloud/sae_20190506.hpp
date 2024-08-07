@@ -690,6 +690,92 @@ public:
 
   virtual ~CustomHealthCheckConfig() = default;
 };
+class HostAlias : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> hostnames{};
+  shared_ptr<string> ip{};
+
+  HostAlias() {}
+
+  explicit HostAlias(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostnames) {
+      res["hostnames"] = boost::any(*hostnames);
+    }
+    if (ip) {
+      res["ip"] = boost::any(*ip);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("hostnames") != m.end() && !m["hostnames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["hostnames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["hostnames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      hostnames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ip") != m.end() && !m["ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["ip"]));
+    }
+  }
+
+
+  virtual ~HostAlias() = default;
+};
+class CustomHostAlias : public Darabonba::Model {
+public:
+  shared_ptr<vector<HostAlias>> hostAliases{};
+
+  CustomHostAlias() {}
+
+  explicit CustomHostAlias(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostAliases) {
+      vector<boost::any> temp1;
+      for(auto item1:*hostAliases){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["hostAliases"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("hostAliases") != m.end() && !m["hostAliases"].empty()) {
+      if (typeid(vector<boost::any>) == m["hostAliases"].type()) {
+        vector<HostAlias> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["hostAliases"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            HostAlias model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hostAliases = make_shared<vector<HostAlias>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CustomHostAlias() = default;
+};
 class CustomRuntimeConfig : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> args{};
@@ -1770,6 +1856,7 @@ public:
   shared_ptr<CustomDNS> customDNS{};
   shared_ptr<string> customDomainName{};
   shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
+  shared_ptr<CustomHostAlias> customHostAlias{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<long> diskSize{};
@@ -1857,6 +1944,9 @@ public:
     }
     if (customHealthCheckConfig) {
       res["customHealthCheckConfig"] = customHealthCheckConfig ? boost::any(customHealthCheckConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customHostAlias) {
+      res["customHostAlias"] = customHostAlias ? boost::any(customHostAlias->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (customRuntimeConfig) {
       res["customRuntimeConfig"] = customRuntimeConfig ? boost::any(customRuntimeConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2021,6 +2111,13 @@ public:
         CustomHealthCheckConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customHealthCheckConfig"]));
         customHealthCheckConfig = make_shared<CustomHealthCheckConfig>(model1);
+      }
+    }
+    if (m.find("customHostAlias") != m.end() && !m["customHostAlias"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customHostAlias"].type()) {
+        CustomHostAlias model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customHostAlias"]));
+        customHostAlias = make_shared<CustomHostAlias>(model1);
       }
     }
     if (m.find("customRuntimeConfig") != m.end() && !m["customRuntimeConfig"].empty()) {
@@ -4421,6 +4518,7 @@ public:
   shared_ptr<double> cpu{};
   shared_ptr<CustomDNS> customDNS{};
   shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
+  shared_ptr<CustomHostAlias> customHostAlias{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<long> diskSize{};
@@ -4484,6 +4582,9 @@ public:
     }
     if (customHealthCheckConfig) {
       res["customHealthCheckConfig"] = customHealthCheckConfig ? boost::any(customHealthCheckConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customHostAlias) {
+      res["customHostAlias"] = customHostAlias ? boost::any(customHostAlias->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (customRuntimeConfig) {
       res["customRuntimeConfig"] = customRuntimeConfig ? boost::any(customRuntimeConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -4610,6 +4711,13 @@ public:
         CustomHealthCheckConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customHealthCheckConfig"]));
         customHealthCheckConfig = make_shared<CustomHealthCheckConfig>(model1);
+      }
+    }
+    if (m.find("customHostAlias") != m.end() && !m["customHostAlias"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customHostAlias"].type()) {
+        CustomHostAlias model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customHostAlias"]));
+        customHostAlias = make_shared<CustomHostAlias>(model1);
       }
     }
     if (m.find("customRuntimeConfig") != m.end() && !m["customRuntimeConfig"].empty()) {
@@ -9737,6 +9845,7 @@ public:
   shared_ptr<double> cpu{};
   shared_ptr<CustomDNS> customDNS{};
   shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
+  shared_ptr<CustomHostAlias> customHostAlias{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<long> diskSize{};
@@ -9798,6 +9907,9 @@ public:
     }
     if (customHealthCheckConfig) {
       res["customHealthCheckConfig"] = customHealthCheckConfig ? boost::any(customHealthCheckConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customHostAlias) {
+      res["customHostAlias"] = customHostAlias ? boost::any(customHostAlias->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (customRuntimeConfig) {
       res["customRuntimeConfig"] = customRuntimeConfig ? boost::any(customRuntimeConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -9924,6 +10036,13 @@ public:
         CustomHealthCheckConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customHealthCheckConfig"]));
         customHealthCheckConfig = make_shared<CustomHealthCheckConfig>(model1);
+      }
+    }
+    if (m.find("customHostAlias") != m.end() && !m["customHostAlias"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customHostAlias"].type()) {
+        CustomHostAlias model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customHostAlias"]));
+        customHostAlias = make_shared<CustomHostAlias>(model1);
       }
     }
     if (m.find("customRuntimeConfig") != m.end() && !m["customRuntimeConfig"].empty()) {
@@ -11811,8 +11930,10 @@ class BindSlbRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> internet{};
+  shared_ptr<string> internetSlbChargeType{};
   shared_ptr<string> internetSlbId{};
   shared_ptr<string> intranet{};
+  shared_ptr<string> intranetSlbChargeType{};
   shared_ptr<string> intranetSlbId{};
 
   BindSlbRequest() {}
@@ -11831,11 +11952,17 @@ public:
     if (internet) {
       res["Internet"] = boost::any(*internet);
     }
+    if (internetSlbChargeType) {
+      res["InternetSlbChargeType"] = boost::any(*internetSlbChargeType);
+    }
     if (internetSlbId) {
       res["InternetSlbId"] = boost::any(*internetSlbId);
     }
     if (intranet) {
       res["Intranet"] = boost::any(*intranet);
+    }
+    if (intranetSlbChargeType) {
+      res["IntranetSlbChargeType"] = boost::any(*intranetSlbChargeType);
     }
     if (intranetSlbId) {
       res["IntranetSlbId"] = boost::any(*intranetSlbId);
@@ -11850,11 +11977,17 @@ public:
     if (m.find("Internet") != m.end() && !m["Internet"].empty()) {
       internet = make_shared<string>(boost::any_cast<string>(m["Internet"]));
     }
+    if (m.find("InternetSlbChargeType") != m.end() && !m["InternetSlbChargeType"].empty()) {
+      internetSlbChargeType = make_shared<string>(boost::any_cast<string>(m["InternetSlbChargeType"]));
+    }
     if (m.find("InternetSlbId") != m.end() && !m["InternetSlbId"].empty()) {
       internetSlbId = make_shared<string>(boost::any_cast<string>(m["InternetSlbId"]));
     }
     if (m.find("Intranet") != m.end() && !m["Intranet"].empty()) {
       intranet = make_shared<string>(boost::any_cast<string>(m["Intranet"]));
+    }
+    if (m.find("IntranetSlbChargeType") != m.end() && !m["IntranetSlbChargeType"].empty()) {
+      intranetSlbChargeType = make_shared<string>(boost::any_cast<string>(m["IntranetSlbChargeType"]));
     }
     if (m.find("IntranetSlbId") != m.end() && !m["IntranetSlbId"].empty()) {
       intranetSlbId = make_shared<string>(boost::any_cast<string>(m["IntranetSlbId"]));
@@ -21877,10 +22010,12 @@ class DescribeApplicationSlbsResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeApplicationSlbsResponseBodyDataInternet>> internet{};
   shared_ptr<string> internetIp{};
+  shared_ptr<string> internetSlbChargeType{};
   shared_ptr<bool> internetSlbExpired{};
   shared_ptr<string> internetSlbId{};
   shared_ptr<vector<DescribeApplicationSlbsResponseBodyDataIntranet>> intranet{};
   shared_ptr<string> intranetIp{};
+  shared_ptr<string> intranetSlbChargeType{};
   shared_ptr<bool> intranetSlbExpired{};
   shared_ptr<string> intranetSlbId{};
 
@@ -21904,6 +22039,9 @@ public:
     if (internetIp) {
       res["InternetIp"] = boost::any(*internetIp);
     }
+    if (internetSlbChargeType) {
+      res["InternetSlbChargeType"] = boost::any(*internetSlbChargeType);
+    }
     if (internetSlbExpired) {
       res["InternetSlbExpired"] = boost::any(*internetSlbExpired);
     }
@@ -21919,6 +22057,9 @@ public:
     }
     if (intranetIp) {
       res["IntranetIp"] = boost::any(*intranetIp);
+    }
+    if (intranetSlbChargeType) {
+      res["IntranetSlbChargeType"] = boost::any(*intranetSlbChargeType);
     }
     if (intranetSlbExpired) {
       res["IntranetSlbExpired"] = boost::any(*intranetSlbExpired);
@@ -21946,6 +22087,9 @@ public:
     if (m.find("InternetIp") != m.end() && !m["InternetIp"].empty()) {
       internetIp = make_shared<string>(boost::any_cast<string>(m["InternetIp"]));
     }
+    if (m.find("InternetSlbChargeType") != m.end() && !m["InternetSlbChargeType"].empty()) {
+      internetSlbChargeType = make_shared<string>(boost::any_cast<string>(m["InternetSlbChargeType"]));
+    }
     if (m.find("InternetSlbExpired") != m.end() && !m["InternetSlbExpired"].empty()) {
       internetSlbExpired = make_shared<bool>(boost::any_cast<bool>(m["InternetSlbExpired"]));
     }
@@ -21967,6 +22111,9 @@ public:
     }
     if (m.find("IntranetIp") != m.end() && !m["IntranetIp"].empty()) {
       intranetIp = make_shared<string>(boost::any_cast<string>(m["IntranetIp"]));
+    }
+    if (m.find("IntranetSlbChargeType") != m.end() && !m["IntranetSlbChargeType"].empty()) {
+      intranetSlbChargeType = make_shared<string>(boost::any_cast<string>(m["IntranetSlbChargeType"]));
     }
     if (m.find("IntranetSlbExpired") != m.end() && !m["IntranetSlbExpired"].empty()) {
       intranetSlbExpired = make_shared<bool>(boost::any_cast<bool>(m["IntranetSlbExpired"]));
