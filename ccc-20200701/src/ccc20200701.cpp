@@ -2422,6 +2422,40 @@ GetCaseFileUploadUrlResponse Alibabacloud_CCC20200701::Client::getCaseFileUpload
   return getCaseFileUploadUrlWithOptions(request, runtime);
 }
 
+GetChatMediaUrlResponse Alibabacloud_CCC20200701::Client::getChatMediaUrlWithOptions(shared_ptr<GetChatMediaUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaId)) {
+    body->insert(pair<string, string>("MediaId", *request->mediaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
+    body->insert(pair<string, string>("RequestId", *request->requestId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetChatMediaUrl"))},
+    {"version", boost::any(string("2020-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetChatMediaUrlResponse(callApi(params, req, runtime));
+}
+
+GetChatMediaUrlResponse Alibabacloud_CCC20200701::Client::getChatMediaUrl(shared_ptr<GetChatMediaUrlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getChatMediaUrlWithOptions(request, runtime);
+}
+
 GetContactFlowResponse Alibabacloud_CCC20200701::Client::getContactFlowWithOptions(shared_ptr<GetContactFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
