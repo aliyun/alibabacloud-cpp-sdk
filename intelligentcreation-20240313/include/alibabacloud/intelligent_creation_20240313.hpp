@@ -1574,6 +1574,194 @@ public:
 
   virtual ~CheckSessionResponse() = default;
 };
+class CountTextRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> generationSource{};
+  shared_ptr<string> industry{};
+  shared_ptr<string> publishStatus{};
+  shared_ptr<string> style{};
+
+  CountTextRequest() {}
+
+  explicit CountTextRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (generationSource) {
+      res["generationSource"] = boost::any(*generationSource);
+    }
+    if (industry) {
+      res["industry"] = boost::any(*industry);
+    }
+    if (publishStatus) {
+      res["publishStatus"] = boost::any(*publishStatus);
+    }
+    if (style) {
+      res["style"] = boost::any(*style);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("generationSource") != m.end() && !m["generationSource"].empty()) {
+      generationSource = make_shared<string>(boost::any_cast<string>(m["generationSource"]));
+    }
+    if (m.find("industry") != m.end() && !m["industry"].empty()) {
+      industry = make_shared<string>(boost::any_cast<string>(m["industry"]));
+    }
+    if (m.find("publishStatus") != m.end() && !m["publishStatus"].empty()) {
+      publishStatus = make_shared<string>(boost::any_cast<string>(m["publishStatus"]));
+    }
+    if (m.find("style") != m.end() && !m["style"].empty()) {
+      style = make_shared<string>(boost::any_cast<string>(m["style"]));
+    }
+  }
+
+
+  virtual ~CountTextRequest() = default;
+};
+class CountTextResponseBodyCountTextCmdList : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<string> theme{};
+
+  CountTextResponseBodyCountTextCmdList() {}
+
+  explicit CountTextResponseBodyCountTextCmdList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["count"] = boost::any(*count);
+    }
+    if (theme) {
+      res["theme"] = boost::any(*theme);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("count") != m.end() && !m["count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["count"]));
+    }
+    if (m.find("theme") != m.end() && !m["theme"].empty()) {
+      theme = make_shared<string>(boost::any_cast<string>(m["theme"]));
+    }
+  }
+
+
+  virtual ~CountTextResponseBodyCountTextCmdList() = default;
+};
+class CountTextResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<CountTextResponseBodyCountTextCmdList>> countTextCmdList{};
+
+  CountTextResponseBody() {}
+
+  explicit CountTextResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (countTextCmdList) {
+      vector<boost::any> temp1;
+      for(auto item1:*countTextCmdList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["countTextCmdList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("countTextCmdList") != m.end() && !m["countTextCmdList"].empty()) {
+      if (typeid(vector<boost::any>) == m["countTextCmdList"].type()) {
+        vector<CountTextResponseBodyCountTextCmdList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["countTextCmdList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CountTextResponseBodyCountTextCmdList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        countTextCmdList = make_shared<vector<CountTextResponseBodyCountTextCmdList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CountTextResponseBody() = default;
+};
+class CountTextResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CountTextResponseBody> body{};
+
+  CountTextResponse() {}
+
+  explicit CountTextResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CountTextResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CountTextResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CountTextResponse() = default;
+};
 class CreateIllustrationTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<IllustrationTaskCreateCmd> body{};
@@ -2749,6 +2937,7 @@ class ListTextsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> generationSource{};
   shared_ptr<string> industry{};
+  shared_ptr<string> keyword{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> publishStatus{};
@@ -2770,6 +2959,9 @@ public:
     }
     if (industry) {
       res["industry"] = boost::any(*industry);
+    }
+    if (keyword) {
+      res["keyword"] = boost::any(*keyword);
     }
     if (pageNumber) {
       res["pageNumber"] = boost::any(*pageNumber);
@@ -2795,6 +2987,9 @@ public:
     }
     if (m.find("industry") != m.end() && !m["industry"].empty()) {
       industry = make_shared<string>(boost::any_cast<string>(m["industry"]));
+    }
+    if (m.find("keyword") != m.end() && !m["keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["keyword"]));
     }
     if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
@@ -4423,6 +4618,7 @@ public:
   shared_ptr<vector<SubmitProjectTaskRequestFrames>> frames{};
   shared_ptr<string> scaleType{};
   shared_ptr<long> subtitleTag{};
+  shared_ptr<long> transparentBackground{};
 
   SubmitProjectTaskRequest() {}
 
@@ -4447,6 +4643,9 @@ public:
     if (subtitleTag) {
       res["subtitleTag"] = boost::any(*subtitleTag);
     }
+    if (transparentBackground) {
+      res["transparentBackground"] = boost::any(*transparentBackground);
+    }
     return res;
   }
 
@@ -4469,6 +4668,9 @@ public:
     }
     if (m.find("subtitleTag") != m.end() && !m["subtitleTag"].empty()) {
       subtitleTag = make_shared<long>(boost::any_cast<long>(m["subtitleTag"]));
+    }
+    if (m.find("transparentBackground") != m.end() && !m["transparentBackground"].empty()) {
+      transparentBackground = make_shared<long>(boost::any_cast<long>(m["transparentBackground"]));
     }
   }
 
@@ -4577,6 +4779,8 @@ public:
   AddTextFeedbackResponse addTextFeedback(shared_ptr<AddTextFeedbackRequest> request);
   CheckSessionResponse checkSessionWithOptions(shared_ptr<CheckSessionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckSessionResponse checkSession(shared_ptr<CheckSessionRequest> request);
+  CountTextResponse countTextWithOptions(shared_ptr<CountTextRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CountTextResponse countText(shared_ptr<CountTextRequest> request);
   CreateIllustrationTaskResponse createIllustrationTaskWithOptions(shared_ptr<string> textId,
                                                                    shared_ptr<CreateIllustrationTaskRequest> request,
                                                                    shared_ptr<map<string, string>> headers,

@@ -106,6 +106,45 @@ CheckSessionResponse Alibabacloud_IntelligentCreation20240313::Client::checkSess
   return checkSessionWithOptions(request, headers, runtime);
 }
 
+CountTextResponse Alibabacloud_IntelligentCreation20240313::Client::countTextWithOptions(shared_ptr<CountTextRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->generationSource)) {
+    query->insert(pair<string, string>("generationSource", *request->generationSource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->industry)) {
+    query->insert(pair<string, string>("industry", *request->industry));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->publishStatus)) {
+    query->insert(pair<string, string>("publishStatus", *request->publishStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->style)) {
+    query->insert(pair<string, string>("style", *request->style));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CountText"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/countText"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CountTextResponse(callApi(params, req, runtime));
+}
+
+CountTextResponse Alibabacloud_IntelligentCreation20240313::Client::countText(shared_ptr<CountTextRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return countTextWithOptions(request, headers, runtime);
+}
+
 CreateIllustrationTaskResponse Alibabacloud_IntelligentCreation20240313::Client::createIllustrationTaskWithOptions(shared_ptr<string> textId,
                                                                                                                    shared_ptr<CreateIllustrationTaskRequest> request,
                                                                                                                    shared_ptr<map<string, string>> headers,
@@ -443,6 +482,9 @@ ListTextsResponse Alibabacloud_IntelligentCreation20240313::Client::listTextsWit
   if (!Darabonba_Util::Client::isUnset<string>(request->industry)) {
     query->insert(pair<string, string>("industry", *request->industry));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    query->insert(pair<string, string>("keyword", *request->keyword));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("pageNumber", *request->pageNumber));
   }
@@ -760,6 +802,9 @@ SubmitProjectTaskResponse Alibabacloud_IntelligentCreation20240313::Client::subm
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->subtitleTag)) {
     body->insert(pair<string, long>("subtitleTag", *request->subtitleTag));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->transparentBackground)) {
+    body->insert(pair<string, long>("transparentBackground", *request->transparentBackground));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
