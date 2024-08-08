@@ -37,6 +37,48 @@ string Alibabacloud_PaiAutoML20220828::Client::getEndpoint(shared_ptr<string> pr
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CreateAutofeExperimentResponse Alibabacloud_PaiAutoML20220828::Client::createAutofeExperimentWithOptions(shared_ptr<CreateAutofeExperimentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
+    body->insert(pair<string, string>("Accessibility", *request->accessibility));
+  }
+  if (!Darabonba_Util::Client::isUnset<AutofeExperimentConfiguration>(request->autofeExperimentConfiguration)) {
+    body->insert(pair<string, AutofeExperimentConfiguration>("AutofeExperimentConfiguration", *request->autofeExperimentConfiguration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateAutofeExperiment"))},
+    {"version", boost::any(string("2022-08-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/automl/v1/autofe/experiment"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateAutofeExperimentResponse(callApi(params, req, runtime));
+}
+
+CreateAutofeExperimentResponse Alibabacloud_PaiAutoML20220828::Client::createAutofeExperiment(shared_ptr<CreateAutofeExperimentRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createAutofeExperimentWithOptions(request, headers, runtime);
+}
+
 CreateHpoExperimentResponse Alibabacloud_PaiAutoML20220828::Client::createHpoExperimentWithOptions(shared_ptr<CreateHpoExperimentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -79,6 +121,30 @@ CreateHpoExperimentResponse Alibabacloud_PaiAutoML20220828::Client::createHpoExp
   return createHpoExperimentWithOptions(request, headers, runtime);
 }
 
+CreateServiceIdentityRoleResponse Alibabacloud_PaiAutoML20220828::Client::createServiceIdentityRoleWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateServiceIdentityRole"))},
+    {"version", boost::any(string("2022-08-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/automl/v1/serviceidentityrole"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateServiceIdentityRoleResponse(callApi(params, req, runtime));
+}
+
+CreateServiceIdentityRoleResponse Alibabacloud_PaiAutoML20220828::Client::createServiceIdentityRole() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createServiceIdentityRoleWithOptions(headers, runtime);
+}
+
 DeleteHpoExperimentResponse Alibabacloud_PaiAutoML20220828::Client::deleteHpoExperimentWithOptions(shared_ptr<string> ExperimentId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -101,6 +167,30 @@ DeleteHpoExperimentResponse Alibabacloud_PaiAutoML20220828::Client::deleteHpoExp
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return deleteHpoExperimentWithOptions(ExperimentId, headers, runtime);
+}
+
+GetAutofeExperimentResponse Alibabacloud_PaiAutoML20220828::Client::getAutofeExperimentWithOptions(shared_ptr<string> ExperimentId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAutofeExperiment"))},
+    {"version", boost::any(string("2022-08-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/automl/v1/autofe/experiment/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ExperimentId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAutofeExperimentResponse(callApi(params, req, runtime));
+}
+
+GetAutofeExperimentResponse Alibabacloud_PaiAutoML20220828::Client::getAutofeExperiment(shared_ptr<string> ExperimentId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getAutofeExperimentWithOptions(ExperimentId, headers, runtime);
 }
 
 GetHpoExperimentResponse Alibabacloud_PaiAutoML20220828::Client::getHpoExperimentWithOptions(shared_ptr<string> ExperimentId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -152,6 +242,30 @@ GetHpoTrialResponse Alibabacloud_PaiAutoML20220828::Client::getHpoTrial(shared_p
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getHpoTrialWithOptions(ExperimentId, TrialId, headers, runtime);
+}
+
+GetServiceIdentityRoleResponse Alibabacloud_PaiAutoML20220828::Client::getServiceIdentityRoleWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetServiceIdentityRole"))},
+    {"version", boost::any(string("2022-08-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/automl/v1/serviceidentityrole"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetServiceIdentityRoleResponse(callApi(params, req, runtime));
+}
+
+GetServiceIdentityRoleResponse Alibabacloud_PaiAutoML20220828::Client::getServiceIdentityRole() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getServiceIdentityRoleWithOptions(headers, runtime);
 }
 
 ListHpoExperimentLogsResponse Alibabacloud_PaiAutoML20220828::Client::listHpoExperimentLogsWithOptions(shared_ptr<string> ExperimentId,
