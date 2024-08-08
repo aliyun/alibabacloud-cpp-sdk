@@ -16116,6 +16116,9 @@ ModifyInstanceAttributeResponse Alibabacloud_Ecs20140526::Client::modifyInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
     query->insert(pair<string, string>("Password", *request->password));
   }
+  if (!Darabonba_Util::Client::isUnset<ModifyInstanceAttributeRequestPrivateDnsNameOptions>(request->privateDnsNameOptions)) {
+    query->insert(pair<string, ModifyInstanceAttributeRequestPrivateDnsNameOptions>("PrivateDnsNameOptions", *request->privateDnsNameOptions));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->recyclable)) {
     query->insert(pair<string, bool>("Recyclable", *request->recyclable));
   }
@@ -19907,6 +19910,9 @@ RunInstancesResponse Alibabacloud_Ecs20140526::Client::runInstancesWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
     query->insert(pair<string, string>("PeriodUnit", *request->periodUnit));
+  }
+  if (!Darabonba_Util::Client::isUnset<RunInstancesRequestPrivateDnsNameOptions>(request->privateDnsNameOptions)) {
+    query->insert(pair<string, RunInstancesRequestPrivateDnsNameOptions>("PrivateDnsNameOptions", *request->privateDnsNameOptions));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->privateIpAddress)) {
     query->insert(pair<string, string>("PrivateIpAddress", *request->privateIpAddress));
