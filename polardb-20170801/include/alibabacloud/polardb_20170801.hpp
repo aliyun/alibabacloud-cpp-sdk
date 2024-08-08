@@ -23788,6 +23788,7 @@ public:
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<bool> rollBackForDisaster{};
   shared_ptr<string> targetDBNodeId{};
+  shared_ptr<string> targetZoneType{};
 
   FailoverDBClusterRequest() {}
 
@@ -23823,6 +23824,9 @@ public:
     if (targetDBNodeId) {
       res["TargetDBNodeId"] = boost::any(*targetDBNodeId);
     }
+    if (targetZoneType) {
+      res["TargetZoneType"] = boost::any(*targetZoneType);
+    }
     return res;
   }
 
@@ -23850,6 +23854,9 @@ public:
     }
     if (m.find("TargetDBNodeId") != m.end() && !m["TargetDBNodeId"].empty()) {
       targetDBNodeId = make_shared<string>(boost::any_cast<string>(m["TargetDBNodeId"]));
+    }
+    if (m.find("TargetZoneType") != m.end() && !m["TargetZoneType"].empty()) {
+      targetZoneType = make_shared<string>(boost::any_cast<string>(m["TargetZoneType"]));
     }
   }
 

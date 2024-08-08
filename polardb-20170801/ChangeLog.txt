@@ -1,3 +1,20 @@
+2024-08-08 Version: 4.1.5
+- Update API CreateDBClusterEndpoint: add param PolarSccTimeoutAction.
+- Update API CreateDBClusterEndpoint: add param PolarSccWaitTimeout.
+- Update API CreateDBClusterEndpoint: add param SccMode.
+- Update API DescribeAccounts: update response param.
+- Update API DescribeDBClusterAttribute: update response param.
+- Update API DescribeDBClusterEndpoints: update response param.
+- Update API DescribeDBClusterPerformance: add param Type.
+- Update API DescribeDBClusterServerlessConf: update response param.
+- Update API DescribeDBClusters: update response param.
+- Update API DescribeGlobalDatabaseNetworks: update response param.
+- Update API FailoverDBCluster: add param TargetZoneType.
+- Update API ModifyDBClusterEndpoint: add param PolarSccTimeoutAction.
+- Update API ModifyDBClusterEndpoint: add param PolarSccWaitTimeout.
+- Update API ModifyDBClusterEndpoint: add param SccMode.
+
+
 2024-07-30 Version: 4.1.5
 - Update API CreateDBClusterEndpoint: add param PolarSccTimeoutAction.
 - Update API CreateDBClusterEndpoint: add param PolarSccWaitTimeout.

@@ -4629,6 +4629,9 @@ FailoverDBClusterResponse Alibabacloud_Polardb20170801::Client::failoverDBCluste
   if (!Darabonba_Util::Client::isUnset<string>(request->targetDBNodeId)) {
     query->insert(pair<string, string>("TargetDBNodeId", *request->targetDBNodeId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetZoneType)) {
+    query->insert(pair<string, string>("TargetZoneType", *request->targetZoneType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
