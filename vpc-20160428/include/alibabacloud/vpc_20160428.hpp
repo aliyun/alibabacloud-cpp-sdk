@@ -76745,7 +76745,7 @@ public:
   shared_ptr<vector<ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListTags>> tags{};
   shared_ptr<long> totalIpNum{};
   shared_ptr<long> usedIpNum{};
-  shared_ptr<bool> userType{};
+  shared_ptr<string> userType{};
   shared_ptr<vector<string>> zones{};
 
   ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList() {}
@@ -76892,7 +76892,7 @@ public:
       usedIpNum = make_shared<long>(boost::any_cast<long>(m["UsedIpNum"]));
     }
     if (m.find("UserType") != m.end() && !m["UserType"].empty()) {
-      userType = make_shared<bool>(boost::any_cast<bool>(m["UserType"]));
+      userType = make_shared<string>(boost::any_cast<string>(m["UserType"]));
     }
     if (m.find("Zones") != m.end() && !m["Zones"].empty()) {
       vector<string> toVec1;
