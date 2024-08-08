@@ -1742,6 +1742,42 @@ public:
 
   virtual ~HttpApiApiInfoEnvironmentsDnsConfigs() = default;
 };
+class HttpApiApiInfoEnvironmentsGatewayInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> gatewayId{};
+  shared_ptr<string> name{};
+
+  HttpApiApiInfoEnvironmentsGatewayInfo() {}
+
+  explicit HttpApiApiInfoEnvironmentsGatewayInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewayId) {
+      res["gatewayId"] = boost::any(*gatewayId);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("gatewayId") != m.end() && !m["gatewayId"].empty()) {
+      gatewayId = make_shared<string>(boost::any_cast<string>(m["gatewayId"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~HttpApiApiInfoEnvironmentsGatewayInfo() = default;
+};
 class HttpApiApiInfoEnvironmentsServiceConfigs : public Darabonba::Model {
 public:
   shared_ptr<string> gatewayServiceId{};
@@ -1871,13 +1907,61 @@ public:
 
   virtual ~HttpApiApiInfoEnvironmentsVipConfigs() = default;
 };
+class HttpApiDomainInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> domainId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> protocol{};
+
+  HttpApiDomainInfo() {}
+
+  explicit HttpApiDomainInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainId) {
+      res["domainId"] = boost::any(*domainId);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (protocol) {
+      res["protocol"] = boost::any(*protocol);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("domainId") != m.end() && !m["domainId"].empty()) {
+      domainId = make_shared<string>(boost::any_cast<string>(m["domainId"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("protocol") != m.end() && !m["protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["protocol"]));
+    }
+  }
+
+
+  virtual ~HttpApiDomainInfo() = default;
+};
 class HttpApiApiInfoEnvironments : public Darabonba::Model {
 public:
+  shared_ptr<string> alias{};
   shared_ptr<string> backendScene{};
   shared_ptr<string> backendType{};
   shared_ptr<HttpApiApiInfoEnvironmentsCloudProductConfig> cloudProductConfig{};
+  shared_ptr<vector<HttpApiDomainInfo>> customDomains{};
   shared_ptr<vector<HttpApiApiInfoEnvironmentsDnsConfigs>> dnsConfigs{};
   shared_ptr<string> environmentId{};
+  shared_ptr<HttpApiApiInfoEnvironmentsGatewayInfo> gatewayInfo{};
+  shared_ptr<string> name{};
+  shared_ptr<string> publishStatus{};
   shared_ptr<vector<HttpApiApiInfoEnvironmentsServiceConfigs>> serviceConfigs{};
   shared_ptr<vector<HttpApiApiInfoEnvironmentsVipConfigs>> vipConfigs{};
 
@@ -1891,6 +1975,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alias) {
+      res["alias"] = boost::any(*alias);
+    }
     if (backendScene) {
       res["backendScene"] = boost::any(*backendScene);
     }
@@ -1899,6 +1986,13 @@ public:
     }
     if (cloudProductConfig) {
       res["cloudProductConfig"] = cloudProductConfig ? boost::any(cloudProductConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customDomains) {
+      vector<boost::any> temp1;
+      for(auto item1:*customDomains){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["customDomains"] = boost::any(temp1);
     }
     if (dnsConfigs) {
       vector<boost::any> temp1;
@@ -1909,6 +2003,15 @@ public:
     }
     if (environmentId) {
       res["environmentId"] = boost::any(*environmentId);
+    }
+    if (gatewayInfo) {
+      res["gatewayInfo"] = gatewayInfo ? boost::any(gatewayInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (publishStatus) {
+      res["publishStatus"] = boost::any(*publishStatus);
     }
     if (serviceConfigs) {
       vector<boost::any> temp1;
@@ -1928,6 +2031,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("alias") != m.end() && !m["alias"].empty()) {
+      alias = make_shared<string>(boost::any_cast<string>(m["alias"]));
+    }
     if (m.find("backendScene") != m.end() && !m["backendScene"].empty()) {
       backendScene = make_shared<string>(boost::any_cast<string>(m["backendScene"]));
     }
@@ -1939,6 +2045,19 @@ public:
         HttpApiApiInfoEnvironmentsCloudProductConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cloudProductConfig"]));
         cloudProductConfig = make_shared<HttpApiApiInfoEnvironmentsCloudProductConfig>(model1);
+      }
+    }
+    if (m.find("customDomains") != m.end() && !m["customDomains"].empty()) {
+      if (typeid(vector<boost::any>) == m["customDomains"].type()) {
+        vector<HttpApiDomainInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["customDomains"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            HttpApiDomainInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customDomains = make_shared<vector<HttpApiDomainInfo>>(expect1);
       }
     }
     if (m.find("dnsConfigs") != m.end() && !m["dnsConfigs"].empty()) {
@@ -1956,6 +2075,19 @@ public:
     }
     if (m.find("environmentId") != m.end() && !m["environmentId"].empty()) {
       environmentId = make_shared<string>(boost::any_cast<string>(m["environmentId"]));
+    }
+    if (m.find("gatewayInfo") != m.end() && !m["gatewayInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["gatewayInfo"].type()) {
+        HttpApiApiInfoEnvironmentsGatewayInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["gatewayInfo"]));
+        gatewayInfo = make_shared<HttpApiApiInfoEnvironmentsGatewayInfo>(model1);
+      }
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("publishStatus") != m.end() && !m["publishStatus"].empty()) {
+      publishStatus = make_shared<string>(boost::any_cast<string>(m["publishStatus"]));
     }
     if (m.find("serviceConfigs") != m.end() && !m["serviceConfigs"].empty()) {
       if (typeid(vector<boost::any>) == m["serviceConfigs"].type()) {
@@ -2140,49 +2272,6 @@ public:
 
 
   virtual ~HttpApiApiInfo() = default;
-};
-class HttpApiDomainInfo : public Darabonba::Model {
-public:
-  shared_ptr<string> domainId{};
-  shared_ptr<string> name{};
-  shared_ptr<string> protocol{};
-
-  HttpApiDomainInfo() {}
-
-  explicit HttpApiDomainInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (domainId) {
-      res["domainId"] = boost::any(*domainId);
-    }
-    if (name) {
-      res["name"] = boost::any(*name);
-    }
-    if (protocol) {
-      res["protocol"] = boost::any(*protocol);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("domainId") != m.end() && !m["domainId"].empty()) {
-      domainId = make_shared<string>(boost::any_cast<string>(m["domainId"]));
-    }
-    if (m.find("name") != m.end() && !m["name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["name"]));
-    }
-    if (m.find("protocol") != m.end() && !m["protocol"].empty()) {
-      protocol = make_shared<string>(boost::any_cast<string>(m["protocol"]));
-    }
-  }
-
-
-  virtual ~HttpApiDomainInfo() = default;
 };
 class HttpApiInfoByName : public Darabonba::Model {
 public:
