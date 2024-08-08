@@ -3260,8 +3260,13 @@ UpdateApplicationResponse Alibabacloud_Oos20190601::Client::updateApplication(sh
   return updateApplicationWithOptions(request, runtime);
 }
 
-UpdateApplicationGroupResponse Alibabacloud_Oos20190601::Client::updateApplicationGroupWithOptions(shared_ptr<UpdateApplicationGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpdateApplicationGroupResponse Alibabacloud_Oos20190601::Client::updateApplicationGroupWithOptions(shared_ptr<UpdateApplicationGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateApplicationGroupShrinkRequest> request = make_shared<UpdateApplicationGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->parameters)) {
+    request->parametersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->parameters, make_shared<string>("Parameters"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationName)) {
     query->insert(pair<string, string>("ApplicationName", *request->applicationName));
@@ -3271,6 +3276,12 @@ UpdateApplicationGroupResponse Alibabacloud_Oos20190601::Client::updateApplicati
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->newName)) {
     query->insert(pair<string, string>("NewName", *request->newName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operationName)) {
+    query->insert(pair<string, string>("OperationName", *request->operationName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parametersShrink)) {
+    query->insert(pair<string, string>("Parameters", *request->parametersShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));

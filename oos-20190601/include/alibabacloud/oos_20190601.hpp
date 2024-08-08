@@ -5881,6 +5881,7 @@ public:
   shared_ptr<string> importTagKey{};
   shared_ptr<string> importTagValue{};
   shared_ptr<string> name{};
+  shared_ptr<string> operationMetadata{};
   shared_ptr<string> progress{};
   shared_ptr<string> status{};
   shared_ptr<string> statusReason{};
@@ -5925,6 +5926,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (operationMetadata) {
+      res["OperationMetadata"] = boost::any(*operationMetadata);
     }
     if (progress) {
       res["Progress"] = boost::any(*progress);
@@ -5971,6 +5975,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OperationMetadata") != m.end() && !m["OperationMetadata"].empty()) {
+      operationMetadata = make_shared<string>(boost::any_cast<string>(m["OperationMetadata"]));
     }
     if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
       progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
@@ -20220,6 +20227,8 @@ public:
   shared_ptr<string> applicationName{};
   shared_ptr<string> name{};
   shared_ptr<string> newName{};
+  shared_ptr<string> operationName{};
+  shared_ptr<map<string, boost::any>> parameters{};
   shared_ptr<string> regionId{};
 
   UpdateApplicationGroupRequest() {}
@@ -20241,6 +20250,12 @@ public:
     if (newName) {
       res["NewName"] = boost::any(*newName);
     }
+    if (operationName) {
+      res["OperationName"] = boost::any(*operationName);
+    }
+    if (parameters) {
+      res["Parameters"] = boost::any(*parameters);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -20257,6 +20272,17 @@ public:
     if (m.find("NewName") != m.end() && !m["NewName"].empty()) {
       newName = make_shared<string>(boost::any_cast<string>(m["NewName"]));
     }
+    if (m.find("OperationName") != m.end() && !m["OperationName"].empty()) {
+      operationName = make_shared<string>(boost::any_cast<string>(m["OperationName"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Parameters"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      parameters = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -20264,6 +20290,70 @@ public:
 
 
   virtual ~UpdateApplicationGroupRequest() = default;
+};
+class UpdateApplicationGroupShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationName{};
+  shared_ptr<string> name{};
+  shared_ptr<string> newName{};
+  shared_ptr<string> operationName{};
+  shared_ptr<string> parametersShrink{};
+  shared_ptr<string> regionId{};
+
+  UpdateApplicationGroupShrinkRequest() {}
+
+  explicit UpdateApplicationGroupShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationName) {
+      res["ApplicationName"] = boost::any(*applicationName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (newName) {
+      res["NewName"] = boost::any(*newName);
+    }
+    if (operationName) {
+      res["OperationName"] = boost::any(*operationName);
+    }
+    if (parametersShrink) {
+      res["Parameters"] = boost::any(*parametersShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationName") != m.end() && !m["ApplicationName"].empty()) {
+      applicationName = make_shared<string>(boost::any_cast<string>(m["ApplicationName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NewName") != m.end() && !m["NewName"].empty()) {
+      newName = make_shared<string>(boost::any_cast<string>(m["NewName"]));
+    }
+    if (m.find("OperationName") != m.end() && !m["OperationName"].empty()) {
+      operationName = make_shared<string>(boost::any_cast<string>(m["OperationName"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      parametersShrink = make_shared<string>(boost::any_cast<string>(m["Parameters"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpdateApplicationGroupShrinkRequest() = default;
 };
 class UpdateApplicationGroupResponseBodyApplicationGroup : public Darabonba::Model {
 public:
@@ -23675,7 +23765,7 @@ public:
   UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
   UpdateApplicationResponse updateApplicationWithOptions(shared_ptr<UpdateApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateApplicationResponse updateApplication(shared_ptr<UpdateApplicationRequest> request);
-  UpdateApplicationGroupResponse updateApplicationGroupWithOptions(shared_ptr<UpdateApplicationGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateApplicationGroupResponse updateApplicationGroupWithOptions(shared_ptr<UpdateApplicationGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateApplicationGroupResponse updateApplicationGroup(shared_ptr<UpdateApplicationGroupRequest> request);
   UpdateExecutionResponse updateExecutionWithOptions(shared_ptr<UpdateExecutionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateExecutionResponse updateExecution(shared_ptr<UpdateExecutionRequest> request);
