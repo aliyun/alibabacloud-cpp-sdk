@@ -4006,6 +4006,7 @@ public:
   shared_ptr<string> instanceDescription{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> lastFinishedTime{};
+  shared_ptr<long> lastStartTime{};
   shared_ptr<string> localName{};
   shared_ptr<long> logStoreDay{};
   shared_ptr<long> memberAccount{};
@@ -4088,6 +4089,9 @@ public:
     }
     if (lastFinishedTime) {
       res["LastFinishedTime"] = boost::any(*lastFinishedTime);
+    }
+    if (lastStartTime) {
+      res["LastStartTime"] = boost::any(*lastStartTime);
     }
     if (localName) {
       res["LocalName"] = boost::any(*localName);
@@ -4212,6 +4216,9 @@ public:
     }
     if (m.find("LastFinishedTime") != m.end() && !m["LastFinishedTime"].empty()) {
       lastFinishedTime = make_shared<long>(boost::any_cast<long>(m["LastFinishedTime"]));
+    }
+    if (m.find("LastStartTime") != m.end() && !m["LastStartTime"].empty()) {
+      lastStartTime = make_shared<long>(boost::any_cast<long>(m["LastStartTime"]));
     }
     if (m.find("LocalName") != m.end() && !m["LocalName"].empty()) {
       localName = make_shared<string>(boost::any_cast<string>(m["LocalName"]));
