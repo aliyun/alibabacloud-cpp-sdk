@@ -1687,6 +1687,9 @@ public:
 class MassPushRequestPushTask : public Darabonba::Model {
 public:
   shared_ptr<string> androidActivity{};
+  shared_ptr<long> androidBadgeAddNum{};
+  shared_ptr<string> androidBadgeClass{};
+  shared_ptr<long> androidBadgeSetNum{};
   shared_ptr<string> androidBigBody{};
   shared_ptr<string> androidBigPictureUrl{};
   shared_ptr<string> androidBigTitle{};
@@ -1781,6 +1784,15 @@ public:
     map<string, boost::any> res;
     if (androidActivity) {
       res["AndroidActivity"] = boost::any(*androidActivity);
+    }
+    if (androidBadgeAddNum) {
+      res["AndroidBadgeAddNum"] = boost::any(*androidBadgeAddNum);
+    }
+    if (androidBadgeClass) {
+      res["AndroidBadgeClass"] = boost::any(*androidBadgeClass);
+    }
+    if (androidBadgeSetNum) {
+      res["AndroidBadgeSetNum"] = boost::any(*androidBadgeSetNum);
     }
     if (androidBigBody) {
       res["AndroidBigBody"] = boost::any(*androidBigBody);
@@ -2031,6 +2043,15 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AndroidActivity") != m.end() && !m["AndroidActivity"].empty()) {
       androidActivity = make_shared<string>(boost::any_cast<string>(m["AndroidActivity"]));
+    }
+    if (m.find("AndroidBadgeAddNum") != m.end() && !m["AndroidBadgeAddNum"].empty()) {
+      androidBadgeAddNum = make_shared<long>(boost::any_cast<long>(m["AndroidBadgeAddNum"]));
+    }
+    if (m.find("AndroidBadgeClass") != m.end() && !m["AndroidBadgeClass"].empty()) {
+      androidBadgeClass = make_shared<string>(boost::any_cast<string>(m["AndroidBadgeClass"]));
+    }
+    if (m.find("AndroidBadgeSetNum") != m.end() && !m["AndroidBadgeSetNum"].empty()) {
+      androidBadgeSetNum = make_shared<long>(boost::any_cast<long>(m["AndroidBadgeSetNum"]));
     }
     if (m.find("AndroidBigBody") != m.end() && !m["AndroidBigBody"].empty()) {
       androidBigBody = make_shared<string>(boost::any_cast<string>(m["AndroidBigBody"]));
@@ -2461,6 +2482,9 @@ public:
 class PushRequest : public Darabonba::Model {
 public:
   shared_ptr<string> androidActivity{};
+  shared_ptr<long> androidBadgeAddNum{};
+  shared_ptr<string> androidBadgeClass{};
+  shared_ptr<long> androidBadgeSetNum{};
   shared_ptr<string> androidBigBody{};
   shared_ptr<string> androidBigPictureUrl{};
   shared_ptr<string> androidBigTitle{};
@@ -2561,6 +2585,15 @@ public:
     map<string, boost::any> res;
     if (androidActivity) {
       res["AndroidActivity"] = boost::any(*androidActivity);
+    }
+    if (androidBadgeAddNum) {
+      res["AndroidBadgeAddNum"] = boost::any(*androidBadgeAddNum);
+    }
+    if (androidBadgeClass) {
+      res["AndroidBadgeClass"] = boost::any(*androidBadgeClass);
+    }
+    if (androidBadgeSetNum) {
+      res["AndroidBadgeSetNum"] = boost::any(*androidBadgeSetNum);
     }
     if (androidBigBody) {
       res["AndroidBigBody"] = boost::any(*androidBigBody);
@@ -2829,6 +2862,15 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AndroidActivity") != m.end() && !m["AndroidActivity"].empty()) {
       androidActivity = make_shared<string>(boost::any_cast<string>(m["AndroidActivity"]));
+    }
+    if (m.find("AndroidBadgeAddNum") != m.end() && !m["AndroidBadgeAddNum"].empty()) {
+      androidBadgeAddNum = make_shared<long>(boost::any_cast<long>(m["AndroidBadgeAddNum"]));
+    }
+    if (m.find("AndroidBadgeClass") != m.end() && !m["AndroidBadgeClass"].empty()) {
+      androidBadgeClass = make_shared<string>(boost::any_cast<string>(m["AndroidBadgeClass"]));
+    }
+    if (m.find("AndroidBadgeSetNum") != m.end() && !m["AndroidBadgeSetNum"].empty()) {
+      androidBadgeSetNum = make_shared<long>(boost::any_cast<long>(m["AndroidBadgeSetNum"]));
     }
     if (m.find("AndroidBigBody") != m.end() && !m["AndroidBigBody"].empty()) {
       androidBigBody = make_shared<string>(boost::any_cast<string>(m["AndroidBigBody"]));

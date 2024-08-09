@@ -476,6 +476,15 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   if (!Darabonba_Util::Client::isUnset<string>(request->androidActivity)) {
     query->insert(pair<string, string>("AndroidActivity", *request->androidActivity));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->androidBadgeAddNum)) {
+    query->insert(pair<string, long>("AndroidBadgeAddNum", *request->androidBadgeAddNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidBadgeClass)) {
+    query->insert(pair<string, string>("AndroidBadgeClass", *request->androidBadgeClass));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->androidBadgeSetNum)) {
+    query->insert(pair<string, long>("AndroidBadgeSetNum", *request->androidBadgeSetNum));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->androidBigBody)) {
     query->insert(pair<string, string>("AndroidBigBody", *request->androidBigBody));
   }
