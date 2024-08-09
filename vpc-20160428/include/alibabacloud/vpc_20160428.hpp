@@ -16322,6 +16322,7 @@ class CreateSnatEntryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<long> eipAffinity{};
+  shared_ptr<string> networkInterfaceId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -16348,6 +16349,9 @@ public:
     }
     if (eipAffinity) {
       res["EipAffinity"] = boost::any(*eipAffinity);
+    }
+    if (networkInterfaceId) {
+      res["NetworkInterfaceId"] = boost::any(*networkInterfaceId);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -16388,6 +16392,9 @@ public:
     }
     if (m.find("EipAffinity") != m.end() && !m["EipAffinity"].empty()) {
       eipAffinity = make_shared<long>(boost::any_cast<long>(m["EipAffinity"]));
+    }
+    if (m.find("NetworkInterfaceId") != m.end() && !m["NetworkInterfaceId"].empty()) {
+      networkInterfaceId = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceId"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -52213,6 +52220,7 @@ public:
 class DescribeSnatTableEntriesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> natGatewayId{};
+  shared_ptr<vector<string>> networkInterfaceIds{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
@@ -52239,6 +52247,9 @@ public:
     map<string, boost::any> res;
     if (natGatewayId) {
       res["NatGatewayId"] = boost::any(*natGatewayId);
+    }
+    if (networkInterfaceIds) {
+      res["NetworkInterfaceIds"] = boost::any(*networkInterfaceIds);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -52285,6 +52296,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
       natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+    if (m.find("NetworkInterfaceIds") != m.end() && !m["NetworkInterfaceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NetworkInterfaceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NetworkInterfaceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      networkInterfaceIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -52334,6 +52355,7 @@ class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry : publi
 public:
   shared_ptr<string> eipAffinity{};
   shared_ptr<string> natGatewayId{};
+  shared_ptr<string> networkInterfaceId{};
   shared_ptr<string> snatEntryId{};
   shared_ptr<string> snatEntryName{};
   shared_ptr<string> snatIp{};
@@ -52357,6 +52379,9 @@ public:
     }
     if (natGatewayId) {
       res["NatGatewayId"] = boost::any(*natGatewayId);
+    }
+    if (networkInterfaceId) {
+      res["NetworkInterfaceId"] = boost::any(*networkInterfaceId);
     }
     if (snatEntryId) {
       res["SnatEntryId"] = boost::any(*snatEntryId);
@@ -52388,6 +52413,9 @@ public:
     }
     if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
       natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+    if (m.find("NetworkInterfaceId") != m.end() && !m["NetworkInterfaceId"].empty()) {
+      networkInterfaceId = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceId"]));
     }
     if (m.find("SnatEntryId") != m.end() && !m["SnatEntryId"].empty()) {
       snatEntryId = make_shared<string>(boost::any_cast<string>(m["SnatEntryId"]));
@@ -87543,6 +87571,7 @@ class ModifySnatEntryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<long> eipAffinity{};
+  shared_ptr<string> networkInterfaceId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -87568,6 +87597,9 @@ public:
     }
     if (eipAffinity) {
       res["EipAffinity"] = boost::any(*eipAffinity);
+    }
+    if (networkInterfaceId) {
+      res["NetworkInterfaceId"] = boost::any(*networkInterfaceId);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -87605,6 +87637,9 @@ public:
     }
     if (m.find("EipAffinity") != m.end() && !m["EipAffinity"].empty()) {
       eipAffinity = make_shared<long>(boost::any_cast<long>(m["EipAffinity"]));
+    }
+    if (m.find("NetworkInterfaceId") != m.end() && !m["NetworkInterfaceId"].empty()) {
+      networkInterfaceId = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceId"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));

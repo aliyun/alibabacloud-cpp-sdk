@@ -4585,6 +4585,9 @@ CreateSnatEntryResponse Alibabacloud_Vpc20160428::Client::createSnatEntryWithOpt
   if (!Darabonba_Util::Client::isUnset<long>(request->eipAffinity)) {
     query->insert(pair<string, long>("EipAffinity", *request->eipAffinity));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkInterfaceId)) {
+    query->insert(pair<string, string>("NetworkInterfaceId", *request->networkInterfaceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -11383,6 +11386,9 @@ DescribeSnatTableEntriesResponse Alibabacloud_Vpc20160428::Client::describeSnatT
   if (!Darabonba_Util::Client::isUnset<string>(request->natGatewayId)) {
     query->insert(pair<string, string>("NatGatewayId", *request->natGatewayId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->networkInterfaceIds)) {
+    query->insert(pair<string, vector<string>>("NetworkInterfaceIds", *request->networkInterfaceIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -17609,6 +17615,9 @@ ModifySnatEntryResponse Alibabacloud_Vpc20160428::Client::modifySnatEntryWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->eipAffinity)) {
     query->insert(pair<string, long>("EipAffinity", *request->eipAffinity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkInterfaceId)) {
+    query->insert(pair<string, string>("NetworkInterfaceId", *request->networkInterfaceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
