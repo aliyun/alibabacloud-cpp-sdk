@@ -1253,9 +1253,192 @@ public:
 
   virtual ~EventInfo() = default;
 };
+class LifecyclePostStartExec : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> command{};
+
+  LifecyclePostStartExec() {}
+
+  explicit LifecyclePostStartExec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (command) {
+      res["Command"] = boost::any(*command);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Command") != m.end() && !m["Command"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Command"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Command"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      command = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~LifecyclePostStartExec() = default;
+};
+class LifecyclePostStart : public Darabonba::Model {
+public:
+  shared_ptr<LifecyclePostStartExec> exec{};
+
+  LifecyclePostStart() {}
+
+  explicit LifecyclePostStart(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (exec) {
+      res["Exec"] = exec ? boost::any(exec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Exec") != m.end() && !m["Exec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Exec"].type()) {
+        LifecyclePostStartExec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Exec"]));
+        exec = make_shared<LifecyclePostStartExec>(model1);
+      }
+    }
+  }
+
+
+  virtual ~LifecyclePostStart() = default;
+};
+class LifecyclePreStopExec : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> command{};
+
+  LifecyclePreStopExec() {}
+
+  explicit LifecyclePreStopExec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (command) {
+      res["Command"] = boost::any(*command);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Command") != m.end() && !m["Command"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Command"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Command"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      command = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~LifecyclePreStopExec() = default;
+};
+class LifecyclePreStop : public Darabonba::Model {
+public:
+  shared_ptr<LifecyclePreStopExec> exec{};
+
+  LifecyclePreStop() {}
+
+  explicit LifecyclePreStop(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (exec) {
+      res["Exec"] = exec ? boost::any(exec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Exec") != m.end() && !m["Exec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Exec"].type()) {
+        LifecyclePreStopExec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Exec"]));
+        exec = make_shared<LifecyclePreStopExec>(model1);
+      }
+    }
+  }
+
+
+  virtual ~LifecyclePreStop() = default;
+};
+class Lifecycle : public Darabonba::Model {
+public:
+  shared_ptr<LifecyclePostStart> postStart{};
+  shared_ptr<LifecyclePreStop> preStop{};
+
+  Lifecycle() {}
+
+  explicit Lifecycle(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (postStart) {
+      res["PostStart"] = postStart ? boost::any(postStart->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (preStop) {
+      res["PreStop"] = preStop ? boost::any(preStop->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PostStart") != m.end() && !m["PostStart"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PostStart"].type()) {
+        LifecyclePostStart model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PostStart"]));
+        postStart = make_shared<LifecyclePostStart>(model1);
+      }
+    }
+    if (m.find("PreStop") != m.end() && !m["PreStop"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PreStop"].type()) {
+        LifecyclePreStop model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PreStop"]));
+        preStop = make_shared<LifecyclePreStop>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Lifecycle() = default;
+};
 class ExtraPodSpec : public Darabonba::Model {
 public:
   shared_ptr<vector<ContainerSpec>> initContainers{};
+  shared_ptr<Lifecycle> lifecycle{};
   shared_ptr<map<string, string>> podAnnotations{};
   shared_ptr<map<string, string>> podLabels{};
   shared_ptr<vector<string>> sharedVolumeMountPaths{};
@@ -1277,6 +1460,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["InitContainers"] = boost::any(temp1);
+    }
+    if (lifecycle) {
+      res["Lifecycle"] = lifecycle ? boost::any(lifecycle->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (podAnnotations) {
       res["PodAnnotations"] = boost::any(*podAnnotations);
@@ -1309,6 +1495,13 @@ public:
           }
         }
         initContainers = make_shared<vector<ContainerSpec>>(expect1);
+      }
+    }
+    if (m.find("Lifecycle") != m.end() && !m["Lifecycle"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Lifecycle"].type()) {
+        Lifecycle model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Lifecycle"]));
+        lifecycle = make_shared<Lifecycle>(model1);
       }
     }
     if (m.find("PodAnnotations") != m.end() && !m["PodAnnotations"].empty()) {
@@ -4011,6 +4204,7 @@ class CreateJobRequestDataSources : public Darabonba::Model {
 public:
   shared_ptr<string> dataSourceId{};
   shared_ptr<string> mountPath{};
+  shared_ptr<string> options{};
   shared_ptr<string> uri{};
 
   CreateJobRequestDataSources() {}
@@ -4029,6 +4223,9 @@ public:
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
     }
+    if (options) {
+      res["Options"] = boost::any(*options);
+    }
     if (uri) {
       res["Uri"] = boost::any(*uri);
     }
@@ -4041,6 +4238,9 @@ public:
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
     }
     if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
       uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
