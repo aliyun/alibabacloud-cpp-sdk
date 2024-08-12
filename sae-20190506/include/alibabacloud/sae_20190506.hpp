@@ -18590,6 +18590,7 @@ public:
   shared_ptr<string> edasContainerVersion{};
   shared_ptr<string> enableAhas{};
   shared_ptr<bool> enableGreyTagRoute{};
+  shared_ptr<bool> enableIdle{};
   shared_ptr<string> envs{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
@@ -18600,6 +18601,7 @@ public:
   shared_ptr<string> liveness{};
   shared_ptr<long> memory{};
   shared_ptr<string> microRegistration{};
+  shared_ptr<string> microRegistrationConfig{};
   shared_ptr<long> minReadyInstanceRatio{};
   shared_ptr<long> minReadyInstances{};
   shared_ptr<vector<DescribeApplicationConfigResponseBodyDataMountDesc>> mountDesc{};
@@ -18703,6 +18705,9 @@ public:
     if (enableGreyTagRoute) {
       res["EnableGreyTagRoute"] = boost::any(*enableGreyTagRoute);
     }
+    if (enableIdle) {
+      res["EnableIdle"] = boost::any(*enableIdle);
+    }
     if (envs) {
       res["Envs"] = boost::any(*envs);
     }
@@ -18732,6 +18737,9 @@ public:
     }
     if (microRegistration) {
       res["MicroRegistration"] = boost::any(*microRegistration);
+    }
+    if (microRegistrationConfig) {
+      res["MicroRegistrationConfig"] = boost::any(*microRegistrationConfig);
     }
     if (minReadyInstanceRatio) {
       res["MinReadyInstanceRatio"] = boost::any(*minReadyInstanceRatio);
@@ -18927,6 +18935,9 @@ public:
     if (m.find("EnableGreyTagRoute") != m.end() && !m["EnableGreyTagRoute"].empty()) {
       enableGreyTagRoute = make_shared<bool>(boost::any_cast<bool>(m["EnableGreyTagRoute"]));
     }
+    if (m.find("EnableIdle") != m.end() && !m["EnableIdle"].empty()) {
+      enableIdle = make_shared<bool>(boost::any_cast<bool>(m["EnableIdle"]));
+    }
     if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
       envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
     }
@@ -18956,6 +18967,9 @@ public:
     }
     if (m.find("MicroRegistration") != m.end() && !m["MicroRegistration"].empty()) {
       microRegistration = make_shared<string>(boost::any_cast<string>(m["MicroRegistration"]));
+    }
+    if (m.find("MicroRegistrationConfig") != m.end() && !m["MicroRegistrationConfig"].empty()) {
+      microRegistrationConfig = make_shared<string>(boost::any_cast<string>(m["MicroRegistrationConfig"]));
     }
     if (m.find("MinReadyInstanceRatio") != m.end() && !m["MinReadyInstanceRatio"].empty()) {
       minReadyInstanceRatio = make_shared<long>(boost::any_cast<long>(m["MinReadyInstanceRatio"]));
