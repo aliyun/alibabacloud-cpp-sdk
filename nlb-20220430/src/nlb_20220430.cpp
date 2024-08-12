@@ -1100,6 +1100,9 @@ ListListenersResponse Alibabacloud_Nlb20220430::Client::listListenersWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->secSensorEnabled)) {
+    query->insert(pair<string, string>("SecSensorEnabled", *request->secSensorEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ListListenersRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<ListListenersRequestTag>>("Tag", *request->tag));
   }
