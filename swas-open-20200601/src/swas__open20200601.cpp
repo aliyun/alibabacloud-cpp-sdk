@@ -117,9 +117,6 @@ ApplyFirewallTemplateResponse Alibabacloud_SWAS-OPEN20200601::Client::applyFirew
   if (!Darabonba_Util::Client::isUnset<string>(request->firewallTemplateId)) {
     query->insert(pair<string, string>("FirewallTemplateId", *request->firewallTemplateId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
-    query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
     query->insert(pair<string, vector<string>>("InstanceIds", *request->instanceIds));
   }
@@ -261,8 +258,8 @@ CreateCustomImageResponse Alibabacloud_SWAS-OPEN20200601::Client::createCustomIm
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resoureGroupId)) {
-    query->insert(pair<string, string>("ResoureGroupId", *request->resoureGroupId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->systemSnapshotId)) {
     query->insert(pair<string, string>("SystemSnapshotId", *request->systemSnapshotId));
@@ -810,9 +807,6 @@ DeleteFirewallTemplateRulesResponse Alibabacloud_SWAS-OPEN20200601::Client::dele
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->firewallTemplateRuleId)) {
     query->insert(pair<string, vector<string>>("FirewallTemplateRuleId", *request->firewallTemplateRuleId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
-    query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -846,9 +840,6 @@ DeleteFirewallTemplatesResponse Alibabacloud_SWAS-OPEN20200601::Client::deleteFi
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->firewallTemplateId)) {
     query->insert(pair<string, vector<string>>("FirewallTemplateId", *request->firewallTemplateId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
-    query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -1435,9 +1426,6 @@ DescribeFirewallTemplateApplyResultsResponse Alibabacloud_SWAS-OPEN20200601::Cli
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->firewallTemplateId)) {
     query->insert(pair<string, string>("FirewallTemplateId", *request->firewallTemplateId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
-    query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
@@ -2827,9 +2815,6 @@ ModifyFirewallTemplateResponse Alibabacloud_SWAS-OPEN20200601::Client::modifyFir
   }
   if (!Darabonba_Util::Client::isUnset<vector<ModifyFirewallTemplateRequestFirewallTemplateRule>>(request->firewallTemplateRule)) {
     query->insert(pair<string, vector<ModifyFirewallTemplateRequestFirewallTemplateRule>>("FirewallTemplateRule", *request->firewallTemplateRule));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
-    query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));

@@ -287,7 +287,6 @@ class ApplyFirewallTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> firewallTemplateId{};
-  shared_ptr<string> instanceId{};
   shared_ptr<vector<string>> instanceIds{};
   shared_ptr<string> regionId{};
 
@@ -307,9 +306,6 @@ public:
     if (firewallTemplateId) {
       res["FirewallTemplateId"] = boost::any(*firewallTemplateId);
     }
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
-    }
     if (instanceIds) {
       res["InstanceIds"] = boost::any(*instanceIds);
     }
@@ -325,9 +321,6 @@ public:
     }
     if (m.find("FirewallTemplateId") != m.end() && !m["FirewallTemplateId"].empty()) {
       firewallTemplateId = make_shared<string>(boost::any_cast<string>(m["FirewallTemplateId"]));
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
       vector<string> toVec1;
@@ -932,7 +925,7 @@ public:
   shared_ptr<string> imageName{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
-  shared_ptr<string> resoureGroupId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> systemSnapshotId{};
   shared_ptr<vector<CreateCustomImageRequestTag>> tag{};
 
@@ -964,8 +957,8 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
-    if (resoureGroupId) {
-      res["ResoureGroupId"] = boost::any(*resoureGroupId);
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (systemSnapshotId) {
       res["SystemSnapshotId"] = boost::any(*systemSnapshotId);
@@ -999,8 +992,8 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
-    if (m.find("ResoureGroupId") != m.end() && !m["ResoureGroupId"].empty()) {
-      resoureGroupId = make_shared<string>(boost::any_cast<string>(m["ResoureGroupId"]));
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SystemSnapshotId") != m.end() && !m["SystemSnapshotId"].empty()) {
       systemSnapshotId = make_shared<string>(boost::any_cast<string>(m["SystemSnapshotId"]));
@@ -3472,7 +3465,6 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> firewallTemplateId{};
   shared_ptr<vector<string>> firewallTemplateRuleId{};
-  shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
 
   DeleteFirewallTemplateRulesRequest() {}
@@ -3493,9 +3485,6 @@ public:
     }
     if (firewallTemplateRuleId) {
       res["FirewallTemplateRuleId"] = boost::any(*firewallTemplateRuleId);
-    }
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -3519,9 +3508,6 @@ public:
         }
       }
       firewallTemplateRuleId = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -3616,7 +3602,6 @@ class DeleteFirewallTemplatesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<vector<string>> firewallTemplateId{};
-  shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
 
   DeleteFirewallTemplatesRequest() {}
@@ -3634,9 +3619,6 @@ public:
     }
     if (firewallTemplateId) {
       res["FirewallTemplateId"] = boost::any(*firewallTemplateId);
-    }
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -3657,9 +3639,6 @@ public:
         }
       }
       firewallTemplateId = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -7235,7 +7214,6 @@ class DescribeFirewallTemplateApplyResultsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> firewallTemplateId{};
-  shared_ptr<string> instanceId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
@@ -7256,9 +7234,6 @@ public:
     }
     if (firewallTemplateId) {
       res["FirewallTemplateId"] = boost::any(*firewallTemplateId);
-    }
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -7281,9 +7256,6 @@ public:
     }
     if (m.find("FirewallTemplateId") != m.end() && !m["FirewallTemplateId"].empty()) {
       firewallTemplateId = make_shared<string>(boost::any_cast<string>(m["FirewallTemplateId"]));
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -15606,7 +15578,6 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> firewallTemplateId{};
   shared_ptr<vector<ModifyFirewallTemplateRequestFirewallTemplateRule>> firewallTemplateRule{};
-  shared_ptr<string> instanceId{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
 
@@ -15635,9 +15606,6 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["FirewallTemplateRule"] = boost::any(temp1);
-    }
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -15670,9 +15638,6 @@ public:
         }
         firewallTemplateRule = make_shared<vector<ModifyFirewallTemplateRequestFirewallTemplateRule>>(expect1);
       }
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
