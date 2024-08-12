@@ -24113,6 +24113,586 @@ public:
 
   virtual ~GetGatewayAuthDetailResponse() = default;
 };
+class GetGatewayConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> gatewayUniqueId{};
+
+  GetGatewayConfigRequest() {}
+
+  explicit GetGatewayConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+  }
+
+
+  virtual ~GetGatewayConfigRequest() = default;
+};
+class GetGatewayConfigResponseBodyDataSlsConfigDetails : public Darabonba::Model {
+public:
+  shared_ptr<long> gatewayId{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<long> id{};
+  shared_ptr<bool> logOn{};
+  shared_ptr<string> logStoreName{};
+  shared_ptr<bool> nginxCompatible{};
+  shared_ptr<string> projectName{};
+
+  GetGatewayConfigResponseBodyDataSlsConfigDetails() {}
+
+  explicit GetGatewayConfigResponseBodyDataSlsConfigDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (logOn) {
+      res["LogOn"] = boost::any(*logOn);
+    }
+    if (logStoreName) {
+      res["LogStoreName"] = boost::any(*logStoreName);
+    }
+    if (nginxCompatible) {
+      res["NginxCompatible"] = boost::any(*nginxCompatible);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<long>(boost::any_cast<long>(m["GatewayId"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("LogOn") != m.end() && !m["LogOn"].empty()) {
+      logOn = make_shared<bool>(boost::any_cast<bool>(m["LogOn"]));
+    }
+    if (m.find("LogStoreName") != m.end() && !m["LogStoreName"].empty()) {
+      logStoreName = make_shared<string>(boost::any_cast<string>(m["LogStoreName"]));
+    }
+    if (m.find("NginxCompatible") != m.end() && !m["NginxCompatible"].empty()) {
+      nginxCompatible = make_shared<bool>(boost::any_cast<bool>(m["NginxCompatible"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+  }
+
+
+  virtual ~GetGatewayConfigResponseBodyDataSlsConfigDetails() = default;
+};
+class GetGatewayConfigResponseBodyDataXtraceDetails : public Darabonba::Model {
+public:
+  shared_ptr<long> gatewayId{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<long> id{};
+  shared_ptr<long> sample{};
+  shared_ptr<long> serviceId{};
+  shared_ptr<string> servicePort{};
+  shared_ptr<bool> traceOn{};
+  shared_ptr<string> traceType{};
+
+  GetGatewayConfigResponseBodyDataXtraceDetails() {}
+
+  explicit GetGatewayConfigResponseBodyDataXtraceDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (sample) {
+      res["Sample"] = boost::any(*sample);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (servicePort) {
+      res["ServicePort"] = boost::any(*servicePort);
+    }
+    if (traceOn) {
+      res["TraceOn"] = boost::any(*traceOn);
+    }
+    if (traceType) {
+      res["TraceType"] = boost::any(*traceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<long>(boost::any_cast<long>(m["GatewayId"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Sample") != m.end() && !m["Sample"].empty()) {
+      sample = make_shared<long>(boost::any_cast<long>(m["Sample"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
+    }
+    if (m.find("ServicePort") != m.end() && !m["ServicePort"].empty()) {
+      servicePort = make_shared<string>(boost::any_cast<string>(m["ServicePort"]));
+    }
+    if (m.find("TraceOn") != m.end() && !m["TraceOn"].empty()) {
+      traceOn = make_shared<bool>(boost::any_cast<bool>(m["TraceOn"]));
+    }
+    if (m.find("TraceType") != m.end() && !m["TraceType"].empty()) {
+      traceType = make_shared<string>(boost::any_cast<string>(m["TraceType"]));
+    }
+  }
+
+
+  virtual ~GetGatewayConfigResponseBodyDataXtraceDetails() = default;
+};
+class GetGatewayConfigResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> accessLogHeader{};
+  shared_ptr<long> downstreamConnectionBufferLimits{};
+  shared_ptr<long> downstreamHttp2MaxConcurrentStream{};
+  shared_ptr<long> downstreamIdleTime{};
+  shared_ptr<string> enableCustomAuthConfigPush{};
+  shared_ptr<bool> enableGenerateRequestId{};
+  shared_ptr<bool> enableGzip{};
+  shared_ptr<bool> enableHardwareAccelerate{};
+  shared_ptr<bool> enableHttp2{};
+  shared_ptr<bool> enableHttp3{};
+  shared_ptr<bool> enableProxyProtocol{};
+  shared_ptr<bool> enableSlashMerge{};
+  shared_ptr<bool> enableWaf{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<long> initialConnectionWindowSize{};
+  shared_ptr<long> initialStreamWindowSize{};
+  shared_ptr<long> keepaliveHeaderTimeout{};
+  shared_ptr<string> logFilterConfig{};
+  shared_ptr<string> noSupportedConfigList{};
+  shared_ptr<string> pathWithEscapedSlashes{};
+  shared_ptr<bool> preserveHeaderFormat{};
+  shared_ptr<GetGatewayConfigResponseBodyDataSlsConfigDetails> slsConfigDetails{};
+  shared_ptr<bool> supportWaf{};
+  shared_ptr<long> upstreamIdleTimeout{};
+  shared_ptr<long> websocketTermGracePeriod{};
+  shared_ptr<long> xffTrustedNum{};
+  shared_ptr<GetGatewayConfigResponseBodyDataXtraceDetails> xtraceDetails{};
+  shared_ptr<string> zipAlgorithm{};
+
+  GetGatewayConfigResponseBodyData() {}
+
+  explicit GetGatewayConfigResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessLogHeader) {
+      res["AccessLogHeader"] = boost::any(*accessLogHeader);
+    }
+    if (downstreamConnectionBufferLimits) {
+      res["DownstreamConnectionBufferLimits"] = boost::any(*downstreamConnectionBufferLimits);
+    }
+    if (downstreamHttp2MaxConcurrentStream) {
+      res["DownstreamHttp2MaxConcurrentStream"] = boost::any(*downstreamHttp2MaxConcurrentStream);
+    }
+    if (downstreamIdleTime) {
+      res["DownstreamIdleTime"] = boost::any(*downstreamIdleTime);
+    }
+    if (enableCustomAuthConfigPush) {
+      res["EnableCustomAuthConfigPush"] = boost::any(*enableCustomAuthConfigPush);
+    }
+    if (enableGenerateRequestId) {
+      res["EnableGenerateRequestId"] = boost::any(*enableGenerateRequestId);
+    }
+    if (enableGzip) {
+      res["EnableGzip"] = boost::any(*enableGzip);
+    }
+    if (enableHardwareAccelerate) {
+      res["EnableHardwareAccelerate"] = boost::any(*enableHardwareAccelerate);
+    }
+    if (enableHttp2) {
+      res["EnableHttp2"] = boost::any(*enableHttp2);
+    }
+    if (enableHttp3) {
+      res["EnableHttp3"] = boost::any(*enableHttp3);
+    }
+    if (enableProxyProtocol) {
+      res["EnableProxyProtocol"] = boost::any(*enableProxyProtocol);
+    }
+    if (enableSlashMerge) {
+      res["EnableSlashMerge"] = boost::any(*enableSlashMerge);
+    }
+    if (enableWaf) {
+      res["EnableWaf"] = boost::any(*enableWaf);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (initialConnectionWindowSize) {
+      res["InitialConnectionWindowSize"] = boost::any(*initialConnectionWindowSize);
+    }
+    if (initialStreamWindowSize) {
+      res["InitialStreamWindowSize"] = boost::any(*initialStreamWindowSize);
+    }
+    if (keepaliveHeaderTimeout) {
+      res["KeepaliveHeaderTimeout"] = boost::any(*keepaliveHeaderTimeout);
+    }
+    if (logFilterConfig) {
+      res["LogFilterConfig"] = boost::any(*logFilterConfig);
+    }
+    if (noSupportedConfigList) {
+      res["NoSupportedConfigList"] = boost::any(*noSupportedConfigList);
+    }
+    if (pathWithEscapedSlashes) {
+      res["PathWithEscapedSlashes"] = boost::any(*pathWithEscapedSlashes);
+    }
+    if (preserveHeaderFormat) {
+      res["PreserveHeaderFormat"] = boost::any(*preserveHeaderFormat);
+    }
+    if (slsConfigDetails) {
+      res["SlsConfigDetails"] = slsConfigDetails ? boost::any(slsConfigDetails->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (supportWaf) {
+      res["SupportWaf"] = boost::any(*supportWaf);
+    }
+    if (upstreamIdleTimeout) {
+      res["UpstreamIdleTimeout"] = boost::any(*upstreamIdleTimeout);
+    }
+    if (websocketTermGracePeriod) {
+      res["WebsocketTermGracePeriod"] = boost::any(*websocketTermGracePeriod);
+    }
+    if (xffTrustedNum) {
+      res["XffTrustedNum"] = boost::any(*xffTrustedNum);
+    }
+    if (xtraceDetails) {
+      res["XtraceDetails"] = xtraceDetails ? boost::any(xtraceDetails->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (zipAlgorithm) {
+      res["ZipAlgorithm"] = boost::any(*zipAlgorithm);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessLogHeader") != m.end() && !m["AccessLogHeader"].empty()) {
+      accessLogHeader = make_shared<string>(boost::any_cast<string>(m["AccessLogHeader"]));
+    }
+    if (m.find("DownstreamConnectionBufferLimits") != m.end() && !m["DownstreamConnectionBufferLimits"].empty()) {
+      downstreamConnectionBufferLimits = make_shared<long>(boost::any_cast<long>(m["DownstreamConnectionBufferLimits"]));
+    }
+    if (m.find("DownstreamHttp2MaxConcurrentStream") != m.end() && !m["DownstreamHttp2MaxConcurrentStream"].empty()) {
+      downstreamHttp2MaxConcurrentStream = make_shared<long>(boost::any_cast<long>(m["DownstreamHttp2MaxConcurrentStream"]));
+    }
+    if (m.find("DownstreamIdleTime") != m.end() && !m["DownstreamIdleTime"].empty()) {
+      downstreamIdleTime = make_shared<long>(boost::any_cast<long>(m["DownstreamIdleTime"]));
+    }
+    if (m.find("EnableCustomAuthConfigPush") != m.end() && !m["EnableCustomAuthConfigPush"].empty()) {
+      enableCustomAuthConfigPush = make_shared<string>(boost::any_cast<string>(m["EnableCustomAuthConfigPush"]));
+    }
+    if (m.find("EnableGenerateRequestId") != m.end() && !m["EnableGenerateRequestId"].empty()) {
+      enableGenerateRequestId = make_shared<bool>(boost::any_cast<bool>(m["EnableGenerateRequestId"]));
+    }
+    if (m.find("EnableGzip") != m.end() && !m["EnableGzip"].empty()) {
+      enableGzip = make_shared<bool>(boost::any_cast<bool>(m["EnableGzip"]));
+    }
+    if (m.find("EnableHardwareAccelerate") != m.end() && !m["EnableHardwareAccelerate"].empty()) {
+      enableHardwareAccelerate = make_shared<bool>(boost::any_cast<bool>(m["EnableHardwareAccelerate"]));
+    }
+    if (m.find("EnableHttp2") != m.end() && !m["EnableHttp2"].empty()) {
+      enableHttp2 = make_shared<bool>(boost::any_cast<bool>(m["EnableHttp2"]));
+    }
+    if (m.find("EnableHttp3") != m.end() && !m["EnableHttp3"].empty()) {
+      enableHttp3 = make_shared<bool>(boost::any_cast<bool>(m["EnableHttp3"]));
+    }
+    if (m.find("EnableProxyProtocol") != m.end() && !m["EnableProxyProtocol"].empty()) {
+      enableProxyProtocol = make_shared<bool>(boost::any_cast<bool>(m["EnableProxyProtocol"]));
+    }
+    if (m.find("EnableSlashMerge") != m.end() && !m["EnableSlashMerge"].empty()) {
+      enableSlashMerge = make_shared<bool>(boost::any_cast<bool>(m["EnableSlashMerge"]));
+    }
+    if (m.find("EnableWaf") != m.end() && !m["EnableWaf"].empty()) {
+      enableWaf = make_shared<bool>(boost::any_cast<bool>(m["EnableWaf"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("InitialConnectionWindowSize") != m.end() && !m["InitialConnectionWindowSize"].empty()) {
+      initialConnectionWindowSize = make_shared<long>(boost::any_cast<long>(m["InitialConnectionWindowSize"]));
+    }
+    if (m.find("InitialStreamWindowSize") != m.end() && !m["InitialStreamWindowSize"].empty()) {
+      initialStreamWindowSize = make_shared<long>(boost::any_cast<long>(m["InitialStreamWindowSize"]));
+    }
+    if (m.find("KeepaliveHeaderTimeout") != m.end() && !m["KeepaliveHeaderTimeout"].empty()) {
+      keepaliveHeaderTimeout = make_shared<long>(boost::any_cast<long>(m["KeepaliveHeaderTimeout"]));
+    }
+    if (m.find("LogFilterConfig") != m.end() && !m["LogFilterConfig"].empty()) {
+      logFilterConfig = make_shared<string>(boost::any_cast<string>(m["LogFilterConfig"]));
+    }
+    if (m.find("NoSupportedConfigList") != m.end() && !m["NoSupportedConfigList"].empty()) {
+      noSupportedConfigList = make_shared<string>(boost::any_cast<string>(m["NoSupportedConfigList"]));
+    }
+    if (m.find("PathWithEscapedSlashes") != m.end() && !m["PathWithEscapedSlashes"].empty()) {
+      pathWithEscapedSlashes = make_shared<string>(boost::any_cast<string>(m["PathWithEscapedSlashes"]));
+    }
+    if (m.find("PreserveHeaderFormat") != m.end() && !m["PreserveHeaderFormat"].empty()) {
+      preserveHeaderFormat = make_shared<bool>(boost::any_cast<bool>(m["PreserveHeaderFormat"]));
+    }
+    if (m.find("SlsConfigDetails") != m.end() && !m["SlsConfigDetails"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SlsConfigDetails"].type()) {
+        GetGatewayConfigResponseBodyDataSlsConfigDetails model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SlsConfigDetails"]));
+        slsConfigDetails = make_shared<GetGatewayConfigResponseBodyDataSlsConfigDetails>(model1);
+      }
+    }
+    if (m.find("SupportWaf") != m.end() && !m["SupportWaf"].empty()) {
+      supportWaf = make_shared<bool>(boost::any_cast<bool>(m["SupportWaf"]));
+    }
+    if (m.find("UpstreamIdleTimeout") != m.end() && !m["UpstreamIdleTimeout"].empty()) {
+      upstreamIdleTimeout = make_shared<long>(boost::any_cast<long>(m["UpstreamIdleTimeout"]));
+    }
+    if (m.find("WebsocketTermGracePeriod") != m.end() && !m["WebsocketTermGracePeriod"].empty()) {
+      websocketTermGracePeriod = make_shared<long>(boost::any_cast<long>(m["WebsocketTermGracePeriod"]));
+    }
+    if (m.find("XffTrustedNum") != m.end() && !m["XffTrustedNum"].empty()) {
+      xffTrustedNum = make_shared<long>(boost::any_cast<long>(m["XffTrustedNum"]));
+    }
+    if (m.find("XtraceDetails") != m.end() && !m["XtraceDetails"].empty()) {
+      if (typeid(map<string, boost::any>) == m["XtraceDetails"].type()) {
+        GetGatewayConfigResponseBodyDataXtraceDetails model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["XtraceDetails"]));
+        xtraceDetails = make_shared<GetGatewayConfigResponseBodyDataXtraceDetails>(model1);
+      }
+    }
+    if (m.find("ZipAlgorithm") != m.end() && !m["ZipAlgorithm"].empty()) {
+      zipAlgorithm = make_shared<string>(boost::any_cast<string>(m["ZipAlgorithm"]));
+    }
+  }
+
+
+  virtual ~GetGatewayConfigResponseBodyData() = default;
+};
+class GetGatewayConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<GetGatewayConfigResponseBodyData> data{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetGatewayConfigResponseBody() {}
+
+  explicit GetGatewayConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetGatewayConfigResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetGatewayConfigResponseBodyData>(model1);
+      }
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetGatewayConfigResponseBody() = default;
+};
+class GetGatewayConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetGatewayConfigResponseBody> body{};
+
+  GetGatewayConfigResponse() {}
+
+  explicit GetGatewayConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetGatewayConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetGatewayConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetGatewayConfigResponse() = default;
+};
 class GetGatewayDomainDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -72541,6 +73121,8 @@ public:
   GetGatewayAuthConsumerDetailResponse getGatewayAuthConsumerDetail(shared_ptr<GetGatewayAuthConsumerDetailRequest> request);
   GetGatewayAuthDetailResponse getGatewayAuthDetailWithOptions(shared_ptr<GetGatewayAuthDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetGatewayAuthDetailResponse getGatewayAuthDetail(shared_ptr<GetGatewayAuthDetailRequest> request);
+  GetGatewayConfigResponse getGatewayConfigWithOptions(shared_ptr<GetGatewayConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetGatewayConfigResponse getGatewayConfig(shared_ptr<GetGatewayConfigRequest> request);
   GetGatewayDomainDetailResponse getGatewayDomainDetailWithOptions(shared_ptr<GetGatewayDomainDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetGatewayDomainDetailResponse getGatewayDomainDetail(shared_ptr<GetGatewayDomainDetailRequest> request);
   GetGatewayOptionResponse getGatewayOptionWithOptions(shared_ptr<GetGatewayOptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
