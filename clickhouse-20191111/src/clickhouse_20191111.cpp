@@ -2995,6 +2995,9 @@ TransferVersionResponse Alibabacloud_Clickhouse20191111::Client::transferVersion
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->disableWriteWindows)) {
+    query->insert(pair<string, string>("DisableWriteWindows", *request->disableWriteWindows));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }

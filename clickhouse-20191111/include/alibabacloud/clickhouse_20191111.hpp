@@ -8037,6 +8037,7 @@ public:
   shared_ptr<string> DBNodeClass{};
   shared_ptr<long> DBNodeCount{};
   shared_ptr<long> DBNodeStorage{};
+  shared_ptr<string> dbVersion{};
   shared_ptr<string> expireTime{};
   shared_ptr<long> extStorageSize{};
   shared_ptr<string> extStorageType{};
@@ -8106,6 +8107,9 @@ public:
     }
     if (DBNodeStorage) {
       res["DBNodeStorage"] = boost::any(*DBNodeStorage);
+    }
+    if (dbVersion) {
+      res["DbVersion"] = boost::any(*dbVersion);
     }
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
@@ -8203,6 +8207,9 @@ public:
     }
     if (m.find("DBNodeStorage") != m.end() && !m["DBNodeStorage"].empty()) {
       DBNodeStorage = make_shared<long>(boost::any_cast<long>(m["DBNodeStorage"]));
+    }
+    if (m.find("DbVersion") != m.end() && !m["DbVersion"].empty()) {
+      dbVersion = make_shared<string>(boost::any_cast<string>(m["DbVersion"]));
     }
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
@@ -11026,9 +11033,12 @@ public:
 };
 class DescribeTransferHistoryResponseBodyHistoryDetailsHistoryDetail : public Darabonba::Model {
 public:
+  shared_ptr<string> disableWriteWindows{};
   shared_ptr<string> progress{};
+  shared_ptr<string> sourceControlVersion{};
   shared_ptr<string> sourceDBCluster{};
   shared_ptr<string> status{};
+  shared_ptr<string> targetControlVersion{};
   shared_ptr<string> targetDBCluster{};
 
   DescribeTransferHistoryResponseBodyHistoryDetailsHistoryDetail() {}
@@ -11041,14 +11051,23 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (disableWriteWindows) {
+      res["DisableWriteWindows"] = boost::any(*disableWriteWindows);
+    }
     if (progress) {
       res["Progress"] = boost::any(*progress);
+    }
+    if (sourceControlVersion) {
+      res["SourceControlVersion"] = boost::any(*sourceControlVersion);
     }
     if (sourceDBCluster) {
       res["SourceDBCluster"] = boost::any(*sourceDBCluster);
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (targetControlVersion) {
+      res["TargetControlVersion"] = boost::any(*targetControlVersion);
     }
     if (targetDBCluster) {
       res["TargetDBCluster"] = boost::any(*targetDBCluster);
@@ -11057,14 +11076,23 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisableWriteWindows") != m.end() && !m["DisableWriteWindows"].empty()) {
+      disableWriteWindows = make_shared<string>(boost::any_cast<string>(m["DisableWriteWindows"]));
+    }
     if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
       progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
+    }
+    if (m.find("SourceControlVersion") != m.end() && !m["SourceControlVersion"].empty()) {
+      sourceControlVersion = make_shared<string>(boost::any_cast<string>(m["SourceControlVersion"]));
     }
     if (m.find("SourceDBCluster") != m.end() && !m["SourceDBCluster"].empty()) {
       sourceDBCluster = make_shared<string>(boost::any_cast<string>(m["SourceDBCluster"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TargetControlVersion") != m.end() && !m["TargetControlVersion"].empty()) {
+      targetControlVersion = make_shared<string>(boost::any_cast<string>(m["TargetControlVersion"]));
     }
     if (m.find("TargetDBCluster") != m.end() && !m["TargetDBCluster"].empty()) {
       targetDBCluster = make_shared<string>(boost::any_cast<string>(m["TargetDBCluster"]));
@@ -13831,6 +13859,7 @@ public:
 class TransferVersionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
+  shared_ptr<string> disableWriteWindows{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
@@ -13856,6 +13885,9 @@ public:
     map<string, boost::any> res;
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (disableWriteWindows) {
+      res["DisableWriteWindows"] = boost::any(*disableWriteWindows);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -13899,6 +13931,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("DisableWriteWindows") != m.end() && !m["DisableWriteWindows"].empty()) {
+      disableWriteWindows = make_shared<string>(boost::any_cast<string>(m["DisableWriteWindows"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
