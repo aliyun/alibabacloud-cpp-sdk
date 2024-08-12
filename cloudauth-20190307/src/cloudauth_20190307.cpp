@@ -955,6 +955,9 @@ Id2MetaVerifyResponse Alibabacloud_Cloudauth20190307::Client::id2MetaVerify(shar
 InitFaceVerifyResponse Alibabacloud_Cloudauth20190307::Client::initFaceVerifyWithOptions(shared_ptr<InitFaceVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appQualityCheck)) {
+    query->insert(pair<string, string>("AppQualityCheck", *request->appQualityCheck));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->birthday)) {
     query->insert(pair<string, string>("Birthday", *request->birthday));
   }

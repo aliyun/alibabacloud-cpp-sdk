@@ -4837,6 +4837,7 @@ public:
 };
 class InitFaceVerifyRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> appQualityCheck{};
   shared_ptr<string> authId{};
   shared_ptr<string> birthday{};
   shared_ptr<string> callbackToken{};
@@ -4883,6 +4884,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appQualityCheck) {
+      res["AppQualityCheck"] = boost::any(*appQualityCheck);
+    }
     if (authId) {
       res["AuthId"] = boost::any(*authId);
     }
@@ -4992,6 +4996,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppQualityCheck") != m.end() && !m["AppQualityCheck"].empty()) {
+      appQualityCheck = make_shared<string>(boost::any_cast<string>(m["AppQualityCheck"]));
+    }
     if (m.find("AuthId") != m.end() && !m["AuthId"].empty()) {
       authId = make_shared<string>(boost::any_cast<string>(m["AuthId"]));
     }
