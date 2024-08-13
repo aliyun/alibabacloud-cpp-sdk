@@ -1789,6 +1789,13 @@ ListTerminalResponse Alibabacloud_Wyota20210420::Client::listTerminal(shared_ptr
 
 ListTerminalsResponse Alibabacloud_Wyota20210420::Client::listTerminalsWithOptions(shared_ptr<ListTerminalsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->serialNumbers)) {
+    query->insert(pair<string, vector<string>>("SerialNumbers", *request->serialNumbers));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->uuids)) {
+    query->insert(pair<string, vector<string>>("Uuids", *request->uuids));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     body->insert(pair<string, long>("MaxResults", *request->maxResults));
@@ -1803,6 +1810,7 @@ ListTerminalsResponse Alibabacloud_Wyota20210420::Client::listTerminalsWithOptio
     body->insert(pair<string, string>("TerminalGroupId", *request->terminalGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({

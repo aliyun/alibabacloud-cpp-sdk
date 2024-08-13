@@ -10496,7 +10496,9 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> searchKeyword{};
+  shared_ptr<vector<string>> serialNumbers{};
   shared_ptr<string> terminalGroupId{};
+  shared_ptr<vector<string>> uuids{};
 
   ListTerminalsRequest() {}
 
@@ -10517,8 +10519,14 @@ public:
     if (searchKeyword) {
       res["SearchKeyword"] = boost::any(*searchKeyword);
     }
+    if (serialNumbers) {
+      res["SerialNumbers"] = boost::any(*serialNumbers);
+    }
     if (terminalGroupId) {
       res["TerminalGroupId"] = boost::any(*terminalGroupId);
+    }
+    if (uuids) {
+      res["Uuids"] = boost::any(*uuids);
     }
     return res;
   }
@@ -10533,8 +10541,28 @@ public:
     if (m.find("SearchKeyword") != m.end() && !m["SearchKeyword"].empty()) {
       searchKeyword = make_shared<string>(boost::any_cast<string>(m["SearchKeyword"]));
     }
+    if (m.find("SerialNumbers") != m.end() && !m["SerialNumbers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SerialNumbers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SerialNumbers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      serialNumbers = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("TerminalGroupId") != m.end() && !m["TerminalGroupId"].empty()) {
       terminalGroupId = make_shared<string>(boost::any_cast<string>(m["TerminalGroupId"]));
+    }
+    if (m.find("Uuids") != m.end() && !m["Uuids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Uuids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Uuids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      uuids = make_shared<vector<string>>(toVec1);
     }
   }
 
