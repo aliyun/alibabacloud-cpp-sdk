@@ -6735,6 +6735,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<long> pageNo{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> productType{};
   shared_ptr<string> type{};
 
   ListPolicyRequest() {}
@@ -6756,6 +6757,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (productType) {
+      res["ProductType"] = boost::any(*productType);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -6771,6 +6775,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
+      productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -7406,6 +7413,7 @@ public:
   shared_ptr<ListPolicyResponseBodyPolicyListContent> content{};
   shared_ptr<string> id{};
   shared_ptr<string> name{};
+  shared_ptr<string> remark{};
   shared_ptr<string> type{};
 
   ListPolicyResponseBodyPolicyList() {}
@@ -7430,6 +7438,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -7452,6 +7463,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -7747,6 +7761,7 @@ public:
   shared_ptr<string> memberUid{};
   shared_ptr<string> policyId{};
   shared_ptr<string> policyName{};
+  shared_ptr<string> policyRemark{};
   shared_ptr<string> policyType{};
   shared_ptr<long> port{};
   shared_ptr<string> protocol{};
@@ -7773,6 +7788,9 @@ public:
     }
     if (policyName) {
       res["PolicyName"] = boost::any(*policyName);
+    }
+    if (policyRemark) {
+      res["PolicyRemark"] = boost::any(*policyRemark);
     }
     if (policyType) {
       res["PolicyType"] = boost::any(*policyType);
@@ -7801,6 +7819,9 @@ public:
     }
     if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
       policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+    if (m.find("PolicyRemark") != m.end() && !m["PolicyRemark"].empty()) {
+      policyRemark = make_shared<string>(boost::any_cast<string>(m["PolicyRemark"]));
     }
     if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
       policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
