@@ -13645,8 +13645,13 @@ public:
 };
 class DescribeProdCountResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> aliyunImportedCount{};
   shared_ptr<long> aliyunProdCount{};
+  shared_ptr<long> hcloudImportedCount{};
   shared_ptr<long> hcloudProdCount{};
+  shared_ptr<long> idcImportedCount{};
+  shared_ptr<long> idcProdCount{};
+  shared_ptr<long> qcloudImportedCount{};
   shared_ptr<long> qcloudProdCount{};
 
   DescribeProdCountResponseBodyData() {}
@@ -13659,11 +13664,26 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aliyunImportedCount) {
+      res["AliyunImportedCount"] = boost::any(*aliyunImportedCount);
+    }
     if (aliyunProdCount) {
       res["AliyunProdCount"] = boost::any(*aliyunProdCount);
     }
+    if (hcloudImportedCount) {
+      res["HcloudImportedCount"] = boost::any(*hcloudImportedCount);
+    }
     if (hcloudProdCount) {
       res["HcloudProdCount"] = boost::any(*hcloudProdCount);
+    }
+    if (idcImportedCount) {
+      res["IdcImportedCount"] = boost::any(*idcImportedCount);
+    }
+    if (idcProdCount) {
+      res["IdcProdCount"] = boost::any(*idcProdCount);
+    }
+    if (qcloudImportedCount) {
+      res["QcloudImportedCount"] = boost::any(*qcloudImportedCount);
     }
     if (qcloudProdCount) {
       res["QcloudProdCount"] = boost::any(*qcloudProdCount);
@@ -13672,11 +13692,26 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunImportedCount") != m.end() && !m["AliyunImportedCount"].empty()) {
+      aliyunImportedCount = make_shared<long>(boost::any_cast<long>(m["AliyunImportedCount"]));
+    }
     if (m.find("AliyunProdCount") != m.end() && !m["AliyunProdCount"].empty()) {
       aliyunProdCount = make_shared<long>(boost::any_cast<long>(m["AliyunProdCount"]));
     }
+    if (m.find("HcloudImportedCount") != m.end() && !m["HcloudImportedCount"].empty()) {
+      hcloudImportedCount = make_shared<long>(boost::any_cast<long>(m["HcloudImportedCount"]));
+    }
     if (m.find("HcloudProdCount") != m.end() && !m["HcloudProdCount"].empty()) {
       hcloudProdCount = make_shared<long>(boost::any_cast<long>(m["HcloudProdCount"]));
+    }
+    if (m.find("IdcImportedCount") != m.end() && !m["IdcImportedCount"].empty()) {
+      idcImportedCount = make_shared<long>(boost::any_cast<long>(m["IdcImportedCount"]));
+    }
+    if (m.find("IdcProdCount") != m.end() && !m["IdcProdCount"].empty()) {
+      idcProdCount = make_shared<long>(boost::any_cast<long>(m["IdcProdCount"]));
+    }
+    if (m.find("QcloudImportedCount") != m.end() && !m["QcloudImportedCount"].empty()) {
+      qcloudImportedCount = make_shared<long>(boost::any_cast<long>(m["QcloudImportedCount"]));
     }
     if (m.find("QcloudProdCount") != m.end() && !m["QcloudProdCount"].empty()) {
       qcloudProdCount = make_shared<long>(boost::any_cast<long>(m["QcloudProdCount"]));
