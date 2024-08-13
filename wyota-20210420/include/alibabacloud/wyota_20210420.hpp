@@ -13817,6 +13817,7 @@ public:
 };
 class SendOpsMessageToTerminalsRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> delay{};
   shared_ptr<string> msg{};
   shared_ptr<string> opsAction{};
   shared_ptr<vector<string>> uuids{};
@@ -13832,6 +13833,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (delay) {
+      res["Delay"] = boost::any(*delay);
+    }
     if (msg) {
       res["Msg"] = boost::any(*msg);
     }
@@ -13848,6 +13852,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Delay") != m.end() && !m["Delay"].empty()) {
+      delay = make_shared<bool>(boost::any_cast<bool>(m["Delay"]));
+    }
     if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
       msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
     }
