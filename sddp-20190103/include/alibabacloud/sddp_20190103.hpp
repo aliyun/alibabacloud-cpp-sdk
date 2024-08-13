@@ -9554,6 +9554,7 @@ public:
   shared_ptr<string> lang{};
   shared_ptr<long> lastScanTimeEnd{};
   shared_ptr<long> lastScanTimeStart{};
+  shared_ptr<long> marker{};
   shared_ptr<string> name{};
   shared_ptr<long> pageSize{};
   shared_ptr<long> riskLevelId{};
@@ -9588,6 +9589,9 @@ public:
     }
     if (lastScanTimeStart) {
       res["LastScanTimeStart"] = boost::any(*lastScanTimeStart);
+    }
+    if (marker) {
+      res["Marker"] = boost::any(*marker);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -9628,6 +9632,9 @@ public:
     }
     if (m.find("LastScanTimeStart") != m.end() && !m["LastScanTimeStart"].empty()) {
       lastScanTimeStart = make_shared<long>(boost::any_cast<long>(m["LastScanTimeStart"]));
+    }
+    if (m.find("Marker") != m.end() && !m["Marker"].empty()) {
+      marker = make_shared<long>(boost::any_cast<long>(m["Marker"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -9854,9 +9861,12 @@ class DescribeOssObjectsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> currentPage{};
   shared_ptr<vector<DescribeOssObjectsResponseBodyItems>> items{};
+  shared_ptr<string> marker{};
+  shared_ptr<string> nextMarker{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
   shared_ptr<long> totalCount{};
+  shared_ptr<bool> truncated{};
 
   DescribeOssObjectsResponseBody() {}
 
@@ -9878,6 +9888,12 @@ public:
       }
       res["Items"] = boost::any(temp1);
     }
+    if (marker) {
+      res["Marker"] = boost::any(*marker);
+    }
+    if (nextMarker) {
+      res["NextMarker"] = boost::any(*nextMarker);
+    }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
@@ -9886,6 +9902,9 @@ public:
     }
     if (totalCount) {
       res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (truncated) {
+      res["Truncated"] = boost::any(*truncated);
     }
     return res;
   }
@@ -9907,6 +9926,12 @@ public:
         items = make_shared<vector<DescribeOssObjectsResponseBodyItems>>(expect1);
       }
     }
+    if (m.find("Marker") != m.end() && !m["Marker"].empty()) {
+      marker = make_shared<string>(boost::any_cast<string>(m["Marker"]));
+    }
+    if (m.find("NextMarker") != m.end() && !m["NextMarker"].empty()) {
+      nextMarker = make_shared<string>(boost::any_cast<string>(m["NextMarker"]));
+    }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
@@ -9915,6 +9940,9 @@ public:
     }
     if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
       totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("Truncated") != m.end() && !m["Truncated"].empty()) {
+      truncated = make_shared<bool>(boost::any_cast<bool>(m["Truncated"]));
     }
   }
 

@@ -1489,6 +1489,9 @@ DescribeOssObjectsResponse Alibabacloud_Sddp20190103::Client::describeOssObjects
   if (!Darabonba_Util::Client::isUnset<long>(request->lastScanTimeStart)) {
     query->insert(pair<string, long>("LastScanTimeStart", *request->lastScanTimeStart));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->marker)) {
+    query->insert(pair<string, long>("Marker", *request->marker));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
