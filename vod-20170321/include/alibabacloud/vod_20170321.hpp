@@ -2385,6 +2385,7 @@ class CreateAppInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appName{};
   shared_ptr<string> description{};
+  shared_ptr<string> resourceGroupId{};
 
   CreateAppInfoRequest() {}
 
@@ -2402,6 +2403,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -2411,6 +2415,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -7228,12 +7235,19 @@ public:
 };
 class DescribeVodCertificateListResponseBodyCertificateListModelCertListCert : public Darabonba::Model {
 public:
+  shared_ptr<string> algorithm{};
   shared_ptr<long> certId{};
+  shared_ptr<string> certIdentifier{};
   shared_ptr<string> certName{};
   shared_ptr<string> common{};
+  shared_ptr<long> createTime{};
+  shared_ptr<bool> domainMatchCert{};
+  shared_ptr<long> endTime{};
   shared_ptr<string> fingerprint{};
+  shared_ptr<string> instanceId{};
   shared_ptr<string> issuer{};
   shared_ptr<long> lastTime{};
+  shared_ptr<string> signAlgorithm{};
 
   DescribeVodCertificateListResponseBodyCertificateListModelCertListCert() {}
 
@@ -7245,8 +7259,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
     if (certId) {
       res["CertId"] = boost::any(*certId);
+    }
+    if (certIdentifier) {
+      res["CertIdentifier"] = boost::any(*certIdentifier);
     }
     if (certName) {
       res["CertName"] = boost::any(*certName);
@@ -7254,8 +7274,20 @@ public:
     if (common) {
       res["Common"] = boost::any(*common);
     }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (domainMatchCert) {
+      res["DomainMatchCert"] = boost::any(*domainMatchCert);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (fingerprint) {
       res["Fingerprint"] = boost::any(*fingerprint);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
     }
     if (issuer) {
       res["Issuer"] = boost::any(*issuer);
@@ -7263,12 +7295,21 @@ public:
     if (lastTime) {
       res["LastTime"] = boost::any(*lastTime);
     }
+    if (signAlgorithm) {
+      res["SignAlgorithm"] = boost::any(*signAlgorithm);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
     if (m.find("CertId") != m.end() && !m["CertId"].empty()) {
       certId = make_shared<long>(boost::any_cast<long>(m["CertId"]));
+    }
+    if (m.find("CertIdentifier") != m.end() && !m["CertIdentifier"].empty()) {
+      certIdentifier = make_shared<string>(boost::any_cast<string>(m["CertIdentifier"]));
     }
     if (m.find("CertName") != m.end() && !m["CertName"].empty()) {
       certName = make_shared<string>(boost::any_cast<string>(m["CertName"]));
@@ -7276,14 +7317,29 @@ public:
     if (m.find("Common") != m.end() && !m["Common"].empty()) {
       common = make_shared<string>(boost::any_cast<string>(m["Common"]));
     }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("DomainMatchCert") != m.end() && !m["DomainMatchCert"].empty()) {
+      domainMatchCert = make_shared<bool>(boost::any_cast<bool>(m["DomainMatchCert"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
     if (m.find("Fingerprint") != m.end() && !m["Fingerprint"].empty()) {
       fingerprint = make_shared<string>(boost::any_cast<string>(m["Fingerprint"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
     if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
       issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
     }
     if (m.find("LastTime") != m.end() && !m["LastTime"].empty()) {
       lastTime = make_shared<long>(boost::any_cast<long>(m["LastTime"]));
+    }
+    if (m.find("SignAlgorithm") != m.end() && !m["SignAlgorithm"].empty()) {
+      signAlgorithm = make_shared<string>(boost::any_cast<string>(m["SignAlgorithm"]));
     }
   }
 
@@ -18613,6 +18669,7 @@ public:
   shared_ptr<string> creationTime{};
   shared_ptr<string> description{};
   shared_ptr<string> modificationTime{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
   shared_ptr<string> type{};
 
@@ -18641,6 +18698,9 @@ public:
     if (modificationTime) {
       res["ModificationTime"] = boost::any(*modificationTime);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -18665,6 +18725,9 @@ public:
     }
     if (m.find("ModificationTime") != m.end() && !m["ModificationTime"].empty()) {
       modificationTime = make_shared<string>(boost::any_cast<string>(m["ModificationTime"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -25093,6 +25156,7 @@ public:
   shared_ptr<string> fps{};
   shared_ptr<long> height{};
   shared_ptr<string> outputType{};
+  shared_ptr<string> preprocessStatus{};
   shared_ptr<string> restoreExpiration{};
   shared_ptr<string> restoreStatus{};
   shared_ptr<long> size{};
@@ -25142,6 +25206,9 @@ public:
     }
     if (outputType) {
       res["OutputType"] = boost::any(*outputType);
+    }
+    if (preprocessStatus) {
+      res["PreprocessStatus"] = boost::any(*preprocessStatus);
     }
     if (restoreExpiration) {
       res["RestoreExpiration"] = boost::any(*restoreExpiration);
@@ -25211,6 +25278,9 @@ public:
     }
     if (m.find("OutputType") != m.end() && !m["OutputType"].empty()) {
       outputType = make_shared<string>(boost::any_cast<string>(m["OutputType"]));
+    }
+    if (m.find("PreprocessStatus") != m.end() && !m["PreprocessStatus"].empty()) {
+      preprocessStatus = make_shared<string>(boost::any_cast<string>(m["PreprocessStatus"]));
     }
     if (m.find("RestoreExpiration") != m.end() && !m["RestoreExpiration"].empty()) {
       restoreExpiration = make_shared<string>(boost::any_cast<string>(m["RestoreExpiration"]));
@@ -29956,6 +30026,7 @@ class ListAppInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNo{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
 
   ListAppInfoRequest() {}
@@ -29974,6 +30045,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -29986,6 +30060,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -30002,6 +30079,8 @@ public:
   shared_ptr<string> creationTime{};
   shared_ptr<string> description{};
   shared_ptr<string> modificationTime{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
   shared_ptr<string> type{};
 
@@ -30030,6 +30109,12 @@ public:
     if (modificationTime) {
       res["ModificationTime"] = boost::any(*modificationTime);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -30054,6 +30139,12 @@ public:
     }
     if (m.find("ModificationTime") != m.end() && !m["ModificationTime"].empty()) {
       modificationTime = make_shared<string>(boost::any_cast<string>(m["ModificationTime"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
