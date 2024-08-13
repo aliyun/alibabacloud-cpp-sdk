@@ -3562,6 +3562,7 @@ public:
   shared_ptr<bool> expired{};
   shared_ptr<string> fingerprint{};
   shared_ptr<long> id{};
+  shared_ptr<string> instanceId{};
   shared_ptr<string> issuer{};
   shared_ptr<string> key{};
   shared_ptr<string> name{};
@@ -3571,6 +3572,8 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sans{};
+  shared_ptr<string> serialNo{};
+  shared_ptr<string> sha2{};
   shared_ptr<string> signCert{};
   shared_ptr<string> signPrivateKey{};
   shared_ptr<string> startDate{};
@@ -3621,6 +3624,9 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
     if (issuer) {
       res["Issuer"] = boost::any(*issuer);
     }
@@ -3647,6 +3653,12 @@ public:
     }
     if (sans) {
       res["Sans"] = boost::any(*sans);
+    }
+    if (serialNo) {
+      res["SerialNo"] = boost::any(*serialNo);
+    }
+    if (sha2) {
+      res["Sha2"] = boost::any(*sha2);
     }
     if (signCert) {
       res["SignCert"] = boost::any(*signCert);
@@ -3697,6 +3709,9 @@ public:
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
     }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
     if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
       issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
     }
@@ -3723,6 +3738,12 @@ public:
     }
     if (m.find("Sans") != m.end() && !m["Sans"].empty()) {
       sans = make_shared<string>(boost::any_cast<string>(m["Sans"]));
+    }
+    if (m.find("SerialNo") != m.end() && !m["SerialNo"].empty()) {
+      serialNo = make_shared<string>(boost::any_cast<string>(m["SerialNo"]));
+    }
+    if (m.find("Sha2") != m.end() && !m["Sha2"].empty()) {
+      sha2 = make_shared<string>(boost::any_cast<string>(m["Sha2"]));
     }
     if (m.find("SignCert") != m.end() && !m["SignCert"].empty()) {
       signCert = make_shared<string>(boost::any_cast<string>(m["SignCert"]));
@@ -4573,6 +4594,7 @@ public:
 };
 class ListCloudResourcesRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<long>> certIds{};
   shared_ptr<string> cloudName{};
   shared_ptr<string> cloudProduct{};
   shared_ptr<long> currentPage{};
@@ -4590,6 +4612,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (certIds) {
+      res["CertIds"] = boost::any(*certIds);
+    }
     if (cloudName) {
       res["CloudName"] = boost::any(*cloudName);
     }
@@ -4612,6 +4637,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertIds") != m.end() && !m["CertIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["CertIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CertIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      certIds = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("CloudName") != m.end() && !m["CloudName"].empty()) {
       cloudName = make_shared<string>(boost::any_cast<string>(m["CloudName"]));
     }
@@ -4634,6 +4669,77 @@ public:
 
 
   virtual ~ListCloudResourcesRequest() = default;
+};
+class ListCloudResourcesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> certIdsShrink{};
+  shared_ptr<string> cloudName{};
+  shared_ptr<string> cloudProduct{};
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> keyword{};
+  shared_ptr<string> secretId{};
+  shared_ptr<long> showSize{};
+
+  ListCloudResourcesShrinkRequest() {}
+
+  explicit ListCloudResourcesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certIdsShrink) {
+      res["CertIds"] = boost::any(*certIdsShrink);
+    }
+    if (cloudName) {
+      res["CloudName"] = boost::any(*cloudName);
+    }
+    if (cloudProduct) {
+      res["CloudProduct"] = boost::any(*cloudProduct);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (keyword) {
+      res["Keyword"] = boost::any(*keyword);
+    }
+    if (secretId) {
+      res["SecretId"] = boost::any(*secretId);
+    }
+    if (showSize) {
+      res["ShowSize"] = boost::any(*showSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertIds") != m.end() && !m["CertIds"].empty()) {
+      certIdsShrink = make_shared<string>(boost::any_cast<string>(m["CertIds"]));
+    }
+    if (m.find("CloudName") != m.end() && !m["CloudName"].empty()) {
+      cloudName = make_shared<string>(boost::any_cast<string>(m["CloudName"]));
+    }
+    if (m.find("CloudProduct") != m.end() && !m["CloudProduct"].empty()) {
+      cloudProduct = make_shared<string>(boost::any_cast<string>(m["CloudProduct"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("SecretId") != m.end() && !m["SecretId"].empty()) {
+      secretId = make_shared<string>(boost::any_cast<string>(m["SecretId"]));
+    }
+    if (m.find("ShowSize") != m.end() && !m["ShowSize"].empty()) {
+      showSize = make_shared<long>(boost::any_cast<long>(m["ShowSize"]));
+    }
+  }
+
+
+  virtual ~ListCloudResourcesShrinkRequest() = default;
 };
 class ListCloudResourcesResponseBodyData : public Darabonba::Model {
 public:
@@ -8817,7 +8923,7 @@ public:
   ListCertWarehouseResponse listCertWarehouse(shared_ptr<ListCertWarehouseRequest> request);
   ListCloudAccessResponse listCloudAccessWithOptions(shared_ptr<ListCloudAccessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCloudAccessResponse listCloudAccess(shared_ptr<ListCloudAccessRequest> request);
-  ListCloudResourcesResponse listCloudResourcesWithOptions(shared_ptr<ListCloudResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCloudResourcesResponse listCloudResourcesWithOptions(shared_ptr<ListCloudResourcesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCloudResourcesResponse listCloudResources(shared_ptr<ListCloudResourcesRequest> request);
   ListContactResponse listContactWithOptions(shared_ptr<ListContactRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListContactResponse listContact(shared_ptr<ListContactRequest> request);

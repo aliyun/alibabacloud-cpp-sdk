@@ -1044,9 +1044,17 @@ ListCloudAccessResponse Alibabacloud_Cas20200407::Client::listCloudAccess(shared
   return listCloudAccessWithOptions(request, runtime);
 }
 
-ListCloudResourcesResponse Alibabacloud_Cas20200407::Client::listCloudResourcesWithOptions(shared_ptr<ListCloudResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListCloudResourcesResponse Alibabacloud_Cas20200407::Client::listCloudResourcesWithOptions(shared_ptr<ListCloudResourcesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListCloudResourcesShrinkRequest> request = make_shared<ListCloudResourcesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->certIds)) {
+    request->certIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->certIds, make_shared<string>("CertIds"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->certIdsShrink)) {
+    query->insert(pair<string, string>("CertIds", *request->certIdsShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cloudName)) {
     query->insert(pair<string, string>("CloudName", *request->cloudName));
   }
