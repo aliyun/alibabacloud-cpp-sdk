@@ -13,6 +13,70 @@
 using namespace std;
 
 namespace Alibabacloud_Ecd20201002 {
+class OssUploadCredential : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKeyId{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> filePath{};
+  shared_ptr<string> ossPolicy{};
+  shared_ptr<string> ossSignature{};
+  shared_ptr<string> stsToken{};
+
+  OssUploadCredential() {}
+
+  explicit OssUploadCredential(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKeyId) {
+      res["AccessKeyId"] = boost::any(*accessKeyId);
+    }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (filePath) {
+      res["FilePath"] = boost::any(*filePath);
+    }
+    if (ossPolicy) {
+      res["OssPolicy"] = boost::any(*ossPolicy);
+    }
+    if (ossSignature) {
+      res["OssSignature"] = boost::any(*ossSignature);
+    }
+    if (stsToken) {
+      res["StsToken"] = boost::any(*stsToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKeyId") != m.end() && !m["AccessKeyId"].empty()) {
+      accessKeyId = make_shared<string>(boost::any_cast<string>(m["AccessKeyId"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("FilePath") != m.end() && !m["FilePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["FilePath"]));
+    }
+    if (m.find("OssPolicy") != m.end() && !m["OssPolicy"].empty()) {
+      ossPolicy = make_shared<string>(boost::any_cast<string>(m["OssPolicy"]));
+    }
+    if (m.find("OssSignature") != m.end() && !m["OssSignature"].empty()) {
+      ossSignature = make_shared<string>(boost::any_cast<string>(m["OssSignature"]));
+    }
+    if (m.find("StsToken") != m.end() && !m["StsToken"].empty()) {
+      stsToken = make_shared<string>(boost::any_cast<string>(m["StsToken"]));
+    }
+  }
+
+
+  virtual ~OssUploadCredential() = default;
+};
 class ApproveFotaUpdateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appVersion{};
@@ -1384,6 +1448,7 @@ public:
   shared_ptr<string> protocolType{};
   shared_ptr<string> realDesktopId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> regionLocation{};
   shared_ptr<string> sessionType{};
   shared_ptr<vector<DescribeGlobalDesktopsResponseBodyDesktopsSessions>> sessions{};
   shared_ptr<bool> supportHibernation{};
@@ -1512,6 +1577,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (regionLocation) {
+      res["RegionLocation"] = boost::any(*regionLocation);
     }
     if (sessionType) {
       res["SessionType"] = boost::any(*sessionType);
@@ -1682,6 +1750,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RegionLocation") != m.end() && !m["RegionLocation"].empty()) {
+      regionLocation = make_shared<string>(boost::any_cast<string>(m["RegionLocation"]));
     }
     if (m.find("SessionType") != m.end() && !m["SessionType"].empty()) {
       sessionType = make_shared<string>(boost::any_cast<string>(m["SessionType"]));
