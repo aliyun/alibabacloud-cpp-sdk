@@ -1784,10 +1784,54 @@ public:
 
   virtual ~CreateJobShrinkRequest() = default;
 };
+class CreateJobResponseBodyTasks : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> executorIds{};
+  shared_ptr<string> taskName{};
+
+  CreateJobResponseBodyTasks() {}
+
+  explicit CreateJobResponseBodyTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (executorIds) {
+      res["ExecutorIds"] = boost::any(*executorIds);
+    }
+    if (taskName) {
+      res["TaskName"] = boost::any(*taskName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExecutorIds") != m.end() && !m["ExecutorIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExecutorIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExecutorIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      executorIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
+      taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
+    }
+  }
+
+
+  virtual ~CreateJobResponseBodyTasks() = default;
+};
 class CreateJobResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> jobId{};
   shared_ptr<string> requestId{};
+  shared_ptr<vector<CreateJobResponseBodyTasks>> tasks{};
 
   CreateJobResponseBody() {}
 
@@ -1805,6 +1849,13 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (tasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*tasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tasks"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1814,6 +1865,19 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tasks"].type()) {
+        vector<CreateJobResponseBodyTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateJobResponseBodyTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tasks = make_shared<vector<CreateJobResponseBodyTasks>>(expect1);
+      }
     }
   }
 
@@ -3864,6 +3928,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<string> executorId{};
   shared_ptr<vector<string>> hostName{};
+  shared_ptr<string> image{};
   shared_ptr<vector<string>> ipAddress{};
   shared_ptr<string> jobId{};
   shared_ptr<string> jobName{};
@@ -3895,6 +3960,9 @@ public:
     }
     if (hostName) {
       res["HostName"] = boost::any(*hostName);
+    }
+    if (image) {
+      res["Image"] = boost::any(*image);
     }
     if (ipAddress) {
       res["IpAddress"] = boost::any(*ipAddress);
@@ -3939,6 +4007,9 @@ public:
         }
       }
       hostName = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Image") != m.end() && !m["Image"].empty()) {
+      image = make_shared<string>(boost::any_cast<string>(m["Image"]));
     }
     if (m.find("IpAddress") != m.end() && !m["IpAddress"].empty()) {
       vector<string> toVec1;
@@ -4451,11 +4522,83 @@ public:
 
   virtual ~ListJobExecutorsRequest() = default;
 };
+class ListJobExecutorsResponseBodyExecutorStatus : public Darabonba::Model {
+public:
+  shared_ptr<long> deleted{};
+  shared_ptr<long> exception{};
+  shared_ptr<long> failed{};
+  shared_ptr<long> initing{};
+  shared_ptr<long> pending{};
+  shared_ptr<long> running{};
+  shared_ptr<long> succeeded{};
+
+  ListJobExecutorsResponseBodyExecutorStatus() {}
+
+  explicit ListJobExecutorsResponseBodyExecutorStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deleted) {
+      res["Deleted"] = boost::any(*deleted);
+    }
+    if (exception) {
+      res["Exception"] = boost::any(*exception);
+    }
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (initing) {
+      res["Initing"] = boost::any(*initing);
+    }
+    if (pending) {
+      res["Pending"] = boost::any(*pending);
+    }
+    if (running) {
+      res["Running"] = boost::any(*running);
+    }
+    if (succeeded) {
+      res["Succeeded"] = boost::any(*succeeded);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Deleted") != m.end() && !m["Deleted"].empty()) {
+      deleted = make_shared<long>(boost::any_cast<long>(m["Deleted"]));
+    }
+    if (m.find("Exception") != m.end() && !m["Exception"].empty()) {
+      exception = make_shared<long>(boost::any_cast<long>(m["Exception"]));
+    }
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Initing") != m.end() && !m["Initing"].empty()) {
+      initing = make_shared<long>(boost::any_cast<long>(m["Initing"]));
+    }
+    if (m.find("Pending") != m.end() && !m["Pending"].empty()) {
+      pending = make_shared<long>(boost::any_cast<long>(m["Pending"]));
+    }
+    if (m.find("Running") != m.end() && !m["Running"].empty()) {
+      running = make_shared<long>(boost::any_cast<long>(m["Running"]));
+    }
+    if (m.find("Succeeded") != m.end() && !m["Succeeded"].empty()) {
+      succeeded = make_shared<long>(boost::any_cast<long>(m["Succeeded"]));
+    }
+  }
+
+
+  virtual ~ListJobExecutorsResponseBodyExecutorStatus() = default;
+};
 class ListJobExecutorsResponseBodyExecutors : public Darabonba::Model {
 public:
   shared_ptr<long> arrayIndex{};
   shared_ptr<string> createTime{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> executorId{};
   shared_ptr<vector<string>> hostName{};
   shared_ptr<vector<string>> ipAddress{};
   shared_ptr<string> status{};
@@ -4479,6 +4622,9 @@ public:
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (executorId) {
+      res["ExecutorId"] = boost::any(*executorId);
     }
     if (hostName) {
       res["HostName"] = boost::any(*hostName);
@@ -4504,6 +4650,9 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("ExecutorId") != m.end() && !m["ExecutorId"].empty()) {
+      executorId = make_shared<string>(boost::any_cast<string>(m["ExecutorId"]));
     }
     if (m.find("HostName") != m.end() && !m["HostName"].empty()) {
       vector<string> toVec1;
@@ -4538,6 +4687,7 @@ public:
 };
 class ListJobExecutorsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<ListJobExecutorsResponseBodyExecutorStatus> executorStatus{};
   shared_ptr<vector<ListJobExecutorsResponseBodyExecutors>> executors{};
   shared_ptr<string> jobId{};
   shared_ptr<string> pageNumber{};
@@ -4556,6 +4706,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (executorStatus) {
+      res["ExecutorStatus"] = executorStatus ? boost::any(executorStatus->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (executors) {
       vector<boost::any> temp1;
       for(auto item1:*executors){
@@ -4585,6 +4738,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExecutorStatus") != m.end() && !m["ExecutorStatus"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ExecutorStatus"].type()) {
+        ListJobExecutorsResponseBodyExecutorStatus model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ExecutorStatus"]));
+        executorStatus = make_shared<ListJobExecutorsResponseBodyExecutorStatus>(model1);
+      }
+    }
     if (m.find("Executors") != m.end() && !m["Executors"].empty()) {
       if (typeid(vector<boost::any>) == m["Executors"].type()) {
         vector<ListJobExecutorsResponseBodyExecutors> expect1;
