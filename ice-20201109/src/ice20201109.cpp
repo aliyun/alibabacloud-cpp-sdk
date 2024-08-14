@@ -4130,6 +4130,9 @@ ListMediaProducingJobsResponse Alibabacloud_ICE20201109::Client::listMediaProduc
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
+    query->insert(pair<string, string>("ProjectId", *request->projectId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
     query->insert(pair<string, string>("SortBy", *request->sortBy));
   }

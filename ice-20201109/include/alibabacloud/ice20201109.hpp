@@ -34515,6 +34515,7 @@ public:
   shared_ptr<string> masterJobId{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> projectId{};
   shared_ptr<string> sortBy{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
@@ -34547,6 +34548,9 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (sortBy) {
       res["SortBy"] = boost::any(*sortBy);
     }
@@ -34577,6 +34581,9 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
     }
     if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
       sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
