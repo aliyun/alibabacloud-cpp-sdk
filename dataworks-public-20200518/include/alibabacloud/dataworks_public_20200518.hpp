@@ -228,8 +228,11 @@ public:
 };
 class LineageEntityVO : public Darabonba::Model {
 public:
+  shared_ptr<map<string, string>> attributes{};
   shared_ptr<string> detailUrl{};
+  shared_ptr<string> entityType{};
   shared_ptr<string> name{};
+  shared_ptr<string> owner{};
   shared_ptr<string> parentName{};
   shared_ptr<string> qualifiedName{};
 
@@ -243,11 +246,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (attributes) {
+      res["Attributes"] = boost::any(*attributes);
+    }
     if (detailUrl) {
       res["DetailUrl"] = boost::any(*detailUrl);
     }
+    if (entityType) {
+      res["EntityType"] = boost::any(*entityType);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
     }
     if (parentName) {
       res["ParentName"] = boost::any(*parentName);
@@ -259,11 +271,25 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Attributes") != m.end() && !m["Attributes"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Attributes"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      attributes = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("DetailUrl") != m.end() && !m["DetailUrl"].empty()) {
       detailUrl = make_shared<string>(boost::any_cast<string>(m["DetailUrl"]));
     }
+    if (m.find("EntityType") != m.end() && !m["EntityType"].empty()) {
+      entityType = make_shared<string>(boost::any_cast<string>(m["EntityType"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
     }
     if (m.find("ParentName") != m.end() && !m["ParentName"].empty()) {
       parentName = make_shared<string>(boost::any_cast<string>(m["ParentName"]));
@@ -278,7 +304,9 @@ public:
 };
 class RelationshipVO : public Darabonba::Model {
 public:
-  shared_ptr<string> type{};
+  shared_ptr<map<string, string>> attributes{};
+  shared_ptr<string> relationshipGuid{};
+  shared_ptr<string> relationshipType{};
 
   RelationshipVO() {}
 
@@ -290,20 +318,119 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (type) {
-      res["Type"] = boost::any(*type);
+    if (attributes) {
+      res["Attributes"] = boost::any(*attributes);
+    }
+    if (relationshipGuid) {
+      res["RelationshipGuid"] = boost::any(*relationshipGuid);
+    }
+    if (relationshipType) {
+      res["RelationshipType"] = boost::any(*relationshipType);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    if (m.find("Attributes") != m.end() && !m["Attributes"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Attributes"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      attributes = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("RelationshipGuid") != m.end() && !m["RelationshipGuid"].empty()) {
+      relationshipGuid = make_shared<string>(boost::any_cast<string>(m["RelationshipGuid"]));
+    }
+    if (m.find("RelationshipType") != m.end() && !m["RelationshipType"].empty()) {
+      relationshipType = make_shared<string>(boost::any_cast<string>(m["RelationshipType"]));
     }
   }
 
 
   virtual ~RelationshipVO() = default;
+};
+class LineageRelationRegisterBulkVO : public Darabonba::Model {
+public:
+  shared_ptr<long> createTimestamp{};
+  shared_ptr<vector<LineageEntityVO>> destEntities{};
+  shared_ptr<RelationshipVO> relationship{};
+  shared_ptr<vector<LineageEntityVO>> srcEntities{};
+
+  LineageRelationRegisterBulkVO() {}
+
+  explicit LineageRelationRegisterBulkVO(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTimestamp) {
+      res["CreateTimestamp"] = boost::any(*createTimestamp);
+    }
+    if (destEntities) {
+      vector<boost::any> temp1;
+      for(auto item1:*destEntities){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DestEntities"] = boost::any(temp1);
+    }
+    if (relationship) {
+      res["Relationship"] = relationship ? boost::any(relationship->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (srcEntities) {
+      vector<boost::any> temp1;
+      for(auto item1:*srcEntities){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SrcEntities"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
+      createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
+    if (m.find("DestEntities") != m.end() && !m["DestEntities"].empty()) {
+      if (typeid(vector<boost::any>) == m["DestEntities"].type()) {
+        vector<LineageEntityVO> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DestEntities"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            LineageEntityVO model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        destEntities = make_shared<vector<LineageEntityVO>>(expect1);
+      }
+    }
+    if (m.find("Relationship") != m.end() && !m["Relationship"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Relationship"].type()) {
+        RelationshipVO model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Relationship"]));
+        relationship = make_shared<RelationshipVO>(model1);
+      }
+    }
+    if (m.find("SrcEntities") != m.end() && !m["SrcEntities"].empty()) {
+      if (typeid(vector<boost::any>) == m["SrcEntities"].type()) {
+        vector<LineageEntityVO> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SrcEntities"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            LineageEntityVO model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        srcEntities = make_shared<vector<LineageEntityVO>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~LineageRelationRegisterBulkVO() = default;
 };
 class LineageRelationRegisterVO : public Darabonba::Model {
 public:
@@ -12060,6 +12187,7 @@ class DeleteLineageRelationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> destEntityQualifiedName{};
   shared_ptr<string> relationshipGuid{};
+  shared_ptr<string> relationshipType{};
   shared_ptr<string> srcEntityQualifiedName{};
 
   DeleteLineageRelationRequest() {}
@@ -12078,6 +12206,9 @@ public:
     if (relationshipGuid) {
       res["RelationshipGuid"] = boost::any(*relationshipGuid);
     }
+    if (relationshipType) {
+      res["RelationshipType"] = boost::any(*relationshipType);
+    }
     if (srcEntityQualifiedName) {
       res["SrcEntityQualifiedName"] = boost::any(*srcEntityQualifiedName);
     }
@@ -12090,6 +12221,9 @@ public:
     }
     if (m.find("RelationshipGuid") != m.end() && !m["RelationshipGuid"].empty()) {
       relationshipGuid = make_shared<string>(boost::any_cast<string>(m["RelationshipGuid"]));
+    }
+    if (m.find("RelationshipType") != m.end() && !m["RelationshipType"].empty()) {
+      relationshipType = make_shared<string>(boost::any_cast<string>(m["RelationshipType"]));
     }
     if (m.find("SrcEntityQualifiedName") != m.end() && !m["SrcEntityQualifiedName"].empty()) {
       srcEntityQualifiedName = make_shared<string>(boost::any_cast<string>(m["SrcEntityQualifiedName"]));

@@ -2789,6 +2789,9 @@ DeleteLineageRelationResponse Alibabacloud_Dataworks-public20200518::Client::del
   if (!Darabonba_Util::Client::isUnset<string>(request->relationshipGuid)) {
     query->insert(pair<string, string>("RelationshipGuid", *request->relationshipGuid));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->relationshipType)) {
+    query->insert(pair<string, string>("RelationshipType", *request->relationshipType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->srcEntityQualifiedName)) {
     query->insert(pair<string, string>("SrcEntityQualifiedName", *request->srcEntityQualifiedName));
   }
