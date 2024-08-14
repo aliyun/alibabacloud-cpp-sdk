@@ -4725,6 +4725,7 @@ class DescribeDiskReplicaGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupIds{};
   shared_ptr<long> maxResults{};
+  shared_ptr<string> name{};
   shared_ptr<string> nextToken{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -4748,6 +4749,9 @@ public:
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
@@ -4783,6 +4787,9 @@ public:
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
@@ -5339,6 +5346,7 @@ public:
 class DescribeDiskReplicaPairsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> maxResults{};
+  shared_ptr<string> name{};
   shared_ptr<string> nextToken{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -5361,6 +5369,9 @@ public:
     map<string, boost::any> res;
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
@@ -5399,6 +5410,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
