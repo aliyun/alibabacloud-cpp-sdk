@@ -999,6 +999,7 @@ class DeleteGeneratedContentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
   shared_ptr<long> id{};
+  shared_ptr<string> regionId{};
 
   DeleteGeneratedContentRequest() {}
 
@@ -1016,6 +1017,9 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -1025,6 +1029,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -8333,6 +8340,7 @@ public:
 class ListBuildConfigsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> type{};
 
   ListBuildConfigsRequest() {}
@@ -8348,6 +8356,9 @@ public:
     if (agentKey) {
       res["AgentKey"] = boost::any(*agentKey);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -8357,6 +8368,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
       agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -9167,8 +9181,10 @@ public:
   shared_ptr<string> contentDomain{};
   shared_ptr<long> current{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> query{};
   shared_ptr<long> size{};
   shared_ptr<string> startTime{};
+  shared_ptr<string> taskId{};
   shared_ptr<string> title{};
 
   ListGeneratedContentsRequest() {}
@@ -9193,11 +9209,17 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (query) {
+      res["Query"] = boost::any(*query);
+    }
     if (size) {
       res["Size"] = boost::any(*size);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
     }
     if (title) {
       res["Title"] = boost::any(*title);
@@ -9218,11 +9240,17 @@ public:
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
+    if (m.find("Query") != m.end() && !m["Query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
@@ -14135,6 +14163,7 @@ public:
   shared_ptr<string> htmlContent{};
   shared_ptr<long> id{};
   shared_ptr<string> pubTime{};
+  shared_ptr<string> regionId{};
   shared_ptr<long> shareAttr{};
   shared_ptr<string> srcFrom{};
   shared_ptr<string> summary{};
@@ -14175,6 +14204,9 @@ public:
     }
     if (pubTime) {
       res["PubTime"] = boost::any(*pubTime);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (shareAttr) {
       res["ShareAttr"] = boost::any(*shareAttr);
@@ -14229,6 +14261,9 @@ public:
     if (m.find("PubTime") != m.end() && !m["PubTime"].empty()) {
       pubTime = make_shared<string>(boost::any_cast<string>(m["PubTime"]));
     }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("ShareAttr") != m.end() && !m["ShareAttr"].empty()) {
       shareAttr = make_shared<long>(boost::any_cast<long>(m["ShareAttr"]));
     }
@@ -14262,6 +14297,7 @@ public:
   shared_ptr<string> htmlContent{};
   shared_ptr<long> id{};
   shared_ptr<string> pubTime{};
+  shared_ptr<string> regionId{};
   shared_ptr<long> shareAttr{};
   shared_ptr<string> srcFrom{};
   shared_ptr<string> summary{};
@@ -14302,6 +14338,9 @@ public:
     }
     if (pubTime) {
       res["PubTime"] = boost::any(*pubTime);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (shareAttr) {
       res["ShareAttr"] = boost::any(*shareAttr);
@@ -14348,6 +14387,9 @@ public:
     }
     if (m.find("PubTime") != m.end() && !m["PubTime"].empty()) {
       pubTime = make_shared<string>(boost::any_cast<string>(m["PubTime"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ShareAttr") != m.end() && !m["ShareAttr"].empty()) {
       shareAttr = make_shared<long>(boost::any_cast<long>(m["ShareAttr"]));

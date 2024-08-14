@@ -227,6 +227,9 @@ DeleteGeneratedContentResponse Alibabacloud_AiMiaoBi20230801::Client::deleteGene
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
     query->insert(pair<string, string>("AgentKey", *request->agentKey));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     body->insert(pair<string, long>("Id", *request->id));
@@ -1186,6 +1189,9 @@ ListBuildConfigsResponse Alibabacloud_AiMiaoBi20230801::Client::listBuildConfigs
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
     query->insert(pair<string, string>("AgentKey", *request->agentKey));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     body->insert(pair<string, string>("Type", *request->type));
@@ -1310,11 +1316,17 @@ ListGeneratedContentsResponse Alibabacloud_AiMiaoBi20230801::Client::listGenerat
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     body->insert(pair<string, string>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
+    body->insert(pair<string, string>("Query", *request->query));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->size)) {
     body->insert(pair<string, long>("Size", *request->size));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     body->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("TaskId", *request->taskId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
     body->insert(pair<string, string>("Title", *request->title));
@@ -2040,6 +2052,9 @@ UpdateMaterialDocumentResponse Alibabacloud_AiMiaoBi20230801::Client::updateMate
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
     query->insert(pair<string, string>("AgentKey", *request->agentKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->author)) {
