@@ -3196,6 +3196,42 @@ public:
 
   virtual ~ListEvaluationResultsRequest() = default;
 };
+class ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+
+  ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo() {}
+
+  explicit ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+  }
+
+
+  virtual ~ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo() = default;
+};
 class ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary : public Darabonba::Model {
 public:
   shared_ptr<long> nonCompliant{};
@@ -3227,6 +3263,7 @@ public:
 };
 class ListEvaluationResultsResponseBodyResultsMetricResults : public Darabonba::Model {
 public:
+  shared_ptr<ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo> errorInfo{};
   shared_ptr<string> evaluationTime{};
   shared_ptr<string> id{};
   shared_ptr<ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary> resourcesSummary{};
@@ -3244,6 +3281,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (errorInfo) {
+      res["ErrorInfo"] = errorInfo ? boost::any(errorInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (evaluationTime) {
       res["EvaluationTime"] = boost::any(*evaluationTime);
     }
@@ -3266,6 +3306,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorInfo") != m.end() && !m["ErrorInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ErrorInfo"].type()) {
+        ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ErrorInfo"]));
+        errorInfo = make_shared<ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo>(model1);
+      }
+    }
     if (m.find("EvaluationTime") != m.end() && !m["EvaluationTime"].empty()) {
       evaluationTime = make_shared<string>(boost::any_cast<string>(m["EvaluationTime"]));
     }
