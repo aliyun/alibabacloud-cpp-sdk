@@ -885,6 +885,12 @@ ListInstancesResponse Alibabacloud_Pai-dsw20220101::Client::listInstancesWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->createUserId)) {
     query->insert(pair<string, string>("CreateUserId", *request->createUserId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gpuType)) {
+    query->insert(pair<string, string>("GpuType", *request->gpuType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageName)) {
+    query->insert(pair<string, string>("ImageName", *request->imageName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -893,6 +899,30 @@ ListInstancesResponse Alibabacloud_Pai-dsw20220101::Client::listInstancesWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->labelsShrink)) {
     query->insert(pair<string, string>("Labels", *request->labelsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxCpu)) {
+    query->insert(pair<string, string>("MaxCpu", *request->maxCpu));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxGpu)) {
+    query->insert(pair<string, string>("MaxGpu", *request->maxGpu));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxGpuMemory)) {
+    query->insert(pair<string, string>("MaxGpuMemory", *request->maxGpuMemory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxMemory)) {
+    query->insert(pair<string, string>("MaxMemory", *request->maxMemory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->minCpu)) {
+    query->insert(pair<string, string>("MinCpu", *request->minCpu));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->minGpu)) {
+    query->insert(pair<string, string>("MinGpu", *request->minGpu));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->minGpuMemory)) {
+    query->insert(pair<string, string>("MinGpuMemory", *request->minGpuMemory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->minMemory)) {
+    query->insert(pair<string, string>("MinMemory", *request->minMemory));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
     query->insert(pair<string, string>("Order", *request->order));

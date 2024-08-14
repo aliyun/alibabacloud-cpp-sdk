@@ -6448,9 +6448,19 @@ public:
   shared_ptr<string> acceleratorType{};
   shared_ptr<string> accessibility{};
   shared_ptr<string> createUserId{};
+  shared_ptr<string> gpuType{};
+  shared_ptr<string> imageName{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<map<string, boost::any>> labels{};
+  shared_ptr<string> maxCpu{};
+  shared_ptr<string> maxGpu{};
+  shared_ptr<string> maxGpuMemory{};
+  shared_ptr<string> maxMemory{};
+  shared_ptr<string> minCpu{};
+  shared_ptr<string> minGpu{};
+  shared_ptr<string> minGpuMemory{};
+  shared_ptr<string> minMemory{};
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -6479,6 +6489,12 @@ public:
     if (createUserId) {
       res["CreateUserId"] = boost::any(*createUserId);
     }
+    if (gpuType) {
+      res["GpuType"] = boost::any(*gpuType);
+    }
+    if (imageName) {
+      res["ImageName"] = boost::any(*imageName);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -6487,6 +6503,30 @@ public:
     }
     if (labels) {
       res["Labels"] = boost::any(*labels);
+    }
+    if (maxCpu) {
+      res["MaxCpu"] = boost::any(*maxCpu);
+    }
+    if (maxGpu) {
+      res["MaxGpu"] = boost::any(*maxGpu);
+    }
+    if (maxGpuMemory) {
+      res["MaxGpuMemory"] = boost::any(*maxGpuMemory);
+    }
+    if (maxMemory) {
+      res["MaxMemory"] = boost::any(*maxMemory);
+    }
+    if (minCpu) {
+      res["MinCpu"] = boost::any(*minCpu);
+    }
+    if (minGpu) {
+      res["MinGpu"] = boost::any(*minGpu);
+    }
+    if (minGpuMemory) {
+      res["MinGpuMemory"] = boost::any(*minGpuMemory);
+    }
+    if (minMemory) {
+      res["MinMemory"] = boost::any(*minMemory);
     }
     if (order) {
       res["Order"] = boost::any(*order);
@@ -6525,6 +6565,12 @@ public:
     if (m.find("CreateUserId") != m.end() && !m["CreateUserId"].empty()) {
       createUserId = make_shared<string>(boost::any_cast<string>(m["CreateUserId"]));
     }
+    if (m.find("GpuType") != m.end() && !m["GpuType"].empty()) {
+      gpuType = make_shared<string>(boost::any_cast<string>(m["GpuType"]));
+    }
+    if (m.find("ImageName") != m.end() && !m["ImageName"].empty()) {
+      imageName = make_shared<string>(boost::any_cast<string>(m["ImageName"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -6538,6 +6584,30 @@ public:
          toMap1[item.first] = item.second;
       }
       labels = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("MaxCpu") != m.end() && !m["MaxCpu"].empty()) {
+      maxCpu = make_shared<string>(boost::any_cast<string>(m["MaxCpu"]));
+    }
+    if (m.find("MaxGpu") != m.end() && !m["MaxGpu"].empty()) {
+      maxGpu = make_shared<string>(boost::any_cast<string>(m["MaxGpu"]));
+    }
+    if (m.find("MaxGpuMemory") != m.end() && !m["MaxGpuMemory"].empty()) {
+      maxGpuMemory = make_shared<string>(boost::any_cast<string>(m["MaxGpuMemory"]));
+    }
+    if (m.find("MaxMemory") != m.end() && !m["MaxMemory"].empty()) {
+      maxMemory = make_shared<string>(boost::any_cast<string>(m["MaxMemory"]));
+    }
+    if (m.find("MinCpu") != m.end() && !m["MinCpu"].empty()) {
+      minCpu = make_shared<string>(boost::any_cast<string>(m["MinCpu"]));
+    }
+    if (m.find("MinGpu") != m.end() && !m["MinGpu"].empty()) {
+      minGpu = make_shared<string>(boost::any_cast<string>(m["MinGpu"]));
+    }
+    if (m.find("MinGpuMemory") != m.end() && !m["MinGpuMemory"].empty()) {
+      minGpuMemory = make_shared<string>(boost::any_cast<string>(m["MinGpuMemory"]));
+    }
+    if (m.find("MinMemory") != m.end() && !m["MinMemory"].empty()) {
+      minMemory = make_shared<string>(boost::any_cast<string>(m["MinMemory"]));
     }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));
@@ -6573,9 +6643,19 @@ public:
   shared_ptr<string> acceleratorType{};
   shared_ptr<string> accessibility{};
   shared_ptr<string> createUserId{};
+  shared_ptr<string> gpuType{};
+  shared_ptr<string> imageName{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> labelsShrink{};
+  shared_ptr<string> maxCpu{};
+  shared_ptr<string> maxGpu{};
+  shared_ptr<string> maxGpuMemory{};
+  shared_ptr<string> maxMemory{};
+  shared_ptr<string> minCpu{};
+  shared_ptr<string> minGpu{};
+  shared_ptr<string> minGpuMemory{};
+  shared_ptr<string> minMemory{};
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -6604,6 +6684,12 @@ public:
     if (createUserId) {
       res["CreateUserId"] = boost::any(*createUserId);
     }
+    if (gpuType) {
+      res["GpuType"] = boost::any(*gpuType);
+    }
+    if (imageName) {
+      res["ImageName"] = boost::any(*imageName);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -6612,6 +6698,30 @@ public:
     }
     if (labelsShrink) {
       res["Labels"] = boost::any(*labelsShrink);
+    }
+    if (maxCpu) {
+      res["MaxCpu"] = boost::any(*maxCpu);
+    }
+    if (maxGpu) {
+      res["MaxGpu"] = boost::any(*maxGpu);
+    }
+    if (maxGpuMemory) {
+      res["MaxGpuMemory"] = boost::any(*maxGpuMemory);
+    }
+    if (maxMemory) {
+      res["MaxMemory"] = boost::any(*maxMemory);
+    }
+    if (minCpu) {
+      res["MinCpu"] = boost::any(*minCpu);
+    }
+    if (minGpu) {
+      res["MinGpu"] = boost::any(*minGpu);
+    }
+    if (minGpuMemory) {
+      res["MinGpuMemory"] = boost::any(*minGpuMemory);
+    }
+    if (minMemory) {
+      res["MinMemory"] = boost::any(*minMemory);
     }
     if (order) {
       res["Order"] = boost::any(*order);
@@ -6650,6 +6760,12 @@ public:
     if (m.find("CreateUserId") != m.end() && !m["CreateUserId"].empty()) {
       createUserId = make_shared<string>(boost::any_cast<string>(m["CreateUserId"]));
     }
+    if (m.find("GpuType") != m.end() && !m["GpuType"].empty()) {
+      gpuType = make_shared<string>(boost::any_cast<string>(m["GpuType"]));
+    }
+    if (m.find("ImageName") != m.end() && !m["ImageName"].empty()) {
+      imageName = make_shared<string>(boost::any_cast<string>(m["ImageName"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -6658,6 +6774,30 @@ public:
     }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labelsShrink = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+    if (m.find("MaxCpu") != m.end() && !m["MaxCpu"].empty()) {
+      maxCpu = make_shared<string>(boost::any_cast<string>(m["MaxCpu"]));
+    }
+    if (m.find("MaxGpu") != m.end() && !m["MaxGpu"].empty()) {
+      maxGpu = make_shared<string>(boost::any_cast<string>(m["MaxGpu"]));
+    }
+    if (m.find("MaxGpuMemory") != m.end() && !m["MaxGpuMemory"].empty()) {
+      maxGpuMemory = make_shared<string>(boost::any_cast<string>(m["MaxGpuMemory"]));
+    }
+    if (m.find("MaxMemory") != m.end() && !m["MaxMemory"].empty()) {
+      maxMemory = make_shared<string>(boost::any_cast<string>(m["MaxMemory"]));
+    }
+    if (m.find("MinCpu") != m.end() && !m["MinCpu"].empty()) {
+      minCpu = make_shared<string>(boost::any_cast<string>(m["MinCpu"]));
+    }
+    if (m.find("MinGpu") != m.end() && !m["MinGpu"].empty()) {
+      minGpu = make_shared<string>(boost::any_cast<string>(m["MinGpu"]));
+    }
+    if (m.find("MinGpuMemory") != m.end() && !m["MinGpuMemory"].empty()) {
+      minGpuMemory = make_shared<string>(boost::any_cast<string>(m["MinGpuMemory"]));
+    }
+    if (m.find("MinMemory") != m.end() && !m["MinMemory"].empty()) {
+      minMemory = make_shared<string>(boost::any_cast<string>(m["MinMemory"]));
     }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));
