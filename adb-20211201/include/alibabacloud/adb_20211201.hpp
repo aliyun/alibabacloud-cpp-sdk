@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_ADB20211201_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -3576,6 +3577,8 @@ public:
   shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<bool> enableSpot{};
+  shared_ptr<string> engine{};
+  shared_ptr<map<string, boost::any>> engineParams{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupType{};
   shared_ptr<long> maxClusterCount{};
@@ -3606,6 +3609,12 @@ public:
     }
     if (enableSpot) {
       res["EnableSpot"] = boost::any(*enableSpot);
+    }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
+    }
+    if (engineParams) {
+      res["EngineParams"] = boost::any(*engineParams);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
@@ -3650,6 +3659,17 @@ public:
     }
     if (m.find("EnableSpot") != m.end() && !m["EnableSpot"].empty()) {
       enableSpot = make_shared<bool>(boost::any_cast<bool>(m["EnableSpot"]));
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("EngineParams") != m.end() && !m["EngineParams"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["EngineParams"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      engineParams = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
@@ -3696,6 +3716,8 @@ public:
   shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<bool> enableSpot{};
+  shared_ptr<string> engine{};
+  shared_ptr<string> engineParamsShrink{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupType{};
   shared_ptr<long> maxClusterCount{};
@@ -3726,6 +3748,12 @@ public:
     }
     if (enableSpot) {
       res["EnableSpot"] = boost::any(*enableSpot);
+    }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
+    }
+    if (engineParamsShrink) {
+      res["EngineParams"] = boost::any(*engineParamsShrink);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
@@ -3766,6 +3794,12 @@ public:
     }
     if (m.find("EnableSpot") != m.end() && !m["EnableSpot"].empty()) {
       enableSpot = make_shared<bool>(boost::any_cast<bool>(m["EnableSpot"]));
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("EngineParams") != m.end() && !m["EngineParams"].empty()) {
+      engineParamsShrink = make_shared<string>(boost::any_cast<string>(m["EngineParams"]));
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
@@ -13810,11 +13844,14 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> elasticMinComputeResource{};
   shared_ptr<string> enableSpot{};
+  shared_ptr<string> engine{};
+  shared_ptr<map<string, boost::any>> engineParams{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupType{};
   shared_ptr<string> groupUsers{};
   shared_ptr<long> maxClusterCount{};
   shared_ptr<string> maxComputeResource{};
+  shared_ptr<string> message{};
   shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
   shared_ptr<vector<DescribeDBResourceGroupResponseBodyGroupsInfoRules>> rules{};
@@ -13847,6 +13884,12 @@ public:
     if (enableSpot) {
       res["EnableSpot"] = boost::any(*enableSpot);
     }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
+    }
+    if (engineParams) {
+      res["EngineParams"] = boost::any(*engineParams);
+    }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
@@ -13861,6 +13904,9 @@ public:
     }
     if (maxComputeResource) {
       res["MaxComputeResource"] = boost::any(*maxComputeResource);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
     }
     if (minClusterCount) {
       res["MinClusterCount"] = boost::any(*minClusterCount);
@@ -13903,6 +13949,17 @@ public:
     if (m.find("EnableSpot") != m.end() && !m["EnableSpot"].empty()) {
       enableSpot = make_shared<string>(boost::any_cast<string>(m["EnableSpot"]));
     }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("EngineParams") != m.end() && !m["EngineParams"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["EngineParams"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      engineParams = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
     }
@@ -13917,6 +13974,9 @@ public:
     }
     if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
       maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
       minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
@@ -27637,6 +27697,7 @@ public:
   shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<bool> enableSpot{};
+  shared_ptr<map<string, boost::any>> engineParams{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupType{};
   shared_ptr<long> maxClusterCount{};
@@ -27667,6 +27728,9 @@ public:
     }
     if (enableSpot) {
       res["EnableSpot"] = boost::any(*enableSpot);
+    }
+    if (engineParams) {
+      res["EngineParams"] = boost::any(*engineParams);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
@@ -27711,6 +27775,14 @@ public:
     }
     if (m.find("EnableSpot") != m.end() && !m["EnableSpot"].empty()) {
       enableSpot = make_shared<bool>(boost::any_cast<bool>(m["EnableSpot"]));
+    }
+    if (m.find("EngineParams") != m.end() && !m["EngineParams"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["EngineParams"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      engineParams = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
@@ -27757,6 +27829,7 @@ public:
   shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<bool> enableSpot{};
+  shared_ptr<string> engineParamsShrink{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupType{};
   shared_ptr<long> maxClusterCount{};
@@ -27787,6 +27860,9 @@ public:
     }
     if (enableSpot) {
       res["EnableSpot"] = boost::any(*enableSpot);
+    }
+    if (engineParamsShrink) {
+      res["EngineParams"] = boost::any(*engineParamsShrink);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
@@ -27827,6 +27903,9 @@ public:
     }
     if (m.find("EnableSpot") != m.end() && !m["EnableSpot"].empty()) {
       enableSpot = make_shared<bool>(boost::any_cast<bool>(m["EnableSpot"]));
+    }
+    if (m.find("EngineParams") != m.end() && !m["EngineParams"].empty()) {
+      engineParamsShrink = make_shared<string>(boost::any_cast<string>(m["EngineParams"]));
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));

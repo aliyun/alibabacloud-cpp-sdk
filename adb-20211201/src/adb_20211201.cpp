@@ -417,6 +417,9 @@ CreateDBResourceGroupResponse Alibabacloud_Adb20211201::Client::createDBResource
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateDBResourceGroupShrinkRequest> request = make_shared<CreateDBResourceGroupShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->engineParams)) {
+    request->engineParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->engineParams, make_shared<string>("EngineParams"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateDBResourceGroupRequestRules>>(tmpReq->rules)) {
     request->rulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->rules, make_shared<string>("Rules"), make_shared<string>("json")));
   }
@@ -432,6 +435,12 @@ CreateDBResourceGroupResponse Alibabacloud_Adb20211201::Client::createDBResource
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableSpot)) {
     query->insert(pair<string, bool>("EnableSpot", *request->enableSpot));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
+    query->insert(pair<string, string>("Engine", *request->engine));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engineParamsShrink)) {
+    query->insert(pair<string, string>("EngineParams", *request->engineParamsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
@@ -4542,6 +4551,9 @@ ModifyDBResourceGroupResponse Alibabacloud_Adb20211201::Client::modifyDBResource
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ModifyDBResourceGroupShrinkRequest> request = make_shared<ModifyDBResourceGroupShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->engineParams)) {
+    request->engineParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->engineParams, make_shared<string>("EngineParams"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ModifyDBResourceGroupRequestRules>>(tmpReq->rules)) {
     request->rulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->rules, make_shared<string>("Rules"), make_shared<string>("json")));
   }
@@ -4557,6 +4569,9 @@ ModifyDBResourceGroupResponse Alibabacloud_Adb20211201::Client::modifyDBResource
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableSpot)) {
     query->insert(pair<string, bool>("EnableSpot", *request->enableSpot));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engineParamsShrink)) {
+    query->insert(pair<string, string>("EngineParams", *request->engineParamsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
