@@ -29294,11 +29294,41 @@ public:
 
   virtual ~UpdateUserPermissionsResponse() = default;
 };
+class UpgradeClusterRequestRollingPolicy : public Darabonba::Model {
+public:
+  shared_ptr<long> maxParallelism{};
+
+  UpgradeClusterRequestRollingPolicy() {}
+
+  explicit UpgradeClusterRequestRollingPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxParallelism) {
+      res["max_parallelism"] = boost::any(*maxParallelism);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("max_parallelism") != m.end() && !m["max_parallelism"].empty()) {
+      maxParallelism = make_shared<long>(boost::any_cast<long>(m["max_parallelism"]));
+    }
+  }
+
+
+  virtual ~UpgradeClusterRequestRollingPolicy() = default;
+};
 class UpgradeClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> componentName{};
   shared_ptr<bool> masterOnly{};
   shared_ptr<string> nextVersion{};
+  shared_ptr<UpgradeClusterRequestRollingPolicy> rollingPolicy{};
   shared_ptr<string> version{};
 
   UpgradeClusterRequest() {}
@@ -29320,6 +29350,9 @@ public:
     if (nextVersion) {
       res["next_version"] = boost::any(*nextVersion);
     }
+    if (rollingPolicy) {
+      res["rolling_policy"] = rollingPolicy ? boost::any(rollingPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (version) {
       res["version"] = boost::any(*version);
     }
@@ -29335,6 +29368,13 @@ public:
     }
     if (m.find("next_version") != m.end() && !m["next_version"].empty()) {
       nextVersion = make_shared<string>(boost::any_cast<string>(m["next_version"]));
+    }
+    if (m.find("rolling_policy") != m.end() && !m["rolling_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["rolling_policy"].type()) {
+        UpgradeClusterRequestRollingPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["rolling_policy"]));
+        rollingPolicy = make_shared<UpgradeClusterRequestRollingPolicy>(model1);
+      }
     }
     if (m.find("version") != m.end() && !m["version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["version"]));

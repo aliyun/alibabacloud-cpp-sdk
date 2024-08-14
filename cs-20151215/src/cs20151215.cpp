@@ -5085,6 +5085,9 @@ UpgradeClusterResponse Alibabacloud_CS20151215::Client::upgradeClusterWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->nextVersion)) {
     body->insert(pair<string, string>("next_version", *request->nextVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<UpgradeClusterRequestRollingPolicy>(request->rollingPolicy)) {
+    body->insert(pair<string, UpgradeClusterRequestRollingPolicy>("rolling_policy", *request->rollingPolicy));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
     body->insert(pair<string, string>("version", *request->version));
   }
