@@ -20318,6 +20318,7 @@ public:
 };
 class DeleteRumUploadFileRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> batchItems{};
   shared_ptr<string> fileName{};
   shared_ptr<string> pid{};
   shared_ptr<string> regionId{};
@@ -20334,6 +20335,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (batchItems) {
+      res["BatchItems"] = boost::any(*batchItems);
+    }
     if (fileName) {
       res["FileName"] = boost::any(*fileName);
     }
@@ -20353,6 +20357,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BatchItems") != m.end() && !m["BatchItems"].empty()) {
+      batchItems = make_shared<string>(boost::any_cast<string>(m["BatchItems"]));
+    }
     if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
       fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
     }

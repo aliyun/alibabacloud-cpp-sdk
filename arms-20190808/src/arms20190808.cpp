@@ -3172,6 +3172,9 @@ DeleteRumAppResponse Alibabacloud_ARMS20190808::Client::deleteRumApp(shared_ptr<
 DeleteRumUploadFileResponse Alibabacloud_ARMS20190808::Client::deleteRumUploadFileWithOptions(shared_ptr<DeleteRumUploadFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->batchItems)) {
+    query->insert(pair<string, string>("BatchItems", *request->batchItems));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
     query->insert(pair<string, string>("FileName", *request->fileName));
   }
