@@ -44723,6 +44723,515 @@ public:
 
   virtual ~DescribeIpv6GatewaysResponse() = default;
 };
+class DescribeNatGatewayAssociateNetworkInterfacesRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeNatGatewayAssociateNetworkInterfacesRequestFilter() {}
+
+  explicit DescribeNatGatewayAssociateNetworkInterfacesRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeNatGatewayAssociateNetworkInterfacesRequestFilter() = default;
+};
+class DescribeNatGatewayAssociateNetworkInterfacesRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeNatGatewayAssociateNetworkInterfacesRequestTag() {}
+
+  explicit DescribeNatGatewayAssociateNetworkInterfacesRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeNatGatewayAssociateNetworkInterfacesRequestTag() = default;
+};
+class DescribeNatGatewayAssociateNetworkInterfacesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<vector<DescribeNatGatewayAssociateNetworkInterfacesRequestFilter>> filter{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> natGatewayId{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<DescribeNatGatewayAssociateNetworkInterfacesRequestTag>> tag{};
+
+  DescribeNatGatewayAssociateNetworkInterfacesRequest() {}
+
+  explicit DescribeNatGatewayAssociateNetworkInterfacesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (filter) {
+      vector<boost::any> temp1;
+      for(auto item1:*filter){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filter"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (natGatewayId) {
+      res["NatGatewayId"] = boost::any(*natGatewayId);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filter"].type()) {
+        vector<DescribeNatGatewayAssociateNetworkInterfacesRequestFilter> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filter"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNatGatewayAssociateNetworkInterfacesRequestFilter model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filter = make_shared<vector<DescribeNatGatewayAssociateNetworkInterfacesRequestFilter>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
+      natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeNatGatewayAssociateNetworkInterfacesRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNatGatewayAssociateNetworkInterfacesRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeNatGatewayAssociateNetworkInterfacesRequestTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNatGatewayAssociateNetworkInterfacesRequest() = default;
+};
+class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4SetsIPv4Set : public Darabonba::Model {
+public:
+  shared_ptr<string> IPv4Address{};
+  shared_ptr<bool> primary{};
+
+  DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4SetsIPv4Set() {}
+
+  explicit DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4SetsIPv4Set(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (IPv4Address) {
+      res["IPv4Address"] = boost::any(*IPv4Address);
+    }
+    if (primary) {
+      res["Primary"] = boost::any(*primary);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IPv4Address") != m.end() && !m["IPv4Address"].empty()) {
+      IPv4Address = make_shared<string>(boost::any_cast<string>(m["IPv4Address"]));
+    }
+    if (m.find("Primary") != m.end() && !m["Primary"].empty()) {
+      primary = make_shared<bool>(boost::any_cast<bool>(m["Primary"]));
+    }
+  }
+
+
+  virtual ~DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4SetsIPv4Set() = default;
+};
+class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4Sets : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4SetsIPv4Set>> IPv4Set{};
+
+  DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4Sets() {}
+
+  explicit DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4Sets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (IPv4Set) {
+      vector<boost::any> temp1;
+      for(auto item1:*IPv4Set){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IPv4Set"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IPv4Set") != m.end() && !m["IPv4Set"].empty()) {
+      if (typeid(vector<boost::any>) == m["IPv4Set"].type()) {
+        vector<DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4SetsIPv4Set> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IPv4Set"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4SetsIPv4Set model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        IPv4Set = make_shared<vector<DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4SetsIPv4Set>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4Sets() = default;
+};
+class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface : public Darabonba::Model {
+public:
+  shared_ptr<DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4Sets> IPv4Sets{};
+  shared_ptr<string> networkInterfaceId{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceOwnerId{};
+  shared_ptr<string> resourceType{};
+
+  DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface() {}
+
+  explicit DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (IPv4Sets) {
+      res["IPv4Sets"] = IPv4Sets ? boost::any(IPv4Sets->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkInterfaceId) {
+      res["NetworkInterfaceId"] = boost::any(*networkInterfaceId);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IPv4Sets") != m.end() && !m["IPv4Sets"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IPv4Sets"].type()) {
+        DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4Sets model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IPv4Sets"]));
+        IPv4Sets = make_shared<DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4Sets>(model1);
+      }
+    }
+    if (m.find("NetworkInterfaceId") != m.end() && !m["NetworkInterfaceId"].empty()) {
+      networkInterfaceId = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceId"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface() = default;
+};
+class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface>> associateNetworkInterface{};
+
+  DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces() {}
+
+  explicit DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (associateNetworkInterface) {
+      vector<boost::any> temp1;
+      for(auto item1:*associateNetworkInterface){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AssociateNetworkInterface"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssociateNetworkInterface") != m.end() && !m["AssociateNetworkInterface"].empty()) {
+      if (typeid(vector<boost::any>) == m["AssociateNetworkInterface"].type()) {
+        vector<DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AssociateNetworkInterface"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        associateNetworkInterface = make_shared<vector<DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces() = default;
+};
+class DescribeNatGatewayAssociateNetworkInterfacesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces> associateNetworkInterfaces{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> natGatewayId{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeNatGatewayAssociateNetworkInterfacesResponseBody() {}
+
+  explicit DescribeNatGatewayAssociateNetworkInterfacesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (associateNetworkInterfaces) {
+      res["AssociateNetworkInterfaces"] = associateNetworkInterfaces ? boost::any(associateNetworkInterfaces->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (natGatewayId) {
+      res["NatGatewayId"] = boost::any(*natGatewayId);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssociateNetworkInterfaces") != m.end() && !m["AssociateNetworkInterfaces"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AssociateNetworkInterfaces"].type()) {
+        DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AssociateNetworkInterfaces"]));
+        associateNetworkInterfaces = make_shared<DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces>(model1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
+      natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeNatGatewayAssociateNetworkInterfacesResponseBody() = default;
+};
+class DescribeNatGatewayAssociateNetworkInterfacesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeNatGatewayAssociateNetworkInterfacesResponseBody> body{};
+
+  DescribeNatGatewayAssociateNetworkInterfacesResponse() {}
+
+  explicit DescribeNatGatewayAssociateNetworkInterfacesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeNatGatewayAssociateNetworkInterfacesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeNatGatewayAssociateNetworkInterfacesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNatGatewayAssociateNetworkInterfacesResponse() = default;
+};
 class DescribeNatGatewaysRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -103116,6 +103625,8 @@ public:
   DescribeIpv6GatewayAttributeResponse describeIpv6GatewayAttribute(shared_ptr<DescribeIpv6GatewayAttributeRequest> request);
   DescribeIpv6GatewaysResponse describeIpv6GatewaysWithOptions(shared_ptr<DescribeIpv6GatewaysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeIpv6GatewaysResponse describeIpv6Gateways(shared_ptr<DescribeIpv6GatewaysRequest> request);
+  DescribeNatGatewayAssociateNetworkInterfacesResponse describeNatGatewayAssociateNetworkInterfacesWithOptions(shared_ptr<DescribeNatGatewayAssociateNetworkInterfacesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeNatGatewayAssociateNetworkInterfacesResponse describeNatGatewayAssociateNetworkInterfaces(shared_ptr<DescribeNatGatewayAssociateNetworkInterfacesRequest> request);
   DescribeNatGatewaysResponse describeNatGatewaysWithOptions(shared_ptr<DescribeNatGatewaysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeNatGatewaysResponse describeNatGateways(shared_ptr<DescribeNatGatewaysRequest> request);
   DescribeNetworkAclAttributesResponse describeNetworkAclAttributesWithOptions(shared_ptr<DescribeNetworkAclAttributesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
