@@ -1835,6 +1835,9 @@ DescribeChannelAccountResponse Alibabacloud_Dts20200101::Client::describeChannel
 DescribeCheckJobsResponse Alibabacloud_Dts20200101::Client::describeCheckJobsWithOptions(shared_ptr<DescribeCheckJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->checkJobId)) {
+    query->insert(pair<string, string>("CheckJobId", *request->checkJobId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->checkType)) {
     query->insert(pair<string, long>("CheckType", *request->checkType));
   }

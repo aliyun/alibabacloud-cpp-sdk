@@ -7114,6 +7114,7 @@ public:
 };
 class DescribeCheckJobsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> checkJobId{};
   shared_ptr<long> checkType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> jobName{};
@@ -7131,6 +7132,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (checkJobId) {
+      res["CheckJobId"] = boost::any(*checkJobId);
+    }
     if (checkType) {
       res["CheckType"] = boost::any(*checkType);
     }
@@ -7153,6 +7157,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckJobId") != m.end() && !m["CheckJobId"].empty()) {
+      checkJobId = make_shared<string>(boost::any_cast<string>(m["CheckJobId"]));
+    }
     if (m.find("CheckType") != m.end() && !m["CheckType"].empty()) {
       checkType = make_shared<long>(boost::any_cast<long>(m["CheckType"]));
     }
@@ -19678,6 +19685,7 @@ public:
   shared_ptr<string> dtsJobDirection{};
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> dtsJobName{};
+  shared_ptr<string> duRealUsage{};
   shared_ptr<long> duUsage{};
   shared_ptr<string> endTimestamp{};
   shared_ptr<vector<DescribeDtsJobsResponseBodyDtsJobListErrorDetails>> errorDetails{};
@@ -19783,6 +19791,9 @@ public:
     }
     if (dtsJobName) {
       res["DtsJobName"] = boost::any(*dtsJobName);
+    }
+    if (duRealUsage) {
+      res["DuRealUsage"] = boost::any(*duRealUsage);
     }
     if (duUsage) {
       res["DuUsage"] = boost::any(*duUsage);
@@ -19974,6 +19985,9 @@ public:
     }
     if (m.find("DtsJobName") != m.end() && !m["DtsJobName"].empty()) {
       dtsJobName = make_shared<string>(boost::any_cast<string>(m["DtsJobName"]));
+    }
+    if (m.find("DuRealUsage") != m.end() && !m["DuRealUsage"].empty()) {
+      duRealUsage = make_shared<string>(boost::any_cast<string>(m["DuRealUsage"]));
     }
     if (m.find("DuUsage") != m.end() && !m["DuUsage"].empty()) {
       duUsage = make_shared<long>(boost::any_cast<long>(m["DuUsage"]));
