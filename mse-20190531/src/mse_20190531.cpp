@@ -9860,6 +9860,67 @@ UpdateNacosConfigResponse Alibabacloud_Mse20190531::Client::updateNacosConfig(sh
   return updateNacosConfigWithOptions(request, runtime);
 }
 
+UpdateNacosGrayConfigResponse Alibabacloud_Mse20190531::Client::updateNacosGrayConfigWithOptions(shared_ptr<UpdateNacosGrayConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    query->insert(pair<string, string>("Content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataId)) {
+    query->insert(pair<string, string>("DataId", *request->dataId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grayRule)) {
+    query->insert(pair<string, string>("GrayRule", *request->grayRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grayType)) {
+    query->insert(pair<string, string>("GrayType", *request->grayType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->group)) {
+    query->insert(pair<string, string>("Group", *request->group));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
+    query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestPars)) {
+    query->insert(pair<string, string>("RequestPars", *request->requestPars));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->stopGray)) {
+    query->insert(pair<string, bool>("StopGray", *request->stopGray));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateNacosGrayConfig"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateNacosGrayConfigResponse(callApi(params, req, runtime));
+}
+
+UpdateNacosGrayConfigResponse Alibabacloud_Mse20190531::Client::updateNacosGrayConfig(shared_ptr<UpdateNacosGrayConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateNacosGrayConfigWithOptions(request, runtime);
+}
+
 UpdateNacosInstanceResponse Alibabacloud_Mse20190531::Client::updateNacosInstanceWithOptions(shared_ptr<UpdateNacosInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

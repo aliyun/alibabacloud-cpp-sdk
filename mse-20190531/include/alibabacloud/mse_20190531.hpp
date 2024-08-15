@@ -71362,6 +71362,200 @@ public:
 
   virtual ~UpdateNacosConfigResponse() = default;
 };
+class UpdateNacosGrayConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> content{};
+  shared_ptr<string> dataId{};
+  shared_ptr<string> grayRule{};
+  shared_ptr<string> grayType{};
+  shared_ptr<string> group{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> namespaceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> requestPars{};
+  shared_ptr<bool> stopGray{};
+
+  UpdateNacosGrayConfigRequest() {}
+
+  explicit UpdateNacosGrayConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (dataId) {
+      res["DataId"] = boost::any(*dataId);
+    }
+    if (grayRule) {
+      res["GrayRule"] = boost::any(*grayRule);
+    }
+    if (grayType) {
+      res["GrayType"] = boost::any(*grayType);
+    }
+    if (group) {
+      res["Group"] = boost::any(*group);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (requestPars) {
+      res["RequestPars"] = boost::any(*requestPars);
+    }
+    if (stopGray) {
+      res["StopGray"] = boost::any(*stopGray);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
+      dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
+    }
+    if (m.find("GrayRule") != m.end() && !m["GrayRule"].empty()) {
+      grayRule = make_shared<string>(boost::any_cast<string>(m["GrayRule"]));
+    }
+    if (m.find("GrayType") != m.end() && !m["GrayType"].empty()) {
+      grayType = make_shared<string>(boost::any_cast<string>(m["GrayType"]));
+    }
+    if (m.find("Group") != m.end() && !m["Group"].empty()) {
+      group = make_shared<string>(boost::any_cast<string>(m["Group"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RequestPars") != m.end() && !m["RequestPars"].empty()) {
+      requestPars = make_shared<string>(boost::any_cast<string>(m["RequestPars"]));
+    }
+    if (m.find("StopGray") != m.end() && !m["StopGray"].empty()) {
+      stopGray = make_shared<bool>(boost::any_cast<bool>(m["StopGray"]));
+    }
+  }
+
+
+  virtual ~UpdateNacosGrayConfigRequest() = default;
+};
+class UpdateNacosGrayConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  UpdateNacosGrayConfigResponseBody() {}
+
+  explicit UpdateNacosGrayConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateNacosGrayConfigResponseBody() = default;
+};
+class UpdateNacosGrayConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateNacosGrayConfigResponseBody> body{};
+
+  UpdateNacosGrayConfigResponse() {}
+
+  explicit UpdateNacosGrayConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateNacosGrayConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateNacosGrayConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateNacosGrayConfigResponse() = default;
+};
 class UpdateNacosInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -73403,6 +73597,8 @@ public:
   UpdateNacosClusterResponse updateNacosCluster(shared_ptr<UpdateNacosClusterRequest> request);
   UpdateNacosConfigResponse updateNacosConfigWithOptions(shared_ptr<UpdateNacosConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateNacosConfigResponse updateNacosConfig(shared_ptr<UpdateNacosConfigRequest> request);
+  UpdateNacosGrayConfigResponse updateNacosGrayConfigWithOptions(shared_ptr<UpdateNacosGrayConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateNacosGrayConfigResponse updateNacosGrayConfig(shared_ptr<UpdateNacosGrayConfigRequest> request);
   UpdateNacosInstanceResponse updateNacosInstanceWithOptions(shared_ptr<UpdateNacosInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateNacosInstanceResponse updateNacosInstance(shared_ptr<UpdateNacosInstanceRequest> request);
   UpdateNacosServiceResponse updateNacosServiceWithOptions(shared_ptr<UpdateNacosServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
