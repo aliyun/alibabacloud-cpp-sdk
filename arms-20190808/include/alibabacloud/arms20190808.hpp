@@ -2324,13 +2324,13 @@ public:
 
   virtual ~QueryDataResponse() = default;
 };
-class DataBonreeSDKConfigModuleConfigValue : public Darabonba::Model {
+class DataBonreeSDKConfigModuleConfigDefaultConfigValue : public Darabonba::Model {
 public:
   shared_ptr<bool> enable{};
 
-  DataBonreeSDKConfigModuleConfigValue() {}
+  DataBonreeSDKConfigModuleConfigDefaultConfigValue() {}
 
-  explicit DataBonreeSDKConfigModuleConfigValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit DataBonreeSDKConfigModuleConfigDefaultConfigValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -2351,7 +2351,100 @@ public:
   }
 
 
-  virtual ~DataBonreeSDKConfigModuleConfigValue() = default;
+  virtual ~DataBonreeSDKConfigModuleConfigDefaultConfigValue() = default;
+};
+class DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue() {}
+
+  explicit DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+  }
+
+
+  virtual ~DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue() = default;
+};
+class DataBonreeSDKConfigModuleConfigVersionConfigsValue : public Darabonba::Model {
+public:
+  shared_ptr<bool> useCustom{};
+  shared_ptr<map<string, DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue>> customConfig{};
+  shared_ptr<string> description{};
+  shared_ptr<long> updateTime{};
+
+  DataBonreeSDKConfigModuleConfigVersionConfigsValue() {}
+
+  explicit DataBonreeSDKConfigModuleConfigVersionConfigsValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (useCustom) {
+      res["useCustom"] = boost::any(*useCustom);
+    }
+    if (customConfig) {
+      map<string, boost::any> temp1;
+      for(auto item1:*customConfig){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["customConfig"] = boost::any(temp1);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (updateTime) {
+      res["updateTime"] = boost::any(*updateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("useCustom") != m.end() && !m["useCustom"].empty()) {
+      useCustom = make_shared<bool>(boost::any_cast<bool>(m["useCustom"]));
+    }
+    if (m.find("customConfig") != m.end() && !m["customConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customConfig"].type()) {
+        map<string, DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["customConfig"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
+        }
+        customConfig = make_shared<map<string, DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue>>(expect1);
+      }
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("updateTime") != m.end() && !m["updateTime"].empty()) {
+      updateTime = make_shared<long>(boost::any_cast<long>(m["updateTime"]));
+    }
+  }
+
+
+  virtual ~DataBonreeSDKConfigModuleConfigVersionConfigsValue() = default;
 };
 class AddAliClusterIdsToPrometheusGlobalViewRequest : public Darabonba::Model {
 public:
@@ -10416,11 +10509,14 @@ public:
 };
 class CreateOrUpdateSilencePolicyRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> effectiveTimeType{};
   shared_ptr<long> id{};
   shared_ptr<string> matchingRules{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
   shared_ptr<string> state{};
+  shared_ptr<string> timePeriod{};
+  shared_ptr<string> timeSlots{};
 
   CreateOrUpdateSilencePolicyRequest() {}
 
@@ -10432,6 +10528,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (effectiveTimeType) {
+      res["EffectiveTimeType"] = boost::any(*effectiveTimeType);
+    }
     if (id) {
       res["Id"] = boost::any(*id);
     }
@@ -10447,10 +10546,19 @@ public:
     if (state) {
       res["State"] = boost::any(*state);
     }
+    if (timePeriod) {
+      res["TimePeriod"] = boost::any(*timePeriod);
+    }
+    if (timeSlots) {
+      res["TimeSlots"] = boost::any(*timeSlots);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EffectiveTimeType") != m.end() && !m["EffectiveTimeType"].empty()) {
+      effectiveTimeType = make_shared<string>(boost::any_cast<string>(m["EffectiveTimeType"]));
+    }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
     }
@@ -10465,6 +10573,12 @@ public:
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("TimePeriod") != m.end() && !m["TimePeriod"].empty()) {
+      timePeriod = make_shared<string>(boost::any_cast<string>(m["TimePeriod"]));
+    }
+    if (m.find("TimeSlots") != m.end() && !m["TimeSlots"].empty()) {
+      timeSlots = make_shared<string>(boost::any_cast<string>(m["TimeSlots"]));
     }
   }
 
@@ -10559,10 +10673,13 @@ public:
 };
 class CreateOrUpdateSilencePolicyResponseBodySilencePolicy : public Darabonba::Model {
 public:
+  shared_ptr<string> effectiveTimeType{};
   shared_ptr<long> id{};
   shared_ptr<vector<CreateOrUpdateSilencePolicyResponseBodySilencePolicyMatchingRules>> matchingRules{};
   shared_ptr<string> name{};
   shared_ptr<string> state{};
+  shared_ptr<string> timePeriod{};
+  shared_ptr<string> timeSlots{};
 
   CreateOrUpdateSilencePolicyResponseBodySilencePolicy() {}
 
@@ -10574,6 +10691,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (effectiveTimeType) {
+      res["EffectiveTimeType"] = boost::any(*effectiveTimeType);
+    }
     if (id) {
       res["Id"] = boost::any(*id);
     }
@@ -10590,10 +10710,19 @@ public:
     if (state) {
       res["State"] = boost::any(*state);
     }
+    if (timePeriod) {
+      res["TimePeriod"] = boost::any(*timePeriod);
+    }
+    if (timeSlots) {
+      res["TimeSlots"] = boost::any(*timeSlots);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EffectiveTimeType") != m.end() && !m["EffectiveTimeType"].empty()) {
+      effectiveTimeType = make_shared<string>(boost::any_cast<string>(m["EffectiveTimeType"]));
+    }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
     }
@@ -10615,6 +10744,12 @@ public:
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("TimePeriod") != m.end() && !m["TimePeriod"].empty()) {
+      timePeriod = make_shared<string>(boost::any_cast<string>(m["TimePeriod"]));
+    }
+    if (m.find("TimeSlots") != m.end() && !m["TimeSlots"].empty()) {
+      timeSlots = make_shared<string>(boost::any_cast<string>(m["TimeSlots"]));
     }
   }
 
@@ -30535,7 +30670,7 @@ public:
   shared_ptr<string> securityGroupId{};
   shared_ptr<long> storageDuration{};
   shared_ptr<string> subClustersJson{};
-  shared_ptr<vector<string>> surpportAuthTypes{};
+  shared_ptr<vector<string>> supportAuthTypes{};
   shared_ptr<vector<GetPrometheusInstanceResponseBodyDataTags>> tags{};
   shared_ptr<string> userId{};
   shared_ptr<string> vSwitchId{};
@@ -30626,8 +30761,8 @@ public:
     if (subClustersJson) {
       res["SubClustersJson"] = boost::any(*subClustersJson);
     }
-    if (surpportAuthTypes) {
-      res["SurpportAuthTypes"] = boost::any(*surpportAuthTypes);
+    if (supportAuthTypes) {
+      res["SupportAuthTypes"] = boost::any(*supportAuthTypes);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -30724,15 +30859,15 @@ public:
     if (m.find("SubClustersJson") != m.end() && !m["SubClustersJson"].empty()) {
       subClustersJson = make_shared<string>(boost::any_cast<string>(m["SubClustersJson"]));
     }
-    if (m.find("SurpportAuthTypes") != m.end() && !m["SurpportAuthTypes"].empty()) {
+    if (m.find("SupportAuthTypes") != m.end() && !m["SupportAuthTypes"].empty()) {
       vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["SurpportAuthTypes"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SurpportAuthTypes"]);
+      if (typeid(vector<boost::any>) == m["SupportAuthTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SupportAuthTypes"]);
         for (auto item:vec1) {
            toVec1.push_back(boost::any_cast<string>(item));
         }
       }
-      surpportAuthTypes = make_shared<vector<string>>(toVec1);
+      supportAuthTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
@@ -32358,10 +32493,80 @@ public:
 
   virtual ~GetRumAppInfoRequest() = default;
 };
+class GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig : public Darabonba::Model {
+public:
+  shared_ptr<map<string, DataBonreeSDKConfigModuleConfigDefaultConfigValue>> defaultConfig{};
+  shared_ptr<bool> enable{};
+  shared_ptr<map<string, DataBonreeSDKConfigModuleConfigVersionConfigsValue>> versionConfigs{};
+
+  GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig() {}
+
+  explicit GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultConfig) {
+      map<string, boost::any> temp1;
+      for(auto item1:*defaultConfig){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["defaultConfig"] = boost::any(temp1);
+    }
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    if (versionConfigs) {
+      map<string, boost::any> temp1;
+      for(auto item1:*versionConfigs){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["versionConfigs"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("defaultConfig") != m.end() && !m["defaultConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["defaultConfig"].type()) {
+        map<string, DataBonreeSDKConfigModuleConfigDefaultConfigValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["defaultConfig"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            DataBonreeSDKConfigModuleConfigDefaultConfigValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
+        }
+        defaultConfig = make_shared<map<string, DataBonreeSDKConfigModuleConfigDefaultConfigValue>>(expect1);
+      }
+    }
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+    if (m.find("versionConfigs") != m.end() && !m["versionConfigs"].empty()) {
+      if (typeid(map<string, boost::any>) == m["versionConfigs"].type()) {
+        map<string, DataBonreeSDKConfigModuleConfigVersionConfigsValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["versionConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            DataBonreeSDKConfigModuleConfigVersionConfigsValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
+        }
+        versionConfigs = make_shared<map<string, DataBonreeSDKConfigModuleConfigVersionConfigsValue>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig() = default;
+};
 class GetRumAppInfoResponseBodyDataBonreeSDKConfig : public Darabonba::Model {
 public:
-  shared_ptr<bool> enable{};
-  shared_ptr<map<string, DataBonreeSDKConfigModuleConfigValue>> moduleConfig{};
+  shared_ptr<GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig> moduleConfig{};
 
   GetRumAppInfoResponseBodyDataBonreeSDKConfig() {}
 
@@ -32373,34 +32578,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (enable) {
-      res["enable"] = boost::any(*enable);
-    }
     if (moduleConfig) {
-      map<string, boost::any> temp1;
-      for(auto item1:*moduleConfig){
-        temp1[item1.first] = boost::any(item1.second.toMap());
-      }
-      res["moduleConfig"] = boost::any(temp1);
+      res["moduleConfig"] = moduleConfig ? boost::any(moduleConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("enable") != m.end() && !m["enable"].empty()) {
-      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
-    }
     if (m.find("moduleConfig") != m.end() && !m["moduleConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["moduleConfig"].type()) {
-        map<string, DataBonreeSDKConfigModuleConfigValue> expect1;
-        for(auto item1:boost::any_cast<map<string, boost::any>>(m["moduleConfig"])){
-          if (typeid(map<string, boost::any>) == item1.second.type()) {
-            DataBonreeSDKConfigModuleConfigValue model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
-            expect1[item1.first] = model2;
-          }
-        }
-        moduleConfig = make_shared<map<string, DataBonreeSDKConfigModuleConfigValue>>(expect1);
+        GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["moduleConfig"]));
+        moduleConfig = make_shared<GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig>(model1);
       }
     }
   }
@@ -32413,6 +32602,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> domain{};
   shared_ptr<vector<string>> propagatorTypes{};
+  shared_ptr<long> samplingRate{};
   shared_ptr<bool> tracing{};
 
   GetRumAppInfoResponseBodyDataServiceDomainConfigs() {}
@@ -32433,6 +32623,9 @@ public:
     }
     if (propagatorTypes) {
       res["PropagatorTypes"] = boost::any(*propagatorTypes);
+    }
+    if (samplingRate) {
+      res["SamplingRate"] = boost::any(*samplingRate);
     }
     if (tracing) {
       res["Tracing"] = boost::any(*tracing);
@@ -32456,6 +32649,9 @@ public:
         }
       }
       propagatorTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SamplingRate") != m.end() && !m["SamplingRate"].empty()) {
+      samplingRate = make_shared<long>(boost::any_cast<long>(m["SamplingRate"]));
     }
     if (m.find("Tracing") != m.end() && !m["Tracing"].empty()) {
       tracing = make_shared<bool>(boost::any_cast<bool>(m["Tracing"]));
@@ -52638,10 +52834,13 @@ public:
 };
 class ListSilencePoliciesResponseBodyPageBeanSilencePolicies : public Darabonba::Model {
 public:
+  shared_ptr<string> effectiveTimeType{};
   shared_ptr<long> id{};
   shared_ptr<vector<ListSilencePoliciesResponseBodyPageBeanSilencePoliciesMatchingRules>> matchingRules{};
   shared_ptr<string> name{};
   shared_ptr<string> state{};
+  shared_ptr<string> timePeriod{};
+  shared_ptr<string> timeSlots{};
 
   ListSilencePoliciesResponseBodyPageBeanSilencePolicies() {}
 
@@ -52653,6 +52852,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (effectiveTimeType) {
+      res["EffectiveTimeType"] = boost::any(*effectiveTimeType);
+    }
     if (id) {
       res["Id"] = boost::any(*id);
     }
@@ -52669,10 +52871,19 @@ public:
     if (state) {
       res["State"] = boost::any(*state);
     }
+    if (timePeriod) {
+      res["TimePeriod"] = boost::any(*timePeriod);
+    }
+    if (timeSlots) {
+      res["TimeSlots"] = boost::any(*timeSlots);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EffectiveTimeType") != m.end() && !m["EffectiveTimeType"].empty()) {
+      effectiveTimeType = make_shared<string>(boost::any_cast<string>(m["EffectiveTimeType"]));
+    }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
     }
@@ -52694,6 +52905,12 @@ public:
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("TimePeriod") != m.end() && !m["TimePeriod"].empty()) {
+      timePeriod = make_shared<string>(boost::any_cast<string>(m["TimePeriod"]));
+    }
+    if (m.find("TimeSlots") != m.end() && !m["TimeSlots"].empty()) {
+      timeSlots = make_shared<string>(boost::any_cast<string>(m["TimeSlots"]));
     }
   }
 

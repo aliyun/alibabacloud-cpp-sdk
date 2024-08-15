@@ -1595,6 +1595,16 @@ CreateOrUpdateNotificationPolicyResponse Alibabacloud_ARMS20190808::Client::crea
 
 CreateOrUpdateSilencePolicyResponse Alibabacloud_ARMS20190808::Client::createOrUpdateSilencePolicyWithOptions(shared_ptr<CreateOrUpdateSilencePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->effectiveTimeType)) {
+    query->insert(pair<string, string>("EffectiveTimeType", *request->effectiveTimeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timePeriod)) {
+    query->insert(pair<string, string>("TimePeriod", *request->timePeriod));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeSlots)) {
+    query->insert(pair<string, string>("TimeSlots", *request->timeSlots));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     body->insert(pair<string, long>("Id", *request->id));
@@ -1612,6 +1622,7 @@ CreateOrUpdateSilencePolicyResponse Alibabacloud_ARMS20190808::Client::createOrU
     body->insert(pair<string, string>("State", *request->state));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
