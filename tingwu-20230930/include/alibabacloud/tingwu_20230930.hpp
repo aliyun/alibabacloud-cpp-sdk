@@ -1314,8 +1314,10 @@ public:
 class GetTaskInfoResponseBodyDataResult : public Darabonba::Model {
 public:
   shared_ptr<string> autoChapters{};
+  shared_ptr<string> customPrompt{};
   shared_ptr<string> meetingAssistance{};
   shared_ptr<string> pptExtraction{};
+  shared_ptr<string> serviceInspection{};
   shared_ptr<string> summarization{};
   shared_ptr<string> textPolish{};
   shared_ptr<string> transcription{};
@@ -1334,11 +1336,17 @@ public:
     if (autoChapters) {
       res["AutoChapters"] = boost::any(*autoChapters);
     }
+    if (customPrompt) {
+      res["CustomPrompt"] = boost::any(*customPrompt);
+    }
     if (meetingAssistance) {
       res["MeetingAssistance"] = boost::any(*meetingAssistance);
     }
     if (pptExtraction) {
       res["PptExtraction"] = boost::any(*pptExtraction);
+    }
+    if (serviceInspection) {
+      res["ServiceInspection"] = boost::any(*serviceInspection);
     }
     if (summarization) {
       res["Summarization"] = boost::any(*summarization);
@@ -1359,11 +1367,17 @@ public:
     if (m.find("AutoChapters") != m.end() && !m["AutoChapters"].empty()) {
       autoChapters = make_shared<string>(boost::any_cast<string>(m["AutoChapters"]));
     }
+    if (m.find("CustomPrompt") != m.end() && !m["CustomPrompt"].empty()) {
+      customPrompt = make_shared<string>(boost::any_cast<string>(m["CustomPrompt"]));
+    }
     if (m.find("MeetingAssistance") != m.end() && !m["MeetingAssistance"].empty()) {
       meetingAssistance = make_shared<string>(boost::any_cast<string>(m["MeetingAssistance"]));
     }
     if (m.find("PptExtraction") != m.end() && !m["PptExtraction"].empty()) {
       pptExtraction = make_shared<string>(boost::any_cast<string>(m["PptExtraction"]));
+    }
+    if (m.find("ServiceInspection") != m.end() && !m["ServiceInspection"].empty()) {
+      serviceInspection = make_shared<string>(boost::any_cast<string>(m["ServiceInspection"]));
     }
     if (m.find("Summarization") != m.end() && !m["Summarization"].empty()) {
       summarization = make_shared<string>(boost::any_cast<string>(m["Summarization"]));
