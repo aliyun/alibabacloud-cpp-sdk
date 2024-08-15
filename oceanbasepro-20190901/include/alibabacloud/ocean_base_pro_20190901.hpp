@@ -14322,6 +14322,7 @@ public:
 };
 class DescribeInstanceResponseBodyInstance : public Darabonba::Model {
 public:
+  shared_ptr<bool> allowCreateProxySqlFirewallRule{};
   shared_ptr<bool> allowModifyInternetAddressConnectionLimit{};
   shared_ptr<bool> autoRenewal{};
   shared_ptr<bool> autoUpgradeObVersion{};
@@ -14379,6 +14380,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowCreateProxySqlFirewallRule) {
+      res["AllowCreateProxySqlFirewallRule"] = boost::any(*allowCreateProxySqlFirewallRule);
+    }
     if (allowModifyInternetAddressConnectionLimit) {
       res["AllowModifyInternetAddressConnectionLimit"] = boost::any(*allowModifyInternetAddressConnectionLimit);
     }
@@ -14521,6 +14525,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowCreateProxySqlFirewallRule") != m.end() && !m["AllowCreateProxySqlFirewallRule"].empty()) {
+      allowCreateProxySqlFirewallRule = make_shared<bool>(boost::any_cast<bool>(m["AllowCreateProxySqlFirewallRule"]));
+    }
     if (m.find("AllowModifyInternetAddressConnectionLimit") != m.end() && !m["AllowModifyInternetAddressConnectionLimit"].empty()) {
       allowModifyInternetAddressConnectionLimit = make_shared<bool>(boost::any_cast<bool>(m["AllowModifyInternetAddressConnectionLimit"]));
     }
@@ -18624,6 +18631,7 @@ public:
   shared_ptr<bool> dynamicSql{};
   shared_ptr<string> endTime{};
   shared_ptr<string> instanceId{};
+  shared_ptr<bool> parseTable{};
   shared_ptr<string> sqlId{};
   shared_ptr<string> startTime{};
   shared_ptr<string> tenantId{};
@@ -18650,6 +18658,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (parseTable) {
+      res["ParseTable"] = boost::any(*parseTable);
+    }
     if (sqlId) {
       res["SqlId"] = boost::any(*sqlId);
     }
@@ -18674,6 +18685,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ParseTable") != m.end() && !m["ParseTable"].empty()) {
+      parseTable = make_shared<bool>(boost::any_cast<bool>(m["ParseTable"]));
     }
     if (m.find("SqlId") != m.end() && !m["SqlId"].empty()) {
       sqlId = make_shared<string>(boost::any_cast<string>(m["SqlId"]));
@@ -19934,12 +19948,15 @@ public:
   shared_ptr<bool> hitDiagnosis{};
   shared_ptr<double> hitPercentage{};
   shared_ptr<long> mergedVersion{};
+  shared_ptr<string> outlineId{};
+  shared_ptr<string> outlineStatus{};
   shared_ptr<DescribeOasSQLPlansResponseBodyDataPlanExplain> planExplain{};
   shared_ptr<string> planHash{};
   shared_ptr<string> planType{};
   shared_ptr<string> planUnionHash{};
   shared_ptr<vector<DescribeOasSQLPlansResponseBodyDataPlans>> plans{};
   shared_ptr<string> querySql{};
+  shared_ptr<bool> tableScan{};
 
   DescribeOasSQLPlansResponseBodyData() {}
 
@@ -19972,6 +19989,12 @@ public:
     if (mergedVersion) {
       res["MergedVersion"] = boost::any(*mergedVersion);
     }
+    if (outlineId) {
+      res["OutlineId"] = boost::any(*outlineId);
+    }
+    if (outlineStatus) {
+      res["OutlineStatus"] = boost::any(*outlineStatus);
+    }
     if (planExplain) {
       res["PlanExplain"] = planExplain ? boost::any(planExplain->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -19993,6 +20016,9 @@ public:
     }
     if (querySql) {
       res["QuerySql"] = boost::any(*querySql);
+    }
+    if (tableScan) {
+      res["TableScan"] = boost::any(*tableScan);
     }
     return res;
   }
@@ -20018,6 +20044,12 @@ public:
     }
     if (m.find("MergedVersion") != m.end() && !m["MergedVersion"].empty()) {
       mergedVersion = make_shared<long>(boost::any_cast<long>(m["MergedVersion"]));
+    }
+    if (m.find("OutlineId") != m.end() && !m["OutlineId"].empty()) {
+      outlineId = make_shared<string>(boost::any_cast<string>(m["OutlineId"]));
+    }
+    if (m.find("OutlineStatus") != m.end() && !m["OutlineStatus"].empty()) {
+      outlineStatus = make_shared<string>(boost::any_cast<string>(m["OutlineStatus"]));
     }
     if (m.find("PlanExplain") != m.end() && !m["PlanExplain"].empty()) {
       if (typeid(map<string, boost::any>) == m["PlanExplain"].type()) {
@@ -20050,6 +20082,9 @@ public:
     }
     if (m.find("QuerySql") != m.end() && !m["QuerySql"].empty()) {
       querySql = make_shared<string>(boost::any_cast<string>(m["QuerySql"]));
+    }
+    if (m.find("TableScan") != m.end() && !m["TableScan"].empty()) {
+      tableScan = make_shared<bool>(boost::any_cast<bool>(m["TableScan"]));
     }
   }
 
@@ -32976,6 +33011,7 @@ public:
   shared_ptr<double> obDbId{};
   shared_ptr<double> obServerId{};
   shared_ptr<double> obUserId{};
+  shared_ptr<string> paramsValue{};
   shared_ptr<double> partitionCount{};
   shared_ptr<double> planId{};
   shared_ptr<string> planType{};
@@ -33093,6 +33129,9 @@ public:
     }
     if (obUserId) {
       res["ObUserId"] = boost::any(*obUserId);
+    }
+    if (paramsValue) {
+      res["ParamsValue"] = boost::any(*paramsValue);
     }
     if (partitionCount) {
       res["PartitionCount"] = boost::any(*partitionCount);
@@ -33256,6 +33295,9 @@ public:
     }
     if (m.find("ObUserId") != m.end() && !m["ObUserId"].empty()) {
       obUserId = make_shared<double>(boost::any_cast<double>(m["ObUserId"]));
+    }
+    if (m.find("ParamsValue") != m.end() && !m["ParamsValue"].empty()) {
+      paramsValue = make_shared<string>(boost::any_cast<string>(m["ParamsValue"]));
     }
     if (m.find("PartitionCount") != m.end() && !m["PartitionCount"].empty()) {
       partitionCount = make_shared<double>(boost::any_cast<double>(m["PartitionCount"]));
@@ -36182,8 +36224,10 @@ public:
   shared_ptr<string> intranetAddressStatus{};
   shared_ptr<long> intranetPort{};
   shared_ptr<long> intranetRpcPort{};
+  shared_ptr<long> intranetSqlPort{};
   shared_ptr<long> maxConnectionLimit{};
   shared_ptr<long> maxConnectionNum{};
+  shared_ptr<string> odpVersion{};
   shared_ptr<long> parallelQueryDegree{};
   shared_ptr<string> proxyClusterId{};
   shared_ptr<string> tenantEndpointId{};
@@ -36252,11 +36296,17 @@ public:
     if (intranetRpcPort) {
       res["IntranetRpcPort"] = boost::any(*intranetRpcPort);
     }
+    if (intranetSqlPort) {
+      res["IntranetSqlPort"] = boost::any(*intranetSqlPort);
+    }
     if (maxConnectionLimit) {
       res["MaxConnectionLimit"] = boost::any(*maxConnectionLimit);
     }
     if (maxConnectionNum) {
       res["MaxConnectionNum"] = boost::any(*maxConnectionNum);
+    }
+    if (odpVersion) {
+      res["OdpVersion"] = boost::any(*odpVersion);
     }
     if (parallelQueryDegree) {
       res["ParallelQueryDegree"] = boost::any(*parallelQueryDegree);
@@ -36345,11 +36395,17 @@ public:
     if (m.find("IntranetRpcPort") != m.end() && !m["IntranetRpcPort"].empty()) {
       intranetRpcPort = make_shared<long>(boost::any_cast<long>(m["IntranetRpcPort"]));
     }
+    if (m.find("IntranetSqlPort") != m.end() && !m["IntranetSqlPort"].empty()) {
+      intranetSqlPort = make_shared<long>(boost::any_cast<long>(m["IntranetSqlPort"]));
+    }
     if (m.find("MaxConnectionLimit") != m.end() && !m["MaxConnectionLimit"].empty()) {
       maxConnectionLimit = make_shared<long>(boost::any_cast<long>(m["MaxConnectionLimit"]));
     }
     if (m.find("MaxConnectionNum") != m.end() && !m["MaxConnectionNum"].empty()) {
       maxConnectionNum = make_shared<long>(boost::any_cast<long>(m["MaxConnectionNum"]));
+    }
+    if (m.find("OdpVersion") != m.end() && !m["OdpVersion"].empty()) {
+      odpVersion = make_shared<string>(boost::any_cast<string>(m["OdpVersion"]));
     }
     if (m.find("ParallelQueryDegree") != m.end() && !m["ParallelQueryDegree"].empty()) {
       parallelQueryDegree = make_shared<long>(boost::any_cast<long>(m["ParallelQueryDegree"]));
@@ -36802,6 +36858,7 @@ public:
   shared_ptr<long> lowerCaseTableNames{};
   shared_ptr<string> masterIntranetAddressZone{};
   shared_ptr<long> maxParallelQueryDegree{};
+  shared_ptr<string> odpVersion{};
   shared_ptr<string> payType{};
   shared_ptr<string> primaryZone{};
   shared_ptr<string> primaryZoneDeployType{};
@@ -36888,6 +36945,9 @@ public:
     }
     if (maxParallelQueryDegree) {
       res["MaxParallelQueryDegree"] = boost::any(*maxParallelQueryDegree);
+    }
+    if (odpVersion) {
+      res["OdpVersion"] = boost::any(*odpVersion);
     }
     if (payType) {
       res["PayType"] = boost::any(*payType);
@@ -37015,6 +37075,9 @@ public:
     }
     if (m.find("MaxParallelQueryDegree") != m.end() && !m["MaxParallelQueryDegree"].empty()) {
       maxParallelQueryDegree = make_shared<long>(boost::any_cast<long>(m["MaxParallelQueryDegree"]));
+    }
+    if (m.find("OdpVersion") != m.end() && !m["OdpVersion"].empty()) {
+      odpVersion = make_shared<string>(boost::any_cast<string>(m["OdpVersion"]));
     }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));

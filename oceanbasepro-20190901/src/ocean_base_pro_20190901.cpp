@@ -2155,6 +2155,9 @@ DescribeOasSQLDetailsResponse Alibabacloud_OceanBasePro20190901::Client::describ
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     body->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->parseTable)) {
+    body->insert(pair<string, bool>("ParseTable", *request->parseTable));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sqlId)) {
     body->insert(pair<string, string>("SqlId", *request->sqlId));
   }
