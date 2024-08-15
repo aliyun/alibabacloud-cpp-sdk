@@ -366,6 +366,9 @@ CreateControlPolicyResponse Alibabacloud_ResourceDirectoryMaster20220419::Client
   if (!Darabonba_Util::Client::isUnset<string>(request->policyName)) {
     query->insert(pair<string, string>("PolicyName", *request->policyName));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateControlPolicyRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateControlPolicyRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -396,6 +399,9 @@ CreateFolderResponse Alibabacloud_ResourceDirectoryMaster20220419::Client::creat
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->parentFolderId)) {
     query->insert(pair<string, string>("ParentFolderId", *request->parentFolderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateFolderRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateFolderRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

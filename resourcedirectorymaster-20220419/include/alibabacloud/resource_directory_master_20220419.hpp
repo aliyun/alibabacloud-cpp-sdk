@@ -1535,12 +1535,49 @@ public:
 
   virtual ~CheckAccountDeleteResponse() = default;
 };
+class CreateControlPolicyRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateControlPolicyRequestTag() {}
+
+  explicit CreateControlPolicyRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateControlPolicyRequestTag() = default;
+};
 class CreateControlPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<string> effectScope{};
   shared_ptr<string> policyDocument{};
   shared_ptr<string> policyName{};
+  shared_ptr<vector<CreateControlPolicyRequestTag>> tag{};
 
   CreateControlPolicyRequest() {}
 
@@ -1564,6 +1601,13 @@ public:
     if (policyName) {
       res["PolicyName"] = boost::any(*policyName);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1579,6 +1623,19 @@ public:
     }
     if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
       policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateControlPolicyRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateControlPolicyRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateControlPolicyRequestTag>>(expect1);
+      }
     }
   }
 
@@ -1755,10 +1812,47 @@ public:
 
   virtual ~CreateControlPolicyResponse() = default;
 };
+class CreateFolderRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateFolderRequestTag() {}
+
+  explicit CreateFolderRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateFolderRequestTag() = default;
+};
 class CreateFolderRequest : public Darabonba::Model {
 public:
   shared_ptr<string> folderName{};
   shared_ptr<string> parentFolderId{};
+  shared_ptr<vector<CreateFolderRequestTag>> tag{};
 
   CreateFolderRequest() {}
 
@@ -1776,6 +1870,13 @@ public:
     if (parentFolderId) {
       res["ParentFolderId"] = boost::any(*parentFolderId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1785,6 +1886,19 @@ public:
     }
     if (m.find("ParentFolderId") != m.end() && !m["ParentFolderId"].empty()) {
       parentFolderId = make_shared<string>(boost::any_cast<string>(m["ParentFolderId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateFolderRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateFolderRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateFolderRequestTag>>(expect1);
+      }
     }
   }
 
