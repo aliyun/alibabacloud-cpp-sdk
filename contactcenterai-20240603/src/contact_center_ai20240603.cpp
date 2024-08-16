@@ -37,6 +37,61 @@ string Alibabacloud_ContactCenterAI20240603::Client::getEndpoint(shared_ptr<stri
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeConversationWithOptions(shared_ptr<string> workspaceId,
+                                                                                                         shared_ptr<string> appId,
+                                                                                                         shared_ptr<AnalyzeConversationRequest> request,
+                                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<AnalyzeConversationRequestDialogue>(request->dialogue)) {
+    body->insert(pair<string, AnalyzeConversationRequestDialogue>("dialogue", *request->dialogue));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<AnalyzeConversationRequestExampleList>>(request->exampleList)) {
+    body->insert(pair<string, vector<AnalyzeConversationRequestExampleList>>("exampleList", *request->exampleList));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<AnalyzeConversationRequestFields>>(request->fields)) {
+    body->insert(pair<string, vector<AnalyzeConversationRequestFields>>("fields", *request->fields));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelCode)) {
+    body->insert(pair<string, string>("modelCode", *request->modelCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resultTypes)) {
+    body->insert(pair<string, vector<string>>("resultTypes", *request->resultTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneName)) {
+    body->insert(pair<string, string>("sceneName", *request->sceneName));
+  }
+  if (!Darabonba_Util::Client::isUnset<AnalyzeConversationRequestServiceInspection>(request->serviceInspection)) {
+    body->insert(pair<string, AnalyzeConversationRequestServiceInspection>("serviceInspection", *request->serviceInspection));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
+    body->insert(pair<string, bool>("stream", *request->stream));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AnalyzeConversation"))},
+    {"version", boost::any(string("2024-06-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/ccai/app/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appId)) + string("/analyze_conversation"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AnalyzeConversationResponse(callApi(params, req, runtime));
+}
+
+AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeConversation(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<AnalyzeConversationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return analyzeConversationWithOptions(workspaceId, appId, request, headers, runtime);
+}
+
 RunCompletionResponse Alibabacloud_ContactCenterAI20240603::Client::runCompletionWithOptions(shared_ptr<string> workspaceId,
                                                                                              shared_ptr<string> appId,
                                                                                              shared_ptr<RunCompletionRequest> request,
