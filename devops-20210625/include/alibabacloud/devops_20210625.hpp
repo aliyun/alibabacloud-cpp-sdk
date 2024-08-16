@@ -19095,6 +19095,7 @@ public:
 class ExportInsightSpaceResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
+  shared_ptr<string> customCode{};
   shared_ptr<string> description{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
@@ -19120,6 +19121,9 @@ public:
     map<string, boost::any> res;
     if (category) {
       res["category"] = boost::any(*category);
+    }
+    if (customCode) {
+      res["customCode"] = boost::any(*customCode);
     }
     if (description) {
       res["description"] = boost::any(*description);
@@ -19163,6 +19167,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("category") != m.end() && !m["category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["category"]));
+    }
+    if (m.find("customCode") != m.end() && !m["customCode"].empty()) {
+      customCode = make_shared<string>(boost::any_cast<string>(m["customCode"]));
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
