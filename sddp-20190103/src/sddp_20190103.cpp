@@ -503,6 +503,9 @@ DescribeColumnsResponse Alibabacloud_Sddp20190103::Client::describeColumnsWithOp
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engineType)) {
+    query->insert(pair<string, string>("EngineType", *request->engineType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->instanceId)) {
     query->insert(pair<string, long>("InstanceId", *request->instanceId));
   }
@@ -512,6 +515,9 @@ DescribeColumnsResponse Alibabacloud_Sddp20190103::Client::describeColumnsWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelTagId)) {
+    query->insert(pair<string, string>("ModelTagId", *request->modelTagId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -520,6 +526,9 @@ DescribeColumnsResponse Alibabacloud_Sddp20190103::Client::describeColumnsWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
     query->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productId)) {
+    query->insert(pair<string, string>("ProductId", *request->productId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->riskLevelId)) {
     query->insert(pair<string, long>("RiskLevelId", *request->riskLevelId));
@@ -538,6 +547,12 @@ DescribeColumnsResponse Alibabacloud_Sddp20190103::Client::describeColumnsWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tableName)) {
     query->insert(pair<string, string>("TableName", *request->tableName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
+    query->insert(pair<string, string>("TemplateId", *request->templateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateRuleId)) {
+    query->insert(pair<string, string>("TemplateRuleId", *request->templateRuleId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1440,11 +1455,23 @@ DescribeOssObjectDetailResponse Alibabacloud_Sddp20190103::Client::describeOssOb
 DescribeOssObjectDetailV2Response Alibabacloud_Sddp20190103::Client::describeOssObjectDetailV2WithOptions(shared_ptr<DescribeOssObjectDetailV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bucketName)) {
+    query->insert(pair<string, string>("BucketName", *request->bucketName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
     query->insert(pair<string, string>("Id", *request->id));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->objectKey)) {
+    query->insert(pair<string, string>("ObjectKey", *request->objectKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceRegionId)) {
+    query->insert(pair<string, string>("ServiceRegionId", *request->serviceRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->templateId)) {
+    query->insert(pair<string, long>("TemplateId", *request->templateId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

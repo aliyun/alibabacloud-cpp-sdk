@@ -1771,18 +1771,23 @@ public:
 class DescribeColumnsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> currentPage{};
+  shared_ptr<string> engineType{};
   shared_ptr<long> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> lang{};
+  shared_ptr<string> modelTagId{};
   shared_ptr<string> name{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> productCode{};
+  shared_ptr<string> productId{};
   shared_ptr<long> riskLevelId{};
   shared_ptr<long> ruleId{};
   shared_ptr<string> ruleName{};
   shared_ptr<string> sensLevelName{};
   shared_ptr<long> tableId{};
   shared_ptr<string> tableName{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> templateRuleId{};
 
   DescribeColumnsRequest() {}
 
@@ -1797,6 +1802,9 @@ public:
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
+    if (engineType) {
+      res["EngineType"] = boost::any(*engineType);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -1806,6 +1814,9 @@ public:
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
+    if (modelTagId) {
+      res["ModelTagId"] = boost::any(*modelTagId);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -1814,6 +1825,9 @@ public:
     }
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
+    }
+    if (productId) {
+      res["ProductId"] = boost::any(*productId);
     }
     if (riskLevelId) {
       res["RiskLevelId"] = boost::any(*riskLevelId);
@@ -1833,12 +1847,21 @@ public:
     if (tableName) {
       res["TableName"] = boost::any(*tableName);
     }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateRuleId) {
+      res["TemplateRuleId"] = boost::any(*templateRuleId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("EngineType") != m.end() && !m["EngineType"].empty()) {
+      engineType = make_shared<string>(boost::any_cast<string>(m["EngineType"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
@@ -1849,6 +1872,9 @@ public:
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
     }
+    if (m.find("ModelTagId") != m.end() && !m["ModelTagId"].empty()) {
+      modelTagId = make_shared<string>(boost::any_cast<string>(m["ModelTagId"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -1857,6 +1883,9 @@ public:
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("ProductId") != m.end() && !m["ProductId"].empty()) {
+      productId = make_shared<string>(boost::any_cast<string>(m["ProductId"]));
     }
     if (m.find("RiskLevelId") != m.end() && !m["RiskLevelId"].empty()) {
       riskLevelId = make_shared<long>(boost::any_cast<long>(m["RiskLevelId"]));
@@ -1875,6 +1904,12 @@ public:
     }
     if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
       tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TemplateRuleId") != m.end() && !m["TemplateRuleId"].empty()) {
+      templateRuleId = make_shared<string>(boost::any_cast<string>(m["TemplateRuleId"]));
     }
   }
 
@@ -1929,6 +1964,7 @@ public:
   shared_ptr<string> odpsRiskLevelName{};
   shared_ptr<long> odpsRiskLevelValue{};
   shared_ptr<string> productCode{};
+  shared_ptr<string> regionId{};
   shared_ptr<long> revisionId{};
   shared_ptr<long> revisionStatus{};
   shared_ptr<long> riskLevelId{};
@@ -1983,6 +2019,9 @@ public:
     }
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (revisionId) {
       res["RevisionId"] = boost::any(*revisionId);
@@ -2057,6 +2096,9 @@ public:
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RevisionId") != m.end() && !m["RevisionId"].empty()) {
       revisionId = make_shared<long>(boost::any_cast<long>(m["RevisionId"]));
@@ -9228,8 +9270,12 @@ public:
 };
 class DescribeOssObjectDetailV2Request : public Darabonba::Model {
 public:
+  shared_ptr<string> bucketName{};
   shared_ptr<string> id{};
   shared_ptr<string> lang{};
+  shared_ptr<string> objectKey{};
+  shared_ptr<string> serviceRegionId{};
+  shared_ptr<long> templateId{};
 
   DescribeOssObjectDetailV2Request() {}
 
@@ -9241,21 +9287,45 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bucketName) {
+      res["BucketName"] = boost::any(*bucketName);
+    }
     if (id) {
       res["Id"] = boost::any(*id);
     }
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
+    if (objectKey) {
+      res["ObjectKey"] = boost::any(*objectKey);
+    }
+    if (serviceRegionId) {
+      res["ServiceRegionId"] = boost::any(*serviceRegionId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BucketName") != m.end() && !m["BucketName"].empty()) {
+      bucketName = make_shared<string>(boost::any_cast<string>(m["BucketName"]));
+    }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("ObjectKey") != m.end() && !m["ObjectKey"].empty()) {
+      objectKey = make_shared<string>(boost::any_cast<string>(m["ObjectKey"]));
+    }
+    if (m.find("ServiceRegionId") != m.end() && !m["ServiceRegionId"].empty()) {
+      serviceRegionId = make_shared<string>(boost::any_cast<string>(m["ServiceRegionId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
     }
   }
 
@@ -10415,6 +10485,7 @@ public:
   shared_ptr<string> localName{};
   shared_ptr<long> memberAccount{};
   shared_ptr<string> parentId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> supportConnectNodes{};
   shared_ptr<string> tenantId{};
@@ -10470,6 +10541,9 @@ public:
     }
     if (parentId) {
       res["ParentId"] = boost::any(*parentId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -10531,6 +10605,9 @@ public:
     }
     if (m.find("ParentId") != m.end() && !m["ParentId"].empty()) {
       parentId = make_shared<string>(boost::any_cast<string>(m["ParentId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
