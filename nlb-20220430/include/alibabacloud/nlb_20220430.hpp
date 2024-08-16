@@ -4629,8 +4629,6 @@ public:
 class GetListenerHealthStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> listenerId{};
-  shared_ptr<long> maxResults{};
-  shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
 
   GetListenerHealthStatusRequest() {}
@@ -4646,12 +4644,6 @@ public:
     if (listenerId) {
       res["ListenerId"] = boost::any(*listenerId);
     }
-    if (maxResults) {
-      res["MaxResults"] = boost::any(*maxResults);
-    }
-    if (nextToken) {
-      res["NextToken"] = boost::any(*nextToken);
-    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -4661,12 +4653,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
-    }
-    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
-      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
-    }
-    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
-      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -5716,6 +5702,7 @@ public:
 class ListListenerCertificatesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> certType{};
+  shared_ptr<vector<string>> certificateIds{};
   shared_ptr<string> listenerId{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -5733,6 +5720,9 @@ public:
     map<string, boost::any> res;
     if (certType) {
       res["CertType"] = boost::any(*certType);
+    }
+    if (certificateIds) {
+      res["CertificateIds"] = boost::any(*certificateIds);
     }
     if (listenerId) {
       res["ListenerId"] = boost::any(*listenerId);
@@ -5752,6 +5742,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CertType") != m.end() && !m["CertType"].empty()) {
       certType = make_shared<string>(boost::any_cast<string>(m["CertType"]));
+    }
+    if (m.find("CertificateIds") != m.end() && !m["CertificateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CertificateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CertificateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      certificateIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));

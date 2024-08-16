@@ -971,12 +971,6 @@ GetListenerHealthStatusResponse Alibabacloud_Nlb20220430::Client::getListenerHea
   if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
     query->insert(pair<string, string>("ListenerId", *request->listenerId));
   }
-  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
-    query->insert(pair<string, long>("MaxResults", *request->maxResults));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
-    query->insert(pair<string, string>("NextToken", *request->nextToken));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -1044,6 +1038,9 @@ ListListenerCertificatesResponse Alibabacloud_Nlb20220430::Client::listListenerC
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->certType)) {
     body->insert(pair<string, string>("CertType", *request->certType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->certificateIds)) {
+    body->insert(pair<string, vector<string>>("CertificateIds", *request->certificateIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
     body->insert(pair<string, string>("ListenerId", *request->listenerId));
