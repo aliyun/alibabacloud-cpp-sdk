@@ -128,6 +128,49 @@ public:
 
   virtual ~AliyunAccounts() = default;
 };
+class AssignNodeSpec : public Darabonba::Model {
+public:
+  shared_ptr<string> antiAffinityNodeNames{};
+  shared_ptr<bool> enableAssignNode{};
+  shared_ptr<string> nodeNames{};
+
+  AssignNodeSpec() {}
+
+  explicit AssignNodeSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (antiAffinityNodeNames) {
+      res["AntiAffinityNodeNames"] = boost::any(*antiAffinityNodeNames);
+    }
+    if (enableAssignNode) {
+      res["EnableAssignNode"] = boost::any(*enableAssignNode);
+    }
+    if (nodeNames) {
+      res["NodeNames"] = boost::any(*nodeNames);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AntiAffinityNodeNames") != m.end() && !m["AntiAffinityNodeNames"].empty()) {
+      antiAffinityNodeNames = make_shared<string>(boost::any_cast<string>(m["AntiAffinityNodeNames"]));
+    }
+    if (m.find("EnableAssignNode") != m.end() && !m["EnableAssignNode"].empty()) {
+      enableAssignNode = make_shared<bool>(boost::any_cast<bool>(m["EnableAssignNode"]));
+    }
+    if (m.find("NodeNames") != m.end() && !m["NodeNames"].empty()) {
+      nodeNames = make_shared<string>(boost::any_cast<string>(m["NodeNames"]));
+    }
+  }
+
+
+  virtual ~AssignNodeSpec() = default;
+};
 class AssumeUserInfo : public Darabonba::Model {
 public:
   shared_ptr<string> accessKeyId{};
@@ -2262,6 +2305,7 @@ public:
 };
 class JobSpec : public Darabonba::Model {
 public:
+  shared_ptr<AssignNodeSpec> assignNodeSpec{};
   shared_ptr<string> ecsSpec{};
   shared_ptr<ExtraPodSpec> extraPodSpec{};
   shared_ptr<string> image{};
@@ -2282,6 +2326,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (assignNodeSpec) {
+      res["AssignNodeSpec"] = assignNodeSpec ? boost::any(assignNodeSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
     }
@@ -2313,6 +2360,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssignNodeSpec") != m.end() && !m["AssignNodeSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AssignNodeSpec"].type()) {
+        AssignNodeSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AssignNodeSpec"]));
+        assignNodeSpec = make_shared<AssignNodeSpec>(model1);
+      }
+    }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
       ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
     }
