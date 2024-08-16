@@ -712,6 +712,9 @@ DeleteExecutionsResponse Alibabacloud_Oos20190601::Client::deleteExecutionsWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->executionIds)) {
     query->insert(pair<string, string>("ExecutionIds", *request->executionIds));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("Force", *request->force));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }

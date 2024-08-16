@@ -3967,6 +3967,7 @@ public:
 class DeleteExecutionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> executionIds{};
+  shared_ptr<bool> force{};
   shared_ptr<string> regionId{};
 
   DeleteExecutionsRequest() {}
@@ -3982,6 +3983,9 @@ public:
     if (executionIds) {
       res["ExecutionIds"] = boost::any(*executionIds);
     }
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -3991,6 +3995,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ExecutionIds") != m.end() && !m["ExecutionIds"].empty()) {
       executionIds = make_shared<string>(boost::any_cast<string>(m["ExecutionIds"]));
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
