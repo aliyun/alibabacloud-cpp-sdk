@@ -1380,10 +1380,13 @@ public:
 class GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList : public Darabonba::Model {
 public:
   shared_ptr<long> cpu{};
+  shared_ptr<bool> defaultWarehouse{};
+  shared_ptr<long> elasticCpu{};
   shared_ptr<long> id{};
   shared_ptr<long> mem{};
   shared_ptr<string> name{};
   shared_ptr<long> nodeCount{};
+  shared_ptr<string> rebalanceStatus{};
   shared_ptr<string> status{};
 
   GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList() {}
@@ -1399,6 +1402,12 @@ public:
     if (cpu) {
       res["Cpu"] = boost::any(*cpu);
     }
+    if (defaultWarehouse) {
+      res["DefaultWarehouse"] = boost::any(*defaultWarehouse);
+    }
+    if (elasticCpu) {
+      res["ElasticCpu"] = boost::any(*elasticCpu);
+    }
     if (id) {
       res["Id"] = boost::any(*id);
     }
@@ -1411,6 +1420,9 @@ public:
     if (nodeCount) {
       res["NodeCount"] = boost::any(*nodeCount);
     }
+    if (rebalanceStatus) {
+      res["RebalanceStatus"] = boost::any(*rebalanceStatus);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -1420,6 +1432,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
       cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("DefaultWarehouse") != m.end() && !m["DefaultWarehouse"].empty()) {
+      defaultWarehouse = make_shared<bool>(boost::any_cast<bool>(m["DefaultWarehouse"]));
+    }
+    if (m.find("ElasticCpu") != m.end() && !m["ElasticCpu"].empty()) {
+      elasticCpu = make_shared<long>(boost::any_cast<long>(m["ElasticCpu"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
@@ -1433,6 +1451,9 @@ public:
     if (m.find("NodeCount") != m.end() && !m["NodeCount"].empty()) {
       nodeCount = make_shared<long>(boost::any_cast<long>(m["NodeCount"]));
     }
+    if (m.find("RebalanceStatus") != m.end() && !m["RebalanceStatus"].empty()) {
+      rebalanceStatus = make_shared<string>(boost::any_cast<string>(m["RebalanceStatus"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
@@ -1445,6 +1466,7 @@ class GetWarehouseDetailResponseBodyWarehouseDetail : public Darabonba::Model {
 public:
   shared_ptr<string> remainingCpu{};
   shared_ptr<string> reservedCpu{};
+  shared_ptr<string> timedElasticCpu{};
   shared_ptr<vector<GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList>> warehouseList{};
 
   GetWarehouseDetailResponseBodyWarehouseDetail() {}
@@ -1463,6 +1485,9 @@ public:
     if (reservedCpu) {
       res["ReservedCpu"] = boost::any(*reservedCpu);
     }
+    if (timedElasticCpu) {
+      res["TimedElasticCpu"] = boost::any(*timedElasticCpu);
+    }
     if (warehouseList) {
       vector<boost::any> temp1;
       for(auto item1:*warehouseList){
@@ -1479,6 +1504,9 @@ public:
     }
     if (m.find("ReservedCpu") != m.end() && !m["ReservedCpu"].empty()) {
       reservedCpu = make_shared<string>(boost::any_cast<string>(m["ReservedCpu"]));
+    }
+    if (m.find("TimedElasticCpu") != m.end() && !m["TimedElasticCpu"].empty()) {
+      timedElasticCpu = make_shared<string>(boost::any_cast<string>(m["TimedElasticCpu"]));
     }
     if (m.find("WarehouseList") != m.end() && !m["WarehouseList"].empty()) {
       if (typeid(vector<boost::any>) == m["WarehouseList"].type()) {
