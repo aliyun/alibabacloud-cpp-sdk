@@ -13773,6 +13773,215 @@ public:
 
   virtual ~ModifyRuleStatusResponse() = default;
 };
+class ScanOssObjectV1Request : public Darabonba::Model {
+public:
+  shared_ptr<string> bucketName{};
+  shared_ptr<string> lang{};
+  shared_ptr<vector<string>> objectKeyList{};
+  shared_ptr<string> serviceRegionId{};
+  shared_ptr<long> templateId{};
+
+  ScanOssObjectV1Request() {}
+
+  explicit ScanOssObjectV1Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bucketName) {
+      res["BucketName"] = boost::any(*bucketName);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (objectKeyList) {
+      res["ObjectKeyList"] = boost::any(*objectKeyList);
+    }
+    if (serviceRegionId) {
+      res["ServiceRegionId"] = boost::any(*serviceRegionId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BucketName") != m.end() && !m["BucketName"].empty()) {
+      bucketName = make_shared<string>(boost::any_cast<string>(m["BucketName"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("ObjectKeyList") != m.end() && !m["ObjectKeyList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ObjectKeyList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ObjectKeyList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      objectKeyList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ServiceRegionId") != m.end() && !m["ServiceRegionId"].empty()) {
+      serviceRegionId = make_shared<string>(boost::any_cast<string>(m["ServiceRegionId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~ScanOssObjectV1Request() = default;
+};
+class ScanOssObjectV1ShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bucketName{};
+  shared_ptr<string> lang{};
+  shared_ptr<string> objectKeyListShrink{};
+  shared_ptr<string> serviceRegionId{};
+  shared_ptr<long> templateId{};
+
+  ScanOssObjectV1ShrinkRequest() {}
+
+  explicit ScanOssObjectV1ShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bucketName) {
+      res["BucketName"] = boost::any(*bucketName);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (objectKeyListShrink) {
+      res["ObjectKeyList"] = boost::any(*objectKeyListShrink);
+    }
+    if (serviceRegionId) {
+      res["ServiceRegionId"] = boost::any(*serviceRegionId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BucketName") != m.end() && !m["BucketName"].empty()) {
+      bucketName = make_shared<string>(boost::any_cast<string>(m["BucketName"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("ObjectKeyList") != m.end() && !m["ObjectKeyList"].empty()) {
+      objectKeyListShrink = make_shared<string>(boost::any_cast<string>(m["ObjectKeyList"]));
+    }
+    if (m.find("ServiceRegionId") != m.end() && !m["ServiceRegionId"].empty()) {
+      serviceRegionId = make_shared<string>(boost::any_cast<string>(m["ServiceRegionId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~ScanOssObjectV1ShrinkRequest() = default;
+};
+class ScanOssObjectV1ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+  shared_ptr<string> requestId{};
+
+  ScanOssObjectV1ResponseBody() {}
+
+  explicit ScanOssObjectV1ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ScanOssObjectV1ResponseBody() = default;
+};
+class ScanOssObjectV1Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ScanOssObjectV1ResponseBody> body{};
+
+  ScanOssObjectV1Response() {}
+
+  explicit ScanOssObjectV1Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ScanOssObjectV1ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ScanOssObjectV1ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ScanOssObjectV1Response() = default;
+};
 class StopMaskingProcessRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
@@ -13994,6 +14203,8 @@ public:
   ModifyRuleResponse modifyRule(shared_ptr<ModifyRuleRequest> request);
   ModifyRuleStatusResponse modifyRuleStatusWithOptions(shared_ptr<ModifyRuleStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyRuleStatusResponse modifyRuleStatus(shared_ptr<ModifyRuleStatusRequest> request);
+  ScanOssObjectV1Response scanOssObjectV1WithOptions(shared_ptr<ScanOssObjectV1Request> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ScanOssObjectV1Response scanOssObjectV1(shared_ptr<ScanOssObjectV1Request> request);
   StopMaskingProcessResponse stopMaskingProcessWithOptions(shared_ptr<StopMaskingProcessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopMaskingProcessResponse stopMaskingProcess(shared_ptr<StopMaskingProcessRequest> request);
 

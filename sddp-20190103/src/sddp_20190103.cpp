@@ -2326,6 +2326,51 @@ ModifyRuleStatusResponse Alibabacloud_Sddp20190103::Client::modifyRuleStatus(sha
   return modifyRuleStatusWithOptions(request, runtime);
 }
 
+ScanOssObjectV1Response Alibabacloud_Sddp20190103::Client::scanOssObjectV1WithOptions(shared_ptr<ScanOssObjectV1Request> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ScanOssObjectV1ShrinkRequest> request = make_shared<ScanOssObjectV1ShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->objectKeyList)) {
+    request->objectKeyListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->objectKeyList, make_shared<string>("ObjectKeyList"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bucketName)) {
+    query->insert(pair<string, string>("BucketName", *request->bucketName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->objectKeyListShrink)) {
+    query->insert(pair<string, string>("ObjectKeyList", *request->objectKeyListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceRegionId)) {
+    query->insert(pair<string, string>("ServiceRegionId", *request->serviceRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->templateId)) {
+    query->insert(pair<string, long>("TemplateId", *request->templateId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ScanOssObjectV1"))},
+    {"version", boost::any(string("2019-01-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ScanOssObjectV1Response(callApi(params, req, runtime));
+}
+
+ScanOssObjectV1Response Alibabacloud_Sddp20190103::Client::scanOssObjectV1(shared_ptr<ScanOssObjectV1Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return scanOssObjectV1WithOptions(request, runtime);
+}
+
 StopMaskingProcessResponse Alibabacloud_Sddp20190103::Client::stopMaskingProcessWithOptions(shared_ptr<StopMaskingProcessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
