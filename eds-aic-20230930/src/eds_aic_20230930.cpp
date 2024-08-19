@@ -201,6 +201,9 @@ CreateAndroidInstanceGroupResponse Alibabacloud_Eds-aic20230930::Client::createA
   if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
     query->insert(pair<string, string>("ChargeType", *request->chargeType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->gpuAcceleration)) {
     query->insert(pair<string, bool>("GpuAcceleration", *request->gpuAcceleration));
   }
@@ -305,6 +308,9 @@ CreateAppResponse Alibabacloud_Eds-aic20230930::Client::createApp(shared_ptr<Cre
 CreateCustomImageResponse Alibabacloud_Eds-aic20230930::Client::createCustomImageWithOptions(shared_ptr<CreateCustomImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
   }
@@ -364,8 +370,13 @@ CreateKeyPairResponse Alibabacloud_Eds-aic20230930::Client::createKeyPair(shared
   return createKeyPairWithOptions(request, runtime);
 }
 
-CreatePolicyGroupResponse Alibabacloud_Eds-aic20230930::Client::createPolicyGroupWithOptions(shared_ptr<CreatePolicyGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreatePolicyGroupResponse Alibabacloud_Eds-aic20230930::Client::createPolicyGroupWithOptions(shared_ptr<CreatePolicyGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreatePolicyGroupShrinkRequest> request = make_shared<CreatePolicyGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreatePolicyGroupRequestNetRedirectPolicy>(tmpReq->netRedirectPolicy)) {
+    request->netRedirectPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->netRedirectPolicy, make_shared<string>("NetRedirectPolicy"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->cameraRedirect)) {
     body->insert(pair<string, string>("CameraRedirect", *request->cameraRedirect));
@@ -378,6 +389,9 @@ CreatePolicyGroupResponse Alibabacloud_Eds-aic20230930::Client::createPolicyGrou
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->localDrive)) {
     body->insert(pair<string, string>("LocalDrive", *request->localDrive));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->netRedirectPolicyShrink)) {
+    body->insert(pair<string, string>("NetRedirectPolicy", *request->netRedirectPolicyShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->policyGroupName)) {
     body->insert(pair<string, string>("PolicyGroupName", *request->policyGroupName));
@@ -621,6 +635,9 @@ DescribeAndroidInstancesResponse Alibabacloud_Eds-aic20230930::Client::describeA
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceGroupId)) {
     query->insert(pair<string, string>("InstanceGroupId", *request->instanceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceGroupIds)) {
+    query->insert(pair<string, vector<string>>("InstanceGroupIds", *request->instanceGroupIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyPairId)) {
     query->insert(pair<string, string>("KeyPairId", *request->keyPairId));
@@ -1185,6 +1202,9 @@ InstallAppResponse Alibabacloud_Eds-aic20230930::Client::installAppWithOptions(s
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceGroupIdList)) {
     query->insert(pair<string, vector<string>>("InstanceGroupIdList", *request->instanceGroupIdList));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIdList)) {
+    query->insert(pair<string, vector<string>>("InstanceIdList", *request->instanceIdList));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1377,8 +1397,13 @@ ModifyKeyPairNameResponse Alibabacloud_Eds-aic20230930::Client::modifyKeyPairNam
   return modifyKeyPairNameWithOptions(request, runtime);
 }
 
-ModifyPolicyGroupResponse Alibabacloud_Eds-aic20230930::Client::modifyPolicyGroupWithOptions(shared_ptr<ModifyPolicyGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ModifyPolicyGroupResponse Alibabacloud_Eds-aic20230930::Client::modifyPolicyGroupWithOptions(shared_ptr<ModifyPolicyGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ModifyPolicyGroupShrinkRequest> request = make_shared<ModifyPolicyGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ModifyPolicyGroupRequestNetRedirectPolicy>(tmpReq->netRedirectPolicy)) {
+    request->netRedirectPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->netRedirectPolicy, make_shared<string>("NetRedirectPolicy"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->cameraRedirect)) {
     body->insert(pair<string, string>("CameraRedirect", *request->cameraRedirect));
@@ -1391,6 +1416,9 @@ ModifyPolicyGroupResponse Alibabacloud_Eds-aic20230930::Client::modifyPolicyGrou
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->localDrive)) {
     body->insert(pair<string, string>("LocalDrive", *request->localDrive));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->netRedirectPolicyShrink)) {
+    body->insert(pair<string, string>("NetRedirectPolicy", *request->netRedirectPolicyShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->policyGroupId)) {
     body->insert(pair<string, string>("PolicyGroupId", *request->policyGroupId));

@@ -740,6 +740,7 @@ public:
   shared_ptr<bool> autoRenew{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> chargeType{};
+  shared_ptr<string> clientToken{};
   shared_ptr<bool> gpuAcceleration{};
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceGroupName{};
@@ -775,6 +776,9 @@ public:
     }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
     }
     if (gpuAcceleration) {
       res["GpuAcceleration"] = boost::any(*gpuAcceleration);
@@ -825,6 +829,9 @@ public:
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
     }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("GpuAcceleration") != m.end() && !m["GpuAcceleration"].empty()) {
       gpuAcceleration = make_shared<bool>(boost::any_cast<bool>(m["GpuAcceleration"]));
     }
@@ -860,9 +867,53 @@ public:
 
   virtual ~CreateAndroidInstanceGroupRequest() = default;
 };
+class CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceGroupId{};
+  shared_ptr<vector<string>> instanceIds{};
+
+  CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos() {}
+
+  explicit CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceGroupId) {
+      res["InstanceGroupId"] = boost::any(*instanceGroupId);
+    }
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceGroupId") != m.end() && !m["InstanceGroupId"].empty()) {
+      instanceGroupId = make_shared<string>(boost::any_cast<string>(m["InstanceGroupId"]));
+    }
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos() = default;
+};
 class CreateAndroidInstanceGroupResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> instanceGroupIds{};
+  shared_ptr<vector<CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos>> instanceGroupInfos{};
   shared_ptr<string> orderId{};
   shared_ptr<string> requestId{};
 
@@ -878,6 +929,13 @@ public:
     map<string, boost::any> res;
     if (instanceGroupIds) {
       res["InstanceGroupIds"] = boost::any(*instanceGroupIds);
+    }
+    if (instanceGroupInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*instanceGroupInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InstanceGroupInfos"] = boost::any(temp1);
     }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
@@ -898,6 +956,19 @@ public:
         }
       }
       instanceGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceGroupInfos") != m.end() && !m["InstanceGroupInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["InstanceGroupInfos"].type()) {
+        vector<CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InstanceGroupInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        instanceGroupInfos = make_shared<vector<CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos>>(expect1);
+      }
     }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
@@ -1130,6 +1201,7 @@ public:
 };
 class CreateCustomImageRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<string> imageName{};
   shared_ptr<string> instanceId{};
@@ -1144,6 +1216,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -1157,6 +1232,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -1173,6 +1251,7 @@ public:
 };
 class CreateCustomImageResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> imageId{};
   shared_ptr<string> requestId{};
 
   CreateCustomImageResponseBody() {}
@@ -1185,6 +1264,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -1192,6 +1274,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -1423,12 +1508,106 @@ public:
 
   virtual ~CreateKeyPairResponse() = default;
 };
+class CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule : public Darabonba::Model {
+public:
+  shared_ptr<string> policy{};
+  shared_ptr<string> ruleType{};
+  shared_ptr<string> target{};
+
+  CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule() {}
+
+  explicit CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    if (target) {
+      res["Target"] = boost::any(*target);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      target = make_shared<string>(boost::any_cast<string>(m["Target"]));
+    }
+  }
+
+
+  virtual ~CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule() = default;
+};
+class CreatePolicyGroupRequestNetRedirectPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> netRedirect{};
+  shared_ptr<vector<CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule>> netRedirectRule{};
+
+  CreatePolicyGroupRequestNetRedirectPolicy() {}
+
+  explicit CreatePolicyGroupRequestNetRedirectPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (netRedirect) {
+      res["NetRedirect"] = boost::any(*netRedirect);
+    }
+    if (netRedirectRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*netRedirectRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetRedirectRule"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetRedirect") != m.end() && !m["NetRedirect"].empty()) {
+      netRedirect = make_shared<string>(boost::any_cast<string>(m["NetRedirect"]));
+    }
+    if (m.find("NetRedirectRule") != m.end() && !m["NetRedirectRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetRedirectRule"].type()) {
+        vector<CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetRedirectRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        netRedirectRule = make_shared<vector<CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePolicyGroupRequestNetRedirectPolicy() = default;
+};
 class CreatePolicyGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cameraRedirect{};
   shared_ptr<string> clipboard{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> localDrive{};
+  shared_ptr<CreatePolicyGroupRequestNetRedirectPolicy> netRedirectPolicy{};
   shared_ptr<string> policyGroupName{};
   shared_ptr<long> resolutionHeight{};
   shared_ptr<long> resolutionWidth{};
@@ -1455,6 +1634,9 @@ public:
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
     }
+    if (netRedirectPolicy) {
+      res["NetRedirectPolicy"] = netRedirectPolicy ? boost::any(netRedirectPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (policyGroupName) {
       res["PolicyGroupName"] = boost::any(*policyGroupName);
     }
@@ -1480,6 +1662,13 @@ public:
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
     }
+    if (m.find("NetRedirectPolicy") != m.end() && !m["NetRedirectPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetRedirectPolicy"].type()) {
+        CreatePolicyGroupRequestNetRedirectPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetRedirectPolicy"]));
+        netRedirectPolicy = make_shared<CreatePolicyGroupRequestNetRedirectPolicy>(model1);
+      }
+    }
     if (m.find("PolicyGroupName") != m.end() && !m["PolicyGroupName"].empty()) {
       policyGroupName = make_shared<string>(boost::any_cast<string>(m["PolicyGroupName"]));
     }
@@ -1493,6 +1682,84 @@ public:
 
 
   virtual ~CreatePolicyGroupRequest() = default;
+};
+class CreatePolicyGroupShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cameraRedirect{};
+  shared_ptr<string> clipboard{};
+  shared_ptr<string> html5FileTransfer{};
+  shared_ptr<string> localDrive{};
+  shared_ptr<string> netRedirectPolicyShrink{};
+  shared_ptr<string> policyGroupName{};
+  shared_ptr<long> resolutionHeight{};
+  shared_ptr<long> resolutionWidth{};
+
+  CreatePolicyGroupShrinkRequest() {}
+
+  explicit CreatePolicyGroupShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cameraRedirect) {
+      res["CameraRedirect"] = boost::any(*cameraRedirect);
+    }
+    if (clipboard) {
+      res["Clipboard"] = boost::any(*clipboard);
+    }
+    if (html5FileTransfer) {
+      res["Html5FileTransfer"] = boost::any(*html5FileTransfer);
+    }
+    if (localDrive) {
+      res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (netRedirectPolicyShrink) {
+      res["NetRedirectPolicy"] = boost::any(*netRedirectPolicyShrink);
+    }
+    if (policyGroupName) {
+      res["PolicyGroupName"] = boost::any(*policyGroupName);
+    }
+    if (resolutionHeight) {
+      res["ResolutionHeight"] = boost::any(*resolutionHeight);
+    }
+    if (resolutionWidth) {
+      res["ResolutionWidth"] = boost::any(*resolutionWidth);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CameraRedirect") != m.end() && !m["CameraRedirect"].empty()) {
+      cameraRedirect = make_shared<string>(boost::any_cast<string>(m["CameraRedirect"]));
+    }
+    if (m.find("Clipboard") != m.end() && !m["Clipboard"].empty()) {
+      clipboard = make_shared<string>(boost::any_cast<string>(m["Clipboard"]));
+    }
+    if (m.find("Html5FileTransfer") != m.end() && !m["Html5FileTransfer"].empty()) {
+      html5FileTransfer = make_shared<string>(boost::any_cast<string>(m["Html5FileTransfer"]));
+    }
+    if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
+      localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
+    }
+    if (m.find("NetRedirectPolicy") != m.end() && !m["NetRedirectPolicy"].empty()) {
+      netRedirectPolicyShrink = make_shared<string>(boost::any_cast<string>(m["NetRedirectPolicy"]));
+    }
+    if (m.find("PolicyGroupName") != m.end() && !m["PolicyGroupName"].empty()) {
+      policyGroupName = make_shared<string>(boost::any_cast<string>(m["PolicyGroupName"]));
+    }
+    if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
+      resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
+    }
+    if (m.find("ResolutionWidth") != m.end() && !m["ResolutionWidth"].empty()) {
+      resolutionWidth = make_shared<long>(boost::any_cast<long>(m["ResolutionWidth"]));
+    }
+  }
+
+
+  virtual ~CreatePolicyGroupShrinkRequest() = default;
 };
 class CreatePolicyGroupResponseBody : public Darabonba::Model {
 public:
@@ -2738,6 +3005,7 @@ public:
   shared_ptr<vector<string>> androidInstanceIds{};
   shared_ptr<string> androidInstanceName{};
   shared_ptr<string> instanceGroupId{};
+  shared_ptr<vector<string>> instanceGroupIds{};
   shared_ptr<string> keyPairId{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -2762,6 +3030,9 @@ public:
     }
     if (instanceGroupId) {
       res["InstanceGroupId"] = boost::any(*instanceGroupId);
+    }
+    if (instanceGroupIds) {
+      res["InstanceGroupIds"] = boost::any(*instanceGroupIds);
     }
     if (keyPairId) {
       res["KeyPairId"] = boost::any(*keyPairId);
@@ -2797,6 +3068,16 @@ public:
     }
     if (m.find("InstanceGroupId") != m.end() && !m["InstanceGroupId"].empty()) {
       instanceGroupId = make_shared<string>(boost::any_cast<string>(m["InstanceGroupId"]));
+    }
+    if (m.find("InstanceGroupIds") != m.end() && !m["InstanceGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceGroupIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("KeyPairId") != m.end() && !m["KeyPairId"].empty()) {
       keyPairId = make_shared<string>(boost::any_cast<string>(m["KeyPairId"]));
@@ -6126,6 +6407,7 @@ class InstallAppRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> appIdList{};
   shared_ptr<vector<string>> instanceGroupIdList{};
+  shared_ptr<vector<string>> instanceIdList{};
 
   InstallAppRequest() {}
 
@@ -6142,6 +6424,9 @@ public:
     }
     if (instanceGroupIdList) {
       res["InstanceGroupIdList"] = boost::any(*instanceGroupIdList);
+    }
+    if (instanceIdList) {
+      res["InstanceIdList"] = boost::any(*instanceIdList);
     }
     return res;
   }
@@ -6166,6 +6451,16 @@ public:
         }
       }
       instanceGroupIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceIdList") != m.end() && !m["InstanceIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIdList = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -6310,6 +6605,99 @@ public:
 
   virtual ~ListPolicyGroupsRequest() = default;
 };
+class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule : public Darabonba::Model {
+public:
+  shared_ptr<string> policy{};
+  shared_ptr<string> ruleType{};
+  shared_ptr<string> target{};
+
+  ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule() {}
+
+  explicit ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    if (target) {
+      res["Target"] = boost::any(*target);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      target = make_shared<string>(boost::any_cast<string>(m["Target"]));
+    }
+  }
+
+
+  virtual ~ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule() = default;
+};
+class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> netRedirect{};
+  shared_ptr<vector<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule>> netRedirectRule{};
+
+  ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy() {}
+
+  explicit ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (netRedirect) {
+      res["NetRedirect"] = boost::any(*netRedirect);
+    }
+    if (netRedirectRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*netRedirectRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetRedirectRule"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetRedirect") != m.end() && !m["NetRedirect"].empty()) {
+      netRedirect = make_shared<string>(boost::any_cast<string>(m["NetRedirect"]));
+    }
+    if (m.find("NetRedirectRule") != m.end() && !m["NetRedirectRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetRedirectRule"].type()) {
+        vector<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetRedirectRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        netRedirectRule = make_shared<vector<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy() = default;
+};
 class ListPolicyGroupsResponseBodyPolicyGroupModel : public Darabonba::Model {
 public:
   shared_ptr<string> cameraRedirect{};
@@ -6317,6 +6705,7 @@ public:
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> localDrive{};
+  shared_ptr<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy> netRedirectPolicy{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> policyGroupName{};
   shared_ptr<string> sessionResolutionHeight{};
@@ -6346,6 +6735,9 @@ public:
     }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (netRedirectPolicy) {
+      res["NetRedirectPolicy"] = netRedirectPolicy ? boost::any(netRedirectPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (policyGroupId) {
       res["PolicyGroupId"] = boost::any(*policyGroupId);
@@ -6377,6 +6769,13 @@ public:
     }
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
+    }
+    if (m.find("NetRedirectPolicy") != m.end() && !m["NetRedirectPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetRedirectPolicy"].type()) {
+        ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetRedirectPolicy"]));
+        netRedirectPolicy = make_shared<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy>(model1);
+      }
     }
     if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
       policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
@@ -7000,12 +7399,106 @@ public:
 
   virtual ~ModifyKeyPairNameResponse() = default;
 };
+class ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule : public Darabonba::Model {
+public:
+  shared_ptr<string> policy{};
+  shared_ptr<string> ruleType{};
+  shared_ptr<string> target{};
+
+  ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule() {}
+
+  explicit ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    if (target) {
+      res["Target"] = boost::any(*target);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      target = make_shared<string>(boost::any_cast<string>(m["Target"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule() = default;
+};
+class ModifyPolicyGroupRequestNetRedirectPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> netRedirect{};
+  shared_ptr<vector<ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule>> netRedirectRule{};
+
+  ModifyPolicyGroupRequestNetRedirectPolicy() {}
+
+  explicit ModifyPolicyGroupRequestNetRedirectPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (netRedirect) {
+      res["NetRedirect"] = boost::any(*netRedirect);
+    }
+    if (netRedirectRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*netRedirectRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetRedirectRule"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetRedirect") != m.end() && !m["NetRedirect"].empty()) {
+      netRedirect = make_shared<string>(boost::any_cast<string>(m["NetRedirect"]));
+    }
+    if (m.find("NetRedirectRule") != m.end() && !m["NetRedirectRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetRedirectRule"].type()) {
+        vector<ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetRedirectRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        netRedirectRule = make_shared<vector<ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyPolicyGroupRequestNetRedirectPolicy() = default;
+};
 class ModifyPolicyGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cameraRedirect{};
   shared_ptr<string> clipboard{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> localDrive{};
+  shared_ptr<ModifyPolicyGroupRequestNetRedirectPolicy> netRedirectPolicy{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> policyGroupName{};
   shared_ptr<long> resolutionHeight{};
@@ -7032,6 +7525,9 @@ public:
     }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (netRedirectPolicy) {
+      res["NetRedirectPolicy"] = netRedirectPolicy ? boost::any(netRedirectPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (policyGroupId) {
       res["PolicyGroupId"] = boost::any(*policyGroupId);
@@ -7061,6 +7557,13 @@ public:
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
     }
+    if (m.find("NetRedirectPolicy") != m.end() && !m["NetRedirectPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetRedirectPolicy"].type()) {
+        ModifyPolicyGroupRequestNetRedirectPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetRedirectPolicy"]));
+        netRedirectPolicy = make_shared<ModifyPolicyGroupRequestNetRedirectPolicy>(model1);
+      }
+    }
     if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
       policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
     }
@@ -7077,6 +7580,91 @@ public:
 
 
   virtual ~ModifyPolicyGroupRequest() = default;
+};
+class ModifyPolicyGroupShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cameraRedirect{};
+  shared_ptr<string> clipboard{};
+  shared_ptr<string> html5FileTransfer{};
+  shared_ptr<string> localDrive{};
+  shared_ptr<string> netRedirectPolicyShrink{};
+  shared_ptr<string> policyGroupId{};
+  shared_ptr<string> policyGroupName{};
+  shared_ptr<long> resolutionHeight{};
+  shared_ptr<long> resolutionWidth{};
+
+  ModifyPolicyGroupShrinkRequest() {}
+
+  explicit ModifyPolicyGroupShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cameraRedirect) {
+      res["CameraRedirect"] = boost::any(*cameraRedirect);
+    }
+    if (clipboard) {
+      res["Clipboard"] = boost::any(*clipboard);
+    }
+    if (html5FileTransfer) {
+      res["Html5FileTransfer"] = boost::any(*html5FileTransfer);
+    }
+    if (localDrive) {
+      res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (netRedirectPolicyShrink) {
+      res["NetRedirectPolicy"] = boost::any(*netRedirectPolicyShrink);
+    }
+    if (policyGroupId) {
+      res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (policyGroupName) {
+      res["PolicyGroupName"] = boost::any(*policyGroupName);
+    }
+    if (resolutionHeight) {
+      res["ResolutionHeight"] = boost::any(*resolutionHeight);
+    }
+    if (resolutionWidth) {
+      res["ResolutionWidth"] = boost::any(*resolutionWidth);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CameraRedirect") != m.end() && !m["CameraRedirect"].empty()) {
+      cameraRedirect = make_shared<string>(boost::any_cast<string>(m["CameraRedirect"]));
+    }
+    if (m.find("Clipboard") != m.end() && !m["Clipboard"].empty()) {
+      clipboard = make_shared<string>(boost::any_cast<string>(m["Clipboard"]));
+    }
+    if (m.find("Html5FileTransfer") != m.end() && !m["Html5FileTransfer"].empty()) {
+      html5FileTransfer = make_shared<string>(boost::any_cast<string>(m["Html5FileTransfer"]));
+    }
+    if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
+      localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
+    }
+    if (m.find("NetRedirectPolicy") != m.end() && !m["NetRedirectPolicy"].empty()) {
+      netRedirectPolicyShrink = make_shared<string>(boost::any_cast<string>(m["NetRedirectPolicy"]));
+    }
+    if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
+      policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("PolicyGroupName") != m.end() && !m["PolicyGroupName"].empty()) {
+      policyGroupName = make_shared<string>(boost::any_cast<string>(m["PolicyGroupName"]));
+    }
+    if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
+      resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
+    }
+    if (m.find("ResolutionWidth") != m.end() && !m["ResolutionWidth"].empty()) {
+      resolutionWidth = make_shared<long>(boost::any_cast<long>(m["ResolutionWidth"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyGroupShrinkRequest() = default;
 };
 class ModifyPolicyGroupResponseBody : public Darabonba::Model {
 public:
@@ -8949,7 +9537,7 @@ public:
   CreateCustomImageResponse createCustomImage(shared_ptr<CreateCustomImageRequest> request);
   CreateKeyPairResponse createKeyPairWithOptions(shared_ptr<CreateKeyPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateKeyPairResponse createKeyPair(shared_ptr<CreateKeyPairRequest> request);
-  CreatePolicyGroupResponse createPolicyGroupWithOptions(shared_ptr<CreatePolicyGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePolicyGroupResponse createPolicyGroupWithOptions(shared_ptr<CreatePolicyGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePolicyGroupResponse createPolicyGroup(shared_ptr<CreatePolicyGroupRequest> request);
   DeleteAndroidInstanceGroupResponse deleteAndroidInstanceGroupWithOptions(shared_ptr<DeleteAndroidInstanceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAndroidInstanceGroupResponse deleteAndroidInstanceGroup(shared_ptr<DeleteAndroidInstanceGroupRequest> request);
@@ -9005,7 +9593,7 @@ public:
   ModifyAppResponse modifyApp(shared_ptr<ModifyAppRequest> request);
   ModifyKeyPairNameResponse modifyKeyPairNameWithOptions(shared_ptr<ModifyKeyPairNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyKeyPairNameResponse modifyKeyPairName(shared_ptr<ModifyKeyPairNameRequest> request);
-  ModifyPolicyGroupResponse modifyPolicyGroupWithOptions(shared_ptr<ModifyPolicyGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyPolicyGroupResponse modifyPolicyGroupWithOptions(shared_ptr<ModifyPolicyGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyPolicyGroupResponse modifyPolicyGroup(shared_ptr<ModifyPolicyGroupRequest> request);
   RebootAndroidInstancesInGroupResponse rebootAndroidInstancesInGroupWithOptions(shared_ptr<RebootAndroidInstancesInGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RebootAndroidInstancesInGroupResponse rebootAndroidInstancesInGroup(shared_ptr<RebootAndroidInstancesInGroupRequest> request);
