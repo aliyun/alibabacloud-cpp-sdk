@@ -334,6 +334,7 @@ class AISearchV2Request : public Darabonba::Model {
 public:
   shared_ptr<string> query{};
   shared_ptr<string> sessionId{};
+  shared_ptr<string> timeRange{};
 
   AISearchV2Request() {}
 
@@ -351,6 +352,9 @@ public:
     if (sessionId) {
       res["sessionId"] = boost::any(*sessionId);
     }
+    if (timeRange) {
+      res["timeRange"] = boost::any(*timeRange);
+    }
     return res;
   }
 
@@ -360,6 +364,9 @@ public:
     }
     if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("timeRange") != m.end() && !m["timeRange"].empty()) {
+      timeRange = make_shared<string>(boost::any_cast<string>(m["timeRange"]));
     }
   }
 

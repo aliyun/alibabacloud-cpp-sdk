@@ -78,6 +78,9 @@ AISearchV2Response Alibabacloud_LinkedmallRetrieval20240501::Client::aISearchV2W
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     query->insert(pair<string, string>("sessionId", *request->sessionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeRange)) {
+    query->insert(pair<string, string>("timeRange", *request->timeRange));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
