@@ -81134,6 +81134,314 @@ public:
 
   virtual ~ListVpcGatewayEndpointsResponse() = default;
 };
+class ListVpcPublishedRouteEntriesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> destinationCidrBlock{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> routeTableId{};
+  shared_ptr<string> targetInstanceId{};
+  shared_ptr<string> targetType{};
+
+  ListVpcPublishedRouteEntriesRequest() {}
+
+  explicit ListVpcPublishedRouteEntriesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationCidrBlock) {
+      res["DestinationCidrBlock"] = boost::any(*destinationCidrBlock);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (routeTableId) {
+      res["RouteTableId"] = boost::any(*routeTableId);
+    }
+    if (targetInstanceId) {
+      res["TargetInstanceId"] = boost::any(*targetInstanceId);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DestinationCidrBlock") != m.end() && !m["DestinationCidrBlock"].empty()) {
+      destinationCidrBlock = make_shared<string>(boost::any_cast<string>(m["DestinationCidrBlock"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RouteTableId") != m.end() && !m["RouteTableId"].empty()) {
+      routeTableId = make_shared<string>(boost::any_cast<string>(m["RouteTableId"]));
+    }
+    if (m.find("TargetInstanceId") != m.end() && !m["TargetInstanceId"].empty()) {
+      targetInstanceId = make_shared<string>(boost::any_cast<string>(m["TargetInstanceId"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~ListVpcPublishedRouteEntriesRequest() = default;
+};
+class ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets : public Darabonba::Model {
+public:
+  shared_ptr<string> publishStatus{};
+  shared_ptr<string> publishTargetType{};
+
+  ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets() {}
+
+  explicit ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (publishStatus) {
+      res["PublishStatus"] = boost::any(*publishStatus);
+    }
+    if (publishTargetType) {
+      res["PublishTargetType"] = boost::any(*publishTargetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PublishStatus") != m.end() && !m["PublishStatus"].empty()) {
+      publishStatus = make_shared<string>(boost::any_cast<string>(m["PublishStatus"]));
+    }
+    if (m.find("PublishTargetType") != m.end() && !m["PublishTargetType"].empty()) {
+      publishTargetType = make_shared<string>(boost::any_cast<string>(m["PublishTargetType"]));
+    }
+  }
+
+
+  virtual ~ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets() = default;
+};
+class ListVpcPublishedRouteEntriesResponseBodyRouteEntries : public Darabonba::Model {
+public:
+  shared_ptr<string> destinationCidrBlock{};
+  shared_ptr<string> routeEntryId{};
+  shared_ptr<vector<ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets>> routePublishTargets{};
+  shared_ptr<string> routeTableId{};
+
+  ListVpcPublishedRouteEntriesResponseBodyRouteEntries() {}
+
+  explicit ListVpcPublishedRouteEntriesResponseBodyRouteEntries(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationCidrBlock) {
+      res["DestinationCidrBlock"] = boost::any(*destinationCidrBlock);
+    }
+    if (routeEntryId) {
+      res["RouteEntryId"] = boost::any(*routeEntryId);
+    }
+    if (routePublishTargets) {
+      vector<boost::any> temp1;
+      for(auto item1:*routePublishTargets){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RoutePublishTargets"] = boost::any(temp1);
+    }
+    if (routeTableId) {
+      res["RouteTableId"] = boost::any(*routeTableId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DestinationCidrBlock") != m.end() && !m["DestinationCidrBlock"].empty()) {
+      destinationCidrBlock = make_shared<string>(boost::any_cast<string>(m["DestinationCidrBlock"]));
+    }
+    if (m.find("RouteEntryId") != m.end() && !m["RouteEntryId"].empty()) {
+      routeEntryId = make_shared<string>(boost::any_cast<string>(m["RouteEntryId"]));
+    }
+    if (m.find("RoutePublishTargets") != m.end() && !m["RoutePublishTargets"].empty()) {
+      if (typeid(vector<boost::any>) == m["RoutePublishTargets"].type()) {
+        vector<ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RoutePublishTargets"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        routePublishTargets = make_shared<vector<ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets>>(expect1);
+      }
+    }
+    if (m.find("RouteTableId") != m.end() && !m["RouteTableId"].empty()) {
+      routeTableId = make_shared<string>(boost::any_cast<string>(m["RouteTableId"]));
+    }
+  }
+
+
+  virtual ~ListVpcPublishedRouteEntriesResponseBodyRouteEntries() = default;
+};
+class ListVpcPublishedRouteEntriesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListVpcPublishedRouteEntriesResponseBodyRouteEntries>> routeEntries{};
+
+  ListVpcPublishedRouteEntriesResponseBody() {}
+
+  explicit ListVpcPublishedRouteEntriesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (routeEntries) {
+      vector<boost::any> temp1;
+      for(auto item1:*routeEntries){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RouteEntries"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RouteEntries") != m.end() && !m["RouteEntries"].empty()) {
+      if (typeid(vector<boost::any>) == m["RouteEntries"].type()) {
+        vector<ListVpcPublishedRouteEntriesResponseBodyRouteEntries> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RouteEntries"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListVpcPublishedRouteEntriesResponseBodyRouteEntries model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        routeEntries = make_shared<vector<ListVpcPublishedRouteEntriesResponseBodyRouteEntries>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListVpcPublishedRouteEntriesResponseBody() = default;
+};
+class ListVpcPublishedRouteEntriesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListVpcPublishedRouteEntriesResponseBody> body{};
+
+  ListVpcPublishedRouteEntriesResponse() {}
+
+  explicit ListVpcPublishedRouteEntriesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListVpcPublishedRouteEntriesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListVpcPublishedRouteEntriesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListVpcPublishedRouteEntriesResponse() = default;
+};
 class ListVpnCertificateAssociationsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> certificateId{};
@@ -94953,6 +95261,222 @@ public:
 
   virtual ~OpenTrafficMirrorServiceResponse() = default;
 };
+class PublishVpcRouteEntriesRequestRouteEntries : public Darabonba::Model {
+public:
+  shared_ptr<string> destinationCidrBlock{};
+  shared_ptr<string> routeTableId{};
+
+  PublishVpcRouteEntriesRequestRouteEntries() {}
+
+  explicit PublishVpcRouteEntriesRequestRouteEntries(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationCidrBlock) {
+      res["DestinationCidrBlock"] = boost::any(*destinationCidrBlock);
+    }
+    if (routeTableId) {
+      res["RouteTableId"] = boost::any(*routeTableId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DestinationCidrBlock") != m.end() && !m["DestinationCidrBlock"].empty()) {
+      destinationCidrBlock = make_shared<string>(boost::any_cast<string>(m["DestinationCidrBlock"]));
+    }
+    if (m.find("RouteTableId") != m.end() && !m["RouteTableId"].empty()) {
+      routeTableId = make_shared<string>(boost::any_cast<string>(m["RouteTableId"]));
+    }
+  }
+
+
+  virtual ~PublishVpcRouteEntriesRequestRouteEntries() = default;
+};
+class PublishVpcRouteEntriesRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<PublishVpcRouteEntriesRequestRouteEntries>> routeEntries{};
+  shared_ptr<string> targetInstanceId{};
+  shared_ptr<string> targetType{};
+
+  PublishVpcRouteEntriesRequest() {}
+
+  explicit PublishVpcRouteEntriesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (routeEntries) {
+      vector<boost::any> temp1;
+      for(auto item1:*routeEntries){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RouteEntries"] = boost::any(temp1);
+    }
+    if (targetInstanceId) {
+      res["TargetInstanceId"] = boost::any(*targetInstanceId);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RouteEntries") != m.end() && !m["RouteEntries"].empty()) {
+      if (typeid(vector<boost::any>) == m["RouteEntries"].type()) {
+        vector<PublishVpcRouteEntriesRequestRouteEntries> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RouteEntries"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PublishVpcRouteEntriesRequestRouteEntries model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        routeEntries = make_shared<vector<PublishVpcRouteEntriesRequestRouteEntries>>(expect1);
+      }
+    }
+    if (m.find("TargetInstanceId") != m.end() && !m["TargetInstanceId"].empty()) {
+      targetInstanceId = make_shared<string>(boost::any_cast<string>(m["TargetInstanceId"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~PublishVpcRouteEntriesRequest() = default;
+};
+class PublishVpcRouteEntriesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  PublishVpcRouteEntriesResponseBody() {}
+
+  explicit PublishVpcRouteEntriesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~PublishVpcRouteEntriesResponseBody() = default;
+};
+class PublishVpcRouteEntriesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PublishVpcRouteEntriesResponseBody> body{};
+
+  PublishVpcRouteEntriesResponse() {}
+
+  explicit PublishVpcRouteEntriesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PublishVpcRouteEntriesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PublishVpcRouteEntriesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PublishVpcRouteEntriesResponse() = default;
+};
 class PublishVpnRouteEntryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -103247,6 +103771,222 @@ public:
 
   virtual ~VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse() = default;
 };
+class WithdrawVpcPublishedRouteEntriesRequestRouteEntries : public Darabonba::Model {
+public:
+  shared_ptr<string> destinationCidrBlock{};
+  shared_ptr<string> routeTableId{};
+
+  WithdrawVpcPublishedRouteEntriesRequestRouteEntries() {}
+
+  explicit WithdrawVpcPublishedRouteEntriesRequestRouteEntries(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationCidrBlock) {
+      res["DestinationCidrBlock"] = boost::any(*destinationCidrBlock);
+    }
+    if (routeTableId) {
+      res["RouteTableId"] = boost::any(*routeTableId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DestinationCidrBlock") != m.end() && !m["DestinationCidrBlock"].empty()) {
+      destinationCidrBlock = make_shared<string>(boost::any_cast<string>(m["DestinationCidrBlock"]));
+    }
+    if (m.find("RouteTableId") != m.end() && !m["RouteTableId"].empty()) {
+      routeTableId = make_shared<string>(boost::any_cast<string>(m["RouteTableId"]));
+    }
+  }
+
+
+  virtual ~WithdrawVpcPublishedRouteEntriesRequestRouteEntries() = default;
+};
+class WithdrawVpcPublishedRouteEntriesRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<WithdrawVpcPublishedRouteEntriesRequestRouteEntries>> routeEntries{};
+  shared_ptr<string> targetInstanceId{};
+  shared_ptr<string> targetType{};
+
+  WithdrawVpcPublishedRouteEntriesRequest() {}
+
+  explicit WithdrawVpcPublishedRouteEntriesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (routeEntries) {
+      vector<boost::any> temp1;
+      for(auto item1:*routeEntries){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RouteEntries"] = boost::any(temp1);
+    }
+    if (targetInstanceId) {
+      res["TargetInstanceId"] = boost::any(*targetInstanceId);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RouteEntries") != m.end() && !m["RouteEntries"].empty()) {
+      if (typeid(vector<boost::any>) == m["RouteEntries"].type()) {
+        vector<WithdrawVpcPublishedRouteEntriesRequestRouteEntries> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RouteEntries"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            WithdrawVpcPublishedRouteEntriesRequestRouteEntries model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        routeEntries = make_shared<vector<WithdrawVpcPublishedRouteEntriesRequestRouteEntries>>(expect1);
+      }
+    }
+    if (m.find("TargetInstanceId") != m.end() && !m["TargetInstanceId"].empty()) {
+      targetInstanceId = make_shared<string>(boost::any_cast<string>(m["TargetInstanceId"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~WithdrawVpcPublishedRouteEntriesRequest() = default;
+};
+class WithdrawVpcPublishedRouteEntriesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  WithdrawVpcPublishedRouteEntriesResponseBody() {}
+
+  explicit WithdrawVpcPublishedRouteEntriesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~WithdrawVpcPublishedRouteEntriesResponseBody() = default;
+};
+class WithdrawVpcPublishedRouteEntriesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<WithdrawVpcPublishedRouteEntriesResponseBody> body{};
+
+  WithdrawVpcPublishedRouteEntriesResponse() {}
+
+  explicit WithdrawVpcPublishedRouteEntriesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        WithdrawVpcPublishedRouteEntriesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<WithdrawVpcPublishedRouteEntriesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~WithdrawVpcPublishedRouteEntriesResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -103811,6 +104551,8 @@ public:
   ListVpcEndpointServicesByEndUserResponse listVpcEndpointServicesByEndUser(shared_ptr<ListVpcEndpointServicesByEndUserRequest> request);
   ListVpcGatewayEndpointsResponse listVpcGatewayEndpointsWithOptions(shared_ptr<ListVpcGatewayEndpointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListVpcGatewayEndpointsResponse listVpcGatewayEndpoints(shared_ptr<ListVpcGatewayEndpointsRequest> request);
+  ListVpcPublishedRouteEntriesResponse listVpcPublishedRouteEntriesWithOptions(shared_ptr<ListVpcPublishedRouteEntriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListVpcPublishedRouteEntriesResponse listVpcPublishedRouteEntries(shared_ptr<ListVpcPublishedRouteEntriesRequest> request);
   ListVpnCertificateAssociationsResponse listVpnCertificateAssociationsWithOptions(shared_ptr<ListVpnCertificateAssociationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListVpnCertificateAssociationsResponse listVpnCertificateAssociations(shared_ptr<ListVpnCertificateAssociationsRequest> request);
   ModifyBgpGroupAttributeResponse modifyBgpGroupAttributeWithOptions(shared_ptr<ModifyBgpGroupAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -103933,6 +104675,8 @@ public:
   OpenPublicIpAddressPoolServiceResponse openPublicIpAddressPoolService(shared_ptr<OpenPublicIpAddressPoolServiceRequest> request);
   OpenTrafficMirrorServiceResponse openTrafficMirrorServiceWithOptions(shared_ptr<OpenTrafficMirrorServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OpenTrafficMirrorServiceResponse openTrafficMirrorService(shared_ptr<OpenTrafficMirrorServiceRequest> request);
+  PublishVpcRouteEntriesResponse publishVpcRouteEntriesWithOptions(shared_ptr<PublishVpcRouteEntriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PublishVpcRouteEntriesResponse publishVpcRouteEntries(shared_ptr<PublishVpcRouteEntriesRequest> request);
   PublishVpnRouteEntryResponse publishVpnRouteEntryWithOptions(shared_ptr<PublishVpnRouteEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PublishVpnRouteEntryResponse publishVpnRouteEntry(shared_ptr<PublishVpnRouteEntryRequest> request);
   RecoverPhysicalConnectionResponse recoverPhysicalConnectionWithOptions(shared_ptr<RecoverPhysicalConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -104025,6 +104769,8 @@ public:
   UpdateVpcGatewayEndpointAttributeResponse updateVpcGatewayEndpointAttribute(shared_ptr<UpdateVpcGatewayEndpointAttributeRequest> request);
   VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse vpcDescribeVpcNatGatewayNetworkInterfaceQuotaWithOptions(shared_ptr<VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse vpcDescribeVpcNatGatewayNetworkInterfaceQuota(shared_ptr<VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest> request);
+  WithdrawVpcPublishedRouteEntriesResponse withdrawVpcPublishedRouteEntriesWithOptions(shared_ptr<WithdrawVpcPublishedRouteEntriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  WithdrawVpcPublishedRouteEntriesResponse withdrawVpcPublishedRouteEntries(shared_ptr<WithdrawVpcPublishedRouteEntriesRequest> request);
 
   virtual ~Client() = default;
 };
