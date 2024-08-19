@@ -99,15 +99,15 @@ public:
 
   virtual ~AnalyzeConversationRequestDialogue() = default;
 };
-class AnalyzeConversationRequestExampleListSentenceList : public Darabonba::Model {
+class AnalyzeConversationRequestExamplesSentences : public Darabonba::Model {
 public:
   shared_ptr<string> chatId{};
   shared_ptr<string> role{};
   shared_ptr<string> text{};
 
-  AnalyzeConversationRequestExampleListSentenceList() {}
+  AnalyzeConversationRequestExamplesSentences() {}
 
-  explicit AnalyzeConversationRequestExampleListSentenceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit AnalyzeConversationRequestExamplesSentences(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -140,16 +140,16 @@ public:
   }
 
 
-  virtual ~AnalyzeConversationRequestExampleListSentenceList() = default;
+  virtual ~AnalyzeConversationRequestExamplesSentences() = default;
 };
-class AnalyzeConversationRequestExampleList : public Darabonba::Model {
+class AnalyzeConversationRequestExamples : public Darabonba::Model {
 public:
   shared_ptr<string> output{};
-  shared_ptr<vector<AnalyzeConversationRequestExampleListSentenceList>> sentenceList{};
+  shared_ptr<vector<AnalyzeConversationRequestExamplesSentences>> sentences{};
 
-  AnalyzeConversationRequestExampleList() {}
+  AnalyzeConversationRequestExamples() {}
 
-  explicit AnalyzeConversationRequestExampleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit AnalyzeConversationRequestExamples(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -160,12 +160,12 @@ public:
     if (output) {
       res["output"] = boost::any(*output);
     }
-    if (sentenceList) {
+    if (sentences) {
       vector<boost::any> temp1;
-      for(auto item1:*sentenceList){
+      for(auto item1:*sentences){
         temp1.push_back(boost::any(item1.toMap()));
       }
-      res["sentenceList"] = boost::any(temp1);
+      res["sentences"] = boost::any(temp1);
     }
     return res;
   }
@@ -174,23 +174,23 @@ public:
     if (m.find("output") != m.end() && !m["output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["output"]));
     }
-    if (m.find("sentenceList") != m.end() && !m["sentenceList"].empty()) {
-      if (typeid(vector<boost::any>) == m["sentenceList"].type()) {
-        vector<AnalyzeConversationRequestExampleListSentenceList> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["sentenceList"])){
+    if (m.find("sentences") != m.end() && !m["sentences"].empty()) {
+      if (typeid(vector<boost::any>) == m["sentences"].type()) {
+        vector<AnalyzeConversationRequestExamplesSentences> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["sentences"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            AnalyzeConversationRequestExampleListSentenceList model2;
+            AnalyzeConversationRequestExamplesSentences model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        sentenceList = make_shared<vector<AnalyzeConversationRequestExampleListSentenceList>>(expect1);
+        sentences = make_shared<vector<AnalyzeConversationRequestExamplesSentences>>(expect1);
       }
     }
   }
 
 
-  virtual ~AnalyzeConversationRequestExampleList() = default;
+  virtual ~AnalyzeConversationRequestExamples() = default;
 };
 class AnalyzeConversationRequestFieldsEnumValues : public Darabonba::Model {
 public:
@@ -388,7 +388,7 @@ public:
 class AnalyzeConversationRequest : public Darabonba::Model {
 public:
   shared_ptr<AnalyzeConversationRequestDialogue> dialogue{};
-  shared_ptr<vector<AnalyzeConversationRequestExampleList>> exampleList{};
+  shared_ptr<vector<AnalyzeConversationRequestExamples>> examples{};
   shared_ptr<vector<AnalyzeConversationRequestFields>> fields{};
   shared_ptr<string> modelCode{};
   shared_ptr<vector<string>> resultTypes{};
@@ -409,12 +409,12 @@ public:
     if (dialogue) {
       res["dialogue"] = dialogue ? boost::any(dialogue->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (exampleList) {
+    if (examples) {
       vector<boost::any> temp1;
-      for(auto item1:*exampleList){
+      for(auto item1:*examples){
         temp1.push_back(boost::any(item1.toMap()));
       }
-      res["exampleList"] = boost::any(temp1);
+      res["examples"] = boost::any(temp1);
     }
     if (fields) {
       vector<boost::any> temp1;
@@ -449,17 +449,17 @@ public:
         dialogue = make_shared<AnalyzeConversationRequestDialogue>(model1);
       }
     }
-    if (m.find("exampleList") != m.end() && !m["exampleList"].empty()) {
-      if (typeid(vector<boost::any>) == m["exampleList"].type()) {
-        vector<AnalyzeConversationRequestExampleList> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["exampleList"])){
+    if (m.find("examples") != m.end() && !m["examples"].empty()) {
+      if (typeid(vector<boost::any>) == m["examples"].type()) {
+        vector<AnalyzeConversationRequestExamples> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["examples"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            AnalyzeConversationRequestExampleList model2;
+            AnalyzeConversationRequestExamples model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        exampleList = make_shared<vector<AnalyzeConversationRequestExampleList>>(expect1);
+        examples = make_shared<vector<AnalyzeConversationRequestExamples>>(expect1);
       }
     }
     if (m.find("fields") != m.end() && !m["fields"].empty()) {
