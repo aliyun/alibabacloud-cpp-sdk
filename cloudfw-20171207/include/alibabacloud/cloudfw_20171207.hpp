@@ -248,6 +248,7 @@ public:
   shared_ptr<string> destination{};
   shared_ptr<string> destinationType{};
   shared_ptr<string> direction{};
+  shared_ptr<string> domainResolveType{};
   shared_ptr<long> endTime{};
   shared_ptr<string> ipVersion{};
   shared_ptr<string> lang{};
@@ -302,6 +303,9 @@ public:
     }
     if (direction) {
       res["Direction"] = boost::any(*direction);
+    }
+    if (domainResolveType) {
+      res["DomainResolveType"] = boost::any(*domainResolveType);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
@@ -385,6 +389,9 @@ public:
     }
     if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
       direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("DomainResolveType") != m.end() && !m["DomainResolveType"].empty()) {
+      domainResolveType = make_shared<string>(boost::any_cast<string>(m["DomainResolveType"]));
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
@@ -947,6 +954,7 @@ class CreateDownloadTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> lang{};
   shared_ptr<string> taskData{};
+  shared_ptr<string> timeZone{};
 
   CreateDownloadTaskRequest() {}
 
@@ -964,6 +972,9 @@ public:
     if (taskData) {
       res["TaskData"] = boost::any(*taskData);
     }
+    if (timeZone) {
+      res["TimeZone"] = boost::any(*timeZone);
+    }
     return res;
   }
 
@@ -973,6 +984,9 @@ public:
     }
     if (m.find("TaskData") != m.end() && !m["TaskData"].empty()) {
       taskData = make_shared<string>(boost::any_cast<string>(m["TaskData"]));
+    }
+    if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
     }
   }
 
@@ -1623,6 +1637,123 @@ public:
 
 
   virtual ~CreateSecurityProxyResponse() = default;
+};
+class CreateSlsLogDispatchRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> slsRegionId{};
+  shared_ptr<long> ttl{};
+
+  CreateSlsLogDispatchRequest() {}
+
+  explicit CreateSlsLogDispatchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (slsRegionId) {
+      res["SlsRegionId"] = boost::any(*slsRegionId);
+    }
+    if (ttl) {
+      res["Ttl"] = boost::any(*ttl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SlsRegionId") != m.end() && !m["SlsRegionId"].empty()) {
+      slsRegionId = make_shared<string>(boost::any_cast<string>(m["SlsRegionId"]));
+    }
+    if (m.find("Ttl") != m.end() && !m["Ttl"].empty()) {
+      ttl = make_shared<long>(boost::any_cast<long>(m["Ttl"]));
+    }
+  }
+
+
+  virtual ~CreateSlsLogDispatchRequest() = default;
+};
+class CreateSlsLogDispatchResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateSlsLogDispatchResponseBody() {}
+
+  explicit CreateSlsLogDispatchResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateSlsLogDispatchResponseBody() = default;
+};
+class CreateSlsLogDispatchResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateSlsLogDispatchResponseBody> body{};
+
+  CreateSlsLogDispatchResponse() {}
+
+  explicit CreateSlsLogDispatchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSlsLogDispatchResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSlsLogDispatchResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSlsLogDispatchResponse() = default;
 };
 class CreateTrFirewallV2Request : public Darabonba::Model {
 public:
@@ -2547,6 +2678,7 @@ public:
   shared_ptr<string> destPortType{};
   shared_ptr<string> destination{};
   shared_ptr<string> destinationType{};
+  shared_ptr<string> domainResolveType{};
   shared_ptr<long> endTime{};
   shared_ptr<string> lang{};
   shared_ptr<string> memberUid{};
@@ -2598,6 +2730,9 @@ public:
     }
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (domainResolveType) {
+      res["DomainResolveType"] = boost::any(*domainResolveType);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
@@ -2678,6 +2813,9 @@ public:
     }
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("DomainResolveType") != m.end() && !m["DomainResolveType"].empty()) {
+      domainResolveType = make_shared<string>(boost::any_cast<string>(m["DomainResolveType"]));
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
@@ -5934,6 +6072,7 @@ public:
   shared_ptr<string> direction{};
   shared_ptr<string> dnsResult{};
   shared_ptr<long> dnsResultTime{};
+  shared_ptr<string> domainResolveType{};
   shared_ptr<long> endTime{};
   shared_ptr<long> hitLastTime{};
   shared_ptr<long> hitTimes{};
@@ -6016,6 +6155,9 @@ public:
     }
     if (dnsResultTime) {
       res["DnsResultTime"] = boost::any(*dnsResultTime);
+    }
+    if (domainResolveType) {
+      res["DomainResolveType"] = boost::any(*domainResolveType);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
@@ -6149,6 +6291,9 @@ public:
     }
     if (m.find("DnsResultTime") != m.end() && !m["DnsResultTime"].empty()) {
       dnsResultTime = make_shared<long>(boost::any_cast<long>(m["DnsResultTime"]));
+    }
+    if (m.find("DomainResolveType") != m.end() && !m["DomainResolveType"].empty()) {
+      domainResolveType = make_shared<string>(boost::any_cast<string>(m["DomainResolveType"]));
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
@@ -6349,7 +6494,6 @@ public:
 class DescribeDefaultIPSConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> lang{};
-  shared_ptr<string> sourceIp{};
 
   DescribeDefaultIPSConfigRequest() {}
 
@@ -6364,18 +6508,12 @@ public:
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
-    if (sourceIp) {
-      res["SourceIp"] = boost::any(*sourceIp);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
-    }
-    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
-      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
     }
   }
 
@@ -6384,11 +6522,8 @@ public:
 };
 class DescribeDefaultIPSConfigResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> aiRules{};
   shared_ptr<long> basicRules{};
   shared_ptr<long> ctiRules{};
-  shared_ptr<long> enableAllPatch{};
-  shared_ptr<long> enableDefault{};
   shared_ptr<long> patchRules{};
   shared_ptr<string> requestId{};
   shared_ptr<long> ruleClass{};
@@ -6404,20 +6539,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (aiRules) {
-      res["AiRules"] = boost::any(*aiRules);
-    }
     if (basicRules) {
       res["BasicRules"] = boost::any(*basicRules);
     }
     if (ctiRules) {
       res["CtiRules"] = boost::any(*ctiRules);
-    }
-    if (enableAllPatch) {
-      res["EnableAllPatch"] = boost::any(*enableAllPatch);
-    }
-    if (enableDefault) {
-      res["EnableDefault"] = boost::any(*enableDefault);
     }
     if (patchRules) {
       res["PatchRules"] = boost::any(*patchRules);
@@ -6435,20 +6561,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AiRules") != m.end() && !m["AiRules"].empty()) {
-      aiRules = make_shared<long>(boost::any_cast<long>(m["AiRules"]));
-    }
     if (m.find("BasicRules") != m.end() && !m["BasicRules"].empty()) {
       basicRules = make_shared<long>(boost::any_cast<long>(m["BasicRules"]));
     }
     if (m.find("CtiRules") != m.end() && !m["CtiRules"].empty()) {
       ctiRules = make_shared<long>(boost::any_cast<long>(m["CtiRules"]));
-    }
-    if (m.find("EnableAllPatch") != m.end() && !m["EnableAllPatch"].empty()) {
-      enableAllPatch = make_shared<long>(boost::any_cast<long>(m["EnableAllPatch"]));
-    }
-    if (m.find("EnableDefault") != m.end() && !m["EnableDefault"].empty()) {
-      enableDefault = make_shared<long>(boost::any_cast<long>(m["EnableDefault"]));
     }
     if (m.find("PatchRules") != m.end() && !m["PatchRules"].empty()) {
       patchRules = make_shared<long>(boost::any_cast<long>(m["PatchRules"]));
@@ -8999,6 +9116,7 @@ public:
 };
 class DescribeNatAclPageStatusResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> detail{};
   shared_ptr<bool> natAclPageEnable{};
   shared_ptr<string> requestId{};
 
@@ -9012,6 +9130,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (detail) {
+      res["Detail"] = boost::any(*detail);
+    }
     if (natAclPageEnable) {
       res["NatAclPageEnable"] = boost::any(*natAclPageEnable);
     }
@@ -9022,6 +9143,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Detail") != m.end() && !m["Detail"].empty()) {
+      detail = make_shared<string>(boost::any_cast<string>(m["Detail"]));
+    }
     if (m.find("NatAclPageEnable") != m.end() && !m["NatAclPageEnable"].empty()) {
       natAclPageEnable = make_shared<bool>(boost::any_cast<bool>(m["NatAclPageEnable"]));
     }
@@ -11523,6 +11647,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceType{};
   shared_ptr<long> outBytes{};
+  shared_ptr<long> protectionDuration{};
   shared_ptr<string> resourceId{};
   shared_ptr<long> totalBytes{};
   shared_ptr<string> trafficDay{};
@@ -11549,6 +11674,9 @@ public:
     }
     if (outBytes) {
       res["OutBytes"] = boost::any(*outBytes);
+    }
+    if (protectionDuration) {
+      res["ProtectionDuration"] = boost::any(*protectionDuration);
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
@@ -11577,6 +11705,9 @@ public:
     }
     if (m.find("OutBytes") != m.end() && !m["OutBytes"].empty()) {
       outBytes = make_shared<long>(boost::any_cast<long>(m["OutBytes"]));
+    }
+    if (m.find("ProtectionDuration") != m.end() && !m["ProtectionDuration"].empty()) {
+      protectionDuration = make_shared<long>(boost::any_cast<long>(m["ProtectionDuration"]));
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
@@ -11737,9 +11868,14 @@ class DescribePostpayTrafficTotalResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<long> totalAssets{};
+  shared_ptr<long> totalBillTraffic{};
+  shared_ptr<long> totalInternetAssets{};
+  shared_ptr<long> totalInternetTraffic{};
   shared_ptr<long> totalNatAssets{};
   shared_ptr<long> totalNatTraffic{};
   shared_ptr<long> totalTraffic{};
+  shared_ptr<long> totalVpcAssets{};
+  shared_ptr<long> totalVpcTraffic{};
 
   DescribePostpayTrafficTotalResponseBody() {}
 
@@ -11757,6 +11893,15 @@ public:
     if (totalAssets) {
       res["TotalAssets"] = boost::any(*totalAssets);
     }
+    if (totalBillTraffic) {
+      res["TotalBillTraffic"] = boost::any(*totalBillTraffic);
+    }
+    if (totalInternetAssets) {
+      res["TotalInternetAssets"] = boost::any(*totalInternetAssets);
+    }
+    if (totalInternetTraffic) {
+      res["TotalInternetTraffic"] = boost::any(*totalInternetTraffic);
+    }
     if (totalNatAssets) {
       res["TotalNatAssets"] = boost::any(*totalNatAssets);
     }
@@ -11765,6 +11910,12 @@ public:
     }
     if (totalTraffic) {
       res["TotalTraffic"] = boost::any(*totalTraffic);
+    }
+    if (totalVpcAssets) {
+      res["TotalVpcAssets"] = boost::any(*totalVpcAssets);
+    }
+    if (totalVpcTraffic) {
+      res["TotalVpcTraffic"] = boost::any(*totalVpcTraffic);
     }
     return res;
   }
@@ -11776,6 +11927,15 @@ public:
     if (m.find("TotalAssets") != m.end() && !m["TotalAssets"].empty()) {
       totalAssets = make_shared<long>(boost::any_cast<long>(m["TotalAssets"]));
     }
+    if (m.find("TotalBillTraffic") != m.end() && !m["TotalBillTraffic"].empty()) {
+      totalBillTraffic = make_shared<long>(boost::any_cast<long>(m["TotalBillTraffic"]));
+    }
+    if (m.find("TotalInternetAssets") != m.end() && !m["TotalInternetAssets"].empty()) {
+      totalInternetAssets = make_shared<long>(boost::any_cast<long>(m["TotalInternetAssets"]));
+    }
+    if (m.find("TotalInternetTraffic") != m.end() && !m["TotalInternetTraffic"].empty()) {
+      totalInternetTraffic = make_shared<long>(boost::any_cast<long>(m["TotalInternetTraffic"]));
+    }
     if (m.find("TotalNatAssets") != m.end() && !m["TotalNatAssets"].empty()) {
       totalNatAssets = make_shared<long>(boost::any_cast<long>(m["TotalNatAssets"]));
     }
@@ -11784,6 +11944,12 @@ public:
     }
     if (m.find("TotalTraffic") != m.end() && !m["TotalTraffic"].empty()) {
       totalTraffic = make_shared<long>(boost::any_cast<long>(m["TotalTraffic"]));
+    }
+    if (m.find("TotalVpcAssets") != m.end() && !m["TotalVpcAssets"].empty()) {
+      totalVpcAssets = make_shared<long>(boost::any_cast<long>(m["TotalVpcAssets"]));
+    }
+    if (m.find("TotalVpcTraffic") != m.end() && !m["TotalVpcTraffic"].empty()) {
+      totalVpcTraffic = make_shared<long>(boost::any_cast<long>(m["TotalVpcTraffic"]));
     }
   }
 
@@ -14139,6 +14305,7 @@ class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig : public Dara
 public:
   shared_ptr<long> basicRules{};
   shared_ptr<long> enableAllPatch{};
+  shared_ptr<long> ruleClass{};
   shared_ptr<long> runMode{};
 
   DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig() {}
@@ -14157,6 +14324,9 @@ public:
     if (enableAllPatch) {
       res["EnableAllPatch"] = boost::any(*enableAllPatch);
     }
+    if (ruleClass) {
+      res["RuleClass"] = boost::any(*ruleClass);
+    }
     if (runMode) {
       res["RunMode"] = boost::any(*runMode);
     }
@@ -14169,6 +14339,9 @@ public:
     }
     if (m.find("EnableAllPatch") != m.end() && !m["EnableAllPatch"].empty()) {
       enableAllPatch = make_shared<long>(boost::any_cast<long>(m["EnableAllPatch"]));
+    }
+    if (m.find("RuleClass") != m.end() && !m["RuleClass"].empty()) {
+      ruleClass = make_shared<long>(boost::any_cast<long>(m["RuleClass"]));
     }
     if (m.find("RunMode") != m.end() && !m["RunMode"].empty()) {
       runMode = make_shared<long>(boost::any_cast<long>(m["RunMode"]));
@@ -16148,6 +16321,7 @@ class DescribeVpcFirewallCenListResponseBodyVpcFirewallsIpsConfig : public Darab
 public:
   shared_ptr<long> basicRules{};
   shared_ptr<long> enableAllPatch{};
+  shared_ptr<long> ruleClass{};
   shared_ptr<long> runMode{};
 
   DescribeVpcFirewallCenListResponseBodyVpcFirewallsIpsConfig() {}
@@ -16166,6 +16340,9 @@ public:
     if (enableAllPatch) {
       res["EnableAllPatch"] = boost::any(*enableAllPatch);
     }
+    if (ruleClass) {
+      res["RuleClass"] = boost::any(*ruleClass);
+    }
     if (runMode) {
       res["RunMode"] = boost::any(*runMode);
     }
@@ -16178,6 +16355,9 @@ public:
     }
     if (m.find("EnableAllPatch") != m.end() && !m["EnableAllPatch"].empty()) {
       enableAllPatch = make_shared<long>(boost::any_cast<long>(m["EnableAllPatch"]));
+    }
+    if (m.find("RuleClass") != m.end() && !m["RuleClass"].empty()) {
+      ruleClass = make_shared<long>(boost::any_cast<long>(m["RuleClass"]));
     }
     if (m.find("RunMode") != m.end() && !m["RunMode"].empty()) {
       runMode = make_shared<long>(boost::any_cast<long>(m["RunMode"]));
@@ -16767,6 +16947,7 @@ public:
   shared_ptr<vector<string>> destinationGroupCidrs{};
   shared_ptr<string> destinationGroupType{};
   shared_ptr<string> destinationType{};
+  shared_ptr<string> domainResolveType{};
   shared_ptr<long> endTime{};
   shared_ptr<long> hitLastTime{};
   shared_ptr<long> hitTimes{};
@@ -16840,6 +17021,9 @@ public:
     }
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (domainResolveType) {
+      res["DomainResolveType"] = boost::any(*domainResolveType);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
@@ -16964,6 +17148,9 @@ public:
     }
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("DomainResolveType") != m.end() && !m["DomainResolveType"].empty()) {
+      domainResolveType = make_shared<string>(boost::any_cast<string>(m["DomainResolveType"]));
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
@@ -17188,6 +17375,7 @@ public:
   shared_ptr<long> basicRules{};
   shared_ptr<long> enableAllPatch{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> ruleClass{};
   shared_ptr<long> runMode{};
 
   DescribeVpcFirewallDefaultIPSConfigResponseBody() {}
@@ -17209,6 +17397,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (ruleClass) {
+      res["RuleClass"] = boost::any(*ruleClass);
+    }
     if (runMode) {
       res["RunMode"] = boost::any(*runMode);
     }
@@ -17224,6 +17415,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RuleClass") != m.end() && !m["RuleClass"].empty()) {
+      ruleClass = make_shared<long>(boost::any_cast<long>(m["RuleClass"]));
     }
     if (m.find("RunMode") != m.end() && !m["RunMode"].empty()) {
       runMode = make_shared<long>(boost::any_cast<long>(m["RunMode"]));
@@ -18134,6 +18328,7 @@ class DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig : public Darabonb
 public:
   shared_ptr<long> basicRules{};
   shared_ptr<long> enableAllPatch{};
+  shared_ptr<long> ruleClass{};
   shared_ptr<long> runMode{};
 
   DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig() {}
@@ -18152,6 +18347,9 @@ public:
     if (enableAllPatch) {
       res["EnableAllPatch"] = boost::any(*enableAllPatch);
     }
+    if (ruleClass) {
+      res["RuleClass"] = boost::any(*ruleClass);
+    }
     if (runMode) {
       res["RunMode"] = boost::any(*runMode);
     }
@@ -18164,6 +18362,9 @@ public:
     }
     if (m.find("EnableAllPatch") != m.end() && !m["EnableAllPatch"].empty()) {
       enableAllPatch = make_shared<long>(boost::any_cast<long>(m["EnableAllPatch"]));
+    }
+    if (m.find("RuleClass") != m.end() && !m["RuleClass"].empty()) {
+      ruleClass = make_shared<long>(boost::any_cast<long>(m["RuleClass"]));
     }
     if (m.find("RunMode") != m.end() && !m["RunMode"].empty()) {
       runMode = make_shared<long>(boost::any_cast<long>(m["RunMode"]));
@@ -19825,6 +20026,7 @@ public:
   shared_ptr<string> groupName{};
   shared_ptr<string> groupUuid{};
   shared_ptr<string> lang{};
+  shared_ptr<string> modifyMode{};
   shared_ptr<string> sourceIp{};
   shared_ptr<vector<ModifyAddressBookRequestTagList>> tagList{};
   shared_ptr<string> tagRelation{};
@@ -19856,6 +20058,9 @@ public:
     }
     if (lang) {
       res["Lang"] = boost::any(*lang);
+    }
+    if (modifyMode) {
+      res["ModifyMode"] = boost::any(*modifyMode);
     }
     if (sourceIp) {
       res["SourceIp"] = boost::any(*sourceIp);
@@ -19891,6 +20096,9 @@ public:
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("ModifyMode") != m.end() && !m["ModifyMode"].empty()) {
+      modifyMode = make_shared<string>(boost::any_cast<string>(m["ModifyMode"]));
     }
     if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
       sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
@@ -20010,6 +20218,7 @@ public:
   shared_ptr<string> destination{};
   shared_ptr<string> destinationType{};
   shared_ptr<string> direction{};
+  shared_ptr<string> domainResolveType{};
   shared_ptr<long> endTime{};
   shared_ptr<string> lang{};
   shared_ptr<string> proto{};
@@ -20064,6 +20273,9 @@ public:
     }
     if (direction) {
       res["Direction"] = boost::any(*direction);
+    }
+    if (domainResolveType) {
+      res["DomainResolveType"] = boost::any(*domainResolveType);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
@@ -20141,6 +20353,9 @@ public:
     }
     if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
       direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("DomainResolveType") != m.end() && !m["DomainResolveType"].empty()) {
+      domainResolveType = make_shared<string>(boost::any_cast<string>(m["DomainResolveType"]));
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
@@ -20408,16 +20623,12 @@ public:
 };
 class ModifyDefaultIPSConfigRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> aiRules{};
   shared_ptr<string> basicRules{};
   shared_ptr<string> ctiRules{};
-  shared_ptr<string> enableAllPatch{};
-  shared_ptr<string> enableDefault{};
   shared_ptr<string> lang{};
   shared_ptr<string> patchRules{};
   shared_ptr<string> ruleClass{};
   shared_ptr<string> runMode{};
-  shared_ptr<string> sourceIp{};
 
   ModifyDefaultIPSConfigRequest() {}
 
@@ -20429,20 +20640,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (aiRules) {
-      res["AiRules"] = boost::any(*aiRules);
-    }
     if (basicRules) {
       res["BasicRules"] = boost::any(*basicRules);
     }
     if (ctiRules) {
       res["CtiRules"] = boost::any(*ctiRules);
-    }
-    if (enableAllPatch) {
-      res["EnableAllPatch"] = boost::any(*enableAllPatch);
-    }
-    if (enableDefault) {
-      res["EnableDefault"] = boost::any(*enableDefault);
     }
     if (lang) {
       res["Lang"] = boost::any(*lang);
@@ -20456,27 +20658,15 @@ public:
     if (runMode) {
       res["RunMode"] = boost::any(*runMode);
     }
-    if (sourceIp) {
-      res["SourceIp"] = boost::any(*sourceIp);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AiRules") != m.end() && !m["AiRules"].empty()) {
-      aiRules = make_shared<string>(boost::any_cast<string>(m["AiRules"]));
-    }
     if (m.find("BasicRules") != m.end() && !m["BasicRules"].empty()) {
       basicRules = make_shared<string>(boost::any_cast<string>(m["BasicRules"]));
     }
     if (m.find("CtiRules") != m.end() && !m["CtiRules"].empty()) {
       ctiRules = make_shared<string>(boost::any_cast<string>(m["CtiRules"]));
-    }
-    if (m.find("EnableAllPatch") != m.end() && !m["EnableAllPatch"].empty()) {
-      enableAllPatch = make_shared<string>(boost::any_cast<string>(m["EnableAllPatch"]));
-    }
-    if (m.find("EnableDefault") != m.end() && !m["EnableDefault"].empty()) {
-      enableDefault = make_shared<string>(boost::any_cast<string>(m["EnableDefault"]));
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
@@ -20489,9 +20679,6 @@ public:
     }
     if (m.find("RunMode") != m.end() && !m["RunMode"].empty()) {
       runMode = make_shared<string>(boost::any_cast<string>(m["RunMode"]));
-    }
-    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
-      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
     }
   }
 
@@ -21292,6 +21479,165 @@ public:
 
 
   virtual ~ModifyNatFirewallControlPolicyPositionResponse() = default;
+};
+class ModifyObjectGroupOperationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> direction{};
+  shared_ptr<string> lang{};
+  shared_ptr<vector<string>> objectList{};
+  shared_ptr<string> objectOperation{};
+  shared_ptr<string> objectType{};
+  shared_ptr<string> sourceIp{};
+
+  ModifyObjectGroupOperationRequest() {}
+
+  explicit ModifyObjectGroupOperationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (objectList) {
+      res["ObjectList"] = boost::any(*objectList);
+    }
+    if (objectOperation) {
+      res["ObjectOperation"] = boost::any(*objectOperation);
+    }
+    if (objectType) {
+      res["ObjectType"] = boost::any(*objectType);
+    }
+    if (sourceIp) {
+      res["SourceIp"] = boost::any(*sourceIp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("ObjectList") != m.end() && !m["ObjectList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ObjectList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ObjectList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      objectList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ObjectOperation") != m.end() && !m["ObjectOperation"].empty()) {
+      objectOperation = make_shared<string>(boost::any_cast<string>(m["ObjectOperation"]));
+    }
+    if (m.find("ObjectType") != m.end() && !m["ObjectType"].empty()) {
+      objectType = make_shared<string>(boost::any_cast<string>(m["ObjectType"]));
+    }
+    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
+      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
+    }
+  }
+
+
+  virtual ~ModifyObjectGroupOperationRequest() = default;
+};
+class ModifyObjectGroupOperationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyObjectGroupOperationResponseBody() {}
+
+  explicit ModifyObjectGroupOperationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyObjectGroupOperationResponseBody() = default;
+};
+class ModifyObjectGroupOperationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyObjectGroupOperationResponseBody> body{};
+
+  ModifyObjectGroupOperationResponse() {}
+
+  explicit ModifyObjectGroupOperationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyObjectGroupOperationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyObjectGroupOperationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyObjectGroupOperationResponse() = default;
 };
 class ModifyPolicyAdvancedConfigRequest : public Darabonba::Model {
 public:
@@ -22428,6 +22774,7 @@ public:
   shared_ptr<string> destPortType{};
   shared_ptr<string> destination{};
   shared_ptr<string> destinationType{};
+  shared_ptr<string> domainResolveType{};
   shared_ptr<long> endTime{};
   shared_ptr<string> lang{};
   shared_ptr<string> proto{};
@@ -22480,6 +22827,9 @@ public:
     }
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (domainResolveType) {
+      res["DomainResolveType"] = boost::any(*domainResolveType);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
@@ -22557,6 +22907,9 @@ public:
     }
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("DomainResolveType") != m.end() && !m["DomainResolveType"].empty()) {
+      domainResolveType = make_shared<string>(boost::any_cast<string>(m["DomainResolveType"]));
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
@@ -22831,6 +23184,7 @@ public:
   shared_ptr<string> enableAllPatch{};
   shared_ptr<string> lang{};
   shared_ptr<string> memberUid{};
+  shared_ptr<string> ruleClass{};
   shared_ptr<string> runMode{};
   shared_ptr<string> sourceIp{};
   shared_ptr<string> vpcFirewallId{};
@@ -22857,6 +23211,9 @@ public:
     if (memberUid) {
       res["MemberUid"] = boost::any(*memberUid);
     }
+    if (ruleClass) {
+      res["RuleClass"] = boost::any(*ruleClass);
+    }
     if (runMode) {
       res["RunMode"] = boost::any(*runMode);
     }
@@ -22881,6 +23238,9 @@ public:
     }
     if (m.find("MemberUid") != m.end() && !m["MemberUid"].empty()) {
       memberUid = make_shared<string>(boost::any_cast<string>(m["MemberUid"]));
+    }
+    if (m.find("RuleClass") != m.end() && !m["RuleClass"].empty()) {
+      ruleClass = make_shared<string>(boost::any_cast<string>(m["RuleClass"]));
     }
     if (m.find("RunMode") != m.end() && !m["RunMode"].empty()) {
       runMode = make_shared<string>(boost::any_cast<string>(m["RunMode"]));
@@ -24405,6 +24765,8 @@ public:
   CreateNatFirewallControlPolicyResponse createNatFirewallControlPolicy(shared_ptr<CreateNatFirewallControlPolicyRequest> request);
   CreateSecurityProxyResponse createSecurityProxyWithOptions(shared_ptr<CreateSecurityProxyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSecurityProxyResponse createSecurityProxy(shared_ptr<CreateSecurityProxyRequest> request);
+  CreateSlsLogDispatchResponse createSlsLogDispatchWithOptions(shared_ptr<CreateSlsLogDispatchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSlsLogDispatchResponse createSlsLogDispatch(shared_ptr<CreateSlsLogDispatchRequest> request);
   CreateTrFirewallV2Response createTrFirewallV2WithOptions(shared_ptr<CreateTrFirewallV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTrFirewallV2Response createTrFirewallV2(shared_ptr<CreateTrFirewallV2Request> request);
   CreateTrFirewallV2RoutePolicyResponse createTrFirewallV2RoutePolicyWithOptions(shared_ptr<CreateTrFirewallV2RoutePolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24553,6 +24915,8 @@ public:
   ModifyNatFirewallControlPolicyResponse modifyNatFirewallControlPolicy(shared_ptr<ModifyNatFirewallControlPolicyRequest> request);
   ModifyNatFirewallControlPolicyPositionResponse modifyNatFirewallControlPolicyPositionWithOptions(shared_ptr<ModifyNatFirewallControlPolicyPositionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyNatFirewallControlPolicyPositionResponse modifyNatFirewallControlPolicyPosition(shared_ptr<ModifyNatFirewallControlPolicyPositionRequest> request);
+  ModifyObjectGroupOperationResponse modifyObjectGroupOperationWithOptions(shared_ptr<ModifyObjectGroupOperationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyObjectGroupOperationResponse modifyObjectGroupOperation(shared_ptr<ModifyObjectGroupOperationRequest> request);
   ModifyPolicyAdvancedConfigResponse modifyPolicyAdvancedConfigWithOptions(shared_ptr<ModifyPolicyAdvancedConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyPolicyAdvancedConfigResponse modifyPolicyAdvancedConfig(shared_ptr<ModifyPolicyAdvancedConfigRequest> request);
   ModifyTrFirewallV2ConfigurationResponse modifyTrFirewallV2ConfigurationWithOptions(shared_ptr<ModifyTrFirewallV2ConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
