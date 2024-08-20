@@ -8074,6 +8074,7 @@ public:
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
   shared_ptr<string> deployMode{};
+  shared_ptr<string> description{};
   shared_ptr<NodeAttributes> nodeAttributes{};
   shared_ptr<vector<NodeGroupConfig>> nodeGroups{};
   shared_ptr<string> paymentType{};
@@ -8126,6 +8127,9 @@ public:
     }
     if (deployMode) {
       res["DeployMode"] = boost::any(*deployMode);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (nodeAttributes) {
       res["NodeAttributes"] = nodeAttributes ? boost::any(nodeAttributes->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8216,6 +8220,9 @@ public:
     }
     if (m.find("DeployMode") != m.end() && !m["DeployMode"].empty()) {
       deployMode = make_shared<string>(boost::any_cast<string>(m["DeployMode"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("NodeAttributes") != m.end() && !m["NodeAttributes"].empty()) {
       if (typeid(map<string, boost::any>) == m["NodeAttributes"].type()) {

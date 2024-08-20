@@ -146,6 +146,9 @@ CreateClusterResponse Alibabacloud_Emr20210320::Client::createClusterWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->deployMode)) {
     query->insert(pair<string, string>("DeployMode", *request->deployMode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
   if (!Darabonba_Util::Client::isUnset<NodeAttributes>(request->nodeAttributes)) {
     query->insert(pair<string, NodeAttributes>("NodeAttributes", *request->nodeAttributes));
   }
