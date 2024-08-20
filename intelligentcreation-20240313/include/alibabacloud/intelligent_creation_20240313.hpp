@@ -1450,6 +1450,237 @@ public:
 
   virtual ~AddTextFeedbackResponse() = default;
 };
+class BatchGetProjectTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> taskIdList{};
+
+  BatchGetProjectTaskRequest() {}
+
+  explicit BatchGetProjectTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskIdList) {
+      res["taskIdList"] = boost::any(*taskIdList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("taskIdList") != m.end() && !m["taskIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["taskIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["taskIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      taskIdList = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~BatchGetProjectTaskRequest() = default;
+};
+class BatchGetProjectTaskShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> taskIdListShrink{};
+
+  BatchGetProjectTaskShrinkRequest() {}
+
+  explicit BatchGetProjectTaskShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskIdListShrink) {
+      res["taskIdList"] = boost::any(*taskIdListShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("taskIdList") != m.end() && !m["taskIdList"].empty()) {
+      taskIdListShrink = make_shared<string>(boost::any_cast<string>(m["taskIdList"]));
+    }
+  }
+
+
+  virtual ~BatchGetProjectTaskShrinkRequest() = default;
+};
+class BatchGetProjectTaskResponseBodyResultList : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMsg{};
+  shared_ptr<string> status{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> videoDownloadUrl{};
+  shared_ptr<long> videoDuration{};
+  shared_ptr<string> videoUrl{};
+
+  BatchGetProjectTaskResponseBodyResultList() {}
+
+  explicit BatchGetProjectTaskResponseBodyResultList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    if (videoDownloadUrl) {
+      res["videoDownloadUrl"] = boost::any(*videoDownloadUrl);
+    }
+    if (videoDuration) {
+      res["videoDuration"] = boost::any(*videoDuration);
+    }
+    if (videoUrl) {
+      res["videoUrl"] = boost::any(*videoUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+    if (m.find("videoDownloadUrl") != m.end() && !m["videoDownloadUrl"].empty()) {
+      videoDownloadUrl = make_shared<string>(boost::any_cast<string>(m["videoDownloadUrl"]));
+    }
+    if (m.find("videoDuration") != m.end() && !m["videoDuration"].empty()) {
+      videoDuration = make_shared<long>(boost::any_cast<long>(m["videoDuration"]));
+    }
+    if (m.find("videoUrl") != m.end() && !m["videoUrl"].empty()) {
+      videoUrl = make_shared<string>(boost::any_cast<string>(m["videoUrl"]));
+    }
+  }
+
+
+  virtual ~BatchGetProjectTaskResponseBodyResultList() = default;
+};
+class BatchGetProjectTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<BatchGetProjectTaskResponseBodyResultList>> resultList{};
+
+  BatchGetProjectTaskResponseBody() {}
+
+  explicit BatchGetProjectTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (resultList) {
+      vector<boost::any> temp1;
+      for(auto item1:*resultList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["resultList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("resultList") != m.end() && !m["resultList"].empty()) {
+      if (typeid(vector<boost::any>) == m["resultList"].type()) {
+        vector<BatchGetProjectTaskResponseBodyResultList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["resultList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchGetProjectTaskResponseBodyResultList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resultList = make_shared<vector<BatchGetProjectTaskResponseBodyResultList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~BatchGetProjectTaskResponseBody() = default;
+};
+class BatchGetProjectTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchGetProjectTaskResponseBody> body{};
+
+  BatchGetProjectTaskResponse() {}
+
+  explicit BatchGetProjectTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchGetProjectTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchGetProjectTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchGetProjectTaskResponse() = default;
+};
 class CheckSessionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> projectId{};
@@ -4777,6 +5008,8 @@ public:
                      shared_ptr<string> endpoint);
   AddTextFeedbackResponse addTextFeedbackWithOptions(shared_ptr<AddTextFeedbackRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddTextFeedbackResponse addTextFeedback(shared_ptr<AddTextFeedbackRequest> request);
+  BatchGetProjectTaskResponse batchGetProjectTaskWithOptions(shared_ptr<BatchGetProjectTaskRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchGetProjectTaskResponse batchGetProjectTask(shared_ptr<BatchGetProjectTaskRequest> request);
   CheckSessionResponse checkSessionWithOptions(shared_ptr<CheckSessionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckSessionResponse checkSession(shared_ptr<CheckSessionRequest> request);
   CountTextResponse countTextWithOptions(shared_ptr<CountTextRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
