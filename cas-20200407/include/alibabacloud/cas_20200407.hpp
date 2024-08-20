@@ -3427,6 +3427,7 @@ public:
 class GetCsrDetailResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> csr{};
+  shared_ptr<string> privateKey{};
   shared_ptr<string> requestId{};
 
   GetCsrDetailResponseBody() {}
@@ -3442,6 +3443,9 @@ public:
     if (csr) {
       res["Csr"] = boost::any(*csr);
     }
+    if (privateKey) {
+      res["PrivateKey"] = boost::any(*privateKey);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -3451,6 +3455,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Csr") != m.end() && !m["Csr"].empty()) {
       csr = make_shared<string>(boost::any_cast<string>(m["Csr"]));
+    }
+    if (m.find("PrivateKey") != m.end() && !m["PrivateKey"].empty()) {
+      privateKey = make_shared<string>(boost::any_cast<string>(m["PrivateKey"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
