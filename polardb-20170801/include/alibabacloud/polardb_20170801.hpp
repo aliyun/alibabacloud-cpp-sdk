@@ -9252,6 +9252,7 @@ public:
   shared_ptr<long> SQLSize{};
   shared_ptr<string> serverlessType{};
   shared_ptr<string> sourceDBCluster{};
+  shared_ptr<string> sourceRegionId{};
   shared_ptr<string> standbyHAMode{};
   shared_ptr<long> storageMax{};
   shared_ptr<string> storagePayType{};
@@ -9420,6 +9421,9 @@ public:
     }
     if (sourceDBCluster) {
       res["SourceDBCluster"] = boost::any(*sourceDBCluster);
+    }
+    if (sourceRegionId) {
+      res["SourceRegionId"] = boost::any(*sourceRegionId);
     }
     if (standbyHAMode) {
       res["StandbyHAMode"] = boost::any(*standbyHAMode);
@@ -9618,6 +9622,9 @@ public:
     }
     if (m.find("SourceDBCluster") != m.end() && !m["SourceDBCluster"].empty()) {
       sourceDBCluster = make_shared<string>(boost::any_cast<string>(m["SourceDBCluster"]));
+    }
+    if (m.find("SourceRegionId") != m.end() && !m["SourceRegionId"].empty()) {
+      sourceRegionId = make_shared<string>(boost::any_cast<string>(m["SourceRegionId"]));
     }
     if (m.find("StandbyHAMode") != m.end() && !m["StandbyHAMode"].empty()) {
       standbyHAMode = make_shared<string>(boost::any_cast<string>(m["StandbyHAMode"]));
