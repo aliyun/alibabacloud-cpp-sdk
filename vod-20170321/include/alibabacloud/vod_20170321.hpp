@@ -9692,6 +9692,297 @@ public:
 
   virtual ~DescribeVodDomainLogResponse() = default;
 };
+class DescribeVodDomainMax95BpsDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cycle{};
+  shared_ptr<string> domainName{};
+  shared_ptr<string> endTime{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> timePoint{};
+
+  DescribeVodDomainMax95BpsDataRequest() {}
+
+  explicit DescribeVodDomainMax95BpsDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycle) {
+      res["Cycle"] = boost::any(*cycle);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (timePoint) {
+      res["TimePoint"] = boost::any(*timePoint);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cycle") != m.end() && !m["Cycle"].empty()) {
+      cycle = make_shared<string>(boost::any_cast<string>(m["Cycle"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("TimePoint") != m.end() && !m["TimePoint"].empty()) {
+      timePoint = make_shared<string>(boost::any_cast<string>(m["TimePoint"]));
+    }
+  }
+
+
+  virtual ~DescribeVodDomainMax95BpsDataRequest() = default;
+};
+class DescribeVodDomainMax95BpsDataResponseBodyDetailDataMax95Detail : public Darabonba::Model {
+public:
+  shared_ptr<string> area{};
+  shared_ptr<double> max95Bps{};
+  shared_ptr<string> max95BpsPeakTime{};
+  shared_ptr<string> timeStamp{};
+
+  DescribeVodDomainMax95BpsDataResponseBodyDetailDataMax95Detail() {}
+
+  explicit DescribeVodDomainMax95BpsDataResponseBodyDetailDataMax95Detail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (area) {
+      res["Area"] = boost::any(*area);
+    }
+    if (max95Bps) {
+      res["Max95Bps"] = boost::any(*max95Bps);
+    }
+    if (max95BpsPeakTime) {
+      res["Max95BpsPeakTime"] = boost::any(*max95BpsPeakTime);
+    }
+    if (timeStamp) {
+      res["TimeStamp"] = boost::any(*timeStamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Area") != m.end() && !m["Area"].empty()) {
+      area = make_shared<string>(boost::any_cast<string>(m["Area"]));
+    }
+    if (m.find("Max95Bps") != m.end() && !m["Max95Bps"].empty()) {
+      max95Bps = make_shared<double>(boost::any_cast<double>(m["Max95Bps"]));
+    }
+    if (m.find("Max95BpsPeakTime") != m.end() && !m["Max95BpsPeakTime"].empty()) {
+      max95BpsPeakTime = make_shared<string>(boost::any_cast<string>(m["Max95BpsPeakTime"]));
+    }
+    if (m.find("TimeStamp") != m.end() && !m["TimeStamp"].empty()) {
+      timeStamp = make_shared<string>(boost::any_cast<string>(m["TimeStamp"]));
+    }
+  }
+
+
+  virtual ~DescribeVodDomainMax95BpsDataResponseBodyDetailDataMax95Detail() = default;
+};
+class DescribeVodDomainMax95BpsDataResponseBodyDetailData : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeVodDomainMax95BpsDataResponseBodyDetailDataMax95Detail>> max95Detail{};
+
+  DescribeVodDomainMax95BpsDataResponseBodyDetailData() {}
+
+  explicit DescribeVodDomainMax95BpsDataResponseBodyDetailData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (max95Detail) {
+      vector<boost::any> temp1;
+      for(auto item1:*max95Detail){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Max95Detail"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Max95Detail") != m.end() && !m["Max95Detail"].empty()) {
+      if (typeid(vector<boost::any>) == m["Max95Detail"].type()) {
+        vector<DescribeVodDomainMax95BpsDataResponseBodyDetailDataMax95Detail> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Max95Detail"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVodDomainMax95BpsDataResponseBodyDetailDataMax95Detail model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        max95Detail = make_shared<vector<DescribeVodDomainMax95BpsDataResponseBodyDetailDataMax95Detail>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVodDomainMax95BpsDataResponseBodyDetailData() = default;
+};
+class DescribeVodDomainMax95BpsDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeVodDomainMax95BpsDataResponseBodyDetailData> detailData{};
+  shared_ptr<string> domainName{};
+  shared_ptr<string> domesticMax95Bps{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> max95Bps{};
+  shared_ptr<string> overseasMax95Bps{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> startTime{};
+
+  DescribeVodDomainMax95BpsDataResponseBody() {}
+
+  explicit DescribeVodDomainMax95BpsDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detailData) {
+      res["DetailData"] = detailData ? boost::any(detailData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (domesticMax95Bps) {
+      res["DomesticMax95Bps"] = boost::any(*domesticMax95Bps);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (max95Bps) {
+      res["Max95Bps"] = boost::any(*max95Bps);
+    }
+    if (overseasMax95Bps) {
+      res["OverseasMax95Bps"] = boost::any(*overseasMax95Bps);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DetailData") != m.end() && !m["DetailData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DetailData"].type()) {
+        DescribeVodDomainMax95BpsDataResponseBodyDetailData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DetailData"]));
+        detailData = make_shared<DescribeVodDomainMax95BpsDataResponseBodyDetailData>(model1);
+      }
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("DomesticMax95Bps") != m.end() && !m["DomesticMax95Bps"].empty()) {
+      domesticMax95Bps = make_shared<string>(boost::any_cast<string>(m["DomesticMax95Bps"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Max95Bps") != m.end() && !m["Max95Bps"].empty()) {
+      max95Bps = make_shared<string>(boost::any_cast<string>(m["Max95Bps"]));
+    }
+    if (m.find("OverseasMax95Bps") != m.end() && !m["OverseasMax95Bps"].empty()) {
+      overseasMax95Bps = make_shared<string>(boost::any_cast<string>(m["OverseasMax95Bps"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeVodDomainMax95BpsDataResponseBody() = default;
+};
+class DescribeVodDomainMax95BpsDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeVodDomainMax95BpsDataResponseBody> body{};
+
+  DescribeVodDomainMax95BpsDataResponse() {}
+
+  explicit DescribeVodDomainMax95BpsDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeVodDomainMax95BpsDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeVodDomainMax95BpsDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVodDomainMax95BpsDataResponse() = default;
+};
 class DescribeVodDomainQpsDataRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
@@ -41302,6 +41593,8 @@ public:
   DescribeVodDomainHitRateDataResponse describeVodDomainHitRateData(shared_ptr<DescribeVodDomainHitRateDataRequest> request);
   DescribeVodDomainLogResponse describeVodDomainLogWithOptions(shared_ptr<DescribeVodDomainLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVodDomainLogResponse describeVodDomainLog(shared_ptr<DescribeVodDomainLogRequest> request);
+  DescribeVodDomainMax95BpsDataResponse describeVodDomainMax95BpsDataWithOptions(shared_ptr<DescribeVodDomainMax95BpsDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeVodDomainMax95BpsDataResponse describeVodDomainMax95BpsData(shared_ptr<DescribeVodDomainMax95BpsDataRequest> request);
   DescribeVodDomainQpsDataResponse describeVodDomainQpsDataWithOptions(shared_ptr<DescribeVodDomainQpsDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVodDomainQpsDataResponse describeVodDomainQpsData(shared_ptr<DescribeVodDomainQpsDataRequest> request);
   DescribeVodDomainRealTimeBpsDataResponse describeVodDomainRealTimeBpsDataWithOptions(shared_ptr<DescribeVodDomainRealTimeBpsDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
