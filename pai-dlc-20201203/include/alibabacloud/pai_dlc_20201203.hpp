@@ -3888,6 +3888,7 @@ public:
 };
 class Tensorboard : public Darabonba::Model {
 public:
+  shared_ptr<string> accessibility{};
   shared_ptr<string> dataSourceId{};
   shared_ptr<string> displayName{};
   shared_ptr<string> duration{};
@@ -3920,6 +3921,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
     if (dataSourceId) {
       res["DataSourceId"] = boost::any(*dataSourceId);
     }
@@ -3991,6 +3995,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
     if (m.find("DataSourceId") != m.end() && !m["DataSourceId"].empty()) {
       dataSourceId = make_shared<string>(boost::any_cast<string>(m["DataSourceId"]));
     }
@@ -4370,6 +4377,7 @@ public:
 };
 class CreateJobRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accessibility{};
   shared_ptr<CreateJobRequestCodeSource> codeSource{};
   shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<vector<CreateJobRequestDataSources>> dataSources{};
@@ -4401,6 +4409,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
     if (codeSource) {
       res["CodeSource"] = codeSource ? boost::any(codeSource->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -4473,6 +4484,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
     if (m.find("CodeSource") != m.end() && !m["CodeSource"].empty()) {
       if (typeid(map<string, boost::any>) == m["CodeSource"].type()) {
         CreateJobRequestCodeSource model1;
@@ -4680,6 +4694,7 @@ public:
 };
 class CreateTensorboardRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accessibility{};
   shared_ptr<long> cpu{};
   shared_ptr<string> dataSourceId{};
   shared_ptr<string> dataSourceType{};
@@ -4710,6 +4725,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
     if (cpu) {
       res["Cpu"] = boost::any(*cpu);
     }
@@ -4779,6 +4797,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
     if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
       cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
     }
@@ -7529,6 +7550,7 @@ public:
 };
 class ListJobsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accessibility{};
   shared_ptr<string> businessUserId{};
   shared_ptr<string> caller{};
   shared_ptr<string> displayName{};
@@ -7561,6 +7583,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
     if (businessUserId) {
       res["BusinessUserId"] = boost::any(*businessUserId);
     }
@@ -7628,6 +7653,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
     if (m.find("BusinessUserId") != m.end() && !m["BusinessUserId"].empty()) {
       businessUserId = make_shared<string>(boost::any_cast<string>(m["BusinessUserId"]));
     }
@@ -7703,6 +7731,7 @@ public:
 };
 class ListJobsShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accessibility{};
   shared_ptr<string> businessUserId{};
   shared_ptr<string> caller{};
   shared_ptr<string> displayName{};
@@ -7735,6 +7764,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
     if (businessUserId) {
       res["BusinessUserId"] = boost::any(*businessUserId);
     }
@@ -7802,6 +7834,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
     if (m.find("BusinessUserId") != m.end() && !m["BusinessUserId"].empty()) {
       businessUserId = make_shared<string>(boost::any_cast<string>(m["BusinessUserId"]));
     }
@@ -7981,6 +8016,7 @@ public:
 };
 class ListTensorboardsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accessibility{};
   shared_ptr<string> displayName{};
   shared_ptr<string> endTime{};
   shared_ptr<string> jobId{};
@@ -8011,6 +8047,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
     if (displayName) {
       res["DisplayName"] = boost::any(*displayName);
     }
@@ -8072,6 +8111,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
     if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
       displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
     }

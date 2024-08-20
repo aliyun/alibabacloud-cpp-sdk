@@ -93,6 +93,9 @@ string Alibabacloud_Pai-dlc20201203::Client::getEndpoint(shared_ptr<string> prod
 CreateJobResponse Alibabacloud_Pai-dlc20201203::Client::createJobWithOptions(shared_ptr<CreateJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
+    body->insert(pair<string, string>("Accessibility", *request->accessibility));
+  }
   if (!Darabonba_Util::Client::isUnset<CreateJobRequestCodeSource>(request->codeSource)) {
     body->insert(pair<string, CreateJobRequestCodeSource>("CodeSource", *request->codeSource));
   }
@@ -180,6 +183,9 @@ CreateJobResponse Alibabacloud_Pai-dlc20201203::Client::createJob(shared_ptr<Cre
 CreateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::createTensorboardWithOptions(shared_ptr<CreateTensorboardRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
+    body->insert(pair<string, string>("Accessibility", *request->accessibility));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->cpu)) {
     body->insert(pair<string, long>("Cpu", *request->cpu));
   }
@@ -797,6 +803,9 @@ ListJobsResponse Alibabacloud_Pai-dlc20201203::Client::listJobsWithOptions(share
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
+    query->insert(pair<string, string>("Accessibility", *request->accessibility));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->businessUserId)) {
     query->insert(pair<string, string>("BusinessUserId", *request->businessUserId));
   }
@@ -887,6 +896,9 @@ ListJobsResponse Alibabacloud_Pai-dlc20201203::Client::listJobs(shared_ptr<ListJ
 ListTensorboardsResponse Alibabacloud_Pai-dlc20201203::Client::listTensorboardsWithOptions(shared_ptr<ListTensorboardsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
+    query->insert(pair<string, string>("Accessibility", *request->accessibility));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->displayName)) {
     query->insert(pair<string, string>("DisplayName", *request->displayName));
   }
