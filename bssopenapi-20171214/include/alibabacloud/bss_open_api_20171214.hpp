@@ -28958,6 +28958,7 @@ public:
   shared_ptr<string> payMode{};
   shared_ptr<string> region{};
   shared_ptr<string> spec{};
+  shared_ptr<string> spnCommodityCode{};
   shared_ptr<string> spnType{};
 
   QuerySavingsPlansDiscountRequest() {}
@@ -28997,6 +28998,9 @@ public:
     if (spec) {
       res["Spec"] = boost::any(*spec);
     }
+    if (spnCommodityCode) {
+      res["SpnCommodityCode"] = boost::any(*spnCommodityCode);
+    }
     if (spnType) {
       res["SpnType"] = boost::any(*spnType);
     }
@@ -29030,6 +29034,9 @@ public:
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
+    }
+    if (m.find("SpnCommodityCode") != m.end() && !m["SpnCommodityCode"].empty()) {
+      spnCommodityCode = make_shared<string>(boost::any_cast<string>(m["SpnCommodityCode"]));
     }
     if (m.find("SpnType") != m.end() && !m["SpnType"].empty()) {
       spnType = make_shared<string>(boost::any_cast<string>(m["SpnType"]));
@@ -29332,6 +29339,7 @@ public:
 };
 class QuerySavingsPlansInstanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> commodityCode{};
   shared_ptr<string> endTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> locale{};
@@ -29351,6 +29359,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (commodityCode) {
+      res["CommodityCode"] = boost::any(*commodityCode);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -29383,6 +29394,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
+      commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
