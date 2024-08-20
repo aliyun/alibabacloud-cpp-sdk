@@ -562,6 +562,7 @@ public:
 class DescribeImageModerationResultResponseBodyDataResult : public Darabonba::Model {
 public:
   shared_ptr<double> confidence{};
+  shared_ptr<string> description{};
   shared_ptr<string> label{};
 
   DescribeImageModerationResultResponseBodyDataResult() {}
@@ -577,6 +578,9 @@ public:
     if (confidence) {
       res["Confidence"] = boost::any(*confidence);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (label) {
       res["Label"] = boost::any(*label);
     }
@@ -586,6 +590,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
       confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
@@ -2808,6 +2815,7 @@ public:
 class ImageModerationResponseBodyDataResult : public Darabonba::Model {
 public:
   shared_ptr<double> confidence{};
+  shared_ptr<string> description{};
   shared_ptr<string> label{};
 
   ImageModerationResponseBodyDataResult() {}
@@ -2823,6 +2831,9 @@ public:
     if (confidence) {
       res["Confidence"] = boost::any(*confidence);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (label) {
       res["Label"] = boost::any(*label);
     }
@@ -2832,6 +2843,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
       confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
