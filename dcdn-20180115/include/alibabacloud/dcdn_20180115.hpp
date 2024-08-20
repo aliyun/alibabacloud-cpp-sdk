@@ -1202,6 +1202,42 @@ public:
 
   virtual ~BatchDeleteDcdnKvWithHighCapacityRequest() = default;
 };
+class BatchDeleteDcdnKvWithHighCapacityAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> namespace_{};
+  shared_ptr<Darabonba::Stream> urlObject{};
+
+  BatchDeleteDcdnKvWithHighCapacityAdvanceRequest() {}
+
+  explicit BatchDeleteDcdnKvWithHighCapacityAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (urlObject) {
+      res["Url"] = boost::any(*urlObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      urlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["Url"]));
+    }
+  }
+
+
+  virtual ~BatchDeleteDcdnKvWithHighCapacityAdvanceRequest() = default;
+};
 class BatchDeleteDcdnKvWithHighCapacityResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> failKeys{};
@@ -1818,6 +1854,42 @@ public:
 
 
   virtual ~BatchPutDcdnKvWithHighCapacityRequest() = default;
+};
+class BatchPutDcdnKvWithHighCapacityAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> namespace_{};
+  shared_ptr<Darabonba::Stream> urlObject{};
+
+  BatchPutDcdnKvWithHighCapacityAdvanceRequest() {}
+
+  explicit BatchPutDcdnKvWithHighCapacityAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (urlObject) {
+      res["Url"] = boost::any(*urlObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      urlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["Url"]));
+    }
+  }
+
+
+  virtual ~BatchPutDcdnKvWithHighCapacityAdvanceRequest() = default;
 };
 class BatchPutDcdnKvWithHighCapacityResponseBody : public Darabonba::Model {
 public:
@@ -23801,7 +23873,9 @@ public:
 };
 class DescribeDcdnKvAccountResponseBodyNamespaceList : public Darabonba::Model {
 public:
+  shared_ptr<long> capacity{};
   shared_ptr<string> capacityString{};
+  shared_ptr<long> capacityUsed{};
   shared_ptr<string> capacityUsedString{};
   shared_ptr<string> description{};
   shared_ptr<string> namespace_{};
@@ -23818,8 +23892,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (capacity) {
+      res["Capacity"] = boost::any(*capacity);
+    }
     if (capacityString) {
       res["CapacityString"] = boost::any(*capacityString);
+    }
+    if (capacityUsed) {
+      res["CapacityUsed"] = boost::any(*capacityUsed);
     }
     if (capacityUsedString) {
       res["CapacityUsedString"] = boost::any(*capacityUsedString);
@@ -23840,8 +23920,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Capacity") != m.end() && !m["Capacity"].empty()) {
+      capacity = make_shared<long>(boost::any_cast<long>(m["Capacity"]));
+    }
     if (m.find("CapacityString") != m.end() && !m["CapacityString"].empty()) {
       capacityString = make_shared<string>(boost::any_cast<string>(m["CapacityString"]));
+    }
+    if (m.find("CapacityUsed") != m.end() && !m["CapacityUsed"].empty()) {
+      capacityUsed = make_shared<long>(boost::any_cast<long>(m["CapacityUsed"]));
     }
     if (m.find("CapacityUsedString") != m.end() && !m["CapacityUsedString"].empty()) {
       capacityUsedString = make_shared<string>(boost::any_cast<string>(m["CapacityUsedString"]));
@@ -24119,7 +24205,9 @@ public:
 };
 class DescribeDcdnKvNamespaceResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> capacity{};
   shared_ptr<string> capacityString{};
+  shared_ptr<long> capacityUsed{};
   shared_ptr<string> capacityUsedString{};
   shared_ptr<string> description{};
   shared_ptr<string> mode{};
@@ -24138,8 +24226,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (capacity) {
+      res["Capacity"] = boost::any(*capacity);
+    }
     if (capacityString) {
       res["CapacityString"] = boost::any(*capacityString);
+    }
+    if (capacityUsed) {
+      res["CapacityUsed"] = boost::any(*capacityUsed);
     }
     if (capacityUsedString) {
       res["CapacityUsedString"] = boost::any(*capacityUsedString);
@@ -24166,8 +24260,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Capacity") != m.end() && !m["Capacity"].empty()) {
+      capacity = make_shared<long>(boost::any_cast<long>(m["Capacity"]));
+    }
     if (m.find("CapacityString") != m.end() && !m["CapacityString"].empty()) {
       capacityString = make_shared<string>(boost::any_cast<string>(m["CapacityString"]));
+    }
+    if (m.find("CapacityUsed") != m.end() && !m["CapacityUsed"].empty()) {
+      capacityUsed = make_shared<long>(boost::any_cast<long>(m["CapacityUsed"]));
     }
     if (m.find("CapacityUsedString") != m.end() && !m["CapacityUsedString"].empty()) {
       capacityUsedString = make_shared<string>(boost::any_cast<string>(m["CapacityUsedString"]));
@@ -46076,6 +46176,7 @@ public:
   BatchDeleteDcdnKvResponse batchDeleteDcdnKv(shared_ptr<BatchDeleteDcdnKvRequest> request);
   BatchDeleteDcdnKvWithHighCapacityResponse batchDeleteDcdnKvWithHighCapacityWithOptions(shared_ptr<BatchDeleteDcdnKvWithHighCapacityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchDeleteDcdnKvWithHighCapacityResponse batchDeleteDcdnKvWithHighCapacity(shared_ptr<BatchDeleteDcdnKvWithHighCapacityRequest> request);
+  BatchDeleteDcdnKvWithHighCapacityResponse batchDeleteDcdnKvWithHighCapacityAdvance(shared_ptr<BatchDeleteDcdnKvWithHighCapacityAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchDeleteDcdnWafRulesResponse batchDeleteDcdnWafRulesWithOptions(shared_ptr<BatchDeleteDcdnWafRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchDeleteDcdnWafRulesResponse batchDeleteDcdnWafRules(shared_ptr<BatchDeleteDcdnWafRulesRequest> request);
   BatchModifyDcdnWafRulesResponse batchModifyDcdnWafRulesWithOptions(shared_ptr<BatchModifyDcdnWafRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -46084,6 +46185,7 @@ public:
   BatchPutDcdnKvResponse batchPutDcdnKv(shared_ptr<BatchPutDcdnKvRequest> request);
   BatchPutDcdnKvWithHighCapacityResponse batchPutDcdnKvWithHighCapacityWithOptions(shared_ptr<BatchPutDcdnKvWithHighCapacityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchPutDcdnKvWithHighCapacityResponse batchPutDcdnKvWithHighCapacity(shared_ptr<BatchPutDcdnKvWithHighCapacityRequest> request);
+  BatchPutDcdnKvWithHighCapacityResponse batchPutDcdnKvWithHighCapacityAdvance(shared_ptr<BatchPutDcdnKvWithHighCapacityAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchSetDcdnDomainCertificateResponse batchSetDcdnDomainCertificateWithOptions(shared_ptr<BatchSetDcdnDomainCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchSetDcdnDomainCertificateResponse batchSetDcdnDomainCertificate(shared_ptr<BatchSetDcdnDomainCertificateRequest> request);
   BatchSetDcdnDomainConfigsResponse batchSetDcdnDomainConfigsWithOptions(shared_ptr<BatchSetDcdnDomainConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
