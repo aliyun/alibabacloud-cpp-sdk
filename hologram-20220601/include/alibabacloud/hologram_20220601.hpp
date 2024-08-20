@@ -137,6 +137,130 @@ public:
 
   virtual ~ChangeResourceGroupResponse() = default;
 };
+class CreateHoloWarehouseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cpu{};
+  shared_ptr<string> name{};
+
+  CreateHoloWarehouseRequest() {}
+
+  explicit CreateHoloWarehouseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["cpu"] = boost::any(*cpu);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cpu") != m.end() && !m["cpu"].empty()) {
+      cpu = make_shared<string>(boost::any_cast<string>(m["cpu"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~CreateHoloWarehouseRequest() = default;
+};
+class CreateHoloWarehouseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  CreateHoloWarehouseResponseBody() {}
+
+  explicit CreateHoloWarehouseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateHoloWarehouseResponseBody() = default;
+};
+class CreateHoloWarehouseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateHoloWarehouseResponseBody> body{};
+
+  CreateHoloWarehouseResponse() {}
+
+  explicit CreateHoloWarehouseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateHoloWarehouseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateHoloWarehouseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateHoloWarehouseResponse() = default;
+};
 class CreateInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
@@ -461,6 +585,123 @@ public:
 
 
   virtual ~CreateInstanceResponse() = default;
+};
+class DeleteHoloWarehouseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+
+  DeleteHoloWarehouseRequest() {}
+
+  explicit DeleteHoloWarehouseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~DeleteHoloWarehouseRequest() = default;
+};
+class DeleteHoloWarehouseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  DeleteHoloWarehouseResponseBody() {}
+
+  explicit DeleteHoloWarehouseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteHoloWarehouseResponseBody() = default;
+};
+class DeleteHoloWarehouseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteHoloWarehouseResponseBody> body{};
+
+  DeleteHoloWarehouseResponse() {}
+
+  explicit DeleteHoloWarehouseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteHoloWarehouseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteHoloWarehouseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteHoloWarehouseResponse() = default;
 };
 class DeleteInstanceRequest : public Darabonba::Model {
 public:
@@ -2276,6 +2517,247 @@ public:
 
   virtual ~ListWarehousesResponse() = default;
 };
+class RebalanceHoloWarehouseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+
+  RebalanceHoloWarehouseRequest() {}
+
+  explicit RebalanceHoloWarehouseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~RebalanceHoloWarehouseRequest() = default;
+};
+class RebalanceHoloWarehouseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> data{};
+  shared_ptr<string> requestId{};
+
+  RebalanceHoloWarehouseResponseBody() {}
+
+  explicit RebalanceHoloWarehouseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RebalanceHoloWarehouseResponseBody() = default;
+};
+class RebalanceHoloWarehouseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RebalanceHoloWarehouseResponseBody> body{};
+
+  RebalanceHoloWarehouseResponse() {}
+
+  explicit RebalanceHoloWarehouseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RebalanceHoloWarehouseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RebalanceHoloWarehouseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RebalanceHoloWarehouseResponse() = default;
+};
+class RenameHoloWarehouseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> newWarehouseName{};
+
+  RenameHoloWarehouseRequest() {}
+
+  explicit RenameHoloWarehouseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (newWarehouseName) {
+      res["newWarehouseName"] = boost::any(*newWarehouseName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("newWarehouseName") != m.end() && !m["newWarehouseName"].empty()) {
+      newWarehouseName = make_shared<string>(boost::any_cast<string>(m["newWarehouseName"]));
+    }
+  }
+
+
+  virtual ~RenameHoloWarehouseRequest() = default;
+};
+class RenameHoloWarehouseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  RenameHoloWarehouseResponseBody() {}
+
+  explicit RenameHoloWarehouseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RenameHoloWarehouseResponseBody() = default;
+};
+class RenameHoloWarehouseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RenameHoloWarehouseResponseBody> body{};
+
+  RenameHoloWarehouseResponse() {}
+
+  explicit RenameHoloWarehouseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RenameHoloWarehouseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RenameHoloWarehouseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RenameHoloWarehouseResponse() = default;
+};
 class RenewInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRenew{};
@@ -2482,6 +2964,123 @@ public:
 
   virtual ~RenewInstanceResponse() = default;
 };
+class RestartHoloWarehouseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+
+  RestartHoloWarehouseRequest() {}
+
+  explicit RestartHoloWarehouseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~RestartHoloWarehouseRequest() = default;
+};
+class RestartHoloWarehouseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  RestartHoloWarehouseResponseBody() {}
+
+  explicit RestartHoloWarehouseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RestartHoloWarehouseResponseBody() = default;
+};
+class RestartHoloWarehouseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RestartHoloWarehouseResponseBody> body{};
+
+  RestartHoloWarehouseResponse() {}
+
+  explicit RestartHoloWarehouseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RestartHoloWarehouseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RestartHoloWarehouseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RestartHoloWarehouseResponse() = default;
+};
 class RestartInstanceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<bool> data{};
@@ -2598,6 +3197,123 @@ public:
 
   virtual ~RestartInstanceResponse() = default;
 };
+class ResumeHoloWarehouseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+
+  ResumeHoloWarehouseRequest() {}
+
+  explicit ResumeHoloWarehouseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~ResumeHoloWarehouseRequest() = default;
+};
+class ResumeHoloWarehouseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  ResumeHoloWarehouseResponseBody() {}
+
+  explicit ResumeHoloWarehouseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ResumeHoloWarehouseResponseBody() = default;
+};
+class ResumeHoloWarehouseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ResumeHoloWarehouseResponseBody> body{};
+
+  ResumeHoloWarehouseResponse() {}
+
+  explicit ResumeHoloWarehouseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ResumeHoloWarehouseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ResumeHoloWarehouseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ResumeHoloWarehouseResponse() = default;
+};
 class ResumeInstanceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<bool> data{};
@@ -2713,6 +3429,130 @@ public:
 
 
   virtual ~ResumeInstanceResponse() = default;
+};
+class ScaleHoloWarehouseRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<string> name{};
+
+  ScaleHoloWarehouseRequest() {}
+
+  explicit ScaleHoloWarehouseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["cpu"] = boost::any(*cpu);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cpu") != m.end() && !m["cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["cpu"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~ScaleHoloWarehouseRequest() = default;
+};
+class ScaleHoloWarehouseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  ScaleHoloWarehouseResponseBody() {}
+
+  explicit ScaleHoloWarehouseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ScaleHoloWarehouseResponseBody() = default;
+};
+class ScaleHoloWarehouseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ScaleHoloWarehouseResponseBody> body{};
+
+  ScaleHoloWarehouseResponse() {}
+
+  explicit ScaleHoloWarehouseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ScaleHoloWarehouseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ScaleHoloWarehouseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ScaleHoloWarehouseResponse() = default;
 };
 class ScaleInstanceRequest : public Darabonba::Model {
 public:
@@ -3057,6 +3897,123 @@ public:
 
   virtual ~StopInstanceResponse() = default;
 };
+class SuspendHoloWarehouseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+
+  SuspendHoloWarehouseRequest() {}
+
+  explicit SuspendHoloWarehouseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~SuspendHoloWarehouseRequest() = default;
+};
+class SuspendHoloWarehouseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> data{};
+  shared_ptr<string> requestId{};
+
+  SuspendHoloWarehouseResponseBody() {}
+
+  explicit SuspendHoloWarehouseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SuspendHoloWarehouseResponseBody() = default;
+};
+class SuspendHoloWarehouseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SuspendHoloWarehouseResponseBody> body{};
+
+  SuspendHoloWarehouseResponse() {}
+
+  explicit SuspendHoloWarehouseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SuspendHoloWarehouseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SuspendHoloWarehouseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SuspendHoloWarehouseResponse() = default;
+};
 class UpdateInstanceNameRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceName{};
@@ -3394,8 +4351,18 @@ public:
                      shared_ptr<string> endpoint);
   ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
+  CreateHoloWarehouseResponse createHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                             shared_ptr<CreateHoloWarehouseRequest> request,
+                                                             shared_ptr<map<string, string>> headers,
+                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateHoloWarehouseResponse createHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<CreateHoloWarehouseRequest> request);
   CreateInstanceResponse createInstanceWithOptions(shared_ptr<CreateInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateInstanceResponse createInstance(shared_ptr<CreateInstanceRequest> request);
+  DeleteHoloWarehouseResponse deleteHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                             shared_ptr<DeleteHoloWarehouseRequest> request,
+                                                             shared_ptr<map<string, string>> headers,
+                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteHoloWarehouseResponse deleteHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<DeleteHoloWarehouseRequest> request);
   DeleteInstanceResponse deleteInstanceWithOptions(shared_ptr<string> instanceId,
                                                    shared_ptr<DeleteInstanceRequest> request,
                                                    shared_ptr<map<string, string>> headers,
@@ -3419,15 +4386,40 @@ public:
   ListInstancesResponse listInstances(shared_ptr<ListInstancesRequest> request);
   ListWarehousesResponse listWarehousesWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListWarehousesResponse listWarehouses(shared_ptr<string> instanceId);
+  RebalanceHoloWarehouseResponse rebalanceHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                                   shared_ptr<RebalanceHoloWarehouseRequest> request,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RebalanceHoloWarehouseResponse rebalanceHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<RebalanceHoloWarehouseRequest> request);
+  RenameHoloWarehouseResponse renameHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                             shared_ptr<RenameHoloWarehouseRequest> request,
+                                                             shared_ptr<map<string, string>> headers,
+                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RenameHoloWarehouseResponse renameHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<RenameHoloWarehouseRequest> request);
   RenewInstanceResponse renewInstanceWithOptions(shared_ptr<string> instanceId,
                                                  shared_ptr<RenewInstanceRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RenewInstanceResponse renewInstance(shared_ptr<string> instanceId, shared_ptr<RenewInstanceRequest> request);
+  RestartHoloWarehouseResponse restartHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                               shared_ptr<RestartHoloWarehouseRequest> request,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RestartHoloWarehouseResponse restartHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<RestartHoloWarehouseRequest> request);
   RestartInstanceResponse restartInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RestartInstanceResponse restartInstance(shared_ptr<string> instanceId);
+  ResumeHoloWarehouseResponse resumeHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                             shared_ptr<ResumeHoloWarehouseRequest> request,
+                                                             shared_ptr<map<string, string>> headers,
+                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ResumeHoloWarehouseResponse resumeHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<ResumeHoloWarehouseRequest> request);
   ResumeInstanceResponse resumeInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResumeInstanceResponse resumeInstance(shared_ptr<string> instanceId);
+  ScaleHoloWarehouseResponse scaleHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                           shared_ptr<ScaleHoloWarehouseRequest> request,
+                                                           shared_ptr<map<string, string>> headers,
+                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ScaleHoloWarehouseResponse scaleHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<ScaleHoloWarehouseRequest> request);
   ScaleInstanceResponse scaleInstanceWithOptions(shared_ptr<string> instanceId,
                                                  shared_ptr<ScaleInstanceRequest> request,
                                                  shared_ptr<map<string, string>> headers,
@@ -3435,6 +4427,11 @@ public:
   ScaleInstanceResponse scaleInstance(shared_ptr<string> instanceId, shared_ptr<ScaleInstanceRequest> request);
   StopInstanceResponse stopInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopInstanceResponse stopInstance(shared_ptr<string> instanceId);
+  SuspendHoloWarehouseResponse suspendHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                               shared_ptr<SuspendHoloWarehouseRequest> request,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SuspendHoloWarehouseResponse suspendHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<SuspendHoloWarehouseRequest> request);
   UpdateInstanceNameResponse updateInstanceNameWithOptions(shared_ptr<string> instanceId,
                                                            shared_ptr<UpdateInstanceNameRequest> request,
                                                            shared_ptr<map<string, string>> headers,

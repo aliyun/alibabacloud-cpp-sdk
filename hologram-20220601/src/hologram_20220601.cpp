@@ -70,6 +70,42 @@ ChangeResourceGroupResponse Alibabacloud_Hologram20220601::Client::changeResourc
   return changeResourceGroupWithOptions(request, headers, runtime);
 }
 
+CreateHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::createHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                                                                  shared_ptr<CreateHoloWarehouseRequest> request,
+                                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cpu)) {
+    body->insert(pair<string, string>("cpu", *request->cpu));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateHoloWarehouse"))},
+    {"version", boost::any(string("2022-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/createHoloWarehouse"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateHoloWarehouseResponse(callApi(params, req, runtime));
+}
+
+CreateHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::createHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<CreateHoloWarehouseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createHoloWarehouseWithOptions(instanceId, request, headers, runtime);
+}
+
 CreateInstanceResponse Alibabacloud_Hologram20220601::Client::createInstanceWithOptions(shared_ptr<CreateInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -152,6 +188,39 @@ CreateInstanceResponse Alibabacloud_Hologram20220601::Client::createInstance(sha
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return createInstanceWithOptions(request, headers, runtime);
+}
+
+DeleteHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::deleteHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                                                                  shared_ptr<DeleteHoloWarehouseRequest> request,
+                                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteHoloWarehouse"))},
+    {"version", boost::any(string("2022-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/deleteHoloWarehouse"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteHoloWarehouseResponse(callApi(params, req, runtime));
+}
+
+DeleteHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::deleteHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<DeleteHoloWarehouseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteHoloWarehouseWithOptions(instanceId, request, headers, runtime);
 }
 
 DeleteInstanceResponse Alibabacloud_Hologram20220601::Client::deleteInstanceWithOptions(shared_ptr<string> instanceId,
@@ -361,6 +430,75 @@ ListWarehousesResponse Alibabacloud_Hologram20220601::Client::listWarehouses(sha
   return listWarehousesWithOptions(instanceId, headers, runtime);
 }
 
+RebalanceHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::rebalanceHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                                                                        shared_ptr<RebalanceHoloWarehouseRequest> request,
+                                                                                                        shared_ptr<map<string, string>> headers,
+                                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RebalanceHoloWarehouse"))},
+    {"version", boost::any(string("2022-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/rebalanceHoloWarehouse"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RebalanceHoloWarehouseResponse(callApi(params, req, runtime));
+}
+
+RebalanceHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::rebalanceHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<RebalanceHoloWarehouseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return rebalanceHoloWarehouseWithOptions(instanceId, request, headers, runtime);
+}
+
+RenameHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::renameHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                                                                  shared_ptr<RenameHoloWarehouseRequest> request,
+                                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->newWarehouseName)) {
+    body->insert(pair<string, string>("newWarehouseName", *request->newWarehouseName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RenameHoloWarehouse"))},
+    {"version", boost::any(string("2022-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/renameHoloWarehouse"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RenameHoloWarehouseResponse(callApi(params, req, runtime));
+}
+
+RenameHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::renameHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<RenameHoloWarehouseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return renameHoloWarehouseWithOptions(instanceId, request, headers, runtime);
+}
+
 RenewInstanceResponse Alibabacloud_Hologram20220601::Client::renewInstanceWithOptions(shared_ptr<string> instanceId,
                                                                                       shared_ptr<RenewInstanceRequest> request,
                                                                                       shared_ptr<map<string, string>> headers,
@@ -397,6 +535,39 @@ RenewInstanceResponse Alibabacloud_Hologram20220601::Client::renewInstance(share
   return renewInstanceWithOptions(instanceId, request, headers, runtime);
 }
 
+RestartHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::restartHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                                                                    shared_ptr<RestartHoloWarehouseRequest> request,
+                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RestartHoloWarehouse"))},
+    {"version", boost::any(string("2022-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/restartHoloWarehouse"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RestartHoloWarehouseResponse(callApi(params, req, runtime));
+}
+
+RestartHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::restartHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<RestartHoloWarehouseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return restartHoloWarehouseWithOptions(instanceId, request, headers, runtime);
+}
+
 RestartInstanceResponse Alibabacloud_Hologram20220601::Client::restartInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -421,6 +592,39 @@ RestartInstanceResponse Alibabacloud_Hologram20220601::Client::restartInstance(s
   return restartInstanceWithOptions(instanceId, headers, runtime);
 }
 
+ResumeHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::resumeHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                                                                  shared_ptr<ResumeHoloWarehouseRequest> request,
+                                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ResumeHoloWarehouse"))},
+    {"version", boost::any(string("2022-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/resumeHoloWarehouse"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ResumeHoloWarehouseResponse(callApi(params, req, runtime));
+}
+
+ResumeHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::resumeHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<ResumeHoloWarehouseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return resumeHoloWarehouseWithOptions(instanceId, request, headers, runtime);
+}
+
 ResumeInstanceResponse Alibabacloud_Hologram20220601::Client::resumeInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -443,6 +647,42 @@ ResumeInstanceResponse Alibabacloud_Hologram20220601::Client::resumeInstance(sha
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return resumeInstanceWithOptions(instanceId, headers, runtime);
+}
+
+ScaleHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::scaleHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                                                                shared_ptr<ScaleHoloWarehouseRequest> request,
+                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->cpu)) {
+    body->insert(pair<string, long>("cpu", *request->cpu));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ScaleHoloWarehouse"))},
+    {"version", boost::any(string("2022-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/scaleHoloWarehouse"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ScaleHoloWarehouseResponse(callApi(params, req, runtime));
+}
+
+ScaleHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::scaleHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<ScaleHoloWarehouseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return scaleHoloWarehouseWithOptions(instanceId, request, headers, runtime);
 }
 
 ScaleInstanceResponse Alibabacloud_Hologram20220601::Client::scaleInstanceWithOptions(shared_ptr<string> instanceId,
@@ -515,6 +755,39 @@ StopInstanceResponse Alibabacloud_Hologram20220601::Client::stopInstance(shared_
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return stopInstanceWithOptions(instanceId, headers, runtime);
+}
+
+SuspendHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::suspendHoloWarehouseWithOptions(shared_ptr<string> instanceId,
+                                                                                                    shared_ptr<SuspendHoloWarehouseRequest> request,
+                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SuspendHoloWarehouse"))},
+    {"version", boost::any(string("2022-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/suspendHoloWarehouse"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SuspendHoloWarehouseResponse(callApi(params, req, runtime));
+}
+
+SuspendHoloWarehouseResponse Alibabacloud_Hologram20220601::Client::suspendHoloWarehouse(shared_ptr<string> instanceId, shared_ptr<SuspendHoloWarehouseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return suspendHoloWarehouseWithOptions(instanceId, request, headers, runtime);
 }
 
 UpdateInstanceNameResponse Alibabacloud_Hologram20220601::Client::updateInstanceNameWithOptions(shared_ptr<string> instanceId,
