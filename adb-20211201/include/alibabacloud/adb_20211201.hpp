@@ -26616,6 +26616,7 @@ class ModifyAuditLogConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> auditLogStatus{};
   shared_ptr<string> DBClusterId{};
+  shared_ptr<string> engineType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -26637,6 +26638,9 @@ public:
     }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (engineType) {
+      res["EngineType"] = boost::any(*engineType);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -26662,6 +26666,9 @@ public:
     }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("EngineType") != m.end() && !m["EngineType"].empty()) {
+      engineType = make_shared<string>(boost::any_cast<string>(m["EngineType"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));

@@ -4261,6 +4261,9 @@ ModifyAuditLogConfigResponse Alibabacloud_Adb20211201::Client::modifyAuditLogCon
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engineType)) {
+    query->insert(pair<string, string>("EngineType", *request->engineType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
