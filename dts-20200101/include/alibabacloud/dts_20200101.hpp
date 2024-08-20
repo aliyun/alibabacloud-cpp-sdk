@@ -4326,6 +4326,7 @@ public:
   shared_ptr<long> databaseCount{};
   shared_ptr<string> destinationEndpointEngineName{};
   shared_ptr<string> destinationRegion{};
+  shared_ptr<string> dtsRegion{};
   shared_ptr<long> du{};
   shared_ptr<string> feeType{};
   shared_ptr<string> instanceClass{};
@@ -4370,6 +4371,9 @@ public:
     }
     if (destinationRegion) {
       res["DestinationRegion"] = boost::any(*destinationRegion);
+    }
+    if (dtsRegion) {
+      res["DtsRegion"] = boost::any(*dtsRegion);
     }
     if (du) {
       res["Du"] = boost::any(*du);
@@ -4440,6 +4444,9 @@ public:
     }
     if (m.find("DestinationRegion") != m.end() && !m["DestinationRegion"].empty()) {
       destinationRegion = make_shared<string>(boost::any_cast<string>(m["DestinationRegion"]));
+    }
+    if (m.find("DtsRegion") != m.end() && !m["DtsRegion"].empty()) {
+      dtsRegion = make_shared<string>(boost::any_cast<string>(m["DtsRegion"]));
     }
     if (m.find("Du") != m.end() && !m["Du"].empty()) {
       du = make_shared<long>(boost::any_cast<long>(m["Du"]));

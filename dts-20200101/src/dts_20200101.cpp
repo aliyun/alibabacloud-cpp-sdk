@@ -1164,6 +1164,9 @@ CreateDtsInstanceResponse Alibabacloud_Dts20200101::Client::createDtsInstanceWit
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationRegion)) {
     query->insert(pair<string, string>("DestinationRegion", *request->destinationRegion));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dtsRegion)) {
+    query->insert(pair<string, string>("DtsRegion", *request->dtsRegion));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->du)) {
     query->insert(pair<string, long>("Du", *request->du));
   }
