@@ -28216,6 +28216,7 @@ class DescribeInternetDnsLogsResponseBodyLogsLog : public Darabonba::Model {
 public:
   shared_ptr<string> dnsMsgId{};
   shared_ptr<long> logTime{};
+  shared_ptr<string> protocol{};
   shared_ptr<string> queryName{};
   shared_ptr<string> queryType{};
   shared_ptr<long> rt{};
@@ -28241,6 +28242,9 @@ public:
     }
     if (logTime) {
       res["LogTime"] = boost::any(*logTime);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
     }
     if (queryName) {
       res["QueryName"] = boost::any(*queryName);
@@ -28278,6 +28282,9 @@ public:
     }
     if (m.find("LogTime") != m.end() && !m["LogTime"].empty()) {
       logTime = make_shared<long>(boost::any_cast<long>(m["LogTime"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
     }
     if (m.find("QueryName") != m.end() && !m["QueryName"].empty()) {
       queryName = make_shared<string>(boost::any_cast<string>(m["QueryName"]));
