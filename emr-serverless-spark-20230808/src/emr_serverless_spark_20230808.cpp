@@ -529,8 +529,14 @@ StartJobRunResponse Alibabacloud_Emr-serverless-spark20230808::Client::startJobR
   if (!Darabonba_Util::Client::isUnset<StartJobRunRequestConfigurationOverrides>(request->configurationOverrides)) {
     body->insert(pair<string, StartJobRunRequestConfigurationOverrides>("configurationOverrides", *request->configurationOverrides));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->displayReleaseVersion)) {
+    body->insert(pair<string, string>("displayReleaseVersion", *request->displayReleaseVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->executionTimeoutSeconds)) {
     body->insert(pair<string, long>("executionTimeoutSeconds", *request->executionTimeoutSeconds));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->fusion)) {
+    body->insert(pair<string, bool>("fusion", *request->fusion));
   }
   if (!Darabonba_Util::Client::isUnset<JobDriver>(request->jobDriver)) {
     body->insert(pair<string, JobDriver>("jobDriver", *request->jobDriver));

@@ -849,6 +849,7 @@ public:
   shared_ptr<vector<string>> extraArtifactIds{};
   shared_ptr<string> extraSparkSubmitParams{};
   shared_ptr<vector<string>> files{};
+  shared_ptr<bool> fusion{};
   shared_ptr<string> gmtCreated{};
   shared_ptr<string> gmtModified{};
   shared_ptr<bool> hasChanged{};
@@ -924,6 +925,9 @@ public:
     }
     if (files) {
       res["files"] = boost::any(*files);
+    }
+    if (fusion) {
+      res["fusion"] = boost::any(*fusion);
     }
     if (gmtCreated) {
       res["gmtCreated"] = boost::any(*gmtCreated);
@@ -1064,6 +1068,9 @@ public:
         }
       }
       files = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
+      fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
     }
     if (m.find("gmtCreated") != m.end() && !m["gmtCreated"].empty()) {
       gmtCreated = make_shared<string>(boost::any_cast<string>(m["gmtCreated"]));
@@ -1328,6 +1335,8 @@ public:
 class Template : public Darabonba::Model {
 public:
   shared_ptr<long> creator{};
+  shared_ptr<string> displaySparkVersion{};
+  shared_ptr<bool> fusion{};
   shared_ptr<string> gmtCreated{};
   shared_ptr<string> gmtModified{};
   shared_ptr<long> modifier{};
@@ -1353,6 +1362,12 @@ public:
     map<string, boost::any> res;
     if (creator) {
       res["creator"] = boost::any(*creator);
+    }
+    if (displaySparkVersion) {
+      res["displaySparkVersion"] = boost::any(*displaySparkVersion);
+    }
+    if (fusion) {
+      res["fusion"] = boost::any(*fusion);
     }
     if (gmtCreated) {
       res["gmtCreated"] = boost::any(*gmtCreated);
@@ -1400,6 +1415,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("creator") != m.end() && !m["creator"].empty()) {
       creator = make_shared<long>(boost::any_cast<long>(m["creator"]));
+    }
+    if (m.find("displaySparkVersion") != m.end() && !m["displaySparkVersion"].empty()) {
+      displaySparkVersion = make_shared<string>(boost::any_cast<string>(m["displaySparkVersion"]));
+    }
+    if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
+      fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
     }
     if (m.find("gmtCreated") != m.end() && !m["gmtCreated"].empty()) {
       gmtCreated = make_shared<string>(boost::any_cast<string>(m["gmtCreated"]));
@@ -3098,8 +3119,10 @@ public:
   shared_ptr<string> codeType{};
   shared_ptr<ListJobRunsResponseBodyJobRunsConfigurationOverrides> configurationOverrides{};
   shared_ptr<string> creator{};
+  shared_ptr<string> displayReleaseVersion{};
   shared_ptr<long> endTime{};
   shared_ptr<long> executionTimeoutSeconds{};
+  shared_ptr<bool> fusion{};
   shared_ptr<JobDriver> jobDriver{};
   shared_ptr<string> jobRunId{};
   shared_ptr<RunLog> log{};
@@ -3131,11 +3154,17 @@ public:
     if (creator) {
       res["creator"] = boost::any(*creator);
     }
+    if (displayReleaseVersion) {
+      res["displayReleaseVersion"] = boost::any(*displayReleaseVersion);
+    }
     if (endTime) {
       res["endTime"] = boost::any(*endTime);
     }
     if (executionTimeoutSeconds) {
       res["executionTimeoutSeconds"] = boost::any(*executionTimeoutSeconds);
+    }
+    if (fusion) {
+      res["fusion"] = boost::any(*fusion);
     }
     if (jobDriver) {
       res["jobDriver"] = jobDriver ? boost::any(jobDriver->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3191,11 +3220,17 @@ public:
     if (m.find("creator") != m.end() && !m["creator"].empty()) {
       creator = make_shared<string>(boost::any_cast<string>(m["creator"]));
     }
+    if (m.find("displayReleaseVersion") != m.end() && !m["displayReleaseVersion"].empty()) {
+      displayReleaseVersion = make_shared<string>(boost::any_cast<string>(m["displayReleaseVersion"]));
+    }
     if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
     }
     if (m.find("executionTimeoutSeconds") != m.end() && !m["executionTimeoutSeconds"].empty()) {
       executionTimeoutSeconds = make_shared<long>(boost::any_cast<long>(m["executionTimeoutSeconds"]));
+    }
+    if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
+      fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
     }
     if (m.find("jobDriver") != m.end() && !m["jobDriver"].empty()) {
       if (typeid(map<string, boost::any>) == m["jobDriver"].type()) {
@@ -3434,6 +3469,8 @@ class ListReleaseVersionsResponseBodyReleaseVersions : public Darabonba::Model {
 public:
   shared_ptr<string> communityVersion{};
   shared_ptr<vector<string>> cpuArchitectures{};
+  shared_ptr<string> displayReleaseVersion{};
+  shared_ptr<bool> fusion{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<string> iaasType{};
   shared_ptr<string> releaseVersion{};
@@ -3456,6 +3493,12 @@ public:
     }
     if (cpuArchitectures) {
       res["cpuArchitectures"] = boost::any(*cpuArchitectures);
+    }
+    if (displayReleaseVersion) {
+      res["displayReleaseVersion"] = boost::any(*displayReleaseVersion);
+    }
+    if (fusion) {
+      res["fusion"] = boost::any(*fusion);
     }
     if (gmtCreate) {
       res["gmtCreate"] = boost::any(*gmtCreate);
@@ -3491,6 +3534,12 @@ public:
         }
       }
       cpuArchitectures = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("displayReleaseVersion") != m.end() && !m["displayReleaseVersion"].empty()) {
+      displayReleaseVersion = make_shared<string>(boost::any_cast<string>(m["displayReleaseVersion"]));
+    }
+    if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
+      fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
     }
     if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
       gmtCreate = make_shared<long>(boost::any_cast<long>(m["gmtCreate"]));
@@ -3851,8 +3900,10 @@ public:
   shared_ptr<vector<ListSessionClustersResponseBodySessionClustersApplicationConfigs>> applicationConfigs{};
   shared_ptr<ListSessionClustersResponseBodySessionClustersAutoStartConfiguration> autoStartConfiguration{};
   shared_ptr<ListSessionClustersResponseBodySessionClustersAutoStopConfiguration> autoStopConfiguration{};
+  shared_ptr<string> displayReleaseVersion{};
   shared_ptr<string> domain{};
   shared_ptr<string> draftId{};
+  shared_ptr<bool> fusion{};
   shared_ptr<string> kind{};
   shared_ptr<string> name{};
   shared_ptr<string> queueName{};
@@ -3888,11 +3939,17 @@ public:
     if (autoStopConfiguration) {
       res["autoStopConfiguration"] = autoStopConfiguration ? boost::any(autoStopConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (displayReleaseVersion) {
+      res["displayReleaseVersion"] = boost::any(*displayReleaseVersion);
+    }
     if (domain) {
       res["domain"] = boost::any(*domain);
     }
     if (draftId) {
       res["draftId"] = boost::any(*draftId);
+    }
+    if (fusion) {
+      res["fusion"] = boost::any(*fusion);
     }
     if (kind) {
       res["kind"] = boost::any(*kind);
@@ -3958,11 +4015,17 @@ public:
         autoStopConfiguration = make_shared<ListSessionClustersResponseBodySessionClustersAutoStopConfiguration>(model1);
       }
     }
+    if (m.find("displayReleaseVersion") != m.end() && !m["displayReleaseVersion"].empty()) {
+      displayReleaseVersion = make_shared<string>(boost::any_cast<string>(m["displayReleaseVersion"]));
+    }
     if (m.find("domain") != m.end() && !m["domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["domain"]));
     }
     if (m.find("draftId") != m.end() && !m["draftId"].empty()) {
       draftId = make_shared<string>(boost::any_cast<string>(m["draftId"]));
+    }
+    if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
+      fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
     }
     if (m.find("kind") != m.end() && !m["kind"].empty()) {
       kind = make_shared<string>(boost::any_cast<string>(m["kind"]));
@@ -4586,6 +4649,7 @@ public:
   shared_ptr<string> autoRenewPeriodUnit{};
   shared_ptr<long> createTime{};
   shared_ptr<string> dlfCatalogId{};
+  shared_ptr<string> dlfType{};
   shared_ptr<long> duration{};
   shared_ptr<long> endTime{};
   shared_ptr<string> failReason{};
@@ -4625,6 +4689,9 @@ public:
     }
     if (dlfCatalogId) {
       res["dlfCatalogId"] = boost::any(*dlfCatalogId);
+    }
+    if (dlfType) {
+      res["dlfType"] = boost::any(*dlfType);
     }
     if (duration) {
       res["duration"] = boost::any(*duration);
@@ -4686,6 +4753,9 @@ public:
     }
     if (m.find("dlfCatalogId") != m.end() && !m["dlfCatalogId"].empty()) {
       dlfCatalogId = make_shared<string>(boost::any_cast<string>(m["dlfCatalogId"]));
+    }
+    if (m.find("dlfType") != m.end() && !m["dlfType"].empty()) {
+      dlfType = make_shared<string>(boost::any_cast<string>(m["dlfType"]));
     }
     if (m.find("duration") != m.end() && !m["duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["duration"]));
@@ -4952,7 +5022,9 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> codeType{};
   shared_ptr<StartJobRunRequestConfigurationOverrides> configurationOverrides{};
+  shared_ptr<string> displayReleaseVersion{};
   shared_ptr<long> executionTimeoutSeconds{};
+  shared_ptr<bool> fusion{};
   shared_ptr<JobDriver> jobDriver{};
   shared_ptr<string> jobId{};
   shared_ptr<string> name{};
@@ -4980,8 +5052,14 @@ public:
     if (configurationOverrides) {
       res["configurationOverrides"] = configurationOverrides ? boost::any(configurationOverrides->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (displayReleaseVersion) {
+      res["displayReleaseVersion"] = boost::any(*displayReleaseVersion);
+    }
     if (executionTimeoutSeconds) {
       res["executionTimeoutSeconds"] = boost::any(*executionTimeoutSeconds);
+    }
+    if (fusion) {
+      res["fusion"] = boost::any(*fusion);
     }
     if (jobDriver) {
       res["jobDriver"] = jobDriver ? boost::any(jobDriver->toMap()) : boost::any(map<string,boost::any>({}));
@@ -5025,8 +5103,14 @@ public:
         configurationOverrides = make_shared<StartJobRunRequestConfigurationOverrides>(model1);
       }
     }
+    if (m.find("displayReleaseVersion") != m.end() && !m["displayReleaseVersion"].empty()) {
+      displayReleaseVersion = make_shared<string>(boost::any_cast<string>(m["displayReleaseVersion"]));
+    }
     if (m.find("executionTimeoutSeconds") != m.end() && !m["executionTimeoutSeconds"].empty()) {
       executionTimeoutSeconds = make_shared<long>(boost::any_cast<long>(m["executionTimeoutSeconds"]));
+    }
+    if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
+      fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
     }
     if (m.find("jobDriver") != m.end() && !m["jobDriver"].empty()) {
       if (typeid(map<string, boost::any>) == m["jobDriver"].type()) {
