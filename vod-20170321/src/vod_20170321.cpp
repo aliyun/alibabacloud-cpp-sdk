@@ -2693,6 +2693,49 @@ DescribeVodRefreshTasksResponse Alibabacloud_Vod20170321::Client::describeVodRef
   return describeVodRefreshTasksWithOptions(request, runtime);
 }
 
+DescribeVodSSLCertificateListResponse Alibabacloud_Vod20170321::Client::describeVodSSLCertificateListWithOptions(shared_ptr<DescribeVodSSLCertificateListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
+    query->insert(pair<string, string>("DomainName", *request->domainName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->searchKeyword)) {
+    query->insert(pair<string, string>("SearchKeyword", *request->searchKeyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeVodSSLCertificateList"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeVodSSLCertificateListResponse(callApi(params, req, runtime));
+}
+
+DescribeVodSSLCertificateListResponse Alibabacloud_Vod20170321::Client::describeVodSSLCertificateList(shared_ptr<DescribeVodSSLCertificateListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeVodSSLCertificateListWithOptions(request, runtime);
+}
+
 DescribeVodStorageDataResponse Alibabacloud_Vod20170321::Client::describeVodStorageDataWithOptions(shared_ptr<DescribeVodStorageDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5417,6 +5460,64 @@ SetVodDomainCertificateResponse Alibabacloud_Vod20170321::Client::setVodDomainCe
 SetVodDomainCertificateResponse Alibabacloud_Vod20170321::Client::setVodDomainCertificate(shared_ptr<SetVodDomainCertificateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return setVodDomainCertificateWithOptions(request, runtime);
+}
+
+SetVodDomainSSLCertificateResponse Alibabacloud_Vod20170321::Client::setVodDomainSSLCertificateWithOptions(shared_ptr<SetVodDomainSSLCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->certId)) {
+    query->insert(pair<string, long>("CertId", *request->certId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certName)) {
+    query->insert(pair<string, string>("CertName", *request->certName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certRegion)) {
+    query->insert(pair<string, string>("CertRegion", *request->certRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certType)) {
+    query->insert(pair<string, string>("CertType", *request->certType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
+    query->insert(pair<string, string>("DomainName", *request->domainName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->env)) {
+    query->insert(pair<string, string>("Env", *request->env));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->SSLPri)) {
+    query->insert(pair<string, string>("SSLPri", *request->SSLPri));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->SSLProtocol)) {
+    query->insert(pair<string, string>("SSLProtocol", *request->SSLProtocol));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->SSLPub)) {
+    query->insert(pair<string, string>("SSLPub", *request->SSLPub));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetVodDomainSSLCertificate"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetVodDomainSSLCertificateResponse(callApi(params, req, runtime));
+}
+
+SetVodDomainSSLCertificateResponse Alibabacloud_Vod20170321::Client::setVodDomainSSLCertificate(shared_ptr<SetVodDomainSSLCertificateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setVodDomainSSLCertificateWithOptions(request, runtime);
 }
 
 SubmitAIImageAuditJobResponse Alibabacloud_Vod20170321::Client::submitAIImageAuditJobWithOptions(shared_ptr<SubmitAIImageAuditJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

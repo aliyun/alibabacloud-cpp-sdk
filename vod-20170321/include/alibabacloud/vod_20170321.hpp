@@ -8143,11 +8143,17 @@ class DescribeVodDomainCertificateInfoResponseBodyCertInfosCertInfo : public Dar
 public:
   shared_ptr<string> certDomainName{};
   shared_ptr<string> certExpireTime{};
+  shared_ptr<string> certId{};
   shared_ptr<string> certLife{};
   shared_ptr<string> certName{};
   shared_ptr<string> certOrg{};
+  shared_ptr<string> certRegion{};
+  shared_ptr<string> certStartTime{};
   shared_ptr<string> certType{};
+  shared_ptr<string> certUpdateTime{};
+  shared_ptr<string> domainCnameStatus{};
   shared_ptr<string> domainName{};
+  shared_ptr<string> serverCertificate{};
   shared_ptr<string> serverCertificateStatus{};
   shared_ptr<string> status{};
 
@@ -8167,6 +8173,9 @@ public:
     if (certExpireTime) {
       res["CertExpireTime"] = boost::any(*certExpireTime);
     }
+    if (certId) {
+      res["CertId"] = boost::any(*certId);
+    }
     if (certLife) {
       res["CertLife"] = boost::any(*certLife);
     }
@@ -8176,11 +8185,26 @@ public:
     if (certOrg) {
       res["CertOrg"] = boost::any(*certOrg);
     }
+    if (certRegion) {
+      res["CertRegion"] = boost::any(*certRegion);
+    }
+    if (certStartTime) {
+      res["CertStartTime"] = boost::any(*certStartTime);
+    }
     if (certType) {
       res["CertType"] = boost::any(*certType);
     }
+    if (certUpdateTime) {
+      res["CertUpdateTime"] = boost::any(*certUpdateTime);
+    }
+    if (domainCnameStatus) {
+      res["DomainCnameStatus"] = boost::any(*domainCnameStatus);
+    }
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
+    }
+    if (serverCertificate) {
+      res["ServerCertificate"] = boost::any(*serverCertificate);
     }
     if (serverCertificateStatus) {
       res["ServerCertificateStatus"] = boost::any(*serverCertificateStatus);
@@ -8198,6 +8222,9 @@ public:
     if (m.find("CertExpireTime") != m.end() && !m["CertExpireTime"].empty()) {
       certExpireTime = make_shared<string>(boost::any_cast<string>(m["CertExpireTime"]));
     }
+    if (m.find("CertId") != m.end() && !m["CertId"].empty()) {
+      certId = make_shared<string>(boost::any_cast<string>(m["CertId"]));
+    }
     if (m.find("CertLife") != m.end() && !m["CertLife"].empty()) {
       certLife = make_shared<string>(boost::any_cast<string>(m["CertLife"]));
     }
@@ -8207,11 +8234,26 @@ public:
     if (m.find("CertOrg") != m.end() && !m["CertOrg"].empty()) {
       certOrg = make_shared<string>(boost::any_cast<string>(m["CertOrg"]));
     }
+    if (m.find("CertRegion") != m.end() && !m["CertRegion"].empty()) {
+      certRegion = make_shared<string>(boost::any_cast<string>(m["CertRegion"]));
+    }
+    if (m.find("CertStartTime") != m.end() && !m["CertStartTime"].empty()) {
+      certStartTime = make_shared<string>(boost::any_cast<string>(m["CertStartTime"]));
+    }
     if (m.find("CertType") != m.end() && !m["CertType"].empty()) {
       certType = make_shared<string>(boost::any_cast<string>(m["CertType"]));
     }
+    if (m.find("CertUpdateTime") != m.end() && !m["CertUpdateTime"].empty()) {
+      certUpdateTime = make_shared<string>(boost::any_cast<string>(m["CertUpdateTime"]));
+    }
+    if (m.find("DomainCnameStatus") != m.end() && !m["DomainCnameStatus"].empty()) {
+      domainCnameStatus = make_shared<string>(boost::any_cast<string>(m["DomainCnameStatus"]));
+    }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("ServerCertificate") != m.end() && !m["ServerCertificate"].empty()) {
+      serverCertificate = make_shared<string>(boost::any_cast<string>(m["ServerCertificate"]));
     }
     if (m.find("ServerCertificateStatus") != m.end() && !m["ServerCertificateStatus"].empty()) {
       serverCertificateStatus = make_shared<string>(boost::any_cast<string>(m["ServerCertificateStatus"]));
@@ -14359,6 +14401,330 @@ public:
 
 
   virtual ~DescribeVodRefreshTasksResponse() = default;
+};
+class DescribeVodSSLCertificateListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domainName{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> searchKeyword{};
+  shared_ptr<string> securityToken{};
+
+  DescribeVodSSLCertificateListRequest() {}
+
+  explicit DescribeVodSSLCertificateListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (searchKeyword) {
+      res["SearchKeyword"] = boost::any(*searchKeyword);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SearchKeyword") != m.end() && !m["SearchKeyword"].empty()) {
+      searchKeyword = make_shared<string>(boost::any_cast<string>(m["SearchKeyword"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~DescribeVodSSLCertificateListRequest() = default;
+};
+class DescribeVodSSLCertificateListResponseBodyCertificateListModelCertListCert : public Darabonba::Model {
+public:
+  shared_ptr<long> certId{};
+  shared_ptr<string> certName{};
+  shared_ptr<string> certRegion{};
+  shared_ptr<string> common{};
+  shared_ptr<string> fingerprint{};
+  shared_ptr<string> issuer{};
+  shared_ptr<long> lastTime{};
+
+  DescribeVodSSLCertificateListResponseBodyCertificateListModelCertListCert() {}
+
+  explicit DescribeVodSSLCertificateListResponseBodyCertificateListModelCertListCert(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certId) {
+      res["CertId"] = boost::any(*certId);
+    }
+    if (certName) {
+      res["CertName"] = boost::any(*certName);
+    }
+    if (certRegion) {
+      res["CertRegion"] = boost::any(*certRegion);
+    }
+    if (common) {
+      res["Common"] = boost::any(*common);
+    }
+    if (fingerprint) {
+      res["Fingerprint"] = boost::any(*fingerprint);
+    }
+    if (issuer) {
+      res["Issuer"] = boost::any(*issuer);
+    }
+    if (lastTime) {
+      res["LastTime"] = boost::any(*lastTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertId") != m.end() && !m["CertId"].empty()) {
+      certId = make_shared<long>(boost::any_cast<long>(m["CertId"]));
+    }
+    if (m.find("CertName") != m.end() && !m["CertName"].empty()) {
+      certName = make_shared<string>(boost::any_cast<string>(m["CertName"]));
+    }
+    if (m.find("CertRegion") != m.end() && !m["CertRegion"].empty()) {
+      certRegion = make_shared<string>(boost::any_cast<string>(m["CertRegion"]));
+    }
+    if (m.find("Common") != m.end() && !m["Common"].empty()) {
+      common = make_shared<string>(boost::any_cast<string>(m["Common"]));
+    }
+    if (m.find("Fingerprint") != m.end() && !m["Fingerprint"].empty()) {
+      fingerprint = make_shared<string>(boost::any_cast<string>(m["Fingerprint"]));
+    }
+    if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
+      issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
+    }
+    if (m.find("LastTime") != m.end() && !m["LastTime"].empty()) {
+      lastTime = make_shared<long>(boost::any_cast<long>(m["LastTime"]));
+    }
+  }
+
+
+  virtual ~DescribeVodSSLCertificateListResponseBodyCertificateListModelCertListCert() = default;
+};
+class DescribeVodSSLCertificateListResponseBodyCertificateListModelCertList : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeVodSSLCertificateListResponseBodyCertificateListModelCertListCert>> cert{};
+
+  DescribeVodSSLCertificateListResponseBodyCertificateListModelCertList() {}
+
+  explicit DescribeVodSSLCertificateListResponseBodyCertificateListModelCertList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cert) {
+      vector<boost::any> temp1;
+      for(auto item1:*cert){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Cert"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cert") != m.end() && !m["Cert"].empty()) {
+      if (typeid(vector<boost::any>) == m["Cert"].type()) {
+        vector<DescribeVodSSLCertificateListResponseBodyCertificateListModelCertListCert> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Cert"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVodSSLCertificateListResponseBodyCertificateListModelCertListCert model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cert = make_shared<vector<DescribeVodSSLCertificateListResponseBodyCertificateListModelCertListCert>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVodSSLCertificateListResponseBodyCertificateListModelCertList() = default;
+};
+class DescribeVodSSLCertificateListResponseBodyCertificateListModel : public Darabonba::Model {
+public:
+  shared_ptr<DescribeVodSSLCertificateListResponseBodyCertificateListModelCertList> certList{};
+  shared_ptr<long> count{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  DescribeVodSSLCertificateListResponseBodyCertificateListModel() {}
+
+  explicit DescribeVodSSLCertificateListResponseBodyCertificateListModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certList) {
+      res["CertList"] = certList ? boost::any(certList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertList") != m.end() && !m["CertList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CertList"].type()) {
+        DescribeVodSSLCertificateListResponseBodyCertificateListModelCertList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CertList"]));
+        certList = make_shared<DescribeVodSSLCertificateListResponseBodyCertificateListModelCertList>(model1);
+      }
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~DescribeVodSSLCertificateListResponseBodyCertificateListModel() = default;
+};
+class DescribeVodSSLCertificateListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeVodSSLCertificateListResponseBodyCertificateListModel> certificateListModel{};
+  shared_ptr<string> requestId{};
+
+  DescribeVodSSLCertificateListResponseBody() {}
+
+  explicit DescribeVodSSLCertificateListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certificateListModel) {
+      res["CertificateListModel"] = certificateListModel ? boost::any(certificateListModel->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertificateListModel") != m.end() && !m["CertificateListModel"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CertificateListModel"].type()) {
+        DescribeVodSSLCertificateListResponseBodyCertificateListModel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CertificateListModel"]));
+        certificateListModel = make_shared<DescribeVodSSLCertificateListResponseBodyCertificateListModel>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeVodSSLCertificateListResponseBody() = default;
+};
+class DescribeVodSSLCertificateListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeVodSSLCertificateListResponseBody> body{};
+
+  DescribeVodSSLCertificateListResponse() {}
+
+  explicit DescribeVodSSLCertificateListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeVodSSLCertificateListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeVodSSLCertificateListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVodSSLCertificateListResponse() = default;
 };
 class DescribeVodStorageDataRequest : public Darabonba::Model {
 public:
@@ -36897,6 +37263,186 @@ public:
 
   virtual ~SetVodDomainCertificateResponse() = default;
 };
+class SetVodDomainSSLCertificateRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> certId{};
+  shared_ptr<string> certName{};
+  shared_ptr<string> certRegion{};
+  shared_ptr<string> certType{};
+  shared_ptr<string> domainName{};
+  shared_ptr<string> env{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> SSLPri{};
+  shared_ptr<string> SSLProtocol{};
+  shared_ptr<string> SSLPub{};
+  shared_ptr<string> securityToken{};
+
+  SetVodDomainSSLCertificateRequest() {}
+
+  explicit SetVodDomainSSLCertificateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certId) {
+      res["CertId"] = boost::any(*certId);
+    }
+    if (certName) {
+      res["CertName"] = boost::any(*certName);
+    }
+    if (certRegion) {
+      res["CertRegion"] = boost::any(*certRegion);
+    }
+    if (certType) {
+      res["CertType"] = boost::any(*certType);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (env) {
+      res["Env"] = boost::any(*env);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (SSLPri) {
+      res["SSLPri"] = boost::any(*SSLPri);
+    }
+    if (SSLProtocol) {
+      res["SSLProtocol"] = boost::any(*SSLProtocol);
+    }
+    if (SSLPub) {
+      res["SSLPub"] = boost::any(*SSLPub);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertId") != m.end() && !m["CertId"].empty()) {
+      certId = make_shared<long>(boost::any_cast<long>(m["CertId"]));
+    }
+    if (m.find("CertName") != m.end() && !m["CertName"].empty()) {
+      certName = make_shared<string>(boost::any_cast<string>(m["CertName"]));
+    }
+    if (m.find("CertRegion") != m.end() && !m["CertRegion"].empty()) {
+      certRegion = make_shared<string>(boost::any_cast<string>(m["CertRegion"]));
+    }
+    if (m.find("CertType") != m.end() && !m["CertType"].empty()) {
+      certType = make_shared<string>(boost::any_cast<string>(m["CertType"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("Env") != m.end() && !m["Env"].empty()) {
+      env = make_shared<string>(boost::any_cast<string>(m["Env"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("SSLPri") != m.end() && !m["SSLPri"].empty()) {
+      SSLPri = make_shared<string>(boost::any_cast<string>(m["SSLPri"]));
+    }
+    if (m.find("SSLProtocol") != m.end() && !m["SSLProtocol"].empty()) {
+      SSLProtocol = make_shared<string>(boost::any_cast<string>(m["SSLProtocol"]));
+    }
+    if (m.find("SSLPub") != m.end() && !m["SSLPub"].empty()) {
+      SSLPub = make_shared<string>(boost::any_cast<string>(m["SSLPub"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~SetVodDomainSSLCertificateRequest() = default;
+};
+class SetVodDomainSSLCertificateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SetVodDomainSSLCertificateResponseBody() {}
+
+  explicit SetVodDomainSSLCertificateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetVodDomainSSLCertificateResponseBody() = default;
+};
+class SetVodDomainSSLCertificateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetVodDomainSSLCertificateResponseBody> body{};
+
+  SetVodDomainSSLCertificateResponse() {}
+
+  explicit SetVodDomainSSLCertificateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetVodDomainSSLCertificateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetVodDomainSSLCertificateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetVodDomainSSLCertificateResponse() = default;
+};
 class SubmitAIImageAuditJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> mediaAuditConfiguration{};
@@ -41629,6 +42175,8 @@ public:
   DescribeVodRefreshQuotaResponse describeVodRefreshQuota(shared_ptr<DescribeVodRefreshQuotaRequest> request);
   DescribeVodRefreshTasksResponse describeVodRefreshTasksWithOptions(shared_ptr<DescribeVodRefreshTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVodRefreshTasksResponse describeVodRefreshTasks(shared_ptr<DescribeVodRefreshTasksRequest> request);
+  DescribeVodSSLCertificateListResponse describeVodSSLCertificateListWithOptions(shared_ptr<DescribeVodSSLCertificateListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeVodSSLCertificateListResponse describeVodSSLCertificateList(shared_ptr<DescribeVodSSLCertificateListRequest> request);
   DescribeVodStorageDataResponse describeVodStorageDataWithOptions(shared_ptr<DescribeVodStorageDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVodStorageDataResponse describeVodStorageData(shared_ptr<DescribeVodStorageDataRequest> request);
   DescribeVodTieringStorageDataResponse describeVodTieringStorageDataWithOptions(shared_ptr<DescribeVodTieringStorageDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -41777,6 +42325,8 @@ public:
   SetMessageCallbackResponse setMessageCallback(shared_ptr<SetMessageCallbackRequest> request);
   SetVodDomainCertificateResponse setVodDomainCertificateWithOptions(shared_ptr<SetVodDomainCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetVodDomainCertificateResponse setVodDomainCertificate(shared_ptr<SetVodDomainCertificateRequest> request);
+  SetVodDomainSSLCertificateResponse setVodDomainSSLCertificateWithOptions(shared_ptr<SetVodDomainSSLCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetVodDomainSSLCertificateResponse setVodDomainSSLCertificate(shared_ptr<SetVodDomainSSLCertificateRequest> request);
   SubmitAIImageAuditJobResponse submitAIImageAuditJobWithOptions(shared_ptr<SubmitAIImageAuditJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitAIImageAuditJobResponse submitAIImageAuditJob(shared_ptr<SubmitAIImageAuditJobRequest> request);
   SubmitAIImageJobResponse submitAIImageJobWithOptions(shared_ptr<SubmitAIImageJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
