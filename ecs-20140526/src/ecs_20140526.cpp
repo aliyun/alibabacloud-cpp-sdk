@@ -18281,6 +18281,9 @@ PurchaseReservedInstancesOfferingResponse Alibabacloud_Ecs20140526::Client::purc
   if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
     query->insert(pair<string, string>("Scope", *request->scope));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<PurchaseReservedInstancesOfferingRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<PurchaseReservedInstancesOfferingRequestTag>>("Tag", *request->tag));
   }
