@@ -291,6 +291,73 @@ CreateIndexResponse Alibabacloud_Bailian20231229::Client::createIndex(shared_ptr
   return createIndexWithOptions(WorkspaceId, request, headers, runtime);
 }
 
+CreateMemoryResponse Alibabacloud_Bailian20231229::Client::createMemoryWithOptions(shared_ptr<string> workspaceId,
+                                                                                   shared_ptr<CreateMemoryRequest> request,
+                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("description", *request->description));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateMemory"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/memories"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateMemoryResponse(callApi(params, req, runtime));
+}
+
+CreateMemoryResponse Alibabacloud_Bailian20231229::Client::createMemory(shared_ptr<string> workspaceId, shared_ptr<CreateMemoryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createMemoryWithOptions(workspaceId, request, headers, runtime);
+}
+
+CreateMemoryNodeResponse Alibabacloud_Bailian20231229::Client::createMemoryNodeWithOptions(shared_ptr<string> workspaceId,
+                                                                                           shared_ptr<string> memoryId,
+                                                                                           shared_ptr<CreateMemoryNodeRequest> request,
+                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    query->insert(pair<string, string>("content", *request->content));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateMemoryNode"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/memories/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(memoryId)) + string("/memoryNodes"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateMemoryNodeResponse(callApi(params, req, runtime));
+}
+
+CreateMemoryNodeResponse Alibabacloud_Bailian20231229::Client::createMemoryNode(shared_ptr<string> workspaceId, shared_ptr<string> memoryId, shared_ptr<CreateMemoryNodeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createMemoryNodeWithOptions(workspaceId, memoryId, request, headers, runtime);
+}
+
 DeleteAgentResponse Alibabacloud_Bailian20231229::Client::deleteAgentWithOptions(shared_ptr<string> workspaceId,
                                                                                  shared_ptr<string> appCode,
                                                                                  shared_ptr<map<string, string>> headers,
@@ -446,6 +513,61 @@ DeleteIndexDocumentResponse Alibabacloud_Bailian20231229::Client::deleteIndexDoc
   return deleteIndexDocumentWithOptions(WorkspaceId, request, headers, runtime);
 }
 
+DeleteMemoryResponse Alibabacloud_Bailian20231229::Client::deleteMemoryWithOptions(shared_ptr<string> workspaceId,
+                                                                                   shared_ptr<string> memoryId,
+                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteMemory"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/memories/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(memoryId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteMemoryResponse(callApi(params, req, runtime));
+}
+
+DeleteMemoryResponse Alibabacloud_Bailian20231229::Client::deleteMemory(shared_ptr<string> workspaceId, shared_ptr<string> memoryId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteMemoryWithOptions(workspaceId, memoryId, headers, runtime);
+}
+
+DeleteMemoryNodeResponse Alibabacloud_Bailian20231229::Client::deleteMemoryNodeWithOptions(shared_ptr<string> workspaceId,
+                                                                                           shared_ptr<string> memoryId,
+                                                                                           shared_ptr<string> memoryNodeId,
+                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteMemoryNode"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/memories/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(memoryId)) + string("/memoryNodes/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(memoryNodeId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteMemoryNodeResponse(callApi(params, req, runtime));
+}
+
+DeleteMemoryNodeResponse Alibabacloud_Bailian20231229::Client::deleteMemoryNode(shared_ptr<string> workspaceId, shared_ptr<string> memoryId, shared_ptr<string> memoryNodeId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, headers, runtime);
+}
+
 DescribeFileResponse Alibabacloud_Bailian20231229::Client::describeFileWithOptions(shared_ptr<string> WorkspaceId,
                                                                                    shared_ptr<string> FileId,
                                                                                    shared_ptr<map<string, string>> headers,
@@ -507,6 +629,61 @@ GetIndexJobStatusResponse Alibabacloud_Bailian20231229::Client::getIndexJobStatu
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getIndexJobStatusWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+GetMemoryResponse Alibabacloud_Bailian20231229::Client::getMemoryWithOptions(shared_ptr<string> workspaceId,
+                                                                             shared_ptr<string> memoryId,
+                                                                             shared_ptr<map<string, string>> headers,
+                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetMemory"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/memories/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(memoryId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetMemoryResponse(callApi(params, req, runtime));
+}
+
+GetMemoryResponse Alibabacloud_Bailian20231229::Client::getMemory(shared_ptr<string> workspaceId, shared_ptr<string> memoryId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getMemoryWithOptions(workspaceId, memoryId, headers, runtime);
+}
+
+GetMemoryNodeResponse Alibabacloud_Bailian20231229::Client::getMemoryNodeWithOptions(shared_ptr<string> workspaceId,
+                                                                                     shared_ptr<string> memoryId,
+                                                                                     shared_ptr<string> memoryNodeId,
+                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetMemoryNode"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/memories/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(memoryId)) + string("/memoryNodes/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(memoryNodeId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetMemoryNodeResponse(callApi(params, req, runtime));
+}
+
+GetMemoryNodeResponse Alibabacloud_Bailian20231229::Client::getMemoryNode(shared_ptr<string> workspaceId, shared_ptr<string> memoryId, shared_ptr<string> memoryNodeId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, headers, runtime);
 }
 
 GetPublishedAgentResponse Alibabacloud_Bailian20231229::Client::getPublishedAgentWithOptions(shared_ptr<string> workspaceId,
@@ -744,6 +921,79 @@ ListIndicesResponse Alibabacloud_Bailian20231229::Client::listIndices(shared_ptr
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listIndicesWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+ListMemoriesResponse Alibabacloud_Bailian20231229::Client::listMemoriesWithOptions(shared_ptr<string> workspaceId,
+                                                                                   shared_ptr<ListMemoriesRequest> request,
+                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("maxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("nextToken", *request->nextToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListMemories"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/memories"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListMemoriesResponse(callApi(params, req, runtime));
+}
+
+ListMemoriesResponse Alibabacloud_Bailian20231229::Client::listMemories(shared_ptr<string> workspaceId, shared_ptr<ListMemoriesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listMemoriesWithOptions(workspaceId, request, headers, runtime);
+}
+
+ListMemoryNodesResponse Alibabacloud_Bailian20231229::Client::listMemoryNodesWithOptions(shared_ptr<string> workspaceId,
+                                                                                         shared_ptr<string> memoryId,
+                                                                                         shared_ptr<ListMemoryNodesRequest> request,
+                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("maxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("nextToken", *request->nextToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListMemoryNodes"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/memories/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(memoryId)) + string("/memoryNodes"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListMemoryNodesResponse(callApi(params, req, runtime));
+}
+
+ListMemoryNodesResponse Alibabacloud_Bailian20231229::Client::listMemoryNodes(shared_ptr<string> workspaceId, shared_ptr<string> memoryId, shared_ptr<ListMemoryNodesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listMemoryNodesWithOptions(workspaceId, memoryId, request, headers, runtime);
 }
 
 ListPublishedAgentResponse Alibabacloud_Bailian20231229::Client::listPublishedAgentWithOptions(shared_ptr<string> workspaceId,
@@ -988,5 +1238,77 @@ UpdateAndPublishAgentResponse Alibabacloud_Bailian20231229::Client::updateAndPub
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateAndPublishAgentWithOptions(workspaceId, appCode, request, headers, runtime);
+}
+
+UpdateMemoryResponse Alibabacloud_Bailian20231229::Client::updateMemoryWithOptions(shared_ptr<string> workspaceId,
+                                                                                   shared_ptr<string> memoryId,
+                                                                                   shared_ptr<UpdateMemoryRequest> request,
+                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("description", *request->description));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateMemory"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/memories/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(memoryId)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateMemoryResponse(callApi(params, req, runtime));
+}
+
+UpdateMemoryResponse Alibabacloud_Bailian20231229::Client::updateMemory(shared_ptr<string> workspaceId, shared_ptr<string> memoryId, shared_ptr<UpdateMemoryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateMemoryWithOptions(workspaceId, memoryId, request, headers, runtime);
+}
+
+UpdateMemoryNodeResponse Alibabacloud_Bailian20231229::Client::updateMemoryNodeWithOptions(shared_ptr<string> workspaceId,
+                                                                                           shared_ptr<string> memoryId,
+                                                                                           shared_ptr<string> memoryNodeId,
+                                                                                           shared_ptr<UpdateMemoryNodeRequest> request,
+                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    query->insert(pair<string, string>("content", *request->content));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateMemoryNode"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/memories/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(memoryId)) + string("/memoryNodes/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(memoryNodeId)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateMemoryNodeResponse(callApi(params, req, runtime));
+}
+
+UpdateMemoryNodeResponse Alibabacloud_Bailian20231229::Client::updateMemoryNode(shared_ptr<string> workspaceId,
+                                                                                shared_ptr<string> memoryId,
+                                                                                shared_ptr<string> memoryNodeId,
+                                                                                shared_ptr<UpdateMemoryNodeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, request, headers, runtime);
 }
 
