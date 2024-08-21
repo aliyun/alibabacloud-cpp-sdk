@@ -13926,7 +13926,9 @@ public:
   shared_ptr<string> listenerProtocol{};
   shared_ptr<string> loadBalanceType{};
   shared_ptr<string> namespaceId{};
+  shared_ptr<long> requestTimeout{};
   shared_ptr<string> rules{};
+  shared_ptr<string> securityPolicyId{};
   shared_ptr<string> slbId{};
 
   CreateIngressRequest() {}
@@ -13963,8 +13965,14 @@ public:
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
+    if (requestTimeout) {
+      res["RequestTimeout"] = boost::any(*requestTimeout);
+    }
     if (rules) {
       res["Rules"] = boost::any(*rules);
+    }
+    if (securityPolicyId) {
+      res["SecurityPolicyId"] = boost::any(*securityPolicyId);
     }
     if (slbId) {
       res["SlbId"] = boost::any(*slbId);
@@ -13997,8 +14005,14 @@ public:
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
     }
+    if (m.find("RequestTimeout") != m.end() && !m["RequestTimeout"].empty()) {
+      requestTimeout = make_shared<long>(boost::any_cast<long>(m["RequestTimeout"]));
+    }
     if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
       rules = make_shared<string>(boost::any_cast<string>(m["Rules"]));
+    }
+    if (m.find("SecurityPolicyId") != m.end() && !m["SecurityPolicyId"].empty()) {
+      securityPolicyId = make_shared<string>(boost::any_cast<string>(m["SecurityPolicyId"]));
     }
     if (m.find("SlbId") != m.end() && !m["SlbId"].empty()) {
       slbId = make_shared<string>(boost::any_cast<string>(m["SlbId"]));
@@ -25298,7 +25312,9 @@ public:
   shared_ptr<string> loadBalanceType{};
   shared_ptr<string> name{};
   shared_ptr<string> namespaceId{};
+  shared_ptr<long> requestTimeout{};
   shared_ptr<vector<DescribeIngressResponseBodyDataRules>> rules{};
+  shared_ptr<string> securityPolicyId{};
   shared_ptr<string> slbId{};
   shared_ptr<string> slbType{};
 
@@ -25342,12 +25358,18 @@ public:
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
+    if (requestTimeout) {
+      res["RequestTimeout"] = boost::any(*requestTimeout);
+    }
     if (rules) {
       vector<boost::any> temp1;
       for(auto item1:*rules){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Rules"] = boost::any(temp1);
+    }
+    if (securityPolicyId) {
+      res["SecurityPolicyId"] = boost::any(*securityPolicyId);
     }
     if (slbId) {
       res["SlbId"] = boost::any(*slbId);
@@ -25393,6 +25415,9 @@ public:
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
     }
+    if (m.find("RequestTimeout") != m.end() && !m["RequestTimeout"].empty()) {
+      requestTimeout = make_shared<long>(boost::any_cast<long>(m["RequestTimeout"]));
+    }
     if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
       if (typeid(vector<boost::any>) == m["Rules"].type()) {
         vector<DescribeIngressResponseBodyDataRules> expect1;
@@ -25405,6 +25430,9 @@ public:
         }
         rules = make_shared<vector<DescribeIngressResponseBodyDataRules>>(expect1);
       }
+    }
+    if (m.find("SecurityPolicyId") != m.end() && !m["SecurityPolicyId"].empty()) {
+      securityPolicyId = make_shared<string>(boost::any_cast<string>(m["SecurityPolicyId"]));
     }
     if (m.find("SlbId") != m.end() && !m["SlbId"].empty()) {
       slbId = make_shared<string>(boost::any_cast<string>(m["SlbId"]));
@@ -42225,7 +42253,9 @@ public:
   shared_ptr<string> listenerPort{};
   shared_ptr<string> listenerProtocol{};
   shared_ptr<string> loadBalanceType{};
+  shared_ptr<long> requestTimeout{};
   shared_ptr<string> rules{};
+  shared_ptr<string> securityPolicyId{};
 
   UpdateIngressRequest() {}
 
@@ -42261,8 +42291,14 @@ public:
     if (loadBalanceType) {
       res["LoadBalanceType"] = boost::any(*loadBalanceType);
     }
+    if (requestTimeout) {
+      res["RequestTimeout"] = boost::any(*requestTimeout);
+    }
     if (rules) {
       res["Rules"] = boost::any(*rules);
+    }
+    if (securityPolicyId) {
+      res["SecurityPolicyId"] = boost::any(*securityPolicyId);
     }
     return res;
   }
@@ -42292,8 +42328,14 @@ public:
     if (m.find("LoadBalanceType") != m.end() && !m["LoadBalanceType"].empty()) {
       loadBalanceType = make_shared<string>(boost::any_cast<string>(m["LoadBalanceType"]));
     }
+    if (m.find("RequestTimeout") != m.end() && !m["RequestTimeout"].empty()) {
+      requestTimeout = make_shared<long>(boost::any_cast<long>(m["RequestTimeout"]));
+    }
     if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
       rules = make_shared<string>(boost::any_cast<string>(m["Rules"]));
+    }
+    if (m.find("SecurityPolicyId") != m.end() && !m["SecurityPolicyId"].empty()) {
+      securityPolicyId = make_shared<string>(boost::any_cast<string>(m["SecurityPolicyId"]));
     }
   }
 

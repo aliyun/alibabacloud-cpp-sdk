@@ -626,6 +626,12 @@ CreateIngressResponse Alibabacloud_Sae20190506::Client::createIngressWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->requestTimeout)) {
+    query->insert(pair<string, long>("RequestTimeout", *request->requestTimeout));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityPolicyId)) {
+    query->insert(pair<string, string>("SecurityPolicyId", *request->securityPolicyId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->slbId)) {
     query->insert(pair<string, string>("SlbId", *request->slbId));
   }
@@ -4687,6 +4693,12 @@ UpdateIngressResponse Alibabacloud_Sae20190506::Client::updateIngressWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->loadBalanceType)) {
     query->insert(pair<string, string>("LoadBalanceType", *request->loadBalanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->requestTimeout)) {
+    query->insert(pair<string, long>("RequestTimeout", *request->requestTimeout));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityPolicyId)) {
+    query->insert(pair<string, string>("SecurityPolicyId", *request->securityPolicyId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->rules)) {
