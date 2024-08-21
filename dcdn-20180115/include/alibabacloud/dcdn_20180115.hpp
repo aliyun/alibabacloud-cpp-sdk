@@ -23951,7 +23951,9 @@ public:
 };
 class DescribeDcdnKvAccountResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> capacity{};
   shared_ptr<string> capacityString{};
+  shared_ptr<long> capacityUsed{};
   shared_ptr<string> capacityUsedString{};
   shared_ptr<vector<DescribeDcdnKvAccountResponseBodyNamespaceList>> namespaceList{};
   shared_ptr<long> namespaceQuota{};
@@ -23969,8 +23971,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (capacity) {
+      res["Capacity"] = boost::any(*capacity);
+    }
     if (capacityString) {
       res["CapacityString"] = boost::any(*capacityString);
+    }
+    if (capacityUsed) {
+      res["CapacityUsed"] = boost::any(*capacityUsed);
     }
     if (capacityUsedString) {
       res["CapacityUsedString"] = boost::any(*capacityUsedString);
@@ -23998,8 +24006,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Capacity") != m.end() && !m["Capacity"].empty()) {
+      capacity = make_shared<long>(boost::any_cast<long>(m["Capacity"]));
+    }
     if (m.find("CapacityString") != m.end() && !m["CapacityString"].empty()) {
       capacityString = make_shared<string>(boost::any_cast<string>(m["CapacityString"]));
+    }
+    if (m.find("CapacityUsed") != m.end() && !m["CapacityUsed"].empty()) {
+      capacityUsed = make_shared<long>(boost::any_cast<long>(m["CapacityUsed"]));
     }
     if (m.find("CapacityUsedString") != m.end() && !m["CapacityUsedString"].empty()) {
       capacityUsedString = make_shared<string>(boost::any_cast<string>(m["CapacityUsedString"]));
