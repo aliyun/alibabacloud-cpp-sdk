@@ -3091,6 +3091,7 @@ public:
 };
 class DescribeDdosOriginInstanceBillResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> assetStatus{};
   shared_ptr<long> debtStatus{};
   shared_ptr<vector<DescribeDdosOriginInstanceBillResponseBodyFlowList>> flowList{};
   shared_ptr<map<string, boost::any>> flowRegion{};
@@ -3117,6 +3118,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (assetStatus) {
+      res["AssetStatus"] = boost::any(*assetStatus);
+    }
     if (debtStatus) {
       res["DebtStatus"] = boost::any(*debtStatus);
     }
@@ -3178,6 +3182,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssetStatus") != m.end() && !m["AssetStatus"].empty()) {
+      assetStatus = make_shared<long>(boost::any_cast<long>(m["AssetStatus"]));
+    }
     if (m.find("DebtStatus") != m.end() && !m["DebtStatus"].empty()) {
       debtStatus = make_shared<long>(boost::any_cast<long>(m["DebtStatus"]));
     }
