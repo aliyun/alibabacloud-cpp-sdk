@@ -108,6 +108,12 @@ AddTaskResponse Alibabacloud_Aiccs20230516::Client::addTaskWithOptions(shared_pt
   if (!Darabonba_Util::Client::isUnset<string>(request->callbackUrl)) {
     query->insert(pair<string, string>("CallbackUrl", *request->callbackUrl));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->flashSmsTemplateId)) {
+    query->insert(pair<string, long>("FlashSmsTemplateId", *request->flashSmsTemplateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->flashSmsType)) {
+    query->insert(pair<string, long>("FlashSmsType", *request->flashSmsType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxConcurrency)) {
     query->insert(pair<string, long>("MaxConcurrency", *request->maxConcurrency));
   }
@@ -383,6 +389,12 @@ EditTaskResponse Alibabacloud_Aiccs20230516::Client::editTaskWithOptions(shared_
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->callbackUrl)) {
     query->insert(pair<string, string>("CallbackUrl", *request->callbackUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->flashSmsTemplateId)) {
+    query->insert(pair<string, long>("FlashSmsTemplateId", *request->flashSmsTemplateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->flashSmsType)) {
+    query->insert(pair<string, long>("FlashSmsType", *request->flashSmsType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxConcurrency)) {
     query->insert(pair<string, long>("MaxConcurrency", *request->maxConcurrency));

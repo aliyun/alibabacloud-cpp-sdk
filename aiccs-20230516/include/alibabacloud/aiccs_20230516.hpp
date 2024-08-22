@@ -388,6 +388,8 @@ class AddTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<AddTaskRequestCallTimeList>> callTimeList{};
   shared_ptr<string> callbackUrl{};
+  shared_ptr<long> flashSmsTemplateId{};
+  shared_ptr<long> flashSmsType{};
   shared_ptr<long> maxConcurrency{};
   shared_ptr<string> name{};
   shared_ptr<long> ownerId{};
@@ -426,6 +428,12 @@ public:
     }
     if (callbackUrl) {
       res["CallbackUrl"] = boost::any(*callbackUrl);
+    }
+    if (flashSmsTemplateId) {
+      res["FlashSmsTemplateId"] = boost::any(*flashSmsTemplateId);
+    }
+    if (flashSmsType) {
+      res["FlashSmsType"] = boost::any(*flashSmsType);
     }
     if (maxConcurrency) {
       res["MaxConcurrency"] = boost::any(*maxConcurrency);
@@ -504,6 +512,12 @@ public:
     }
     if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
       callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
+    }
+    if (m.find("FlashSmsTemplateId") != m.end() && !m["FlashSmsTemplateId"].empty()) {
+      flashSmsTemplateId = make_shared<long>(boost::any_cast<long>(m["FlashSmsTemplateId"]));
+    }
+    if (m.find("FlashSmsType") != m.end() && !m["FlashSmsType"].empty()) {
+      flashSmsType = make_shared<long>(boost::any_cast<long>(m["FlashSmsType"]));
     }
     if (m.find("MaxConcurrency") != m.end() && !m["MaxConcurrency"].empty()) {
       maxConcurrency = make_shared<long>(boost::any_cast<long>(m["MaxConcurrency"]));
@@ -592,6 +606,8 @@ class AddTaskShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> callTimeListShrink{};
   shared_ptr<string> callbackUrl{};
+  shared_ptr<long> flashSmsTemplateId{};
+  shared_ptr<long> flashSmsType{};
   shared_ptr<long> maxConcurrency{};
   shared_ptr<string> name{};
   shared_ptr<long> ownerId{};
@@ -626,6 +642,12 @@ public:
     }
     if (callbackUrl) {
       res["CallbackUrl"] = boost::any(*callbackUrl);
+    }
+    if (flashSmsTemplateId) {
+      res["FlashSmsTemplateId"] = boost::any(*flashSmsTemplateId);
+    }
+    if (flashSmsType) {
+      res["FlashSmsType"] = boost::any(*flashSmsType);
     }
     if (maxConcurrency) {
       res["MaxConcurrency"] = boost::any(*maxConcurrency);
@@ -690,6 +712,12 @@ public:
     }
     if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
       callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
+    }
+    if (m.find("FlashSmsTemplateId") != m.end() && !m["FlashSmsTemplateId"].empty()) {
+      flashSmsTemplateId = make_shared<long>(boost::any_cast<long>(m["FlashSmsTemplateId"]));
+    }
+    if (m.find("FlashSmsType") != m.end() && !m["FlashSmsType"].empty()) {
+      flashSmsType = make_shared<long>(boost::any_cast<long>(m["FlashSmsType"]));
     }
     if (m.find("MaxConcurrency") != m.end() && !m["MaxConcurrency"].empty()) {
       maxConcurrency = make_shared<long>(boost::any_cast<long>(m["MaxConcurrency"]));
@@ -781,6 +809,7 @@ public:
 };
 class AddTaskResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<AddTaskResponseBodyModel> model{};
@@ -798,6 +827,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -820,6 +852,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -2143,6 +2178,8 @@ class EditTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<EditTaskRequestCallTimeList>> callTimeList{};
   shared_ptr<string> callbackUrl{};
+  shared_ptr<long> flashSmsTemplateId{};
+  shared_ptr<long> flashSmsType{};
   shared_ptr<long> maxConcurrency{};
   shared_ptr<string> name{};
   shared_ptr<long> ownerId{};
@@ -2181,6 +2218,12 @@ public:
     }
     if (callbackUrl) {
       res["CallbackUrl"] = boost::any(*callbackUrl);
+    }
+    if (flashSmsTemplateId) {
+      res["FlashSmsTemplateId"] = boost::any(*flashSmsTemplateId);
+    }
+    if (flashSmsType) {
+      res["FlashSmsType"] = boost::any(*flashSmsType);
     }
     if (maxConcurrency) {
       res["MaxConcurrency"] = boost::any(*maxConcurrency);
@@ -2259,6 +2302,12 @@ public:
     }
     if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
       callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
+    }
+    if (m.find("FlashSmsTemplateId") != m.end() && !m["FlashSmsTemplateId"].empty()) {
+      flashSmsTemplateId = make_shared<long>(boost::any_cast<long>(m["FlashSmsTemplateId"]));
+    }
+    if (m.find("FlashSmsType") != m.end() && !m["FlashSmsType"].empty()) {
+      flashSmsType = make_shared<long>(boost::any_cast<long>(m["FlashSmsType"]));
     }
     if (m.find("MaxConcurrency") != m.end() && !m["MaxConcurrency"].empty()) {
       maxConcurrency = make_shared<long>(boost::any_cast<long>(m["MaxConcurrency"]));
@@ -2347,6 +2396,8 @@ class EditTaskShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> callTimeListShrink{};
   shared_ptr<string> callbackUrl{};
+  shared_ptr<long> flashSmsTemplateId{};
+  shared_ptr<long> flashSmsType{};
   shared_ptr<long> maxConcurrency{};
   shared_ptr<string> name{};
   shared_ptr<long> ownerId{};
@@ -2381,6 +2432,12 @@ public:
     }
     if (callbackUrl) {
       res["CallbackUrl"] = boost::any(*callbackUrl);
+    }
+    if (flashSmsTemplateId) {
+      res["FlashSmsTemplateId"] = boost::any(*flashSmsTemplateId);
+    }
+    if (flashSmsType) {
+      res["FlashSmsType"] = boost::any(*flashSmsType);
     }
     if (maxConcurrency) {
       res["MaxConcurrency"] = boost::any(*maxConcurrency);
@@ -2445,6 +2502,12 @@ public:
     }
     if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
       callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
+    }
+    if (m.find("FlashSmsTemplateId") != m.end() && !m["FlashSmsTemplateId"].empty()) {
+      flashSmsTemplateId = make_shared<long>(boost::any_cast<long>(m["FlashSmsTemplateId"]));
+    }
+    if (m.find("FlashSmsType") != m.end() && !m["FlashSmsType"].empty()) {
+      flashSmsType = make_shared<long>(boost::any_cast<long>(m["FlashSmsType"]));
     }
     if (m.find("MaxConcurrency") != m.end() && !m["MaxConcurrency"].empty()) {
       maxConcurrency = make_shared<long>(boost::any_cast<long>(m["MaxConcurrency"]));
@@ -2536,6 +2599,7 @@ public:
 };
 class EditTaskResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<EditTaskResponseBodyModel> model{};
@@ -2553,6 +2617,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -2575,6 +2642,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -5582,6 +5652,9 @@ public:
   shared_ptr<string> allowDayOfWeek{};
   shared_ptr<long> callType{};
   shared_ptr<string> createTime{};
+  shared_ptr<long> flashSmsTemplateId{};
+  shared_ptr<string> flashSmsTemplateName{};
+  shared_ptr<long> flashSmsType{};
   shared_ptr<string> importTime{};
   shared_ptr<vector<TaskListResponseBodyModelIntentTags>> intentTags{};
   shared_ptr<long> invalidReCall{};
@@ -5623,6 +5696,15 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (flashSmsTemplateId) {
+      res["FlashSmsTemplateId"] = boost::any(*flashSmsTemplateId);
+    }
+    if (flashSmsTemplateName) {
+      res["FlashSmsTemplateName"] = boost::any(*flashSmsTemplateName);
+    }
+    if (flashSmsType) {
+      res["FlashSmsType"] = boost::any(*flashSmsType);
     }
     if (importTime) {
       res["ImportTime"] = boost::any(*importTime);
@@ -5694,6 +5776,15 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("FlashSmsTemplateId") != m.end() && !m["FlashSmsTemplateId"].empty()) {
+      flashSmsTemplateId = make_shared<long>(boost::any_cast<long>(m["FlashSmsTemplateId"]));
+    }
+    if (m.find("FlashSmsTemplateName") != m.end() && !m["FlashSmsTemplateName"].empty()) {
+      flashSmsTemplateName = make_shared<string>(boost::any_cast<string>(m["FlashSmsTemplateName"]));
+    }
+    if (m.find("FlashSmsType") != m.end() && !m["FlashSmsType"].empty()) {
+      flashSmsType = make_shared<long>(boost::any_cast<long>(m["FlashSmsType"]));
     }
     if (m.find("ImportTime") != m.end() && !m["ImportTime"].empty()) {
       importTime = make_shared<string>(boost::any_cast<string>(m["ImportTime"]));
