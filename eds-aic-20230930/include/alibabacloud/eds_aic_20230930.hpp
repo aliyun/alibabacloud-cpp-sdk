@@ -1508,53 +1508,9 @@ public:
 
   virtual ~CreateKeyPairResponse() = default;
 };
-class CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule : public Darabonba::Model {
-public:
-  shared_ptr<string> policy{};
-  shared_ptr<string> ruleType{};
-  shared_ptr<string> target{};
-
-  CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule() {}
-
-  explicit CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (policy) {
-      res["Policy"] = boost::any(*policy);
-    }
-    if (ruleType) {
-      res["RuleType"] = boost::any(*ruleType);
-    }
-    if (target) {
-      res["Target"] = boost::any(*target);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
-      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
-    }
-    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
-      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
-    }
-    if (m.find("Target") != m.end() && !m["Target"].empty()) {
-      target = make_shared<string>(boost::any_cast<string>(m["Target"]));
-    }
-  }
-
-
-  virtual ~CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule() = default;
-};
 class CreatePolicyGroupRequestNetRedirectPolicy : public Darabonba::Model {
 public:
   shared_ptr<string> netRedirect{};
-  shared_ptr<vector<CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule>> netRedirectRule{};
 
   CreatePolicyGroupRequestNetRedirectPolicy() {}
 
@@ -1569,32 +1525,12 @@ public:
     if (netRedirect) {
       res["NetRedirect"] = boost::any(*netRedirect);
     }
-    if (netRedirectRule) {
-      vector<boost::any> temp1;
-      for(auto item1:*netRedirectRule){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["NetRedirectRule"] = boost::any(temp1);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("NetRedirect") != m.end() && !m["NetRedirect"].empty()) {
       netRedirect = make_shared<string>(boost::any_cast<string>(m["NetRedirect"]));
-    }
-    if (m.find("NetRedirectRule") != m.end() && !m["NetRedirectRule"].empty()) {
-      if (typeid(vector<boost::any>) == m["NetRedirectRule"].type()) {
-        vector<CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetRedirectRule"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        netRedirectRule = make_shared<vector<CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule>>(expect1);
-      }
     }
   }
 
@@ -5231,6 +5167,7 @@ public:
   shared_ptr<string> invokeId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceId{};
+  shared_ptr<string> result{};
   shared_ptr<string> startTime{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskStatus{};
@@ -5257,6 +5194,9 @@ public:
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -5285,6 +5225,9 @@ public:
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["Result"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -6605,53 +6548,9 @@ public:
 
   virtual ~ListPolicyGroupsRequest() = default;
 };
-class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule : public Darabonba::Model {
-public:
-  shared_ptr<string> policy{};
-  shared_ptr<string> ruleType{};
-  shared_ptr<string> target{};
-
-  ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule() {}
-
-  explicit ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (policy) {
-      res["Policy"] = boost::any(*policy);
-    }
-    if (ruleType) {
-      res["RuleType"] = boost::any(*ruleType);
-    }
-    if (target) {
-      res["Target"] = boost::any(*target);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
-      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
-    }
-    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
-      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
-    }
-    if (m.find("Target") != m.end() && !m["Target"].empty()) {
-      target = make_shared<string>(boost::any_cast<string>(m["Target"]));
-    }
-  }
-
-
-  virtual ~ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule() = default;
-};
 class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy : public Darabonba::Model {
 public:
   shared_ptr<string> netRedirect{};
-  shared_ptr<vector<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule>> netRedirectRule{};
 
   ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy() {}
 
@@ -6666,32 +6565,12 @@ public:
     if (netRedirect) {
       res["NetRedirect"] = boost::any(*netRedirect);
     }
-    if (netRedirectRule) {
-      vector<boost::any> temp1;
-      for(auto item1:*netRedirectRule){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["NetRedirectRule"] = boost::any(temp1);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("NetRedirect") != m.end() && !m["NetRedirect"].empty()) {
       netRedirect = make_shared<string>(boost::any_cast<string>(m["NetRedirect"]));
-    }
-    if (m.find("NetRedirectRule") != m.end() && !m["NetRedirectRule"].empty()) {
-      if (typeid(vector<boost::any>) == m["NetRedirectRule"].type()) {
-        vector<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetRedirectRule"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        netRedirectRule = make_shared<vector<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule>>(expect1);
-      }
     }
   }
 
@@ -7399,53 +7278,9 @@ public:
 
   virtual ~ModifyKeyPairNameResponse() = default;
 };
-class ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule : public Darabonba::Model {
-public:
-  shared_ptr<string> policy{};
-  shared_ptr<string> ruleType{};
-  shared_ptr<string> target{};
-
-  ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule() {}
-
-  explicit ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (policy) {
-      res["Policy"] = boost::any(*policy);
-    }
-    if (ruleType) {
-      res["RuleType"] = boost::any(*ruleType);
-    }
-    if (target) {
-      res["Target"] = boost::any(*target);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
-      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
-    }
-    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
-      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
-    }
-    if (m.find("Target") != m.end() && !m["Target"].empty()) {
-      target = make_shared<string>(boost::any_cast<string>(m["Target"]));
-    }
-  }
-
-
-  virtual ~ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule() = default;
-};
 class ModifyPolicyGroupRequestNetRedirectPolicy : public Darabonba::Model {
 public:
   shared_ptr<string> netRedirect{};
-  shared_ptr<vector<ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule>> netRedirectRule{};
 
   ModifyPolicyGroupRequestNetRedirectPolicy() {}
 
@@ -7460,32 +7295,12 @@ public:
     if (netRedirect) {
       res["NetRedirect"] = boost::any(*netRedirect);
     }
-    if (netRedirectRule) {
-      vector<boost::any> temp1;
-      for(auto item1:*netRedirectRule){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["NetRedirectRule"] = boost::any(temp1);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("NetRedirect") != m.end() && !m["NetRedirect"].empty()) {
       netRedirect = make_shared<string>(boost::any_cast<string>(m["NetRedirect"]));
-    }
-    if (m.find("NetRedirectRule") != m.end() && !m["NetRedirectRule"].empty()) {
-      if (typeid(vector<boost::any>) == m["NetRedirectRule"].type()) {
-        vector<ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetRedirectRule"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        netRedirectRule = make_shared<vector<ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule>>(expect1);
-      }
     }
   }
 
