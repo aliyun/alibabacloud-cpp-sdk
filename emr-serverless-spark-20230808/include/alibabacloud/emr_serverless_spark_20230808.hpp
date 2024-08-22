@@ -2054,8 +2054,10 @@ class GetJobRunResponseBodyJobRun : public Darabonba::Model {
 public:
   shared_ptr<string> codeType{};
   shared_ptr<GetJobRunResponseBodyJobRunConfigurationOverrides> configurationOverrides{};
+  shared_ptr<string> displayReleaseVersion{};
   shared_ptr<long> endTime{};
   shared_ptr<long> executionTimeoutSeconds{};
+  shared_ptr<bool> fusion{};
   shared_ptr<JobDriver> jobDriver{};
   shared_ptr<string> jobRunId{};
   shared_ptr<RunLog> log{};
@@ -2086,11 +2088,17 @@ public:
     if (configurationOverrides) {
       res["configurationOverrides"] = configurationOverrides ? boost::any(configurationOverrides->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (displayReleaseVersion) {
+      res["displayReleaseVersion"] = boost::any(*displayReleaseVersion);
+    }
     if (endTime) {
       res["endTime"] = boost::any(*endTime);
     }
     if (executionTimeoutSeconds) {
       res["executionTimeoutSeconds"] = boost::any(*executionTimeoutSeconds);
+    }
+    if (fusion) {
+      res["fusion"] = boost::any(*fusion);
     }
     if (jobDriver) {
       res["jobDriver"] = jobDriver ? boost::any(jobDriver->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2149,11 +2157,17 @@ public:
         configurationOverrides = make_shared<GetJobRunResponseBodyJobRunConfigurationOverrides>(model1);
       }
     }
+    if (m.find("displayReleaseVersion") != m.end() && !m["displayReleaseVersion"].empty()) {
+      displayReleaseVersion = make_shared<string>(boost::any_cast<string>(m["displayReleaseVersion"]));
+    }
     if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
     }
     if (m.find("executionTimeoutSeconds") != m.end() && !m["executionTimeoutSeconds"].empty()) {
       executionTimeoutSeconds = make_shared<long>(boost::any_cast<long>(m["executionTimeoutSeconds"]));
+    }
+    if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
+      fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
     }
     if (m.find("jobDriver") != m.end() && !m["jobDriver"].empty()) {
       if (typeid(map<string, boost::any>) == m["jobDriver"].type()) {
