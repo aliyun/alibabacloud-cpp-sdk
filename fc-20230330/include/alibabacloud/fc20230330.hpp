@@ -1306,6 +1306,176 @@ public:
 
   virtual ~CustomHealthCheckConfig() = default;
 };
+class RegistryAuthConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> password{};
+  shared_ptr<string> userName{};
+
+  RegistryAuthConfig() {}
+
+  explicit RegistryAuthConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (password) {
+      res["password"] = boost::any(*password);
+    }
+    if (userName) {
+      res["userName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("password") != m.end() && !m["password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["password"]));
+    }
+    if (m.find("userName") != m.end() && !m["userName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["userName"]));
+    }
+  }
+
+
+  virtual ~RegistryAuthConfig() = default;
+};
+class RegistryCertConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> insecure{};
+  shared_ptr<string> rootCaCertBase64{};
+
+  RegistryCertConfig() {}
+
+  explicit RegistryCertConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (insecure) {
+      res["insecure"] = boost::any(*insecure);
+    }
+    if (rootCaCertBase64) {
+      res["rootCaCertBase64"] = boost::any(*rootCaCertBase64);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("insecure") != m.end() && !m["insecure"].empty()) {
+      insecure = make_shared<bool>(boost::any_cast<bool>(m["insecure"]));
+    }
+    if (m.find("rootCaCertBase64") != m.end() && !m["rootCaCertBase64"].empty()) {
+      rootCaCertBase64 = make_shared<string>(boost::any_cast<string>(m["rootCaCertBase64"]));
+    }
+  }
+
+
+  virtual ~RegistryCertConfig() = default;
+};
+class RegistryNetworkConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+
+  RegistryNetworkConfig() {}
+
+  explicit RegistryNetworkConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (securityGroupId) {
+      res["securityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (vSwitchId) {
+      res["vSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["vpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("securityGroupId") != m.end() && !m["securityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["securityGroupId"]));
+    }
+    if (m.find("vSwitchId") != m.end() && !m["vSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["vSwitchId"]));
+    }
+    if (m.find("vpcId") != m.end() && !m["vpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["vpcId"]));
+    }
+  }
+
+
+  virtual ~RegistryNetworkConfig() = default;
+};
+class RegistryConfig : public Darabonba::Model {
+public:
+  shared_ptr<RegistryAuthConfig> authConfig{};
+  shared_ptr<RegistryCertConfig> certConfig{};
+  shared_ptr<RegistryNetworkConfig> networkConfig{};
+
+  RegistryConfig() {}
+
+  explicit RegistryConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authConfig) {
+      res["authConfig"] = authConfig ? boost::any(authConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (certConfig) {
+      res["certConfig"] = certConfig ? boost::any(certConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkConfig) {
+      res["networkConfig"] = networkConfig ? boost::any(networkConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("authConfig") != m.end() && !m["authConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["authConfig"].type()) {
+        RegistryAuthConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["authConfig"]));
+        authConfig = make_shared<RegistryAuthConfig>(model1);
+      }
+    }
+    if (m.find("certConfig") != m.end() && !m["certConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["certConfig"].type()) {
+        RegistryCertConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["certConfig"]));
+        certConfig = make_shared<RegistryCertConfig>(model1);
+      }
+    }
+    if (m.find("networkConfig") != m.end() && !m["networkConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["networkConfig"].type()) {
+        RegistryNetworkConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["networkConfig"]));
+        networkConfig = make_shared<RegistryNetworkConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RegistryConfig() = default;
+};
 class CustomContainerConfig : public Darabonba::Model {
 public:
   shared_ptr<AccelerationInfo> accelerationInfo{};
@@ -1316,6 +1486,7 @@ public:
   shared_ptr<CustomHealthCheckConfig> healthCheckConfig{};
   shared_ptr<string> image{};
   shared_ptr<long> port{};
+  shared_ptr<RegistryConfig> registryConfig{};
   shared_ptr<string> resolvedImageUri{};
 
   CustomContainerConfig() {}
@@ -1351,6 +1522,9 @@ public:
     }
     if (port) {
       res["port"] = boost::any(*port);
+    }
+    if (registryConfig) {
+      res["registryConfig"] = registryConfig ? boost::any(registryConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (resolvedImageUri) {
       res["resolvedImageUri"] = boost::any(*resolvedImageUri);
@@ -1404,6 +1578,13 @@ public:
     }
     if (m.find("port") != m.end() && !m["port"].empty()) {
       port = make_shared<long>(boost::any_cast<long>(m["port"]));
+    }
+    if (m.find("registryConfig") != m.end() && !m["registryConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["registryConfig"].type()) {
+        RegistryConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["registryConfig"]));
+        registryConfig = make_shared<RegistryConfig>(model1);
+      }
     }
     if (m.find("resolvedImageUri") != m.end() && !m["resolvedImageUri"].empty()) {
       resolvedImageUri = make_shared<string>(boost::any_cast<string>(m["resolvedImageUri"]));
@@ -4708,6 +4889,7 @@ public:
   shared_ptr<string> scheduleExpression{};
   shared_ptr<string> startTime{};
   shared_ptr<long> target{};
+  shared_ptr<string> timeZone{};
 
   ScheduledAction() {}
 
@@ -4734,6 +4916,9 @@ public:
     if (target) {
       res["target"] = boost::any(*target);
     }
+    if (timeZone) {
+      res["timeZone"] = boost::any(*timeZone);
+    }
     return res;
   }
 
@@ -4753,6 +4938,9 @@ public:
     if (m.find("target") != m.end() && !m["target"].empty()) {
       target = make_shared<long>(boost::any_cast<long>(m["target"]));
     }
+    if (m.find("timeZone") != m.end() && !m["timeZone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["timeZone"]));
+    }
   }
 
 
@@ -4767,6 +4955,7 @@ public:
   shared_ptr<long> minCapacity{};
   shared_ptr<string> name{};
   shared_ptr<string> startTime{};
+  shared_ptr<string> timeZone{};
 
   TargetTrackingPolicy() {}
 
@@ -4799,6 +4988,9 @@ public:
     if (startTime) {
       res["startTime"] = boost::any(*startTime);
     }
+    if (timeZone) {
+      res["timeZone"] = boost::any(*timeZone);
+    }
     return res;
   }
 
@@ -4823,6 +5015,9 @@ public:
     }
     if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+    if (m.find("timeZone") != m.end() && !m["timeZone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["timeZone"]));
     }
   }
 
@@ -9011,6 +9206,7 @@ public:
 };
 class ListFunctionsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> fcVersion{};
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> prefix{};
@@ -9025,6 +9221,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (fcVersion) {
+      res["fcVersion"] = boost::any(*fcVersion);
+    }
     if (limit) {
       res["limit"] = boost::any(*limit);
     }
@@ -9038,6 +9237,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("fcVersion") != m.end() && !m["fcVersion"].empty()) {
+      fcVersion = make_shared<string>(boost::any_cast<string>(m["fcVersion"]));
+    }
     if (m.find("limit") != m.end() && !m["limit"].empty()) {
       limit = make_shared<long>(boost::any_cast<long>(m["limit"]));
     }

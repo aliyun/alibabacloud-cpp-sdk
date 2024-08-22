@@ -1105,6 +1105,9 @@ ListFunctionVersionsResponse Alibabacloud_FC20230330::Client::listFunctionVersio
 ListFunctionsResponse Alibabacloud_FC20230330::Client::listFunctionsWithOptions(shared_ptr<ListFunctionsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fcVersion)) {
+    query->insert(pair<string, string>("fcVersion", *request->fcVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
     query->insert(pair<string, long>("limit", *request->limit));
   }
