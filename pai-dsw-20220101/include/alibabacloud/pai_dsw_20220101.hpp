@@ -4900,7 +4900,7 @@ public:
 class GetMetricsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
-  shared_ptr<string> dataPoints{};
+  shared_ptr<string> datapoints{};
   shared_ptr<string> message{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> period{};
@@ -4920,8 +4920,8 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
-    if (dataPoints) {
-      res["DataPoints"] = boost::any(*dataPoints);
+    if (datapoints) {
+      res["Datapoints"] = boost::any(*datapoints);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -4945,8 +4945,8 @@ public:
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
-    if (m.find("DataPoints") != m.end() && !m["DataPoints"].empty()) {
-      dataPoints = make_shared<string>(boost::any_cast<string>(m["DataPoints"]));
+    if (m.find("Datapoints") != m.end() && !m["Datapoints"].empty()) {
+      datapoints = make_shared<string>(boost::any_cast<string>(m["Datapoints"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
