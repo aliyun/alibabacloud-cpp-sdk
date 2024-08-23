@@ -820,6 +820,12 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->securityLevel)) {
     query->insert(pair<string, string>("SecurityLevel", *request->securityLevel));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->showAlbumIcon)) {
+    query->insert(pair<string, string>("ShowAlbumIcon", *request->showAlbumIcon));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->showOcrResult)) {
+    query->insert(pair<string, string>("ShowOcrResult", *request->showOcrResult));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->styleConfig)) {
     query->insert(pair<string, string>("StyleConfig", *request->styleConfig));
   }

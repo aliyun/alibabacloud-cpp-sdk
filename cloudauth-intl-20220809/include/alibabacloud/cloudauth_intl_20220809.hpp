@@ -4517,6 +4517,8 @@ public:
   shared_ptr<string> returnUrl{};
   shared_ptr<string> sceneCode{};
   shared_ptr<string> securityLevel{};
+  shared_ptr<string> showAlbumIcon{};
+  shared_ptr<string> showOcrResult{};
   shared_ptr<string> styleConfig{};
 
   InitializeRequest() {}
@@ -4601,6 +4603,12 @@ public:
     if (securityLevel) {
       res["SecurityLevel"] = boost::any(*securityLevel);
     }
+    if (showAlbumIcon) {
+      res["ShowAlbumIcon"] = boost::any(*showAlbumIcon);
+    }
+    if (showOcrResult) {
+      res["ShowOcrResult"] = boost::any(*showOcrResult);
+    }
     if (styleConfig) {
       res["StyleConfig"] = boost::any(*styleConfig);
     }
@@ -4679,6 +4687,12 @@ public:
     }
     if (m.find("SecurityLevel") != m.end() && !m["SecurityLevel"].empty()) {
       securityLevel = make_shared<string>(boost::any_cast<string>(m["SecurityLevel"]));
+    }
+    if (m.find("ShowAlbumIcon") != m.end() && !m["ShowAlbumIcon"].empty()) {
+      showAlbumIcon = make_shared<string>(boost::any_cast<string>(m["ShowAlbumIcon"]));
+    }
+    if (m.find("ShowOcrResult") != m.end() && !m["ShowOcrResult"].empty()) {
+      showOcrResult = make_shared<string>(boost::any_cast<string>(m["ShowOcrResult"]));
     }
     if (m.find("StyleConfig") != m.end() && !m["StyleConfig"].empty()) {
       styleConfig = make_shared<string>(boost::any_cast<string>(m["StyleConfig"]));
