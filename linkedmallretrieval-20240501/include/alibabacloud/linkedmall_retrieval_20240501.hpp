@@ -377,7 +377,7 @@ class AISearchV2ResponseBodyHeader : public Darabonba::Model {
 public:
   shared_ptr<string> event{};
   shared_ptr<string> eventId{};
-  shared_ptr<string> responseTime{};
+  shared_ptr<long> responseTime{};
 
   AISearchV2ResponseBodyHeader() {}
 
@@ -409,7 +409,7 @@ public:
       eventId = make_shared<string>(boost::any_cast<string>(m["eventId"]));
     }
     if (m.find("responseTime") != m.end() && !m["responseTime"].empty()) {
-      responseTime = make_shared<string>(boost::any_cast<string>(m["responseTime"]));
+      responseTime = make_shared<long>(boost::any_cast<long>(m["responseTime"]));
     }
   }
 
