@@ -287,6 +287,9 @@ CheckHadoopNetConnectionResponse Alibabacloud_Gpdb20160503::Client::checkHadoopN
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceId)) {
+    query->insert(pair<string, string>("DataSourceId", *request->dataSourceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->emrInstanceId)) {
     query->insert(pair<string, string>("EmrInstanceId", *request->emrInstanceId));
   }
@@ -320,6 +323,9 @@ CheckJDBCSourceNetConnectionResponse Alibabacloud_Gpdb20160503::Client::checkJDB
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceId)) {
+    query->insert(pair<string, string>("DataSourceId", *request->dataSourceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->jdbcConnectionString)) {
     query->insert(pair<string, string>("JdbcConnectionString", *request->jdbcConnectionString));
@@ -388,6 +394,9 @@ CreateAccountResponse Alibabacloud_Gpdb20160503::Client::createAccountWithOption
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->accountPassword)) {
     query->insert(pair<string, string>("AccountPassword", *request->accountPassword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountType)) {
+    query->insert(pair<string, string>("AccountType", *request->accountType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
@@ -2073,6 +2082,9 @@ DescribeAccountsResponse Alibabacloud_Gpdb20160503::Client::describeAccountsWith
   if (!Darabonba_Util::Client::isUnset<string>(request->accountName)) {
     query->insert(pair<string, string>("AccountName", *request->accountName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountType)) {
+    query->insert(pair<string, string>("AccountType", *request->accountType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }
@@ -2375,6 +2387,12 @@ DescribeDBInstanceDataBloatResponse Alibabacloud_Gpdb20160503::Client::describeD
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->database)) {
+    query->insert(pair<string, string>("Database", *request->database));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
+    query->insert(pair<string, string>("OrderBy", *request->orderBy));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
@@ -2408,6 +2426,12 @@ DescribeDBInstanceDataSkewResponse Alibabacloud_Gpdb20160503::Client::describeDB
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->database)) {
+    query->insert(pair<string, string>("Database", *request->database));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
+    query->insert(pair<string, string>("OrderBy", *request->orderBy));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
@@ -2574,6 +2598,12 @@ DescribeDBInstanceIndexUsageResponse Alibabacloud_Gpdb20160503::Client::describe
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->database)) {
+    query->insert(pair<string, string>("Database", *request->database));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
+    query->insert(pair<string, string>("OrderBy", *request->orderBy));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));

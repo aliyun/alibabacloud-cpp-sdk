@@ -1131,6 +1131,7 @@ public:
 class CheckHadoopNetConnectionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> dataSourceId{};
   shared_ptr<string> emrInstanceId{};
   shared_ptr<string> regionId{};
 
@@ -1147,6 +1148,9 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (dataSourceId) {
+      res["DataSourceId"] = boost::any(*dataSourceId);
+    }
     if (emrInstanceId) {
       res["EmrInstanceId"] = boost::any(*emrInstanceId);
     }
@@ -1159,6 +1163,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DataSourceId") != m.end() && !m["DataSourceId"].empty()) {
+      dataSourceId = make_shared<string>(boost::any_cast<string>(m["DataSourceId"]));
     }
     if (m.find("EmrInstanceId") != m.end() && !m["EmrInstanceId"].empty()) {
       emrInstanceId = make_shared<string>(boost::any_cast<string>(m["EmrInstanceId"]));
@@ -1269,6 +1276,7 @@ public:
 class CheckJDBCSourceNetConnectionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> dataSourceId{};
   shared_ptr<string> jdbcConnectionString{};
   shared_ptr<string> regionId{};
 
@@ -1285,6 +1293,9 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (dataSourceId) {
+      res["DataSourceId"] = boost::any(*dataSourceId);
+    }
     if (jdbcConnectionString) {
       res["JdbcConnectionString"] = boost::any(*jdbcConnectionString);
     }
@@ -1297,6 +1308,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DataSourceId") != m.end() && !m["DataSourceId"].empty()) {
+      dataSourceId = make_shared<string>(boost::any_cast<string>(m["DataSourceId"]));
     }
     if (m.find("JdbcConnectionString") != m.end() && !m["JdbcConnectionString"].empty()) {
       jdbcConnectionString = make_shared<string>(boost::any_cast<string>(m["JdbcConnectionString"]));
@@ -1533,6 +1547,7 @@ public:
   shared_ptr<string> accountDescription{};
   shared_ptr<string> accountName{};
   shared_ptr<string> accountPassword{};
+  shared_ptr<string> accountType{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> databaseName{};
   shared_ptr<long> ownerId{};
@@ -1556,6 +1571,9 @@ public:
     }
     if (accountPassword) {
       res["AccountPassword"] = boost::any(*accountPassword);
+    }
+    if (accountType) {
+      res["AccountType"] = boost::any(*accountType);
     }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
@@ -1581,6 +1599,9 @@ public:
     }
     if (m.find("AccountPassword") != m.end() && !m["AccountPassword"].empty()) {
       accountPassword = make_shared<string>(boost::any_cast<string>(m["AccountPassword"]));
+    }
+    if (m.find("AccountType") != m.end() && !m["AccountType"].empty()) {
+      accountType = make_shared<string>(boost::any_cast<string>(m["AccountType"]));
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
@@ -7623,6 +7644,7 @@ public:
 class DescribeAccountsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountName{};
+  shared_ptr<string> accountType{};
   shared_ptr<string> DBInstanceId{};
 
   DescribeAccountsRequest() {}
@@ -7638,6 +7660,9 @@ public:
     if (accountName) {
       res["AccountName"] = boost::any(*accountName);
     }
+    if (accountType) {
+      res["AccountType"] = boost::any(*accountType);
+    }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
@@ -7647,6 +7672,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
       accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
+    if (m.find("AccountType") != m.end() && !m["AccountType"].empty()) {
+      accountType = make_shared<string>(boost::any_cast<string>(m["AccountType"]));
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
@@ -7661,6 +7689,7 @@ public:
   shared_ptr<string> accountDescription{};
   shared_ptr<string> accountName{};
   shared_ptr<string> accountStatus{};
+  shared_ptr<string> accountType{};
   shared_ptr<string> DBInstanceId{};
 
   DescribeAccountsResponseBodyAccountsDBInstanceAccount() {}
@@ -7682,6 +7711,9 @@ public:
     if (accountStatus) {
       res["AccountStatus"] = boost::any(*accountStatus);
     }
+    if (accountType) {
+      res["AccountType"] = boost::any(*accountType);
+    }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
@@ -7697,6 +7729,9 @@ public:
     }
     if (m.find("AccountStatus") != m.end() && !m["AccountStatus"].empty()) {
       accountStatus = make_shared<string>(boost::any_cast<string>(m["AccountStatus"]));
+    }
+    if (m.find("AccountType") != m.end() && !m["AccountType"].empty()) {
+      accountType = make_shared<string>(boost::any_cast<string>(m["AccountType"]));
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
@@ -10175,6 +10210,8 @@ public:
 class DescribeDBInstanceDataBloatRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> database{};
+  shared_ptr<string> orderBy{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
 
@@ -10191,6 +10228,12 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (database) {
+      res["Database"] = boost::any(*database);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -10203,6 +10246,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["Database"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -10440,6 +10489,8 @@ public:
 class DescribeDBInstanceDataSkewRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> database{};
+  shared_ptr<string> orderBy{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
 
@@ -10456,6 +10507,12 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (database) {
+      res["Database"] = boost::any(*database);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -10468,6 +10525,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["Database"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -11606,6 +11669,8 @@ public:
 class DescribeDBInstanceIndexUsageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> database{};
+  shared_ptr<string> orderBy{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
 
@@ -11622,6 +11687,12 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (database) {
+      res["Database"] = boost::any(*database);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -11634,6 +11705,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["Database"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -17543,12 +17620,14 @@ public:
   shared_ptr<string> dataSourceStatus{};
   shared_ptr<string> dataSourceType{};
   shared_ptr<string> emrInstanceId{};
+  shared_ptr<string> externalDataServiceId{};
   shared_ptr<string> HDFSConf{};
   shared_ptr<string> hadoopCoreConf{};
   shared_ptr<string> hadoopCreateType{};
   shared_ptr<string> hadoopHostsAddress{};
   shared_ptr<string> hiveConf{};
   shared_ptr<string> mapReduceConf{};
+  shared_ptr<string> modifyTime{};
   shared_ptr<string> requestId{};
   shared_ptr<string> statusMessage{};
   shared_ptr<string> yarnConf{};
@@ -17587,6 +17666,9 @@ public:
     if (emrInstanceId) {
       res["EmrInstanceId"] = boost::any(*emrInstanceId);
     }
+    if (externalDataServiceId) {
+      res["ExternalDataServiceId"] = boost::any(*externalDataServiceId);
+    }
     if (HDFSConf) {
       res["HDFSConf"] = boost::any(*HDFSConf);
     }
@@ -17604,6 +17686,9 @@ public:
     }
     if (mapReduceConf) {
       res["MapReduceConf"] = boost::any(*mapReduceConf);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -17642,6 +17727,9 @@ public:
     if (m.find("EmrInstanceId") != m.end() && !m["EmrInstanceId"].empty()) {
       emrInstanceId = make_shared<string>(boost::any_cast<string>(m["EmrInstanceId"]));
     }
+    if (m.find("ExternalDataServiceId") != m.end() && !m["ExternalDataServiceId"].empty()) {
+      externalDataServiceId = make_shared<string>(boost::any_cast<string>(m["ExternalDataServiceId"]));
+    }
     if (m.find("HDFSConf") != m.end() && !m["HDFSConf"].empty()) {
       HDFSConf = make_shared<string>(boost::any_cast<string>(m["HDFSConf"]));
     }
@@ -17659,6 +17747,9 @@ public:
     }
     if (m.find("MapReduceConf") != m.end() && !m["MapReduceConf"].empty()) {
       mapReduceConf = make_shared<string>(boost::any_cast<string>(m["MapReduceConf"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -18806,9 +18897,11 @@ public:
   shared_ptr<string> dataSourceName{};
   shared_ptr<string> dataSourceStatus{};
   shared_ptr<string> dataSourceType{};
+  shared_ptr<string> externalDataServiceId{};
   shared_ptr<string> JDBCConnectionString{};
   shared_ptr<string> JDBCPassword{};
   shared_ptr<string> JDBCUserName{};
+  shared_ptr<string> modifyTime{};
   shared_ptr<string> requestId{};
   shared_ptr<string> statusMessage{};
 
@@ -18840,6 +18933,9 @@ public:
     if (dataSourceType) {
       res["DataSourceType"] = boost::any(*dataSourceType);
     }
+    if (externalDataServiceId) {
+      res["ExternalDataServiceId"] = boost::any(*externalDataServiceId);
+    }
     if (JDBCConnectionString) {
       res["JDBCConnectionString"] = boost::any(*JDBCConnectionString);
     }
@@ -18848,6 +18944,9 @@ public:
     }
     if (JDBCUserName) {
       res["JDBCUserName"] = boost::any(*JDBCUserName);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -18877,6 +18976,9 @@ public:
     if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
       dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
     }
+    if (m.find("ExternalDataServiceId") != m.end() && !m["ExternalDataServiceId"].empty()) {
+      externalDataServiceId = make_shared<string>(boost::any_cast<string>(m["ExternalDataServiceId"]));
+    }
     if (m.find("JDBCConnectionString") != m.end() && !m["JDBCConnectionString"].empty()) {
       JDBCConnectionString = make_shared<string>(boost::any_cast<string>(m["JDBCConnectionString"]));
     }
@@ -18885,6 +18987,9 @@ public:
     }
     if (m.find("JDBCUserName") != m.end() && !m["JDBCUserName"].empty()) {
       JDBCUserName = make_shared<string>(boost::any_cast<string>(m["JDBCUserName"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
