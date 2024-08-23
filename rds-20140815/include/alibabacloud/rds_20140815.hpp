@@ -79629,6 +79629,7 @@ public:
   shared_ptr<string> switchTime{};
   shared_ptr<string> switchTimeMode{};
   shared_ptr<string> targetMajorVersion{};
+  shared_ptr<string> upgradeMode{};
   shared_ptr<string> usedTime{};
   shared_ptr<string> VPCId{};
   shared_ptr<string> vSwitchId{};
@@ -79687,6 +79688,9 @@ public:
     }
     if (targetMajorVersion) {
       res["TargetMajorVersion"] = boost::any(*targetMajorVersion);
+    }
+    if (upgradeMode) {
+      res["UpgradeMode"] = boost::any(*upgradeMode);
     }
     if (usedTime) {
       res["UsedTime"] = boost::any(*usedTime);
@@ -79751,6 +79755,9 @@ public:
     }
     if (m.find("TargetMajorVersion") != m.end() && !m["TargetMajorVersion"].empty()) {
       targetMajorVersion = make_shared<string>(boost::any_cast<string>(m["TargetMajorVersion"]));
+    }
+    if (m.find("UpgradeMode") != m.end() && !m["UpgradeMode"].empty()) {
+      upgradeMode = make_shared<string>(boost::any_cast<string>(m["UpgradeMode"]));
     }
     if (m.find("UsedTime") != m.end() && !m["UsedTime"].empty()) {
       usedTime = make_shared<string>(boost::any_cast<string>(m["UsedTime"]));

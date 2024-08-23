@@ -15740,6 +15740,9 @@ UpgradeDBInstanceMajorVersionResponse Alibabacloud_Rds20140815::Client::upgradeD
   if (!Darabonba_Util::Client::isUnset<string>(request->targetMajorVersion)) {
     query->insert(pair<string, string>("TargetMajorVersion", *request->targetMajorVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->upgradeMode)) {
+    query->insert(pair<string, string>("UpgradeMode", *request->upgradeMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->usedTime)) {
     query->insert(pair<string, string>("UsedTime", *request->usedTime));
   }
