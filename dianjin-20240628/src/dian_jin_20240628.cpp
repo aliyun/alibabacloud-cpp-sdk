@@ -395,6 +395,48 @@ GetFilterDocumentListResponse Alibabacloud_DianJin20240628::Client::getFilterDoc
   return getFilterDocumentListWithOptions(workspaceId, request, headers, runtime);
 }
 
+GetHistoryListByBizTypeResponse Alibabacloud_DianJin20240628::Client::getHistoryListByBizTypeWithOptions(shared_ptr<string> workspaceId,
+                                                                                                         shared_ptr<GetHistoryListByBizTypeRequest> request,
+                                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizId)) {
+    query->insert(pair<string, string>("bizId", *request->bizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
+    query->insert(pair<string, string>("bizType", *request->bizType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->page)) {
+    query->insert(pair<string, long>("page", *request->page));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetHistoryListByBizType"))},
+    {"version", boost::any(string("2024-06-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/api/history/list"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetHistoryListByBizTypeResponse(callApi(params, req, runtime));
+}
+
+GetHistoryListByBizTypeResponse Alibabacloud_DianJin20240628::Client::getHistoryListByBizType(shared_ptr<string> workspaceId, shared_ptr<GetHistoryListByBizTypeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getHistoryListByBizTypeWithOptions(workspaceId, request, headers, runtime);
+}
+
 GetLibraryResponse Alibabacloud_DianJin20240628::Client::getLibraryWithOptions(shared_ptr<string> workspaceId,
                                                                                shared_ptr<GetLibraryRequest> request,
                                                                                shared_ptr<map<string, string>> headers,
@@ -693,6 +735,90 @@ RunChatResultGenerationResponse Alibabacloud_DianJin20240628::Client::runChatRes
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return runChatResultGenerationWithOptions(workspaceId, request, headers, runtime);
+}
+
+RunLibraryChatGenerationResponse Alibabacloud_DianJin20240628::Client::runLibraryChatGenerationWithOptions(shared_ptr<string> workspaceId,
+                                                                                                           shared_ptr<RunLibraryChatGenerationRequest> request,
+                                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->docIdList)) {
+    body->insert(pair<string, vector<string>>("docIdList", *request->docIdList));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableFollowUp)) {
+    body->insert(pair<string, bool>("enableFollowUp", *request->enableFollowUp));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableMultiQuery)) {
+    body->insert(pair<string, bool>("enableMultiQuery", *request->enableMultiQuery));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableOpenQa)) {
+    body->insert(pair<string, bool>("enableOpenQa", *request->enableOpenQa));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->followUpLlm)) {
+    body->insert(pair<string, string>("followUpLlm", *request->followUpLlm));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->libraryId)) {
+    body->insert(pair<string, string>("libraryId", *request->libraryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->llmType)) {
+    body->insert(pair<string, string>("llmType", *request->llmType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->multiQueryLlm)) {
+    body->insert(pair<string, string>("multiQueryLlm", *request->multiQueryLlm));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
+    body->insert(pair<string, string>("query", *request->query));
+  }
+  if (!Darabonba_Util::Client::isUnset<RunLibraryChatGenerationRequestQueryCriteria>(request->queryCriteria)) {
+    body->insert(pair<string, RunLibraryChatGenerationRequestQueryCriteria>("queryCriteria", *request->queryCriteria));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rerankType)) {
+    body->insert(pair<string, string>("rerankType", *request->rerankType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("sessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
+    body->insert(pair<string, bool>("stream", *request->stream));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->subQueryList)) {
+    body->insert(pair<string, vector<string>>("subQueryList", *request->subQueryList));
+  }
+  if (!Darabonba_Util::Client::isUnset<RunLibraryChatGenerationRequestTextSearchParameter>(request->textSearchParameter)) {
+    body->insert(pair<string, RunLibraryChatGenerationRequestTextSearchParameter>("textSearchParameter", *request->textSearchParameter));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->topK)) {
+    body->insert(pair<string, long>("topK", *request->topK));
+  }
+  if (!Darabonba_Util::Client::isUnset<RunLibraryChatGenerationRequestVectorSearchParameter>(request->vectorSearchParameter)) {
+    body->insert(pair<string, RunLibraryChatGenerationRequestVectorSearchParameter>("vectorSearchParameter", *request->vectorSearchParameter));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->withDocumentReference)) {
+    body->insert(pair<string, bool>("withDocumentReference", *request->withDocumentReference));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunLibraryChatGeneration"))},
+    {"version", boost::any(string("2024-06-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/api/run/library/chat/generation"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunLibraryChatGenerationResponse(callApi(params, req, runtime));
+}
+
+RunLibraryChatGenerationResponse Alibabacloud_DianJin20240628::Client::runLibraryChatGeneration(shared_ptr<string> workspaceId, shared_ptr<RunLibraryChatGenerationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runLibraryChatGenerationWithOptions(workspaceId, request, headers, runtime);
 }
 
 UpdateDocumentResponse Alibabacloud_DianJin20240628::Client::updateDocumentWithOptions(shared_ptr<string> workspaceId,
