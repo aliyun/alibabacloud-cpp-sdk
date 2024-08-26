@@ -1029,6 +1029,1664 @@ public:
 
   virtual ~DeleteNetworkReachableAnalysisResponse() = default;
 };
+class DeleteNisInspectionReportRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> inspectionReportId{};
+
+  DeleteNisInspectionReportRequest() {}
+
+  explicit DeleteNisInspectionReportRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionReportId) {
+      res["InspectionReportId"] = boost::any(*inspectionReportId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionReportId") != m.end() && !m["InspectionReportId"].empty()) {
+      inspectionReportId = make_shared<string>(boost::any_cast<string>(m["InspectionReportId"]));
+    }
+  }
+
+
+  virtual ~DeleteNisInspectionReportRequest() = default;
+};
+class DeleteNisInspectionReportResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  DeleteNisInspectionReportResponseBody() {}
+
+  explicit DeleteNisInspectionReportResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteNisInspectionReportResponseBody() = default;
+};
+class DeleteNisInspectionReportResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteNisInspectionReportResponseBody> body{};
+
+  DeleteNisInspectionReportResponse() {}
+
+  explicit DeleteNisInspectionReportResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteNisInspectionReportResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteNisInspectionReportResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteNisInspectionReportResponse() = default;
+};
+class DeleteNisInspectionTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> inspectionTaskId{};
+
+  DeleteNisInspectionTaskRequest() {}
+
+  explicit DeleteNisInspectionTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionTaskId) {
+      res["InspectionTaskId"] = boost::any(*inspectionTaskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionTaskId") != m.end() && !m["InspectionTaskId"].empty()) {
+      inspectionTaskId = make_shared<string>(boost::any_cast<string>(m["InspectionTaskId"]));
+    }
+  }
+
+
+  virtual ~DeleteNisInspectionTaskRequest() = default;
+};
+class DeleteNisInspectionTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  DeleteNisInspectionTaskResponseBody() {}
+
+  explicit DeleteNisInspectionTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteNisInspectionTaskResponseBody() = default;
+};
+class DeleteNisInspectionTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteNisInspectionTaskResponseBody> body{};
+
+  DeleteNisInspectionTaskResponse() {}
+
+  explicit DeleteNisInspectionTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteNisInspectionTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteNisInspectionTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteNisInspectionTaskResponse() = default;
+};
+class DescribeNisInspectionRecommendationResourcesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> inspectionReportId{};
+  shared_ptr<string> language{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> recommendationCode{};
+
+  DescribeNisInspectionRecommendationResourcesRequest() {}
+
+  explicit DescribeNisInspectionRecommendationResourcesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionReportId) {
+      res["InspectionReportId"] = boost::any(*inspectionReportId);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (recommendationCode) {
+      res["RecommendationCode"] = boost::any(*recommendationCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionReportId") != m.end() && !m["InspectionReportId"].empty()) {
+      inspectionReportId = make_shared<string>(boost::any_cast<string>(m["InspectionReportId"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RecommendationCode") != m.end() && !m["RecommendationCode"].empty()) {
+      recommendationCode = make_shared<string>(boost::any_cast<string>(m["RecommendationCode"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionRecommendationResourcesRequest() = default;
+};
+class DescribeNisInspectionRecommendationResourcesResponseBodyResourceList : public Darabonba::Model {
+public:
+  shared_ptr<string> analysisData{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceName{};
+
+  DescribeNisInspectionRecommendationResourcesResponseBodyResourceList() {}
+
+  explicit DescribeNisInspectionRecommendationResourcesResponseBodyResourceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (analysisData) {
+      res["AnalysisData"] = boost::any(*analysisData);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceName) {
+      res["ResourceName"] = boost::any(*resourceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnalysisData") != m.end() && !m["AnalysisData"].empty()) {
+      analysisData = make_shared<string>(boost::any_cast<string>(m["AnalysisData"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionRecommendationResourcesResponseBodyResourceList() = default;
+};
+class DescribeNisInspectionRecommendationResourcesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> inspectionReportId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeNisInspectionRecommendationResourcesResponseBodyResourceList>> resourceList{};
+  shared_ptr<long> totalCount{};
+
+  DescribeNisInspectionRecommendationResourcesResponseBody() {}
+
+  explicit DescribeNisInspectionRecommendationResourcesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionReportId) {
+      res["InspectionReportId"] = boost::any(*inspectionReportId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceList"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionReportId") != m.end() && !m["InspectionReportId"].empty()) {
+      inspectionReportId = make_shared<string>(boost::any_cast<string>(m["InspectionReportId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceList") != m.end() && !m["ResourceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceList"].type()) {
+        vector<DescribeNisInspectionRecommendationResourcesResponseBodyResourceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNisInspectionRecommendationResourcesResponseBodyResourceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceList = make_shared<vector<DescribeNisInspectionRecommendationResourcesResponseBodyResourceList>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionRecommendationResourcesResponseBody() = default;
+};
+class DescribeNisInspectionRecommendationResourcesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeNisInspectionRecommendationResourcesResponseBody> body{};
+
+  DescribeNisInspectionRecommendationResourcesResponse() {}
+
+  explicit DescribeNisInspectionRecommendationResourcesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeNisInspectionRecommendationResourcesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeNisInspectionRecommendationResourcesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionRecommendationResourcesResponse() = default;
+};
+class DescribeNisInspectionReportCheckItemsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryCode{};
+  shared_ptr<string> inspectionReportId{};
+  shared_ptr<string> language{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<string>> resourceType{};
+  shared_ptr<vector<string>> riskLevel{};
+
+  DescribeNisInspectionReportCheckItemsRequest() {}
+
+  explicit DescribeNisInspectionReportCheckItemsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryCode) {
+      res["CategoryCode"] = boost::any(*categoryCode);
+    }
+    if (inspectionReportId) {
+      res["InspectionReportId"] = boost::any(*inspectionReportId);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryCode") != m.end() && !m["CategoryCode"].empty()) {
+      categoryCode = make_shared<string>(boost::any_cast<string>(m["CategoryCode"]));
+    }
+    if (m.find("InspectionReportId") != m.end() && !m["InspectionReportId"].empty()) {
+      inspectionReportId = make_shared<string>(boost::any_cast<string>(m["InspectionReportId"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceType"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceType"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceType = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RiskLevel"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RiskLevel"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      riskLevel = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportCheckItemsRequest() = default;
+};
+class DescribeNisInspectionReportCheckItemsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryCode{};
+  shared_ptr<string> inspectionReportId{};
+  shared_ptr<string> language{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> resourceTypeShrink{};
+  shared_ptr<string> riskLevelShrink{};
+
+  DescribeNisInspectionReportCheckItemsShrinkRequest() {}
+
+  explicit DescribeNisInspectionReportCheckItemsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryCode) {
+      res["CategoryCode"] = boost::any(*categoryCode);
+    }
+    if (inspectionReportId) {
+      res["InspectionReportId"] = boost::any(*inspectionReportId);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (resourceTypeShrink) {
+      res["ResourceType"] = boost::any(*resourceTypeShrink);
+    }
+    if (riskLevelShrink) {
+      res["RiskLevel"] = boost::any(*riskLevelShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryCode") != m.end() && !m["CategoryCode"].empty()) {
+      categoryCode = make_shared<string>(boost::any_cast<string>(m["CategoryCode"]));
+    }
+    if (m.find("InspectionReportId") != m.end() && !m["InspectionReportId"].empty()) {
+      inspectionReportId = make_shared<string>(boost::any_cast<string>(m["InspectionReportId"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceTypeShrink = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevelShrink = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportCheckItemsShrinkRequest() = default;
+};
+class DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<string> riskLevel{};
+
+  DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList() {}
+
+  explicit DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList() = default;
+};
+class DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList : public Darabonba::Model {
+public:
+  shared_ptr<string> abnormality{};
+  shared_ptr<string> metadata{};
+  shared_ptr<string> reason{};
+  shared_ptr<string> recommendationCode{};
+  shared_ptr<string> riskLevel{};
+  shared_ptr<string> suggestion{};
+
+  DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList() {}
+
+  explicit DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abnormality) {
+      res["Abnormality"] = boost::any(*abnormality);
+    }
+    if (metadata) {
+      res["Metadata"] = boost::any(*metadata);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    if (recommendationCode) {
+      res["RecommendationCode"] = boost::any(*recommendationCode);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (suggestion) {
+      res["Suggestion"] = boost::any(*suggestion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Abnormality") != m.end() && !m["Abnormality"].empty()) {
+      abnormality = make_shared<string>(boost::any_cast<string>(m["Abnormality"]));
+    }
+    if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
+      metadata = make_shared<string>(boost::any_cast<string>(m["Metadata"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+    if (m.find("RecommendationCode") != m.end() && !m["RecommendationCode"].empty()) {
+      recommendationCode = make_shared<string>(boost::any_cast<string>(m["RecommendationCode"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
+    if (m.find("Suggestion") != m.end() && !m["Suggestion"].empty()) {
+      suggestion = make_shared<string>(boost::any_cast<string>(m["Suggestion"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList() = default;
+};
+class DescribeNisInspectionReportCheckItemsResponseBodyCheckItemList : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryCode{};
+  shared_ptr<string> checkItemCode{};
+  shared_ptr<string> checkItemName{};
+  shared_ptr<vector<DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList>> checkResultList{};
+  shared_ptr<string> description{};
+  shared_ptr<vector<DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList>> recommendationList{};
+  shared_ptr<string> resourceType{};
+
+  DescribeNisInspectionReportCheckItemsResponseBodyCheckItemList() {}
+
+  explicit DescribeNisInspectionReportCheckItemsResponseBodyCheckItemList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryCode) {
+      res["CategoryCode"] = boost::any(*categoryCode);
+    }
+    if (checkItemCode) {
+      res["CheckItemCode"] = boost::any(*checkItemCode);
+    }
+    if (checkItemName) {
+      res["CheckItemName"] = boost::any(*checkItemName);
+    }
+    if (checkResultList) {
+      vector<boost::any> temp1;
+      for(auto item1:*checkResultList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CheckResultList"] = boost::any(temp1);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (recommendationList) {
+      vector<boost::any> temp1;
+      for(auto item1:*recommendationList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RecommendationList"] = boost::any(temp1);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryCode") != m.end() && !m["CategoryCode"].empty()) {
+      categoryCode = make_shared<string>(boost::any_cast<string>(m["CategoryCode"]));
+    }
+    if (m.find("CheckItemCode") != m.end() && !m["CheckItemCode"].empty()) {
+      checkItemCode = make_shared<string>(boost::any_cast<string>(m["CheckItemCode"]));
+    }
+    if (m.find("CheckItemName") != m.end() && !m["CheckItemName"].empty()) {
+      checkItemName = make_shared<string>(boost::any_cast<string>(m["CheckItemName"]));
+    }
+    if (m.find("CheckResultList") != m.end() && !m["CheckResultList"].empty()) {
+      if (typeid(vector<boost::any>) == m["CheckResultList"].type()) {
+        vector<DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CheckResultList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        checkResultList = make_shared<vector<DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList>>(expect1);
+      }
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("RecommendationList") != m.end() && !m["RecommendationList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RecommendationList"].type()) {
+        vector<DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RecommendationList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        recommendationList = make_shared<vector<DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList>>(expect1);
+      }
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportCheckItemsResponseBodyCheckItemList() = default;
+};
+class DescribeNisInspectionReportCheckItemsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeNisInspectionReportCheckItemsResponseBodyCheckItemList>> checkItemList{};
+  shared_ptr<string> inspectionReportId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeNisInspectionReportCheckItemsResponseBody() {}
+
+  explicit DescribeNisInspectionReportCheckItemsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkItemList) {
+      vector<boost::any> temp1;
+      for(auto item1:*checkItemList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CheckItemList"] = boost::any(temp1);
+    }
+    if (inspectionReportId) {
+      res["InspectionReportId"] = boost::any(*inspectionReportId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckItemList") != m.end() && !m["CheckItemList"].empty()) {
+      if (typeid(vector<boost::any>) == m["CheckItemList"].type()) {
+        vector<DescribeNisInspectionReportCheckItemsResponseBodyCheckItemList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CheckItemList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNisInspectionReportCheckItemsResponseBodyCheckItemList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        checkItemList = make_shared<vector<DescribeNisInspectionReportCheckItemsResponseBodyCheckItemList>>(expect1);
+      }
+    }
+    if (m.find("InspectionReportId") != m.end() && !m["InspectionReportId"].empty()) {
+      inspectionReportId = make_shared<string>(boost::any_cast<string>(m["InspectionReportId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportCheckItemsResponseBody() = default;
+};
+class DescribeNisInspectionReportCheckItemsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeNisInspectionReportCheckItemsResponseBody> body{};
+
+  DescribeNisInspectionReportCheckItemsResponse() {}
+
+  explicit DescribeNisInspectionReportCheckItemsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeNisInspectionReportCheckItemsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeNisInspectionReportCheckItemsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportCheckItemsResponse() = default;
+};
+class DescribeNisInspectionReportStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> inspectionReportId{};
+
+  DescribeNisInspectionReportStatusRequest() {}
+
+  explicit DescribeNisInspectionReportStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionReportId) {
+      res["InspectionReportId"] = boost::any(*inspectionReportId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionReportId") != m.end() && !m["InspectionReportId"].empty()) {
+      inspectionReportId = make_shared<string>(boost::any_cast<string>(m["InspectionReportId"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportStatusRequest() = default;
+};
+class DescribeNisInspectionReportStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> inspectionProject{};
+  shared_ptr<string> inspectionReportId{};
+  shared_ptr<string> inspectionTaskId{};
+  shared_ptr<string> inspectionTaskName{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
+
+  DescribeNisInspectionReportStatusResponseBody() {}
+
+  explicit DescribeNisInspectionReportStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (inspectionProject) {
+      res["InspectionProject"] = boost::any(*inspectionProject);
+    }
+    if (inspectionReportId) {
+      res["InspectionReportId"] = boost::any(*inspectionReportId);
+    }
+    if (inspectionTaskId) {
+      res["InspectionTaskId"] = boost::any(*inspectionTaskId);
+    }
+    if (inspectionTaskName) {
+      res["InspectionTaskName"] = boost::any(*inspectionTaskName);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("InspectionProject") != m.end() && !m["InspectionProject"].empty()) {
+      inspectionProject = make_shared<string>(boost::any_cast<string>(m["InspectionProject"]));
+    }
+    if (m.find("InspectionReportId") != m.end() && !m["InspectionReportId"].empty()) {
+      inspectionReportId = make_shared<string>(boost::any_cast<string>(m["InspectionReportId"]));
+    }
+    if (m.find("InspectionTaskId") != m.end() && !m["InspectionTaskId"].empty()) {
+      inspectionTaskId = make_shared<string>(boost::any_cast<string>(m["InspectionTaskId"]));
+    }
+    if (m.find("InspectionTaskName") != m.end() && !m["InspectionTaskName"].empty()) {
+      inspectionTaskName = make_shared<string>(boost::any_cast<string>(m["InspectionTaskName"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportStatusResponseBody() = default;
+};
+class DescribeNisInspectionReportStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeNisInspectionReportStatusResponseBody> body{};
+
+  DescribeNisInspectionReportStatusResponse() {}
+
+  explicit DescribeNisInspectionReportStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeNisInspectionReportStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeNisInspectionReportStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportStatusResponse() = default;
+};
+class DescribeNisInspectionReportSummaryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> inspectionReportId{};
+
+  DescribeNisInspectionReportSummaryRequest() {}
+
+  explicit DescribeNisInspectionReportSummaryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionReportId) {
+      res["InspectionReportId"] = boost::any(*inspectionReportId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionReportId") != m.end() && !m["InspectionReportId"].empty()) {
+      inspectionReportId = make_shared<string>(boost::any_cast<string>(m["InspectionReportId"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportSummaryRequest() = default;
+};
+class DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary : public Darabonba::Model {
+public:
+  shared_ptr<double> passRate{};
+  shared_ptr<string> passRateScope{};
+
+  DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary() {}
+
+  explicit DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (passRate) {
+      res["PassRate"] = boost::any(*passRate);
+    }
+    if (passRateScope) {
+      res["PassRateScope"] = boost::any(*passRateScope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PassRate") != m.end() && !m["PassRate"].empty()) {
+      passRate = make_shared<double>(boost::any_cast<double>(m["PassRate"]));
+    }
+    if (m.find("PassRateScope") != m.end() && !m["PassRateScope"].empty()) {
+      passRateScope = make_shared<string>(boost::any_cast<string>(m["PassRateScope"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary() = default;
+};
+class DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary : public Darabonba::Model {
+public:
+  shared_ptr<long> resourceCount{};
+  shared_ptr<long> riskCount{};
+  shared_ptr<string> riskLevel{};
+  shared_ptr<string> riskType{};
+
+  DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary() {}
+
+  explicit DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceCount) {
+      res["ResourceCount"] = boost::any(*resourceCount);
+    }
+    if (riskCount) {
+      res["RiskCount"] = boost::any(*riskCount);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (riskType) {
+      res["RiskType"] = boost::any(*riskType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceCount") != m.end() && !m["ResourceCount"].empty()) {
+      resourceCount = make_shared<long>(boost::any_cast<long>(m["ResourceCount"]));
+    }
+    if (m.find("RiskCount") != m.end() && !m["RiskCount"].empty()) {
+      riskCount = make_shared<long>(boost::any_cast<long>(m["RiskCount"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
+    if (m.find("RiskType") != m.end() && !m["RiskType"].empty()) {
+      riskType = make_shared<string>(boost::any_cast<string>(m["RiskType"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary() = default;
+};
+class DescribeNisInspectionReportSummaryResponseBodySummary : public Darabonba::Model {
+public:
+  shared_ptr<long> checkItemCount{};
+  shared_ptr<long> checkResourceCount{};
+  shared_ptr<vector<DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary>> passRateSummary{};
+  shared_ptr<vector<DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary>> riskSummary{};
+
+  DescribeNisInspectionReportSummaryResponseBodySummary() {}
+
+  explicit DescribeNisInspectionReportSummaryResponseBodySummary(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkItemCount) {
+      res["CheckItemCount"] = boost::any(*checkItemCount);
+    }
+    if (checkResourceCount) {
+      res["CheckResourceCount"] = boost::any(*checkResourceCount);
+    }
+    if (passRateSummary) {
+      vector<boost::any> temp1;
+      for(auto item1:*passRateSummary){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PassRateSummary"] = boost::any(temp1);
+    }
+    if (riskSummary) {
+      vector<boost::any> temp1;
+      for(auto item1:*riskSummary){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RiskSummary"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckItemCount") != m.end() && !m["CheckItemCount"].empty()) {
+      checkItemCount = make_shared<long>(boost::any_cast<long>(m["CheckItemCount"]));
+    }
+    if (m.find("CheckResourceCount") != m.end() && !m["CheckResourceCount"].empty()) {
+      checkResourceCount = make_shared<long>(boost::any_cast<long>(m["CheckResourceCount"]));
+    }
+    if (m.find("PassRateSummary") != m.end() && !m["PassRateSummary"].empty()) {
+      if (typeid(vector<boost::any>) == m["PassRateSummary"].type()) {
+        vector<DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PassRateSummary"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        passRateSummary = make_shared<vector<DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary>>(expect1);
+      }
+    }
+    if (m.find("RiskSummary") != m.end() && !m["RiskSummary"].empty()) {
+      if (typeid(vector<boost::any>) == m["RiskSummary"].type()) {
+        vector<DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RiskSummary"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        riskSummary = make_shared<vector<DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportSummaryResponseBodySummary() = default;
+};
+class DescribeNisInspectionReportSummaryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> inspectionReportId{};
+  shared_ptr<string> inspectionTaskId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
+  shared_ptr<DescribeNisInspectionReportSummaryResponseBodySummary> summary{};
+
+  DescribeNisInspectionReportSummaryResponseBody() {}
+
+  explicit DescribeNisInspectionReportSummaryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (inspectionReportId) {
+      res["InspectionReportId"] = boost::any(*inspectionReportId);
+    }
+    if (inspectionTaskId) {
+      res["InspectionTaskId"] = boost::any(*inspectionTaskId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (summary) {
+      res["Summary"] = summary ? boost::any(summary->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("InspectionReportId") != m.end() && !m["InspectionReportId"].empty()) {
+      inspectionReportId = make_shared<string>(boost::any_cast<string>(m["InspectionReportId"]));
+    }
+    if (m.find("InspectionTaskId") != m.end() && !m["InspectionTaskId"].empty()) {
+      inspectionTaskId = make_shared<string>(boost::any_cast<string>(m["InspectionTaskId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Summary") != m.end() && !m["Summary"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Summary"].type()) {
+        DescribeNisInspectionReportSummaryResponseBodySummary model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Summary"]));
+        summary = make_shared<DescribeNisInspectionReportSummaryResponseBodySummary>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportSummaryResponseBody() = default;
+};
+class DescribeNisInspectionReportSummaryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeNisInspectionReportSummaryResponseBody> body{};
+
+  DescribeNisInspectionReportSummaryResponse() {}
+
+  explicit DescribeNisInspectionReportSummaryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeNisInspectionReportSummaryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeNisInspectionReportSummaryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionReportSummaryResponse() = default;
+};
+class DescribeNisInspectionTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> inspectionTaskId{};
+
+  DescribeNisInspectionTaskRequest() {}
+
+  explicit DescribeNisInspectionTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionTaskId) {
+      res["InspectionTaskId"] = boost::any(*inspectionTaskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionTaskId") != m.end() && !m["InspectionTaskId"].empty()) {
+      inspectionTaskId = make_shared<string>(boost::any_cast<string>(m["InspectionTaskId"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionTaskRequest() = default;
+};
+class DescribeNisInspectionTaskResponseBodyCheckResourceList : public Darabonba::Model {
+public:
+  shared_ptr<string> checkScope{};
+  shared_ptr<string> resourceType{};
+
+  DescribeNisInspectionTaskResponseBodyCheckResourceList() {}
+
+  explicit DescribeNisInspectionTaskResponseBodyCheckResourceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkScope) {
+      res["CheckScope"] = boost::any(*checkScope);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckScope") != m.end() && !m["CheckScope"].empty()) {
+      checkScope = make_shared<string>(boost::any_cast<string>(m["CheckScope"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionTaskResponseBodyCheckResourceList() = default;
+};
+class DescribeNisInspectionTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeNisInspectionTaskResponseBodyCheckResourceList>> checkResourceList{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> inspectionInterval{};
+  shared_ptr<string> inspectionName{};
+  shared_ptr<string> inspectionProject{};
+  shared_ptr<string> inspectionTaskId{};
+  shared_ptr<string> inspectionTriggerTime{};
+  shared_ptr<string> lastUpdateReportId{};
+  shared_ptr<string> lastUpdateTime{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  DescribeNisInspectionTaskResponseBody() {}
+
+  explicit DescribeNisInspectionTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkResourceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*checkResourceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CheckResourceList"] = boost::any(temp1);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (inspectionInterval) {
+      res["InspectionInterval"] = boost::any(*inspectionInterval);
+    }
+    if (inspectionName) {
+      res["InspectionName"] = boost::any(*inspectionName);
+    }
+    if (inspectionProject) {
+      res["InspectionProject"] = boost::any(*inspectionProject);
+    }
+    if (inspectionTaskId) {
+      res["InspectionTaskId"] = boost::any(*inspectionTaskId);
+    }
+    if (inspectionTriggerTime) {
+      res["InspectionTriggerTime"] = boost::any(*inspectionTriggerTime);
+    }
+    if (lastUpdateReportId) {
+      res["LastUpdateReportId"] = boost::any(*lastUpdateReportId);
+    }
+    if (lastUpdateTime) {
+      res["LastUpdateTime"] = boost::any(*lastUpdateTime);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckResourceList") != m.end() && !m["CheckResourceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["CheckResourceList"].type()) {
+        vector<DescribeNisInspectionTaskResponseBodyCheckResourceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CheckResourceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNisInspectionTaskResponseBodyCheckResourceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        checkResourceList = make_shared<vector<DescribeNisInspectionTaskResponseBodyCheckResourceList>>(expect1);
+      }
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("InspectionInterval") != m.end() && !m["InspectionInterval"].empty()) {
+      inspectionInterval = make_shared<string>(boost::any_cast<string>(m["InspectionInterval"]));
+    }
+    if (m.find("InspectionName") != m.end() && !m["InspectionName"].empty()) {
+      inspectionName = make_shared<string>(boost::any_cast<string>(m["InspectionName"]));
+    }
+    if (m.find("InspectionProject") != m.end() && !m["InspectionProject"].empty()) {
+      inspectionProject = make_shared<string>(boost::any_cast<string>(m["InspectionProject"]));
+    }
+    if (m.find("InspectionTaskId") != m.end() && !m["InspectionTaskId"].empty()) {
+      inspectionTaskId = make_shared<string>(boost::any_cast<string>(m["InspectionTaskId"]));
+    }
+    if (m.find("InspectionTriggerTime") != m.end() && !m["InspectionTriggerTime"].empty()) {
+      inspectionTriggerTime = make_shared<string>(boost::any_cast<string>(m["InspectionTriggerTime"]));
+    }
+    if (m.find("LastUpdateReportId") != m.end() && !m["LastUpdateReportId"].empty()) {
+      lastUpdateReportId = make_shared<string>(boost::any_cast<string>(m["LastUpdateReportId"]));
+    }
+    if (m.find("LastUpdateTime") != m.end() && !m["LastUpdateTime"].empty()) {
+      lastUpdateTime = make_shared<string>(boost::any_cast<string>(m["LastUpdateTime"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionTaskResponseBody() = default;
+};
+class DescribeNisInspectionTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeNisInspectionTaskResponseBody> body{};
+
+  DescribeNisInspectionTaskResponse() {}
+
+  explicit DescribeNisInspectionTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeNisInspectionTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeNisInspectionTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNisInspectionTaskResponse() = default;
+};
 class GetInternetTupleRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<long>> accountIds{};
@@ -4253,6 +5911,824 @@ public:
 
   virtual ~GetVbrFlowTopNResponse() = default;
 };
+class ListNisInspectionResourceTypeResponseBodyResourceTypeList : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceType{};
+
+  ListNisInspectionResourceTypeResponseBodyResourceTypeList() {}
+
+  explicit ListNisInspectionResourceTypeResponseBodyResourceTypeList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~ListNisInspectionResourceTypeResponseBodyResourceTypeList() = default;
+};
+class ListNisInspectionResourceTypeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListNisInspectionResourceTypeResponseBodyResourceTypeList>> resourceTypeList{};
+
+  ListNisInspectionResourceTypeResponseBody() {}
+
+  explicit ListNisInspectionResourceTypeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceTypeList) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceTypeList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceTypeList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceTypeList") != m.end() && !m["ResourceTypeList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceTypeList"].type()) {
+        vector<ListNisInspectionResourceTypeResponseBodyResourceTypeList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceTypeList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListNisInspectionResourceTypeResponseBodyResourceTypeList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceTypeList = make_shared<vector<ListNisInspectionResourceTypeResponseBodyResourceTypeList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListNisInspectionResourceTypeResponseBody() = default;
+};
+class ListNisInspectionResourceTypeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListNisInspectionResourceTypeResponseBody> body{};
+
+  ListNisInspectionResourceTypeResponse() {}
+
+  explicit ListNisInspectionResourceTypeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListNisInspectionResourceTypeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListNisInspectionResourceTypeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListNisInspectionResourceTypeResponse() = default;
+};
+class ListNisInspectionTaskReportsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> inspectionTaskId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+
+  ListNisInspectionTaskReportsRequest() {}
+
+  explicit ListNisInspectionTaskReportsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionTaskId) {
+      res["InspectionTaskId"] = boost::any(*inspectionTaskId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionTaskId") != m.end() && !m["InspectionTaskId"].empty()) {
+      inspectionTaskId = make_shared<string>(boost::any_cast<string>(m["InspectionTaskId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+  }
+
+
+  virtual ~ListNisInspectionTaskReportsRequest() = default;
+};
+class ListNisInspectionTaskReportsResponseBodyInspectionReportList : public Darabonba::Model {
+public:
+  shared_ptr<string> inspectionReportId{};
+
+  ListNisInspectionTaskReportsResponseBodyInspectionReportList() {}
+
+  explicit ListNisInspectionTaskReportsResponseBodyInspectionReportList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionReportId) {
+      res["InspectionReportId"] = boost::any(*inspectionReportId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionReportId") != m.end() && !m["InspectionReportId"].empty()) {
+      inspectionReportId = make_shared<string>(boost::any_cast<string>(m["InspectionReportId"]));
+    }
+  }
+
+
+  virtual ~ListNisInspectionTaskReportsResponseBodyInspectionReportList() = default;
+};
+class ListNisInspectionTaskReportsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListNisInspectionTaskReportsResponseBodyInspectionReportList>> inspectionReportList{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListNisInspectionTaskReportsResponseBody() {}
+
+  explicit ListNisInspectionTaskReportsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionReportList) {
+      vector<boost::any> temp1;
+      for(auto item1:*inspectionReportList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InspectionReportList"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionReportList") != m.end() && !m["InspectionReportList"].empty()) {
+      if (typeid(vector<boost::any>) == m["InspectionReportList"].type()) {
+        vector<ListNisInspectionTaskReportsResponseBodyInspectionReportList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InspectionReportList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListNisInspectionTaskReportsResponseBodyInspectionReportList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        inspectionReportList = make_shared<vector<ListNisInspectionTaskReportsResponseBodyInspectionReportList>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListNisInspectionTaskReportsResponseBody() = default;
+};
+class ListNisInspectionTaskReportsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListNisInspectionTaskReportsResponseBody> body{};
+
+  ListNisInspectionTaskReportsResponse() {}
+
+  explicit ListNisInspectionTaskReportsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListNisInspectionTaskReportsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListNisInspectionTaskReportsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListNisInspectionTaskReportsResponse() = default;
+};
+class ListNisInspectionTasksRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> inspectionName{};
+  shared_ptr<string> inspectionProject{};
+  shared_ptr<string> inspectionTaskId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> status{};
+
+  ListNisInspectionTasksRequest() {}
+
+  explicit ListNisInspectionTasksRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionName) {
+      res["InspectionName"] = boost::any(*inspectionName);
+    }
+    if (inspectionProject) {
+      res["InspectionProject"] = boost::any(*inspectionProject);
+    }
+    if (inspectionTaskId) {
+      res["InspectionTaskId"] = boost::any(*inspectionTaskId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionName") != m.end() && !m["InspectionName"].empty()) {
+      inspectionName = make_shared<string>(boost::any_cast<string>(m["InspectionName"]));
+    }
+    if (m.find("InspectionProject") != m.end() && !m["InspectionProject"].empty()) {
+      inspectionProject = make_shared<string>(boost::any_cast<string>(m["InspectionProject"]));
+    }
+    if (m.find("InspectionTaskId") != m.end() && !m["InspectionTaskId"].empty()) {
+      inspectionTaskId = make_shared<string>(boost::any_cast<string>(m["InspectionTaskId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListNisInspectionTasksRequest() = default;
+};
+class ListNisInspectionTasksResponseBodyInspectionTaskList : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> inspectionName{};
+  shared_ptr<string> inspectionProject{};
+  shared_ptr<string> inspectionTaskId{};
+  shared_ptr<string> lastUpdateReportId{};
+  shared_ptr<string> status{};
+
+  ListNisInspectionTasksResponseBodyInspectionTaskList() {}
+
+  explicit ListNisInspectionTasksResponseBodyInspectionTaskList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (inspectionName) {
+      res["InspectionName"] = boost::any(*inspectionName);
+    }
+    if (inspectionProject) {
+      res["InspectionProject"] = boost::any(*inspectionProject);
+    }
+    if (inspectionTaskId) {
+      res["InspectionTaskId"] = boost::any(*inspectionTaskId);
+    }
+    if (lastUpdateReportId) {
+      res["LastUpdateReportId"] = boost::any(*lastUpdateReportId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("InspectionName") != m.end() && !m["InspectionName"].empty()) {
+      inspectionName = make_shared<string>(boost::any_cast<string>(m["InspectionName"]));
+    }
+    if (m.find("InspectionProject") != m.end() && !m["InspectionProject"].empty()) {
+      inspectionProject = make_shared<string>(boost::any_cast<string>(m["InspectionProject"]));
+    }
+    if (m.find("InspectionTaskId") != m.end() && !m["InspectionTaskId"].empty()) {
+      inspectionTaskId = make_shared<string>(boost::any_cast<string>(m["InspectionTaskId"]));
+    }
+    if (m.find("LastUpdateReportId") != m.end() && !m["LastUpdateReportId"].empty()) {
+      lastUpdateReportId = make_shared<string>(boost::any_cast<string>(m["LastUpdateReportId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListNisInspectionTasksResponseBodyInspectionTaskList() = default;
+};
+class ListNisInspectionTasksResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListNisInspectionTasksResponseBodyInspectionTaskList>> inspectionTaskList{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListNisInspectionTasksResponseBody() {}
+
+  explicit ListNisInspectionTasksResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionTaskList) {
+      vector<boost::any> temp1;
+      for(auto item1:*inspectionTaskList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InspectionTaskList"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionTaskList") != m.end() && !m["InspectionTaskList"].empty()) {
+      if (typeid(vector<boost::any>) == m["InspectionTaskList"].type()) {
+        vector<ListNisInspectionTasksResponseBodyInspectionTaskList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InspectionTaskList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListNisInspectionTasksResponseBodyInspectionTaskList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        inspectionTaskList = make_shared<vector<ListNisInspectionTasksResponseBodyInspectionTaskList>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListNisInspectionTasksResponseBody() = default;
+};
+class ListNisInspectionTasksResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListNisInspectionTasksResponseBody> body{};
+
+  ListNisInspectionTasksResponse() {}
+
+  explicit ListNisInspectionTasksResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListNisInspectionTasksResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListNisInspectionTasksResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListNisInspectionTasksResponse() = default;
+};
+class StartNisInspectionTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> inspectionTaskId{};
+
+  StartNisInspectionTaskRequest() {}
+
+  explicit StartNisInspectionTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionTaskId) {
+      res["InspectionTaskId"] = boost::any(*inspectionTaskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionTaskId") != m.end() && !m["InspectionTaskId"].empty()) {
+      inspectionTaskId = make_shared<string>(boost::any_cast<string>(m["InspectionTaskId"]));
+    }
+  }
+
+
+  virtual ~StartNisInspectionTaskRequest() = default;
+};
+class StartNisInspectionTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> inspectionReportId{};
+  shared_ptr<string> requestId{};
+
+  StartNisInspectionTaskResponseBody() {}
+
+  explicit StartNisInspectionTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionReportId) {
+      res["InspectionReportId"] = boost::any(*inspectionReportId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionReportId") != m.end() && !m["InspectionReportId"].empty()) {
+      inspectionReportId = make_shared<string>(boost::any_cast<string>(m["InspectionReportId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StartNisInspectionTaskResponseBody() = default;
+};
+class StartNisInspectionTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartNisInspectionTaskResponseBody> body{};
+
+  StartNisInspectionTaskResponse() {}
+
+  explicit StartNisInspectionTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartNisInspectionTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartNisInspectionTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartNisInspectionTaskResponse() = default;
+};
+class UpdateNisInspectionTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> inspectionTaskId{};
+  shared_ptr<string> status{};
+
+  UpdateNisInspectionTaskRequest() {}
+
+  explicit UpdateNisInspectionTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionTaskId) {
+      res["InspectionTaskId"] = boost::any(*inspectionTaskId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionTaskId") != m.end() && !m["InspectionTaskId"].empty()) {
+      inspectionTaskId = make_shared<string>(boost::any_cast<string>(m["InspectionTaskId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~UpdateNisInspectionTaskRequest() = default;
+};
+class UpdateNisInspectionTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  UpdateNisInspectionTaskResponseBody() {}
+
+  explicit UpdateNisInspectionTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateNisInspectionTaskResponseBody() = default;
+};
+class UpdateNisInspectionTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateNisInspectionTaskResponseBody> body{};
+
+  UpdateNisInspectionTaskResponse() {}
+
+  explicit UpdateNisInspectionTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateNisInspectionTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateNisInspectionTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateNisInspectionTaskResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -4273,6 +6749,20 @@ public:
   DeleteNetworkPathResponse deleteNetworkPath(shared_ptr<DeleteNetworkPathRequest> request);
   DeleteNetworkReachableAnalysisResponse deleteNetworkReachableAnalysisWithOptions(shared_ptr<DeleteNetworkReachableAnalysisRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteNetworkReachableAnalysisResponse deleteNetworkReachableAnalysis(shared_ptr<DeleteNetworkReachableAnalysisRequest> request);
+  DeleteNisInspectionReportResponse deleteNisInspectionReportWithOptions(shared_ptr<DeleteNisInspectionReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteNisInspectionReportResponse deleteNisInspectionReport(shared_ptr<DeleteNisInspectionReportRequest> request);
+  DeleteNisInspectionTaskResponse deleteNisInspectionTaskWithOptions(shared_ptr<DeleteNisInspectionTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteNisInspectionTaskResponse deleteNisInspectionTask(shared_ptr<DeleteNisInspectionTaskRequest> request);
+  DescribeNisInspectionRecommendationResourcesResponse describeNisInspectionRecommendationResourcesWithOptions(shared_ptr<DescribeNisInspectionRecommendationResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeNisInspectionRecommendationResourcesResponse describeNisInspectionRecommendationResources(shared_ptr<DescribeNisInspectionRecommendationResourcesRequest> request);
+  DescribeNisInspectionReportCheckItemsResponse describeNisInspectionReportCheckItemsWithOptions(shared_ptr<DescribeNisInspectionReportCheckItemsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeNisInspectionReportCheckItemsResponse describeNisInspectionReportCheckItems(shared_ptr<DescribeNisInspectionReportCheckItemsRequest> request);
+  DescribeNisInspectionReportStatusResponse describeNisInspectionReportStatusWithOptions(shared_ptr<DescribeNisInspectionReportStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeNisInspectionReportStatusResponse describeNisInspectionReportStatus(shared_ptr<DescribeNisInspectionReportStatusRequest> request);
+  DescribeNisInspectionReportSummaryResponse describeNisInspectionReportSummaryWithOptions(shared_ptr<DescribeNisInspectionReportSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeNisInspectionReportSummaryResponse describeNisInspectionReportSummary(shared_ptr<DescribeNisInspectionReportSummaryRequest> request);
+  DescribeNisInspectionTaskResponse describeNisInspectionTaskWithOptions(shared_ptr<DescribeNisInspectionTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeNisInspectionTaskResponse describeNisInspectionTask(shared_ptr<DescribeNisInspectionTaskRequest> request);
   GetInternetTupleResponse getInternetTupleWithOptions(shared_ptr<GetInternetTupleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetInternetTupleResponse getInternetTuple(shared_ptr<GetInternetTupleRequest> request);
   GetNatTopNResponse getNatTopNWithOptions(shared_ptr<GetNatTopNRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -4287,6 +6777,16 @@ public:
   GetTransitRouterFlowTopNResponse getTransitRouterFlowTopN(shared_ptr<GetTransitRouterFlowTopNRequest> request);
   GetVbrFlowTopNResponse getVbrFlowTopNWithOptions(shared_ptr<GetVbrFlowTopNRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetVbrFlowTopNResponse getVbrFlowTopN(shared_ptr<GetVbrFlowTopNRequest> request);
+  ListNisInspectionResourceTypeResponse listNisInspectionResourceTypeWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListNisInspectionResourceTypeResponse listNisInspectionResourceType();
+  ListNisInspectionTaskReportsResponse listNisInspectionTaskReportsWithOptions(shared_ptr<ListNisInspectionTaskReportsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListNisInspectionTaskReportsResponse listNisInspectionTaskReports(shared_ptr<ListNisInspectionTaskReportsRequest> request);
+  ListNisInspectionTasksResponse listNisInspectionTasksWithOptions(shared_ptr<ListNisInspectionTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListNisInspectionTasksResponse listNisInspectionTasks(shared_ptr<ListNisInspectionTasksRequest> request);
+  StartNisInspectionTaskResponse startNisInspectionTaskWithOptions(shared_ptr<StartNisInspectionTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartNisInspectionTaskResponse startNisInspectionTask(shared_ptr<StartNisInspectionTaskRequest> request);
+  UpdateNisInspectionTaskResponse updateNisInspectionTaskWithOptions(shared_ptr<UpdateNisInspectionTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateNisInspectionTaskResponse updateNisInspectionTask(shared_ptr<UpdateNisInspectionTaskRequest> request);
 
   virtual ~Client() = default;
 };

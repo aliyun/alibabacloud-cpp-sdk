@@ -235,6 +235,240 @@ DeleteNetworkReachableAnalysisResponse Alibabacloud_Nis20211216::Client::deleteN
   return deleteNetworkReachableAnalysisWithOptions(request, runtime);
 }
 
+DeleteNisInspectionReportResponse Alibabacloud_Nis20211216::Client::deleteNisInspectionReportWithOptions(shared_ptr<DeleteNisInspectionReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->inspectionReportId)) {
+    query->insert(pair<string, string>("InspectionReportId", *request->inspectionReportId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteNisInspectionReport"))},
+    {"version", boost::any(string("2021-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteNisInspectionReportResponse(callApi(params, req, runtime));
+}
+
+DeleteNisInspectionReportResponse Alibabacloud_Nis20211216::Client::deleteNisInspectionReport(shared_ptr<DeleteNisInspectionReportRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteNisInspectionReportWithOptions(request, runtime);
+}
+
+DeleteNisInspectionTaskResponse Alibabacloud_Nis20211216::Client::deleteNisInspectionTaskWithOptions(shared_ptr<DeleteNisInspectionTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->inspectionTaskId)) {
+    query->insert(pair<string, string>("InspectionTaskId", *request->inspectionTaskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteNisInspectionTask"))},
+    {"version", boost::any(string("2021-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteNisInspectionTaskResponse(callApi(params, req, runtime));
+}
+
+DeleteNisInspectionTaskResponse Alibabacloud_Nis20211216::Client::deleteNisInspectionTask(shared_ptr<DeleteNisInspectionTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteNisInspectionTaskWithOptions(request, runtime);
+}
+
+DescribeNisInspectionRecommendationResourcesResponse Alibabacloud_Nis20211216::Client::describeNisInspectionRecommendationResourcesWithOptions(shared_ptr<DescribeNisInspectionRecommendationResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->inspectionReportId)) {
+    query->insert(pair<string, string>("InspectionReportId", *request->inspectionReportId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recommendationCode)) {
+    query->insert(pair<string, string>("RecommendationCode", *request->recommendationCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeNisInspectionRecommendationResources"))},
+    {"version", boost::any(string("2021-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeNisInspectionRecommendationResourcesResponse(callApi(params, req, runtime));
+}
+
+DescribeNisInspectionRecommendationResourcesResponse Alibabacloud_Nis20211216::Client::describeNisInspectionRecommendationResources(shared_ptr<DescribeNisInspectionRecommendationResourcesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeNisInspectionRecommendationResourcesWithOptions(request, runtime);
+}
+
+DescribeNisInspectionReportCheckItemsResponse Alibabacloud_Nis20211216::Client::describeNisInspectionReportCheckItemsWithOptions(shared_ptr<DescribeNisInspectionReportCheckItemsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DescribeNisInspectionReportCheckItemsShrinkRequest> request = make_shared<DescribeNisInspectionReportCheckItemsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->resourceType)) {
+    request->resourceTypeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceType, make_shared<string>("ResourceType"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->riskLevel)) {
+    request->riskLevelShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->riskLevel, make_shared<string>("RiskLevel"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->categoryCode)) {
+    query->insert(pair<string, string>("CategoryCode", *request->categoryCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inspectionReportId)) {
+    query->insert(pair<string, string>("InspectionReportId", *request->inspectionReportId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceTypeShrink)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceTypeShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->riskLevelShrink)) {
+    query->insert(pair<string, string>("RiskLevel", *request->riskLevelShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeNisInspectionReportCheckItems"))},
+    {"version", boost::any(string("2021-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeNisInspectionReportCheckItemsResponse(callApi(params, req, runtime));
+}
+
+DescribeNisInspectionReportCheckItemsResponse Alibabacloud_Nis20211216::Client::describeNisInspectionReportCheckItems(shared_ptr<DescribeNisInspectionReportCheckItemsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeNisInspectionReportCheckItemsWithOptions(request, runtime);
+}
+
+DescribeNisInspectionReportStatusResponse Alibabacloud_Nis20211216::Client::describeNisInspectionReportStatusWithOptions(shared_ptr<DescribeNisInspectionReportStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->inspectionReportId)) {
+    query->insert(pair<string, string>("InspectionReportId", *request->inspectionReportId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeNisInspectionReportStatus"))},
+    {"version", boost::any(string("2021-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeNisInspectionReportStatusResponse(callApi(params, req, runtime));
+}
+
+DescribeNisInspectionReportStatusResponse Alibabacloud_Nis20211216::Client::describeNisInspectionReportStatus(shared_ptr<DescribeNisInspectionReportStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeNisInspectionReportStatusWithOptions(request, runtime);
+}
+
+DescribeNisInspectionReportSummaryResponse Alibabacloud_Nis20211216::Client::describeNisInspectionReportSummaryWithOptions(shared_ptr<DescribeNisInspectionReportSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->inspectionReportId)) {
+    query->insert(pair<string, string>("InspectionReportId", *request->inspectionReportId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeNisInspectionReportSummary"))},
+    {"version", boost::any(string("2021-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeNisInspectionReportSummaryResponse(callApi(params, req, runtime));
+}
+
+DescribeNisInspectionReportSummaryResponse Alibabacloud_Nis20211216::Client::describeNisInspectionReportSummary(shared_ptr<DescribeNisInspectionReportSummaryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeNisInspectionReportSummaryWithOptions(request, runtime);
+}
+
+DescribeNisInspectionTaskResponse Alibabacloud_Nis20211216::Client::describeNisInspectionTaskWithOptions(shared_ptr<DescribeNisInspectionTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->inspectionTaskId)) {
+    query->insert(pair<string, string>("InspectionTaskId", *request->inspectionTaskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeNisInspectionTask"))},
+    {"version", boost::any(string("2021-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeNisInspectionTaskResponse(callApi(params, req, runtime));
+}
+
+DescribeNisInspectionTaskResponse Alibabacloud_Nis20211216::Client::describeNisInspectionTask(shared_ptr<DescribeNisInspectionTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeNisInspectionTaskWithOptions(request, runtime);
+}
+
 GetInternetTupleResponse Alibabacloud_Nis20211216::Client::getInternetTupleWithOptions(shared_ptr<GetInternetTupleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<GetInternetTupleShrinkRequest> request = make_shared<GetInternetTupleShrinkRequest>();
@@ -700,5 +934,162 @@ GetVbrFlowTopNResponse Alibabacloud_Nis20211216::Client::getVbrFlowTopNWithOptio
 GetVbrFlowTopNResponse Alibabacloud_Nis20211216::Client::getVbrFlowTopN(shared_ptr<GetVbrFlowTopNRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getVbrFlowTopNWithOptions(request, runtime);
+}
+
+ListNisInspectionResourceTypeResponse Alibabacloud_Nis20211216::Client::listNisInspectionResourceTypeWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListNisInspectionResourceType"))},
+    {"version", boost::any(string("2021-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListNisInspectionResourceTypeResponse(callApi(params, req, runtime));
+}
+
+ListNisInspectionResourceTypeResponse Alibabacloud_Nis20211216::Client::listNisInspectionResourceType() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listNisInspectionResourceTypeWithOptions(runtime);
+}
+
+ListNisInspectionTaskReportsResponse Alibabacloud_Nis20211216::Client::listNisInspectionTaskReportsWithOptions(shared_ptr<ListNisInspectionTaskReportsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->inspectionTaskId)) {
+    query->insert(pair<string, string>("InspectionTaskId", *request->inspectionTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListNisInspectionTaskReports"))},
+    {"version", boost::any(string("2021-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListNisInspectionTaskReportsResponse(callApi(params, req, runtime));
+}
+
+ListNisInspectionTaskReportsResponse Alibabacloud_Nis20211216::Client::listNisInspectionTaskReports(shared_ptr<ListNisInspectionTaskReportsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listNisInspectionTaskReportsWithOptions(request, runtime);
+}
+
+ListNisInspectionTasksResponse Alibabacloud_Nis20211216::Client::listNisInspectionTasksWithOptions(shared_ptr<ListNisInspectionTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->inspectionName)) {
+    query->insert(pair<string, string>("InspectionName", *request->inspectionName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inspectionProject)) {
+    query->insert(pair<string, string>("InspectionProject", *request->inspectionProject));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inspectionTaskId)) {
+    query->insert(pair<string, string>("InspectionTaskId", *request->inspectionTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListNisInspectionTasks"))},
+    {"version", boost::any(string("2021-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListNisInspectionTasksResponse(callApi(params, req, runtime));
+}
+
+ListNisInspectionTasksResponse Alibabacloud_Nis20211216::Client::listNisInspectionTasks(shared_ptr<ListNisInspectionTasksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listNisInspectionTasksWithOptions(request, runtime);
+}
+
+StartNisInspectionTaskResponse Alibabacloud_Nis20211216::Client::startNisInspectionTaskWithOptions(shared_ptr<StartNisInspectionTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->inspectionTaskId)) {
+    query->insert(pair<string, string>("InspectionTaskId", *request->inspectionTaskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartNisInspectionTask"))},
+    {"version", boost::any(string("2021-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartNisInspectionTaskResponse(callApi(params, req, runtime));
+}
+
+StartNisInspectionTaskResponse Alibabacloud_Nis20211216::Client::startNisInspectionTask(shared_ptr<StartNisInspectionTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return startNisInspectionTaskWithOptions(request, runtime);
+}
+
+UpdateNisInspectionTaskResponse Alibabacloud_Nis20211216::Client::updateNisInspectionTaskWithOptions(shared_ptr<UpdateNisInspectionTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->inspectionTaskId)) {
+    query->insert(pair<string, string>("InspectionTaskId", *request->inspectionTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateNisInspectionTask"))},
+    {"version", boost::any(string("2021-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateNisInspectionTaskResponse(callApi(params, req, runtime));
+}
+
+UpdateNisInspectionTaskResponse Alibabacloud_Nis20211216::Client::updateNisInspectionTask(shared_ptr<UpdateNisInspectionTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateNisInspectionTaskWithOptions(request, runtime);
 }
 
