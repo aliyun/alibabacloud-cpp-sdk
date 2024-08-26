@@ -1034,6 +1034,9 @@ QueryAdvancedDomainListResponse Alibabacloud_Domain20180129::Client::queryAdvanc
   if (!Darabonba_Util::Client::isUnset<long>(request->form)) {
     query->insert(pair<string, long>("Form", *request->form));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isPremiumDomain)) {
+    query->insert(pair<string, bool>("IsPremiumDomain", *request->isPremiumDomain));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyWord)) {
     query->insert(pair<string, string>("KeyWord", *request->keyWord));
   }
@@ -2034,6 +2037,9 @@ QueryRegistrantProfilesResponse Alibabacloud_Domain20180129::Client::queryRegist
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->registrantType)) {
     query->insert(pair<string, string>("RegistrantType", *request->registrantType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userClientIp)) {
     query->insert(pair<string, string>("UserClientIp", *request->userClientIp));
@@ -4185,6 +4191,43 @@ SaveSingleTaskForQueryingTransferAuthorizationCodeResponse Alibabacloud_Domain20
 SaveSingleTaskForQueryingTransferAuthorizationCodeResponse Alibabacloud_Domain20180129::Client::saveSingleTaskForQueryingTransferAuthorizationCode(shared_ptr<SaveSingleTaskForQueryingTransferAuthorizationCodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return saveSingleTaskForQueryingTransferAuthorizationCodeWithOptions(request, runtime);
+}
+
+SaveSingleTaskForReserveDropListDomainResponse Alibabacloud_Domain20180129::Client::saveSingleTaskForReserveDropListDomainWithOptions(shared_ptr<SaveSingleTaskForReserveDropListDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->contactTemplateId)) {
+    query->insert(pair<string, string>("ContactTemplateId", *request->contactTemplateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dns1)) {
+    query->insert(pair<string, string>("Dns1", *request->dns1));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dns2)) {
+    query->insert(pair<string, string>("Dns2", *request->dns2));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
+    query->insert(pair<string, string>("DomainName", *request->domainName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SaveSingleTaskForReserveDropListDomain"))},
+    {"version", boost::any(string("2018-01-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SaveSingleTaskForReserveDropListDomainResponse(callApi(params, req, runtime));
+}
+
+SaveSingleTaskForReserveDropListDomainResponse Alibabacloud_Domain20180129::Client::saveSingleTaskForReserveDropListDomain(shared_ptr<SaveSingleTaskForReserveDropListDomainRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return saveSingleTaskForReserveDropListDomainWithOptions(request, runtime);
 }
 
 SaveSingleTaskForSaveArtExtensionResponse Alibabacloud_Domain20180129::Client::saveSingleTaskForSaveArtExtensionWithOptions(shared_ptr<SaveSingleTaskForSaveArtExtensionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
