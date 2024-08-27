@@ -3236,6 +3236,12 @@ ListDataReportForServiceGroupResponse Alibabacloud_GEMP20210413::Client::listDat
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     body->insert(pair<string, string>("endTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    body->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceGroupName)) {
     body->insert(pair<string, string>("serviceGroupName", *request->serviceGroupName));
   }

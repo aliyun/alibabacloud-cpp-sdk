@@ -20340,6 +20340,8 @@ public:
 class ListDataReportForServiceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> serviceGroupName{};
   shared_ptr<string> startTime{};
 
@@ -20356,6 +20358,12 @@ public:
     if (endTime) {
       res["endTime"] = boost::any(*endTime);
     }
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
     if (serviceGroupName) {
       res["serviceGroupName"] = boost::any(*serviceGroupName);
     }
@@ -20368,6 +20376,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
     }
     if (m.find("serviceGroupName") != m.end() && !m["serviceGroupName"].empty()) {
       serviceGroupName = make_shared<string>(boost::any_cast<string>(m["serviceGroupName"]));
