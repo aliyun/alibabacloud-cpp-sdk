@@ -1789,6 +1789,9 @@ CreateDdrInstanceResponse Alibabacloud_Rds20140815::Client::createDdrInstanceWit
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceStorageType)) {
     query->insert(pair<string, string>("DBInstanceStorageType", *request->DBInstanceStorageType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->encryptionKey)) {
+    query->insert(pair<string, string>("EncryptionKey", *request->encryptionKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
     query->insert(pair<string, string>("Engine", *request->engine));
   }
@@ -1830,6 +1833,9 @@ CreateDdrInstanceResponse Alibabacloud_Rds20140815::Client::createDdrInstanceWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->restoreType)) {
     query->insert(pair<string, string>("RestoreType", *request->restoreType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleARN)) {
+    query->insert(pair<string, string>("RoleARN", *request->roleARN));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityIPList)) {
     query->insert(pair<string, string>("SecurityIPList", *request->securityIPList));

@@ -6993,6 +6993,7 @@ public:
   shared_ptr<string> DBInstanceNetType{};
   shared_ptr<long> DBInstanceStorage{};
   shared_ptr<string> DBInstanceStorageType{};
+  shared_ptr<string> encryptionKey{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
   shared_ptr<string> instanceNetworkType{};
@@ -7007,6 +7008,7 @@ public:
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> restoreTime{};
   shared_ptr<string> restoreType{};
+  shared_ptr<string> roleARN{};
   shared_ptr<string> securityIPList{};
   shared_ptr<string> sourceDBInstanceName{};
   shared_ptr<string> sourceRegion{};
@@ -7050,6 +7052,9 @@ public:
     if (DBInstanceStorageType) {
       res["DBInstanceStorageType"] = boost::any(*DBInstanceStorageType);
     }
+    if (encryptionKey) {
+      res["EncryptionKey"] = boost::any(*encryptionKey);
+    }
     if (engine) {
       res["Engine"] = boost::any(*engine);
     }
@@ -7091,6 +7096,9 @@ public:
     }
     if (restoreType) {
       res["RestoreType"] = boost::any(*restoreType);
+    }
+    if (roleARN) {
+      res["RoleARN"] = boost::any(*roleARN);
     }
     if (securityIPList) {
       res["SecurityIPList"] = boost::any(*securityIPList);
@@ -7144,6 +7152,9 @@ public:
     if (m.find("DBInstanceStorageType") != m.end() && !m["DBInstanceStorageType"].empty()) {
       DBInstanceStorageType = make_shared<string>(boost::any_cast<string>(m["DBInstanceStorageType"]));
     }
+    if (m.find("EncryptionKey") != m.end() && !m["EncryptionKey"].empty()) {
+      encryptionKey = make_shared<string>(boost::any_cast<string>(m["EncryptionKey"]));
+    }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
     }
@@ -7185,6 +7196,9 @@ public:
     }
     if (m.find("RestoreType") != m.end() && !m["RestoreType"].empty()) {
       restoreType = make_shared<string>(boost::any_cast<string>(m["RestoreType"]));
+    }
+    if (m.find("RoleARN") != m.end() && !m["RoleARN"].empty()) {
+      roleARN = make_shared<string>(boost::any_cast<string>(m["RoleARN"]));
     }
     if (m.find("SecurityIPList") != m.end() && !m["SecurityIPList"].empty()) {
       securityIPList = make_shared<string>(boost::any_cast<string>(m["SecurityIPList"]));
