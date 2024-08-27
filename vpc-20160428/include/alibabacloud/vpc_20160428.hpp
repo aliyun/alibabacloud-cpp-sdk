@@ -19659,6 +19659,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<bool> dryRun{};
+  shared_ptr<bool> enableDnsHostname{};
   shared_ptr<bool> enableIpv6{};
   shared_ptr<long> ipv4CidrMask{};
   shared_ptr<string> ipv4IpamPoolId{};
@@ -19695,6 +19696,9 @@ public:
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
+    }
+    if (enableDnsHostname) {
+      res["EnableDnsHostname"] = boost::any(*enableDnsHostname);
     }
     if (enableIpv6) {
       res["EnableIpv6"] = boost::any(*enableIpv6);
@@ -19757,6 +19761,9 @@ public:
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EnableDnsHostname") != m.end() && !m["EnableDnsHostname"].empty()) {
+      enableDnsHostname = make_shared<bool>(boost::any_cast<bool>(m["EnableDnsHostname"]));
     }
     if (m.find("EnableIpv6") != m.end() && !m["EnableIpv6"].empty()) {
       enableIpv6 = make_shared<bool>(boost::any_cast<bool>(m["EnableIpv6"]));
@@ -59259,6 +59266,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> dhcpOptionsSetId{};
   shared_ptr<string> dhcpOptionsSetStatus{};
+  shared_ptr<string> dnsHostnameStatus{};
   shared_ptr<bool> enabledIpv6{};
   shared_ptr<string> ipv4GatewayId{};
   shared_ptr<string> ipv6CidrBlock{};
@@ -59314,6 +59322,9 @@ public:
     }
     if (dhcpOptionsSetStatus) {
       res["DhcpOptionsSetStatus"] = boost::any(*dhcpOptionsSetStatus);
+    }
+    if (dnsHostnameStatus) {
+      res["DnsHostnameStatus"] = boost::any(*dnsHostnameStatus);
     }
     if (enabledIpv6) {
       res["EnabledIpv6"] = boost::any(*enabledIpv6);
@@ -59411,6 +59422,9 @@ public:
     }
     if (m.find("DhcpOptionsSetStatus") != m.end() && !m["DhcpOptionsSetStatus"].empty()) {
       dhcpOptionsSetStatus = make_shared<string>(boost::any_cast<string>(m["DhcpOptionsSetStatus"]));
+    }
+    if (m.find("DnsHostnameStatus") != m.end() && !m["DnsHostnameStatus"].empty()) {
+      dnsHostnameStatus = make_shared<string>(boost::any_cast<string>(m["DnsHostnameStatus"]));
     }
     if (m.find("EnabledIpv6") != m.end() && !m["EnabledIpv6"].empty()) {
       enabledIpv6 = make_shared<bool>(boost::any_cast<bool>(m["EnabledIpv6"]));
@@ -60073,6 +60087,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> dhcpOptionsSetId{};
   shared_ptr<string> dhcpOptionsSetStatus{};
+  shared_ptr<string> dnsHostnameStatus{};
   shared_ptr<bool> enabledIpv6{};
   shared_ptr<string> ipv6CidrBlock{};
   shared_ptr<DescribeVpcsResponseBodyVpcsVpcIpv6CidrBlocks> ipv6CidrBlocks{};
@@ -60118,6 +60133,9 @@ public:
     }
     if (dhcpOptionsSetStatus) {
       res["DhcpOptionsSetStatus"] = boost::any(*dhcpOptionsSetStatus);
+    }
+    if (dnsHostnameStatus) {
+      res["DnsHostnameStatus"] = boost::any(*dnsHostnameStatus);
     }
     if (enabledIpv6) {
       res["EnabledIpv6"] = boost::any(*enabledIpv6);
@@ -60191,6 +60209,9 @@ public:
     }
     if (m.find("DhcpOptionsSetStatus") != m.end() && !m["DhcpOptionsSetStatus"].empty()) {
       dhcpOptionsSetStatus = make_shared<string>(boost::any_cast<string>(m["DhcpOptionsSetStatus"]));
+    }
+    if (m.find("DnsHostnameStatus") != m.end() && !m["DnsHostnameStatus"].empty()) {
+      dnsHostnameStatus = make_shared<string>(boost::any_cast<string>(m["DnsHostnameStatus"]));
     }
     if (m.find("EnabledIpv6") != m.end() && !m["EnabledIpv6"].empty()) {
       enabledIpv6 = make_shared<bool>(boost::any_cast<bool>(m["EnabledIpv6"]));
@@ -90792,6 +90813,7 @@ class ModifyVpcAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cidrBlock{};
   shared_ptr<string> description{};
+  shared_ptr<bool> enableDnsHostname{};
   shared_ptr<bool> enableIPv6{};
   shared_ptr<string> ipv6CidrBlock{};
   shared_ptr<string> ipv6Isp{};
@@ -90818,6 +90840,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (enableDnsHostname) {
+      res["EnableDnsHostname"] = boost::any(*enableDnsHostname);
     }
     if (enableIPv6) {
       res["EnableIPv6"] = boost::any(*enableIPv6);
@@ -90858,6 +90883,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EnableDnsHostname") != m.end() && !m["EnableDnsHostname"].empty()) {
+      enableDnsHostname = make_shared<bool>(boost::any_cast<bool>(m["EnableDnsHostname"]));
     }
     if (m.find("EnableIPv6") != m.end() && !m["EnableIPv6"].empty()) {
       enableIPv6 = make_shared<bool>(boost::any_cast<bool>(m["EnableIPv6"]));

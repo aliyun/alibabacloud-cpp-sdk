@@ -5389,6 +5389,9 @@ CreateVpcResponse Alibabacloud_Vpc20160428::Client::createVpcWithOptions(shared_
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableDnsHostname)) {
+    query->insert(pair<string, bool>("EnableDnsHostname", *request->enableDnsHostname));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableIpv6)) {
     query->insert(pair<string, bool>("EnableIpv6", *request->enableIpv6));
   }
@@ -18298,6 +18301,9 @@ ModifyVpcAttributeResponse Alibabacloud_Vpc20160428::Client::modifyVpcAttributeW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableDnsHostname)) {
+    query->insert(pair<string, bool>("EnableDnsHostname", *request->enableDnsHostname));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableIPv6)) {
     query->insert(pair<string, bool>("EnableIPv6", *request->enableIPv6));
