@@ -43175,6 +43175,7 @@ public:
   shared_ptr<string> customerConfigs{};
   shared_ptr<string> defaultDomain{};
   shared_ptr<string> description{};
+  shared_ptr<string> filterAppCodeForBackend{};
   shared_ptr<string> groupId{};
   shared_ptr<string> groupName{};
   shared_ptr<string> passthroughHeaders{};
@@ -43211,6 +43212,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (filterAppCodeForBackend) {
+      res["FilterAppCodeForBackend"] = boost::any(*filterAppCodeForBackend);
     }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
@@ -43261,6 +43265,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("FilterAppCodeForBackend") != m.end() && !m["FilterAppCodeForBackend"].empty()) {
+      filterAppCodeForBackend = make_shared<string>(boost::any_cast<string>(m["FilterAppCodeForBackend"]));
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));

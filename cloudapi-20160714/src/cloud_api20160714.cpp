@@ -6166,6 +6166,9 @@ ModifyApiGroupResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupWith
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterAppCodeForBackend)) {
+    query->insert(pair<string, string>("FilterAppCodeForBackend", *request->filterAppCodeForBackend));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
   }
