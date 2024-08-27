@@ -10578,10 +10578,12 @@ public:
   shared_ptr<string> currentLoginUser{};
   shared_ptr<string> ipv4{};
   shared_ptr<string> locationInfo{};
+  shared_ptr<string> manageTime{};
   shared_ptr<string> model{};
   shared_ptr<bool> online{};
   shared_ptr<string> passwordFreeLoginUser{};
   shared_ptr<string> serialNumber{};
+  shared_ptr<string> setPasswordFreeLoginUserTime{};
   shared_ptr<string> terminalGroupId{};
   shared_ptr<string> uuid{};
 
@@ -10616,6 +10618,9 @@ public:
     if (locationInfo) {
       res["LocationInfo"] = boost::any(*locationInfo);
     }
+    if (manageTime) {
+      res["ManageTime"] = boost::any(*manageTime);
+    }
     if (model) {
       res["Model"] = boost::any(*model);
     }
@@ -10627,6 +10632,9 @@ public:
     }
     if (serialNumber) {
       res["SerialNumber"] = boost::any(*serialNumber);
+    }
+    if (setPasswordFreeLoginUserTime) {
+      res["SetPasswordFreeLoginUserTime"] = boost::any(*setPasswordFreeLoginUserTime);
     }
     if (terminalGroupId) {
       res["TerminalGroupId"] = boost::any(*terminalGroupId);
@@ -10659,6 +10667,9 @@ public:
     if (m.find("LocationInfo") != m.end() && !m["LocationInfo"].empty()) {
       locationInfo = make_shared<string>(boost::any_cast<string>(m["LocationInfo"]));
     }
+    if (m.find("ManageTime") != m.end() && !m["ManageTime"].empty()) {
+      manageTime = make_shared<string>(boost::any_cast<string>(m["ManageTime"]));
+    }
     if (m.find("Model") != m.end() && !m["Model"].empty()) {
       model = make_shared<string>(boost::any_cast<string>(m["Model"]));
     }
@@ -10670,6 +10681,9 @@ public:
     }
     if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
       serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
+    }
+    if (m.find("SetPasswordFreeLoginUserTime") != m.end() && !m["SetPasswordFreeLoginUserTime"].empty()) {
+      setPasswordFreeLoginUserTime = make_shared<string>(boost::any_cast<string>(m["SetPasswordFreeLoginUserTime"]));
     }
     if (m.find("TerminalGroupId") != m.end() && !m["TerminalGroupId"].empty()) {
       terminalGroupId = make_shared<string>(boost::any_cast<string>(m["TerminalGroupId"]));
