@@ -15795,6 +15795,7 @@ class DescribeDBProxyPerformanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> DBEndpointId{};
+  shared_ptr<string> DBNodeId{};
   shared_ptr<string> endTime{};
   shared_ptr<string> interval{};
   shared_ptr<string> key{};
@@ -15816,6 +15817,9 @@ public:
     }
     if (DBEndpointId) {
       res["DBEndpointId"] = boost::any(*DBEndpointId);
+    }
+    if (DBNodeId) {
+      res["DBNodeId"] = boost::any(*DBNodeId);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
@@ -15841,6 +15845,9 @@ public:
     }
     if (m.find("DBEndpointId") != m.end() && !m["DBEndpointId"].empty()) {
       DBEndpointId = make_shared<string>(boost::any_cast<string>(m["DBEndpointId"]));
+    }
+    if (m.find("DBNodeId") != m.end() && !m["DBNodeId"].empty()) {
+      DBNodeId = make_shared<string>(boost::any_cast<string>(m["DBNodeId"]));
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));

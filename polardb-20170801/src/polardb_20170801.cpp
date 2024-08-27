@@ -3194,6 +3194,9 @@ DescribeDBProxyPerformanceResponse Alibabacloud_Polardb20170801::Client::describ
   if (!Darabonba_Util::Client::isUnset<string>(request->DBEndpointId)) {
     query->insert(pair<string, string>("DBEndpointId", *request->DBEndpointId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBNodeId)) {
+    query->insert(pair<string, string>("DBNodeId", *request->DBNodeId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
   }
