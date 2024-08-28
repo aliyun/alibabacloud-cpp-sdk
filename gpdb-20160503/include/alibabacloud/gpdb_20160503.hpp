@@ -34199,6 +34199,56 @@ public:
 
   virtual ~PauseInstanceResponse() = default;
 };
+class QueryCollectionDataRequestRelationalTableFilter : public Darabonba::Model {
+public:
+  shared_ptr<string> collectionMetadataField{};
+  shared_ptr<string> condition{};
+  shared_ptr<string> tableField{};
+  shared_ptr<string> tableName{};
+
+  QueryCollectionDataRequestRelationalTableFilter() {}
+
+  explicit QueryCollectionDataRequestRelationalTableFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (collectionMetadataField) {
+      res["CollectionMetadataField"] = boost::any(*collectionMetadataField);
+    }
+    if (condition) {
+      res["Condition"] = boost::any(*condition);
+    }
+    if (tableField) {
+      res["TableField"] = boost::any(*tableField);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CollectionMetadataField") != m.end() && !m["CollectionMetadataField"].empty()) {
+      collectionMetadataField = make_shared<string>(boost::any_cast<string>(m["CollectionMetadataField"]));
+    }
+    if (m.find("Condition") != m.end() && !m["Condition"].empty()) {
+      condition = make_shared<string>(boost::any_cast<string>(m["Condition"]));
+    }
+    if (m.find("TableField") != m.end() && !m["TableField"].empty()) {
+      tableField = make_shared<string>(boost::any_cast<string>(m["TableField"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+  }
+
+
+  virtual ~QueryCollectionDataRequestRelationalTableFilter() = default;
+};
 class QueryCollectionDataRequest : public Darabonba::Model {
 public:
   shared_ptr<string> collection{};
@@ -34216,6 +34266,7 @@ public:
   shared_ptr<string> orderBy{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<QueryCollectionDataRequestRelationalTableFilter> relationalTableFilter{};
   shared_ptr<long> topK{};
   shared_ptr<vector<double>> vector{};
   shared_ptr<string> workspaceId{};
@@ -34274,6 +34325,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (relationalTableFilter) {
+      res["RelationalTableFilter"] = relationalTableFilter ? boost::any(relationalTableFilter->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (topK) {
       res["TopK"] = boost::any(*topK);
@@ -34343,6 +34397,13 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("RelationalTableFilter") != m.end() && !m["RelationalTableFilter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RelationalTableFilter"].type()) {
+        QueryCollectionDataRequestRelationalTableFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RelationalTableFilter"]));
+        relationalTableFilter = make_shared<QueryCollectionDataRequestRelationalTableFilter>(model1);
+      }
+    }
     if (m.find("TopK") != m.end() && !m["TopK"].empty()) {
       topK = make_shared<long>(boost::any_cast<long>(m["TopK"]));
     }
@@ -34381,6 +34442,7 @@ public:
   shared_ptr<string> orderBy{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> relationalTableFilterShrink{};
   shared_ptr<long> topK{};
   shared_ptr<string> vectorShrink{};
   shared_ptr<string> workspaceId{};
@@ -34440,6 +34502,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (relationalTableFilterShrink) {
+      res["RelationalTableFilter"] = boost::any(*relationalTableFilterShrink);
+    }
     if (topK) {
       res["TopK"] = boost::any(*topK);
     }
@@ -34497,6 +34562,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RelationalTableFilter") != m.end() && !m["RelationalTableFilter"].empty()) {
+      relationalTableFilterShrink = make_shared<string>(boost::any_cast<string>(m["RelationalTableFilter"]));
     }
     if (m.find("TopK") != m.end() && !m["TopK"].empty()) {
       topK = make_shared<long>(boost::any_cast<long>(m["TopK"]));

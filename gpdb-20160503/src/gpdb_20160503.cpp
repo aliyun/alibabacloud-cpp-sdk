@@ -6629,6 +6629,9 @@ QueryCollectionDataResponse Alibabacloud_Gpdb20160503::Client::queryCollectionDa
   if (!Darabonba_Util::Client::isUnset<map<string, map<string, boost::any>>>(tmpReq->hybridSearchArgs)) {
     request->hybridSearchArgsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->hybridSearchArgs, make_shared<string>("HybridSearchArgs"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<QueryCollectionDataRequestRelationalTableFilter>(tmpReq->relationalTableFilter)) {
+    request->relationalTableFilterShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->relationalTableFilter, make_shared<string>("RelationalTableFilter"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<double>>(tmpReq->vector)) {
     request->vectorShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vector, make_shared<string>("Vector"), make_shared<string>("json")));
   }
@@ -6677,6 +6680,9 @@ QueryCollectionDataResponse Alibabacloud_Gpdb20160503::Client::queryCollectionDa
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->relationalTableFilterShrink)) {
+    query->insert(pair<string, string>("RelationalTableFilter", *request->relationalTableFilterShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->topK)) {
     query->insert(pair<string, long>("TopK", *request->topK));
