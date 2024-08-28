@@ -549,6 +549,98 @@ public:
 
   virtual ~GetInstanceDetailResponseBodyDataClusterInfo() = default;
 };
+class GetInstanceDetailResponseBodyDataMeasureConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> dataNodeCuNum{};
+  shared_ptr<long> dataNodeReplica{};
+  shared_ptr<long> indexNodeCuNum{};
+  shared_ptr<long> indexNodeReplica{};
+  shared_ptr<long> mixCoodinatorNodeCuNum{};
+  shared_ptr<long> mixCoodinatorNodeReplica{};
+  shared_ptr<long> proxyNodeCuNum{};
+  shared_ptr<long> proxyNodeReplica{};
+  shared_ptr<long> queryNodeCuNum{};
+  shared_ptr<long> queryNodeReplica{};
+
+  GetInstanceDetailResponseBodyDataMeasureConfig() {}
+
+  explicit GetInstanceDetailResponseBodyDataMeasureConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataNodeCuNum) {
+      res["DataNodeCuNum"] = boost::any(*dataNodeCuNum);
+    }
+    if (dataNodeReplica) {
+      res["DataNodeReplica"] = boost::any(*dataNodeReplica);
+    }
+    if (indexNodeCuNum) {
+      res["IndexNodeCuNum"] = boost::any(*indexNodeCuNum);
+    }
+    if (indexNodeReplica) {
+      res["IndexNodeReplica"] = boost::any(*indexNodeReplica);
+    }
+    if (mixCoodinatorNodeCuNum) {
+      res["MixCoodinatorNodeCuNum"] = boost::any(*mixCoodinatorNodeCuNum);
+    }
+    if (mixCoodinatorNodeReplica) {
+      res["MixCoodinatorNodeReplica"] = boost::any(*mixCoodinatorNodeReplica);
+    }
+    if (proxyNodeCuNum) {
+      res["ProxyNodeCuNum"] = boost::any(*proxyNodeCuNum);
+    }
+    if (proxyNodeReplica) {
+      res["ProxyNodeReplica"] = boost::any(*proxyNodeReplica);
+    }
+    if (queryNodeCuNum) {
+      res["QueryNodeCuNum"] = boost::any(*queryNodeCuNum);
+    }
+    if (queryNodeReplica) {
+      res["QueryNodeReplica"] = boost::any(*queryNodeReplica);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataNodeCuNum") != m.end() && !m["DataNodeCuNum"].empty()) {
+      dataNodeCuNum = make_shared<long>(boost::any_cast<long>(m["DataNodeCuNum"]));
+    }
+    if (m.find("DataNodeReplica") != m.end() && !m["DataNodeReplica"].empty()) {
+      dataNodeReplica = make_shared<long>(boost::any_cast<long>(m["DataNodeReplica"]));
+    }
+    if (m.find("IndexNodeCuNum") != m.end() && !m["IndexNodeCuNum"].empty()) {
+      indexNodeCuNum = make_shared<long>(boost::any_cast<long>(m["IndexNodeCuNum"]));
+    }
+    if (m.find("IndexNodeReplica") != m.end() && !m["IndexNodeReplica"].empty()) {
+      indexNodeReplica = make_shared<long>(boost::any_cast<long>(m["IndexNodeReplica"]));
+    }
+    if (m.find("MixCoodinatorNodeCuNum") != m.end() && !m["MixCoodinatorNodeCuNum"].empty()) {
+      mixCoodinatorNodeCuNum = make_shared<long>(boost::any_cast<long>(m["MixCoodinatorNodeCuNum"]));
+    }
+    if (m.find("MixCoodinatorNodeReplica") != m.end() && !m["MixCoodinatorNodeReplica"].empty()) {
+      mixCoodinatorNodeReplica = make_shared<long>(boost::any_cast<long>(m["MixCoodinatorNodeReplica"]));
+    }
+    if (m.find("ProxyNodeCuNum") != m.end() && !m["ProxyNodeCuNum"].empty()) {
+      proxyNodeCuNum = make_shared<long>(boost::any_cast<long>(m["ProxyNodeCuNum"]));
+    }
+    if (m.find("ProxyNodeReplica") != m.end() && !m["ProxyNodeReplica"].empty()) {
+      proxyNodeReplica = make_shared<long>(boost::any_cast<long>(m["ProxyNodeReplica"]));
+    }
+    if (m.find("QueryNodeCuNum") != m.end() && !m["QueryNodeCuNum"].empty()) {
+      queryNodeCuNum = make_shared<long>(boost::any_cast<long>(m["QueryNodeCuNum"]));
+    }
+    if (m.find("QueryNodeReplica") != m.end() && !m["QueryNodeReplica"].empty()) {
+      queryNodeReplica = make_shared<long>(boost::any_cast<long>(m["QueryNodeReplica"]));
+    }
+  }
+
+
+  virtual ~GetInstanceDetailResponseBodyDataMeasureConfig() = default;
+};
 class GetInstanceDetailResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> aclId{};
@@ -560,11 +652,13 @@ public:
   shared_ptr<long> expireTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceStatus{};
+  shared_ptr<GetInstanceDetailResponseBodyDataMeasureConfig> measureConfig{};
   shared_ptr<bool> openPublicNet{};
   shared_ptr<string> packageType{};
   shared_ptr<long> payType{};
   shared_ptr<string> productCode{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<long> runningTime{};
   shared_ptr<string> sgId{};
   shared_ptr<string> templateVersion{};
@@ -611,6 +705,9 @@ public:
     if (instanceStatus) {
       res["InstanceStatus"] = boost::any(*instanceStatus);
     }
+    if (measureConfig) {
+      res["MeasureConfig"] = measureConfig ? boost::any(measureConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (openPublicNet) {
       res["OpenPublicNet"] = boost::any(*openPublicNet);
     }
@@ -625,6 +722,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (runningTime) {
       res["RunningTime"] = boost::any(*runningTime);
@@ -685,6 +785,13 @@ public:
     if (m.find("InstanceStatus") != m.end() && !m["InstanceStatus"].empty()) {
       instanceStatus = make_shared<string>(boost::any_cast<string>(m["InstanceStatus"]));
     }
+    if (m.find("MeasureConfig") != m.end() && !m["MeasureConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MeasureConfig"].type()) {
+        GetInstanceDetailResponseBodyDataMeasureConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MeasureConfig"]));
+        measureConfig = make_shared<GetInstanceDetailResponseBodyDataMeasureConfig>(model1);
+      }
+    }
     if (m.find("OpenPublicNet") != m.end() && !m["OpenPublicNet"].empty()) {
       openPublicNet = make_shared<bool>(boost::any_cast<bool>(m["OpenPublicNet"]));
     }
@@ -699,6 +806,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("RunningTime") != m.end() && !m["RunningTime"].empty()) {
       runningTime = make_shared<long>(boost::any_cast<long>(m["RunningTime"]));
@@ -863,6 +973,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   ListInstancesRequest() {}
 
@@ -889,6 +1000,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -907,6 +1021,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -1068,6 +1185,7 @@ public:
   shared_ptr<long> payType{};
   shared_ptr<string> productCode{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<long> runningTime{};
   shared_ptr<string> sgId{};
   shared_ptr<string> vpcId{};
@@ -1116,6 +1234,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (runningTime) {
       res["RunningTime"] = boost::any(*runningTime);
@@ -1172,6 +1293,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("RunningTime") != m.end() && !m["RunningTime"].empty()) {
       runningTime = make_shared<long>(boost::any_cast<long>(m["RunningTime"]));

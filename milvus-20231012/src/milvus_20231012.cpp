@@ -145,6 +145,9 @@ ListInstancesResponse Alibabacloud_Milvus20231012::Client::listInstancesWithOpti
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
