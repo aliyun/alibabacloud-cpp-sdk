@@ -418,10 +418,13 @@ public:
 };
 class CreateIpamResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> defaultResourceDiscoveryAssociationId{};
+  shared_ptr<string> defaultResourceDiscoveryId{};
   shared_ptr<string> ipamId{};
   shared_ptr<string> privateDefaultScopeId{};
   shared_ptr<string> publicDefaultScopeId{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> resourceDiscoveryAssociationCount{};
 
   CreateIpamResponseBody() {}
 
@@ -433,6 +436,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (defaultResourceDiscoveryAssociationId) {
+      res["DefaultResourceDiscoveryAssociationId"] = boost::any(*defaultResourceDiscoveryAssociationId);
+    }
+    if (defaultResourceDiscoveryId) {
+      res["DefaultResourceDiscoveryId"] = boost::any(*defaultResourceDiscoveryId);
+    }
     if (ipamId) {
       res["IpamId"] = boost::any(*ipamId);
     }
@@ -445,10 +454,19 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resourceDiscoveryAssociationCount) {
+      res["ResourceDiscoveryAssociationCount"] = boost::any(*resourceDiscoveryAssociationCount);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultResourceDiscoveryAssociationId") != m.end() && !m["DefaultResourceDiscoveryAssociationId"].empty()) {
+      defaultResourceDiscoveryAssociationId = make_shared<string>(boost::any_cast<string>(m["DefaultResourceDiscoveryAssociationId"]));
+    }
+    if (m.find("DefaultResourceDiscoveryId") != m.end() && !m["DefaultResourceDiscoveryId"].empty()) {
+      defaultResourceDiscoveryId = make_shared<string>(boost::any_cast<string>(m["DefaultResourceDiscoveryId"]));
+    }
     if (m.find("IpamId") != m.end() && !m["IpamId"].empty()) {
       ipamId = make_shared<string>(boost::any_cast<string>(m["IpamId"]));
     }
@@ -460,6 +478,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceDiscoveryAssociationCount") != m.end() && !m["ResourceDiscoveryAssociationCount"].empty()) {
+      resourceDiscoveryAssociationCount = make_shared<long>(boost::any_cast<long>(m["ResourceDiscoveryAssociationCount"]));
     }
   }
 
@@ -4012,6 +4033,8 @@ public:
 class ListIpamsResponseBodyIpams : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<string> defaultResourceDiscoveryAssociationId{};
+  shared_ptr<string> defaultResourceDiscoveryId{};
   shared_ptr<string> ipamDescription{};
   shared_ptr<string> ipamId{};
   shared_ptr<string> ipamName{};
@@ -4021,6 +4044,7 @@ public:
   shared_ptr<string> privateDefaultScopeId{};
   shared_ptr<string> publicDefaultScopeId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> resourceDiscoveryAssociationCount{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<long> scopeCount{};
   shared_ptr<vector<ListIpamsResponseBodyIpamsTags>> tags{};
@@ -4037,6 +4061,12 @@ public:
     map<string, boost::any> res;
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (defaultResourceDiscoveryAssociationId) {
+      res["DefaultResourceDiscoveryAssociationId"] = boost::any(*defaultResourceDiscoveryAssociationId);
+    }
+    if (defaultResourceDiscoveryId) {
+      res["DefaultResourceDiscoveryId"] = boost::any(*defaultResourceDiscoveryId);
     }
     if (ipamDescription) {
       res["IpamDescription"] = boost::any(*ipamDescription);
@@ -4065,6 +4095,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceDiscoveryAssociationCount) {
+      res["ResourceDiscoveryAssociationCount"] = boost::any(*resourceDiscoveryAssociationCount);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -4084,6 +4117,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DefaultResourceDiscoveryAssociationId") != m.end() && !m["DefaultResourceDiscoveryAssociationId"].empty()) {
+      defaultResourceDiscoveryAssociationId = make_shared<string>(boost::any_cast<string>(m["DefaultResourceDiscoveryAssociationId"]));
+    }
+    if (m.find("DefaultResourceDiscoveryId") != m.end() && !m["DefaultResourceDiscoveryId"].empty()) {
+      defaultResourceDiscoveryId = make_shared<string>(boost::any_cast<string>(m["DefaultResourceDiscoveryId"]));
     }
     if (m.find("IpamDescription") != m.end() && !m["IpamDescription"].empty()) {
       ipamDescription = make_shared<string>(boost::any_cast<string>(m["IpamDescription"]));
@@ -4118,6 +4157,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceDiscoveryAssociationCount") != m.end() && !m["ResourceDiscoveryAssociationCount"].empty()) {
+      resourceDiscoveryAssociationCount = make_shared<long>(boost::any_cast<long>(m["ResourceDiscoveryAssociationCount"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
