@@ -29,7 +29,7 @@ Alibabacloud_Dds20151201::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"cn-heyuan", "mongodb.aliyuncs.com"},
     {"cn-guangzhou", "mongodb.aliyuncs.com"},
     {"cn-chengdu", "mongodb.cn-chengdu.aliyuncs.com"},
-    {"cn-hongkong", "mongodb.aliyuncs.com"},
+    {"cn-hongkong", "mongodb.cn-hongkong.aliyuncs.com"},
     {"ap-northeast-1", "mongodb.ap-northeast-1.aliyuncs.com"},
     {"ap-southeast-1", "mongodb.ap-southeast-1.aliyuncs.com"},
     {"ap-southeast-2", "mongodb.ap-southeast-2.aliyuncs.com"},

@@ -8372,6 +8372,7 @@ public:
 class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceConfigserverListConfigserverAttribute : public Darabonba::Model {
 public:
   shared_ptr<string> connectString{};
+  shared_ptr<string> lockMode{};
   shared_ptr<long> maxConnections{};
   shared_ptr<long> maxIOPS{};
   shared_ptr<string> nodeClass{};
@@ -8393,6 +8394,9 @@ public:
     map<string, boost::any> res;
     if (connectString) {
       res["ConnectString"] = boost::any(*connectString);
+    }
+    if (lockMode) {
+      res["LockMode"] = boost::any(*lockMode);
     }
     if (maxConnections) {
       res["MaxConnections"] = boost::any(*maxConnections);
@@ -8424,6 +8428,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConnectString") != m.end() && !m["ConnectString"].empty()) {
       connectString = make_shared<string>(boost::any_cast<string>(m["ConnectString"]));
+    }
+    if (m.find("LockMode") != m.end() && !m["LockMode"].empty()) {
+      lockMode = make_shared<string>(boost::any_cast<string>(m["LockMode"]));
     }
     if (m.find("MaxConnections") != m.end() && !m["MaxConnections"].empty()) {
       maxConnections = make_shared<long>(boost::any_cast<long>(m["MaxConnections"]));
@@ -8500,6 +8507,7 @@ public:
 class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceMongosListMongosAttribute : public Darabonba::Model {
 public:
   shared_ptr<string> connectSting{};
+  shared_ptr<string> lockMode{};
   shared_ptr<long> maxConnections{};
   shared_ptr<long> maxIOPS{};
   shared_ptr<string> nodeClass{};
@@ -8523,6 +8531,9 @@ public:
     map<string, boost::any> res;
     if (connectSting) {
       res["ConnectSting"] = boost::any(*connectSting);
+    }
+    if (lockMode) {
+      res["LockMode"] = boost::any(*lockMode);
     }
     if (maxConnections) {
       res["MaxConnections"] = boost::any(*maxConnections);
@@ -8560,6 +8571,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConnectSting") != m.end() && !m["ConnectSting"].empty()) {
       connectSting = make_shared<string>(boost::any_cast<string>(m["ConnectSting"]));
+    }
+    if (m.find("LockMode") != m.end() && !m["LockMode"].empty()) {
+      lockMode = make_shared<string>(boost::any_cast<string>(m["LockMode"]));
     }
     if (m.find("MaxConnections") != m.end() && !m["MaxConnections"].empty()) {
       maxConnections = make_shared<long>(boost::any_cast<long>(m["MaxConnections"]));
@@ -8756,6 +8770,7 @@ public:
 class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardListShardAttribute : public Darabonba::Model {
 public:
   shared_ptr<string> connectString{};
+  shared_ptr<string> lockMode{};
   shared_ptr<long> maxConnections{};
   shared_ptr<string> maxDiskMbps{};
   shared_ptr<long> maxIOPS{};
@@ -8779,6 +8794,9 @@ public:
     map<string, boost::any> res;
     if (connectString) {
       res["ConnectString"] = boost::any(*connectString);
+    }
+    if (lockMode) {
+      res["LockMode"] = boost::any(*lockMode);
     }
     if (maxConnections) {
       res["MaxConnections"] = boost::any(*maxConnections);
@@ -8816,6 +8834,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConnectString") != m.end() && !m["ConnectString"].empty()) {
       connectString = make_shared<string>(boost::any_cast<string>(m["ConnectString"]));
+    }
+    if (m.find("LockMode") != m.end() && !m["LockMode"].empty()) {
+      lockMode = make_shared<string>(boost::any_cast<string>(m["LockMode"]));
     }
     if (m.find("MaxConnections") != m.end() && !m["MaxConnections"].empty()) {
       maxConnections = make_shared<long>(boost::any_cast<long>(m["MaxConnections"]));
