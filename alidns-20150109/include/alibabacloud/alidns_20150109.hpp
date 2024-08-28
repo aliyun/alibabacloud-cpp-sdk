@@ -31928,9 +31928,12 @@ public:
 class DescribePdnsUdpIpSegmentsResponseBodyIpSegments : public Darabonba::Model {
 public:
   shared_ptr<string> createDate{};
+  shared_ptr<long> createTimestamp{};
+  shared_ptr<string> id{};
   shared_ptr<string> ip{};
   shared_ptr<long> mask{};
   shared_ptr<string> name{};
+  shared_ptr<string> secretKey{};
   shared_ptr<string> state{};
   shared_ptr<string> updateDate{};
 
@@ -31947,6 +31950,12 @@ public:
     if (createDate) {
       res["CreateDate"] = boost::any(*createDate);
     }
+    if (createTimestamp) {
+      res["CreateTimestamp"] = boost::any(*createTimestamp);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
     if (ip) {
       res["Ip"] = boost::any(*ip);
     }
@@ -31955,6 +31964,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (secretKey) {
+      res["SecretKey"] = boost::any(*secretKey);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -31969,6 +31981,12 @@ public:
     if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
       createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
     }
+    if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
+      createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
     if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
       ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
     }
@@ -31977,6 +31995,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SecretKey") != m.end() && !m["SecretKey"].empty()) {
+      secretKey = make_shared<string>(boost::any_cast<string>(m["SecretKey"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -32152,6 +32173,7 @@ class DescribePdnsUserInfoResponseBodyUserInfo : public Darabonba::Model {
 public:
   shared_ptr<string> availableService{};
   shared_ptr<long> pdnsId{};
+  shared_ptr<string> secretKey{};
   shared_ptr<string> serviceType{};
   shared_ptr<string> state{};
   shared_ptr<string> statisticSwitchStatus{};
@@ -32172,6 +32194,9 @@ public:
     }
     if (pdnsId) {
       res["PdnsId"] = boost::any(*pdnsId);
+    }
+    if (secretKey) {
+      res["SecretKey"] = boost::any(*secretKey);
     }
     if (serviceType) {
       res["ServiceType"] = boost::any(*serviceType);
@@ -32194,6 +32219,9 @@ public:
     }
     if (m.find("PdnsId") != m.end() && !m["PdnsId"].empty()) {
       pdnsId = make_shared<long>(boost::any_cast<long>(m["PdnsId"]));
+    }
+    if (m.find("SecretKey") != m.end() && !m["SecretKey"].empty()) {
+      secretKey = make_shared<string>(boost::any_cast<string>(m["SecretKey"]));
     }
     if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
       serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
