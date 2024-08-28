@@ -664,6 +664,9 @@ CreateCenChildInstanceRouteEntryToCenResponse Alibabacloud_Cbn20170912::Client::
 CreateCenInterRegionTrafficQosPolicyResponse Alibabacloud_Cbn20170912::Client::createCenInterRegionTrafficQosPolicyWithOptions(shared_ptr<CreateCenInterRegionTrafficQosPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bandwidthGuaranteeMode)) {
+    query->insert(pair<string, string>("BandwidthGuaranteeMode", *request->bandwidthGuaranteeMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -722,6 +725,9 @@ CreateCenInterRegionTrafficQosPolicyResponse Alibabacloud_Cbn20170912::Client::c
 CreateCenInterRegionTrafficQosQueueResponse Alibabacloud_Cbn20170912::Client::createCenInterRegionTrafficQosQueueWithOptions(shared_ptr<CreateCenInterRegionTrafficQosQueueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->bandwidth)) {
+    query->insert(pair<string, long>("Bandwidth", *request->bandwidth));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -4787,6 +4793,9 @@ ListCenInterRegionTrafficQosPoliciesResponse Alibabacloud_Cbn20170912::Client::l
 ListCenInterRegionTrafficQosQueuesResponse Alibabacloud_Cbn20170912::Client::listCenInterRegionTrafficQosQueuesWithOptions(shared_ptr<ListCenInterRegionTrafficQosQueuesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter>(request->effectiveBandwidthFilter)) {
+    query->insert(pair<string, ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter>("EffectiveBandwidthFilter", *request->effectiveBandwidthFilter));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
@@ -7566,6 +7575,9 @@ UpdateCenInterRegionTrafficQosPolicyAttributeResponse Alibabacloud_Cbn20170912::
 UpdateCenInterRegionTrafficQosQueueAttributeResponse Alibabacloud_Cbn20170912::Client::updateCenInterRegionTrafficQosQueueAttributeWithOptions(shared_ptr<UpdateCenInterRegionTrafficQosQueueAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->bandwidth)) {
+    query->insert(pair<string, long>("Bandwidth", *request->bandwidth));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }

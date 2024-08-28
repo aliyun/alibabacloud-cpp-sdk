@@ -2361,6 +2361,7 @@ public:
 };
 class CreateCenInterRegionTrafficQosPolicyRequestTrafficQosQueues : public Darabonba::Model {
 public:
+  shared_ptr<string> bandwidth{};
   shared_ptr<vector<long>> dscps{};
   shared_ptr<string> qosQueueDescription{};
   shared_ptr<string> qosQueueName{};
@@ -2376,6 +2377,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
     if (dscps) {
       res["Dscps"] = boost::any(*dscps);
     }
@@ -2392,6 +2396,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<string>(boost::any_cast<string>(m["Bandwidth"]));
+    }
     if (m.find("Dscps") != m.end() && !m["Dscps"].empty()) {
       vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["Dscps"].type()) {
@@ -2418,6 +2425,7 @@ public:
 };
 class CreateCenInterRegionTrafficQosPolicyRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> bandwidthGuaranteeMode{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ownerAccount{};
@@ -2440,6 +2448,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidthGuaranteeMode) {
+      res["BandwidthGuaranteeMode"] = boost::any(*bandwidthGuaranteeMode);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -2481,6 +2492,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthGuaranteeMode") != m.end() && !m["BandwidthGuaranteeMode"].empty()) {
+      bandwidthGuaranteeMode = make_shared<string>(boost::any_cast<string>(m["BandwidthGuaranteeMode"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -2619,6 +2633,7 @@ public:
 };
 class CreateCenInterRegionTrafficQosQueueRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> bandwidth{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<vector<long>> dscps{};
@@ -2641,6 +2656,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -2678,6 +2696,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -21783,7 +21804,9 @@ public:
 };
 class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesTrafficQosQueues : public Darabonba::Model {
 public:
+  shared_ptr<string> bandwidth{};
   shared_ptr<vector<long>> dscps{};
+  shared_ptr<string> effectiveBandwidth{};
   shared_ptr<string> qosQueueDescription{};
   shared_ptr<string> qosQueueId{};
   shared_ptr<string> qosQueueName{};
@@ -21799,8 +21822,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
     if (dscps) {
       res["Dscps"] = boost::any(*dscps);
+    }
+    if (effectiveBandwidth) {
+      res["EffectiveBandwidth"] = boost::any(*effectiveBandwidth);
     }
     if (qosQueueDescription) {
       res["QosQueueDescription"] = boost::any(*qosQueueDescription);
@@ -21818,6 +21847,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<string>(boost::any_cast<string>(m["Bandwidth"]));
+    }
     if (m.find("Dscps") != m.end() && !m["Dscps"].empty()) {
       vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["Dscps"].type()) {
@@ -21827,6 +21859,9 @@ public:
         }
       }
       dscps = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("EffectiveBandwidth") != m.end() && !m["EffectiveBandwidth"].empty()) {
+      effectiveBandwidth = make_shared<string>(boost::any_cast<string>(m["EffectiveBandwidth"]));
     }
     if (m.find("QosQueueDescription") != m.end() && !m["QosQueueDescription"].empty()) {
       qosQueueDescription = make_shared<string>(boost::any_cast<string>(m["QosQueueDescription"]));
@@ -21847,6 +21882,7 @@ public:
 };
 class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies : public Darabonba::Model {
 public:
+  shared_ptr<string> bandwidthGuaranteeMode{};
   shared_ptr<string> trafficQosPolicyDescription{};
   shared_ptr<string> trafficQosPolicyId{};
   shared_ptr<string> trafficQosPolicyName{};
@@ -21865,6 +21901,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidthGuaranteeMode) {
+      res["BandwidthGuaranteeMode"] = boost::any(*bandwidthGuaranteeMode);
+    }
     if (trafficQosPolicyDescription) {
       res["TrafficQosPolicyDescription"] = boost::any(*trafficQosPolicyDescription);
     }
@@ -21894,6 +21933,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthGuaranteeMode") != m.end() && !m["BandwidthGuaranteeMode"].empty()) {
+      bandwidthGuaranteeMode = make_shared<string>(boost::any_cast<string>(m["BandwidthGuaranteeMode"]));
+    }
     if (m.find("TrafficQosPolicyDescription") != m.end() && !m["TrafficQosPolicyDescription"].empty()) {
       trafficQosPolicyDescription = make_shared<string>(boost::any_cast<string>(m["TrafficQosPolicyDescription"]));
     }
@@ -22053,8 +22095,45 @@ public:
 
   virtual ~ListCenInterRegionTrafficQosPoliciesResponse() = default;
 };
+class ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter : public Darabonba::Model {
+public:
+  shared_ptr<long> gte{};
+  shared_ptr<long> lte{};
+
+  ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter() {}
+
+  explicit ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gte) {
+      res["Gte"] = boost::any(*gte);
+    }
+    if (lte) {
+      res["Lte"] = boost::any(*lte);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Gte") != m.end() && !m["Gte"].empty()) {
+      gte = make_shared<long>(boost::any_cast<long>(m["Gte"]));
+    }
+    if (m.find("Lte") != m.end() && !m["Lte"].empty()) {
+      lte = make_shared<long>(boost::any_cast<long>(m["Lte"]));
+    }
+  }
+
+
+  virtual ~ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter() = default;
+};
 class ListCenInterRegionTrafficQosQueuesRequest : public Darabonba::Model {
 public:
+  shared_ptr<ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter> effectiveBandwidthFilter{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> ownerAccount{};
@@ -22078,6 +22157,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (effectiveBandwidthFilter) {
+      res["EffectiveBandwidthFilter"] = effectiveBandwidthFilter ? boost::any(effectiveBandwidthFilter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
@@ -22118,6 +22200,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EffectiveBandwidthFilter") != m.end() && !m["EffectiveBandwidthFilter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EffectiveBandwidthFilter"].type()) {
+        ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EffectiveBandwidthFilter"]));
+        effectiveBandwidthFilter = make_shared<ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter>(model1);
+      }
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -22161,7 +22250,9 @@ public:
 };
 class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues : public Darabonba::Model {
 public:
+  shared_ptr<string> bandwidth{};
   shared_ptr<vector<long>> dscps{};
+  shared_ptr<string> effectiveBandwidth{};
   shared_ptr<long> remainBandwidthPercent{};
   shared_ptr<string> status{};
   shared_ptr<string> trafficQosPolicyId{};
@@ -22181,8 +22272,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
     if (dscps) {
       res["Dscps"] = boost::any(*dscps);
+    }
+    if (effectiveBandwidth) {
+      res["EffectiveBandwidth"] = boost::any(*effectiveBandwidth);
     }
     if (remainBandwidthPercent) {
       res["RemainBandwidthPercent"] = boost::any(*remainBandwidthPercent);
@@ -22212,6 +22309,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<string>(boost::any_cast<string>(m["Bandwidth"]));
+    }
     if (m.find("Dscps") != m.end() && !m["Dscps"].empty()) {
       vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["Dscps"].type()) {
@@ -22221,6 +22321,9 @@ public:
         }
       }
       dscps = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("EffectiveBandwidth") != m.end() && !m["EffectiveBandwidth"].empty()) {
+      effectiveBandwidth = make_shared<string>(boost::any_cast<string>(m["EffectiveBandwidth"]));
     }
     if (m.find("RemainBandwidthPercent") != m.end() && !m["RemainBandwidthPercent"].empty()) {
       remainBandwidthPercent = make_shared<long>(boost::any_cast<long>(m["RemainBandwidthPercent"]));
@@ -35308,6 +35411,7 @@ public:
 };
 class UpdateCenInterRegionTrafficQosQueueAttributeRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> bandwidth{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<vector<long>> dscps{};
@@ -35330,6 +35434,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -35367,6 +35474,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
