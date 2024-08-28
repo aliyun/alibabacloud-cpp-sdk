@@ -26,7 +26,6 @@ Alibabacloud_R-kvstore20150101::Client::Client(const shared_ptr<Alibabacloud_Ope
     {"cn-shenzhen", "r-kvstore.aliyuncs.com"},
     {"cn-heyuan", "r-kvstore.aliyuncs.com"},
     {"cn-guangzhou", "r-kvstore.aliyuncs.com"},
-    {"cn-hongkong", "r-kvstore.aliyuncs.com"},
     {"cn-hangzhou-finance", "r-kvstore.aliyuncs.com"},
     {"cn-shanghai-finance-1", "r-kvstore.aliyuncs.com"},
     {"cn-shenzhen-finance-1", "r-kvstore.aliyuncs.com"},
@@ -3383,6 +3382,9 @@ DescribePriceResponse Alibabacloud_R-kvstore20150101::Client::describePriceWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->shardCount)) {
+    query->insert(pair<string, long>("ShardCount", *request->shardCount));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
     query->insert(pair<string, string>("ZoneId", *request->zoneId));
   }
@@ -5218,6 +5220,9 @@ ModifyInstanceParameterResponse Alibabacloud_R-kvstore20150101::Client::modifyIn
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->parameters)) {
     query->insert(pair<string, string>("Parameters", *request->parameters));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
