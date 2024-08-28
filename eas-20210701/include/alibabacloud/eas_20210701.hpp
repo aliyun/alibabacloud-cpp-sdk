@@ -1196,6 +1196,7 @@ public:
 };
 class CloneServiceRequest : public Darabonba::Model {
 public:
+  shared_ptr<map<string, string>> labels{};
   shared_ptr<string> body{};
 
   CloneServiceRequest() {}
@@ -1208,6 +1209,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
     if (body) {
       res["body"] = boost::any(*body);
     }
@@ -1215,6 +1219,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Labels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      labels = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       body = make_shared<string>(boost::any_cast<string>(m["body"]));
     }
@@ -1222,6 +1234,42 @@ public:
 
 
   virtual ~CloneServiceRequest() = default;
+};
+class CloneServiceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> labelsShrink{};
+  shared_ptr<string> body{};
+
+  CloneServiceShrinkRequest() {}
+
+  explicit CloneServiceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (labelsShrink) {
+      res["Labels"] = boost::any(*labelsShrink);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      labelsShrink = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<string>(boost::any_cast<string>(m["body"]));
+    }
+  }
+
+
+  virtual ~CloneServiceShrinkRequest() = default;
 };
 class CloneServiceResponseBody : public Darabonba::Model {
 public:
@@ -1426,6 +1474,223 @@ public:
 
 
   virtual ~CommitServiceResponse() = default;
+};
+class CreateAclPolicyRequestAclPolicyList : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> entry{};
+
+  CreateAclPolicyRequestAclPolicyList() {}
+
+  explicit CreateAclPolicyRequestAclPolicyList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (entry) {
+      res["Entry"] = boost::any(*entry);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("Entry") != m.end() && !m["Entry"].empty()) {
+      entry = make_shared<string>(boost::any_cast<string>(m["Entry"]));
+    }
+  }
+
+
+  virtual ~CreateAclPolicyRequestAclPolicyList() = default;
+};
+class CreateAclPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateAclPolicyRequestAclPolicyList>> aclPolicyList{};
+  shared_ptr<string> vpcId{};
+
+  CreateAclPolicyRequest() {}
+
+  explicit CreateAclPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclPolicyList) {
+      vector<boost::any> temp1;
+      for(auto item1:*aclPolicyList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AclPolicyList"] = boost::any(temp1);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclPolicyList") != m.end() && !m["AclPolicyList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AclPolicyList"].type()) {
+        vector<CreateAclPolicyRequestAclPolicyList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AclPolicyList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAclPolicyRequestAclPolicyList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        aclPolicyList = make_shared<vector<CreateAclPolicyRequestAclPolicyList>>(expect1);
+      }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~CreateAclPolicyRequest() = default;
+};
+class CreateAclPolicyShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aclPolicyListShrink{};
+  shared_ptr<string> vpcId{};
+
+  CreateAclPolicyShrinkRequest() {}
+
+  explicit CreateAclPolicyShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclPolicyListShrink) {
+      res["AclPolicyList"] = boost::any(*aclPolicyListShrink);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclPolicyList") != m.end() && !m["AclPolicyList"].empty()) {
+      aclPolicyListShrink = make_shared<string>(boost::any_cast<string>(m["AclPolicyList"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~CreateAclPolicyShrinkRequest() = default;
+};
+class CreateAclPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> gatewayId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  CreateAclPolicyResponseBody() {}
+
+  explicit CreateAclPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<string>(boost::any_cast<string>(m["GatewayId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateAclPolicyResponseBody() = default;
+};
+class CreateAclPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateAclPolicyResponseBody> body{};
+
+  CreateAclPolicyResponse() {}
+
+  explicit CreateAclPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateAclPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAclPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAclPolicyResponse() = default;
 };
 class CreateAppServiceRequest : public Darabonba::Model {
 public:
@@ -1771,6 +2036,7 @@ public:
   shared_ptr<bool> enableIntranet{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> name{};
+  shared_ptr<long> replicas{};
 
   CreateGatewayRequest() {}
 
@@ -1797,6 +2063,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (replicas) {
+      res["Replicas"] = boost::any(*replicas);
+    }
     return res;
   }
 
@@ -1815,6 +2084,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
+      replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
     }
   }
 
@@ -3570,6 +3842,223 @@ public:
 
   virtual ~CreateServiceMirrorResponse() = default;
 };
+class DeleteAclPolicyRequestAclPolicyList : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> entry{};
+
+  DeleteAclPolicyRequestAclPolicyList() {}
+
+  explicit DeleteAclPolicyRequestAclPolicyList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (entry) {
+      res["Entry"] = boost::any(*entry);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("Entry") != m.end() && !m["Entry"].empty()) {
+      entry = make_shared<string>(boost::any_cast<string>(m["Entry"]));
+    }
+  }
+
+
+  virtual ~DeleteAclPolicyRequestAclPolicyList() = default;
+};
+class DeleteAclPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<DeleteAclPolicyRequestAclPolicyList>> aclPolicyList{};
+  shared_ptr<string> vpcId{};
+
+  DeleteAclPolicyRequest() {}
+
+  explicit DeleteAclPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclPolicyList) {
+      vector<boost::any> temp1;
+      for(auto item1:*aclPolicyList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AclPolicyList"] = boost::any(temp1);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclPolicyList") != m.end() && !m["AclPolicyList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AclPolicyList"].type()) {
+        vector<DeleteAclPolicyRequestAclPolicyList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AclPolicyList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DeleteAclPolicyRequestAclPolicyList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        aclPolicyList = make_shared<vector<DeleteAclPolicyRequestAclPolicyList>>(expect1);
+      }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~DeleteAclPolicyRequest() = default;
+};
+class DeleteAclPolicyShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aclPolicyListShrink{};
+  shared_ptr<string> vpcId{};
+
+  DeleteAclPolicyShrinkRequest() {}
+
+  explicit DeleteAclPolicyShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclPolicyListShrink) {
+      res["AclPolicyList"] = boost::any(*aclPolicyListShrink);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclPolicyList") != m.end() && !m["AclPolicyList"].empty()) {
+      aclPolicyListShrink = make_shared<string>(boost::any_cast<string>(m["AclPolicyList"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~DeleteAclPolicyShrinkRequest() = default;
+};
+class DeleteAclPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> gatewayId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DeleteAclPolicyResponseBody() {}
+
+  explicit DeleteAclPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<string>(boost::any_cast<string>(m["GatewayId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteAclPolicyResponseBody() = default;
+};
+class DeleteAclPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAclPolicyResponseBody> body{};
+
+  DeleteAclPolicyResponse() {}
+
+  explicit DeleteAclPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAclPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAclPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAclPolicyResponse() = default;
+};
 class DeleteBenchmarkTaskResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> message{};
@@ -5197,122 +5686,19 @@ public:
 
   virtual ~DescribeBenchmarkTaskReportResponse() = default;
 };
-class DescribeGatewayResponseBodyInternetAclPolicyList : public Darabonba::Model {
-public:
-  shared_ptr<string> comment{};
-  shared_ptr<string> entry{};
-  shared_ptr<string> status{};
-
-  DescribeGatewayResponseBodyInternetAclPolicyList() {}
-
-  explicit DescribeGatewayResponseBodyInternetAclPolicyList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (comment) {
-      res["Comment"] = boost::any(*comment);
-    }
-    if (entry) {
-      res["Entry"] = boost::any(*entry);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
-      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
-    }
-    if (m.find("Entry") != m.end() && !m["Entry"].empty()) {
-      entry = make_shared<string>(boost::any_cast<string>(m["Entry"]));
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
-    }
-  }
-
-
-  virtual ~DescribeGatewayResponseBodyInternetAclPolicyList() = default;
-};
-class DescribeGatewayResponseBodyIntranetLinkedVpcList : public Darabonba::Model {
-public:
-  shared_ptr<string> ip{};
-  shared_ptr<string> securityGroupId{};
-  shared_ptr<string> status{};
-  shared_ptr<string> vSwitchId{};
-  shared_ptr<string> vpcId{};
-
-  DescribeGatewayResponseBodyIntranetLinkedVpcList() {}
-
-  explicit DescribeGatewayResponseBodyIntranetLinkedVpcList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (ip) {
-      res["Ip"] = boost::any(*ip);
-    }
-    if (securityGroupId) {
-      res["SecurityGroupId"] = boost::any(*securityGroupId);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
-    }
-    if (vSwitchId) {
-      res["VSwitchId"] = boost::any(*vSwitchId);
-    }
-    if (vpcId) {
-      res["VpcId"] = boost::any(*vpcId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
-      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
-    }
-    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
-      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
-    }
-    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
-      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
-    }
-    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
-      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
-    }
-  }
-
-
-  virtual ~DescribeGatewayResponseBodyIntranetLinkedVpcList() = default;
-};
 class DescribeGatewayResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> callerUid{};
   shared_ptr<string> createTime{};
   shared_ptr<string> externalClusterId{};
   shared_ptr<string> gatewayId{};
   shared_ptr<string> gatewayName{};
   shared_ptr<string> instanceType{};
-  shared_ptr<vector<DescribeGatewayResponseBodyInternetAclPolicyList>> internetAclPolicyList{};
   shared_ptr<string> internetDomain{};
   shared_ptr<bool> internetEnabled{};
+  shared_ptr<string> internetStatus{};
   shared_ptr<string> intranetDomain{};
-  shared_ptr<bool> intranetEnabled{};
-  shared_ptr<vector<DescribeGatewayResponseBodyIntranetLinkedVpcList>> intranetLinkedVpcList{};
-  shared_ptr<string> parentUid{};
-  shared_ptr<string> region{};
+  shared_ptr<bool> isDefault{};
+  shared_ptr<long> replicas{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
@@ -5327,9 +5713,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (callerUid) {
-      res["CallerUid"] = boost::any(*callerUid);
-    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -5345,37 +5728,23 @@ public:
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
     }
-    if (internetAclPolicyList) {
-      vector<boost::any> temp1;
-      for(auto item1:*internetAclPolicyList){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["InternetAclPolicyList"] = boost::any(temp1);
-    }
     if (internetDomain) {
       res["InternetDomain"] = boost::any(*internetDomain);
     }
     if (internetEnabled) {
       res["InternetEnabled"] = boost::any(*internetEnabled);
     }
+    if (internetStatus) {
+      res["InternetStatus"] = boost::any(*internetStatus);
+    }
     if (intranetDomain) {
       res["IntranetDomain"] = boost::any(*intranetDomain);
     }
-    if (intranetEnabled) {
-      res["IntranetEnabled"] = boost::any(*intranetEnabled);
+    if (isDefault) {
+      res["IsDefault"] = boost::any(*isDefault);
     }
-    if (intranetLinkedVpcList) {
-      vector<boost::any> temp1;
-      for(auto item1:*intranetLinkedVpcList){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["IntranetLinkedVpcList"] = boost::any(temp1);
-    }
-    if (parentUid) {
-      res["ParentUid"] = boost::any(*parentUid);
-    }
-    if (region) {
-      res["Region"] = boost::any(*region);
+    if (replicas) {
+      res["Replicas"] = boost::any(*replicas);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -5390,9 +5759,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("CallerUid") != m.end() && !m["CallerUid"].empty()) {
-      callerUid = make_shared<string>(boost::any_cast<string>(m["CallerUid"]));
-    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
@@ -5408,49 +5774,23 @@ public:
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
-    if (m.find("InternetAclPolicyList") != m.end() && !m["InternetAclPolicyList"].empty()) {
-      if (typeid(vector<boost::any>) == m["InternetAclPolicyList"].type()) {
-        vector<DescribeGatewayResponseBodyInternetAclPolicyList> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["InternetAclPolicyList"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeGatewayResponseBodyInternetAclPolicyList model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        internetAclPolicyList = make_shared<vector<DescribeGatewayResponseBodyInternetAclPolicyList>>(expect1);
-      }
-    }
     if (m.find("InternetDomain") != m.end() && !m["InternetDomain"].empty()) {
       internetDomain = make_shared<string>(boost::any_cast<string>(m["InternetDomain"]));
     }
     if (m.find("InternetEnabled") != m.end() && !m["InternetEnabled"].empty()) {
       internetEnabled = make_shared<bool>(boost::any_cast<bool>(m["InternetEnabled"]));
     }
+    if (m.find("InternetStatus") != m.end() && !m["InternetStatus"].empty()) {
+      internetStatus = make_shared<string>(boost::any_cast<string>(m["InternetStatus"]));
+    }
     if (m.find("IntranetDomain") != m.end() && !m["IntranetDomain"].empty()) {
       intranetDomain = make_shared<string>(boost::any_cast<string>(m["IntranetDomain"]));
     }
-    if (m.find("IntranetEnabled") != m.end() && !m["IntranetEnabled"].empty()) {
-      intranetEnabled = make_shared<bool>(boost::any_cast<bool>(m["IntranetEnabled"]));
+    if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
+      isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
     }
-    if (m.find("IntranetLinkedVpcList") != m.end() && !m["IntranetLinkedVpcList"].empty()) {
-      if (typeid(vector<boost::any>) == m["IntranetLinkedVpcList"].type()) {
-        vector<DescribeGatewayResponseBodyIntranetLinkedVpcList> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["IntranetLinkedVpcList"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeGatewayResponseBodyIntranetLinkedVpcList model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        intranetLinkedVpcList = make_shared<vector<DescribeGatewayResponseBodyIntranetLinkedVpcList>>(expect1);
-      }
-    }
-    if (m.find("ParentUid") != m.end() && !m["ParentUid"].empty()) {
-      parentUid = make_shared<string>(boost::any_cast<string>(m["ParentUid"]));
-    }
-    if (m.find("Region") != m.end() && !m["Region"].empty()) {
-      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
+      replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -7629,6 +7969,287 @@ public:
 
   virtual ~DevelopServiceResponse() = default;
 };
+class ListAclPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> vpcId{};
+
+  ListAclPolicyRequest() {}
+
+  explicit ListAclPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~ListAclPolicyRequest() = default;
+};
+class ListAclPolicyResponseBodyInternetAclPolicyList : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> entry{};
+
+  ListAclPolicyResponseBodyInternetAclPolicyList() {}
+
+  explicit ListAclPolicyResponseBodyInternetAclPolicyList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (entry) {
+      res["Entry"] = boost::any(*entry);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("Entry") != m.end() && !m["Entry"].empty()) {
+      entry = make_shared<string>(boost::any_cast<string>(m["Entry"]));
+    }
+  }
+
+
+  virtual ~ListAclPolicyResponseBodyInternetAclPolicyList() = default;
+};
+class ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> entry{};
+
+  ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList() {}
+
+  explicit ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (entry) {
+      res["Entry"] = boost::any(*entry);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("Entry") != m.end() && !m["Entry"].empty()) {
+      entry = make_shared<string>(boost::any_cast<string>(m["Entry"]));
+    }
+  }
+
+
+  virtual ~ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList() = default;
+};
+class ListAclPolicyResponseBodyIntranetVpcAclPolicyList : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList>> intranetAclPolicyList{};
+  shared_ptr<string> vpcId{};
+
+  ListAclPolicyResponseBodyIntranetVpcAclPolicyList() {}
+
+  explicit ListAclPolicyResponseBodyIntranetVpcAclPolicyList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (intranetAclPolicyList) {
+      vector<boost::any> temp1;
+      for(auto item1:*intranetAclPolicyList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IntranetAclPolicyList"] = boost::any(temp1);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IntranetAclPolicyList") != m.end() && !m["IntranetAclPolicyList"].empty()) {
+      if (typeid(vector<boost::any>) == m["IntranetAclPolicyList"].type()) {
+        vector<ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IntranetAclPolicyList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        intranetAclPolicyList = make_shared<vector<ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList>>(expect1);
+      }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~ListAclPolicyResponseBodyIntranetVpcAclPolicyList() = default;
+};
+class ListAclPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> gatewayId{};
+  shared_ptr<vector<ListAclPolicyResponseBodyInternetAclPolicyList>> internetAclPolicyList{};
+  shared_ptr<vector<ListAclPolicyResponseBodyIntranetVpcAclPolicyList>> intranetVpcAclPolicyList{};
+  shared_ptr<string> requestId{};
+
+  ListAclPolicyResponseBody() {}
+
+  explicit ListAclPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (internetAclPolicyList) {
+      vector<boost::any> temp1;
+      for(auto item1:*internetAclPolicyList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InternetAclPolicyList"] = boost::any(temp1);
+    }
+    if (intranetVpcAclPolicyList) {
+      vector<boost::any> temp1;
+      for(auto item1:*intranetVpcAclPolicyList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IntranetVpcAclPolicyList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<string>(boost::any_cast<string>(m["GatewayId"]));
+    }
+    if (m.find("InternetAclPolicyList") != m.end() && !m["InternetAclPolicyList"].empty()) {
+      if (typeid(vector<boost::any>) == m["InternetAclPolicyList"].type()) {
+        vector<ListAclPolicyResponseBodyInternetAclPolicyList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InternetAclPolicyList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAclPolicyResponseBodyInternetAclPolicyList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        internetAclPolicyList = make_shared<vector<ListAclPolicyResponseBodyInternetAclPolicyList>>(expect1);
+      }
+    }
+    if (m.find("IntranetVpcAclPolicyList") != m.end() && !m["IntranetVpcAclPolicyList"].empty()) {
+      if (typeid(vector<boost::any>) == m["IntranetVpcAclPolicyList"].type()) {
+        vector<ListAclPolicyResponseBodyIntranetVpcAclPolicyList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IntranetVpcAclPolicyList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAclPolicyResponseBodyIntranetVpcAclPolicyList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        intranetVpcAclPolicyList = make_shared<vector<ListAclPolicyResponseBodyIntranetVpcAclPolicyList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListAclPolicyResponseBody() = default;
+};
+class ListAclPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListAclPolicyResponseBody> body{};
+
+  ListAclPolicyResponse() {}
+
+  explicit ListAclPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListAclPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListAclPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAclPolicyResponse() = default;
+};
 class ListBenchmarkTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filter{};
@@ -7886,6 +8507,278 @@ public:
 
 
   virtual ~ListBenchmarkTaskResponse() = default;
+};
+class ListGatewayRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> gatewayId{};
+  shared_ptr<string> gatewayName{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  ListGatewayRequest() {}
+
+  explicit ListGatewayRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayName) {
+      res["GatewayName"] = boost::any(*gatewayName);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<string>(boost::any_cast<string>(m["GatewayId"]));
+    }
+    if (m.find("GatewayName") != m.end() && !m["GatewayName"].empty()) {
+      gatewayName = make_shared<string>(boost::any_cast<string>(m["GatewayName"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListGatewayRequest() = default;
+};
+class ListGatewayResponseBodyGateways : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> gatewayId{};
+  shared_ptr<string> gatewayName{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> internetDomain{};
+  shared_ptr<bool> internetEnabled{};
+  shared_ptr<string> intranetDomain{};
+  shared_ptr<bool> isDefault{};
+  shared_ptr<long> replicas{};
+  shared_ptr<string> status{};
+  shared_ptr<string> updateTime{};
+
+  ListGatewayResponseBodyGateways() {}
+
+  explicit ListGatewayResponseBodyGateways(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayName) {
+      res["GatewayName"] = boost::any(*gatewayName);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (internetDomain) {
+      res["InternetDomain"] = boost::any(*internetDomain);
+    }
+    if (internetEnabled) {
+      res["InternetEnabled"] = boost::any(*internetEnabled);
+    }
+    if (intranetDomain) {
+      res["IntranetDomain"] = boost::any(*intranetDomain);
+    }
+    if (isDefault) {
+      res["IsDefault"] = boost::any(*isDefault);
+    }
+    if (replicas) {
+      res["Replicas"] = boost::any(*replicas);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<string>(boost::any_cast<string>(m["GatewayId"]));
+    }
+    if (m.find("GatewayName") != m.end() && !m["GatewayName"].empty()) {
+      gatewayName = make_shared<string>(boost::any_cast<string>(m["GatewayName"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("InternetDomain") != m.end() && !m["InternetDomain"].empty()) {
+      internetDomain = make_shared<string>(boost::any_cast<string>(m["InternetDomain"]));
+    }
+    if (m.find("InternetEnabled") != m.end() && !m["InternetEnabled"].empty()) {
+      internetEnabled = make_shared<bool>(boost::any_cast<bool>(m["InternetEnabled"]));
+    }
+    if (m.find("IntranetDomain") != m.end() && !m["IntranetDomain"].empty()) {
+      intranetDomain = make_shared<string>(boost::any_cast<string>(m["IntranetDomain"]));
+    }
+    if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
+      isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
+    }
+    if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
+      replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+  }
+
+
+  virtual ~ListGatewayResponseBodyGateways() = default;
+};
+class ListGatewayResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListGatewayResponseBodyGateways>> gateways{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListGatewayResponseBody() {}
+
+  explicit ListGatewayResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gateways) {
+      vector<boost::any> temp1;
+      for(auto item1:*gateways){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Gateways"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Gateways") != m.end() && !m["Gateways"].empty()) {
+      if (typeid(vector<boost::any>) == m["Gateways"].type()) {
+        vector<ListGatewayResponseBodyGateways> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Gateways"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListGatewayResponseBodyGateways model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        gateways = make_shared<vector<ListGatewayResponseBodyGateways>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListGatewayResponseBody() = default;
+};
+class ListGatewayResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListGatewayResponseBody> body{};
+
+  ListGatewayResponse() {}
+
+  explicit ListGatewayResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListGatewayResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListGatewayResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListGatewayResponse() = default;
 };
 class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList : public Darabonba::Model {
 public:
@@ -9510,6 +10403,7 @@ public:
 class ListServicesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filter{};
+  shared_ptr<string> gateway{};
   shared_ptr<string> groupName{};
   shared_ptr<map<string, string>> label{};
   shared_ptr<string> order{};
@@ -9537,6 +10431,9 @@ public:
     map<string, boost::any> res;
     if (filter) {
       res["Filter"] = boost::any(*filter);
+    }
+    if (gateway) {
+      res["Gateway"] = boost::any(*gateway);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
@@ -9586,6 +10483,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("Gateway") != m.end() && !m["Gateway"].empty()) {
+      gateway = make_shared<string>(boost::any_cast<string>(m["Gateway"]));
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
@@ -9642,6 +10542,7 @@ public:
 class ListServicesShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filter{};
+  shared_ptr<string> gateway{};
   shared_ptr<string> groupName{};
   shared_ptr<string> labelShrink{};
   shared_ptr<string> order{};
@@ -9669,6 +10570,9 @@ public:
     map<string, boost::any> res;
     if (filter) {
       res["Filter"] = boost::any(*filter);
+    }
+    if (gateway) {
+      res["Gateway"] = boost::any(*gateway);
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
@@ -9718,6 +10622,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("Gateway") != m.end() && !m["Gateway"].empty()) {
+      gateway = make_shared<string>(boost::any_cast<string>(m["Gateway"]));
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
@@ -10739,7 +11646,9 @@ public:
   shared_ptr<bool> enableInternet{};
   shared_ptr<bool> enableIntranet{};
   shared_ptr<string> instanceType{};
+  shared_ptr<bool> isDefault{};
   shared_ptr<string> name{};
+  shared_ptr<long> replicas{};
 
   UpdateGatewayRequest() {}
 
@@ -10760,8 +11669,14 @@ public:
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
     }
+    if (isDefault) {
+      res["IsDefault"] = boost::any(*isDefault);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (replicas) {
+      res["Replicas"] = boost::any(*replicas);
     }
     return res;
   }
@@ -10776,8 +11691,14 @@ public:
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
+    if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
+      isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
+      replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
     }
   }
 
@@ -12664,7 +13585,7 @@ public:
                      shared_ptr<string> endpoint);
   CloneServiceResponse cloneServiceWithOptions(shared_ptr<string> ClusterId,
                                                shared_ptr<string> ServiceName,
-                                               shared_ptr<CloneServiceRequest> request,
+                                               shared_ptr<CloneServiceRequest> tmpReq,
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CloneServiceResponse cloneService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CloneServiceRequest> request);
@@ -12673,6 +13594,12 @@ public:
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CommitServiceResponse commitService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  CreateAclPolicyResponse createAclPolicyWithOptions(shared_ptr<string> ClusterId,
+                                                     shared_ptr<string> GatewayId,
+                                                     shared_ptr<CreateAclPolicyRequest> tmpReq,
+                                                     shared_ptr<map<string, string>> headers,
+                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAclPolicyResponse createAclPolicy(shared_ptr<string> ClusterId, shared_ptr<string> GatewayId, shared_ptr<CreateAclPolicyRequest> request);
   CreateAppServiceResponse createAppServiceWithOptions(shared_ptr<CreateAppServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAppServiceResponse createAppService(shared_ptr<CreateAppServiceRequest> request);
   CreateBenchmarkTaskResponse createBenchmarkTaskWithOptions(shared_ptr<CreateBenchmarkTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -12719,6 +13646,12 @@ public:
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateServiceMirrorResponse createServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CreateServiceMirrorRequest> request);
+  DeleteAclPolicyResponse deleteAclPolicyWithOptions(shared_ptr<string> ClusterId,
+                                                     shared_ptr<string> GatewayId,
+                                                     shared_ptr<DeleteAclPolicyRequest> tmpReq,
+                                                     shared_ptr<map<string, string>> headers,
+                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAclPolicyResponse deleteAclPolicy(shared_ptr<string> ClusterId, shared_ptr<string> GatewayId, shared_ptr<DeleteAclPolicyRequest> request);
   DeleteBenchmarkTaskResponse deleteBenchmarkTaskWithOptions(shared_ptr<string> ClusterId,
                                                              shared_ptr<string> TaskName,
                                                              shared_ptr<map<string, string>> headers,
@@ -12875,8 +13808,16 @@ public:
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DevelopServiceResponse developService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DevelopServiceRequest> request);
+  ListAclPolicyResponse listAclPolicyWithOptions(shared_ptr<string> ClusterId,
+                                                 shared_ptr<string> GatewayId,
+                                                 shared_ptr<ListAclPolicyRequest> request,
+                                                 shared_ptr<map<string, string>> headers,
+                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAclPolicyResponse listAclPolicy(shared_ptr<string> ClusterId, shared_ptr<string> GatewayId, shared_ptr<ListAclPolicyRequest> request);
   ListBenchmarkTaskResponse listBenchmarkTaskWithOptions(shared_ptr<ListBenchmarkTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListBenchmarkTaskResponse listBenchmarkTask(shared_ptr<ListBenchmarkTaskRequest> request);
+  ListGatewayResponse listGatewayWithOptions(shared_ptr<ListGatewayRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListGatewayResponse listGateway(shared_ptr<ListGatewayRequest> request);
   ListGatewayIntranetLinkedVpcResponse listGatewayIntranetLinkedVpcWithOptions(shared_ptr<string> ClusterId,
                                                                                shared_ptr<string> GatewayId,
                                                                                shared_ptr<map<string, string>> headers,

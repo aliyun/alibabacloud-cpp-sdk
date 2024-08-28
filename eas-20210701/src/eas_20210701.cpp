@@ -57,12 +57,22 @@ string Alibabacloud_Eas20210701::Client::getEndpoint(shared_ptr<string> productI
 
 CloneServiceResponse Alibabacloud_Eas20210701::Client::cloneServiceWithOptions(shared_ptr<string> ClusterId,
                                                                                shared_ptr<string> ServiceName,
-                                                                               shared_ptr<CloneServiceRequest> request,
+                                                                               shared_ptr<CloneServiceRequest> tmpReq,
                                                                                shared_ptr<map<string, string>> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CloneServiceShrinkRequest> request = make_shared<CloneServiceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->labels)) {
+    request->labelsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->labels, make_shared<string>("Labels"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->labelsShrink)) {
+    query->insert(pair<string, string>("Labels", *request->labelsShrink));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", !request->body ? boost::any() : boost::any(*request->body)}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -110,6 +120,48 @@ CommitServiceResponse Alibabacloud_Eas20210701::Client::commitService(shared_ptr
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return commitServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+}
+
+CreateAclPolicyResponse Alibabacloud_Eas20210701::Client::createAclPolicyWithOptions(shared_ptr<string> ClusterId,
+                                                                                     shared_ptr<string> GatewayId,
+                                                                                     shared_ptr<CreateAclPolicyRequest> tmpReq,
+                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateAclPolicyShrinkRequest> request = make_shared<CreateAclPolicyShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAclPolicyRequestAclPolicyList>>(tmpReq->aclPolicyList)) {
+    request->aclPolicyListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->aclPolicyList, make_shared<string>("AclPolicyList"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aclPolicyListShrink)) {
+    query->insert(pair<string, string>("AclPolicyList", *request->aclPolicyListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateAclPolicy"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/gateways/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(GatewayId)) + string("/acl_policy"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateAclPolicyResponse(callApi(params, req, runtime));
+}
+
+CreateAclPolicyResponse Alibabacloud_Eas20210701::Client::createAclPolicy(shared_ptr<string> ClusterId, shared_ptr<string> GatewayId, shared_ptr<CreateAclPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createAclPolicyWithOptions(ClusterId, GatewayId, request, headers, runtime);
 }
 
 CreateAppServiceResponse Alibabacloud_Eas20210701::Client::createAppServiceWithOptions(shared_ptr<CreateAppServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -209,6 +261,9 @@ CreateGatewayResponse Alibabacloud_Eas20210701::Client::createGatewayWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->replicas)) {
+    body->insert(pair<string, long>("Replicas", *request->replicas));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -569,6 +624,48 @@ CreateServiceMirrorResponse Alibabacloud_Eas20210701::Client::createServiceMirro
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return createServiceMirrorWithOptions(ClusterId, ServiceName, request, headers, runtime);
+}
+
+DeleteAclPolicyResponse Alibabacloud_Eas20210701::Client::deleteAclPolicyWithOptions(shared_ptr<string> ClusterId,
+                                                                                     shared_ptr<string> GatewayId,
+                                                                                     shared_ptr<DeleteAclPolicyRequest> tmpReq,
+                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteAclPolicyShrinkRequest> request = make_shared<DeleteAclPolicyShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<DeleteAclPolicyRequestAclPolicyList>>(tmpReq->aclPolicyList)) {
+    request->aclPolicyListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->aclPolicyList, make_shared<string>("AclPolicyList"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aclPolicyListShrink)) {
+    query->insert(pair<string, string>("AclPolicyList", *request->aclPolicyListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteAclPolicy"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/gateways/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(GatewayId)) + string("/acl_policy"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteAclPolicyResponse(callApi(params, req, runtime));
+}
+
+DeleteAclPolicyResponse Alibabacloud_Eas20210701::Client::deleteAclPolicy(shared_ptr<string> ClusterId, shared_ptr<string> GatewayId, shared_ptr<DeleteAclPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteAclPolicyWithOptions(ClusterId, GatewayId, request, headers, runtime);
 }
 
 DeleteBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::deleteBenchmarkTaskWithOptions(shared_ptr<string> ClusterId,
@@ -1500,6 +1597,40 @@ DevelopServiceResponse Alibabacloud_Eas20210701::Client::developService(shared_p
   return developServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
+ListAclPolicyResponse Alibabacloud_Eas20210701::Client::listAclPolicyWithOptions(shared_ptr<string> ClusterId,
+                                                                                 shared_ptr<string> GatewayId,
+                                                                                 shared_ptr<ListAclPolicyRequest> request,
+                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListAclPolicy"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/gateways/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(GatewayId)) + string("/acl_policy"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListAclPolicyResponse(callApi(params, req, runtime));
+}
+
+ListAclPolicyResponse Alibabacloud_Eas20210701::Client::listAclPolicy(shared_ptr<string> ClusterId, shared_ptr<string> GatewayId, shared_ptr<ListAclPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listAclPolicyWithOptions(ClusterId, GatewayId, request, headers, runtime);
+}
+
 ListBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::listBenchmarkTaskWithOptions(shared_ptr<ListBenchmarkTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1537,6 +1668,45 @@ ListBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::listBenchmarkTask(sh
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listBenchmarkTaskWithOptions(request, headers, runtime);
+}
+
+ListGatewayResponse Alibabacloud_Eas20210701::Client::listGatewayWithOptions(shared_ptr<ListGatewayRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayId)) {
+    query->insert(pair<string, string>("GatewayId", *request->gatewayId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayName)) {
+    query->insert(pair<string, string>("GatewayName", *request->gatewayName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListGateway"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/gateways"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListGatewayResponse(callApi(params, req, runtime));
+}
+
+ListGatewayResponse Alibabacloud_Eas20210701::Client::listGateway(shared_ptr<ListGatewayRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listGatewayWithOptions(request, headers, runtime);
 }
 
 ListGatewayIntranetLinkedVpcResponse Alibabacloud_Eas20210701::Client::listGatewayIntranetLinkedVpcWithOptions(shared_ptr<string> ClusterId,
@@ -1932,6 +2102,9 @@ ListServicesResponse Alibabacloud_Eas20210701::Client::listServicesWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     query->insert(pair<string, string>("Filter", *request->filter));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gateway)) {
+    query->insert(pair<string, string>("Gateway", *request->gateway));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
   }
@@ -2270,8 +2443,14 @@ UpdateGatewayResponse Alibabacloud_Eas20210701::Client::updateGatewayWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
     body->insert(pair<string, string>("InstanceType", *request->instanceType));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isDefault)) {
+    body->insert(pair<string, bool>("IsDefault", *request->isDefault));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->replicas)) {
+    body->insert(pair<string, long>("Replicas", *request->replicas));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
