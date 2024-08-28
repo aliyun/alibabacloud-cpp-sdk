@@ -2171,6 +2171,57 @@ ListServicesResponse Alibabacloud_Eas20210701::Client::listServices(shared_ptr<L
   return listServicesWithOptions(request, headers, runtime);
 }
 
+ListTenantAddonsResponse Alibabacloud_Eas20210701::Client::listTenantAddonsWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTenantAddons"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/tenantaddons"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTenantAddonsResponse(callApi(params, req, runtime));
+}
+
+ListTenantAddonsResponse Alibabacloud_Eas20210701::Client::listTenantAddons() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listTenantAddonsWithOptions(headers, runtime);
+}
+
+ReinstallTenantAddonResponse Alibabacloud_Eas20210701::Client::reinstallTenantAddonWithOptions(shared_ptr<string> ClusterId,
+                                                                                               shared_ptr<string> TenantAddonName,
+                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ReinstallTenantAddon"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/tenantaddons/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TenantAddonName)) + string("/reinstall"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ReinstallTenantAddonResponse(callApi(params, req, runtime));
+}
+
+ReinstallTenantAddonResponse Alibabacloud_Eas20210701::Client::reinstallTenantAddon(shared_ptr<string> ClusterId, shared_ptr<string> TenantAddonName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return reinstallTenantAddonWithOptions(ClusterId, TenantAddonName, headers, runtime);
+}
+
 ReleaseServiceResponse Alibabacloud_Eas20210701::Client::releaseServiceWithOptions(shared_ptr<string> ClusterId,
                                                                                    shared_ptr<string> ServiceName,
                                                                                    shared_ptr<ReleaseServiceRequest> request,

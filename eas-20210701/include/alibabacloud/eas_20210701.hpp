@@ -10796,6 +10796,237 @@ public:
 
   virtual ~ListServicesResponse() = default;
 };
+class ListTenantAddonsResponseBodyAddons : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> attributes{};
+  shared_ptr<string> name{};
+
+  ListTenantAddonsResponseBodyAddons() {}
+
+  explicit ListTenantAddonsResponseBodyAddons(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attributes) {
+      res["Attributes"] = boost::any(*attributes);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Attributes") != m.end() && !m["Attributes"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Attributes"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      attributes = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~ListTenantAddonsResponseBodyAddons() = default;
+};
+class ListTenantAddonsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListTenantAddonsResponseBodyAddons>> addons{};
+  shared_ptr<string> requestId{};
+
+  ListTenantAddonsResponseBody() {}
+
+  explicit ListTenantAddonsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addons) {
+      vector<boost::any> temp1;
+      for(auto item1:*addons){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Addons"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Addons") != m.end() && !m["Addons"].empty()) {
+      if (typeid(vector<boost::any>) == m["Addons"].type()) {
+        vector<ListTenantAddonsResponseBodyAddons> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Addons"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTenantAddonsResponseBodyAddons model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        addons = make_shared<vector<ListTenantAddonsResponseBodyAddons>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListTenantAddonsResponseBody() = default;
+};
+class ListTenantAddonsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListTenantAddonsResponseBody> body{};
+
+  ListTenantAddonsResponse() {}
+
+  explicit ListTenantAddonsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListTenantAddonsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListTenantAddonsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListTenantAddonsResponse() = default;
+};
+class ReinstallTenantAddonResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  ReinstallTenantAddonResponseBody() {}
+
+  explicit ReinstallTenantAddonResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ReinstallTenantAddonResponseBody() = default;
+};
+class ReinstallTenantAddonResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ReinstallTenantAddonResponseBody> body{};
+
+  ReinstallTenantAddonResponse() {}
+
+  explicit ReinstallTenantAddonResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ReinstallTenantAddonResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ReinstallTenantAddonResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ReinstallTenantAddonResponse() = default;
+};
 class ReleaseServiceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> trafficState{};
@@ -13869,6 +14100,13 @@ public:
   ListServiceVersionsResponse listServiceVersions(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ListServiceVersionsRequest> request);
   ListServicesResponse listServicesWithOptions(shared_ptr<ListServicesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListServicesResponse listServices(shared_ptr<ListServicesRequest> request);
+  ListTenantAddonsResponse listTenantAddonsWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListTenantAddonsResponse listTenantAddons();
+  ReinstallTenantAddonResponse reinstallTenantAddonWithOptions(shared_ptr<string> ClusterId,
+                                                               shared_ptr<string> TenantAddonName,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ReinstallTenantAddonResponse reinstallTenantAddon(shared_ptr<string> ClusterId, shared_ptr<string> TenantAddonName);
   ReleaseServiceResponse releaseServiceWithOptions(shared_ptr<string> ClusterId,
                                                    shared_ptr<string> ServiceName,
                                                    shared_ptr<ReleaseServiceRequest> request,
