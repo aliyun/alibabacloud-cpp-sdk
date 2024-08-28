@@ -5,7 +5,6 @@
 
 #include <alibabacloud/open_api.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -120,17 +119,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -289,6 +278,56 @@ public:
 
   virtual ~GetDeployDetailResponseBodyDataResourceListOperation() = default;
 };
+class GetDeployDetailResponseBodyDataResourceListResourceTimeList : public Darabonba::Model {
+public:
+  shared_ptr<string> bizId{};
+  shared_ptr<long> creationEndTime{};
+  shared_ptr<long> creationStartTime{};
+  shared_ptr<long> id{};
+
+  GetDeployDetailResponseBodyDataResourceListResourceTimeList() {}
+
+  explicit GetDeployDetailResponseBodyDataResourceListResourceTimeList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizId) {
+      res["BizId"] = boost::any(*bizId);
+    }
+    if (creationEndTime) {
+      res["CreationEndTime"] = boost::any(*creationEndTime);
+    }
+    if (creationStartTime) {
+      res["CreationStartTime"] = boost::any(*creationStartTime);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizId") != m.end() && !m["BizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["BizId"]));
+    }
+    if (m.find("CreationEndTime") != m.end() && !m["CreationEndTime"].empty()) {
+      creationEndTime = make_shared<long>(boost::any_cast<long>(m["CreationEndTime"]));
+    }
+    if (m.find("CreationStartTime") != m.end() && !m["CreationStartTime"].empty()) {
+      creationStartTime = make_shared<long>(boost::any_cast<long>(m["CreationStartTime"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+  }
+
+
+  virtual ~GetDeployDetailResponseBodyDataResourceListResourceTimeList() = default;
+};
 class GetDeployDetailResponseBodyDataResourceList : public Darabonba::Model {
 public:
   shared_ptr<string> buyDuration{};
@@ -302,6 +341,7 @@ public:
   shared_ptr<string> remark{};
   shared_ptr<string> resourceCode{};
   shared_ptr<string> resourceId{};
+  shared_ptr<vector<GetDeployDetailResponseBodyDataResourceListResourceTimeList>> resourceTimeList{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
 
@@ -347,6 +387,13 @@ public:
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceTimeList) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceTimeList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceTimeList"] = boost::any(temp1);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -394,6 +441,19 @@ public:
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceTimeList") != m.end() && !m["ResourceTimeList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceTimeList"].type()) {
+        vector<GetDeployDetailResponseBodyDataResourceListResourceTimeList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceTimeList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDeployDetailResponseBodyDataResourceListResourceTimeList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceTimeList = make_shared<vector<GetDeployDetailResponseBodyDataResourceListResourceTimeList>>(expect1);
+      }
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -687,17 +747,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
