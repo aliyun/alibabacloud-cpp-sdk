@@ -289,6 +289,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->enableEbpf)) {
     query->insert(pair<string, string>("EnableEbpf", *request->enableEbpf));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableNewArms)) {
+    query->insert(pair<string, bool>("EnableNewArms", *request->enableNewArms));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->envs)) {
     query->insert(pair<string, string>("Envs", *request->envs));
   }
@@ -1426,6 +1429,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableGreyTagRoute)) {
     query->insert(pair<string, bool>("EnableGreyTagRoute", *request->enableGreyTagRoute));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableNewArms)) {
+    query->insert(pair<string, bool>("EnableNewArms", *request->enableNewArms));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->envs)) {
     query->insert(pair<string, string>("Envs", *request->envs));

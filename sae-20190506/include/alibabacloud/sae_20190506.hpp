@@ -5525,6 +5525,85 @@ public:
 
   virtual ~CreateWebApplicationInput() = default;
 };
+class PathConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationName{};
+  shared_ptr<string> path{};
+
+  PathConfig() {}
+
+  explicit PathConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationName) {
+      res["applicationName"] = boost::any(*applicationName);
+    }
+    if (path) {
+      res["path"] = boost::any(*path);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("applicationName") != m.end() && !m["applicationName"].empty()) {
+      applicationName = make_shared<string>(boost::any_cast<string>(m["applicationName"]));
+    }
+    if (m.find("path") != m.end() && !m["path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["path"]));
+    }
+  }
+
+
+  virtual ~PathConfig() = default;
+};
+class RouteConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<PathConfig>> routes{};
+
+  RouteConfig() {}
+
+  explicit RouteConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (routes) {
+      vector<boost::any> temp1;
+      for(auto item1:*routes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["routes"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("routes") != m.end() && !m["routes"].empty()) {
+      if (typeid(vector<boost::any>) == m["routes"].type()) {
+        vector<PathConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["routes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PathConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        routes = make_shared<vector<PathConfig>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RouteConfig() = default;
+};
 class WebCertConfig : public Darabonba::Model {
 public:
   shared_ptr<string> certName{};
@@ -5652,6 +5731,7 @@ public:
   shared_ptr<string> defaultForwardingAppName{};
   shared_ptr<string> domainName{};
   shared_ptr<string> protocol{};
+  shared_ptr<RouteConfig> routeConfig{};
   shared_ptr<WebCertConfig> webCertConfig{};
   shared_ptr<WebTLSConfig> webTLSConfig{};
   shared_ptr<WebWAFConfig> webWAFConfig{};
@@ -5675,6 +5755,9 @@ public:
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
     }
+    if (routeConfig) {
+      res["RouteConfig"] = routeConfig ? boost::any(routeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (webCertConfig) {
       res["WebCertConfig"] = webCertConfig ? boost::any(webCertConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -5696,6 +5779,13 @@ public:
     }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RouteConfig") != m.end() && !m["RouteConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RouteConfig"].type()) {
+        RouteConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RouteConfig"]));
+        routeConfig = make_shared<RouteConfig>(model1);
+      }
     }
     if (m.find("WebCertConfig") != m.end() && !m["WebCertConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["WebCertConfig"].type()) {
@@ -5722,85 +5812,6 @@ public:
 
 
   virtual ~CreateWebCustomDomainInput() = default;
-};
-class PathConfig : public Darabonba::Model {
-public:
-  shared_ptr<string> applicationName{};
-  shared_ptr<string> path{};
-
-  PathConfig() {}
-
-  explicit PathConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (applicationName) {
-      res["applicationName"] = boost::any(*applicationName);
-    }
-    if (path) {
-      res["path"] = boost::any(*path);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("applicationName") != m.end() && !m["applicationName"].empty()) {
-      applicationName = make_shared<string>(boost::any_cast<string>(m["applicationName"]));
-    }
-    if (m.find("path") != m.end() && !m["path"].empty()) {
-      path = make_shared<string>(boost::any_cast<string>(m["path"]));
-    }
-  }
-
-
-  virtual ~PathConfig() = default;
-};
-class RouteConfig : public Darabonba::Model {
-public:
-  shared_ptr<vector<PathConfig>> routes{};
-
-  RouteConfig() {}
-
-  explicit RouteConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (routes) {
-      vector<boost::any> temp1;
-      for(auto item1:*routes){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["routes"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("routes") != m.end() && !m["routes"].empty()) {
-      if (typeid(vector<boost::any>) == m["routes"].type()) {
-        vector<PathConfig> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["routes"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            PathConfig model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        routes = make_shared<vector<PathConfig>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~RouteConfig() = default;
 };
 class CustomDomain : public Darabonba::Model {
 public:
@@ -8500,16 +8511,17 @@ public:
 };
 class WebCustomDomain : public Darabonba::Model {
 public:
-  shared_ptr<string> accountId{};
   shared_ptr<string> createdTime{};
   shared_ptr<string> defaultForwardingAppName{};
   shared_ptr<string> domainName{};
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> protocol{};
+  shared_ptr<RouteConfig> routeConfig{};
   shared_ptr<WebCertConfig> webCertConfig{};
   shared_ptr<WebTLSConfig> webTLSConfig{};
   shared_ptr<WebWAFConfig> webWAFConfig{};
+  shared_ptr<string> accountId{};
 
   WebCustomDomain() {}
 
@@ -8521,9 +8533,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accountId) {
-      res["AccountId"] = boost::any(*accountId);
-    }
     if (createdTime) {
       res["CreatedTime"] = boost::any(*createdTime);
     }
@@ -8542,6 +8551,9 @@ public:
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
     }
+    if (routeConfig) {
+      res["RouteConfig"] = routeConfig ? boost::any(routeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (webCertConfig) {
       res["WebCertConfig"] = webCertConfig ? boost::any(webCertConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -8551,13 +8563,13 @@ public:
     if (webWAFConfig) {
       res["WebWAFConfig"] = webWAFConfig ? boost::any(webWAFConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
-      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
-    }
     if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
       createdTime = make_shared<string>(boost::any_cast<string>(m["CreatedTime"]));
     }
@@ -8575,6 +8587,13 @@ public:
     }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RouteConfig") != m.end() && !m["RouteConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RouteConfig"].type()) {
+        RouteConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RouteConfig"]));
+        routeConfig = make_shared<RouteConfig>(model1);
+      }
     }
     if (m.find("WebCertConfig") != m.end() && !m["WebCertConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["WebCertConfig"].type()) {
@@ -8596,6 +8615,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["WebWAFConfig"]));
         webWAFConfig = make_shared<WebWAFConfig>(model1);
       }
+    }
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
     }
   }
 
@@ -10582,6 +10604,7 @@ class UpdateWebCustomDomainInput : public Darabonba::Model {
 public:
   shared_ptr<string> defaultForwardingAppName{};
   shared_ptr<string> protocol{};
+  shared_ptr<RouteConfig> routeConfig{};
   shared_ptr<WebCertConfig> webCertConfig{};
   shared_ptr<WebTLSConfig> webTLSConfig{};
   shared_ptr<WebWAFConfig> webWAFConfig{};
@@ -10602,6 +10625,9 @@ public:
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
     }
+    if (routeConfig) {
+      res["RouteConfig"] = routeConfig ? boost::any(routeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (webCertConfig) {
       res["WebCertConfig"] = webCertConfig ? boost::any(webCertConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -10620,6 +10646,13 @@ public:
     }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RouteConfig") != m.end() && !m["RouteConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RouteConfig"].type()) {
+        RouteConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RouteConfig"]));
+        routeConfig = make_shared<RouteConfig>(model1);
+      }
     }
     if (m.find("WebCertConfig") != m.end() && !m["WebCertConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["WebCertConfig"].type()) {
@@ -12363,6 +12396,7 @@ public:
   shared_ptr<bool> deploy{};
   shared_ptr<string> edasContainerVersion{};
   shared_ptr<string> enableEbpf{};
+  shared_ptr<bool> enableNewArms{};
   shared_ptr<string> envs{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
@@ -12466,6 +12500,9 @@ public:
     }
     if (enableEbpf) {
       res["EnableEbpf"] = boost::any(*enableEbpf);
+    }
+    if (enableNewArms) {
+      res["EnableNewArms"] = boost::any(*enableNewArms);
     }
     if (envs) {
       res["Envs"] = boost::any(*envs);
@@ -12653,6 +12690,9 @@ public:
     }
     if (m.find("EnableEbpf") != m.end() && !m["EnableEbpf"].empty()) {
       enableEbpf = make_shared<string>(boost::any_cast<string>(m["EnableEbpf"]));
+    }
+    if (m.find("EnableNewArms") != m.end() && !m["EnableNewArms"].empty()) {
+      enableNewArms = make_shared<bool>(boost::any_cast<bool>(m["EnableNewArms"]));
     }
     if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
       envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
@@ -17270,6 +17310,7 @@ public:
   shared_ptr<string> edasContainerVersion{};
   shared_ptr<string> enableAhas{};
   shared_ptr<bool> enableGreyTagRoute{};
+  shared_ptr<bool> enableNewArms{};
   shared_ptr<string> envs{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
@@ -17372,6 +17413,9 @@ public:
     }
     if (enableGreyTagRoute) {
       res["EnableGreyTagRoute"] = boost::any(*enableGreyTagRoute);
+    }
+    if (enableNewArms) {
+      res["EnableNewArms"] = boost::any(*enableNewArms);
     }
     if (envs) {
       res["Envs"] = boost::any(*envs);
@@ -17556,6 +17600,9 @@ public:
     }
     if (m.find("EnableGreyTagRoute") != m.end() && !m["EnableGreyTagRoute"].empty()) {
       enableGreyTagRoute = make_shared<bool>(boost::any_cast<bool>(m["EnableGreyTagRoute"]));
+    }
+    if (m.find("EnableNewArms") != m.end() && !m["EnableNewArms"].empty()) {
+      enableNewArms = make_shared<bool>(boost::any_cast<bool>(m["EnableNewArms"]));
     }
     if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
       envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
@@ -18605,6 +18652,7 @@ public:
   shared_ptr<string> enableAhas{};
   shared_ptr<bool> enableGreyTagRoute{};
   shared_ptr<bool> enableIdle{};
+  shared_ptr<bool> enableNewArms{};
   shared_ptr<string> envs{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
@@ -18721,6 +18769,9 @@ public:
     }
     if (enableIdle) {
       res["EnableIdle"] = boost::any(*enableIdle);
+    }
+    if (enableNewArms) {
+      res["EnableNewArms"] = boost::any(*enableNewArms);
     }
     if (envs) {
       res["Envs"] = boost::any(*envs);
@@ -18951,6 +19002,9 @@ public:
     }
     if (m.find("EnableIdle") != m.end() && !m["EnableIdle"].empty()) {
       enableIdle = make_shared<bool>(boost::any_cast<bool>(m["EnableIdle"]));
+    }
+    if (m.find("EnableNewArms") != m.end() && !m["EnableNewArms"].empty()) {
+      enableNewArms = make_shared<bool>(boost::any_cast<bool>(m["EnableNewArms"]));
     }
     if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
       envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
@@ -29859,7 +29913,7 @@ class DescribeWebCustomDomainResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
   shared_ptr<long> statusCode{};
-  shared_ptr<WebCustomDomainBody> body{};
+  shared_ptr<WebCustomDomain> body{};
 
   DescribeWebCustomDomainResponse() {}
 
@@ -29897,9 +29951,9 @@ public:
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
-        WebCustomDomainBody model1;
+        WebCustomDomain model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<WebCustomDomainBody>(model1);
+        body = make_shared<WebCustomDomain>(model1);
       }
     }
   }
