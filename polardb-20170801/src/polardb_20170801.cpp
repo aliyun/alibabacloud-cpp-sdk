@@ -1063,6 +1063,9 @@ CreateGlobalDatabaseNetworkResponse Alibabacloud_Polardb20170801::Client::create
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableGlobalDomainName)) {
+    query->insert(pair<string, bool>("EnableGlobalDomainName", *request->enableGlobalDomainName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->GDNDescription)) {
     query->insert(pair<string, string>("GDNDescription", *request->GDNDescription));
   }
@@ -6081,6 +6084,9 @@ ModifyDBNodeClassResponse Alibabacloud_Polardb20170801::Client::modifyDBNodeClas
   if (!Darabonba_Util::Client::isUnset<string>(request->plannedEndTime)) {
     query->insert(pair<string, string>("PlannedEndTime", *request->plannedEndTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->plannedFlashingOffTime)) {
+    query->insert(pair<string, string>("PlannedFlashingOffTime", *request->plannedFlashingOffTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->plannedStartTime)) {
     query->insert(pair<string, string>("PlannedStartTime", *request->plannedStartTime));
   }
@@ -6185,6 +6191,9 @@ ModifyDBNodesClassResponse Alibabacloud_Polardb20170801::Client::modifyDBNodesCl
   if (!Darabonba_Util::Client::isUnset<string>(request->plannedEndTime)) {
     query->insert(pair<string, string>("PlannedEndTime", *request->plannedEndTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->plannedFlashingOffTime)) {
+    query->insert(pair<string, string>("PlannedFlashingOffTime", *request->plannedFlashingOffTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->plannedStartTime)) {
     query->insert(pair<string, string>("PlannedStartTime", *request->plannedStartTime));
   }
@@ -6280,6 +6289,9 @@ ModifyDBNodesParametersResponse Alibabacloud_Polardb20170801::Client::modifyDBNo
 ModifyGlobalDatabaseNetworkResponse Alibabacloud_Polardb20170801::Client::modifyGlobalDatabaseNetworkWithOptions(shared_ptr<ModifyGlobalDatabaseNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableGlobalDomainName)) {
+    query->insert(pair<string, bool>("EnableGlobalDomainName", *request->enableGlobalDomainName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->GDNDescription)) {
     query->insert(pair<string, string>("GDNDescription", *request->GDNDescription));
   }

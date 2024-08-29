@@ -3296,6 +3296,7 @@ public:
 class CreateGlobalDatabaseNetworkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
+  shared_ptr<bool> enableGlobalDomainName{};
   shared_ptr<string> GDNDescription{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -3316,6 +3317,9 @@ public:
     map<string, boost::any> res;
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (enableGlobalDomainName) {
+      res["EnableGlobalDomainName"] = boost::any(*enableGlobalDomainName);
     }
     if (GDNDescription) {
       res["GDNDescription"] = boost::any(*GDNDescription);
@@ -3344,6 +3348,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("EnableGlobalDomainName") != m.end() && !m["EnableGlobalDomainName"].empty()) {
+      enableGlobalDomainName = make_shared<bool>(boost::any_cast<bool>(m["EnableGlobalDomainName"]));
     }
     if (m.find("GDNDescription") != m.end() && !m["GDNDescription"].empty()) {
       GDNDescription = make_shared<string>(boost::any_cast<string>(m["GDNDescription"]));
@@ -17302,6 +17309,7 @@ public:
 };
 class DescribeGlobalDatabaseNetworkResponseBodyDBClusters : public Darabonba::Model {
 public:
+  shared_ptr<string> category{};
   shared_ptr<string> DBClusterDescription{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> DBClusterStatus{};
@@ -17328,6 +17336,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
     if (DBClusterDescription) {
       res["DBClusterDescription"] = boost::any(*DBClusterDescription);
     }
@@ -17381,6 +17392,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
     if (m.find("DBClusterDescription") != m.end() && !m["DBClusterDescription"].empty()) {
       DBClusterDescription = make_shared<string>(boost::any_cast<string>(m["DBClusterDescription"]));
     }
@@ -17452,6 +17466,7 @@ public:
   shared_ptr<string> GDNDescription{};
   shared_ptr<string> GDNId{};
   shared_ptr<string> GDNStatus{};
+  shared_ptr<string> globalDomainName{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
 
@@ -17499,6 +17514,9 @@ public:
     }
     if (GDNStatus) {
       res["GDNStatus"] = boost::any(*GDNStatus);
+    }
+    if (globalDomainName) {
+      res["GlobalDomainName"] = boost::any(*globalDomainName);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -17556,6 +17574,9 @@ public:
     }
     if (m.find("GDNStatus") != m.end() && !m["GDNStatus"].empty()) {
       GDNStatus = make_shared<string>(boost::any_cast<string>(m["GDNStatus"]));
+    }
+    if (m.find("GlobalDomainName") != m.end() && !m["GlobalDomainName"].empty()) {
+      globalDomainName = make_shared<string>(boost::any_cast<string>(m["GlobalDomainName"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -21150,6 +21171,7 @@ public:
   shared_ptr<string> dbClusterStatus{};
   shared_ptr<string> orderId{};
   shared_ptr<string> plannedEndTime{};
+  shared_ptr<string> plannedFlashingOffTime{};
   shared_ptr<string> plannedStartTime{};
   shared_ptr<string> plannedTime{};
   shared_ptr<string> region{};
@@ -21184,6 +21206,9 @@ public:
     }
     if (plannedEndTime) {
       res["PlannedEndTime"] = boost::any(*plannedEndTime);
+    }
+    if (plannedFlashingOffTime) {
+      res["PlannedFlashingOffTime"] = boost::any(*plannedFlashingOffTime);
     }
     if (plannedStartTime) {
       res["PlannedStartTime"] = boost::any(*plannedStartTime);
@@ -21224,6 +21249,9 @@ public:
     }
     if (m.find("PlannedEndTime") != m.end() && !m["PlannedEndTime"].empty()) {
       plannedEndTime = make_shared<string>(boost::any_cast<string>(m["PlannedEndTime"]));
+    }
+    if (m.find("PlannedFlashingOffTime") != m.end() && !m["PlannedFlashingOffTime"].empty()) {
+      plannedFlashingOffTime = make_shared<string>(boost::any_cast<string>(m["PlannedFlashingOffTime"]));
     }
     if (m.find("PlannedStartTime") != m.end() && !m["PlannedStartTime"].empty()) {
       plannedStartTime = make_shared<string>(boost::any_cast<string>(m["PlannedStartTime"]));
@@ -28592,6 +28620,7 @@ public:
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> plannedEndTime{};
+  shared_ptr<string> plannedFlashingOffTime{};
   shared_ptr<string> plannedStartTime{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -28630,6 +28659,9 @@ public:
     }
     if (plannedEndTime) {
       res["PlannedEndTime"] = boost::any(*plannedEndTime);
+    }
+    if (plannedFlashingOffTime) {
+      res["PlannedFlashingOffTime"] = boost::any(*plannedFlashingOffTime);
     }
     if (plannedStartTime) {
       res["PlannedStartTime"] = boost::any(*plannedStartTime);
@@ -28670,6 +28702,9 @@ public:
     }
     if (m.find("PlannedEndTime") != m.end() && !m["PlannedEndTime"].empty()) {
       plannedEndTime = make_shared<string>(boost::any_cast<string>(m["PlannedEndTime"]));
+    }
+    if (m.find("PlannedFlashingOffTime") != m.end() && !m["PlannedFlashingOffTime"].empty()) {
+      plannedFlashingOffTime = make_shared<string>(boost::any_cast<string>(m["PlannedFlashingOffTime"]));
     }
     if (m.find("PlannedStartTime") != m.end() && !m["PlannedStartTime"].empty()) {
       plannedStartTime = make_shared<string>(boost::any_cast<string>(m["PlannedStartTime"]));
@@ -28994,6 +29029,7 @@ public:
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> plannedEndTime{};
+  shared_ptr<string> plannedFlashingOffTime{};
   shared_ptr<string> plannedStartTime{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -29033,6 +29069,9 @@ public:
     }
     if (plannedEndTime) {
       res["PlannedEndTime"] = boost::any(*plannedEndTime);
+    }
+    if (plannedFlashingOffTime) {
+      res["PlannedFlashingOffTime"] = boost::any(*plannedFlashingOffTime);
     }
     if (plannedStartTime) {
       res["PlannedStartTime"] = boost::any(*plannedStartTime);
@@ -29080,6 +29119,9 @@ public:
     }
     if (m.find("PlannedEndTime") != m.end() && !m["PlannedEndTime"].empty()) {
       plannedEndTime = make_shared<string>(boost::any_cast<string>(m["PlannedEndTime"]));
+    }
+    if (m.find("PlannedFlashingOffTime") != m.end() && !m["PlannedFlashingOffTime"].empty()) {
+      plannedFlashingOffTime = make_shared<string>(boost::any_cast<string>(m["PlannedFlashingOffTime"]));
     }
     if (m.find("PlannedStartTime") != m.end() && !m["PlannedStartTime"].empty()) {
       plannedStartTime = make_shared<string>(boost::any_cast<string>(m["PlannedStartTime"]));
@@ -29375,6 +29417,7 @@ public:
 };
 class ModifyGlobalDatabaseNetworkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> enableGlobalDomainName{};
   shared_ptr<string> GDNDescription{};
   shared_ptr<string> GDNId{};
   shared_ptr<string> ownerAccount{};
@@ -29394,6 +29437,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enableGlobalDomainName) {
+      res["EnableGlobalDomainName"] = boost::any(*enableGlobalDomainName);
+    }
     if (GDNDescription) {
       res["GDNDescription"] = boost::any(*GDNDescription);
     }
@@ -29422,6 +29468,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableGlobalDomainName") != m.end() && !m["EnableGlobalDomainName"].empty()) {
+      enableGlobalDomainName = make_shared<bool>(boost::any_cast<bool>(m["EnableGlobalDomainName"]));
+    }
     if (m.find("GDNDescription") != m.end() && !m["GDNDescription"].empty()) {
       GDNDescription = make_shared<string>(boost::any_cast<string>(m["GDNDescription"]));
     }
