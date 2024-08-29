@@ -87688,6 +87688,7 @@ public:
 class ModifyRouteEntryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> destinationCidrBlock{};
   shared_ptr<string> newNextHopId{};
   shared_ptr<string> newNextHopType{};
   shared_ptr<string> ownerAccount{};
@@ -87697,6 +87698,7 @@ public:
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> routeEntryId{};
   shared_ptr<string> routeEntryName{};
+  shared_ptr<string> routeTableId{};
 
   ModifyRouteEntryRequest() {}
 
@@ -87710,6 +87712,9 @@ public:
     map<string, boost::any> res;
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (destinationCidrBlock) {
+      res["DestinationCidrBlock"] = boost::any(*destinationCidrBlock);
     }
     if (newNextHopId) {
       res["NewNextHopId"] = boost::any(*newNextHopId);
@@ -87738,12 +87743,18 @@ public:
     if (routeEntryName) {
       res["RouteEntryName"] = boost::any(*routeEntryName);
     }
+    if (routeTableId) {
+      res["RouteTableId"] = boost::any(*routeTableId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DestinationCidrBlock") != m.end() && !m["DestinationCidrBlock"].empty()) {
+      destinationCidrBlock = make_shared<string>(boost::any_cast<string>(m["DestinationCidrBlock"]));
     }
     if (m.find("NewNextHopId") != m.end() && !m["NewNextHopId"].empty()) {
       newNextHopId = make_shared<string>(boost::any_cast<string>(m["NewNextHopId"]));
@@ -87771,6 +87782,9 @@ public:
     }
     if (m.find("RouteEntryName") != m.end() && !m["RouteEntryName"].empty()) {
       routeEntryName = make_shared<string>(boost::any_cast<string>(m["RouteEntryName"]));
+    }
+    if (m.find("RouteTableId") != m.end() && !m["RouteTableId"].empty()) {
+      routeTableId = make_shared<string>(boost::any_cast<string>(m["RouteTableId"]));
     }
   }
 

@@ -17512,6 +17512,9 @@ ModifyRouteEntryResponse Alibabacloud_Vpc20160428::Client::modifyRouteEntryWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationCidrBlock)) {
+    query->insert(pair<string, string>("DestinationCidrBlock", *request->destinationCidrBlock));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->newNextHopId)) {
     query->insert(pair<string, string>("NewNextHopId", *request->newNextHopId));
   }
@@ -17538,6 +17541,9 @@ ModifyRouteEntryResponse Alibabacloud_Vpc20160428::Client::modifyRouteEntryWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->routeEntryName)) {
     query->insert(pair<string, string>("RouteEntryName", *request->routeEntryName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeTableId)) {
+    query->insert(pair<string, string>("RouteTableId", *request->routeTableId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
