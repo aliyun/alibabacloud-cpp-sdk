@@ -3953,7 +3953,9 @@ public:
 };
 class FaceLivenessResponseBodyResultExtFaceInfo : public Darabonba::Model {
 public:
+  shared_ptr<long> faceAge{};
   shared_ptr<string> faceAttack{};
+  shared_ptr<string> faceGender{};
   shared_ptr<double> faceQualityScore{};
   shared_ptr<string> occlusionResult{};
 
@@ -3967,8 +3969,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (faceAge) {
+      res["FaceAge"] = boost::any(*faceAge);
+    }
     if (faceAttack) {
       res["FaceAttack"] = boost::any(*faceAttack);
+    }
+    if (faceGender) {
+      res["FaceGender"] = boost::any(*faceGender);
     }
     if (faceQualityScore) {
       res["FaceQualityScore"] = boost::any(*faceQualityScore);
@@ -3980,8 +3988,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FaceAge") != m.end() && !m["FaceAge"].empty()) {
+      faceAge = make_shared<long>(boost::any_cast<long>(m["FaceAge"]));
+    }
     if (m.find("FaceAttack") != m.end() && !m["FaceAttack"].empty()) {
       faceAttack = make_shared<string>(boost::any_cast<string>(m["FaceAttack"]));
+    }
+    if (m.find("FaceGender") != m.end() && !m["FaceGender"].empty()) {
+      faceGender = make_shared<string>(boost::any_cast<string>(m["FaceGender"]));
     }
     if (m.find("FaceQualityScore") != m.end() && !m["FaceQualityScore"].empty()) {
       faceQualityScore = make_shared<double>(boost::any_cast<double>(m["FaceQualityScore"]));
