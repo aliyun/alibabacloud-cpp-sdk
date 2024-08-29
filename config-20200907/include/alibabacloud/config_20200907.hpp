@@ -23574,6 +23574,8 @@ public:
 class ListAggregateDiscoveredResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
+  shared_ptr<long> endUpdateTimestamp{};
+  shared_ptr<string> excludeResourceTypes{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regions{};
@@ -23582,6 +23584,7 @@ public:
   shared_ptr<string> resourceId{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> resourceTypes{};
+  shared_ptr<long> startUpdateTimestamp{};
 
   ListAggregateDiscoveredResourcesRequest() {}
 
@@ -23595,6 +23598,12 @@ public:
     map<string, boost::any> res;
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
+    }
+    if (endUpdateTimestamp) {
+      res["EndUpdateTimestamp"] = boost::any(*endUpdateTimestamp);
+    }
+    if (excludeResourceTypes) {
+      res["ExcludeResourceTypes"] = boost::any(*excludeResourceTypes);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -23620,12 +23629,21 @@ public:
     if (resourceTypes) {
       res["ResourceTypes"] = boost::any(*resourceTypes);
     }
+    if (startUpdateTimestamp) {
+      res["StartUpdateTimestamp"] = boost::any(*startUpdateTimestamp);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("EndUpdateTimestamp") != m.end() && !m["EndUpdateTimestamp"].empty()) {
+      endUpdateTimestamp = make_shared<long>(boost::any_cast<long>(m["EndUpdateTimestamp"]));
+    }
+    if (m.find("ExcludeResourceTypes") != m.end() && !m["ExcludeResourceTypes"].empty()) {
+      excludeResourceTypes = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceTypes"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
@@ -23651,6 +23669,9 @@ public:
     if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
       resourceTypes = make_shared<string>(boost::any_cast<string>(m["ResourceTypes"]));
     }
+    if (m.find("StartUpdateTimestamp") != m.end() && !m["StartUpdateTimestamp"].empty()) {
+      startUpdateTimestamp = make_shared<long>(boost::any_cast<long>(m["StartUpdateTimestamp"]));
+    }
   }
 
 
@@ -23669,6 +23690,7 @@ public:
   shared_ptr<string> resourceStatus{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> tags{};
+  shared_ptr<long> updateTime{};
   shared_ptr<long> version{};
 
   ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList() {}
@@ -23714,6 +23736,9 @@ public:
     if (tags) {
       res["Tags"] = boost::any(*tags);
     }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
     if (version) {
       res["Version"] = boost::any(*version);
     }
@@ -23753,6 +23778,9 @@ public:
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<long>(boost::any_cast<long>(m["UpdateTime"]));
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<long>(boost::any_cast<long>(m["Version"]));
@@ -27699,12 +27727,15 @@ public:
 };
 class ListDiscoveredResourcesRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> endUpdateTimestamp{};
+  shared_ptr<string> excludeResourceTypes{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regions{};
   shared_ptr<long> resourceDeleted{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceTypes{};
+  shared_ptr<long> startUpdateTimestamp{};
 
   ListDiscoveredResourcesRequest() {}
 
@@ -27716,6 +27747,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endUpdateTimestamp) {
+      res["EndUpdateTimestamp"] = boost::any(*endUpdateTimestamp);
+    }
+    if (excludeResourceTypes) {
+      res["ExcludeResourceTypes"] = boost::any(*excludeResourceTypes);
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
@@ -27734,10 +27771,19 @@ public:
     if (resourceTypes) {
       res["ResourceTypes"] = boost::any(*resourceTypes);
     }
+    if (startUpdateTimestamp) {
+      res["StartUpdateTimestamp"] = boost::any(*startUpdateTimestamp);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndUpdateTimestamp") != m.end() && !m["EndUpdateTimestamp"].empty()) {
+      endUpdateTimestamp = make_shared<long>(boost::any_cast<long>(m["EndUpdateTimestamp"]));
+    }
+    if (m.find("ExcludeResourceTypes") != m.end() && !m["ExcludeResourceTypes"].empty()) {
+      excludeResourceTypes = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceTypes"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -27756,6 +27802,9 @@ public:
     if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
       resourceTypes = make_shared<string>(boost::any_cast<string>(m["ResourceTypes"]));
     }
+    if (m.find("StartUpdateTimestamp") != m.end() && !m["StartUpdateTimestamp"].empty()) {
+      startUpdateTimestamp = make_shared<long>(boost::any_cast<long>(m["StartUpdateTimestamp"]));
+    }
   }
 
 
@@ -27773,6 +27822,7 @@ public:
   shared_ptr<string> resourceStatus{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> tags{};
+  shared_ptr<long> updateTime{};
   shared_ptr<long> version{};
 
   ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList() {}
@@ -27815,6 +27865,9 @@ public:
     if (tags) {
       res["Tags"] = boost::any(*tags);
     }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
     if (version) {
       res["Version"] = boost::any(*version);
     }
@@ -27851,6 +27904,9 @@ public:
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<long>(boost::any_cast<long>(m["UpdateTime"]));
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<long>(boost::any_cast<long>(m["Version"]));

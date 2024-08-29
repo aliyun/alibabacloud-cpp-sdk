@@ -3233,6 +3233,12 @@ ListAggregateDiscoveredResourcesResponse Alibabacloud_Config20200907::Client::li
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     query->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endUpdateTimestamp)) {
+    query->insert(pair<string, long>("EndUpdateTimestamp", *request->endUpdateTimestamp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->excludeResourceTypes)) {
+    query->insert(pair<string, string>("ExcludeResourceTypes", *request->excludeResourceTypes));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
@@ -3256,6 +3262,9 @@ ListAggregateDiscoveredResourcesResponse Alibabacloud_Config20200907::Client::li
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceTypes)) {
     query->insert(pair<string, string>("ResourceTypes", *request->resourceTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startUpdateTimestamp)) {
+    query->insert(pair<string, long>("StartUpdateTimestamp", *request->startUpdateTimestamp));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3713,6 +3722,12 @@ ListConfigRulesResponse Alibabacloud_Config20200907::Client::listConfigRules(sha
 ListDiscoveredResourcesResponse Alibabacloud_Config20200907::Client::listDiscoveredResourcesWithOptions(shared_ptr<ListDiscoveredResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->endUpdateTimestamp)) {
+    query->insert(pair<string, long>("EndUpdateTimestamp", *request->endUpdateTimestamp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->excludeResourceTypes)) {
+    query->insert(pair<string, string>("ExcludeResourceTypes", *request->excludeResourceTypes));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
@@ -3730,6 +3745,9 @@ ListDiscoveredResourcesResponse Alibabacloud_Config20200907::Client::listDiscove
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceTypes)) {
     query->insert(pair<string, string>("ResourceTypes", *request->resourceTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startUpdateTimestamp)) {
+    query->insert(pair<string, long>("StartUpdateTimestamp", *request->startUpdateTimestamp));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
