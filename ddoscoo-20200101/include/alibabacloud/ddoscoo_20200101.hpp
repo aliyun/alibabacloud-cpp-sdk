@@ -2577,6 +2577,7 @@ public:
   shared_ptr<string> frontendPort{};
   shared_ptr<string> frontendProtocol{};
   shared_ptr<string> instanceId{};
+  shared_ptr<long> proxyEnable{};
   shared_ptr<vector<string>> realServers{};
 
   CreatePortRequest() {}
@@ -2601,6 +2602,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (proxyEnable) {
+      res["ProxyEnable"] = boost::any(*proxyEnable);
+    }
     if (realServers) {
       res["RealServers"] = boost::any(*realServers);
     }
@@ -2619,6 +2623,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ProxyEnable") != m.end() && !m["ProxyEnable"].empty()) {
+      proxyEnable = make_shared<long>(boost::any_cast<long>(m["ProxyEnable"]));
     }
     if (m.find("RealServers") != m.end() && !m["RealServers"].empty()) {
       vector<string> toVec1;
@@ -16577,7 +16584,10 @@ public:
   shared_ptr<long> frontendPort{};
   shared_ptr<string> instanceId{};
   shared_ptr<bool> isAutoCreate{};
+  shared_ptr<long> payloadRuleEnable{};
   shared_ptr<string> protocol{};
+  shared_ptr<long> proxyEnable{};
+  shared_ptr<string> proxyStatus{};
   shared_ptr<vector<string>> realServers{};
   shared_ptr<string> remark{};
 
@@ -16603,8 +16613,17 @@ public:
     if (isAutoCreate) {
       res["IsAutoCreate"] = boost::any(*isAutoCreate);
     }
+    if (payloadRuleEnable) {
+      res["PayloadRuleEnable"] = boost::any(*payloadRuleEnable);
+    }
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
+    }
+    if (proxyEnable) {
+      res["ProxyEnable"] = boost::any(*proxyEnable);
+    }
+    if (proxyStatus) {
+      res["ProxyStatus"] = boost::any(*proxyStatus);
     }
     if (realServers) {
       res["RealServers"] = boost::any(*realServers);
@@ -16628,8 +16647,17 @@ public:
     if (m.find("IsAutoCreate") != m.end() && !m["IsAutoCreate"].empty()) {
       isAutoCreate = make_shared<bool>(boost::any_cast<bool>(m["IsAutoCreate"]));
     }
+    if (m.find("PayloadRuleEnable") != m.end() && !m["PayloadRuleEnable"].empty()) {
+      payloadRuleEnable = make_shared<long>(boost::any_cast<long>(m["PayloadRuleEnable"]));
+    }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("ProxyEnable") != m.end() && !m["ProxyEnable"].empty()) {
+      proxyEnable = make_shared<long>(boost::any_cast<long>(m["ProxyEnable"]));
+    }
+    if (m.find("ProxyStatus") != m.end() && !m["ProxyStatus"].empty()) {
+      proxyStatus = make_shared<string>(boost::any_cast<string>(m["ProxyStatus"]));
     }
     if (m.find("RealServers") != m.end() && !m["RealServers"].empty()) {
       vector<string> toVec1;
@@ -29216,6 +29244,7 @@ public:
   shared_ptr<string> frontendPort{};
   shared_ptr<string> frontendProtocol{};
   shared_ptr<string> instanceId{};
+  shared_ptr<long> proxyEnable{};
   shared_ptr<vector<string>> realServers{};
 
   ModifyPortRequest() {}
@@ -29240,6 +29269,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (proxyEnable) {
+      res["ProxyEnable"] = boost::any(*proxyEnable);
+    }
     if (realServers) {
       res["RealServers"] = boost::any(*realServers);
     }
@@ -29258,6 +29290,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ProxyEnable") != m.end() && !m["ProxyEnable"].empty()) {
+      proxyEnable = make_shared<long>(boost::any_cast<long>(m["ProxyEnable"]));
     }
     if (m.find("RealServers") != m.end() && !m["RealServers"].empty()) {
       vector<string> toVec1;

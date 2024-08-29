@@ -728,6 +728,9 @@ CreatePortResponse Alibabacloud_Ddoscoo20200101::Client::createPortWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->proxyEnable)) {
+    query->insert(pair<string, long>("ProxyEnable", *request->proxyEnable));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->realServers)) {
     query->insert(pair<string, vector<string>>("RealServers", *request->realServers));
   }
@@ -5578,6 +5581,9 @@ ModifyPortResponse Alibabacloud_Ddoscoo20200101::Client::modifyPortWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->proxyEnable)) {
+    query->insert(pair<string, long>("ProxyEnable", *request->proxyEnable));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->realServers)) {
     query->insert(pair<string, vector<string>>("RealServers", *request->realServers));
