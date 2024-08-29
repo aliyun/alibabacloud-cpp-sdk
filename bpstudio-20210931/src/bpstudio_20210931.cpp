@@ -140,7 +140,7 @@ CreateApplicationResponse Alibabacloud_BPStudio20210931::Client::createApplicati
   if (!Darabonba_Util::Client::isUnset<vector<CreateApplicationRequestInstances>>(tmpReq->instances)) {
     request->instancesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instances, make_shared<string>("Instances"), make_shared<string>("json")));
   }
-  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->variables)) {
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->variables)) {
     request->variablesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->variables, make_shared<string>("Variables"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -382,6 +382,34 @@ GetApplicationResponse Alibabacloud_BPStudio20210931::Client::getApplicationWith
 GetApplicationResponse Alibabacloud_BPStudio20210931::Client::getApplication(shared_ptr<GetApplicationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getApplicationWithOptions(request, runtime);
+}
+
+GetApplicationVariables4FailResponse Alibabacloud_BPStudio20210931::Client::getApplicationVariables4FailWithOptions(shared_ptr<GetApplicationVariables4FailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetApplicationVariables4Fail"))},
+    {"version", boost::any(string("2021-09-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetApplicationVariables4FailResponse(callApi(params, req, runtime));
+}
+
+GetApplicationVariables4FailResponse Alibabacloud_BPStudio20210931::Client::getApplicationVariables4Fail(shared_ptr<GetApplicationVariables4FailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getApplicationVariables4FailWithOptions(request, runtime);
 }
 
 GetExecuteOperationResultResponse Alibabacloud_BPStudio20210931::Client::getExecuteOperationResultWithOptions(shared_ptr<GetExecuteOperationResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -723,6 +751,37 @@ ListTemplateResponse Alibabacloud_BPStudio20210931::Client::listTemplateWithOpti
 ListTemplateResponse Alibabacloud_BPStudio20210931::Client::listTemplate(shared_ptr<ListTemplateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listTemplateWithOptions(request, runtime);
+}
+
+ReConfigApplicationResponse Alibabacloud_BPStudio20210931::Client::reConfigApplicationWithOptions(shared_ptr<ReConfigApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    body->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->variables)) {
+    body->insert(pair<string, string>("Variables", *request->variables));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ReConfigApplication"))},
+    {"version", boost::any(string("2021-09-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ReConfigApplicationResponse(callApi(params, req, runtime));
+}
+
+ReConfigApplicationResponse Alibabacloud_BPStudio20210931::Client::reConfigApplication(shared_ptr<ReConfigApplicationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return reConfigApplicationWithOptions(request, runtime);
 }
 
 ReleaseApplicationResponse Alibabacloud_BPStudio20210931::Client::releaseApplicationWithOptions(shared_ptr<ReleaseApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

@@ -480,7 +480,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> templateId{};
-  shared_ptr<map<string, string>> variables{};
+  shared_ptr<map<string, boost::any>> variables{};
 
   CreateApplicationRequest() {}
 
@@ -561,12 +561,12 @@ public:
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
     if (m.find("Variables") != m.end() && !m["Variables"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Variables"]);
-      map<string, string> toMap1;
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Variables"]);
+      map<string, boost::any> toMap1;
       for (auto item:map1) {
          toMap1[item.first] = item.second;
       }
-      variables = make_shared<map<string, string>>(toMap1);
+      variables = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
@@ -2057,6 +2057,215 @@ public:
 
 
   virtual ~GetApplicationResponse() = default;
+};
+class GetApplicationVariables4FailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+
+  GetApplicationVariables4FailRequest() {}
+
+  explicit GetApplicationVariables4FailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+  }
+
+
+  virtual ~GetApplicationVariables4FailRequest() = default;
+};
+class GetApplicationVariables4FailResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> attribute{};
+  shared_ptr<string> defaultValue{};
+  shared_ptr<string> placeHolder{};
+  shared_ptr<string> region{};
+  shared_ptr<string> value{};
+  shared_ptr<string> variable{};
+
+  GetApplicationVariables4FailResponseBodyData() {}
+
+  explicit GetApplicationVariables4FailResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attribute) {
+      res["Attribute"] = boost::any(*attribute);
+    }
+    if (defaultValue) {
+      res["DefaultValue"] = boost::any(*defaultValue);
+    }
+    if (placeHolder) {
+      res["PlaceHolder"] = boost::any(*placeHolder);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    if (variable) {
+      res["Variable"] = boost::any(*variable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Attribute") != m.end() && !m["Attribute"].empty()) {
+      attribute = make_shared<string>(boost::any_cast<string>(m["Attribute"]));
+    }
+    if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
+      defaultValue = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
+    }
+    if (m.find("PlaceHolder") != m.end() && !m["PlaceHolder"].empty()) {
+      placeHolder = make_shared<string>(boost::any_cast<string>(m["PlaceHolder"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+    if (m.find("Variable") != m.end() && !m["Variable"].empty()) {
+      variable = make_shared<string>(boost::any_cast<string>(m["Variable"]));
+    }
+  }
+
+
+  virtual ~GetApplicationVariables4FailResponseBodyData() = default;
+};
+class GetApplicationVariables4FailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<vector<GetApplicationVariables4FailResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  GetApplicationVariables4FailResponseBody() {}
+
+  explicit GetApplicationVariables4FailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<GetApplicationVariables4FailResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetApplicationVariables4FailResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<GetApplicationVariables4FailResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetApplicationVariables4FailResponseBody() = default;
+};
+class GetApplicationVariables4FailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetApplicationVariables4FailResponseBody> body{};
+
+  GetApplicationVariables4FailResponse() {}
+
+  explicit GetApplicationVariables4FailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetApplicationVariables4FailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetApplicationVariables4FailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetApplicationVariables4FailResponse() = default;
 };
 class GetExecuteOperationResultRequest : public Darabonba::Model {
 public:
@@ -4144,6 +4353,137 @@ public:
 
   virtual ~ListTemplateResponse() = default;
 };
+class ReConfigApplicationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> variables{};
+
+  ReConfigApplicationRequest() {}
+
+  explicit ReConfigApplicationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (variables) {
+      res["Variables"] = boost::any(*variables);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Variables") != m.end() && !m["Variables"].empty()) {
+      variables = make_shared<string>(boost::any_cast<string>(m["Variables"]));
+    }
+  }
+
+
+  virtual ~ReConfigApplicationRequest() = default;
+};
+class ReConfigApplicationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  ReConfigApplicationResponseBody() {}
+
+  explicit ReConfigApplicationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ReConfigApplicationResponseBody() = default;
+};
+class ReConfigApplicationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ReConfigApplicationResponseBody> body{};
+
+  ReConfigApplicationResponse() {}
+
+  explicit ReConfigApplicationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ReConfigApplicationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ReConfigApplicationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ReConfigApplicationResponse() = default;
+};
 class ReleaseApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationId{};
@@ -5123,6 +5463,8 @@ public:
   ExecuteOperationSyncResponse executeOperationSync(shared_ptr<ExecuteOperationSyncRequest> request);
   GetApplicationResponse getApplicationWithOptions(shared_ptr<GetApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetApplicationResponse getApplication(shared_ptr<GetApplicationRequest> request);
+  GetApplicationVariables4FailResponse getApplicationVariables4FailWithOptions(shared_ptr<GetApplicationVariables4FailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetApplicationVariables4FailResponse getApplicationVariables4Fail(shared_ptr<GetApplicationVariables4FailRequest> request);
   GetExecuteOperationResultResponse getExecuteOperationResultWithOptions(shared_ptr<GetExecuteOperationResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetExecuteOperationResultResponse getExecuteOperationResult(shared_ptr<GetExecuteOperationResultRequest> request);
   GetFoTaskStatusResponse getFoTaskStatusWithOptions(shared_ptr<GetFoTaskStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -5143,6 +5485,8 @@ public:
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   ListTemplateResponse listTemplateWithOptions(shared_ptr<ListTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTemplateResponse listTemplate(shared_ptr<ListTemplateRequest> request);
+  ReConfigApplicationResponse reConfigApplicationWithOptions(shared_ptr<ReConfigApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ReConfigApplicationResponse reConfigApplication(shared_ptr<ReConfigApplicationRequest> request);
   ReleaseApplicationResponse releaseApplicationWithOptions(shared_ptr<ReleaseApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReleaseApplicationResponse releaseApplication(shared_ptr<ReleaseApplicationRequest> request);
   ValidateApplicationResponse validateApplicationWithOptions(shared_ptr<ValidateApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
