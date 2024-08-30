@@ -2501,6 +2501,7 @@ public:
   shared_ptr<string> productCode{};
   shared_ptr<string> quotaActionCode{};
   shared_ptr<string> quotaArn{};
+  shared_ptr<string> quotaCategory{};
   shared_ptr<string> quotaDescription{};
   shared_ptr<string> quotaName{};
   shared_ptr<string> quotaUnit{};
@@ -2552,6 +2553,9 @@ public:
     }
     if (quotaArn) {
       res["QuotaArn"] = boost::any(*quotaArn);
+    }
+    if (quotaCategory) {
+      res["QuotaCategory"] = boost::any(*quotaCategory);
     }
     if (quotaDescription) {
       res["QuotaDescription"] = boost::any(*quotaDescription);
@@ -2612,6 +2616,9 @@ public:
     }
     if (m.find("QuotaArn") != m.end() && !m["QuotaArn"].empty()) {
       quotaArn = make_shared<string>(boost::any_cast<string>(m["QuotaArn"]));
+    }
+    if (m.find("QuotaCategory") != m.end() && !m["QuotaCategory"].empty()) {
+      quotaCategory = make_shared<string>(boost::any_cast<string>(m["QuotaCategory"]));
     }
     if (m.find("QuotaDescription") != m.end() && !m["QuotaDescription"].empty()) {
       quotaDescription = make_shared<string>(boost::any_cast<string>(m["QuotaDescription"]));
@@ -6102,6 +6109,7 @@ public:
   shared_ptr<string> productCode{};
   shared_ptr<string> quotaActionCode{};
   shared_ptr<string> quotaArn{};
+  shared_ptr<string> quotaCategory{};
   shared_ptr<string> quotaDescription{};
   shared_ptr<string> quotaName{};
   shared_ptr<string> quotaUnit{};
@@ -6159,6 +6167,9 @@ public:
     }
     if (quotaArn) {
       res["QuotaArn"] = boost::any(*quotaArn);
+    }
+    if (quotaCategory) {
+      res["QuotaCategory"] = boost::any(*quotaCategory);
     }
     if (quotaDescription) {
       res["QuotaDescription"] = boost::any(*quotaDescription);
@@ -6229,6 +6240,9 @@ public:
     }
     if (m.find("QuotaArn") != m.end() && !m["QuotaArn"].empty()) {
       quotaArn = make_shared<string>(boost::any_cast<string>(m["QuotaArn"]));
+    }
+    if (m.find("QuotaCategory") != m.end() && !m["QuotaCategory"].empty()) {
+      quotaCategory = make_shared<string>(boost::any_cast<string>(m["QuotaCategory"]));
     }
     if (m.find("QuotaDescription") != m.end() && !m["QuotaDescription"].empty()) {
       quotaDescription = make_shared<string>(boost::any_cast<string>(m["QuotaDescription"]));
