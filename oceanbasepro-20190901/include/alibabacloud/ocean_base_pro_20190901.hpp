@@ -32627,7 +32627,7 @@ public:
   shared_ptr<string> tenantAlias{};
   shared_ptr<long> tenantDataBackupRemainDays{};
   shared_ptr<string> tenantId{};
-  shared_ptr<long> tenantMode{};
+  shared_ptr<string> tenantMode{};
   shared_ptr<string> tenantName{};
   shared_ptr<vector<DescribeRestorableTenantsResponseBodyTenantsTimeIntervalList>> timeIntervalList{};
   shared_ptr<long> unitNum{};
@@ -32765,7 +32765,7 @@ public:
       tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
     }
     if (m.find("TenantMode") != m.end() && !m["TenantMode"].empty()) {
-      tenantMode = make_shared<long>(boost::any_cast<long>(m["TenantMode"]));
+      tenantMode = make_shared<string>(boost::any_cast<string>(m["TenantMode"]));
     }
     if (m.find("TenantName") != m.end() && !m["TenantName"].empty()) {
       tenantName = make_shared<string>(boost::any_cast<string>(m["TenantName"]));
