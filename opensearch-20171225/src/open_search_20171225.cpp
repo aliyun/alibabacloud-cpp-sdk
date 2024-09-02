@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -246,10 +245,50 @@ CreateAppResponse Alibabacloud_OpenSearch20171225::Client::createAppWithOptions(
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("dryRun", *request->dryRun));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoSwitch)) {
+    body->insert(pair<string, bool>("autoSwitch", *request->autoSwitch));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateAppRequestCluster>(request->cluster)) {
+    body->insert(pair<string, CreateAppRequestCluster>("cluster", *request->cluster));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAppRequestDataSources>>(request->dataSources)) {
+    body->insert(pair<string, vector<CreateAppRequestDataSources>>("dataSources", *request->dataSources));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateAppRequestDomain>(request->domain)) {
+    body->insert(pair<string, CreateAppRequestDomain>("domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->fetchFields)) {
+    body->insert(pair<string, vector<string>>("fetchFields", *request->fetchFields));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAppRequestFirstRanks>>(request->firstRanks)) {
+    body->insert(pair<string, vector<CreateAppRequestFirstRanks>>("firstRanks", *request->firstRanks));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkType)) {
+    body->insert(pair<string, string>("networkType", *request->networkType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAppRequestQueryProcessors>>(request->queryProcessors)) {
+    body->insert(pair<string, vector<CreateAppRequestQueryProcessors>>("queryProcessors", *request->queryProcessors));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateAppRequestSchema>(request->schema)) {
+    body->insert(pair<string, CreateAppRequestSchema>("schema", *request->schema));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAppRequestSchemas>>(request->schemas)) {
+    body->insert(pair<string, vector<CreateAppRequestSchemas>>("schemas", *request->schemas));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAppRequestSecondRanks>>(request->secondRanks)) {
+    body->insert(pair<string, vector<CreateAppRequestSecondRanks>>("secondRanks", *request->secondRanks));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAppRequestSummaries>>(request->summaries)) {
+    body->insert(pair<string, vector<CreateAppRequestSummaries>>("summaries", *request->summaries));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateApp"))},
@@ -273,9 +312,25 @@ CreateAppResponse Alibabacloud_OpenSearch20171225::Client::createApp(shared_ptr<
 
 CreateAppGroupResponse Alibabacloud_OpenSearch20171225::Client::createAppGroupWithOptions(shared_ptr<CreateAppGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
+    body->insert(pair<string, string>("chargeType", *request->chargeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateAppGroupRequestQuota>(request->quota)) {
+    body->insert(pair<string, CreateAppGroupRequestQuota>("quota", *request->quota));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    body->insert(pair<string, string>("type", *request->type));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateAppGroup"))},
@@ -295,6 +350,44 @@ CreateAppGroupResponse Alibabacloud_OpenSearch20171225::Client::createAppGroup(s
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return createAppGroupWithOptions(request, headers, runtime);
+}
+
+CreateAppGroupCredentialsResponse Alibabacloud_OpenSearch20171225::Client::createAppGroupCredentialsWithOptions(shared_ptr<string> appGroupIdentity,
+                                                                                                                shared_ptr<CreateAppGroupCredentialsRequest> request,
+                                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("dryRun", *request->dryRun));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    body->insert(pair<string, string>("type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateAppGroupCredentials"))},
+    {"version", boost::any(string("2017-12-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v4/openapi/app-groups/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appGroupIdentity)) + string("/credentials"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateAppGroupCredentialsResponse(callApi(params, req, runtime));
+}
+
+CreateAppGroupCredentialsResponse Alibabacloud_OpenSearch20171225::Client::createAppGroupCredentials(shared_ptr<string> appGroupIdentity, shared_ptr<CreateAppGroupCredentialsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createAppGroupCredentialsWithOptions(appGroupIdentity, request, headers, runtime);
 }
 
 CreateFirstRankResponse Alibabacloud_OpenSearch20171225::Client::createFirstRankWithOptions(shared_ptr<string> appGroupIdentity,
@@ -3274,33 +3367,6 @@ PushUserAnalyzerEntriesResponse Alibabacloud_OpenSearch20171225::Client::pushUse
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return pushUserAnalyzerEntriesWithOptions(name, request, headers, runtime);
-}
-
-RankPreviewQueryResponse Alibabacloud_OpenSearch20171225::Client::rankPreviewQueryWithOptions(shared_ptr<string> appGroupIdentity,
-                                                                                              shared_ptr<string> modelName,
-                                                                                              shared_ptr<map<string, string>> headers,
-                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("RankPreviewQuery"))},
-    {"version", boost::any(string("2017-12-25"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/v4/openapi/app-groups/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appGroupIdentity)) + string("/algorithm/models/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(modelName)) + string("/actions/query-rank"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return RankPreviewQueryResponse(callApi(params, req, runtime));
-}
-
-RankPreviewQueryResponse Alibabacloud_OpenSearch20171225::Client::rankPreviewQuery(shared_ptr<string> appGroupIdentity, shared_ptr<string> modelName) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return rankPreviewQueryWithOptions(appGroupIdentity, modelName, headers, runtime);
 }
 
 ReleaseSortScriptResponse Alibabacloud_OpenSearch20171225::Client::releaseSortScriptWithOptions(shared_ptr<string> appGroupIdentity,
