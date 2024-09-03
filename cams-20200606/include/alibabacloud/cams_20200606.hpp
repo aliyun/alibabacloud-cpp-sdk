@@ -12989,6 +12989,8 @@ class QueryChatappBindWabaResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> accountReviewStatus{};
   shared_ptr<map<string, boost::any>> authInternationalRateEligibility{};
+  shared_ptr<string> businessId{};
+  shared_ptr<string> businessName{};
   shared_ptr<string> currency{};
   shared_ptr<string> id{};
   shared_ptr<string> messageTemplateNamespace{};
@@ -13010,6 +13012,12 @@ public:
     }
     if (authInternationalRateEligibility) {
       res["AuthInternationalRateEligibility"] = boost::any(*authInternationalRateEligibility);
+    }
+    if (businessId) {
+      res["BusinessId"] = boost::any(*businessId);
+    }
+    if (businessName) {
+      res["BusinessName"] = boost::any(*businessName);
     }
     if (currency) {
       res["Currency"] = boost::any(*currency);
@@ -13040,6 +13048,12 @@ public:
          toMap1[item.first] = item.second;
       }
       authInternationalRateEligibility = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("BusinessId") != m.end() && !m["BusinessId"].empty()) {
+      businessId = make_shared<string>(boost::any_cast<string>(m["BusinessId"]));
+    }
+    if (m.find("BusinessName") != m.end() && !m["BusinessName"].empty()) {
+      businessName = make_shared<string>(boost::any_cast<string>(m["BusinessName"]));
     }
     if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
       currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
