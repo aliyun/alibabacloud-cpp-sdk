@@ -6037,6 +6037,7 @@ public:
 class CreateFileRequest : public Darabonba::Model {
 public:
   shared_ptr<string> advancedSettings{};
+  shared_ptr<bool> applyScheduleImmediately{};
   shared_ptr<bool> autoParsing{};
   shared_ptr<long> autoRerunIntervalMillis{};
   shared_ptr<long> autoRerunTimes{};
@@ -6080,6 +6081,9 @@ public:
     map<string, boost::any> res;
     if (advancedSettings) {
       res["AdvancedSettings"] = boost::any(*advancedSettings);
+    }
+    if (applyScheduleImmediately) {
+      res["ApplyScheduleImmediately"] = boost::any(*applyScheduleImmediately);
     }
     if (autoParsing) {
       res["AutoParsing"] = boost::any(*autoParsing);
@@ -6177,6 +6181,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AdvancedSettings") != m.end() && !m["AdvancedSettings"].empty()) {
       advancedSettings = make_shared<string>(boost::any_cast<string>(m["AdvancedSettings"]));
+    }
+    if (m.find("ApplyScheduleImmediately") != m.end() && !m["ApplyScheduleImmediately"].empty()) {
+      applyScheduleImmediately = make_shared<bool>(boost::any_cast<bool>(m["ApplyScheduleImmediately"]));
     }
     if (m.find("AutoParsing") != m.end() && !m["AutoParsing"].empty()) {
       autoParsing = make_shared<bool>(boost::any_cast<bool>(m["AutoParsing"]));
@@ -30343,6 +30350,7 @@ public:
 };
 class GetFileResponseBodyDataNodeConfiguration : public Darabonba::Model {
 public:
+  shared_ptr<string> applyScheduleImmediately{};
   shared_ptr<long> autoRerunIntervalMillis{};
   shared_ptr<long> autoRerunTimes{};
   shared_ptr<string> cronExpress{};
@@ -30372,6 +30380,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (applyScheduleImmediately) {
+      res["ApplyScheduleImmediately"] = boost::any(*applyScheduleImmediately);
+    }
     if (autoRerunIntervalMillis) {
       res["AutoRerunIntervalMillis"] = boost::any(*autoRerunIntervalMillis);
     }
@@ -30446,6 +30457,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplyScheduleImmediately") != m.end() && !m["ApplyScheduleImmediately"].empty()) {
+      applyScheduleImmediately = make_shared<string>(boost::any_cast<string>(m["ApplyScheduleImmediately"]));
+    }
     if (m.find("AutoRerunIntervalMillis") != m.end() && !m["AutoRerunIntervalMillis"].empty()) {
       autoRerunIntervalMillis = make_shared<long>(boost::any_cast<long>(m["AutoRerunIntervalMillis"]));
     }
@@ -68542,6 +68556,302 @@ public:
 
   virtual ~ListTableThemeResponse() = default;
 };
+class ListTablesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> pageSize{};
+
+  ListTablesRequest() {}
+
+  explicit ListTablesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListTablesRequest() = default;
+};
+class ListTablesResponseBodyDataTableEntityListEntityContent : public Darabonba::Model {
+public:
+  shared_ptr<string> dataSourceQualifiedName{};
+  shared_ptr<string> dataSourceUniqueId{};
+  shared_ptr<string> databaseName{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> tableName{};
+
+  ListTablesResponseBodyDataTableEntityListEntityContent() {}
+
+  explicit ListTablesResponseBodyDataTableEntityListEntityContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceQualifiedName) {
+      res["DataSourceQualifiedName"] = boost::any(*dataSourceQualifiedName);
+    }
+    if (dataSourceUniqueId) {
+      res["DataSourceUniqueId"] = boost::any(*dataSourceUniqueId);
+    }
+    if (databaseName) {
+      res["DatabaseName"] = boost::any(*databaseName);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataSourceQualifiedName") != m.end() && !m["DataSourceQualifiedName"].empty()) {
+      dataSourceQualifiedName = make_shared<string>(boost::any_cast<string>(m["DataSourceQualifiedName"]));
+    }
+    if (m.find("DataSourceUniqueId") != m.end() && !m["DataSourceUniqueId"].empty()) {
+      dataSourceUniqueId = make_shared<string>(boost::any_cast<string>(m["DataSourceUniqueId"]));
+    }
+    if (m.find("DatabaseName") != m.end() && !m["DatabaseName"].empty()) {
+      databaseName = make_shared<string>(boost::any_cast<string>(m["DatabaseName"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+  }
+
+
+  virtual ~ListTablesResponseBodyDataTableEntityListEntityContent() = default;
+};
+class ListTablesResponseBodyDataTableEntityList : public Darabonba::Model {
+public:
+  shared_ptr<ListTablesResponseBodyDataTableEntityListEntityContent> entityContent{};
+  shared_ptr<string> entityQualifiedName{};
+
+  ListTablesResponseBodyDataTableEntityList() {}
+
+  explicit ListTablesResponseBodyDataTableEntityList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entityContent) {
+      res["EntityContent"] = entityContent ? boost::any(entityContent->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (entityQualifiedName) {
+      res["EntityQualifiedName"] = boost::any(*entityQualifiedName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EntityContent") != m.end() && !m["EntityContent"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EntityContent"].type()) {
+        ListTablesResponseBodyDataTableEntityListEntityContent model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EntityContent"]));
+        entityContent = make_shared<ListTablesResponseBodyDataTableEntityListEntityContent>(model1);
+      }
+    }
+    if (m.find("EntityQualifiedName") != m.end() && !m["EntityQualifiedName"].empty()) {
+      entityQualifiedName = make_shared<string>(boost::any_cast<string>(m["EntityQualifiedName"]));
+    }
+  }
+
+
+  virtual ~ListTablesResponseBodyDataTableEntityList() = default;
+};
+class ListTablesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<ListTablesResponseBodyDataTableEntityList>> tableEntityList{};
+  shared_ptr<long> total{};
+
+  ListTablesResponseBodyData() {}
+
+  explicit ListTablesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (tableEntityList) {
+      vector<boost::any> temp1;
+      for(auto item1:*tableEntityList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TableEntityList"] = boost::any(temp1);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("TableEntityList") != m.end() && !m["TableEntityList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TableEntityList"].type()) {
+        vector<ListTablesResponseBodyDataTableEntityList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TableEntityList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTablesResponseBodyDataTableEntityList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tableEntityList = make_shared<vector<ListTablesResponseBodyDataTableEntityList>>(expect1);
+      }
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListTablesResponseBodyData() = default;
+};
+class ListTablesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListTablesResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  ListTablesResponseBody() {}
+
+  explicit ListTablesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListTablesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListTablesResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListTablesResponseBody() = default;
+};
+class ListTablesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListTablesResponseBody> body{};
+
+  ListTablesResponse() {}
+
+  explicit ListTablesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListTablesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListTablesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListTablesResponse() = default;
+};
 class ListTopicsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> beginTime{};
@@ -79993,6 +80303,7 @@ public:
 class UpdateFileRequest : public Darabonba::Model {
 public:
   shared_ptr<string> advancedSettings{};
+  shared_ptr<bool> applyScheduleImmediately{};
   shared_ptr<bool> autoParsing{};
   shared_ptr<long> autoRerunIntervalMillis{};
   shared_ptr<long> autoRerunTimes{};
@@ -80035,6 +80346,9 @@ public:
     map<string, boost::any> res;
     if (advancedSettings) {
       res["AdvancedSettings"] = boost::any(*advancedSettings);
+    }
+    if (applyScheduleImmediately) {
+      res["ApplyScheduleImmediately"] = boost::any(*applyScheduleImmediately);
     }
     if (autoParsing) {
       res["AutoParsing"] = boost::any(*autoParsing);
@@ -80129,6 +80443,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AdvancedSettings") != m.end() && !m["AdvancedSettings"].empty()) {
       advancedSettings = make_shared<string>(boost::any_cast<string>(m["AdvancedSettings"]));
+    }
+    if (m.find("ApplyScheduleImmediately") != m.end() && !m["ApplyScheduleImmediately"].empty()) {
+      applyScheduleImmediately = make_shared<bool>(boost::any_cast<bool>(m["ApplyScheduleImmediately"]));
     }
     if (m.find("AutoParsing") != m.end() && !m["AutoParsing"].empty()) {
       autoParsing = make_shared<bool>(boost::any_cast<bool>(m["AutoParsing"]));
@@ -84234,6 +84551,8 @@ public:
   ListTableLevelResponse listTableLevel(shared_ptr<ListTableLevelRequest> request);
   ListTableThemeResponse listTableThemeWithOptions(shared_ptr<ListTableThemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTableThemeResponse listTableTheme(shared_ptr<ListTableThemeRequest> request);
+  ListTablesResponse listTablesWithOptions(shared_ptr<ListTablesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListTablesResponse listTables(shared_ptr<ListTablesRequest> request);
   ListTopicsResponse listTopicsWithOptions(shared_ptr<ListTopicsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTopicsResponse listTopics(shared_ptr<ListTopicsRequest> request);
   MountDirectoryResponse mountDirectoryWithOptions(shared_ptr<MountDirectoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -1218,6 +1218,9 @@ CreateFileResponse Alibabacloud_Dataworks-public20200518::Client::createFileWith
   if (!Darabonba_Util::Client::isUnset<string>(request->advancedSettings)) {
     body->insert(pair<string, string>("AdvancedSettings", *request->advancedSettings));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->applyScheduleImmediately)) {
+    body->insert(pair<string, bool>("ApplyScheduleImmediately", *request->applyScheduleImmediately));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoParsing)) {
     body->insert(pair<string, bool>("AutoParsing", *request->autoParsing));
   }
@@ -9080,6 +9083,40 @@ ListTableThemeResponse Alibabacloud_Dataworks-public20200518::Client::listTableT
   return listTableThemeWithOptions(request, runtime);
 }
 
+ListTablesResponse Alibabacloud_Dataworks-public20200518::Client::listTablesWithOptions(shared_ptr<ListTablesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceType)) {
+    query->insert(pair<string, string>("DataSourceType", *request->dataSourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTables"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTablesResponse(callApi(params, req, runtime));
+}
+
+ListTablesResponse Alibabacloud_Dataworks-public20200518::Client::listTables(shared_ptr<ListTablesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listTablesWithOptions(request, runtime);
+}
+
 ListTopicsResponse Alibabacloud_Dataworks-public20200518::Client::listTopicsWithOptions(shared_ptr<ListTopicsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -11234,6 +11271,9 @@ UpdateFileResponse Alibabacloud_Dataworks-public20200518::Client::updateFileWith
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->advancedSettings)) {
     body->insert(pair<string, string>("AdvancedSettings", *request->advancedSettings));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->applyScheduleImmediately)) {
+    body->insert(pair<string, bool>("ApplyScheduleImmediately", *request->applyScheduleImmediately));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoParsing)) {
     body->insert(pair<string, bool>("AutoParsing", *request->autoParsing));
