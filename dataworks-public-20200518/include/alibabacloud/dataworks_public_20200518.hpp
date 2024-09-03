@@ -30559,10 +30559,40 @@ public:
 
   virtual ~GetFileResponseBodyDataNodeConfiguration() = default;
 };
+class GetFileResponseBodyDataResourceDownloadLink : public Darabonba::Model {
+public:
+  shared_ptr<string> downloadLink{};
+
+  GetFileResponseBodyDataResourceDownloadLink() {}
+
+  explicit GetFileResponseBodyDataResourceDownloadLink(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (downloadLink) {
+      res["downloadLink"] = boost::any(*downloadLink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("downloadLink") != m.end() && !m["downloadLink"].empty()) {
+      downloadLink = make_shared<string>(boost::any_cast<string>(m["downloadLink"]));
+    }
+  }
+
+
+  virtual ~GetFileResponseBodyDataResourceDownloadLink() = default;
+};
 class GetFileResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<GetFileResponseBodyDataFile> file{};
   shared_ptr<GetFileResponseBodyDataNodeConfiguration> nodeConfiguration{};
+  shared_ptr<GetFileResponseBodyDataResourceDownloadLink> resourceDownloadLink{};
 
   GetFileResponseBodyData() {}
 
@@ -30580,6 +30610,9 @@ public:
     if (nodeConfiguration) {
       res["NodeConfiguration"] = nodeConfiguration ? boost::any(nodeConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (resourceDownloadLink) {
+      res["ResourceDownloadLink"] = resourceDownloadLink ? boost::any(resourceDownloadLink->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -30596,6 +30629,13 @@ public:
         GetFileResponseBodyDataNodeConfiguration model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NodeConfiguration"]));
         nodeConfiguration = make_shared<GetFileResponseBodyDataNodeConfiguration>(model1);
+      }
+    }
+    if (m.find("ResourceDownloadLink") != m.end() && !m["ResourceDownloadLink"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceDownloadLink"].type()) {
+        GetFileResponseBodyDataResourceDownloadLink model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceDownloadLink"]));
+        resourceDownloadLink = make_shared<GetFileResponseBodyDataResourceDownloadLink>(model1);
       }
     }
   }
