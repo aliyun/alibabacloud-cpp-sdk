@@ -18532,6 +18532,7 @@ public:
   shared_ptr<bool> supportModifyBackupPriority{};
   shared_ptr<long> supportReleasedKeep{};
   shared_ptr<long> supportVolumeShadowCopy{};
+  shared_ptr<long> supportsHighFrequencyBackup{};
 
   DescribeBackupPolicyResponseBody() {}
 
@@ -18627,6 +18628,9 @@ public:
     if (supportVolumeShadowCopy) {
       res["SupportVolumeShadowCopy"] = boost::any(*supportVolumeShadowCopy);
     }
+    if (supportsHighFrequencyBackup) {
+      res["SupportsHighFrequencyBackup"] = boost::any(*supportsHighFrequencyBackup);
+    }
     return res;
   }
 
@@ -18714,6 +18718,9 @@ public:
     }
     if (m.find("SupportVolumeShadowCopy") != m.end() && !m["SupportVolumeShadowCopy"].empty()) {
       supportVolumeShadowCopy = make_shared<long>(boost::any_cast<long>(m["SupportVolumeShadowCopy"]));
+    }
+    if (m.find("SupportsHighFrequencyBackup") != m.end() && !m["SupportsHighFrequencyBackup"].empty()) {
+      supportsHighFrequencyBackup = make_shared<long>(boost::any_cast<long>(m["SupportsHighFrequencyBackup"]));
     }
   }
 
@@ -23628,6 +23635,7 @@ public:
 };
 class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtra : public Darabonba::Model {
 public:
+  shared_ptr<string> accountSecurityPolicy{};
   shared_ptr<DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtraDBInstanceIds> DBInstanceIds{};
   shared_ptr<string> recoveryModel{};
 
@@ -23641,6 +23649,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountSecurityPolicy) {
+      res["AccountSecurityPolicy"] = boost::any(*accountSecurityPolicy);
+    }
     if (DBInstanceIds) {
       res["DBInstanceIds"] = DBInstanceIds ? boost::any(DBInstanceIds->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -23651,6 +23662,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountSecurityPolicy") != m.end() && !m["AccountSecurityPolicy"].empty()) {
+      accountSecurityPolicy = make_shared<string>(boost::any_cast<string>(m["AccountSecurityPolicy"]));
+    }
     if (m.find("DBInstanceIds") != m.end() && !m["DBInstanceIds"].empty()) {
       if (typeid(map<string, boost::any>) == m["DBInstanceIds"].type()) {
         DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtraDBInstanceIds model1;
@@ -23894,6 +23908,8 @@ public:
   shared_ptr<long> DBMaxQuantity{};
   shared_ptr<string> dedicatedHostGroupId{};
   shared_ptr<bool> deletionProtection{};
+  shared_ptr<string> disasterRecoveryInfo{};
+  shared_ptr<string> disasterRecoveryInstances{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
   shared_ptr<string> expireTime{};
@@ -24044,6 +24060,12 @@ public:
     }
     if (deletionProtection) {
       res["DeletionProtection"] = boost::any(*deletionProtection);
+    }
+    if (disasterRecoveryInfo) {
+      res["DisasterRecoveryInfo"] = boost::any(*disasterRecoveryInfo);
+    }
+    if (disasterRecoveryInstances) {
+      res["DisasterRecoveryInstances"] = boost::any(*disasterRecoveryInstances);
     }
     if (engine) {
       res["Engine"] = boost::any(*engine);
@@ -24284,6 +24306,12 @@ public:
     }
     if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
       deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
+    }
+    if (m.find("DisasterRecoveryInfo") != m.end() && !m["DisasterRecoveryInfo"].empty()) {
+      disasterRecoveryInfo = make_shared<string>(boost::any_cast<string>(m["DisasterRecoveryInfo"]));
+    }
+    if (m.find("DisasterRecoveryInstances") != m.end() && !m["DisasterRecoveryInstances"].empty()) {
+      disasterRecoveryInstances = make_shared<string>(boost::any_cast<string>(m["DisasterRecoveryInstances"]));
     }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
@@ -45964,6 +45992,7 @@ public:
   shared_ptr<string> owner{};
   shared_ptr<string> priority{};
   shared_ptr<string> requires_{};
+  shared_ptr<string> uid{};
 
   DescribePostgresExtensionsResponseBodyInstalledExtensions() {}
 
@@ -45999,6 +46028,9 @@ public:
     if (requires_) {
       res["Requires"] = boost::any(*requires_);
     }
+    if (uid) {
+      res["Uid"] = boost::any(*uid);
+    }
     return res;
   }
 
@@ -46027,6 +46059,9 @@ public:
     if (m.find("Requires") != m.end() && !m["Requires"].empty()) {
       requires_ = make_shared<string>(boost::any_cast<string>(m["Requires"]));
     }
+    if (m.find("Uid") != m.end() && !m["Uid"].empty()) {
+      uid = make_shared<string>(boost::any_cast<string>(m["Uid"]));
+    }
   }
 
 
@@ -46042,6 +46077,7 @@ public:
   shared_ptr<string> owner{};
   shared_ptr<string> priority{};
   shared_ptr<string> requires_{};
+  shared_ptr<string> uid{};
 
   DescribePostgresExtensionsResponseBodyUninstalledExtensions() {}
 
@@ -46077,6 +46113,9 @@ public:
     if (requires_) {
       res["Requires"] = boost::any(*requires_);
     }
+    if (uid) {
+      res["Uid"] = boost::any(*uid);
+    }
     return res;
   }
 
@@ -46104,6 +46143,9 @@ public:
     }
     if (m.find("Requires") != m.end() && !m["Requires"].empty()) {
       requires_ = make_shared<string>(boost::any_cast<string>(m["Requires"]));
+    }
+    if (m.find("Uid") != m.end() && !m["Uid"].empty()) {
+      uid = make_shared<string>(boost::any_cast<string>(m["Uid"]));
     }
   }
 
