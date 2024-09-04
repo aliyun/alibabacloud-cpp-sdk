@@ -606,6 +606,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->kubernetesVersion)) {
     body->insert(pair<string, string>("kubernetes_version", *request->kubernetesVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loadBalancerId)) {
+    body->insert(pair<string, string>("load_balancer_id", *request->loadBalancerId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->loadBalancerSpec)) {
     body->insert(pair<string, string>("load_balancer_spec", *request->loadBalancerSpec));
   }

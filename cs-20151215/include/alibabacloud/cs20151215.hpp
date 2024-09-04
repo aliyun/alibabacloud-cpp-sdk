@@ -3460,6 +3460,7 @@ public:
   shared_ptr<bool> keepInstanceName{};
   shared_ptr<string> keyPair{};
   shared_ptr<string> kubernetesVersion{};
+  shared_ptr<string> loadBalancerId{};
   shared_ptr<string> loadBalancerSpec{};
   shared_ptr<string> loggingType{};
   shared_ptr<string> loginPassword{};
@@ -3623,6 +3624,9 @@ public:
     }
     if (kubernetesVersion) {
       res["kubernetes_version"] = boost::any(*kubernetesVersion);
+    }
+    if (loadBalancerId) {
+      res["load_balancer_id"] = boost::any(*loadBalancerId);
     }
     if (loadBalancerSpec) {
       res["load_balancer_spec"] = boost::any(*loadBalancerSpec);
@@ -3947,6 +3951,9 @@ public:
     }
     if (m.find("kubernetes_version") != m.end() && !m["kubernetes_version"].empty()) {
       kubernetesVersion = make_shared<string>(boost::any_cast<string>(m["kubernetes_version"]));
+    }
+    if (m.find("load_balancer_id") != m.end() && !m["load_balancer_id"].empty()) {
+      loadBalancerId = make_shared<string>(boost::any_cast<string>(m["load_balancer_id"]));
     }
     if (m.find("load_balancer_spec") != m.end() && !m["load_balancer_spec"].empty()) {
       loadBalancerSpec = make_shared<string>(boost::any_cast<string>(m["load_balancer_spec"]));
@@ -6493,15 +6500,15 @@ public:
 
   virtual ~DeleteAlertContactShrinkRequest() = default;
 };
-class DeleteAlertContactResponseBody : public Darabonba::Model {
+class DeleteAlertContactResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<bool> status{};
   shared_ptr<string> msg{};
   shared_ptr<string> contactId{};
 
-  DeleteAlertContactResponseBody() {}
+  DeleteAlertContactResponseBodyResult() {}
 
-  explicit DeleteAlertContactResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit DeleteAlertContactResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -6534,13 +6541,56 @@ public:
   }
 
 
+  virtual ~DeleteAlertContactResponseBodyResult() = default;
+};
+class DeleteAlertContactResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DeleteAlertContactResponseBodyResult>> result{};
+
+  DeleteAlertContactResponseBody() {}
+
+  explicit DeleteAlertContactResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["result"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      if (typeid(vector<boost::any>) == m["result"].type()) {
+        vector<DeleteAlertContactResponseBodyResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DeleteAlertContactResponseBodyResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<DeleteAlertContactResponseBodyResult>>(expect1);
+      }
+    }
+  }
+
+
   virtual ~DeleteAlertContactResponseBody() = default;
 };
 class DeleteAlertContactResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
   shared_ptr<long> statusCode{};
-  shared_ptr<vector<DeleteAlertContactResponseBody>> body{};
+  shared_ptr<DeleteAlertContactResponseBody> body{};
 
   DeleteAlertContactResponse() {}
 
@@ -6559,11 +6609,7 @@ public:
       res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
-      vector<boost::any> temp1;
-      for(auto item1:*body){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["body"] = boost::any(temp1);
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -6581,16 +6627,10 @@ public:
       statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(vector<boost::any>) == m["body"].type()) {
-        vector<DeleteAlertContactResponseBody> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["body"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DeleteAlertContactResponseBody model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        body = make_shared<vector<DeleteAlertContactResponseBody>>(expect1);
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAlertContactResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAlertContactResponseBody>(model1);
       }
     }
   }
