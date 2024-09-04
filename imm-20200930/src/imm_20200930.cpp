@@ -4273,6 +4273,9 @@ SemanticQueryResponse Alibabacloud_Imm20200930::Client::semanticQueryWithOptions
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->mediaTypes)) {
     request->mediaTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->mediaTypes, make_shared<string>("MediaTypes"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->smartClusterIds)) {
+    request->smartClusterIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->smartClusterIds, make_shared<string>("SmartClusterIds"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->withFields)) {
     request->withFieldsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->withFields, make_shared<string>("WithFields"), make_shared<string>("json")));
   }
@@ -4294,6 +4297,9 @@ SemanticQueryResponse Alibabacloud_Imm20200930::Client::semanticQueryWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
     query->insert(pair<string, string>("Query", *request->query));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->smartClusterIdsShrink)) {
+    query->insert(pair<string, string>("SmartClusterIds", *request->smartClusterIdsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->withFieldsShrink)) {
     query->insert(pair<string, string>("WithFields", *request->withFieldsShrink));
