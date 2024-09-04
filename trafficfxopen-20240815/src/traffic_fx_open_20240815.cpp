@@ -36,6 +36,67 @@ string Alibabacloud_TrafficFxOpen20240815::Client::getEndpoint(shared_ptr<string
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+ConvertUrlResponse Alibabacloud_TrafficFxOpen20240815::Client::convertUrlWithOptions(shared_ptr<ConvertUrlRequest> request, shared_ptr<ConvertUrlHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->countryCallingCode)) {
+    body->insert(pair<string, string>("countryCallingCode", *request->countryCallingCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jumpUrl)) {
+    body->insert(pair<string, string>("jumpUrl", *request->jumpUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phone)) {
+    body->insert(pair<string, string>("phone", *request->phone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scene)) {
+    body->insert(pair<string, string>("scene", *request->scene));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    body->insert(pair<string, string>("source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->thirdId)) {
+    body->insert(pair<string, string>("thirdId", *request->thirdId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uid)) {
+    body->insert(pair<string, string>("uid", *request->uid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->xenv)) {
+    body->insert(pair<string, string>("xenv", *request->xenv));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAirticketAccessToken)) {
+    realHeaders->insert(pair<string, string>("xAcsAirticketAccessToken", Darabonba_Util::Client::toJSONString(headers->xAcsAirticketAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAirticketLanguage)) {
+    realHeaders->insert(pair<string, string>("xAcsAirticketLanguage", Darabonba_Util::Client::toJSONString(headers->xAcsAirticketLanguage)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ConvertUrl"))},
+    {"version", boost::any(string("2024-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1/distribution/trade/convertUrl"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ConvertUrlResponse(callApi(params, req, runtime));
+}
+
+ConvertUrlResponse Alibabacloud_TrafficFxOpen20240815::Client::convertUrl(shared_ptr<ConvertUrlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ConvertUrlHeaders> headers = make_shared<ConvertUrlHeaders>();
+  return convertUrlWithOptions(request, headers, runtime);
+}
+
 GetTokenResponse Alibabacloud_TrafficFxOpen20240815::Client::getTokenWithOptions(shared_ptr<GetTokenRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
