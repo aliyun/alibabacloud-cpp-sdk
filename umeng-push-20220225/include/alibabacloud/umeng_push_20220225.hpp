@@ -332,6 +332,7 @@ public:
   shared_ptr<string> huaweiChannelImportance{};
   shared_ptr<string> mainActivity{};
   shared_ptr<string> oppoChannelId{};
+  shared_ptr<string> vivoAddBadge{};
   shared_ptr<string> vivoCategory{};
   shared_ptr<string> xiaomiChannelId{};
 
@@ -363,6 +364,9 @@ public:
     if (oppoChannelId) {
       res["oppoChannelId"] = boost::any(*oppoChannelId);
     }
+    if (vivoAddBadge) {
+      res["vivoAddBadge"] = boost::any(*vivoAddBadge);
+    }
     if (vivoCategory) {
       res["vivoCategory"] = boost::any(*vivoCategory);
     }
@@ -390,6 +394,9 @@ public:
     }
     if (m.find("oppoChannelId") != m.end() && !m["oppoChannelId"].empty()) {
       oppoChannelId = make_shared<string>(boost::any_cast<string>(m["oppoChannelId"]));
+    }
+    if (m.find("vivoAddBadge") != m.end() && !m["vivoAddBadge"].empty()) {
+      vivoAddBadge = make_shared<string>(boost::any_cast<string>(m["vivoAddBadge"]));
     }
     if (m.find("vivoCategory") != m.end() && !m["vivoCategory"].empty()) {
       vivoCategory = make_shared<string>(boost::any_cast<string>(m["vivoCategory"]));
