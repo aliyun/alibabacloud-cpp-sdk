@@ -237,6 +237,7 @@ class BankMetaVerifyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bankCard{};
   shared_ptr<string> identifyNum{};
+  shared_ptr<string> identityType{};
   shared_ptr<string> mobile{};
   shared_ptr<string> paramType{};
   shared_ptr<string> productType{};
@@ -258,6 +259,9 @@ public:
     }
     if (identifyNum) {
       res["IdentifyNum"] = boost::any(*identifyNum);
+    }
+    if (identityType) {
+      res["IdentityType"] = boost::any(*identityType);
     }
     if (mobile) {
       res["Mobile"] = boost::any(*mobile);
@@ -283,6 +287,9 @@ public:
     }
     if (m.find("IdentifyNum") != m.end() && !m["IdentifyNum"].empty()) {
       identifyNum = make_shared<string>(boost::any_cast<string>(m["IdentifyNum"]));
+    }
+    if (m.find("IdentityType") != m.end() && !m["IdentityType"].empty()) {
+      identityType = make_shared<string>(boost::any_cast<string>(m["IdentityType"]));
     }
     if (m.find("Mobile") != m.end() && !m["Mobile"].empty()) {
       mobile = make_shared<string>(boost::any_cast<string>(m["Mobile"]));

@@ -98,6 +98,9 @@ BankMetaVerifyResponse Alibabacloud_Cloudauth20190307::Client::bankMetaVerifyWit
   if (!Darabonba_Util::Client::isUnset<string>(request->identifyNum)) {
     query->insert(pair<string, string>("IdentifyNum", *request->identifyNum));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityType)) {
+    query->insert(pair<string, string>("IdentityType", *request->identityType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
     query->insert(pair<string, string>("Mobile", *request->mobile));
   }
