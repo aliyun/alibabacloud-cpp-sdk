@@ -124,6 +124,78 @@ CancelSubscriptionBillResponse Alibabacloud_Agency20221216::Client::cancelSubscr
   return cancelSubscriptionBillWithOptions(request, runtime);
 }
 
+CreateCouponTemplateResponse Alibabacloud_Agency20221216::Client::createCouponTemplateWithOptions(shared_ptr<CreateCouponTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateCouponTemplateShrinkRequest> request = make_shared<CreateCouponTemplateShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->productType)) {
+    request->productTypeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->productType, make_shared<string>("ProductType"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->applicableProducts)) {
+    query->insert(pair<string, string>("ApplicableProducts", *request->applicableProducts));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->costBearer)) {
+    query->insert(pair<string, string>("CostBearer", *request->costBearer));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->couponDescription)) {
+    query->insert(pair<string, string>("CouponDescription", *request->couponDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->expireddate)) {
+    query->insert(pair<string, string>("Expireddate", *request->expireddate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->limitPerPerson)) {
+    query->insert(pair<string, string>("LimitPerPerson", *request->limitPerPerson));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productTypeShrink)) {
+    query->insert(pair<string, string>("ProductType", *request->productTypeShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->purchaseType)) {
+    query->insert(pair<string, string>("PurchaseType", *request->purchaseType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reasonForApplication)) {
+    query->insert(pair<string, string>("ReasonForApplication", *request->reasonForApplication));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
+    query->insert(pair<string, string>("TemplateName", *request->templateName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vailddate)) {
+    query->insert(pair<string, string>("Vailddate", *request->vailddate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vaildperioddays)) {
+    query->insert(pair<string, string>("Vaildperioddays", *request->vaildperioddays));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->validUntil)) {
+    query->insert(pair<string, string>("ValidUntil", *request->validUntil));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->value)) {
+    query->insert(pair<string, string>("Value", *request->value));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCouponTemplate"))},
+    {"version", boost::any(string("2022-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCouponTemplateResponse(callApi(params, req, runtime));
+}
+
+CreateCouponTemplateResponse Alibabacloud_Agency20221216::Client::createCouponTemplate(shared_ptr<CreateCouponTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createCouponTemplateWithOptions(request, runtime);
+}
+
 CreateCustomerResponse Alibabacloud_Agency20221216::Client::createCustomerWithOptions(shared_ptr<CreateCustomerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -372,6 +444,31 @@ GetAccountInfoResponse Alibabacloud_Agency20221216::Client::getAccountInfo(share
   return getAccountInfoWithOptions(request, runtime);
 }
 
+GetCoupondeductProductCodeResponse Alibabacloud_Agency20221216::Client::getCoupondeductProductCodeWithOptions(shared_ptr<GetCoupondeductProductCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCoupondeductProductCode"))},
+    {"version", boost::any(string("2022-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCoupondeductProductCodeResponse(callApi(params, req, runtime));
+}
+
+GetCoupondeductProductCodeResponse Alibabacloud_Agency20221216::Client::getCoupondeductProductCode(shared_ptr<GetCoupondeductProductCodeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getCoupondeductProductCodeWithOptions(request, runtime);
+}
+
 GetCreditInfoResponse Alibabacloud_Agency20221216::Client::getCreditInfoWithOptions(shared_ptr<GetCreditInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -395,6 +492,31 @@ GetCreditInfoResponse Alibabacloud_Agency20221216::Client::getCreditInfoWithOpti
 GetCreditInfoResponse Alibabacloud_Agency20221216::Client::getCreditInfo(shared_ptr<GetCreditInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getCreditInfoWithOptions(request, runtime);
+}
+
+GetCustomerOrdersResponse Alibabacloud_Agency20221216::Client::getCustomerOrdersWithOptions(shared_ptr<GetCustomerOrdersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCustomerOrders"))},
+    {"version", boost::any(string("2022-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCustomerOrdersResponse(callApi(params, req, runtime));
+}
+
+GetCustomerOrdersResponse Alibabacloud_Agency20221216::Client::getCustomerOrders(shared_ptr<GetCustomerOrdersRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getCustomerOrdersWithOptions(request, runtime);
 }
 
 GetDailyBillResponse Alibabacloud_Agency20221216::Client::getDailyBillWithOptions(shared_ptr<GetDailyBillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -544,6 +666,40 @@ InviteSubAccountResponse Alibabacloud_Agency20221216::Client::inviteSubAccountWi
 InviteSubAccountResponse Alibabacloud_Agency20221216::Client::inviteSubAccount(shared_ptr<InviteSubAccountRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return inviteSubAccountWithOptions(request, runtime);
+}
+
+IssueCouponForCustomerResponse Alibabacloud_Agency20221216::Client::issueCouponForCustomerWithOptions(shared_ptr<IssueCouponForCustomerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->couponTemplateId)) {
+    query->insert(pair<string, long>("CouponTemplateId", *request->couponTemplateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uidlist)) {
+    query->insert(pair<string, string>("Uidlist", *request->uidlist));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("IssueCouponForCustomer"))},
+    {"version", boost::any(string("2022-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return IssueCouponForCustomerResponse(callApi(params, req, runtime));
+}
+
+IssueCouponForCustomerResponse Alibabacloud_Agency20221216::Client::issueCouponForCustomer(shared_ptr<IssueCouponForCustomerRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return issueCouponForCustomerWithOptions(request, runtime);
 }
 
 ListCountriesResponse Alibabacloud_Agency20221216::Client::listCountriesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
