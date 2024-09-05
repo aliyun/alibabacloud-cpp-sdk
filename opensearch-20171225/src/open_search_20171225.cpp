@@ -325,6 +325,9 @@ CreateAppGroupResponse Alibabacloud_OpenSearch20171225::Client::createAppGroupWi
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAppGroupRequestTags>>(request->tags)) {
+    body->insert(pair<string, vector<CreateAppGroupRequestTags>>("tags", *request->tags));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     body->insert(pair<string, string>("type", *request->type));
   }
