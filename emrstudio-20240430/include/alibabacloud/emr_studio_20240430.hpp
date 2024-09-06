@@ -17,6 +17,8 @@ class CreateWorkflowRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alertGroupId{};
   shared_ptr<string> alertStrategy{};
+  shared_ptr<string> taskDefinitionJsonValue{};
+  shared_ptr<string> taskRelationJsonValue{};
   shared_ptr<string> cronExpr{};
   shared_ptr<string> description{};
   shared_ptr<string> executionType{};
@@ -50,6 +52,12 @@ public:
     }
     if (alertStrategy) {
       res["alertStrategy"] = boost::any(*alertStrategy);
+    }
+    if (taskDefinitionJsonValue) {
+      res["taskDefinitionJsonValue"] = boost::any(*taskDefinitionJsonValue);
+    }
+    if (taskRelationJsonValue) {
+      res["taskRelationJsonValue"] = boost::any(*taskRelationJsonValue);
     }
     if (cronExpr) {
       res["cronExpr"] = boost::any(*cronExpr);
@@ -111,6 +119,12 @@ public:
     }
     if (m.find("alertStrategy") != m.end() && !m["alertStrategy"].empty()) {
       alertStrategy = make_shared<string>(boost::any_cast<string>(m["alertStrategy"]));
+    }
+    if (m.find("taskDefinitionJsonValue") != m.end() && !m["taskDefinitionJsonValue"].empty()) {
+      taskDefinitionJsonValue = make_shared<string>(boost::any_cast<string>(m["taskDefinitionJsonValue"]));
+    }
+    if (m.find("taskRelationJsonValue") != m.end() && !m["taskRelationJsonValue"].empty()) {
+      taskRelationJsonValue = make_shared<string>(boost::any_cast<string>(m["taskRelationJsonValue"]));
     }
     if (m.find("cronExpr") != m.end() && !m["cronExpr"].empty()) {
       cronExpr = make_shared<string>(boost::any_cast<string>(m["cronExpr"]));
@@ -4170,6 +4184,8 @@ class UpdateWorkflowRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alertGroupId{};
   shared_ptr<string> alertStrategy{};
+  shared_ptr<string> taskDefinitionJsonValue{};
+  shared_ptr<string> taskRelationJsonValue{};
   shared_ptr<string> cronExpr{};
   shared_ptr<string> description{};
   shared_ptr<string> executionType{};
@@ -4203,6 +4219,12 @@ public:
     }
     if (alertStrategy) {
       res["alertStrategy"] = boost::any(*alertStrategy);
+    }
+    if (taskDefinitionJsonValue) {
+      res["taskDefinitionJsonValue"] = boost::any(*taskDefinitionJsonValue);
+    }
+    if (taskRelationJsonValue) {
+      res["taskRelationJsonValue"] = boost::any(*taskRelationJsonValue);
     }
     if (cronExpr) {
       res["cronExpr"] = boost::any(*cronExpr);
@@ -4264,6 +4286,12 @@ public:
     }
     if (m.find("alertStrategy") != m.end() && !m["alertStrategy"].empty()) {
       alertStrategy = make_shared<string>(boost::any_cast<string>(m["alertStrategy"]));
+    }
+    if (m.find("taskDefinitionJsonValue") != m.end() && !m["taskDefinitionJsonValue"].empty()) {
+      taskDefinitionJsonValue = make_shared<string>(boost::any_cast<string>(m["taskDefinitionJsonValue"]));
+    }
+    if (m.find("taskRelationJsonValue") != m.end() && !m["taskRelationJsonValue"].empty()) {
+      taskRelationJsonValue = make_shared<string>(boost::any_cast<string>(m["taskRelationJsonValue"]));
     }
     if (m.find("cronExpr") != m.end() && !m["cronExpr"].empty()) {
       cronExpr = make_shared<string>(boost::any_cast<string>(m["cronExpr"]));
