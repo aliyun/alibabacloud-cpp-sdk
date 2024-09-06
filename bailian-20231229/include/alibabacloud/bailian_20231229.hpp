@@ -3164,6 +3164,8 @@ class GetIndexJobStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> indexId{};
   shared_ptr<string> jobId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
 
   GetIndexJobStatusRequest() {}
 
@@ -3181,6 +3183,12 @@ public:
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
     return res;
   }
 
@@ -3190,6 +3198,12 @@ public:
     }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
     }
   }
 
