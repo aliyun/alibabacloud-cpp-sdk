@@ -12438,6 +12438,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> nickName{};
   shared_ptr<string> packageName{};
+  shared_ptr<string> realRegionId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> siteType{};
@@ -12468,6 +12469,9 @@ public:
     }
     if (packageName) {
       res["PackageName"] = boost::any(*packageName);
+    }
+    if (realRegionId) {
+      res["RealRegionId"] = boost::any(*realRegionId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -12507,6 +12511,9 @@ public:
     if (m.find("PackageName") != m.end() && !m["PackageName"].empty()) {
       packageName = make_shared<string>(boost::any_cast<string>(m["PackageName"]));
     }
+    if (m.find("RealRegionId") != m.end() && !m["RealRegionId"].empty()) {
+      realRegionId = make_shared<string>(boost::any_cast<string>(m["RealRegionId"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -12544,6 +12551,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> nickName{};
   shared_ptr<string> packageName{};
+  shared_ptr<string> realRegionId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> siteType{};
@@ -12574,6 +12582,9 @@ public:
     }
     if (packageName) {
       res["PackageName"] = boost::any(*packageName);
+    }
+    if (realRegionId) {
+      res["RealRegionId"] = boost::any(*realRegionId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -12608,6 +12619,9 @@ public:
     }
     if (m.find("PackageName") != m.end() && !m["PackageName"].empty()) {
       packageName = make_shared<string>(boost::any_cast<string>(m["PackageName"]));
+    }
+    if (m.find("RealRegionId") != m.end() && !m["RealRegionId"].empty()) {
+      realRegionId = make_shared<string>(boost::any_cast<string>(m["RealRegionId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -20154,6 +20168,7 @@ class DeleteRumAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appGroup{};
   shared_ptr<string> appId{};
+  shared_ptr<string> realRegionId{};
   shared_ptr<string> regionId{};
 
   DeleteRumAppRequest() {}
@@ -20172,6 +20187,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (realRegionId) {
+      res["RealRegionId"] = boost::any(*realRegionId);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -20184,6 +20202,9 @@ public:
     }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RealRegionId") != m.end() && !m["RealRegionId"].empty()) {
+      realRegionId = make_shared<string>(boost::any_cast<string>(m["RealRegionId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -26314,6 +26335,198 @@ public:
 
   virtual ~GetAgentDownloadUrlResponse() = default;
 };
+class GetAgentDownloadUrlV2Request : public Darabonba::Model {
+public:
+  shared_ptr<string> agentType{};
+  shared_ptr<string> archType{};
+  shared_ptr<string> osType{};
+
+  GetAgentDownloadUrlV2Request() {}
+
+  explicit GetAgentDownloadUrlV2Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentType) {
+      res["AgentType"] = boost::any(*agentType);
+    }
+    if (archType) {
+      res["ArchType"] = boost::any(*archType);
+    }
+    if (osType) {
+      res["OsType"] = boost::any(*osType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentType") != m.end() && !m["AgentType"].empty()) {
+      agentType = make_shared<string>(boost::any_cast<string>(m["AgentType"]));
+    }
+    if (m.find("ArchType") != m.end() && !m["ArchType"].empty()) {
+      archType = make_shared<string>(boost::any_cast<string>(m["ArchType"]));
+    }
+    if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
+      osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
+    }
+  }
+
+
+  virtual ~GetAgentDownloadUrlV2Request() = default;
+};
+class GetAgentDownloadUrlV2ResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> url{};
+  shared_ptr<string> version{};
+
+  GetAgentDownloadUrlV2ResponseBodyData() {}
+
+  explicit GetAgentDownloadUrlV2ResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~GetAgentDownloadUrlV2ResponseBodyData() = default;
+};
+class GetAgentDownloadUrlV2ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<GetAgentDownloadUrlV2ResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetAgentDownloadUrlV2ResponseBody() {}
+
+  explicit GetAgentDownloadUrlV2ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetAgentDownloadUrlV2ResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetAgentDownloadUrlV2ResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetAgentDownloadUrlV2ResponseBody() = default;
+};
+class GetAgentDownloadUrlV2Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAgentDownloadUrlV2ResponseBody> body{};
+
+  GetAgentDownloadUrlV2Response() {}
+
+  explicit GetAgentDownloadUrlV2Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAgentDownloadUrlV2ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAgentDownloadUrlV2ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAgentDownloadUrlV2Response() = default;
+};
 class GetAlertRulesRequestTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -30654,11 +30867,15 @@ class GetPrometheusInstanceResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> accessType{};
   shared_ptr<long> archiveDuration{};
+  shared_ptr<string> authFreeReadPolicy{};
+  shared_ptr<string> authFreeWritePolicy{};
   shared_ptr<string> authToken{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
   shared_ptr<string> dbInstanceStatus{};
+  shared_ptr<bool> enableAuthFreeRead{};
+  shared_ptr<bool> enableAuthFreeWrite{};
   shared_ptr<string> enableAuthToken{};
   shared_ptr<string> grafanaInstanceId{};
   shared_ptr<string> httpApiInterUrl{};
@@ -30699,6 +30916,12 @@ public:
     if (archiveDuration) {
       res["ArchiveDuration"] = boost::any(*archiveDuration);
     }
+    if (authFreeReadPolicy) {
+      res["AuthFreeReadPolicy"] = boost::any(*authFreeReadPolicy);
+    }
+    if (authFreeWritePolicy) {
+      res["AuthFreeWritePolicy"] = boost::any(*authFreeWritePolicy);
+    }
     if (authToken) {
       res["AuthToken"] = boost::any(*authToken);
     }
@@ -30713,6 +30936,12 @@ public:
     }
     if (dbInstanceStatus) {
       res["DbInstanceStatus"] = boost::any(*dbInstanceStatus);
+    }
+    if (enableAuthFreeRead) {
+      res["EnableAuthFreeRead"] = boost::any(*enableAuthFreeRead);
+    }
+    if (enableAuthFreeWrite) {
+      res["EnableAuthFreeWrite"] = boost::any(*enableAuthFreeWrite);
     }
     if (enableAuthToken) {
       res["EnableAuthToken"] = boost::any(*enableAuthToken);
@@ -30797,6 +31026,12 @@ public:
     if (m.find("ArchiveDuration") != m.end() && !m["ArchiveDuration"].empty()) {
       archiveDuration = make_shared<long>(boost::any_cast<long>(m["ArchiveDuration"]));
     }
+    if (m.find("AuthFreeReadPolicy") != m.end() && !m["AuthFreeReadPolicy"].empty()) {
+      authFreeReadPolicy = make_shared<string>(boost::any_cast<string>(m["AuthFreeReadPolicy"]));
+    }
+    if (m.find("AuthFreeWritePolicy") != m.end() && !m["AuthFreeWritePolicy"].empty()) {
+      authFreeWritePolicy = make_shared<string>(boost::any_cast<string>(m["AuthFreeWritePolicy"]));
+    }
     if (m.find("AuthToken") != m.end() && !m["AuthToken"].empty()) {
       authToken = make_shared<string>(boost::any_cast<string>(m["AuthToken"]));
     }
@@ -30811,6 +31046,12 @@ public:
     }
     if (m.find("DbInstanceStatus") != m.end() && !m["DbInstanceStatus"].empty()) {
       dbInstanceStatus = make_shared<string>(boost::any_cast<string>(m["DbInstanceStatus"]));
+    }
+    if (m.find("EnableAuthFreeRead") != m.end() && !m["EnableAuthFreeRead"].empty()) {
+      enableAuthFreeRead = make_shared<bool>(boost::any_cast<bool>(m["EnableAuthFreeRead"]));
+    }
+    if (m.find("EnableAuthFreeWrite") != m.end() && !m["EnableAuthFreeWrite"].empty()) {
+      enableAuthFreeWrite = make_shared<bool>(boost::any_cast<bool>(m["EnableAuthFreeWrite"]));
     }
     if (m.find("EnableAuthToken") != m.end() && !m["EnableAuthToken"].empty()) {
       enableAuthToken = make_shared<string>(boost::any_cast<string>(m["EnableAuthToken"]));
@@ -41675,6 +41916,7 @@ public:
 };
 class ListActivatedAlertsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> message{};
   shared_ptr<ListActivatedAlertsResponseBodyPage> page{};
   shared_ptr<string> requestId{};
 
@@ -41688,6 +41930,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (page) {
       res["Page"] = page ? boost::any(page->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -41698,6 +41943,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
     if (m.find("Page") != m.end() && !m["Page"].empty()) {
       if (typeid(map<string, boost::any>) == m["Page"].type()) {
         ListActivatedAlertsResponseBodyPage model1;
@@ -43884,6 +44132,7 @@ public:
 };
 class ListAlertsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> message{};
   shared_ptr<ListAlertsResponseBodyPageBean> pageBean{};
   shared_ptr<string> requestId{};
 
@@ -43897,6 +44146,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (pageBean) {
       res["PageBean"] = pageBean ? boost::any(pageBean->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -43907,6 +44159,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
     if (m.find("PageBean") != m.end() && !m["PageBean"].empty()) {
       if (typeid(map<string, boost::any>) == m["PageBean"].type()) {
         ListAlertsResponseBodyPageBean model1;
@@ -66939,7 +67194,12 @@ public:
 class UpdatePrometheusInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> archiveDuration{};
+  shared_ptr<string> authFreeReadPolicy{};
+  shared_ptr<string> authFreeWritePolicy{};
   shared_ptr<string> clusterId{};
+  shared_ptr<bool> enableAuthFreeRead{};
+  shared_ptr<bool> enableAuthFreeWrite{};
+  shared_ptr<bool> enableAuthToken{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<long> storageDuration{};
@@ -66957,8 +67217,23 @@ public:
     if (archiveDuration) {
       res["ArchiveDuration"] = boost::any(*archiveDuration);
     }
+    if (authFreeReadPolicy) {
+      res["AuthFreeReadPolicy"] = boost::any(*authFreeReadPolicy);
+    }
+    if (authFreeWritePolicy) {
+      res["AuthFreeWritePolicy"] = boost::any(*authFreeWritePolicy);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (enableAuthFreeRead) {
+      res["EnableAuthFreeRead"] = boost::any(*enableAuthFreeRead);
+    }
+    if (enableAuthFreeWrite) {
+      res["EnableAuthFreeWrite"] = boost::any(*enableAuthFreeWrite);
+    }
+    if (enableAuthToken) {
+      res["EnableAuthToken"] = boost::any(*enableAuthToken);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -66976,8 +67251,23 @@ public:
     if (m.find("ArchiveDuration") != m.end() && !m["ArchiveDuration"].empty()) {
       archiveDuration = make_shared<long>(boost::any_cast<long>(m["ArchiveDuration"]));
     }
+    if (m.find("AuthFreeReadPolicy") != m.end() && !m["AuthFreeReadPolicy"].empty()) {
+      authFreeReadPolicy = make_shared<string>(boost::any_cast<string>(m["AuthFreeReadPolicy"]));
+    }
+    if (m.find("AuthFreeWritePolicy") != m.end() && !m["AuthFreeWritePolicy"].empty()) {
+      authFreeWritePolicy = make_shared<string>(boost::any_cast<string>(m["AuthFreeWritePolicy"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("EnableAuthFreeRead") != m.end() && !m["EnableAuthFreeRead"].empty()) {
+      enableAuthFreeRead = make_shared<bool>(boost::any_cast<bool>(m["EnableAuthFreeRead"]));
+    }
+    if (m.find("EnableAuthFreeWrite") != m.end() && !m["EnableAuthFreeWrite"].empty()) {
+      enableAuthFreeWrite = make_shared<bool>(boost::any_cast<bool>(m["EnableAuthFreeWrite"]));
+    }
+    if (m.find("EnableAuthToken") != m.end() && !m["EnableAuthToken"].empty()) {
+      enableAuthToken = make_shared<bool>(boost::any_cast<bool>(m["EnableAuthToken"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -67620,6 +67910,7 @@ public:
   shared_ptr<bool> isSubscribe{};
   shared_ptr<string> nickname{};
   shared_ptr<string> pid{};
+  shared_ptr<string> realRegionId{};
   shared_ptr<string> regionId{};
   shared_ptr<bool> restart{};
   shared_ptr<string> serviceDomainOperationJson{};
@@ -67652,6 +67943,9 @@ public:
     }
     if (pid) {
       res["Pid"] = boost::any(*pid);
+    }
+    if (realRegionId) {
+      res["RealRegionId"] = boost::any(*realRegionId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -67686,6 +67980,9 @@ public:
     }
     if (m.find("Pid") != m.end() && !m["Pid"].empty()) {
       pid = make_shared<string>(boost::any_cast<string>(m["Pid"]));
+    }
+    if (m.find("RealRegionId") != m.end() && !m["RealRegionId"].empty()) {
+      realRegionId = make_shared<string>(boost::any_cast<string>(m["RealRegionId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -70635,6 +70932,8 @@ public:
   EnableMetricResponse enableMetric(shared_ptr<EnableMetricRequest> request);
   GetAgentDownloadUrlResponse getAgentDownloadUrlWithOptions(shared_ptr<GetAgentDownloadUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAgentDownloadUrlResponse getAgentDownloadUrl(shared_ptr<GetAgentDownloadUrlRequest> request);
+  GetAgentDownloadUrlV2Response getAgentDownloadUrlV2WithOptions(shared_ptr<GetAgentDownloadUrlV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAgentDownloadUrlV2Response getAgentDownloadUrlV2(shared_ptr<GetAgentDownloadUrlV2Request> request);
   GetAlertRulesResponse getAlertRulesWithOptions(shared_ptr<GetAlertRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAlertRulesResponse getAlertRules(shared_ptr<GetAlertRulesRequest> request);
   GetAppApiByPageResponse getAppApiByPageWithOptions(shared_ptr<GetAppApiByPageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

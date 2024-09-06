@@ -1926,6 +1926,9 @@ CreateRumAppResponse Alibabacloud_ARMS20190808::Client::createRumAppWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->packageName)) {
     query->insert(pair<string, string>("PackageName", *request->packageName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realRegionId)) {
+    query->insert(pair<string, string>("RealRegionId", *request->realRegionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -3144,6 +3147,9 @@ DeleteRumAppResponse Alibabacloud_ARMS20190808::Client::deleteRumAppWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realRegionId)) {
+    query->insert(pair<string, string>("RealRegionId", *request->realRegionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -3993,6 +3999,40 @@ GetAgentDownloadUrlResponse Alibabacloud_ARMS20190808::Client::getAgentDownloadU
 GetAgentDownloadUrlResponse Alibabacloud_ARMS20190808::Client::getAgentDownloadUrl(shared_ptr<GetAgentDownloadUrlRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getAgentDownloadUrlWithOptions(request, runtime);
+}
+
+GetAgentDownloadUrlV2Response Alibabacloud_ARMS20190808::Client::getAgentDownloadUrlV2WithOptions(shared_ptr<GetAgentDownloadUrlV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentType)) {
+    query->insert(pair<string, string>("AgentType", *request->agentType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->archType)) {
+    query->insert(pair<string, string>("ArchType", *request->archType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->osType)) {
+    query->insert(pair<string, string>("OsType", *request->osType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAgentDownloadUrlV2"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAgentDownloadUrlV2Response(callApi(params, req, runtime));
+}
+
+GetAgentDownloadUrlV2Response Alibabacloud_ARMS20190808::Client::getAgentDownloadUrlV2(shared_ptr<GetAgentDownloadUrlV2Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getAgentDownloadUrlV2WithOptions(request, runtime);
 }
 
 GetAlertRulesResponse Alibabacloud_ARMS20190808::Client::getAlertRulesWithOptions(shared_ptr<GetAlertRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -9131,8 +9171,23 @@ UpdatePrometheusInstanceResponse Alibabacloud_ARMS20190808::Client::updatePromet
   if (!Darabonba_Util::Client::isUnset<long>(request->archiveDuration)) {
     query->insert(pair<string, long>("ArchiveDuration", *request->archiveDuration));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authFreeReadPolicy)) {
+    query->insert(pair<string, string>("AuthFreeReadPolicy", *request->authFreeReadPolicy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authFreeWritePolicy)) {
+    query->insert(pair<string, string>("AuthFreeWritePolicy", *request->authFreeWritePolicy));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableAuthFreeRead)) {
+    query->insert(pair<string, bool>("EnableAuthFreeRead", *request->enableAuthFreeRead));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableAuthFreeWrite)) {
+    query->insert(pair<string, bool>("EnableAuthFreeWrite", *request->enableAuthFreeWrite));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableAuthToken)) {
+    query->insert(pair<string, bool>("EnableAuthToken", *request->enableAuthToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -9307,6 +9362,9 @@ UpdateRumAppResponse Alibabacloud_ARMS20190808::Client::updateRumAppWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
     query->insert(pair<string, string>("Pid", *request->pid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realRegionId)) {
+    query->insert(pair<string, string>("RealRegionId", *request->realRegionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
