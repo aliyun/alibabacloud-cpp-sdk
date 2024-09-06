@@ -30877,6 +30877,7 @@ public:
   shared_ptr<bool> enableAuthFreeRead{};
   shared_ptr<bool> enableAuthFreeWrite{};
   shared_ptr<string> enableAuthToken{};
+  shared_ptr<map<string, string>> extraInfo{};
   shared_ptr<string> grafanaInstanceId{};
   shared_ptr<string> httpApiInterUrl{};
   shared_ptr<string> httpApiIntraUrl{};
@@ -30945,6 +30946,9 @@ public:
     }
     if (enableAuthToken) {
       res["EnableAuthToken"] = boost::any(*enableAuthToken);
+    }
+    if (extraInfo) {
+      res["ExtraInfo"] = boost::any(*extraInfo);
     }
     if (grafanaInstanceId) {
       res["GrafanaInstanceId"] = boost::any(*grafanaInstanceId);
@@ -31055,6 +31059,14 @@ public:
     }
     if (m.find("EnableAuthToken") != m.end() && !m["EnableAuthToken"].empty()) {
       enableAuthToken = make_shared<string>(boost::any_cast<string>(m["EnableAuthToken"]));
+    }
+    if (m.find("ExtraInfo") != m.end() && !m["ExtraInfo"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["ExtraInfo"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      extraInfo = make_shared<map<string, string>>(toMap1);
     }
     if (m.find("GrafanaInstanceId") != m.end() && !m["GrafanaInstanceId"].empty()) {
       grafanaInstanceId = make_shared<string>(boost::any_cast<string>(m["GrafanaInstanceId"]));
