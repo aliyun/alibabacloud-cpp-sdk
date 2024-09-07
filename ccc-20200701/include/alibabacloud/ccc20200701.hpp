@@ -31172,6 +31172,8 @@ public:
   shared_ptr<string> orderByField{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> releaseInitiatorList{};
+  shared_ptr<string> releaseReasonList{};
   shared_ptr<string> satisfactionDescriptionList{};
   shared_ptr<string> satisfactionRateList{};
   shared_ptr<string> satisfactionSurveyChannel{};
@@ -31240,6 +31242,12 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (releaseInitiatorList) {
+      res["ReleaseInitiatorList"] = boost::any(*releaseInitiatorList);
+    }
+    if (releaseReasonList) {
+      res["ReleaseReasonList"] = boost::any(*releaseReasonList);
     }
     if (satisfactionDescriptionList) {
       res["SatisfactionDescriptionList"] = boost::any(*satisfactionDescriptionList);
@@ -31317,6 +31325,12 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
+    if (m.find("ReleaseInitiatorList") != m.end() && !m["ReleaseInitiatorList"].empty()) {
+      releaseInitiatorList = make_shared<string>(boost::any_cast<string>(m["ReleaseInitiatorList"]));
+    }
+    if (m.find("ReleaseReasonList") != m.end() && !m["ReleaseReasonList"].empty()) {
+      releaseReasonList = make_shared<string>(boost::any_cast<string>(m["ReleaseReasonList"]));
+    }
     if (m.find("SatisfactionDescriptionList") != m.end() && !m["SatisfactionDescriptionList"].empty()) {
       satisfactionDescriptionList = make_shared<string>(boost::any_cast<string>(m["SatisfactionDescriptionList"]));
     }
@@ -31354,6 +31368,7 @@ public:
   shared_ptr<string> agentNames{};
   shared_ptr<string> broker{};
   shared_ptr<string> callDuration{};
+  shared_ptr<string> callIds{};
   shared_ptr<string> calledNumber{};
   shared_ptr<string> calleeLocation{};
   shared_ptr<string> callerLocation{};
@@ -31434,6 +31449,9 @@ public:
     }
     if (callDuration) {
       res["CallDuration"] = boost::any(*callDuration);
+    }
+    if (callIds) {
+      res["CallIds"] = boost::any(*callIds);
     }
     if (calledNumber) {
       res["CalledNumber"] = boost::any(*calledNumber);
@@ -31594,6 +31612,9 @@ public:
     }
     if (m.find("CallDuration") != m.end() && !m["CallDuration"].empty()) {
       callDuration = make_shared<string>(boost::any_cast<string>(m["CallDuration"]));
+    }
+    if (m.find("CallIds") != m.end() && !m["CallIds"].empty()) {
+      callIds = make_shared<string>(boost::any_cast<string>(m["CallIds"]));
     }
     if (m.find("CalledNumber") != m.end() && !m["CalledNumber"].empty()) {
       calledNumber = make_shared<string>(boost::any_cast<string>(m["CalledNumber"]));
@@ -57460,6 +57481,7 @@ public:
   shared_ptr<string> callee{};
   shared_ptr<string> caller{};
   shared_ptr<string> deviceId{};
+  shared_ptr<string> flashSmsVariables{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> maskedCallee{};
   shared_ptr<string> mediaType{};
@@ -57485,6 +57507,9 @@ public:
     }
     if (deviceId) {
       res["DeviceId"] = boost::any(*deviceId);
+    }
+    if (flashSmsVariables) {
+      res["FlashSmsVariables"] = boost::any(*flashSmsVariables);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -57516,6 +57541,9 @@ public:
     }
     if (m.find("DeviceId") != m.end() && !m["DeviceId"].empty()) {
       deviceId = make_shared<string>(boost::any_cast<string>(m["DeviceId"]));
+    }
+    if (m.find("FlashSmsVariables") != m.end() && !m["FlashSmsVariables"].empty()) {
+      flashSmsVariables = make_shared<string>(boost::any_cast<string>(m["FlashSmsVariables"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));

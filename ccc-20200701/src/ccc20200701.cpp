@@ -4216,6 +4216,12 @@ ListCallDetailRecordsV2Response Alibabacloud_CCC20200701::Client::listCallDetail
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->releaseInitiatorList)) {
+    query->insert(pair<string, string>("ReleaseInitiatorList", *request->releaseInitiatorList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->releaseReasonList)) {
+    query->insert(pair<string, string>("ReleaseReasonList", *request->releaseReasonList));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->satisfactionDescriptionList)) {
     query->insert(pair<string, string>("SatisfactionDescriptionList", *request->satisfactionDescriptionList));
   }
@@ -6395,6 +6401,9 @@ MakeCallResponse Alibabacloud_CCC20200701::Client::makeCallWithOptions(shared_pt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deviceId)) {
     query->insert(pair<string, string>("DeviceId", *request->deviceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flashSmsVariables)) {
+    query->insert(pair<string, string>("FlashSmsVariables", *request->flashSmsVariables));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
