@@ -18,6 +18,8 @@ class FindGuestCredentialsRecordRequest : public Darabonba::Model {
 public:
   shared_ptr<string> activityId{};
   shared_ptr<string> dateTimeString{};
+  shared_ptr<string> endDateTime{};
+  shared_ptr<string> startDateTime{};
 
   FindGuestCredentialsRecordRequest() {}
 
@@ -35,6 +37,12 @@ public:
     if (dateTimeString) {
       res["DateTimeString"] = boost::any(*dateTimeString);
     }
+    if (endDateTime) {
+      res["EndDateTime"] = boost::any(*endDateTime);
+    }
+    if (startDateTime) {
+      res["StartDateTime"] = boost::any(*startDateTime);
+    }
     return res;
   }
 
@@ -44,6 +52,12 @@ public:
     }
     if (m.find("DateTimeString") != m.end() && !m["DateTimeString"].empty()) {
       dateTimeString = make_shared<string>(boost::any_cast<string>(m["DateTimeString"]));
+    }
+    if (m.find("EndDateTime") != m.end() && !m["EndDateTime"].empty()) {
+      endDateTime = make_shared<string>(boost::any_cast<string>(m["EndDateTime"]));
+    }
+    if (m.find("StartDateTime") != m.end() && !m["StartDateTime"].empty()) {
+      startDateTime = make_shared<string>(boost::any_cast<string>(m["StartDateTime"]));
     }
   }
 
@@ -527,6 +541,8 @@ class FindGuestTicketRecordRequest : public Darabonba::Model {
 public:
   shared_ptr<string> activityId{};
   shared_ptr<string> dateTimeString{};
+  shared_ptr<string> endDateTime{};
+  shared_ptr<string> startDateTime{};
 
   FindGuestTicketRecordRequest() {}
 
@@ -544,6 +560,12 @@ public:
     if (dateTimeString) {
       res["DateTimeString"] = boost::any(*dateTimeString);
     }
+    if (endDateTime) {
+      res["EndDateTime"] = boost::any(*endDateTime);
+    }
+    if (startDateTime) {
+      res["StartDateTime"] = boost::any(*startDateTime);
+    }
     return res;
   }
 
@@ -553,6 +575,12 @@ public:
     }
     if (m.find("DateTimeString") != m.end() && !m["DateTimeString"].empty()) {
       dateTimeString = make_shared<string>(boost::any_cast<string>(m["DateTimeString"]));
+    }
+    if (m.find("EndDateTime") != m.end() && !m["EndDateTime"].empty()) {
+      endDateTime = make_shared<string>(boost::any_cast<string>(m["EndDateTime"]));
+    }
+    if (m.find("StartDateTime") != m.end() && !m["StartDateTime"].empty()) {
+      startDateTime = make_shared<string>(boost::any_cast<string>(m["StartDateTime"]));
     }
   }
 

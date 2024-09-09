@@ -46,6 +46,12 @@ FindGuestCredentialsRecordResponse Alibabacloud_MarketingEvent20210101::Client::
   if (!Darabonba_Util::Client::isUnset<string>(request->dateTimeString)) {
     query->insert(pair<string, string>("DateTimeString", *request->dateTimeString));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endDateTime)) {
+    query->insert(pair<string, string>("EndDateTime", *request->endDateTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDateTime)) {
+    query->insert(pair<string, string>("StartDateTime", *request->startDateTime));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -76,6 +82,12 @@ FindGuestTicketRecordResponse Alibabacloud_MarketingEvent20210101::Client::findG
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->dateTimeString)) {
     query->insert(pair<string, string>("DateTimeString", *request->dateTimeString));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endDateTime)) {
+    query->insert(pair<string, string>("EndDateTime", *request->endDateTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDateTime)) {
+    query->insert(pair<string, string>("StartDateTime", *request->startDateTime));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
