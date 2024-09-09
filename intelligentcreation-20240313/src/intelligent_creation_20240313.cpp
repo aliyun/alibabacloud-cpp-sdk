@@ -209,6 +209,75 @@ CreateIllustrationTaskResponse Alibabacloud_IntelligentCreation20240313::Client:
   return createIllustrationTaskWithOptions(textId, request, headers, runtime);
 }
 
+CreateRealisticPortraitResponse Alibabacloud_IntelligentCreation20240313::Client::createRealisticPortraitWithOptions(shared_ptr<CreateRealisticPortraitRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->ages)) {
+    body->insert(pair<string, vector<long>>("ages", *request->ages));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cloth)) {
+    body->insert(pair<string, long>("cloth", *request->cloth));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->color)) {
+    body->insert(pair<string, long>("color", *request->color));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->custom)) {
+    body->insert(pair<string, string>("custom", *request->custom));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->face)) {
+    body->insert(pair<string, vector<long>>("face", *request->face));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->figure)) {
+    body->insert(pair<string, long>("figure", *request->figure));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->gender)) {
+    body->insert(pair<string, long>("gender", *request->gender));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->hairColor)) {
+    body->insert(pair<string, long>("hairColor", *request->hairColor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->hairstyle)) {
+    body->insert(pair<string, long>("hairstyle", *request->hairstyle));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->height)) {
+    body->insert(pair<string, long>("height", *request->height));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageUrl)) {
+    body->insert(pair<string, string>("imageUrl", *request->imageUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->numbers)) {
+    body->insert(pair<string, long>("numbers", *request->numbers));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ratio)) {
+    body->insert(pair<string, string>("ratio", *request->ratio));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->width)) {
+    body->insert(pair<string, long>("width", *request->width));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateRealisticPortrait"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/images/portrait/realistic"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateRealisticPortraitResponse(callApi(params, req, runtime));
+}
+
+CreateRealisticPortraitResponse Alibabacloud_IntelligentCreation20240313::Client::createRealisticPortrait(shared_ptr<CreateRealisticPortraitRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createRealisticPortraitWithOptions(request, headers, runtime);
+}
+
 CreateTextTaskResponse Alibabacloud_IntelligentCreation20240313::Client::createTextTaskWithOptions(shared_ptr<CreateTextTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -658,6 +727,54 @@ QueryAvatarResourceResponse Alibabacloud_IntelligentCreation20240313::Client::qu
   return queryAvatarResourceWithOptions(request, headers, runtime);
 }
 
+QueryTextStreamResponse Alibabacloud_IntelligentCreation20240313::Client::queryTextStreamWithOptions(shared_ptr<string> textId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryTextStream"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/stream/queryTextStream/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(textId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryTextStreamResponse(callApi(params, req, runtime));
+}
+
+QueryTextStreamResponse Alibabacloud_IntelligentCreation20240313::Client::queryTextStream(shared_ptr<string> textId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryTextStreamWithOptions(textId, headers, runtime);
+}
+
+SelectImageTaskResponse Alibabacloud_IntelligentCreation20240313::Client::selectImageTaskWithOptions(shared_ptr<string> taskId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SelectImageTask"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/images/portrait/select/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(taskId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SelectImageTaskResponse(callApi(params, req, runtime));
+}
+
+SelectImageTaskResponse Alibabacloud_IntelligentCreation20240313::Client::selectImageTask(shared_ptr<string> taskId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return selectImageTaskWithOptions(taskId, headers, runtime);
+}
+
 SelectResourceResponse Alibabacloud_IntelligentCreation20240313::Client::selectResourceWithOptions(shared_ptr<SelectResourceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -863,5 +980,50 @@ SubmitProjectTaskResponse Alibabacloud_IntelligentCreation20240313::Client::subm
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return submitProjectTaskWithOptions(request, headers, runtime);
+}
+
+TransferPortraitStyleResponse Alibabacloud_IntelligentCreation20240313::Client::transferPortraitStyleWithOptions(shared_ptr<TransferPortraitStyleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->height)) {
+    body->insert(pair<string, long>("height", *request->height));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageUrl)) {
+    body->insert(pair<string, string>("imageUrl", *request->imageUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->numbers)) {
+    body->insert(pair<string, long>("numbers", *request->numbers));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->redrawAmplitude)) {
+    body->insert(pair<string, long>("redrawAmplitude", *request->redrawAmplitude));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->style)) {
+    body->insert(pair<string, long>("style", *request->style));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->width)) {
+    body->insert(pair<string, long>("width", *request->width));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TransferPortraitStyle"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/images/portrait/transferPortraitStyle"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return TransferPortraitStyleResponse(callApi(params, req, runtime));
+}
+
+TransferPortraitStyleResponse Alibabacloud_IntelligentCreation20240313::Client::transferPortraitStyle(shared_ptr<TransferPortraitStyleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return transferPortraitStyleWithOptions(request, headers, runtime);
 }
 
