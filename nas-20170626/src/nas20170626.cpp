@@ -683,6 +683,9 @@ CreateDataFlowTaskResponse Alibabacloud_NAS20170626::Client::createDataFlowTaskW
   if (!Darabonba_Util::Client::isUnset<string>(request->conflictPolicy)) {
     query->insert(pair<string, string>("ConflictPolicy", *request->conflictPolicy));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->createDirIfNotExist)) {
+    query->insert(pair<string, bool>("CreateDirIfNotExist", *request->createDirIfNotExist));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dataFlowId)) {
     query->insert(pair<string, string>("DataFlowId", *request->dataFlowId));
   }
@@ -694,6 +697,9 @@ CreateDataFlowTaskResponse Alibabacloud_NAS20170626::Client::createDataFlowTaskW
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dstDirectory)) {
+    query->insert(pair<string, string>("DstDirectory", *request->dstDirectory));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->entryList)) {
     query->insert(pair<string, string>("EntryList", *request->entryList));
