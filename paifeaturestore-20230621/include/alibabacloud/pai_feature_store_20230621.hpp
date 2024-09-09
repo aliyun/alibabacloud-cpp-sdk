@@ -128,116 +128,6 @@ public:
 
   virtual ~FeatureViewConfigValue() = default;
 };
-class ChangeProjectFeatureEntityHotIdVersionRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> version{};
-
-  ChangeProjectFeatureEntityHotIdVersionRequest() {}
-
-  explicit ChangeProjectFeatureEntityHotIdVersionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (version) {
-      res["Version"] = boost::any(*version);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
-    }
-  }
-
-
-  virtual ~ChangeProjectFeatureEntityHotIdVersionRequest() = default;
-};
-class ChangeProjectFeatureEntityHotIdVersionResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  ChangeProjectFeatureEntityHotIdVersionResponseBody() {}
-
-  explicit ChangeProjectFeatureEntityHotIdVersionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~ChangeProjectFeatureEntityHotIdVersionResponseBody() = default;
-};
-class ChangeProjectFeatureEntityHotIdVersionResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<ChangeProjectFeatureEntityHotIdVersionResponseBody> body{};
-
-  ChangeProjectFeatureEntityHotIdVersionResponse() {}
-
-  explicit ChangeProjectFeatureEntityHotIdVersionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ChangeProjectFeatureEntityHotIdVersionResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ChangeProjectFeatureEntityHotIdVersionResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ChangeProjectFeatureEntityHotIdVersionResponse() = default;
-};
 class CheckInstanceDatasourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> config{};
@@ -1296,6 +1186,7 @@ public:
 class CreateModelFeatureRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<CreateModelFeatureRequestFeatures>> features{};
+  shared_ptr<long> labelPriorityLevel{};
   shared_ptr<string> labelTableId{};
   shared_ptr<string> name{};
   shared_ptr<string> projectId{};
@@ -1317,6 +1208,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Features"] = boost::any(temp1);
+    }
+    if (labelPriorityLevel) {
+      res["LabelPriorityLevel"] = boost::any(*labelPriorityLevel);
     }
     if (labelTableId) {
       res["LabelTableId"] = boost::any(*labelTableId);
@@ -1346,6 +1240,9 @@ public:
         }
         features = make_shared<vector<CreateModelFeatureRequestFeatures>>(expect1);
       }
+    }
+    if (m.find("LabelPriorityLevel") != m.end() && !m["LabelPriorityLevel"].empty()) {
+      labelPriorityLevel = make_shared<long>(boost::any_cast<long>(m["LabelPriorityLevel"]));
     }
     if (m.find("LabelTableId") != m.end() && !m["LabelTableId"].empty()) {
       labelTableId = make_shared<string>(boost::any_cast<string>(m["LabelTableId"]));
@@ -2573,6 +2470,7 @@ public:
   shared_ptr<map<string, FeatureViewConfigValue>> featureViewConfig{};
   shared_ptr<ExportModelFeatureTrainingSetTableRequestLabelInputConfig> labelInputConfig{};
   shared_ptr<long> realTimeIterateInterval{};
+  shared_ptr<long> realTimePartitionCountValue{};
   shared_ptr<ExportModelFeatureTrainingSetTableRequestTrainingSetConfig> trainingSetConfig{};
 
   ExportModelFeatureTrainingSetTableRequest() {}
@@ -2597,6 +2495,9 @@ public:
     }
     if (realTimeIterateInterval) {
       res["RealTimeIterateInterval"] = boost::any(*realTimeIterateInterval);
+    }
+    if (realTimePartitionCountValue) {
+      res["RealTimePartitionCountValue"] = boost::any(*realTimePartitionCountValue);
     }
     if (trainingSetConfig) {
       res["TrainingSetConfig"] = trainingSetConfig ? boost::any(trainingSetConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2627,6 +2528,9 @@ public:
     }
     if (m.find("RealTimeIterateInterval") != m.end() && !m["RealTimeIterateInterval"].empty()) {
       realTimeIterateInterval = make_shared<long>(boost::any_cast<long>(m["RealTimeIterateInterval"]));
+    }
+    if (m.find("RealTimePartitionCountValue") != m.end() && !m["RealTimePartitionCountValue"].empty()) {
+      realTimePartitionCountValue = make_shared<long>(boost::any_cast<long>(m["RealTimePartitionCountValue"]));
     }
     if (m.find("TrainingSetConfig") != m.end() && !m["TrainingSetConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["TrainingSetConfig"].type()) {
@@ -4025,6 +3929,7 @@ public:
   shared_ptr<vector<GetModelFeatureResponseBodyFeatures>> features{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
+  shared_ptr<long> labelPriorityLevel{};
   shared_ptr<string> labelTableId{};
   shared_ptr<string> labelTableName{};
   shared_ptr<string> name{};
@@ -4061,6 +3966,9 @@ public:
     }
     if (gmtModifiedTime) {
       res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
+    if (labelPriorityLevel) {
+      res["LabelPriorityLevel"] = boost::any(*labelPriorityLevel);
     }
     if (labelTableId) {
       res["LabelTableId"] = boost::any(*labelTableId);
@@ -4117,6 +4025,9 @@ public:
     }
     if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
       gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
+    if (m.find("LabelPriorityLevel") != m.end() && !m["LabelPriorityLevel"].empty()) {
+      labelPriorityLevel = make_shared<long>(boost::any_cast<long>(m["LabelPriorityLevel"]));
     }
     if (m.find("LabelTableId") != m.end() && !m["LabelTableId"].empty()) {
       labelTableId = make_shared<string>(boost::any_cast<string>(m["LabelTableId"]));
@@ -5026,643 +4937,6 @@ public:
 
 
   virtual ~GetProjectFeatureEntityResponse() = default;
-};
-class GetProjectFeatureEntityHotIdsResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<long> count{};
-  shared_ptr<string> hotIds{};
-  shared_ptr<string> nextSeqNumber{};
-  shared_ptr<string> requestId{};
-
-  GetProjectFeatureEntityHotIdsResponseBody() {}
-
-  explicit GetProjectFeatureEntityHotIdsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (count) {
-      res["Count"] = boost::any(*count);
-    }
-    if (hotIds) {
-      res["HotIds"] = boost::any(*hotIds);
-    }
-    if (nextSeqNumber) {
-      res["NextSeqNumber"] = boost::any(*nextSeqNumber);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Count") != m.end() && !m["Count"].empty()) {
-      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
-    }
-    if (m.find("HotIds") != m.end() && !m["HotIds"].empty()) {
-      hotIds = make_shared<string>(boost::any_cast<string>(m["HotIds"]));
-    }
-    if (m.find("NextSeqNumber") != m.end() && !m["NextSeqNumber"].empty()) {
-      nextSeqNumber = make_shared<string>(boost::any_cast<string>(m["NextSeqNumber"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~GetProjectFeatureEntityHotIdsResponseBody() = default;
-};
-class GetProjectFeatureEntityHotIdsResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<GetProjectFeatureEntityHotIdsResponseBody> body{};
-
-  GetProjectFeatureEntityHotIdsResponse() {}
-
-  explicit GetProjectFeatureEntityHotIdsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetProjectFeatureEntityHotIdsResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetProjectFeatureEntityHotIdsResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetProjectFeatureEntityHotIdsResponse() = default;
-};
-class GetProjectFeatureViewResponseBodyFields : public Darabonba::Model {
-public:
-  shared_ptr<vector<string>> attributes{};
-  shared_ptr<string> name{};
-  shared_ptr<string> type{};
-
-  GetProjectFeatureViewResponseBodyFields() {}
-
-  explicit GetProjectFeatureViewResponseBodyFields(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (attributes) {
-      res["Attributes"] = boost::any(*attributes);
-    }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Attributes") != m.end() && !m["Attributes"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["Attributes"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Attributes"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      attributes = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-  }
-
-
-  virtual ~GetProjectFeatureViewResponseBodyFields() = default;
-};
-class GetProjectFeatureViewResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> config{};
-  shared_ptr<string> featureEntityId{};
-  shared_ptr<string> featureEntityName{};
-  shared_ptr<string> featureViewId{};
-  shared_ptr<vector<GetProjectFeatureViewResponseBodyFields>> fields{};
-  shared_ptr<string> gmtSyncTime{};
-  shared_ptr<string> joinId{};
-  shared_ptr<string> lastSyncConfig{};
-  shared_ptr<string> name{};
-  shared_ptr<string> owner{};
-  shared_ptr<string> projectId{};
-  shared_ptr<string> projectName{};
-  shared_ptr<string> registerDatasourceId{};
-  shared_ptr<string> registerTable{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> syncOnlineTable{};
-  shared_ptr<long> TTL{};
-  shared_ptr<vector<string>> tags{};
-  shared_ptr<string> type{};
-  shared_ptr<string> writeMethod{};
-
-  GetProjectFeatureViewResponseBody() {}
-
-  explicit GetProjectFeatureViewResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (config) {
-      res["Config"] = boost::any(*config);
-    }
-    if (featureEntityId) {
-      res["FeatureEntityId"] = boost::any(*featureEntityId);
-    }
-    if (featureEntityName) {
-      res["FeatureEntityName"] = boost::any(*featureEntityName);
-    }
-    if (featureViewId) {
-      res["FeatureViewId"] = boost::any(*featureViewId);
-    }
-    if (fields) {
-      vector<boost::any> temp1;
-      for(auto item1:*fields){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Fields"] = boost::any(temp1);
-    }
-    if (gmtSyncTime) {
-      res["GmtSyncTime"] = boost::any(*gmtSyncTime);
-    }
-    if (joinId) {
-      res["JoinId"] = boost::any(*joinId);
-    }
-    if (lastSyncConfig) {
-      res["LastSyncConfig"] = boost::any(*lastSyncConfig);
-    }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (owner) {
-      res["Owner"] = boost::any(*owner);
-    }
-    if (projectId) {
-      res["ProjectId"] = boost::any(*projectId);
-    }
-    if (projectName) {
-      res["ProjectName"] = boost::any(*projectName);
-    }
-    if (registerDatasourceId) {
-      res["RegisterDatasourceId"] = boost::any(*registerDatasourceId);
-    }
-    if (registerTable) {
-      res["RegisterTable"] = boost::any(*registerTable);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (syncOnlineTable) {
-      res["SyncOnlineTable"] = boost::any(*syncOnlineTable);
-    }
-    if (TTL) {
-      res["TTL"] = boost::any(*TTL);
-    }
-    if (tags) {
-      res["Tags"] = boost::any(*tags);
-    }
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    if (writeMethod) {
-      res["WriteMethod"] = boost::any(*writeMethod);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Config") != m.end() && !m["Config"].empty()) {
-      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
-    }
-    if (m.find("FeatureEntityId") != m.end() && !m["FeatureEntityId"].empty()) {
-      featureEntityId = make_shared<string>(boost::any_cast<string>(m["FeatureEntityId"]));
-    }
-    if (m.find("FeatureEntityName") != m.end() && !m["FeatureEntityName"].empty()) {
-      featureEntityName = make_shared<string>(boost::any_cast<string>(m["FeatureEntityName"]));
-    }
-    if (m.find("FeatureViewId") != m.end() && !m["FeatureViewId"].empty()) {
-      featureViewId = make_shared<string>(boost::any_cast<string>(m["FeatureViewId"]));
-    }
-    if (m.find("Fields") != m.end() && !m["Fields"].empty()) {
-      if (typeid(vector<boost::any>) == m["Fields"].type()) {
-        vector<GetProjectFeatureViewResponseBodyFields> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Fields"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            GetProjectFeatureViewResponseBodyFields model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        fields = make_shared<vector<GetProjectFeatureViewResponseBodyFields>>(expect1);
-      }
-    }
-    if (m.find("GmtSyncTime") != m.end() && !m["GmtSyncTime"].empty()) {
-      gmtSyncTime = make_shared<string>(boost::any_cast<string>(m["GmtSyncTime"]));
-    }
-    if (m.find("JoinId") != m.end() && !m["JoinId"].empty()) {
-      joinId = make_shared<string>(boost::any_cast<string>(m["JoinId"]));
-    }
-    if (m.find("LastSyncConfig") != m.end() && !m["LastSyncConfig"].empty()) {
-      lastSyncConfig = make_shared<string>(boost::any_cast<string>(m["LastSyncConfig"]));
-    }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
-      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
-    }
-    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
-      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
-    }
-    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
-    }
-    if (m.find("RegisterDatasourceId") != m.end() && !m["RegisterDatasourceId"].empty()) {
-      registerDatasourceId = make_shared<string>(boost::any_cast<string>(m["RegisterDatasourceId"]));
-    }
-    if (m.find("RegisterTable") != m.end() && !m["RegisterTable"].empty()) {
-      registerTable = make_shared<string>(boost::any_cast<string>(m["RegisterTable"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("SyncOnlineTable") != m.end() && !m["SyncOnlineTable"].empty()) {
-      syncOnlineTable = make_shared<bool>(boost::any_cast<bool>(m["SyncOnlineTable"]));
-    }
-    if (m.find("TTL") != m.end() && !m["TTL"].empty()) {
-      TTL = make_shared<long>(boost::any_cast<long>(m["TTL"]));
-    }
-    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["Tags"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Tags"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      tags = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-    if (m.find("WriteMethod") != m.end() && !m["WriteMethod"].empty()) {
-      writeMethod = make_shared<string>(boost::any_cast<string>(m["WriteMethod"]));
-    }
-  }
-
-
-  virtual ~GetProjectFeatureViewResponseBody() = default;
-};
-class GetProjectFeatureViewResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<GetProjectFeatureViewResponseBody> body{};
-
-  GetProjectFeatureViewResponse() {}
-
-  explicit GetProjectFeatureViewResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetProjectFeatureViewResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetProjectFeatureViewResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetProjectFeatureViewResponse() = default;
-};
-class GetProjectModelFeatureResponseBodyFeatures : public Darabonba::Model {
-public:
-  shared_ptr<string> aliasName{};
-  shared_ptr<string> featureViewId{};
-  shared_ptr<string> featureViewName{};
-  shared_ptr<string> name{};
-  shared_ptr<string> type{};
-
-  GetProjectModelFeatureResponseBodyFeatures() {}
-
-  explicit GetProjectModelFeatureResponseBodyFeatures(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (aliasName) {
-      res["AliasName"] = boost::any(*aliasName);
-    }
-    if (featureViewId) {
-      res["FeatureViewId"] = boost::any(*featureViewId);
-    }
-    if (featureViewName) {
-      res["FeatureViewName"] = boost::any(*featureViewName);
-    }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
-      aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
-    }
-    if (m.find("FeatureViewId") != m.end() && !m["FeatureViewId"].empty()) {
-      featureViewId = make_shared<string>(boost::any_cast<string>(m["FeatureViewId"]));
-    }
-    if (m.find("FeatureViewName") != m.end() && !m["FeatureViewName"].empty()) {
-      featureViewName = make_shared<string>(boost::any_cast<string>(m["FeatureViewName"]));
-    }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-  }
-
-
-  virtual ~GetProjectModelFeatureResponseBodyFeatures() = default;
-};
-class GetProjectModelFeatureResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<vector<GetProjectModelFeatureResponseBodyFeatures>> features{};
-  shared_ptr<string> gmtCreateTime{};
-  shared_ptr<string> gmtModifiedTime{};
-  shared_ptr<string> labelDatasourceId{};
-  shared_ptr<string> labelDatasourceTable{};
-  shared_ptr<string> labelEventTime{};
-  shared_ptr<string> labelTableId{};
-  shared_ptr<string> modelFeatureId{};
-  shared_ptr<string> name{};
-  shared_ptr<string> owner{};
-  shared_ptr<string> projectId{};
-  shared_ptr<string> projectName{};
-  shared_ptr<string> requestId{};
-  shared_ptr<string> trainingSetFGTable{};
-  shared_ptr<string> trainingSetTable{};
-
-  GetProjectModelFeatureResponseBody() {}
-
-  explicit GetProjectModelFeatureResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (features) {
-      vector<boost::any> temp1;
-      for(auto item1:*features){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Features"] = boost::any(temp1);
-    }
-    if (gmtCreateTime) {
-      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
-    }
-    if (gmtModifiedTime) {
-      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
-    }
-    if (labelDatasourceId) {
-      res["LabelDatasourceId"] = boost::any(*labelDatasourceId);
-    }
-    if (labelDatasourceTable) {
-      res["LabelDatasourceTable"] = boost::any(*labelDatasourceTable);
-    }
-    if (labelEventTime) {
-      res["LabelEventTime"] = boost::any(*labelEventTime);
-    }
-    if (labelTableId) {
-      res["LabelTableId"] = boost::any(*labelTableId);
-    }
-    if (modelFeatureId) {
-      res["ModelFeatureId"] = boost::any(*modelFeatureId);
-    }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (owner) {
-      res["Owner"] = boost::any(*owner);
-    }
-    if (projectId) {
-      res["ProjectId"] = boost::any(*projectId);
-    }
-    if (projectName) {
-      res["ProjectName"] = boost::any(*projectName);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (trainingSetFGTable) {
-      res["TrainingSetFGTable"] = boost::any(*trainingSetFGTable);
-    }
-    if (trainingSetTable) {
-      res["TrainingSetTable"] = boost::any(*trainingSetTable);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Features") != m.end() && !m["Features"].empty()) {
-      if (typeid(vector<boost::any>) == m["Features"].type()) {
-        vector<GetProjectModelFeatureResponseBodyFeatures> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Features"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            GetProjectModelFeatureResponseBodyFeatures model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        features = make_shared<vector<GetProjectModelFeatureResponseBodyFeatures>>(expect1);
-      }
-    }
-    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
-      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
-    }
-    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
-      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
-    }
-    if (m.find("LabelDatasourceId") != m.end() && !m["LabelDatasourceId"].empty()) {
-      labelDatasourceId = make_shared<string>(boost::any_cast<string>(m["LabelDatasourceId"]));
-    }
-    if (m.find("LabelDatasourceTable") != m.end() && !m["LabelDatasourceTable"].empty()) {
-      labelDatasourceTable = make_shared<string>(boost::any_cast<string>(m["LabelDatasourceTable"]));
-    }
-    if (m.find("LabelEventTime") != m.end() && !m["LabelEventTime"].empty()) {
-      labelEventTime = make_shared<string>(boost::any_cast<string>(m["LabelEventTime"]));
-    }
-    if (m.find("LabelTableId") != m.end() && !m["LabelTableId"].empty()) {
-      labelTableId = make_shared<string>(boost::any_cast<string>(m["LabelTableId"]));
-    }
-    if (m.find("ModelFeatureId") != m.end() && !m["ModelFeatureId"].empty()) {
-      modelFeatureId = make_shared<string>(boost::any_cast<string>(m["ModelFeatureId"]));
-    }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
-      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
-    }
-    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
-      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
-    }
-    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("TrainingSetFGTable") != m.end() && !m["TrainingSetFGTable"].empty()) {
-      trainingSetFGTable = make_shared<string>(boost::any_cast<string>(m["TrainingSetFGTable"]));
-    }
-    if (m.find("TrainingSetTable") != m.end() && !m["TrainingSetTable"].empty()) {
-      trainingSetTable = make_shared<string>(boost::any_cast<string>(m["TrainingSetTable"]));
-    }
-  }
-
-
-  virtual ~GetProjectModelFeatureResponseBody() = default;
-};
-class GetProjectModelFeatureResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<GetProjectModelFeatureResponseBody> body{};
-
-  GetProjectModelFeatureResponse() {}
-
-  explicit GetProjectModelFeatureResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetProjectModelFeatureResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetProjectModelFeatureResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetProjectModelFeatureResponse() = default;
 };
 class GetServiceIdentityRoleResponseBody : public Darabonba::Model {
 public:
@@ -8772,196 +8046,6 @@ public:
 
   virtual ~ListModelFeaturesResponse() = default;
 };
-class ListProjectFeatureViewOwnersResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<vector<string>> owners{};
-  shared_ptr<string> requestId{};
-
-  ListProjectFeatureViewOwnersResponseBody() {}
-
-  explicit ListProjectFeatureViewOwnersResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (owners) {
-      res["Owners"] = boost::any(*owners);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Owners") != m.end() && !m["Owners"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["Owners"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Owners"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      owners = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~ListProjectFeatureViewOwnersResponseBody() = default;
-};
-class ListProjectFeatureViewOwnersResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<ListProjectFeatureViewOwnersResponseBody> body{};
-
-  ListProjectFeatureViewOwnersResponse() {}
-
-  explicit ListProjectFeatureViewOwnersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ListProjectFeatureViewOwnersResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ListProjectFeatureViewOwnersResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ListProjectFeatureViewOwnersResponse() = default;
-};
-class ListProjectFeatureViewTagsResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-  shared_ptr<vector<string>> tags{};
-
-  ListProjectFeatureViewTagsResponseBody() {}
-
-  explicit ListProjectFeatureViewTagsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (tags) {
-      res["Tags"] = boost::any(*tags);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["Tags"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Tags"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      tags = make_shared<vector<string>>(toVec1);
-    }
-  }
-
-
-  virtual ~ListProjectFeatureViewTagsResponseBody() = default;
-};
-class ListProjectFeatureViewTagsResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<ListProjectFeatureViewTagsResponseBody> body{};
-
-  ListProjectFeatureViewTagsResponse() {}
-
-  explicit ListProjectFeatureViewTagsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ListProjectFeatureViewTagsResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ListProjectFeatureViewTagsResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ListProjectFeatureViewTagsResponse() = default;
-};
 class ListProjectFeatureViewsResponseBodyFeatureViewsFeatures : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> attributes{};
@@ -11620,123 +10704,6 @@ public:
 
   virtual ~WriteFeatureViewTableResponse() = default;
 };
-class WriteProjectFeatureEntityHotIdsRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> hotIds{};
-  shared_ptr<string> version{};
-
-  WriteProjectFeatureEntityHotIdsRequest() {}
-
-  explicit WriteProjectFeatureEntityHotIdsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (hotIds) {
-      res["HotIds"] = boost::any(*hotIds);
-    }
-    if (version) {
-      res["Version"] = boost::any(*version);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("HotIds") != m.end() && !m["HotIds"].empty()) {
-      hotIds = make_shared<string>(boost::any_cast<string>(m["HotIds"]));
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
-    }
-  }
-
-
-  virtual ~WriteProjectFeatureEntityHotIdsRequest() = default;
-};
-class WriteProjectFeatureEntityHotIdsResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  WriteProjectFeatureEntityHotIdsResponseBody() {}
-
-  explicit WriteProjectFeatureEntityHotIdsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~WriteProjectFeatureEntityHotIdsResponseBody() = default;
-};
-class WriteProjectFeatureEntityHotIdsResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<WriteProjectFeatureEntityHotIdsResponseBody> body{};
-
-  WriteProjectFeatureEntityHotIdsResponse() {}
-
-  explicit WriteProjectFeatureEntityHotIdsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        WriteProjectFeatureEntityHotIdsResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<WriteProjectFeatureEntityHotIdsResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~WriteProjectFeatureEntityHotIdsResponse() = default;
-};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -11747,16 +10714,6 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  ChangeProjectFeatureEntityHotIdVersionResponse changeProjectFeatureEntityHotIdVersionWithOptions(shared_ptr<string> InstanceId,
-                                                                                                   shared_ptr<string> ProjectId,
-                                                                                                   shared_ptr<string> FeatureEntityName,
-                                                                                                   shared_ptr<ChangeProjectFeatureEntityHotIdVersionRequest> request,
-                                                                                                   shared_ptr<map<string, string>> headers,
-                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ChangeProjectFeatureEntityHotIdVersionResponse changeProjectFeatureEntityHotIdVersion(shared_ptr<string> InstanceId,
-                                                                                        shared_ptr<string> ProjectId,
-                                                                                        shared_ptr<string> FeatureEntityName,
-                                                                                        shared_ptr<ChangeProjectFeatureEntityHotIdVersionRequest> request);
   CheckInstanceDatasourceResponse checkInstanceDatasourceWithOptions(shared_ptr<string> InstanceId,
                                                                      shared_ptr<CheckInstanceDatasourceRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
@@ -11897,28 +10854,6 @@ public:
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetProjectFeatureEntityResponse getProjectFeatureEntity(shared_ptr<string> InstanceId, shared_ptr<string> ProjectId, shared_ptr<string> FeatureEntityName);
-  GetProjectFeatureEntityHotIdsResponse getProjectFeatureEntityHotIdsWithOptions(shared_ptr<string> InstanceId,
-                                                                                 shared_ptr<string> ProjectId,
-                                                                                 shared_ptr<string> NextSeqNumber,
-                                                                                 shared_ptr<string> FeatureEntityName,
-                                                                                 shared_ptr<map<string, string>> headers,
-                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetProjectFeatureEntityHotIdsResponse getProjectFeatureEntityHotIds(shared_ptr<string> InstanceId,
-                                                                      shared_ptr<string> ProjectId,
-                                                                      shared_ptr<string> NextSeqNumber,
-                                                                      shared_ptr<string> FeatureEntityName);
-  GetProjectFeatureViewResponse getProjectFeatureViewWithOptions(shared_ptr<string> InstanceId,
-                                                                 shared_ptr<string> ProjectId,
-                                                                 shared_ptr<string> FeatureViewName,
-                                                                 shared_ptr<map<string, string>> headers,
-                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetProjectFeatureViewResponse getProjectFeatureView(shared_ptr<string> InstanceId, shared_ptr<string> ProjectId, shared_ptr<string> FeatureViewName);
-  GetProjectModelFeatureResponse getProjectModelFeatureWithOptions(shared_ptr<string> InstanceId,
-                                                                   shared_ptr<string> ProjectId,
-                                                                   shared_ptr<string> ModelFeatureName,
-                                                                   shared_ptr<map<string, string>> headers,
-                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetProjectModelFeatureResponse getProjectModelFeature(shared_ptr<string> InstanceId, shared_ptr<string> ProjectId, shared_ptr<string> ModelFeatureName);
   GetServiceIdentityRoleResponse getServiceIdentityRoleWithOptions(shared_ptr<string> RoleName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetServiceIdentityRoleResponse getServiceIdentityRole(shared_ptr<string> RoleName);
   GetTaskResponse getTaskWithOptions(shared_ptr<string> InstanceId,
@@ -11982,16 +10917,6 @@ public:
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListModelFeaturesResponse listModelFeatures(shared_ptr<string> InstanceId, shared_ptr<ListModelFeaturesRequest> request);
-  ListProjectFeatureViewOwnersResponse listProjectFeatureViewOwnersWithOptions(shared_ptr<string> InstanceId,
-                                                                               shared_ptr<string> ProjectId,
-                                                                               shared_ptr<map<string, string>> headers,
-                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListProjectFeatureViewOwnersResponse listProjectFeatureViewOwners(shared_ptr<string> InstanceId, shared_ptr<string> ProjectId);
-  ListProjectFeatureViewTagsResponse listProjectFeatureViewTagsWithOptions(shared_ptr<string> InstanceId,
-                                                                           shared_ptr<string> ProjectId,
-                                                                           shared_ptr<map<string, string>> headers,
-                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListProjectFeatureViewTagsResponse listProjectFeatureViewTags(shared_ptr<string> InstanceId, shared_ptr<string> ProjectId);
   ListProjectFeatureViewsResponse listProjectFeatureViewsWithOptions(shared_ptr<string> InstanceId,
                                                                      shared_ptr<string> ProjectId,
                                                                      shared_ptr<map<string, string>> headers,
@@ -12061,16 +10986,6 @@ public:
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   WriteFeatureViewTableResponse writeFeatureViewTable(shared_ptr<string> InstanceId, shared_ptr<string> FeatureViewId, shared_ptr<WriteFeatureViewTableRequest> request);
-  WriteProjectFeatureEntityHotIdsResponse writeProjectFeatureEntityHotIdsWithOptions(shared_ptr<string> InstanceId,
-                                                                                     shared_ptr<string> ProjectId,
-                                                                                     shared_ptr<string> FeatureEntityName,
-                                                                                     shared_ptr<WriteProjectFeatureEntityHotIdsRequest> request,
-                                                                                     shared_ptr<map<string, string>> headers,
-                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  WriteProjectFeatureEntityHotIdsResponse writeProjectFeatureEntityHotIds(shared_ptr<string> InstanceId,
-                                                                          shared_ptr<string> ProjectId,
-                                                                          shared_ptr<string> FeatureEntityName,
-                                                                          shared_ptr<WriteProjectFeatureEntityHotIdsRequest> request);
 
   virtual ~Client() = default;
 };
