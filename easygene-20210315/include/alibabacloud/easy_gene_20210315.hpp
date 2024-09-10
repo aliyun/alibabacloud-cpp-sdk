@@ -1136,6 +1136,7 @@ public:
 class CreateRunRequestExecuteOptions : public Darabonba::Model {
 public:
   shared_ptr<bool> callCaching{};
+  shared_ptr<string> dataLoader{};
   shared_ptr<bool> deleteIntermediateResults{};
   shared_ptr<string> failureMode{};
   shared_ptr<bool> useRelativeOutputPaths{};
@@ -1153,6 +1154,9 @@ public:
     if (callCaching) {
       res["CallCaching"] = boost::any(*callCaching);
     }
+    if (dataLoader) {
+      res["DataLoader"] = boost::any(*dataLoader);
+    }
     if (deleteIntermediateResults) {
       res["DeleteIntermediateResults"] = boost::any(*deleteIntermediateResults);
     }
@@ -1168,6 +1172,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CallCaching") != m.end() && !m["CallCaching"].empty()) {
       callCaching = make_shared<bool>(boost::any_cast<bool>(m["CallCaching"]));
+    }
+    if (m.find("DataLoader") != m.end() && !m["DataLoader"].empty()) {
+      dataLoader = make_shared<string>(boost::any_cast<string>(m["DataLoader"]));
     }
     if (m.find("DeleteIntermediateResults") != m.end() && !m["DeleteIntermediateResults"].empty()) {
       deleteIntermediateResults = make_shared<bool>(boost::any_cast<bool>(m["DeleteIntermediateResults"]));
@@ -5371,6 +5378,7 @@ public:
 class GetRunResponseBodyExecuteOptions : public Darabonba::Model {
 public:
   shared_ptr<bool> callCaching{};
+  shared_ptr<string> dataLoader{};
   shared_ptr<bool> deleteIntermediateResults{};
   shared_ptr<string> failureMode{};
   shared_ptr<bool> useRelativeOutputPaths{};
@@ -5388,6 +5396,9 @@ public:
     if (callCaching) {
       res["CallCaching"] = boost::any(*callCaching);
     }
+    if (dataLoader) {
+      res["DataLoader"] = boost::any(*dataLoader);
+    }
     if (deleteIntermediateResults) {
       res["DeleteIntermediateResults"] = boost::any(*deleteIntermediateResults);
     }
@@ -5403,6 +5414,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CallCaching") != m.end() && !m["CallCaching"].empty()) {
       callCaching = make_shared<bool>(boost::any_cast<bool>(m["CallCaching"]));
+    }
+    if (m.find("DataLoader") != m.end() && !m["DataLoader"].empty()) {
+      dataLoader = make_shared<string>(boost::any_cast<string>(m["DataLoader"]));
     }
     if (m.find("DeleteIntermediateResults") != m.end() && !m["DeleteIntermediateResults"].empty()) {
       deleteIntermediateResults = make_shared<bool>(boost::any_cast<bool>(m["DeleteIntermediateResults"]));
