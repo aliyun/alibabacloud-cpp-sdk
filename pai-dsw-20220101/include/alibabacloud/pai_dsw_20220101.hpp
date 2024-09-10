@@ -3255,6 +3255,7 @@ public:
   shared_ptr<GetInstanceResponseBodyAffinity> affinity{};
   shared_ptr<vector<GetInstanceResponseBodyCloudDisks>> cloudDisks{};
   shared_ptr<string> code{};
+  shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<vector<GetInstanceResponseBodyDatasets>> datasets{};
   shared_ptr<string> driver{};
   shared_ptr<string> ecsSpec{};
@@ -3327,6 +3328,9 @@ public:
     }
     if (code) {
       res["Code"] = boost::any(*code);
+    }
+    if (credentialConfig) {
+      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (datasets) {
       vector<boost::any> temp1;
@@ -3495,6 +3499,13 @@ public:
     }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
+        CredentialConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
+        credentialConfig = make_shared<CredentialConfig>(model1);
+      }
     }
     if (m.find("Datasets") != m.end() && !m["Datasets"].empty()) {
       if (typeid(vector<boost::any>) == m["Datasets"].type()) {
@@ -7466,6 +7477,7 @@ public:
   shared_ptr<long> accumulatedRunningTimeInMs{};
   shared_ptr<ListInstancesResponseBodyInstancesAffinity> affinity{};
   shared_ptr<vector<ListInstancesResponseBodyInstancesCloudDisks>> cloudDisks{};
+  shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<vector<ListInstancesResponseBodyInstancesDatasets>> datasets{};
   shared_ptr<string> driver{};
   shared_ptr<string> ecsSpec{};
@@ -7530,6 +7542,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["CloudDisks"] = boost::any(temp1);
+    }
+    if (credentialConfig) {
+      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (datasets) {
       vector<boost::any> temp1;
@@ -7679,6 +7694,13 @@ public:
           }
         }
         cloudDisks = make_shared<vector<ListInstancesResponseBodyInstancesCloudDisks>>(expect1);
+      }
+    }
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
+        CredentialConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
+        credentialConfig = make_shared<CredentialConfig>(model1);
       }
     }
     if (m.find("Datasets") != m.end() && !m["Datasets"].empty()) {
