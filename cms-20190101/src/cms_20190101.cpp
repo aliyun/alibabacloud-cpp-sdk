@@ -71,6 +71,9 @@ AddTagsResponse Alibabacloud_Cms20190101::Client::addTags(shared_ptr<AddTagsRequ
 ApplyMetricRuleTemplateResponse Alibabacloud_Cms20190101::Client::applyMetricRuleTemplateWithOptions(shared_ptr<ApplyMetricRuleTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appendMode)) {
+    query->insert(pair<string, string>("AppendMode", *request->appendMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->applyMode)) {
     query->insert(pair<string, string>("ApplyMode", *request->applyMode));
   }
@@ -145,34 +148,6 @@ BatchCreateInstantSiteMonitorResponse Alibabacloud_Cms20190101::Client::batchCre
   return batchCreateInstantSiteMonitorWithOptions(request, runtime);
 }
 
-BatchCreateIntantSiteMonitorResponse Alibabacloud_Cms20190101::Client::batchCreateIntantSiteMonitorWithOptions(shared_ptr<BatchCreateIntantSiteMonitorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<BatchCreateIntantSiteMonitorRequestTaskList>>(request->taskList)) {
-    query->insert(pair<string, vector<BatchCreateIntantSiteMonitorRequestTaskList>>("TaskList", *request->taskList));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("BatchCreateIntantSiteMonitor"))},
-    {"version", boost::any(string("2019-01-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return BatchCreateIntantSiteMonitorResponse(callApi(params, req, runtime));
-}
-
-BatchCreateIntantSiteMonitorResponse Alibabacloud_Cms20190101::Client::batchCreateIntantSiteMonitor(shared_ptr<BatchCreateIntantSiteMonitorRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return batchCreateIntantSiteMonitorWithOptions(request, runtime);
-}
-
 BatchExportResponse Alibabacloud_Cms20190101::Client::batchExportWithOptions(shared_ptr<BatchExportRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<BatchExportShrinkRequest> request = make_shared<BatchExportShrinkRequest>();
@@ -216,168 +191,6 @@ BatchExportResponse Alibabacloud_Cms20190101::Client::batchExportWithOptions(sha
 BatchExportResponse Alibabacloud_Cms20190101::Client::batchExport(shared_ptr<BatchExportRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return batchExportWithOptions(request, runtime);
-}
-
-CreateCmsCallNumOrderResponse Alibabacloud_Cms20190101::Client::createCmsCallNumOrderWithOptions(shared_ptr<CreateCmsCallNumOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
-    query->insert(pair<string, bool>("AutoPay", *request->autoPay));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->autoRenewPeriod)) {
-    query->insert(pair<string, long>("AutoRenewPeriod", *request->autoRenewPeriod));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->autoUseCoupon)) {
-    query->insert(pair<string, bool>("AutoUseCoupon", *request->autoUseCoupon));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
-    query->insert(pair<string, long>("Period", *request->period));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
-    query->insert(pair<string, string>("PeriodUnit", *request->periodUnit));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->phoneCount)) {
-    query->insert(pair<string, string>("PhoneCount", *request->phoneCount));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateCmsCallNumOrder"))},
-    {"version", boost::any(string("2019-01-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateCmsCallNumOrderResponse(callApi(params, req, runtime));
-}
-
-CreateCmsCallNumOrderResponse Alibabacloud_Cms20190101::Client::createCmsCallNumOrder(shared_ptr<CreateCmsCallNumOrderRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createCmsCallNumOrderWithOptions(request, runtime);
-}
-
-CreateCmsOrderResponse Alibabacloud_Cms20190101::Client::createCmsOrderWithOptions(shared_ptr<CreateCmsOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->apiCount)) {
-    query->insert(pair<string, string>("ApiCount", *request->apiCount));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
-    query->insert(pair<string, bool>("AutoPay", *request->autoPay));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->autoRenewPeriod)) {
-    query->insert(pair<string, long>("AutoRenewPeriod", *request->autoRenewPeriod));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->autoUseCoupon)) {
-    query->insert(pair<string, bool>("AutoUseCoupon", *request->autoUseCoupon));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->customTimeSeries)) {
-    query->insert(pair<string, string>("CustomTimeSeries", *request->customTimeSeries));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->eventStoreNum)) {
-    query->insert(pair<string, string>("EventStoreNum", *request->eventStoreNum));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->eventStoreTime)) {
-    query->insert(pair<string, string>("EventStoreTime", *request->eventStoreTime));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->logMonitorStream)) {
-    query->insert(pair<string, string>("LogMonitorStream", *request->logMonitorStream));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->payType)) {
-    query->insert(pair<string, string>("PayType", *request->payType));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
-    query->insert(pair<string, long>("Period", *request->period));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
-    query->insert(pair<string, string>("PeriodUnit", *request->periodUnit));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->phoneCount)) {
-    query->insert(pair<string, string>("PhoneCount", *request->phoneCount));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->siteEcsNum)) {
-    query->insert(pair<string, string>("SiteEcsNum", *request->siteEcsNum));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->siteOperatorNum)) {
-    query->insert(pair<string, string>("SiteOperatorNum", *request->siteOperatorNum));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->siteTaskNum)) {
-    query->insert(pair<string, string>("SiteTaskNum", *request->siteTaskNum));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->smsCount)) {
-    query->insert(pair<string, string>("SmsCount", *request->smsCount));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->suggestType)) {
-    query->insert(pair<string, string>("SuggestType", *request->suggestType));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateCmsOrder"))},
-    {"version", boost::any(string("2019-01-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateCmsOrderResponse(callApi(params, req, runtime));
-}
-
-CreateCmsOrderResponse Alibabacloud_Cms20190101::Client::createCmsOrder(shared_ptr<CreateCmsOrderRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createCmsOrderWithOptions(request, runtime);
-}
-
-CreateCmsSmspackageOrderResponse Alibabacloud_Cms20190101::Client::createCmsSmspackageOrderWithOptions(shared_ptr<CreateCmsSmspackageOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
-    query->insert(pair<string, bool>("AutoPay", *request->autoPay));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->autoRenewPeriod)) {
-    query->insert(pair<string, long>("AutoRenewPeriod", *request->autoRenewPeriod));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->autoUseCoupon)) {
-    query->insert(pair<string, bool>("AutoUseCoupon", *request->autoUseCoupon));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
-    query->insert(pair<string, long>("Period", *request->period));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
-    query->insert(pair<string, string>("PeriodUnit", *request->periodUnit));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->smsCount)) {
-    query->insert(pair<string, string>("SmsCount", *request->smsCount));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateCmsSmspackageOrder"))},
-    {"version", boost::any(string("2019-01-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateCmsSmspackageOrderResponse(callApi(params, req, runtime));
-}
-
-CreateCmsSmspackageOrderResponse Alibabacloud_Cms20190101::Client::createCmsSmspackageOrder(shared_ptr<CreateCmsSmspackageOrderRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createCmsSmspackageOrderWithOptions(request, runtime);
 }
 
 CreateDynamicTagGroupResponse Alibabacloud_Cms20190101::Client::createDynamicTagGroupWithOptions(shared_ptr<CreateDynamicTagGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1092,6 +905,9 @@ CreateSiteMonitorResponse Alibabacloud_Cms20190101::Client::createSiteMonitorWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskType)) {
     query->insert(pair<string, string>("TaskType", *request->taskType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcConfig)) {
+    query->insert(pair<string, string>("VpcConfig", *request->vpcConfig));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
