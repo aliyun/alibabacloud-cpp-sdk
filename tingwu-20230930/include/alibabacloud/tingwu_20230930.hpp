@@ -18,6 +18,7 @@ class CreateTaskRequestInput : public Darabonba::Model {
 public:
   shared_ptr<string> fileUrl{};
   shared_ptr<string> format{};
+  shared_ptr<vector<string>> languageHints{};
   shared_ptr<bool> multipleStreamsEnabled{};
   shared_ptr<string> outputPath{};
   shared_ptr<bool> progressiveCallbacksEnabled{};
@@ -41,6 +42,9 @@ public:
     }
     if (format) {
       res["Format"] = boost::any(*format);
+    }
+    if (languageHints) {
+      res["LanguageHints"] = boost::any(*languageHints);
     }
     if (multipleStreamsEnabled) {
       res["MultipleStreamsEnabled"] = boost::any(*multipleStreamsEnabled);
@@ -72,6 +76,16 @@ public:
     }
     if (m.find("Format") != m.end() && !m["Format"].empty()) {
       format = make_shared<string>(boost::any_cast<string>(m["Format"]));
+    }
+    if (m.find("LanguageHints") != m.end() && !m["LanguageHints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LanguageHints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LanguageHints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      languageHints = make_shared<vector<string>>(toVec1);
     }
     if (m.find("MultipleStreamsEnabled") != m.end() && !m["MultipleStreamsEnabled"].empty()) {
       multipleStreamsEnabled = make_shared<bool>(boost::any_cast<bool>(m["MultipleStreamsEnabled"]));
