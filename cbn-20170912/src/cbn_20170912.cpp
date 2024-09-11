@@ -1686,8 +1686,13 @@ CreateTransitRouterVbrAttachmentResponse Alibabacloud_Cbn20170912::Client::creat
   return createTransitRouterVbrAttachmentWithOptions(request, runtime);
 }
 
-CreateTransitRouterVpcAttachmentResponse Alibabacloud_Cbn20170912::Client::createTransitRouterVpcAttachmentWithOptions(shared_ptr<CreateTransitRouterVpcAttachmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateTransitRouterVpcAttachmentResponse Alibabacloud_Cbn20170912::Client::createTransitRouterVpcAttachmentWithOptions(shared_ptr<CreateTransitRouterVpcAttachmentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateTransitRouterVpcAttachmentShrinkRequest> request = make_shared<CreateTransitRouterVpcAttachmentShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->transitRouterVPCAttachmentOptions)) {
+    request->transitRouterVPCAttachmentOptionsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->transitRouterVPCAttachmentOptions, make_shared<string>("TransitRouterVPCAttachmentOptions"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPublishRouteEnabled)) {
     query->insert(pair<string, bool>("AutoPublishRouteEnabled", *request->autoPublishRouteEnabled));
@@ -1719,8 +1724,8 @@ CreateTransitRouterVpcAttachmentResponse Alibabacloud_Cbn20170912::Client::creat
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateTransitRouterVpcAttachmentRequestTag>>(request->tag)) {
-    query->insert(pair<string, vector<CreateTransitRouterVpcAttachmentRequestTag>>("Tag", *request->tag));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateTransitRouterVpcAttachmentShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateTransitRouterVpcAttachmentShrinkRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentDescription)) {
     query->insert(pair<string, string>("TransitRouterAttachmentDescription", *request->transitRouterAttachmentDescription));
@@ -1731,14 +1736,17 @@ CreateTransitRouterVpcAttachmentResponse Alibabacloud_Cbn20170912::Client::creat
   if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterId)) {
     query->insert(pair<string, string>("TransitRouterId", *request->transitRouterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterVPCAttachmentOptionsShrink)) {
+    query->insert(pair<string, string>("TransitRouterVPCAttachmentOptions", *request->transitRouterVPCAttachmentOptionsShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
     query->insert(pair<string, string>("VpcId", *request->vpcId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->vpcOwnerId)) {
     query->insert(pair<string, long>("VpcOwnerId", *request->vpcOwnerId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateTransitRouterVpcAttachmentRequestZoneMappings>>(request->zoneMappings)) {
-    query->insert(pair<string, vector<CreateTransitRouterVpcAttachmentRequestZoneMappings>>("ZoneMappings", *request->zoneMappings));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateTransitRouterVpcAttachmentShrinkRequestZoneMappings>>(request->zoneMappings)) {
+    query->insert(pair<string, vector<CreateTransitRouterVpcAttachmentShrinkRequestZoneMappings>>("ZoneMappings", *request->zoneMappings));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3882,6 +3890,9 @@ DescribeGrantRulesToCenResponse Alibabacloud_Cbn20170912::Client::describeGrantR
   if (!Darabonba_Util::Client::isUnset<long>(request->childInstanceOwnerId)) {
     query->insert(pair<string, long>("ChildInstanceOwnerId", *request->childInstanceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enabledIpv6)) {
+    query->insert(pair<string, bool>("EnabledIpv6", *request->enabledIpv6));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
@@ -4920,6 +4931,9 @@ ListGrantVSwitchesToCenResponse Alibabacloud_Cbn20170912::Client::listGrantVSwit
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->cenId)) {
     query->insert(pair<string, string>("CenId", *request->cenId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enabledIpv6)) {
+    query->insert(pair<string, bool>("EnabledIpv6", *request->enabledIpv6));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
@@ -8027,8 +8041,13 @@ UpdateTransitRouterVbrAttachmentAttributeResponse Alibabacloud_Cbn20170912::Clie
   return updateTransitRouterVbrAttachmentAttributeWithOptions(request, runtime);
 }
 
-UpdateTransitRouterVpcAttachmentAttributeResponse Alibabacloud_Cbn20170912::Client::updateTransitRouterVpcAttachmentAttributeWithOptions(shared_ptr<UpdateTransitRouterVpcAttachmentAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpdateTransitRouterVpcAttachmentAttributeResponse Alibabacloud_Cbn20170912::Client::updateTransitRouterVpcAttachmentAttributeWithOptions(shared_ptr<UpdateTransitRouterVpcAttachmentAttributeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateTransitRouterVpcAttachmentAttributeShrinkRequest> request = make_shared<UpdateTransitRouterVpcAttachmentAttributeShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->transitRouterVPCAttachmentOptions)) {
+    request->transitRouterVPCAttachmentOptionsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->transitRouterVPCAttachmentOptions, make_shared<string>("TransitRouterVPCAttachmentOptions"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPublishRouteEnabled)) {
     query->insert(pair<string, bool>("AutoPublishRouteEnabled", *request->autoPublishRouteEnabled));
@@ -8059,6 +8078,9 @@ UpdateTransitRouterVpcAttachmentAttributeResponse Alibabacloud_Cbn20170912::Clie
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentName)) {
     query->insert(pair<string, string>("TransitRouterAttachmentName", *request->transitRouterAttachmentName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterVPCAttachmentOptionsShrink)) {
+    query->insert(pair<string, string>("TransitRouterVPCAttachmentOptions", *request->transitRouterVPCAttachmentOptionsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
