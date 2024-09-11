@@ -2605,6 +2605,37 @@ UnbindDeviceSeatsResponse Alibabacloud_Wyota20210420::Client::unbindDeviceSeats(
   return unbindDeviceSeatsWithOptions(request, runtime);
 }
 
+UnbindPasswordFreeLoginUserResponse Alibabacloud_Wyota20210420::Client::unbindPasswordFreeLoginUserWithOptions(shared_ptr<UnbindPasswordFreeLoginUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->serialNumber)) {
+    body->insert(pair<string, string>("SerialNumber", *request->serialNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    body->insert(pair<string, string>("Uuid", *request->uuid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UnbindPasswordFreeLoginUser"))},
+    {"version", boost::any(string("2021-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UnbindPasswordFreeLoginUserResponse(callApi(params, req, runtime));
+}
+
+UnbindPasswordFreeLoginUserResponse Alibabacloud_Wyota20210420::Client::unbindPasswordFreeLoginUser(shared_ptr<UnbindPasswordFreeLoginUserRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return unbindPasswordFreeLoginUserWithOptions(request, runtime);
+}
+
 UpdateAliasResponse Alibabacloud_Wyota20210420::Client::updateAliasWithOptions(shared_ptr<UpdateAliasRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
