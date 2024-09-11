@@ -424,6 +424,40 @@ BindAccountLessLoginUserResponse Alibabacloud_Wyota20210420::Client::bindAccount
   return bindAccountLessLoginUserWithOptions(request, runtime);
 }
 
+BindPasswordFreeLoginUserResponse Alibabacloud_Wyota20210420::Client::bindPasswordFreeLoginUserWithOptions(shared_ptr<BindPasswordFreeLoginUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endUserId)) {
+    body->insert(pair<string, string>("EndUserId", *request->endUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serialNumber)) {
+    body->insert(pair<string, string>("SerialNumber", *request->serialNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    body->insert(pair<string, string>("Uuid", *request->uuid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BindPasswordFreeLoginUser"))},
+    {"version", boost::any(string("2021-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BindPasswordFreeLoginUserResponse(callApi(params, req, runtime));
+}
+
+BindPasswordFreeLoginUserResponse Alibabacloud_Wyota20210420::Client::bindPasswordFreeLoginUser(shared_ptr<BindPasswordFreeLoginUserRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return bindPasswordFreeLoginUserWithOptions(request, runtime);
+}
+
 CheckUuidValidResponse Alibabacloud_Wyota20210420::Client::checkUuidValidWithOptions(shared_ptr<CheckUuidValidRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2682,6 +2716,9 @@ UpdateLabelResponse Alibabacloud_Wyota20210420::Client::updateLabel(shared_ptr<U
 UpdateTerminalPolicyResponse Alibabacloud_Wyota20210420::Client::updateTerminalPolicyWithOptions(shared_ptr<UpdateTerminalPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->backgroundModeTitle)) {
+    body->insert(pair<string, string>("BackgroundModeTitle", *request->backgroundModeTitle));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->displayLayout)) {
     body->insert(pair<string, string>("DisplayLayout", *request->displayLayout));
   }
@@ -2697,11 +2734,17 @@ UpdateTerminalPolicyResponse Alibabacloud_Wyota20210420::Client::updateTerminalP
   if (!Darabonba_Util::Client::isUnset<long>(request->enableAutoLogin)) {
     body->insert(pair<string, long>("EnableAutoLogin", *request->enableAutoLogin));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enableBackgroundMode)) {
+    body->insert(pair<string, long>("EnableBackgroundMode", *request->enableBackgroundMode));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->enableBluetooth)) {
     body->insert(pair<string, long>("EnableBluetooth", *request->enableBluetooth));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->enableModifyPassword)) {
     body->insert(pair<string, long>("EnableModifyPassword", *request->enableModifyPassword));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enableScheduledReboot)) {
+    body->insert(pair<string, long>("EnableScheduledReboot", *request->enableScheduledReboot));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->enableScheduledShutdown)) {
     body->insert(pair<string, long>("EnableScheduledShutdown", *request->enableScheduledShutdown));
@@ -2732,6 +2775,9 @@ UpdateTerminalPolicyResponse Alibabacloud_Wyota20210420::Client::updateTerminalP
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->powerOnBehavior)) {
     body->insert(pair<string, long>("PowerOnBehavior", *request->powerOnBehavior));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduledReboot)) {
+    body->insert(pair<string, string>("ScheduledReboot", *request->scheduledReboot));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scheduledShutdown)) {
     body->insert(pair<string, string>("ScheduledShutdown", *request->scheduledShutdown));

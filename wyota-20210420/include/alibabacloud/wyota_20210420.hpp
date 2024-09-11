@@ -1594,6 +1594,158 @@ public:
 
   virtual ~BindAccountLessLoginUserResponse() = default;
 };
+class BindPasswordFreeLoginUserRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endUserId{};
+  shared_ptr<string> serialNumber{};
+  shared_ptr<string> uuid{};
+
+  BindPasswordFreeLoginUserRequest() {}
+
+  explicit BindPasswordFreeLoginUserRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endUserId) {
+      res["EndUserId"] = boost::any(*endUserId);
+    }
+    if (serialNumber) {
+      res["SerialNumber"] = boost::any(*serialNumber);
+    }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
+      endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
+    }
+    if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
+      serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
+    }
+  }
+
+
+  virtual ~BindPasswordFreeLoginUserRequest() = default;
+};
+class BindPasswordFreeLoginUserResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  BindPasswordFreeLoginUserResponseBody() {}
+
+  explicit BindPasswordFreeLoginUserResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BindPasswordFreeLoginUserResponseBody() = default;
+};
+class BindPasswordFreeLoginUserResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BindPasswordFreeLoginUserResponseBody> body{};
+
+  BindPasswordFreeLoginUserResponse() {}
+
+  explicit BindPasswordFreeLoginUserResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BindPasswordFreeLoginUserResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BindPasswordFreeLoginUserResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BindPasswordFreeLoginUserResponse() = default;
+};
 class CheckUuidValidRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bluetooth{};
@@ -2820,6 +2972,7 @@ public:
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> md5{};
   shared_ptr<string> osType{};
+  shared_ptr<long> otaType{};
   shared_ptr<string> project{};
   shared_ptr<string> protocolType{};
   shared_ptr<string> releaseNote{};
@@ -2861,6 +3014,9 @@ public:
     }
     if (osType) {
       res["OsType"] = boost::any(*osType);
+    }
+    if (otaType) {
+      res["OtaType"] = boost::any(*otaType);
     }
     if (project) {
       res["Project"] = boost::any(*project);
@@ -2916,6 +3072,9 @@ public:
     }
     if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
       osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
+    }
+    if (m.find("OtaType") != m.end() && !m["OtaType"].empty()) {
+      otaType = make_shared<long>(boost::any_cast<long>(m["OtaType"]));
     }
     if (m.find("Project") != m.end() && !m["Project"].empty()) {
       project = make_shared<string>(boost::any_cast<string>(m["Project"]));
@@ -15162,13 +15321,16 @@ public:
 };
 class UpdateTerminalPolicyRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> backgroundModeTitle{};
   shared_ptr<string> displayLayout{};
   shared_ptr<string> displayResolution{};
   shared_ptr<string> displayScaleRatio{};
   shared_ptr<long> enableAutoLockScreen{};
   shared_ptr<long> enableAutoLogin{};
+  shared_ptr<long> enableBackgroundMode{};
   shared_ptr<long> enableBluetooth{};
   shared_ptr<long> enableModifyPassword{};
+  shared_ptr<long> enableScheduledReboot{};
   shared_ptr<long> enableScheduledShutdown{};
   shared_ptr<long> enableSwitchPersonal{};
   shared_ptr<long> enableWlan{};
@@ -15179,6 +15341,7 @@ public:
   shared_ptr<long> powerButtonDefineForAs{};
   shared_ptr<long> powerButtonDefineForNs{};
   shared_ptr<long> powerOnBehavior{};
+  shared_ptr<string> scheduledReboot{};
   shared_ptr<string> scheduledShutdown{};
   shared_ptr<long> settingLock{};
   shared_ptr<string> terminalPolicyId{};
@@ -15193,6 +15356,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (backgroundModeTitle) {
+      res["BackgroundModeTitle"] = boost::any(*backgroundModeTitle);
+    }
     if (displayLayout) {
       res["DisplayLayout"] = boost::any(*displayLayout);
     }
@@ -15208,11 +15374,17 @@ public:
     if (enableAutoLogin) {
       res["EnableAutoLogin"] = boost::any(*enableAutoLogin);
     }
+    if (enableBackgroundMode) {
+      res["EnableBackgroundMode"] = boost::any(*enableBackgroundMode);
+    }
     if (enableBluetooth) {
       res["EnableBluetooth"] = boost::any(*enableBluetooth);
     }
     if (enableModifyPassword) {
       res["EnableModifyPassword"] = boost::any(*enableModifyPassword);
+    }
+    if (enableScheduledReboot) {
+      res["EnableScheduledReboot"] = boost::any(*enableScheduledReboot);
     }
     if (enableScheduledShutdown) {
       res["EnableScheduledShutdown"] = boost::any(*enableScheduledShutdown);
@@ -15244,6 +15416,9 @@ public:
     if (powerOnBehavior) {
       res["PowerOnBehavior"] = boost::any(*powerOnBehavior);
     }
+    if (scheduledReboot) {
+      res["ScheduledReboot"] = boost::any(*scheduledReboot);
+    }
     if (scheduledShutdown) {
       res["ScheduledShutdown"] = boost::any(*scheduledShutdown);
     }
@@ -15257,6 +15432,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackgroundModeTitle") != m.end() && !m["BackgroundModeTitle"].empty()) {
+      backgroundModeTitle = make_shared<string>(boost::any_cast<string>(m["BackgroundModeTitle"]));
+    }
     if (m.find("DisplayLayout") != m.end() && !m["DisplayLayout"].empty()) {
       displayLayout = make_shared<string>(boost::any_cast<string>(m["DisplayLayout"]));
     }
@@ -15272,11 +15450,17 @@ public:
     if (m.find("EnableAutoLogin") != m.end() && !m["EnableAutoLogin"].empty()) {
       enableAutoLogin = make_shared<long>(boost::any_cast<long>(m["EnableAutoLogin"]));
     }
+    if (m.find("EnableBackgroundMode") != m.end() && !m["EnableBackgroundMode"].empty()) {
+      enableBackgroundMode = make_shared<long>(boost::any_cast<long>(m["EnableBackgroundMode"]));
+    }
     if (m.find("EnableBluetooth") != m.end() && !m["EnableBluetooth"].empty()) {
       enableBluetooth = make_shared<long>(boost::any_cast<long>(m["EnableBluetooth"]));
     }
     if (m.find("EnableModifyPassword") != m.end() && !m["EnableModifyPassword"].empty()) {
       enableModifyPassword = make_shared<long>(boost::any_cast<long>(m["EnableModifyPassword"]));
+    }
+    if (m.find("EnableScheduledReboot") != m.end() && !m["EnableScheduledReboot"].empty()) {
+      enableScheduledReboot = make_shared<long>(boost::any_cast<long>(m["EnableScheduledReboot"]));
     }
     if (m.find("EnableScheduledShutdown") != m.end() && !m["EnableScheduledShutdown"].empty()) {
       enableScheduledShutdown = make_shared<long>(boost::any_cast<long>(m["EnableScheduledShutdown"]));
@@ -15307,6 +15491,9 @@ public:
     }
     if (m.find("PowerOnBehavior") != m.end() && !m["PowerOnBehavior"].empty()) {
       powerOnBehavior = make_shared<long>(boost::any_cast<long>(m["PowerOnBehavior"]));
+    }
+    if (m.find("ScheduledReboot") != m.end() && !m["ScheduledReboot"].empty()) {
+      scheduledReboot = make_shared<string>(boost::any_cast<string>(m["ScheduledReboot"]));
     }
     if (m.find("ScheduledShutdown") != m.end() && !m["ScheduledShutdown"].empty()) {
       scheduledShutdown = make_shared<string>(boost::any_cast<string>(m["ScheduledShutdown"]));
@@ -15463,6 +15650,8 @@ public:
   AttachLabelsResponse attachLabels(shared_ptr<AttachLabelsRequest> request);
   BindAccountLessLoginUserResponse bindAccountLessLoginUserWithOptions(shared_ptr<BindAccountLessLoginUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BindAccountLessLoginUserResponse bindAccountLessLoginUser(shared_ptr<BindAccountLessLoginUserRequest> request);
+  BindPasswordFreeLoginUserResponse bindPasswordFreeLoginUserWithOptions(shared_ptr<BindPasswordFreeLoginUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BindPasswordFreeLoginUserResponse bindPasswordFreeLoginUser(shared_ptr<BindPasswordFreeLoginUserRequest> request);
   CheckUuidValidResponse checkUuidValidWithOptions(shared_ptr<CheckUuidValidRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckUuidValidResponse checkUuidValid(shared_ptr<CheckUuidValidRequest> request);
   CreateAppOtaTaskResponse createAppOtaTaskWithOptions(shared_ptr<CreateAppOtaTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
