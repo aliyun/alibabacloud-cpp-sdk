@@ -1940,6 +1940,7 @@ public:
 };
 class CreateAppInstanceGroupRequestNodePool : public Darabonba::Model {
 public:
+  shared_ptr<long> maxIdleAppInstanceAmount{};
   shared_ptr<long> maxScalingAmount{};
   shared_ptr<long> nodeAmount{};
   shared_ptr<long> nodeCapacity{};
@@ -1963,6 +1964,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (maxIdleAppInstanceAmount) {
+      res["MaxIdleAppInstanceAmount"] = boost::any(*maxIdleAppInstanceAmount);
+    }
     if (maxScalingAmount) {
       res["MaxScalingAmount"] = boost::any(*maxScalingAmount);
     }
@@ -2007,6 +2011,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxIdleAppInstanceAmount") != m.end() && !m["MaxIdleAppInstanceAmount"].empty()) {
+      maxIdleAppInstanceAmount = make_shared<long>(boost::any_cast<long>(m["MaxIdleAppInstanceAmount"]));
+    }
     if (m.find("MaxScalingAmount") != m.end() && !m["MaxScalingAmount"].empty()) {
       maxScalingAmount = make_shared<long>(boost::any_cast<long>(m["MaxScalingAmount"]));
     }
@@ -4171,6 +4178,7 @@ public:
 class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool : public Darabonba::Model {
 public:
   shared_ptr<long> amount{};
+  shared_ptr<long> maxIdleAppInstanceAmount{};
   shared_ptr<long> maxScalingAmount{};
   shared_ptr<long> nodeAmount{};
   shared_ptr<long> nodeCapacity{};
@@ -4201,6 +4209,9 @@ public:
     map<string, boost::any> res;
     if (amount) {
       res["Amount"] = boost::any(*amount);
+    }
+    if (maxIdleAppInstanceAmount) {
+      res["MaxIdleAppInstanceAmount"] = boost::any(*maxIdleAppInstanceAmount);
     }
     if (maxScalingAmount) {
       res["MaxScalingAmount"] = boost::any(*maxScalingAmount);
@@ -4263,6 +4274,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
       amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
+    if (m.find("MaxIdleAppInstanceAmount") != m.end() && !m["MaxIdleAppInstanceAmount"].empty()) {
+      maxIdleAppInstanceAmount = make_shared<long>(boost::any_cast<long>(m["MaxIdleAppInstanceAmount"]));
     }
     if (m.find("MaxScalingAmount") != m.end() && !m["MaxScalingAmount"].empty()) {
       maxScalingAmount = make_shared<long>(boost::any_cast<long>(m["MaxScalingAmount"]));
@@ -7126,6 +7140,7 @@ public:
 class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool : public Darabonba::Model {
 public:
   shared_ptr<long> amount{};
+  shared_ptr<long> maxIdleAppInstanceAmount{};
   shared_ptr<long> maxScalingAmount{};
   shared_ptr<long> nodeAmount{};
   shared_ptr<long> nodeCapacity{};
@@ -7156,6 +7171,9 @@ public:
     map<string, boost::any> res;
     if (amount) {
       res["Amount"] = boost::any(*amount);
+    }
+    if (maxIdleAppInstanceAmount) {
+      res["MaxIdleAppInstanceAmount"] = boost::any(*maxIdleAppInstanceAmount);
     }
     if (maxScalingAmount) {
       res["MaxScalingAmount"] = boost::any(*maxScalingAmount);
@@ -7218,6 +7236,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
       amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
+    if (m.find("MaxIdleAppInstanceAmount") != m.end() && !m["MaxIdleAppInstanceAmount"].empty()) {
+      maxIdleAppInstanceAmount = make_shared<long>(boost::any_cast<long>(m["MaxIdleAppInstanceAmount"]));
     }
     if (m.find("MaxScalingAmount") != m.end() && !m["MaxScalingAmount"].empty()) {
       maxScalingAmount = make_shared<long>(boost::any_cast<long>(m["MaxScalingAmount"]));
@@ -10692,6 +10713,7 @@ public:
 };
 class ModifyNodePoolAttributeRequestNodePoolStrategy : public Darabonba::Model {
 public:
+  shared_ptr<long> maxIdleAppInstanceAmount{};
   shared_ptr<long> maxScalingAmount{};
   shared_ptr<long> nodeAmount{};
   shared_ptr<vector<ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules>> recurrenceSchedules{};
@@ -10713,6 +10735,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (maxIdleAppInstanceAmount) {
+      res["MaxIdleAppInstanceAmount"] = boost::any(*maxIdleAppInstanceAmount);
+    }
     if (maxScalingAmount) {
       res["MaxScalingAmount"] = boost::any(*maxScalingAmount);
     }
@@ -10751,6 +10776,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxIdleAppInstanceAmount") != m.end() && !m["MaxIdleAppInstanceAmount"].empty()) {
+      maxIdleAppInstanceAmount = make_shared<long>(boost::any_cast<long>(m["MaxIdleAppInstanceAmount"]));
+    }
     if (m.find("MaxScalingAmount") != m.end() && !m["MaxScalingAmount"].empty()) {
       maxScalingAmount = make_shared<long>(boost::any_cast<long>(m["MaxScalingAmount"]));
     }
