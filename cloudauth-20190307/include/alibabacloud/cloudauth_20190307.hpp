@@ -6717,6 +6717,973 @@ public:
 
   virtual ~ModifyDeviceInfoResponse() = default;
 };
+class Vehicle5ItemQueryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> paramType{};
+  shared_ptr<string> vehicleNum{};
+  shared_ptr<string> vehicleType{};
+
+  Vehicle5ItemQueryRequest() {}
+
+  explicit Vehicle5ItemQueryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (paramType) {
+      res["ParamType"] = boost::any(*paramType);
+    }
+    if (vehicleNum) {
+      res["VehicleNum"] = boost::any(*vehicleNum);
+    }
+    if (vehicleType) {
+      res["VehicleType"] = boost::any(*vehicleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParamType") != m.end() && !m["ParamType"].empty()) {
+      paramType = make_shared<string>(boost::any_cast<string>(m["ParamType"]));
+    }
+    if (m.find("VehicleNum") != m.end() && !m["VehicleNum"].empty()) {
+      vehicleNum = make_shared<string>(boost::any_cast<string>(m["VehicleNum"]));
+    }
+    if (m.find("VehicleType") != m.end() && !m["VehicleType"].empty()) {
+      vehicleType = make_shared<string>(boost::any_cast<string>(m["VehicleType"]));
+    }
+  }
+
+
+  virtual ~Vehicle5ItemQueryRequest() = default;
+};
+class Vehicle5ItemQueryResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> bizCode{};
+  shared_ptr<string> vehicleInfo{};
+
+  Vehicle5ItemQueryResponseBodyResultObject() {}
+
+  explicit Vehicle5ItemQueryResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizCode) {
+      res["BizCode"] = boost::any(*bizCode);
+    }
+    if (vehicleInfo) {
+      res["VehicleInfo"] = boost::any(*vehicleInfo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizCode") != m.end() && !m["BizCode"].empty()) {
+      bizCode = make_shared<string>(boost::any_cast<string>(m["BizCode"]));
+    }
+    if (m.find("VehicleInfo") != m.end() && !m["VehicleInfo"].empty()) {
+      vehicleInfo = make_shared<string>(boost::any_cast<string>(m["VehicleInfo"]));
+    }
+  }
+
+
+  virtual ~Vehicle5ItemQueryResponseBodyResultObject() = default;
+};
+class Vehicle5ItemQueryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<Vehicle5ItemQueryResponseBodyResultObject> resultObject{};
+
+  Vehicle5ItemQueryResponseBody() {}
+
+  explicit Vehicle5ItemQueryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        Vehicle5ItemQueryResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<Vehicle5ItemQueryResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Vehicle5ItemQueryResponseBody() = default;
+};
+class Vehicle5ItemQueryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<Vehicle5ItemQueryResponseBody> body{};
+
+  Vehicle5ItemQueryResponse() {}
+
+  explicit Vehicle5ItemQueryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        Vehicle5ItemQueryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<Vehicle5ItemQueryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Vehicle5ItemQueryResponse() = default;
+};
+class VehicleInsureQueryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> paramType{};
+  shared_ptr<string> vehicleNum{};
+  shared_ptr<string> vehicleType{};
+  shared_ptr<string> vin{};
+
+  VehicleInsureQueryRequest() {}
+
+  explicit VehicleInsureQueryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (paramType) {
+      res["ParamType"] = boost::any(*paramType);
+    }
+    if (vehicleNum) {
+      res["VehicleNum"] = boost::any(*vehicleNum);
+    }
+    if (vehicleType) {
+      res["VehicleType"] = boost::any(*vehicleType);
+    }
+    if (vin) {
+      res["Vin"] = boost::any(*vin);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParamType") != m.end() && !m["ParamType"].empty()) {
+      paramType = make_shared<string>(boost::any_cast<string>(m["ParamType"]));
+    }
+    if (m.find("VehicleNum") != m.end() && !m["VehicleNum"].empty()) {
+      vehicleNum = make_shared<string>(boost::any_cast<string>(m["VehicleNum"]));
+    }
+    if (m.find("VehicleType") != m.end() && !m["VehicleType"].empty()) {
+      vehicleType = make_shared<string>(boost::any_cast<string>(m["VehicleType"]));
+    }
+    if (m.find("Vin") != m.end() && !m["Vin"].empty()) {
+      vin = make_shared<string>(boost::any_cast<string>(m["Vin"]));
+    }
+  }
+
+
+  virtual ~VehicleInsureQueryRequest() = default;
+};
+class VehicleInsureQueryResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> bizCode{};
+  shared_ptr<string> vehicleInfo{};
+
+  VehicleInsureQueryResponseBodyResultObject() {}
+
+  explicit VehicleInsureQueryResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizCode) {
+      res["BizCode"] = boost::any(*bizCode);
+    }
+    if (vehicleInfo) {
+      res["VehicleInfo"] = boost::any(*vehicleInfo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizCode") != m.end() && !m["BizCode"].empty()) {
+      bizCode = make_shared<string>(boost::any_cast<string>(m["BizCode"]));
+    }
+    if (m.find("VehicleInfo") != m.end() && !m["VehicleInfo"].empty()) {
+      vehicleInfo = make_shared<string>(boost::any_cast<string>(m["VehicleInfo"]));
+    }
+  }
+
+
+  virtual ~VehicleInsureQueryResponseBodyResultObject() = default;
+};
+class VehicleInsureQueryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<VehicleInsureQueryResponseBodyResultObject> resultObject{};
+
+  VehicleInsureQueryResponseBody() {}
+
+  explicit VehicleInsureQueryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        VehicleInsureQueryResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<VehicleInsureQueryResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~VehicleInsureQueryResponseBody() = default;
+};
+class VehicleInsureQueryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<VehicleInsureQueryResponseBody> body{};
+
+  VehicleInsureQueryResponse() {}
+
+  explicit VehicleInsureQueryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        VehicleInsureQueryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<VehicleInsureQueryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~VehicleInsureQueryResponse() = default;
+};
+class VehicleMetaVerifyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identifyNum{};
+  shared_ptr<string> paramType{};
+  shared_ptr<string> userName{};
+  shared_ptr<string> vehicleNum{};
+  shared_ptr<string> vehicleType{};
+  shared_ptr<string> verifyMetaType{};
+
+  VehicleMetaVerifyRequest() {}
+
+  explicit VehicleMetaVerifyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identifyNum) {
+      res["IdentifyNum"] = boost::any(*identifyNum);
+    }
+    if (paramType) {
+      res["ParamType"] = boost::any(*paramType);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    if (vehicleNum) {
+      res["VehicleNum"] = boost::any(*vehicleNum);
+    }
+    if (vehicleType) {
+      res["VehicleType"] = boost::any(*vehicleType);
+    }
+    if (verifyMetaType) {
+      res["VerifyMetaType"] = boost::any(*verifyMetaType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentifyNum") != m.end() && !m["IdentifyNum"].empty()) {
+      identifyNum = make_shared<string>(boost::any_cast<string>(m["IdentifyNum"]));
+    }
+    if (m.find("ParamType") != m.end() && !m["ParamType"].empty()) {
+      paramType = make_shared<string>(boost::any_cast<string>(m["ParamType"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+    if (m.find("VehicleNum") != m.end() && !m["VehicleNum"].empty()) {
+      vehicleNum = make_shared<string>(boost::any_cast<string>(m["VehicleNum"]));
+    }
+    if (m.find("VehicleType") != m.end() && !m["VehicleType"].empty()) {
+      vehicleType = make_shared<string>(boost::any_cast<string>(m["VehicleType"]));
+    }
+    if (m.find("VerifyMetaType") != m.end() && !m["VerifyMetaType"].empty()) {
+      verifyMetaType = make_shared<string>(boost::any_cast<string>(m["VerifyMetaType"]));
+    }
+  }
+
+
+  virtual ~VehicleMetaVerifyRequest() = default;
+};
+class VehicleMetaVerifyResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> bizCode{};
+
+  VehicleMetaVerifyResponseBodyResultObject() {}
+
+  explicit VehicleMetaVerifyResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizCode) {
+      res["BizCode"] = boost::any(*bizCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizCode") != m.end() && !m["BizCode"].empty()) {
+      bizCode = make_shared<string>(boost::any_cast<string>(m["BizCode"]));
+    }
+  }
+
+
+  virtual ~VehicleMetaVerifyResponseBodyResultObject() = default;
+};
+class VehicleMetaVerifyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<VehicleMetaVerifyResponseBodyResultObject> resultObject{};
+
+  VehicleMetaVerifyResponseBody() {}
+
+  explicit VehicleMetaVerifyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        VehicleMetaVerifyResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<VehicleMetaVerifyResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~VehicleMetaVerifyResponseBody() = default;
+};
+class VehicleMetaVerifyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<VehicleMetaVerifyResponseBody> body{};
+
+  VehicleMetaVerifyResponse() {}
+
+  explicit VehicleMetaVerifyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        VehicleMetaVerifyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<VehicleMetaVerifyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~VehicleMetaVerifyResponse() = default;
+};
+class VehicleMetaVerifyV2Request : public Darabonba::Model {
+public:
+  shared_ptr<string> identifyNum{};
+  shared_ptr<string> paramType{};
+  shared_ptr<string> userName{};
+  shared_ptr<string> vehicleNum{};
+  shared_ptr<string> vehicleType{};
+  shared_ptr<string> verifyMetaType{};
+
+  VehicleMetaVerifyV2Request() {}
+
+  explicit VehicleMetaVerifyV2Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identifyNum) {
+      res["IdentifyNum"] = boost::any(*identifyNum);
+    }
+    if (paramType) {
+      res["ParamType"] = boost::any(*paramType);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    if (vehicleNum) {
+      res["VehicleNum"] = boost::any(*vehicleNum);
+    }
+    if (vehicleType) {
+      res["VehicleType"] = boost::any(*vehicleType);
+    }
+    if (verifyMetaType) {
+      res["VerifyMetaType"] = boost::any(*verifyMetaType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentifyNum") != m.end() && !m["IdentifyNum"].empty()) {
+      identifyNum = make_shared<string>(boost::any_cast<string>(m["IdentifyNum"]));
+    }
+    if (m.find("ParamType") != m.end() && !m["ParamType"].empty()) {
+      paramType = make_shared<string>(boost::any_cast<string>(m["ParamType"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+    if (m.find("VehicleNum") != m.end() && !m["VehicleNum"].empty()) {
+      vehicleNum = make_shared<string>(boost::any_cast<string>(m["VehicleNum"]));
+    }
+    if (m.find("VehicleType") != m.end() && !m["VehicleType"].empty()) {
+      vehicleType = make_shared<string>(boost::any_cast<string>(m["VehicleType"]));
+    }
+    if (m.find("VerifyMetaType") != m.end() && !m["VerifyMetaType"].empty()) {
+      verifyMetaType = make_shared<string>(boost::any_cast<string>(m["VerifyMetaType"]));
+    }
+  }
+
+
+  virtual ~VehicleMetaVerifyV2Request() = default;
+};
+class VehicleMetaVerifyV2ResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> bizCode{};
+  shared_ptr<string> vehicleInfo{};
+
+  VehicleMetaVerifyV2ResponseBodyResultObject() {}
+
+  explicit VehicleMetaVerifyV2ResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizCode) {
+      res["BizCode"] = boost::any(*bizCode);
+    }
+    if (vehicleInfo) {
+      res["VehicleInfo"] = boost::any(*vehicleInfo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizCode") != m.end() && !m["BizCode"].empty()) {
+      bizCode = make_shared<string>(boost::any_cast<string>(m["BizCode"]));
+    }
+    if (m.find("VehicleInfo") != m.end() && !m["VehicleInfo"].empty()) {
+      vehicleInfo = make_shared<string>(boost::any_cast<string>(m["VehicleInfo"]));
+    }
+  }
+
+
+  virtual ~VehicleMetaVerifyV2ResponseBodyResultObject() = default;
+};
+class VehicleMetaVerifyV2ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<VehicleMetaVerifyV2ResponseBodyResultObject> resultObject{};
+
+  VehicleMetaVerifyV2ResponseBody() {}
+
+  explicit VehicleMetaVerifyV2ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        VehicleMetaVerifyV2ResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<VehicleMetaVerifyV2ResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~VehicleMetaVerifyV2ResponseBody() = default;
+};
+class VehicleMetaVerifyV2Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<VehicleMetaVerifyV2ResponseBody> body{};
+
+  VehicleMetaVerifyV2Response() {}
+
+  explicit VehicleMetaVerifyV2Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        VehicleMetaVerifyV2ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<VehicleMetaVerifyV2ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~VehicleMetaVerifyV2Response() = default;
+};
+class VehicleQueryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> paramType{};
+  shared_ptr<string> vehicleNum{};
+  shared_ptr<string> vehicleType{};
+
+  VehicleQueryRequest() {}
+
+  explicit VehicleQueryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (paramType) {
+      res["ParamType"] = boost::any(*paramType);
+    }
+    if (vehicleNum) {
+      res["VehicleNum"] = boost::any(*vehicleNum);
+    }
+    if (vehicleType) {
+      res["VehicleType"] = boost::any(*vehicleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParamType") != m.end() && !m["ParamType"].empty()) {
+      paramType = make_shared<string>(boost::any_cast<string>(m["ParamType"]));
+    }
+    if (m.find("VehicleNum") != m.end() && !m["VehicleNum"].empty()) {
+      vehicleNum = make_shared<string>(boost::any_cast<string>(m["VehicleNum"]));
+    }
+    if (m.find("VehicleType") != m.end() && !m["VehicleType"].empty()) {
+      vehicleType = make_shared<string>(boost::any_cast<string>(m["VehicleType"]));
+    }
+  }
+
+
+  virtual ~VehicleQueryRequest() = default;
+};
+class VehicleQueryResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> bizCode{};
+  shared_ptr<string> vehicleInfo{};
+
+  VehicleQueryResponseBodyResultObject() {}
+
+  explicit VehicleQueryResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizCode) {
+      res["BizCode"] = boost::any(*bizCode);
+    }
+    if (vehicleInfo) {
+      res["VehicleInfo"] = boost::any(*vehicleInfo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizCode") != m.end() && !m["BizCode"].empty()) {
+      bizCode = make_shared<string>(boost::any_cast<string>(m["BizCode"]));
+    }
+    if (m.find("VehicleInfo") != m.end() && !m["VehicleInfo"].empty()) {
+      vehicleInfo = make_shared<string>(boost::any_cast<string>(m["VehicleInfo"]));
+    }
+  }
+
+
+  virtual ~VehicleQueryResponseBodyResultObject() = default;
+};
+class VehicleQueryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<VehicleQueryResponseBodyResultObject> resultObject{};
+
+  VehicleQueryResponseBody() {}
+
+  explicit VehicleQueryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        VehicleQueryResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<VehicleQueryResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~VehicleQueryResponseBody() = default;
+};
+class VehicleQueryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<VehicleQueryResponseBody> body{};
+
+  VehicleQueryResponse() {}
+
+  explicit VehicleQueryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        VehicleQueryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<VehicleQueryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~VehicleQueryResponse() = default;
+};
 class VerifyMaterialRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizId{};
@@ -7147,6 +8114,16 @@ public:
   MobileOnlineTimeResponse mobileOnlineTime(shared_ptr<MobileOnlineTimeRequest> request);
   ModifyDeviceInfoResponse modifyDeviceInfoWithOptions(shared_ptr<ModifyDeviceInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDeviceInfoResponse modifyDeviceInfo(shared_ptr<ModifyDeviceInfoRequest> request);
+  Vehicle5ItemQueryResponse vehicle5ItemQueryWithOptions(shared_ptr<Vehicle5ItemQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  Vehicle5ItemQueryResponse vehicle5ItemQuery(shared_ptr<Vehicle5ItemQueryRequest> request);
+  VehicleInsureQueryResponse vehicleInsureQueryWithOptions(shared_ptr<VehicleInsureQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  VehicleInsureQueryResponse vehicleInsureQuery(shared_ptr<VehicleInsureQueryRequest> request);
+  VehicleMetaVerifyResponse vehicleMetaVerifyWithOptions(shared_ptr<VehicleMetaVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  VehicleMetaVerifyResponse vehicleMetaVerify(shared_ptr<VehicleMetaVerifyRequest> request);
+  VehicleMetaVerifyV2Response vehicleMetaVerifyV2WithOptions(shared_ptr<VehicleMetaVerifyV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  VehicleMetaVerifyV2Response vehicleMetaVerifyV2(shared_ptr<VehicleMetaVerifyV2Request> request);
+  VehicleQueryResponse vehicleQueryWithOptions(shared_ptr<VehicleQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  VehicleQueryResponse vehicleQuery(shared_ptr<VehicleQueryRequest> request);
   VerifyMaterialResponse verifyMaterialWithOptions(shared_ptr<VerifyMaterialRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   VerifyMaterialResponse verifyMaterial(shared_ptr<VerifyMaterialRequest> request);
 

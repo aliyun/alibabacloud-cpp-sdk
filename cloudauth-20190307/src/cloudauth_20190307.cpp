@@ -1366,6 +1366,197 @@ ModifyDeviceInfoResponse Alibabacloud_Cloudauth20190307::Client::modifyDeviceInf
   return modifyDeviceInfoWithOptions(request, runtime);
 }
 
+Vehicle5ItemQueryResponse Alibabacloud_Cloudauth20190307::Client::vehicle5ItemQueryWithOptions(shared_ptr<Vehicle5ItemQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
+    query->insert(pair<string, string>("ParamType", *request->paramType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vehicleNum)) {
+    query->insert(pair<string, string>("VehicleNum", *request->vehicleNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vehicleType)) {
+    query->insert(pair<string, string>("VehicleType", *request->vehicleType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("Vehicle5ItemQuery"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return Vehicle5ItemQueryResponse(callApi(params, req, runtime));
+}
+
+Vehicle5ItemQueryResponse Alibabacloud_Cloudauth20190307::Client::vehicle5ItemQuery(shared_ptr<Vehicle5ItemQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return vehicle5ItemQueryWithOptions(request, runtime);
+}
+
+VehicleInsureQueryResponse Alibabacloud_Cloudauth20190307::Client::vehicleInsureQueryWithOptions(shared_ptr<VehicleInsureQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
+    query->insert(pair<string, string>("ParamType", *request->paramType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vehicleNum)) {
+    query->insert(pair<string, string>("VehicleNum", *request->vehicleNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vehicleType)) {
+    query->insert(pair<string, string>("VehicleType", *request->vehicleType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vin)) {
+    query->insert(pair<string, string>("Vin", *request->vin));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("VehicleInsureQuery"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return VehicleInsureQueryResponse(callApi(params, req, runtime));
+}
+
+VehicleInsureQueryResponse Alibabacloud_Cloudauth20190307::Client::vehicleInsureQuery(shared_ptr<VehicleInsureQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return vehicleInsureQueryWithOptions(request, runtime);
+}
+
+VehicleMetaVerifyResponse Alibabacloud_Cloudauth20190307::Client::vehicleMetaVerifyWithOptions(shared_ptr<VehicleMetaVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->identifyNum)) {
+    query->insert(pair<string, string>("IdentifyNum", *request->identifyNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
+    query->insert(pair<string, string>("ParamType", *request->paramType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
+    query->insert(pair<string, string>("UserName", *request->userName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vehicleNum)) {
+    query->insert(pair<string, string>("VehicleNum", *request->vehicleNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vehicleType)) {
+    query->insert(pair<string, string>("VehicleType", *request->vehicleType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->verifyMetaType)) {
+    query->insert(pair<string, string>("VerifyMetaType", *request->verifyMetaType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("VehicleMetaVerify"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return VehicleMetaVerifyResponse(callApi(params, req, runtime));
+}
+
+VehicleMetaVerifyResponse Alibabacloud_Cloudauth20190307::Client::vehicleMetaVerify(shared_ptr<VehicleMetaVerifyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return vehicleMetaVerifyWithOptions(request, runtime);
+}
+
+VehicleMetaVerifyV2Response Alibabacloud_Cloudauth20190307::Client::vehicleMetaVerifyV2WithOptions(shared_ptr<VehicleMetaVerifyV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->identifyNum)) {
+    query->insert(pair<string, string>("IdentifyNum", *request->identifyNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
+    query->insert(pair<string, string>("ParamType", *request->paramType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
+    query->insert(pair<string, string>("UserName", *request->userName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vehicleNum)) {
+    query->insert(pair<string, string>("VehicleNum", *request->vehicleNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vehicleType)) {
+    query->insert(pair<string, string>("VehicleType", *request->vehicleType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->verifyMetaType)) {
+    query->insert(pair<string, string>("VerifyMetaType", *request->verifyMetaType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("VehicleMetaVerifyV2"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return VehicleMetaVerifyV2Response(callApi(params, req, runtime));
+}
+
+VehicleMetaVerifyV2Response Alibabacloud_Cloudauth20190307::Client::vehicleMetaVerifyV2(shared_ptr<VehicleMetaVerifyV2Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return vehicleMetaVerifyV2WithOptions(request, runtime);
+}
+
+VehicleQueryResponse Alibabacloud_Cloudauth20190307::Client::vehicleQueryWithOptions(shared_ptr<VehicleQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
+    query->insert(pair<string, string>("ParamType", *request->paramType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vehicleNum)) {
+    query->insert(pair<string, string>("VehicleNum", *request->vehicleNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vehicleType)) {
+    query->insert(pair<string, string>("VehicleType", *request->vehicleType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("VehicleQuery"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return VehicleQueryResponse(callApi(params, req, runtime));
+}
+
+VehicleQueryResponse Alibabacloud_Cloudauth20190307::Client::vehicleQuery(shared_ptr<VehicleQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return vehicleQueryWithOptions(request, runtime);
+}
+
 VerifyMaterialResponse Alibabacloud_Cloudauth20190307::Client::verifyMaterialWithOptions(shared_ptr<VerifyMaterialRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
