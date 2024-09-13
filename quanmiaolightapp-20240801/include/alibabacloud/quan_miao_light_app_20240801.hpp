@@ -13,6 +13,489 @@
 using namespace std;
 
 namespace Alibabacloud_QuanMiaoLightApp20240801 {
+class ListHotTopicSummariesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<string> hotTopic{};
+  shared_ptr<string> hotTopicVersion{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+
+  ListHotTopicSummariesRequest() {}
+
+  explicit ListHotTopicSummariesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["category"] = boost::any(*category);
+    }
+    if (hotTopic) {
+      res["hotTopic"] = boost::any(*hotTopic);
+    }
+    if (hotTopicVersion) {
+      res["hotTopicVersion"] = boost::any(*hotTopicVersion);
+    }
+    if (maxResults) {
+      res["maxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("category") != m.end() && !m["category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["category"]));
+    }
+    if (m.find("hotTopic") != m.end() && !m["hotTopic"].empty()) {
+      hotTopic = make_shared<string>(boost::any_cast<string>(m["hotTopic"]));
+    }
+    if (m.find("hotTopicVersion") != m.end() && !m["hotTopicVersion"].empty()) {
+      hotTopicVersion = make_shared<string>(boost::any_cast<string>(m["hotTopicVersion"]));
+    }
+    if (m.find("maxResults") != m.end() && !m["maxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["maxResults"]));
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+  }
+
+
+  virtual ~ListHotTopicSummariesRequest() = default;
+};
+class ListHotTopicSummariesResponseBodyDataNewsComments : public Darabonba::Model {
+public:
+  shared_ptr<string> text{};
+
+  ListHotTopicSummariesResponseBodyDataNewsComments() {}
+
+  explicit ListHotTopicSummariesResponseBodyDataNewsComments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+  }
+
+
+  virtual ~ListHotTopicSummariesResponseBodyDataNewsComments() = default;
+};
+class ListHotTopicSummariesResponseBodyDataNews : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListHotTopicSummariesResponseBodyDataNewsComments>> comments{};
+  shared_ptr<string> content{};
+  shared_ptr<string> pubTime{};
+  shared_ptr<string> title{};
+  shared_ptr<string> url{};
+
+  ListHotTopicSummariesResponseBodyDataNews() {}
+
+  explicit ListHotTopicSummariesResponseBodyDataNews(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comments) {
+      vector<boost::any> temp1;
+      for(auto item1:*comments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["comments"] = boost::any(temp1);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (pubTime) {
+      res["pubTime"] = boost::any(*pubTime);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    if (url) {
+      res["url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("comments") != m.end() && !m["comments"].empty()) {
+      if (typeid(vector<boost::any>) == m["comments"].type()) {
+        vector<ListHotTopicSummariesResponseBodyDataNewsComments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["comments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListHotTopicSummariesResponseBodyDataNewsComments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        comments = make_shared<vector<ListHotTopicSummariesResponseBodyDataNewsComments>>(expect1);
+      }
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("pubTime") != m.end() && !m["pubTime"].empty()) {
+      pubTime = make_shared<string>(boost::any_cast<string>(m["pubTime"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+    if (m.find("url") != m.end() && !m["url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["url"]));
+    }
+  }
+
+
+  virtual ~ListHotTopicSummariesResponseBodyDataNews() = default;
+};
+class ListHotTopicSummariesResponseBodyDataSummarySummaries : public Darabonba::Model {
+public:
+  shared_ptr<string> summary{};
+  shared_ptr<string> title{};
+
+  ListHotTopicSummariesResponseBodyDataSummarySummaries() {}
+
+  explicit ListHotTopicSummariesResponseBodyDataSummarySummaries(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (summary) {
+      res["summary"] = boost::any(*summary);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("summary") != m.end() && !m["summary"].empty()) {
+      summary = make_shared<string>(boost::any_cast<string>(m["summary"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~ListHotTopicSummariesResponseBodyDataSummarySummaries() = default;
+};
+class ListHotTopicSummariesResponseBodyDataSummary : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListHotTopicSummariesResponseBodyDataSummarySummaries>> summaries{};
+
+  ListHotTopicSummariesResponseBodyDataSummary() {}
+
+  explicit ListHotTopicSummariesResponseBodyDataSummary(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (summaries) {
+      vector<boost::any> temp1;
+      for(auto item1:*summaries){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["summaries"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("summaries") != m.end() && !m["summaries"].empty()) {
+      if (typeid(vector<boost::any>) == m["summaries"].type()) {
+        vector<ListHotTopicSummariesResponseBodyDataSummarySummaries> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["summaries"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListHotTopicSummariesResponseBodyDataSummarySummaries model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        summaries = make_shared<vector<ListHotTopicSummariesResponseBodyDataSummarySummaries>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListHotTopicSummariesResponseBodyDataSummary() = default;
+};
+class ListHotTopicSummariesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<string> hotTopic{};
+  shared_ptr<string> hotTopicVersion{};
+  shared_ptr<double> hotValue{};
+  shared_ptr<string> id{};
+  shared_ptr<vector<ListHotTopicSummariesResponseBodyDataNews>> news{};
+  shared_ptr<ListHotTopicSummariesResponseBodyDataSummary> summary{};
+  shared_ptr<string> textSummary{};
+
+  ListHotTopicSummariesResponseBodyData() {}
+
+  explicit ListHotTopicSummariesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["category"] = boost::any(*category);
+    }
+    if (hotTopic) {
+      res["hotTopic"] = boost::any(*hotTopic);
+    }
+    if (hotTopicVersion) {
+      res["hotTopicVersion"] = boost::any(*hotTopicVersion);
+    }
+    if (hotValue) {
+      res["hotValue"] = boost::any(*hotValue);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (news) {
+      vector<boost::any> temp1;
+      for(auto item1:*news){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["news"] = boost::any(temp1);
+    }
+    if (summary) {
+      res["summary"] = summary ? boost::any(summary->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (textSummary) {
+      res["textSummary"] = boost::any(*textSummary);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("category") != m.end() && !m["category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["category"]));
+    }
+    if (m.find("hotTopic") != m.end() && !m["hotTopic"].empty()) {
+      hotTopic = make_shared<string>(boost::any_cast<string>(m["hotTopic"]));
+    }
+    if (m.find("hotTopicVersion") != m.end() && !m["hotTopicVersion"].empty()) {
+      hotTopicVersion = make_shared<string>(boost::any_cast<string>(m["hotTopicVersion"]));
+    }
+    if (m.find("hotValue") != m.end() && !m["hotValue"].empty()) {
+      hotValue = make_shared<double>(boost::any_cast<double>(m["hotValue"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("news") != m.end() && !m["news"].empty()) {
+      if (typeid(vector<boost::any>) == m["news"].type()) {
+        vector<ListHotTopicSummariesResponseBodyDataNews> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["news"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListHotTopicSummariesResponseBodyDataNews model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        news = make_shared<vector<ListHotTopicSummariesResponseBodyDataNews>>(expect1);
+      }
+    }
+    if (m.find("summary") != m.end() && !m["summary"].empty()) {
+      if (typeid(map<string, boost::any>) == m["summary"].type()) {
+        ListHotTopicSummariesResponseBodyDataSummary model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["summary"]));
+        summary = make_shared<ListHotTopicSummariesResponseBodyDataSummary>(model1);
+      }
+    }
+    if (m.find("textSummary") != m.end() && !m["textSummary"].empty()) {
+      textSummary = make_shared<string>(boost::any_cast<string>(m["textSummary"]));
+    }
+  }
+
+
+  virtual ~ListHotTopicSummariesResponseBodyData() = default;
+};
+class ListHotTopicSummariesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<ListHotTopicSummariesResponseBodyData>> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> message{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> totalCount{};
+
+  ListHotTopicSummariesResponseBody() {}
+
+  explicit ListHotTopicSummariesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (maxResults) {
+      res["maxResults"] = boost::any(*maxResults);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (totalCount) {
+      res["totalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<ListHotTopicSummariesResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListHotTopicSummariesResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListHotTopicSummariesResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("maxResults") != m.end() && !m["maxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["maxResults"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("totalCount") != m.end() && !m["totalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["totalCount"]));
+    }
+  }
+
+
+  virtual ~ListHotTopicSummariesResponseBody() = default;
+};
+class ListHotTopicSummariesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListHotTopicSummariesResponseBody> body{};
+
+  ListHotTopicSummariesResponse() {}
+
+  explicit ListHotTopicSummariesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListHotTopicSummariesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListHotTopicSummariesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListHotTopicSummariesResponse() = default;
+};
 class RunMarketingInformationExtractRequest : public Darabonba::Model {
 public:
   shared_ptr<string> customPrompt{};
@@ -2861,9 +3344,53 @@ public:
 
   virtual ~RunVideoAnalysisResponseBodyPayloadOutput() = default;
 };
+class RunVideoAnalysisResponseBodyPayloadUsage : public Darabonba::Model {
+public:
+  shared_ptr<long> inputTokens{};
+  shared_ptr<long> outputTokens{};
+  shared_ptr<long> totalTokens{};
+
+  RunVideoAnalysisResponseBodyPayloadUsage() {}
+
+  explicit RunVideoAnalysisResponseBodyPayloadUsage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inputTokens) {
+      res["inputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["outputTokens"] = boost::any(*outputTokens);
+    }
+    if (totalTokens) {
+      res["totalTokens"] = boost::any(*totalTokens);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("inputTokens") != m.end() && !m["inputTokens"].empty()) {
+      inputTokens = make_shared<long>(boost::any_cast<long>(m["inputTokens"]));
+    }
+    if (m.find("outputTokens") != m.end() && !m["outputTokens"].empty()) {
+      outputTokens = make_shared<long>(boost::any_cast<long>(m["outputTokens"]));
+    }
+    if (m.find("totalTokens") != m.end() && !m["totalTokens"].empty()) {
+      totalTokens = make_shared<long>(boost::any_cast<long>(m["totalTokens"]));
+    }
+  }
+
+
+  virtual ~RunVideoAnalysisResponseBodyPayloadUsage() = default;
+};
 class RunVideoAnalysisResponseBodyPayload : public Darabonba::Model {
 public:
   shared_ptr<RunVideoAnalysisResponseBodyPayloadOutput> output{};
+  shared_ptr<RunVideoAnalysisResponseBodyPayloadUsage> usage{};
 
   RunVideoAnalysisResponseBodyPayload() {}
 
@@ -2878,6 +3405,9 @@ public:
     if (output) {
       res["output"] = output ? boost::any(output->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (usage) {
+      res["usage"] = usage ? boost::any(usage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -2887,6 +3417,13 @@ public:
         RunVideoAnalysisResponseBodyPayloadOutput model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["output"]));
         output = make_shared<RunVideoAnalysisResponseBodyPayloadOutput>(model1);
+      }
+    }
+    if (m.find("usage") != m.end() && !m["usage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["usage"].type()) {
+        RunVideoAnalysisResponseBodyPayloadUsage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["usage"]));
+        usage = make_shared<RunVideoAnalysisResponseBodyPayloadUsage>(model1);
       }
     }
   }
@@ -3007,6 +3544,11 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  ListHotTopicSummariesResponse listHotTopicSummariesWithOptions(shared_ptr<string> workspaceId,
+                                                                 shared_ptr<ListHotTopicSummariesRequest> request,
+                                                                 shared_ptr<map<string, string>> headers,
+                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListHotTopicSummariesResponse listHotTopicSummaries(shared_ptr<string> workspaceId, shared_ptr<ListHotTopicSummariesRequest> request);
   RunMarketingInformationExtractResponse runMarketingInformationExtractWithOptions(shared_ptr<string> workspaceId,
                                                                                    shared_ptr<RunMarketingInformationExtractRequest> tmpReq,
                                                                                    shared_ptr<map<string, string>> headers,
