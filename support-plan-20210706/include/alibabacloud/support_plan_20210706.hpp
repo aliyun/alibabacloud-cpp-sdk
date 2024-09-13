@@ -203,14 +203,12 @@ public:
 };
 class CreateTaskOrderRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> customerRealName{};
-  shared_ptr<string> customerUserId{};
-  shared_ptr<string> importantDescription{};
-  shared_ptr<string> isImportant{};
+  shared_ptr<string> createUserId{};
+  shared_ptr<bool> isUrgent{};
   shared_ptr<string> openGroupId{};
-  shared_ptr<string> productType{};
-  shared_ptr<string> productTypeName{};
-  shared_ptr<string> taskTitle{};
+  shared_ptr<string> overview{};
+  shared_ptr<string> productCode{};
+  shared_ptr<string> urgentDescription{};
 
   CreateTaskOrderRequest() {}
 
@@ -222,57 +220,45 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (customerRealName) {
-      res["CustomerRealName"] = boost::any(*customerRealName);
+    if (createUserId) {
+      res["CreateUserId"] = boost::any(*createUserId);
     }
-    if (customerUserId) {
-      res["CustomerUserId"] = boost::any(*customerUserId);
-    }
-    if (importantDescription) {
-      res["ImportantDescription"] = boost::any(*importantDescription);
-    }
-    if (isImportant) {
-      res["IsImportant"] = boost::any(*isImportant);
+    if (isUrgent) {
+      res["IsUrgent"] = boost::any(*isUrgent);
     }
     if (openGroupId) {
       res["OpenGroupId"] = boost::any(*openGroupId);
     }
-    if (productType) {
-      res["ProductType"] = boost::any(*productType);
+    if (overview) {
+      res["Overview"] = boost::any(*overview);
     }
-    if (productTypeName) {
-      res["ProductTypeName"] = boost::any(*productTypeName);
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
     }
-    if (taskTitle) {
-      res["TaskTitle"] = boost::any(*taskTitle);
+    if (urgentDescription) {
+      res["UrgentDescription"] = boost::any(*urgentDescription);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("CustomerRealName") != m.end() && !m["CustomerRealName"].empty()) {
-      customerRealName = make_shared<string>(boost::any_cast<string>(m["CustomerRealName"]));
+    if (m.find("CreateUserId") != m.end() && !m["CreateUserId"].empty()) {
+      createUserId = make_shared<string>(boost::any_cast<string>(m["CreateUserId"]));
     }
-    if (m.find("CustomerUserId") != m.end() && !m["CustomerUserId"].empty()) {
-      customerUserId = make_shared<string>(boost::any_cast<string>(m["CustomerUserId"]));
-    }
-    if (m.find("ImportantDescription") != m.end() && !m["ImportantDescription"].empty()) {
-      importantDescription = make_shared<string>(boost::any_cast<string>(m["ImportantDescription"]));
-    }
-    if (m.find("IsImportant") != m.end() && !m["IsImportant"].empty()) {
-      isImportant = make_shared<string>(boost::any_cast<string>(m["IsImportant"]));
+    if (m.find("IsUrgent") != m.end() && !m["IsUrgent"].empty()) {
+      isUrgent = make_shared<bool>(boost::any_cast<bool>(m["IsUrgent"]));
     }
     if (m.find("OpenGroupId") != m.end() && !m["OpenGroupId"].empty()) {
       openGroupId = make_shared<string>(boost::any_cast<string>(m["OpenGroupId"]));
     }
-    if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
-      productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
+    if (m.find("Overview") != m.end() && !m["Overview"].empty()) {
+      overview = make_shared<string>(boost::any_cast<string>(m["Overview"]));
     }
-    if (m.find("ProductTypeName") != m.end() && !m["ProductTypeName"].empty()) {
-      productTypeName = make_shared<string>(boost::any_cast<string>(m["ProductTypeName"]));
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
     }
-    if (m.find("TaskTitle") != m.end() && !m["TaskTitle"].empty()) {
-      taskTitle = make_shared<string>(boost::any_cast<string>(m["TaskTitle"]));
+    if (m.find("UrgentDescription") != m.end() && !m["UrgentDescription"].empty()) {
+      urgentDescription = make_shared<string>(boost::any_cast<string>(m["UrgentDescription"]));
     }
   }
 
@@ -1335,16 +1321,12 @@ public:
 };
 class ListDdTaskOrderRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> callerParentId{};
-  shared_ptr<string> callerType{};
-  shared_ptr<long> callerUid{};
   shared_ptr<string> createRealName{};
   shared_ptr<string> endTime{};
+  shared_ptr<bool> isUrgent{};
   shared_ptr<string> openGroupId{};
-  shared_ptr<string> orderId{};
-  shared_ptr<string> pageNo{};
-  shared_ptr<string> pageSize{};
-  shared_ptr<string> requestId{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> startTime{};
   shared_ptr<string> taskStatus{};
 
@@ -1358,35 +1340,23 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (callerParentId) {
-      res["CallerParentId"] = boost::any(*callerParentId);
-    }
-    if (callerType) {
-      res["CallerType"] = boost::any(*callerType);
-    }
-    if (callerUid) {
-      res["CallerUid"] = boost::any(*callerUid);
-    }
     if (createRealName) {
       res["CreateRealName"] = boost::any(*createRealName);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (isUrgent) {
+      res["IsUrgent"] = boost::any(*isUrgent);
+    }
     if (openGroupId) {
       res["OpenGroupId"] = boost::any(*openGroupId);
-    }
-    if (orderId) {
-      res["OrderId"] = boost::any(*orderId);
     }
     if (pageNo) {
       res["PageNo"] = boost::any(*pageNo);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -1398,35 +1368,23 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("CallerParentId") != m.end() && !m["CallerParentId"].empty()) {
-      callerParentId = make_shared<long>(boost::any_cast<long>(m["CallerParentId"]));
-    }
-    if (m.find("CallerType") != m.end() && !m["CallerType"].empty()) {
-      callerType = make_shared<string>(boost::any_cast<string>(m["CallerType"]));
-    }
-    if (m.find("CallerUid") != m.end() && !m["CallerUid"].empty()) {
-      callerUid = make_shared<long>(boost::any_cast<long>(m["CallerUid"]));
-    }
     if (m.find("CreateRealName") != m.end() && !m["CreateRealName"].empty()) {
       createRealName = make_shared<string>(boost::any_cast<string>(m["CreateRealName"]));
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
+    if (m.find("IsUrgent") != m.end() && !m["IsUrgent"].empty()) {
+      isUrgent = make_shared<bool>(boost::any_cast<bool>(m["IsUrgent"]));
+    }
     if (m.find("OpenGroupId") != m.end() && !m["OpenGroupId"].empty()) {
       openGroupId = make_shared<string>(boost::any_cast<string>(m["OpenGroupId"]));
     }
-    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
-      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
-    }
     if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
-      pageNo = make_shared<string>(boost::any_cast<string>(m["PageNo"]));
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -1577,10 +1535,53 @@ public:
 
   virtual ~ListEnterpriseDingtalkGroupCustomerMembersRequest() = default;
 };
+class ListEnterpriseDingtalkGroupCustomerMembersResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<bool> isAdmin{};
+  shared_ptr<string> name{};
+  shared_ptr<string> userId{};
+
+  ListEnterpriseDingtalkGroupCustomerMembersResponseBodyData() {}
+
+  explicit ListEnterpriseDingtalkGroupCustomerMembersResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isAdmin) {
+      res["IsAdmin"] = boost::any(*isAdmin);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsAdmin") != m.end() && !m["IsAdmin"].empty()) {
+      isAdmin = make_shared<bool>(boost::any_cast<bool>(m["IsAdmin"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~ListEnterpriseDingtalkGroupCustomerMembersResponseBodyData() = default;
+};
 class ListEnterpriseDingtalkGroupCustomerMembersResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
-  shared_ptr<vector<EnterpriseDingtalkGroupMember>> data{};
+  shared_ptr<vector<ListEnterpriseDingtalkGroupCustomerMembersResponseBodyData>> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -1623,15 +1624,15 @@ public:
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(vector<boost::any>) == m["Data"].type()) {
-        vector<EnterpriseDingtalkGroupMember> expect1;
+        vector<ListEnterpriseDingtalkGroupCustomerMembersResponseBodyData> expect1;
         for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            EnterpriseDingtalkGroupMember model2;
+            ListEnterpriseDingtalkGroupCustomerMembersResponseBodyData model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        data = make_shared<vector<EnterpriseDingtalkGroupMember>>(expect1);
+        data = make_shared<vector<ListEnterpriseDingtalkGroupCustomerMembersResponseBodyData>>(expect1);
       }
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {

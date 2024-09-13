@@ -71,29 +71,23 @@ CloseTaskOrderResponse Alibabacloud_Support-plan20210706::Client::closeTaskOrder
 CreateTaskOrderResponse Alibabacloud_Support-plan20210706::Client::createTaskOrderWithOptions(shared_ptr<CreateTaskOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->customerRealName)) {
-    query->insert(pair<string, string>("CustomerRealName", *request->customerRealName));
+  if (!Darabonba_Util::Client::isUnset<string>(request->createUserId)) {
+    query->insert(pair<string, string>("CreateUserId", *request->createUserId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->customerUserId)) {
-    query->insert(pair<string, string>("CustomerUserId", *request->customerUserId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->importantDescription)) {
-    query->insert(pair<string, string>("ImportantDescription", *request->importantDescription));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->isImportant)) {
-    query->insert(pair<string, string>("IsImportant", *request->isImportant));
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isUrgent)) {
+    query->insert(pair<string, bool>("IsUrgent", *request->isUrgent));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->openGroupId)) {
     query->insert(pair<string, string>("OpenGroupId", *request->openGroupId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->productType)) {
-    query->insert(pair<string, string>("ProductType", *request->productType));
+  if (!Darabonba_Util::Client::isUnset<string>(request->overview)) {
+    query->insert(pair<string, string>("Overview", *request->overview));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->productTypeName)) {
-    query->insert(pair<string, string>("ProductTypeName", *request->productTypeName));
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    query->insert(pair<string, string>("ProductCode", *request->productCode));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->taskTitle)) {
-    query->insert(pair<string, string>("TaskTitle", *request->taskTitle));
+  if (!Darabonba_Util::Client::isUnset<string>(request->urgentDescription)) {
+    query->insert(pair<string, string>("UrgentDescription", *request->urgentDescription));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -278,35 +272,23 @@ GetEnterpriseDingtalkGroupCustomerMemberResponse Alibabacloud_Support-plan202107
 ListDdTaskOrderResponse Alibabacloud_Support-plan20210706::Client::listDdTaskOrderWithOptions(shared_ptr<ListDdTaskOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->callerParentId)) {
-    query->insert(pair<string, long>("CallerParentId", *request->callerParentId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->callerType)) {
-    query->insert(pair<string, string>("CallerType", *request->callerType));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->callerUid)) {
-    query->insert(pair<string, long>("CallerUid", *request->callerUid));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->createRealName)) {
     query->insert(pair<string, string>("CreateRealName", *request->createRealName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isUrgent)) {
+    query->insert(pair<string, bool>("IsUrgent", *request->isUrgent));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->openGroupId)) {
     query->insert(pair<string, string>("OpenGroupId", *request->openGroupId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
-    query->insert(pair<string, string>("OrderId", *request->orderId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->pageNo)) {
-    query->insert(pair<string, string>("PageNo", *request->pageNo));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
-    query->insert(pair<string, string>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
-    query->insert(pair<string, string>("RequestId", *request->requestId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
@@ -338,12 +320,12 @@ ListDdTaskOrderResponse Alibabacloud_Support-plan20210706::Client::listDdTaskOrd
 
 ListEnterpriseDingtalkGroupCustomerMembersResponse Alibabacloud_Support-plan20210706::Client::listEnterpriseDingtalkGroupCustomerMembersWithOptions(shared_ptr<ListEnterpriseDingtalkGroupCustomerMembersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->openGroupId)) {
-    body->insert(pair<string, string>("OpenGroupId", *request->openGroupId));
+    query->insert(pair<string, string>("OpenGroupId", *request->openGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListEnterpriseDingtalkGroupCustomerMembers"))},
