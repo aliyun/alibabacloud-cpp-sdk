@@ -53,6 +53,7 @@ public:
 class DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult : public Darabonba::Model {
 public:
   shared_ptr<double> confidence{};
+  shared_ptr<string> description{};
   shared_ptr<string> label{};
 
   DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult() {}
@@ -68,6 +69,9 @@ public:
     if (confidence) {
       res["Confidence"] = boost::any(*confidence);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (label) {
       res["Label"] = boost::any(*label);
     }
@@ -77,6 +81,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
       confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
@@ -141,6 +148,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<vector<DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult>> labelResult{};
   shared_ptr<DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation> location{};
+  shared_ptr<string> riskLevel{};
   shared_ptr<string> service{};
 
   DescribeFileModerationResultResponseBodyDataPageResultImageResult() {}
@@ -165,6 +173,9 @@ public:
     }
     if (location) {
       res["Location"] = location ? boost::any(location->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     if (service) {
       res["Service"] = boost::any(*service);
@@ -196,6 +207,9 @@ public:
         location = make_shared<DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation>(model1);
       }
     }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
     if (m.find("Service") != m.end() && !m["Service"].empty()) {
       service = make_shared<string>(boost::any_cast<string>(m["Service"]));
     }
@@ -208,6 +222,7 @@ class DescribeFileModerationResultResponseBodyDataPageResultTextResult : public 
 public:
   shared_ptr<string> description{};
   shared_ptr<string> labels{};
+  shared_ptr<string> riskLevel{};
   shared_ptr<string> riskTips{};
   shared_ptr<string> riskWords{};
   shared_ptr<string> service{};
@@ -229,6 +244,9 @@ public:
     }
     if (labels) {
       res["Labels"] = boost::any(*labels);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     if (riskTips) {
       res["RiskTips"] = boost::any(*riskTips);
@@ -254,6 +272,9 @@ public:
     }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
     }
     if (m.find("RiskTips") != m.end() && !m["RiskTips"].empty()) {
       riskTips = make_shared<string>(boost::any_cast<string>(m["RiskTips"]));
@@ -360,11 +381,243 @@ public:
 
   virtual ~DescribeFileModerationResultResponseBodyDataPageResult() = default;
 };
+class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> label{};
+  shared_ptr<long> labelSum{};
+
+  DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels() {}
+
+  explicit DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (labelSum) {
+      res["LabelSum"] = boost::any(*labelSum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("LabelSum") != m.end() && !m["LabelSum"].empty()) {
+      labelSum = make_shared<long>(boost::any_cast<long>(m["LabelSum"]));
+    }
+  }
+
+
+  virtual ~DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels() = default;
+};
+class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels>> imageLabels{};
+  shared_ptr<string> riskLevel{};
+
+  DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary() {}
+
+  explicit DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageLabels) {
+      vector<boost::any> temp1;
+      for(auto item1:*imageLabels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ImageLabels"] = boost::any(temp1);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageLabels") != m.end() && !m["ImageLabels"].empty()) {
+      if (typeid(vector<boost::any>) == m["ImageLabels"].type()) {
+        vector<DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ImageLabels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        imageLabels = make_shared<vector<DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels>>(expect1);
+      }
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
+  }
+
+
+  virtual ~DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary() = default;
+};
+class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels : public Darabonba::Model {
+public:
+  shared_ptr<string> label{};
+  shared_ptr<long> labelSum{};
+
+  DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels() {}
+
+  explicit DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (labelSum) {
+      res["LabelSum"] = boost::any(*labelSum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("LabelSum") != m.end() && !m["LabelSum"].empty()) {
+      labelSum = make_shared<long>(boost::any_cast<long>(m["LabelSum"]));
+    }
+  }
+
+
+  virtual ~DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels() = default;
+};
+class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary : public Darabonba::Model {
+public:
+  shared_ptr<string> riskLevel{};
+  shared_ptr<vector<DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels>> textLabels{};
+
+  DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary() {}
+
+  explicit DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (textLabels) {
+      vector<boost::any> temp1;
+      for(auto item1:*textLabels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TextLabels"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
+    if (m.find("TextLabels") != m.end() && !m["TextLabels"].empty()) {
+      if (typeid(vector<boost::any>) == m["TextLabels"].type()) {
+        vector<DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TextLabels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        textLabels = make_shared<vector<DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary() = default;
+};
+class DescribeFileModerationResultResponseBodyDataPageSummary : public Darabonba::Model {
+public:
+  shared_ptr<DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary> imageSummary{};
+  shared_ptr<long> pageSum{};
+  shared_ptr<DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary> textSummary{};
+
+  DescribeFileModerationResultResponseBodyDataPageSummary() {}
+
+  explicit DescribeFileModerationResultResponseBodyDataPageSummary(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageSummary) {
+      res["ImageSummary"] = imageSummary ? boost::any(imageSummary->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageSum) {
+      res["PageSum"] = boost::any(*pageSum);
+    }
+    if (textSummary) {
+      res["TextSummary"] = textSummary ? boost::any(textSummary->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageSummary") != m.end() && !m["ImageSummary"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ImageSummary"].type()) {
+        DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ImageSummary"]));
+        imageSummary = make_shared<DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary>(model1);
+      }
+    }
+    if (m.find("PageSum") != m.end() && !m["PageSum"].empty()) {
+      pageSum = make_shared<long>(boost::any_cast<long>(m["PageSum"]));
+    }
+    if (m.find("TextSummary") != m.end() && !m["TextSummary"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TextSummary"].type()) {
+        DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TextSummary"]));
+        textSummary = make_shared<DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeFileModerationResultResponseBodyDataPageSummary() = default;
+};
 class DescribeFileModerationResultResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> dataId{};
   shared_ptr<string> docType{};
   shared_ptr<vector<DescribeFileModerationResultResponseBodyDataPageResult>> pageResult{};
+  shared_ptr<DescribeFileModerationResultResponseBodyDataPageSummary> pageSummary{};
+  shared_ptr<string> riskLevel{};
   shared_ptr<string> url{};
 
   DescribeFileModerationResultResponseBodyData() {}
@@ -389,6 +642,12 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["PageResult"] = boost::any(temp1);
+    }
+    if (pageSummary) {
+      res["PageSummary"] = pageSummary ? boost::any(pageSummary->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     if (url) {
       res["Url"] = boost::any(*url);
@@ -415,6 +674,16 @@ public:
         }
         pageResult = make_shared<vector<DescribeFileModerationResultResponseBodyDataPageResult>>(expect1);
       }
+    }
+    if (m.find("PageSummary") != m.end() && !m["PageSummary"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PageSummary"].type()) {
+        DescribeFileModerationResultResponseBodyDataPageSummary model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PageSummary"]));
+        pageSummary = make_shared<DescribeFileModerationResultResponseBodyDataPageSummary>(model1);
+      }
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
@@ -2083,6 +2352,460 @@ public:
 
   virtual ~ImageModerationResponseBodyDataExtCustomImage() = default;
 };
+class ImageModerationResponseBodyDataExtFaceDataBang : public Darabonba::Model {
+public:
+  shared_ptr<double> confidence{};
+  shared_ptr<string> value{};
+
+  ImageModerationResponseBodyDataExtFaceDataBang() {}
+
+  explicit ImageModerationResponseBodyDataExtFaceDataBang(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtFaceDataBang() = default;
+};
+class ImageModerationResponseBodyDataExtFaceDataGender : public Darabonba::Model {
+public:
+  shared_ptr<double> confidence{};
+  shared_ptr<string> value{};
+
+  ImageModerationResponseBodyDataExtFaceDataGender() {}
+
+  explicit ImageModerationResponseBodyDataExtFaceDataGender(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtFaceDataGender() = default;
+};
+class ImageModerationResponseBodyDataExtFaceDataHairstyle : public Darabonba::Model {
+public:
+  shared_ptr<double> confidence{};
+  shared_ptr<string> value{};
+
+  ImageModerationResponseBodyDataExtFaceDataHairstyle() {}
+
+  explicit ImageModerationResponseBodyDataExtFaceDataHairstyle(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtFaceDataHairstyle() = default;
+};
+class ImageModerationResponseBodyDataExtFaceDataHat : public Darabonba::Model {
+public:
+  shared_ptr<double> confidence{};
+  shared_ptr<string> value{};
+
+  ImageModerationResponseBodyDataExtFaceDataHat() {}
+
+  explicit ImageModerationResponseBodyDataExtFaceDataHat(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtFaceDataHat() = default;
+};
+class ImageModerationResponseBodyDataExtFaceDataLocation : public Darabonba::Model {
+public:
+  shared_ptr<long> h{};
+  shared_ptr<long> w{};
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  ImageModerationResponseBodyDataExtFaceDataLocation() {}
+
+  explicit ImageModerationResponseBodyDataExtFaceDataLocation(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (h) {
+      res["H"] = boost::any(*h);
+    }
+    if (w) {
+      res["W"] = boost::any(*w);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("H") != m.end() && !m["H"].empty()) {
+      h = make_shared<long>(boost::any_cast<long>(m["H"]));
+    }
+    if (m.find("W") != m.end() && !m["W"].empty()) {
+      w = make_shared<long>(boost::any_cast<long>(m["W"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtFaceDataLocation() = default;
+};
+class ImageModerationResponseBodyDataExtFaceDataMask : public Darabonba::Model {
+public:
+  shared_ptr<double> confidence{};
+  shared_ptr<string> value{};
+
+  ImageModerationResponseBodyDataExtFaceDataMask() {}
+
+  explicit ImageModerationResponseBodyDataExtFaceDataMask(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtFaceDataMask() = default;
+};
+class ImageModerationResponseBodyDataExtFaceDataMustache : public Darabonba::Model {
+public:
+  shared_ptr<double> confidence{};
+  shared_ptr<string> value{};
+
+  ImageModerationResponseBodyDataExtFaceDataMustache() {}
+
+  explicit ImageModerationResponseBodyDataExtFaceDataMustache(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtFaceDataMustache() = default;
+};
+class ImageModerationResponseBodyDataExtFaceDataQuality : public Darabonba::Model {
+public:
+  shared_ptr<double> blur{};
+  shared_ptr<double> integrity{};
+  shared_ptr<double> pitch{};
+  shared_ptr<double> roll{};
+  shared_ptr<double> yaw{};
+
+  ImageModerationResponseBodyDataExtFaceDataQuality() {}
+
+  explicit ImageModerationResponseBodyDataExtFaceDataQuality(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blur) {
+      res["Blur"] = boost::any(*blur);
+    }
+    if (integrity) {
+      res["Integrity"] = boost::any(*integrity);
+    }
+    if (pitch) {
+      res["Pitch"] = boost::any(*pitch);
+    }
+    if (roll) {
+      res["Roll"] = boost::any(*roll);
+    }
+    if (yaw) {
+      res["Yaw"] = boost::any(*yaw);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Blur") != m.end() && !m["Blur"].empty()) {
+      blur = make_shared<double>(boost::any_cast<double>(m["Blur"]));
+    }
+    if (m.find("Integrity") != m.end() && !m["Integrity"].empty()) {
+      integrity = make_shared<double>(boost::any_cast<double>(m["Integrity"]));
+    }
+    if (m.find("Pitch") != m.end() && !m["Pitch"].empty()) {
+      pitch = make_shared<double>(boost::any_cast<double>(m["Pitch"]));
+    }
+    if (m.find("Roll") != m.end() && !m["Roll"].empty()) {
+      roll = make_shared<double>(boost::any_cast<double>(m["Roll"]));
+    }
+    if (m.find("Yaw") != m.end() && !m["Yaw"].empty()) {
+      yaw = make_shared<double>(boost::any_cast<double>(m["Yaw"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtFaceDataQuality() = default;
+};
+class ImageModerationResponseBodyDataExtFaceData : public Darabonba::Model {
+public:
+  shared_ptr<long> age{};
+  shared_ptr<ImageModerationResponseBodyDataExtFaceDataBang> bang{};
+  shared_ptr<ImageModerationResponseBodyDataExtFaceDataGender> gender{};
+  shared_ptr<string> glasses{};
+  shared_ptr<ImageModerationResponseBodyDataExtFaceDataHairstyle> hairstyle{};
+  shared_ptr<ImageModerationResponseBodyDataExtFaceDataHat> hat{};
+  shared_ptr<ImageModerationResponseBodyDataExtFaceDataLocation> location{};
+  shared_ptr<ImageModerationResponseBodyDataExtFaceDataMask> mask{};
+  shared_ptr<ImageModerationResponseBodyDataExtFaceDataMustache> mustache{};
+  shared_ptr<ImageModerationResponseBodyDataExtFaceDataQuality> quality{};
+  shared_ptr<double> smile{};
+
+  ImageModerationResponseBodyDataExtFaceData() {}
+
+  explicit ImageModerationResponseBodyDataExtFaceData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (age) {
+      res["Age"] = boost::any(*age);
+    }
+    if (bang) {
+      res["Bang"] = bang ? boost::any(bang->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (gender) {
+      res["Gender"] = gender ? boost::any(gender->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (glasses) {
+      res["Glasses"] = boost::any(*glasses);
+    }
+    if (hairstyle) {
+      res["Hairstyle"] = hairstyle ? boost::any(hairstyle->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (hat) {
+      res["Hat"] = hat ? boost::any(hat->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (location) {
+      res["Location"] = location ? boost::any(location->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mask) {
+      res["Mask"] = mask ? boost::any(mask->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mustache) {
+      res["Mustache"] = mustache ? boost::any(mustache->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (quality) {
+      res["Quality"] = quality ? boost::any(quality->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (smile) {
+      res["Smile"] = boost::any(*smile);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Age") != m.end() && !m["Age"].empty()) {
+      age = make_shared<long>(boost::any_cast<long>(m["Age"]));
+    }
+    if (m.find("Bang") != m.end() && !m["Bang"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Bang"].type()) {
+        ImageModerationResponseBodyDataExtFaceDataBang model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Bang"]));
+        bang = make_shared<ImageModerationResponseBodyDataExtFaceDataBang>(model1);
+      }
+    }
+    if (m.find("Gender") != m.end() && !m["Gender"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Gender"].type()) {
+        ImageModerationResponseBodyDataExtFaceDataGender model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Gender"]));
+        gender = make_shared<ImageModerationResponseBodyDataExtFaceDataGender>(model1);
+      }
+    }
+    if (m.find("Glasses") != m.end() && !m["Glasses"].empty()) {
+      glasses = make_shared<string>(boost::any_cast<string>(m["Glasses"]));
+    }
+    if (m.find("Hairstyle") != m.end() && !m["Hairstyle"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Hairstyle"].type()) {
+        ImageModerationResponseBodyDataExtFaceDataHairstyle model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Hairstyle"]));
+        hairstyle = make_shared<ImageModerationResponseBodyDataExtFaceDataHairstyle>(model1);
+      }
+    }
+    if (m.find("Hat") != m.end() && !m["Hat"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Hat"].type()) {
+        ImageModerationResponseBodyDataExtFaceDataHat model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Hat"]));
+        hat = make_shared<ImageModerationResponseBodyDataExtFaceDataHat>(model1);
+      }
+    }
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Location"].type()) {
+        ImageModerationResponseBodyDataExtFaceDataLocation model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Location"]));
+        location = make_shared<ImageModerationResponseBodyDataExtFaceDataLocation>(model1);
+      }
+    }
+    if (m.find("Mask") != m.end() && !m["Mask"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Mask"].type()) {
+        ImageModerationResponseBodyDataExtFaceDataMask model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Mask"]));
+        mask = make_shared<ImageModerationResponseBodyDataExtFaceDataMask>(model1);
+      }
+    }
+    if (m.find("Mustache") != m.end() && !m["Mustache"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Mustache"].type()) {
+        ImageModerationResponseBodyDataExtFaceDataMustache model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Mustache"]));
+        mustache = make_shared<ImageModerationResponseBodyDataExtFaceDataMustache>(model1);
+      }
+    }
+    if (m.find("Quality") != m.end() && !m["Quality"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Quality"].type()) {
+        ImageModerationResponseBodyDataExtFaceDataQuality model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Quality"]));
+        quality = make_shared<ImageModerationResponseBodyDataExtFaceDataQuality>(model1);
+      }
+    }
+    if (m.find("Smile") != m.end() && !m["Smile"].empty()) {
+      smile = make_shared<double>(boost::any_cast<double>(m["Smile"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtFaceData() = default;
+};
 class ImageModerationResponseBodyDataExtLogoDataLocation : public Darabonba::Model {
 public:
   shared_ptr<long> h{};
@@ -2677,6 +3400,7 @@ public:
 class ImageModerationResponseBodyDataExt : public Darabonba::Model {
 public:
   shared_ptr<vector<ImageModerationResponseBodyDataExtCustomImage>> customImage{};
+  shared_ptr<vector<ImageModerationResponseBodyDataExtFaceData>> faceData{};
   shared_ptr<vector<ImageModerationResponseBodyDataExtLogoData>> logoData{};
   shared_ptr<vector<ImageModerationResponseBodyDataExtOcrResult>> ocrResult{};
   shared_ptr<vector<ImageModerationResponseBodyDataExtPublicFigure>> publicFigure{};
@@ -2699,6 +3423,13 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["CustomImage"] = boost::any(temp1);
+    }
+    if (faceData) {
+      vector<boost::any> temp1;
+      for(auto item1:*faceData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FaceData"] = boost::any(temp1);
     }
     if (logoData) {
       vector<boost::any> temp1;
@@ -2746,6 +3477,19 @@ public:
           }
         }
         customImage = make_shared<vector<ImageModerationResponseBodyDataExtCustomImage>>(expect1);
+      }
+    }
+    if (m.find("FaceData") != m.end() && !m["FaceData"].empty()) {
+      if (typeid(vector<boost::any>) == m["FaceData"].type()) {
+        vector<ImageModerationResponseBodyDataExtFaceData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FaceData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImageModerationResponseBodyDataExtFaceData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        faceData = make_shared<vector<ImageModerationResponseBodyDataExtFaceData>>(expect1);
       }
     }
     if (m.find("LogoData") != m.end() && !m["LogoData"].empty()) {
@@ -3340,6 +4084,7 @@ class TextModerationPlusResponseBodyDataResult : public Darabonba::Model {
 public:
   shared_ptr<double> confidence{};
   shared_ptr<vector<TextModerationPlusResponseBodyDataResultCustomizedHit>> customizedHit{};
+  shared_ptr<string> description{};
   shared_ptr<string> label{};
   shared_ptr<string> riskWords{};
 
@@ -3362,6 +4107,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["CustomizedHit"] = boost::any(temp1);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (label) {
       res["Label"] = boost::any(*label);
@@ -3388,6 +4136,9 @@ public:
         }
         customizedHit = make_shared<vector<TextModerationPlusResponseBodyDataResultCustomizedHit>>(expect1);
       }
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
