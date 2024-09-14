@@ -1585,6 +1585,144 @@ public:
 
   virtual ~AttachVServerGroupsResponse() = default;
 };
+class CancelInstanceRefreshRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceRefreshTaskId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<string> scalingGroupId{};
+
+  CancelInstanceRefreshRequest() {}
+
+  explicit CancelInstanceRefreshRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceRefreshTaskId) {
+      res["InstanceRefreshTaskId"] = boost::any(*instanceRefreshTaskId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceRefreshTaskId") != m.end() && !m["InstanceRefreshTaskId"].empty()) {
+      instanceRefreshTaskId = make_shared<string>(boost::any_cast<string>(m["InstanceRefreshTaskId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~CancelInstanceRefreshRequest() = default;
+};
+class CancelInstanceRefreshResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CancelInstanceRefreshResponseBody() {}
+
+  explicit CancelInstanceRefreshResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CancelInstanceRefreshResponseBody() = default;
+};
+class CancelInstanceRefreshResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CancelInstanceRefreshResponseBody> body{};
+
+  CancelInstanceRefreshResponse() {}
+
+  explicit CancelInstanceRefreshResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CancelInstanceRefreshResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CancelInstanceRefreshResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CancelInstanceRefreshResponse() = default;
+};
 class ChangeResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> newResourceGroupId{};
@@ -8709,6 +8847,113 @@ public:
 
   virtual ~CreateScalingRuleRequestAlarmDimensions() = default;
 };
+class CreateScalingRuleRequestHybridMetricsDimensions : public Darabonba::Model {
+public:
+  shared_ptr<string> dimensionKey{};
+  shared_ptr<string> dimensionValue{};
+
+  CreateScalingRuleRequestHybridMetricsDimensions() {}
+
+  explicit CreateScalingRuleRequestHybridMetricsDimensions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dimensionKey) {
+      res["DimensionKey"] = boost::any(*dimensionKey);
+    }
+    if (dimensionValue) {
+      res["DimensionValue"] = boost::any(*dimensionValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DimensionKey") != m.end() && !m["DimensionKey"].empty()) {
+      dimensionKey = make_shared<string>(boost::any_cast<string>(m["DimensionKey"]));
+    }
+    if (m.find("DimensionValue") != m.end() && !m["DimensionValue"].empty()) {
+      dimensionValue = make_shared<string>(boost::any_cast<string>(m["DimensionValue"]));
+    }
+  }
+
+
+  virtual ~CreateScalingRuleRequestHybridMetricsDimensions() = default;
+};
+class CreateScalingRuleRequestHybridMetrics : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateScalingRuleRequestHybridMetricsDimensions>> dimensions{};
+  shared_ptr<string> expression{};
+  shared_ptr<string> id{};
+  shared_ptr<string> metricName{};
+  shared_ptr<string> statistic{};
+
+  CreateScalingRuleRequestHybridMetrics() {}
+
+  explicit CreateScalingRuleRequestHybridMetrics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dimensions) {
+      vector<boost::any> temp1;
+      for(auto item1:*dimensions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Dimensions"] = boost::any(temp1);
+    }
+    if (expression) {
+      res["Expression"] = boost::any(*expression);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (metricName) {
+      res["MetricName"] = boost::any(*metricName);
+    }
+    if (statistic) {
+      res["Statistic"] = boost::any(*statistic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Dimensions") != m.end() && !m["Dimensions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Dimensions"].type()) {
+        vector<CreateScalingRuleRequestHybridMetricsDimensions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Dimensions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateScalingRuleRequestHybridMetricsDimensions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dimensions = make_shared<vector<CreateScalingRuleRequestHybridMetricsDimensions>>(expect1);
+      }
+    }
+    if (m.find("Expression") != m.end() && !m["Expression"].empty()) {
+      expression = make_shared<string>(boost::any_cast<string>(m["Expression"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
+      metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("Statistic") != m.end() && !m["Statistic"].empty()) {
+      statistic = make_shared<string>(boost::any_cast<string>(m["Statistic"]));
+    }
+  }
+
+
+  virtual ~CreateScalingRuleRequestHybridMetrics() = default;
+};
 class CreateScalingRuleRequestStepAdjustments : public Darabonba::Model {
 public:
   shared_ptr<double> metricIntervalLowerBound{};
@@ -8760,8 +9005,11 @@ public:
   shared_ptr<long> cooldown{};
   shared_ptr<bool> disableScaleIn{};
   shared_ptr<long> estimatedInstanceWarmup{};
+  shared_ptr<vector<CreateScalingRuleRequestHybridMetrics>> hybridMetrics{};
+  shared_ptr<string> hybridMonitorNamespace{};
   shared_ptr<long> initialMaxSize{};
   shared_ptr<string> metricName{};
+  shared_ptr<string> metricType{};
   shared_ptr<long> minAdjustmentMagnitude{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -8811,11 +9059,24 @@ public:
     if (estimatedInstanceWarmup) {
       res["EstimatedInstanceWarmup"] = boost::any(*estimatedInstanceWarmup);
     }
+    if (hybridMetrics) {
+      vector<boost::any> temp1;
+      for(auto item1:*hybridMetrics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HybridMetrics"] = boost::any(temp1);
+    }
+    if (hybridMonitorNamespace) {
+      res["HybridMonitorNamespace"] = boost::any(*hybridMonitorNamespace);
+    }
     if (initialMaxSize) {
       res["InitialMaxSize"] = boost::any(*initialMaxSize);
     }
     if (metricName) {
       res["MetricName"] = boost::any(*metricName);
+    }
+    if (metricType) {
+      res["MetricType"] = boost::any(*metricType);
     }
     if (minAdjustmentMagnitude) {
       res["MinAdjustmentMagnitude"] = boost::any(*minAdjustmentMagnitude);
@@ -8901,11 +9162,30 @@ public:
     if (m.find("EstimatedInstanceWarmup") != m.end() && !m["EstimatedInstanceWarmup"].empty()) {
       estimatedInstanceWarmup = make_shared<long>(boost::any_cast<long>(m["EstimatedInstanceWarmup"]));
     }
+    if (m.find("HybridMetrics") != m.end() && !m["HybridMetrics"].empty()) {
+      if (typeid(vector<boost::any>) == m["HybridMetrics"].type()) {
+        vector<CreateScalingRuleRequestHybridMetrics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HybridMetrics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateScalingRuleRequestHybridMetrics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hybridMetrics = make_shared<vector<CreateScalingRuleRequestHybridMetrics>>(expect1);
+      }
+    }
+    if (m.find("HybridMonitorNamespace") != m.end() && !m["HybridMonitorNamespace"].empty()) {
+      hybridMonitorNamespace = make_shared<string>(boost::any_cast<string>(m["HybridMonitorNamespace"]));
+    }
     if (m.find("InitialMaxSize") != m.end() && !m["InitialMaxSize"].empty()) {
       initialMaxSize = make_shared<long>(boost::any_cast<long>(m["InitialMaxSize"]));
     }
     if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
       metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("MetricType") != m.end() && !m["MetricType"].empty()) {
+      metricType = make_shared<string>(boost::any_cast<string>(m["MetricType"]));
     }
     if (m.find("MinAdjustmentMagnitude") != m.end() && !m["MinAdjustmentMagnitude"].empty()) {
       minAdjustmentMagnitude = make_shared<long>(boost::any_cast<long>(m["MinAdjustmentMagnitude"]));
@@ -10735,6 +11015,113 @@ public:
 
   virtual ~DescribeAlarmsResponseBodyAlarmListExpressions() = default;
 };
+class DescribeAlarmsResponseBodyAlarmListHybridMetricsDimensions : public Darabonba::Model {
+public:
+  shared_ptr<string> dimensionKey{};
+  shared_ptr<string> dimensionValue{};
+
+  DescribeAlarmsResponseBodyAlarmListHybridMetricsDimensions() {}
+
+  explicit DescribeAlarmsResponseBodyAlarmListHybridMetricsDimensions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dimensionKey) {
+      res["DimensionKey"] = boost::any(*dimensionKey);
+    }
+    if (dimensionValue) {
+      res["DimensionValue"] = boost::any(*dimensionValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DimensionKey") != m.end() && !m["DimensionKey"].empty()) {
+      dimensionKey = make_shared<string>(boost::any_cast<string>(m["DimensionKey"]));
+    }
+    if (m.find("DimensionValue") != m.end() && !m["DimensionValue"].empty()) {
+      dimensionValue = make_shared<string>(boost::any_cast<string>(m["DimensionValue"]));
+    }
+  }
+
+
+  virtual ~DescribeAlarmsResponseBodyAlarmListHybridMetricsDimensions() = default;
+};
+class DescribeAlarmsResponseBodyAlarmListHybridMetrics : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeAlarmsResponseBodyAlarmListHybridMetricsDimensions>> dimensions{};
+  shared_ptr<string> expression{};
+  shared_ptr<string> id{};
+  shared_ptr<string> metricName{};
+  shared_ptr<string> statistic{};
+
+  DescribeAlarmsResponseBodyAlarmListHybridMetrics() {}
+
+  explicit DescribeAlarmsResponseBodyAlarmListHybridMetrics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dimensions) {
+      vector<boost::any> temp1;
+      for(auto item1:*dimensions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Dimensions"] = boost::any(temp1);
+    }
+    if (expression) {
+      res["Expression"] = boost::any(*expression);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (metricName) {
+      res["MetricName"] = boost::any(*metricName);
+    }
+    if (statistic) {
+      res["Statistic"] = boost::any(*statistic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Dimensions") != m.end() && !m["Dimensions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Dimensions"].type()) {
+        vector<DescribeAlarmsResponseBodyAlarmListHybridMetricsDimensions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Dimensions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAlarmsResponseBodyAlarmListHybridMetricsDimensions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dimensions = make_shared<vector<DescribeAlarmsResponseBodyAlarmListHybridMetricsDimensions>>(expect1);
+      }
+    }
+    if (m.find("Expression") != m.end() && !m["Expression"].empty()) {
+      expression = make_shared<string>(boost::any_cast<string>(m["Expression"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
+      metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("Statistic") != m.end() && !m["Statistic"].empty()) {
+      statistic = make_shared<string>(boost::any_cast<string>(m["Statistic"]));
+    }
+  }
+
+
+  virtual ~DescribeAlarmsResponseBodyAlarmListHybridMetrics() = default;
+};
 class DescribeAlarmsResponseBodyAlarmList : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> alarmActions{};
@@ -10747,10 +11134,13 @@ public:
   shared_ptr<long> evaluationCount{};
   shared_ptr<vector<DescribeAlarmsResponseBodyAlarmListExpressions>> expressions{};
   shared_ptr<string> expressionsLogicOperator{};
+  shared_ptr<vector<DescribeAlarmsResponseBodyAlarmListHybridMetrics>> hybridMetrics{};
+  shared_ptr<string> hybridMonitorNamespace{};
   shared_ptr<string> metricName{};
   shared_ptr<string> metricType{};
   shared_ptr<string> name{};
   shared_ptr<long> period{};
+  shared_ptr<string> promQL{};
   shared_ptr<string> scalingGroupId{};
   shared_ptr<string> state{};
   shared_ptr<string> statistics{};
@@ -10804,6 +11194,16 @@ public:
     if (expressionsLogicOperator) {
       res["ExpressionsLogicOperator"] = boost::any(*expressionsLogicOperator);
     }
+    if (hybridMetrics) {
+      vector<boost::any> temp1;
+      for(auto item1:*hybridMetrics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HybridMetrics"] = boost::any(temp1);
+    }
+    if (hybridMonitorNamespace) {
+      res["HybridMonitorNamespace"] = boost::any(*hybridMonitorNamespace);
+    }
     if (metricName) {
       res["MetricName"] = boost::any(*metricName);
     }
@@ -10815,6 +11215,9 @@ public:
     }
     if (period) {
       res["Period"] = boost::any(*period);
+    }
+    if (promQL) {
+      res["PromQL"] = boost::any(*promQL);
     }
     if (scalingGroupId) {
       res["ScalingGroupId"] = boost::any(*scalingGroupId);
@@ -10889,6 +11292,22 @@ public:
     if (m.find("ExpressionsLogicOperator") != m.end() && !m["ExpressionsLogicOperator"].empty()) {
       expressionsLogicOperator = make_shared<string>(boost::any_cast<string>(m["ExpressionsLogicOperator"]));
     }
+    if (m.find("HybridMetrics") != m.end() && !m["HybridMetrics"].empty()) {
+      if (typeid(vector<boost::any>) == m["HybridMetrics"].type()) {
+        vector<DescribeAlarmsResponseBodyAlarmListHybridMetrics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HybridMetrics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAlarmsResponseBodyAlarmListHybridMetrics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hybridMetrics = make_shared<vector<DescribeAlarmsResponseBodyAlarmListHybridMetrics>>(expect1);
+      }
+    }
+    if (m.find("HybridMonitorNamespace") != m.end() && !m["HybridMonitorNamespace"].empty()) {
+      hybridMonitorNamespace = make_shared<string>(boost::any_cast<string>(m["HybridMonitorNamespace"]));
+    }
     if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
       metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
     }
@@ -10900,6 +11319,9 @@ public:
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("PromQL") != m.end() && !m["PromQL"].empty()) {
+      promQL = make_shared<string>(boost::any_cast<string>(m["PromQL"]));
     }
     if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
       scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
@@ -15441,6 +15863,367 @@ public:
 
   virtual ~DescribeEciScalingConfigurationsResponse() = default;
 };
+class DescribeInstanceRefreshesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> instanceRefreshTaskIds{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> scalingGroupId{};
+
+  DescribeInstanceRefreshesRequest() {}
+
+  explicit DescribeInstanceRefreshesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceRefreshTaskIds) {
+      res["InstanceRefreshTaskIds"] = boost::any(*instanceRefreshTaskIds);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceRefreshTaskIds") != m.end() && !m["InstanceRefreshTaskIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceRefreshTaskIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceRefreshTaskIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceRefreshTaskIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceRefreshesRequest() = default;
+};
+class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<string> imageId{};
+  shared_ptr<string> scalingConfigurationId{};
+
+  DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration() {}
+
+  explicit DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (scalingConfigurationId) {
+      res["ScalingConfigurationId"] = boost::any(*scalingConfigurationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("ScalingConfigurationId") != m.end() && !m["ScalingConfigurationId"].empty()) {
+      scalingConfigurationId = make_shared<string>(boost::any_cast<string>(m["ScalingConfigurationId"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration() = default;
+};
+class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks : public Darabonba::Model {
+public:
+  shared_ptr<DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration> desiredConfiguration{};
+  shared_ptr<string> detail{};
+  shared_ptr<string> endTime{};
+  shared_ptr<long> finishedUpdateCapacity{};
+  shared_ptr<string> instanceRefreshTaskId{};
+  shared_ptr<long> maxHealthyPercentage{};
+  shared_ptr<long> minHealthyPercentage{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> scalingGroupId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
+  shared_ptr<long> totalNeedUpdateCapacity{};
+
+  DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks() {}
+
+  explicit DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desiredConfiguration) {
+      res["DesiredConfiguration"] = desiredConfiguration ? boost::any(desiredConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (detail) {
+      res["Detail"] = boost::any(*detail);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (finishedUpdateCapacity) {
+      res["FinishedUpdateCapacity"] = boost::any(*finishedUpdateCapacity);
+    }
+    if (instanceRefreshTaskId) {
+      res["InstanceRefreshTaskId"] = boost::any(*instanceRefreshTaskId);
+    }
+    if (maxHealthyPercentage) {
+      res["MaxHealthyPercentage"] = boost::any(*maxHealthyPercentage);
+    }
+    if (minHealthyPercentage) {
+      res["MinHealthyPercentage"] = boost::any(*minHealthyPercentage);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (totalNeedUpdateCapacity) {
+      res["TotalNeedUpdateCapacity"] = boost::any(*totalNeedUpdateCapacity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DesiredConfiguration") != m.end() && !m["DesiredConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DesiredConfiguration"].type()) {
+        DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DesiredConfiguration"]));
+        desiredConfiguration = make_shared<DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration>(model1);
+      }
+    }
+    if (m.find("Detail") != m.end() && !m["Detail"].empty()) {
+      detail = make_shared<string>(boost::any_cast<string>(m["Detail"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("FinishedUpdateCapacity") != m.end() && !m["FinishedUpdateCapacity"].empty()) {
+      finishedUpdateCapacity = make_shared<long>(boost::any_cast<long>(m["FinishedUpdateCapacity"]));
+    }
+    if (m.find("InstanceRefreshTaskId") != m.end() && !m["InstanceRefreshTaskId"].empty()) {
+      instanceRefreshTaskId = make_shared<string>(boost::any_cast<string>(m["InstanceRefreshTaskId"]));
+    }
+    if (m.find("MaxHealthyPercentage") != m.end() && !m["MaxHealthyPercentage"].empty()) {
+      maxHealthyPercentage = make_shared<long>(boost::any_cast<long>(m["MaxHealthyPercentage"]));
+    }
+    if (m.find("MinHealthyPercentage") != m.end() && !m["MinHealthyPercentage"].empty()) {
+      minHealthyPercentage = make_shared<long>(boost::any_cast<long>(m["MinHealthyPercentage"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TotalNeedUpdateCapacity") != m.end() && !m["TotalNeedUpdateCapacity"].empty()) {
+      totalNeedUpdateCapacity = make_shared<long>(boost::any_cast<long>(m["TotalNeedUpdateCapacity"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks() = default;
+};
+class DescribeInstanceRefreshesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks>> instanceRefreshTasks{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeInstanceRefreshesResponseBody() {}
+
+  explicit DescribeInstanceRefreshesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceRefreshTasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*instanceRefreshTasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InstanceRefreshTasks"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceRefreshTasks") != m.end() && !m["InstanceRefreshTasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["InstanceRefreshTasks"].type()) {
+        vector<DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InstanceRefreshTasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        instanceRefreshTasks = make_shared<vector<DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceRefreshesResponseBody() = default;
+};
+class DescribeInstanceRefreshesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeInstanceRefreshesResponseBody> body{};
+
+  DescribeInstanceRefreshesResponse() {}
+
+  explicit DescribeInstanceRefreshesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeInstanceRefreshesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeInstanceRefreshesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeInstanceRefreshesResponse() = default;
+};
 class DescribeLifecycleActionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> lifecycleActionStatus{};
@@ -17219,6 +18002,7 @@ public:
 };
 class DescribeScalingActivitiesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> instanceRefreshTaskId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
@@ -17240,6 +18024,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (instanceRefreshTaskId) {
+      res["InstanceRefreshTaskId"] = boost::any(*instanceRefreshTaskId);
+    }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
     }
@@ -17274,6 +18061,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceRefreshTaskId") != m.end() && !m["InstanceRefreshTaskId"].empty()) {
+      instanceRefreshTaskId = make_shared<string>(boost::any_cast<string>(m["InstanceRefreshTaskId"]));
+    }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
@@ -17374,6 +18164,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> instanceRefreshTaskId{};
   shared_ptr<DescribeScalingActivitiesResponseBodyScalingActivitiesLifecycleHookContext> lifecycleHookContext{};
   shared_ptr<long> progress{};
   shared_ptr<string> scalingActivityId{};
@@ -17438,6 +18229,9 @@ public:
     }
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (instanceRefreshTaskId) {
+      res["InstanceRefreshTaskId"] = boost::any(*instanceRefreshTaskId);
     }
     if (lifecycleHookContext) {
       res["LifecycleHookContext"] = lifecycleHookContext ? boost::any(lifecycleHookContext->toMap()) : boost::any(map<string,boost::any>({}));
@@ -17540,6 +18334,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("InstanceRefreshTaskId") != m.end() && !m["InstanceRefreshTaskId"].empty()) {
+      instanceRefreshTaskId = make_shared<string>(boost::any_cast<string>(m["InstanceRefreshTaskId"]));
     }
     if (m.find("LifecycleHookContext") != m.end() && !m["LifecycleHookContext"].empty()) {
       if (typeid(map<string, boost::any>) == m["LifecycleHookContext"].type()) {
@@ -20882,6 +21679,7 @@ public:
   shared_ptr<string> scalingPolicy{};
   shared_ptr<vector<DescribeScalingGroupsResponseBodyScalingGroupsServerGroups>> serverGroups{};
   shared_ptr<string> spotAllocationStrategy{};
+  shared_ptr<long> spotCapacity{};
   shared_ptr<long> spotInstancePools{};
   shared_ptr<bool> spotInstanceRemedy{};
   shared_ptr<long> standbyCapacity{};
@@ -21066,6 +21864,9 @@ public:
     }
     if (spotAllocationStrategy) {
       res["SpotAllocationStrategy"] = boost::any(*spotAllocationStrategy);
+    }
+    if (spotCapacity) {
+      res["SpotCapacity"] = boost::any(*spotCapacity);
     }
     if (spotInstancePools) {
       res["SpotInstancePools"] = boost::any(*spotInstancePools);
@@ -21336,6 +22137,9 @@ public:
     }
     if (m.find("SpotAllocationStrategy") != m.end() && !m["SpotAllocationStrategy"].empty()) {
       spotAllocationStrategy = make_shared<string>(boost::any_cast<string>(m["SpotAllocationStrategy"]));
+    }
+    if (m.find("SpotCapacity") != m.end() && !m["SpotCapacity"].empty()) {
+      spotCapacity = make_shared<long>(boost::any_cast<long>(m["SpotCapacity"]));
     }
     if (m.find("SpotInstancePools") != m.end() && !m["SpotInstancePools"].empty()) {
       spotInstancePools = make_shared<long>(boost::any_cast<long>(m["SpotInstancePools"]));
@@ -22283,6 +23087,113 @@ public:
 
   virtual ~DescribeScalingRulesResponseBodyScalingRulesAlarms() = default;
 };
+class DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions : public Darabonba::Model {
+public:
+  shared_ptr<string> dimensionKey{};
+  shared_ptr<string> dimensionValue{};
+
+  DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions() {}
+
+  explicit DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dimensionKey) {
+      res["DimensionKey"] = boost::any(*dimensionKey);
+    }
+    if (dimensionValue) {
+      res["DimensionValue"] = boost::any(*dimensionValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DimensionKey") != m.end() && !m["DimensionKey"].empty()) {
+      dimensionKey = make_shared<string>(boost::any_cast<string>(m["DimensionKey"]));
+    }
+    if (m.find("DimensionValue") != m.end() && !m["DimensionValue"].empty()) {
+      dimensionValue = make_shared<string>(boost::any_cast<string>(m["DimensionValue"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions() = default;
+};
+class DescribeScalingRulesResponseBodyScalingRulesHybridMetrics : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions>> dimensions{};
+  shared_ptr<string> expression{};
+  shared_ptr<string> id{};
+  shared_ptr<string> metricName{};
+  shared_ptr<string> statistic{};
+
+  DescribeScalingRulesResponseBodyScalingRulesHybridMetrics() {}
+
+  explicit DescribeScalingRulesResponseBodyScalingRulesHybridMetrics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dimensions) {
+      vector<boost::any> temp1;
+      for(auto item1:*dimensions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Dimensions"] = boost::any(temp1);
+    }
+    if (expression) {
+      res["Expression"] = boost::any(*expression);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (metricName) {
+      res["MetricName"] = boost::any(*metricName);
+    }
+    if (statistic) {
+      res["Statistic"] = boost::any(*statistic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Dimensions") != m.end() && !m["Dimensions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Dimensions"].type()) {
+        vector<DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Dimensions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dimensions = make_shared<vector<DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions>>(expect1);
+      }
+    }
+    if (m.find("Expression") != m.end() && !m["Expression"].empty()) {
+      expression = make_shared<string>(boost::any_cast<string>(m["Expression"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
+      metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("Statistic") != m.end() && !m["Statistic"].empty()) {
+      statistic = make_shared<string>(boost::any_cast<string>(m["Statistic"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingRulesResponseBodyScalingRulesHybridMetrics() = default;
+};
 class DescribeScalingRulesResponseBodyScalingRulesStepAdjustments : public Darabonba::Model {
 public:
   shared_ptr<double> metricIntervalLowerBound{};
@@ -22335,9 +23246,12 @@ public:
   shared_ptr<long> cooldown{};
   shared_ptr<bool> disableScaleIn{};
   shared_ptr<long> estimatedInstanceWarmup{};
+  shared_ptr<vector<DescribeScalingRulesResponseBodyScalingRulesHybridMetrics>> hybridMetrics{};
+  shared_ptr<string> hybridMonitorNamespace{};
   shared_ptr<long> initialMaxSize{};
   shared_ptr<long> maxSize{};
   shared_ptr<string> metricName{};
+  shared_ptr<string> metricType{};
   shared_ptr<long> minAdjustmentMagnitude{};
   shared_ptr<long> minSize{};
   shared_ptr<string> predictiveScalingMode{};
@@ -22393,6 +23307,16 @@ public:
     if (estimatedInstanceWarmup) {
       res["EstimatedInstanceWarmup"] = boost::any(*estimatedInstanceWarmup);
     }
+    if (hybridMetrics) {
+      vector<boost::any> temp1;
+      for(auto item1:*hybridMetrics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HybridMetrics"] = boost::any(temp1);
+    }
+    if (hybridMonitorNamespace) {
+      res["HybridMonitorNamespace"] = boost::any(*hybridMonitorNamespace);
+    }
     if (initialMaxSize) {
       res["InitialMaxSize"] = boost::any(*initialMaxSize);
     }
@@ -22401,6 +23325,9 @@ public:
     }
     if (metricName) {
       res["MetricName"] = boost::any(*metricName);
+    }
+    if (metricType) {
+      res["MetricType"] = boost::any(*metricType);
     }
     if (minAdjustmentMagnitude) {
       res["MinAdjustmentMagnitude"] = boost::any(*minAdjustmentMagnitude);
@@ -22496,6 +23423,22 @@ public:
     if (m.find("EstimatedInstanceWarmup") != m.end() && !m["EstimatedInstanceWarmup"].empty()) {
       estimatedInstanceWarmup = make_shared<long>(boost::any_cast<long>(m["EstimatedInstanceWarmup"]));
     }
+    if (m.find("HybridMetrics") != m.end() && !m["HybridMetrics"].empty()) {
+      if (typeid(vector<boost::any>) == m["HybridMetrics"].type()) {
+        vector<DescribeScalingRulesResponseBodyScalingRulesHybridMetrics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HybridMetrics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingRulesResponseBodyScalingRulesHybridMetrics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hybridMetrics = make_shared<vector<DescribeScalingRulesResponseBodyScalingRulesHybridMetrics>>(expect1);
+      }
+    }
+    if (m.find("HybridMonitorNamespace") != m.end() && !m["HybridMonitorNamespace"].empty()) {
+      hybridMonitorNamespace = make_shared<string>(boost::any_cast<string>(m["HybridMonitorNamespace"]));
+    }
     if (m.find("InitialMaxSize") != m.end() && !m["InitialMaxSize"].empty()) {
       initialMaxSize = make_shared<long>(boost::any_cast<long>(m["InitialMaxSize"]));
     }
@@ -22504,6 +23447,9 @@ public:
     }
     if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
       metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("MetricType") != m.end() && !m["MetricType"].empty()) {
+      metricType = make_shared<string>(boost::any_cast<string>(m["MetricType"]));
     }
     if (m.find("MinAdjustmentMagnitude") != m.end() && !m["MinAdjustmentMagnitude"].empty()) {
       minAdjustmentMagnitude = make_shared<long>(boost::any_cast<long>(m["MinAdjustmentMagnitude"]));
@@ -32658,6 +33604,113 @@ public:
 
   virtual ~ModifyScalingRuleRequestAlarmDimensions() = default;
 };
+class ModifyScalingRuleRequestHybridMetricsDimensions : public Darabonba::Model {
+public:
+  shared_ptr<string> dimensionKey{};
+  shared_ptr<string> dimensionValue{};
+
+  ModifyScalingRuleRequestHybridMetricsDimensions() {}
+
+  explicit ModifyScalingRuleRequestHybridMetricsDimensions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dimensionKey) {
+      res["DimensionKey"] = boost::any(*dimensionKey);
+    }
+    if (dimensionValue) {
+      res["DimensionValue"] = boost::any(*dimensionValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DimensionKey") != m.end() && !m["DimensionKey"].empty()) {
+      dimensionKey = make_shared<string>(boost::any_cast<string>(m["DimensionKey"]));
+    }
+    if (m.find("DimensionValue") != m.end() && !m["DimensionValue"].empty()) {
+      dimensionValue = make_shared<string>(boost::any_cast<string>(m["DimensionValue"]));
+    }
+  }
+
+
+  virtual ~ModifyScalingRuleRequestHybridMetricsDimensions() = default;
+};
+class ModifyScalingRuleRequestHybridMetrics : public Darabonba::Model {
+public:
+  shared_ptr<vector<ModifyScalingRuleRequestHybridMetricsDimensions>> dimensions{};
+  shared_ptr<string> expression{};
+  shared_ptr<string> id{};
+  shared_ptr<string> metricName{};
+  shared_ptr<string> statistic{};
+
+  ModifyScalingRuleRequestHybridMetrics() {}
+
+  explicit ModifyScalingRuleRequestHybridMetrics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dimensions) {
+      vector<boost::any> temp1;
+      for(auto item1:*dimensions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Dimensions"] = boost::any(temp1);
+    }
+    if (expression) {
+      res["Expression"] = boost::any(*expression);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (metricName) {
+      res["MetricName"] = boost::any(*metricName);
+    }
+    if (statistic) {
+      res["Statistic"] = boost::any(*statistic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Dimensions") != m.end() && !m["Dimensions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Dimensions"].type()) {
+        vector<ModifyScalingRuleRequestHybridMetricsDimensions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Dimensions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyScalingRuleRequestHybridMetricsDimensions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dimensions = make_shared<vector<ModifyScalingRuleRequestHybridMetricsDimensions>>(expect1);
+      }
+    }
+    if (m.find("Expression") != m.end() && !m["Expression"].empty()) {
+      expression = make_shared<string>(boost::any_cast<string>(m["Expression"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
+      metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("Statistic") != m.end() && !m["Statistic"].empty()) {
+      statistic = make_shared<string>(boost::any_cast<string>(m["Statistic"]));
+    }
+  }
+
+
+  virtual ~ModifyScalingRuleRequestHybridMetrics() = default;
+};
 class ModifyScalingRuleRequestStepAdjustments : public Darabonba::Model {
 public:
   shared_ptr<double> metricIntervalLowerBound{};
@@ -32709,8 +33762,11 @@ public:
   shared_ptr<long> cooldown{};
   shared_ptr<bool> disableScaleIn{};
   shared_ptr<long> estimatedInstanceWarmup{};
+  shared_ptr<vector<ModifyScalingRuleRequestHybridMetrics>> hybridMetrics{};
+  shared_ptr<string> hybridMonitorNamespace{};
   shared_ptr<long> initialMaxSize{};
   shared_ptr<string> metricName{};
+  shared_ptr<string> metricType{};
   shared_ptr<long> minAdjustmentMagnitude{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -32759,11 +33815,24 @@ public:
     if (estimatedInstanceWarmup) {
       res["EstimatedInstanceWarmup"] = boost::any(*estimatedInstanceWarmup);
     }
+    if (hybridMetrics) {
+      vector<boost::any> temp1;
+      for(auto item1:*hybridMetrics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HybridMetrics"] = boost::any(temp1);
+    }
+    if (hybridMonitorNamespace) {
+      res["HybridMonitorNamespace"] = boost::any(*hybridMonitorNamespace);
+    }
     if (initialMaxSize) {
       res["InitialMaxSize"] = boost::any(*initialMaxSize);
     }
     if (metricName) {
       res["MetricName"] = boost::any(*metricName);
+    }
+    if (metricType) {
+      res["MetricType"] = boost::any(*metricType);
     }
     if (minAdjustmentMagnitude) {
       res["MinAdjustmentMagnitude"] = boost::any(*minAdjustmentMagnitude);
@@ -32846,11 +33915,30 @@ public:
     if (m.find("EstimatedInstanceWarmup") != m.end() && !m["EstimatedInstanceWarmup"].empty()) {
       estimatedInstanceWarmup = make_shared<long>(boost::any_cast<long>(m["EstimatedInstanceWarmup"]));
     }
+    if (m.find("HybridMetrics") != m.end() && !m["HybridMetrics"].empty()) {
+      if (typeid(vector<boost::any>) == m["HybridMetrics"].type()) {
+        vector<ModifyScalingRuleRequestHybridMetrics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HybridMetrics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyScalingRuleRequestHybridMetrics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hybridMetrics = make_shared<vector<ModifyScalingRuleRequestHybridMetrics>>(expect1);
+      }
+    }
+    if (m.find("HybridMonitorNamespace") != m.end() && !m["HybridMonitorNamespace"].empty()) {
+      hybridMonitorNamespace = make_shared<string>(boost::any_cast<string>(m["HybridMonitorNamespace"]));
+    }
     if (m.find("InitialMaxSize") != m.end() && !m["InitialMaxSize"].empty()) {
       initialMaxSize = make_shared<long>(boost::any_cast<long>(m["InitialMaxSize"]));
     }
     if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
       metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("MetricType") != m.end() && !m["MetricType"].empty()) {
+      metricType = make_shared<string>(boost::any_cast<string>(m["MetricType"]));
     }
     if (m.find("MinAdjustmentMagnitude") != m.end() && !m["MinAdjustmentMagnitude"].empty()) {
       minAdjustmentMagnitude = make_shared<long>(boost::any_cast<long>(m["MinAdjustmentMagnitude"]));
@@ -33720,6 +34808,144 @@ public:
 
   virtual ~RemoveInstancesResponse() = default;
 };
+class ResumeInstanceRefreshRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceRefreshTaskId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<string> scalingGroupId{};
+
+  ResumeInstanceRefreshRequest() {}
+
+  explicit ResumeInstanceRefreshRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceRefreshTaskId) {
+      res["InstanceRefreshTaskId"] = boost::any(*instanceRefreshTaskId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceRefreshTaskId") != m.end() && !m["InstanceRefreshTaskId"].empty()) {
+      instanceRefreshTaskId = make_shared<string>(boost::any_cast<string>(m["InstanceRefreshTaskId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~ResumeInstanceRefreshRequest() = default;
+};
+class ResumeInstanceRefreshResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ResumeInstanceRefreshResponseBody() {}
+
+  explicit ResumeInstanceRefreshResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ResumeInstanceRefreshResponseBody() = default;
+};
+class ResumeInstanceRefreshResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ResumeInstanceRefreshResponseBody> body{};
+
+  ResumeInstanceRefreshResponse() {}
+
+  explicit ResumeInstanceRefreshResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ResumeInstanceRefreshResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ResumeInstanceRefreshResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ResumeInstanceRefreshResponse() = default;
+};
 class ResumeProcessesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -33871,6 +35097,144 @@ public:
 
 
   virtual ~ResumeProcessesResponse() = default;
+};
+class RollbackInstanceRefreshRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceRefreshTaskId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<string> scalingGroupId{};
+
+  RollbackInstanceRefreshRequest() {}
+
+  explicit RollbackInstanceRefreshRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceRefreshTaskId) {
+      res["InstanceRefreshTaskId"] = boost::any(*instanceRefreshTaskId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceRefreshTaskId") != m.end() && !m["InstanceRefreshTaskId"].empty()) {
+      instanceRefreshTaskId = make_shared<string>(boost::any_cast<string>(m["InstanceRefreshTaskId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~RollbackInstanceRefreshRequest() = default;
+};
+class RollbackInstanceRefreshResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RollbackInstanceRefreshResponseBody() {}
+
+  explicit RollbackInstanceRefreshResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RollbackInstanceRefreshResponseBody() = default;
+};
+class RollbackInstanceRefreshResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RollbackInstanceRefreshResponseBody> body{};
+
+  RollbackInstanceRefreshResponse() {}
+
+  explicit RollbackInstanceRefreshResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RollbackInstanceRefreshResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RollbackInstanceRefreshResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RollbackInstanceRefreshResponse() = default;
 };
 class ScaleWithAdjustmentRequestLifecycleHookContext : public Darabonba::Model {
 public:
@@ -34815,6 +36179,350 @@ public:
 
   virtual ~SetInstancesProtectionResponse() = default;
 };
+class StartInstanceRefreshRequestDesiredConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<string> imageId{};
+  shared_ptr<string> scalingConfigurationId{};
+
+  StartInstanceRefreshRequestDesiredConfiguration() {}
+
+  explicit StartInstanceRefreshRequestDesiredConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (scalingConfigurationId) {
+      res["ScalingConfigurationId"] = boost::any(*scalingConfigurationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("ScalingConfigurationId") != m.end() && !m["ScalingConfigurationId"].empty()) {
+      scalingConfigurationId = make_shared<string>(boost::any_cast<string>(m["ScalingConfigurationId"]));
+    }
+  }
+
+
+  virtual ~StartInstanceRefreshRequestDesiredConfiguration() = default;
+};
+class StartInstanceRefreshRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<StartInstanceRefreshRequestDesiredConfiguration> desiredConfiguration{};
+  shared_ptr<long> maxHealthyPercentage{};
+  shared_ptr<long> minHealthyPercentage{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<string> scalingGroupId{};
+
+  StartInstanceRefreshRequest() {}
+
+  explicit StartInstanceRefreshRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (desiredConfiguration) {
+      res["DesiredConfiguration"] = desiredConfiguration ? boost::any(desiredConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (maxHealthyPercentage) {
+      res["MaxHealthyPercentage"] = boost::any(*maxHealthyPercentage);
+    }
+    if (minHealthyPercentage) {
+      res["MinHealthyPercentage"] = boost::any(*minHealthyPercentage);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DesiredConfiguration") != m.end() && !m["DesiredConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DesiredConfiguration"].type()) {
+        StartInstanceRefreshRequestDesiredConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DesiredConfiguration"]));
+        desiredConfiguration = make_shared<StartInstanceRefreshRequestDesiredConfiguration>(model1);
+      }
+    }
+    if (m.find("MaxHealthyPercentage") != m.end() && !m["MaxHealthyPercentage"].empty()) {
+      maxHealthyPercentage = make_shared<long>(boost::any_cast<long>(m["MaxHealthyPercentage"]));
+    }
+    if (m.find("MinHealthyPercentage") != m.end() && !m["MinHealthyPercentage"].empty()) {
+      minHealthyPercentage = make_shared<long>(boost::any_cast<long>(m["MinHealthyPercentage"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~StartInstanceRefreshRequest() = default;
+};
+class StartInstanceRefreshResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceRefreshTaskId{};
+  shared_ptr<string> requestId{};
+
+  StartInstanceRefreshResponseBody() {}
+
+  explicit StartInstanceRefreshResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceRefreshTaskId) {
+      res["InstanceRefreshTaskId"] = boost::any(*instanceRefreshTaskId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceRefreshTaskId") != m.end() && !m["InstanceRefreshTaskId"].empty()) {
+      instanceRefreshTaskId = make_shared<string>(boost::any_cast<string>(m["InstanceRefreshTaskId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StartInstanceRefreshResponseBody() = default;
+};
+class StartInstanceRefreshResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartInstanceRefreshResponseBody> body{};
+
+  StartInstanceRefreshResponse() {}
+
+  explicit StartInstanceRefreshResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartInstanceRefreshResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartInstanceRefreshResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartInstanceRefreshResponse() = default;
+};
+class SuspendInstanceRefreshRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceRefreshTaskId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<string> scalingGroupId{};
+
+  SuspendInstanceRefreshRequest() {}
+
+  explicit SuspendInstanceRefreshRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceRefreshTaskId) {
+      res["InstanceRefreshTaskId"] = boost::any(*instanceRefreshTaskId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceRefreshTaskId") != m.end() && !m["InstanceRefreshTaskId"].empty()) {
+      instanceRefreshTaskId = make_shared<string>(boost::any_cast<string>(m["InstanceRefreshTaskId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~SuspendInstanceRefreshRequest() = default;
+};
+class SuspendInstanceRefreshResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SuspendInstanceRefreshResponseBody() {}
+
+  explicit SuspendInstanceRefreshResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SuspendInstanceRefreshResponseBody() = default;
+};
+class SuspendInstanceRefreshResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SuspendInstanceRefreshResponseBody> body{};
+
+  SuspendInstanceRefreshResponse() {}
+
+  explicit SuspendInstanceRefreshResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SuspendInstanceRefreshResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SuspendInstanceRefreshResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SuspendInstanceRefreshResponse() = default;
+};
 class SuspendProcessesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -35637,6 +37345,8 @@ public:
   AttachServerGroupsResponse attachServerGroups(shared_ptr<AttachServerGroupsRequest> request);
   AttachVServerGroupsResponse attachVServerGroupsWithOptions(shared_ptr<AttachVServerGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachVServerGroupsResponse attachVServerGroups(shared_ptr<AttachVServerGroupsRequest> request);
+  CancelInstanceRefreshResponse cancelInstanceRefreshWithOptions(shared_ptr<CancelInstanceRefreshRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CancelInstanceRefreshResponse cancelInstanceRefresh(shared_ptr<CancelInstanceRefreshRequest> request);
   ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
   CompleteLifecycleActionResponse completeLifecycleActionWithOptions(shared_ptr<CompleteLifecycleActionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -35683,6 +37393,8 @@ public:
   DescribeEciScalingConfigurationDetailResponse describeEciScalingConfigurationDetail(shared_ptr<DescribeEciScalingConfigurationDetailRequest> request);
   DescribeEciScalingConfigurationsResponse describeEciScalingConfigurationsWithOptions(shared_ptr<DescribeEciScalingConfigurationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeEciScalingConfigurationsResponse describeEciScalingConfigurations(shared_ptr<DescribeEciScalingConfigurationsRequest> request);
+  DescribeInstanceRefreshesResponse describeInstanceRefreshesWithOptions(shared_ptr<DescribeInstanceRefreshesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeInstanceRefreshesResponse describeInstanceRefreshes(shared_ptr<DescribeInstanceRefreshesRequest> request);
   DescribeLifecycleActionsResponse describeLifecycleActionsWithOptions(shared_ptr<DescribeLifecycleActionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeLifecycleActionsResponse describeLifecycleActions(shared_ptr<DescribeLifecycleActionsRequest> request);
   DescribeLifecycleHooksResponse describeLifecycleHooksWithOptions(shared_ptr<DescribeLifecycleHooksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -35771,8 +37483,12 @@ public:
   RecordLifecycleActionHeartbeatResponse recordLifecycleActionHeartbeat(shared_ptr<RecordLifecycleActionHeartbeatRequest> request);
   RemoveInstancesResponse removeInstancesWithOptions(shared_ptr<RemoveInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveInstancesResponse removeInstances(shared_ptr<RemoveInstancesRequest> request);
+  ResumeInstanceRefreshResponse resumeInstanceRefreshWithOptions(shared_ptr<ResumeInstanceRefreshRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ResumeInstanceRefreshResponse resumeInstanceRefresh(shared_ptr<ResumeInstanceRefreshRequest> request);
   ResumeProcessesResponse resumeProcessesWithOptions(shared_ptr<ResumeProcessesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResumeProcessesResponse resumeProcesses(shared_ptr<ResumeProcessesRequest> request);
+  RollbackInstanceRefreshResponse rollbackInstanceRefreshWithOptions(shared_ptr<RollbackInstanceRefreshRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RollbackInstanceRefreshResponse rollbackInstanceRefresh(shared_ptr<RollbackInstanceRefreshRequest> request);
   ScaleWithAdjustmentResponse scaleWithAdjustmentWithOptions(shared_ptr<ScaleWithAdjustmentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScaleWithAdjustmentResponse scaleWithAdjustment(shared_ptr<ScaleWithAdjustmentRequest> request);
   SetGroupDeletionProtectionResponse setGroupDeletionProtectionWithOptions(shared_ptr<SetGroupDeletionProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -35781,6 +37497,10 @@ public:
   SetInstanceHealthResponse setInstanceHealth(shared_ptr<SetInstanceHealthRequest> request);
   SetInstancesProtectionResponse setInstancesProtectionWithOptions(shared_ptr<SetInstancesProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetInstancesProtectionResponse setInstancesProtection(shared_ptr<SetInstancesProtectionRequest> request);
+  StartInstanceRefreshResponse startInstanceRefreshWithOptions(shared_ptr<StartInstanceRefreshRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartInstanceRefreshResponse startInstanceRefresh(shared_ptr<StartInstanceRefreshRequest> request);
+  SuspendInstanceRefreshResponse suspendInstanceRefreshWithOptions(shared_ptr<SuspendInstanceRefreshRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SuspendInstanceRefreshResponse suspendInstanceRefresh(shared_ptr<SuspendInstanceRefreshRequest> request);
   SuspendProcessesResponse suspendProcessesWithOptions(shared_ptr<SuspendProcessesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SuspendProcessesResponse suspendProcesses(shared_ptr<SuspendProcessesRequest> request);
   TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
