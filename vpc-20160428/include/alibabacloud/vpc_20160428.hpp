@@ -81257,6 +81257,7 @@ public:
 class ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets : public Darabonba::Model {
 public:
   shared_ptr<string> publishStatus{};
+  shared_ptr<string> publishTargetInstanceId{};
   shared_ptr<string> publishTargetType{};
 
   ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets() {}
@@ -81272,6 +81273,9 @@ public:
     if (publishStatus) {
       res["PublishStatus"] = boost::any(*publishStatus);
     }
+    if (publishTargetInstanceId) {
+      res["PublishTargetInstanceId"] = boost::any(*publishTargetInstanceId);
+    }
     if (publishTargetType) {
       res["PublishTargetType"] = boost::any(*publishTargetType);
     }
@@ -81281,6 +81285,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("PublishStatus") != m.end() && !m["PublishStatus"].empty()) {
       publishStatus = make_shared<string>(boost::any_cast<string>(m["PublishStatus"]));
+    }
+    if (m.find("PublishTargetInstanceId") != m.end() && !m["PublishTargetInstanceId"].empty()) {
+      publishTargetInstanceId = make_shared<string>(boost::any_cast<string>(m["PublishTargetInstanceId"]));
     }
     if (m.find("PublishTargetType") != m.end() && !m["PublishTargetType"].empty()) {
       publishTargetType = make_shared<string>(boost::any_cast<string>(m["PublishTargetType"]));
