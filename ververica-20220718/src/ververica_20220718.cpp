@@ -37,6 +37,40 @@ string Alibabacloud_Ververica20220718::Client::getEndpoint(shared_ptr<string> pr
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+ApplyScheduledPlanResponse Alibabacloud_Ververica20220718::Client::applyScheduledPlanWithOptions(shared_ptr<string> namespace_,
+                                                                                                 shared_ptr<string> scheduledPlanId,
+                                                                                                 shared_ptr<ApplyScheduledPlanHeaders> headers,
+                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ApplyScheduledPlan"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/scheduled-plans/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(scheduledPlanId)) + string("%3Aapply"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ApplyScheduledPlanResponse(callApi(params, req, runtime));
+}
+
+ApplyScheduledPlanResponse Alibabacloud_Ververica20220718::Client::applyScheduledPlan(shared_ptr<string> namespace_, shared_ptr<string> scheduledPlanId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ApplyScheduledPlanHeaders> headers = make_shared<ApplyScheduledPlanHeaders>();
+  return applyScheduledPlanWithOptions(shared_ptr<string> namespace_, scheduledPlanId, headers, runtime);
+}
+
 CreateDeploymentResponse Alibabacloud_Ververica20220718::Client::createDeploymentWithOptions(shared_ptr<string> namespace_,
                                                                                              shared_ptr<CreateDeploymentRequest> request,
                                                                                              shared_ptr<CreateDeploymentHeaders> headers,
@@ -107,6 +141,47 @@ CreateDeploymentDraftResponse Alibabacloud_Ververica20220718::Client::createDepl
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<CreateDeploymentDraftHeaders> headers = make_shared<CreateDeploymentDraftHeaders>();
   return createDeploymentDraftWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+}
+
+CreateDeploymentTargetResponse Alibabacloud_Ververica20220718::Client::createDeploymentTargetWithOptions(shared_ptr<string> namespace_,
+                                                                                                         shared_ptr<CreateDeploymentTargetRequest> request,
+                                                                                                         shared_ptr<CreateDeploymentTargetHeaders> headers,
+                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deploymentTargetName)) {
+    query->insert(pair<string, string>("deploymentTargetName", *request->deploymentTargetName));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDeploymentTarget"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/deployment-targets"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDeploymentTargetResponse(callApi(params, req, runtime));
+}
+
+CreateDeploymentTargetResponse Alibabacloud_Ververica20220718::Client::createDeploymentTarget(shared_ptr<string> namespace_, shared_ptr<CreateDeploymentTargetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<CreateDeploymentTargetHeaders> headers = make_shared<CreateDeploymentTargetHeaders>();
+  return createDeploymentTargetWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
 CreateFolderResponse Alibabacloud_Ververica20220718::Client::createFolderWithOptions(shared_ptr<string> namespace_,
@@ -225,6 +300,78 @@ CreateSavepointResponse Alibabacloud_Ververica20220718::Client::createSavepoint(
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<CreateSavepointHeaders> headers = make_shared<CreateSavepointHeaders>();
   return createSavepointWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+}
+
+CreateScheduledPlanResponse Alibabacloud_Ververica20220718::Client::createScheduledPlanWithOptions(shared_ptr<string> namespace_,
+                                                                                                   shared_ptr<CreateScheduledPlanRequest> request,
+                                                                                                   shared_ptr<CreateScheduledPlanHeaders> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateScheduledPlan"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/scheduled-plans"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateScheduledPlanResponse(callApi(params, req, runtime));
+}
+
+CreateScheduledPlanResponse Alibabacloud_Ververica20220718::Client::createScheduledPlan(shared_ptr<string> namespace_, shared_ptr<CreateScheduledPlanRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<CreateScheduledPlanHeaders> headers = make_shared<CreateScheduledPlanHeaders>();
+  return createScheduledPlanWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+}
+
+CreateSessionClusterResponse Alibabacloud_Ververica20220718::Client::createSessionClusterWithOptions(shared_ptr<string> namespace_,
+                                                                                                     shared_ptr<CreateSessionClusterRequest> request,
+                                                                                                     shared_ptr<CreateSessionClusterHeaders> headers,
+                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateSessionCluster"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/sessionclusters"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateSessionClusterResponse(callApi(params, req, runtime));
+}
+
+CreateSessionClusterResponse Alibabacloud_Ververica20220718::Client::createSessionCluster(shared_ptr<string> namespace_, shared_ptr<CreateSessionClusterRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<CreateSessionClusterHeaders> headers = make_shared<CreateSessionClusterHeaders>();
+  return createSessionClusterWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
 CreateUdfArtifactResponse Alibabacloud_Ververica20220718::Client::createUdfArtifactWithOptions(shared_ptr<string> namespace_,
@@ -401,6 +548,40 @@ DeleteDeploymentDraftResponse Alibabacloud_Ververica20220718::Client::deleteDepl
   return deleteDeploymentDraftWithOptions(shared_ptr<string> namespace_, deploymentDraftId, headers, runtime);
 }
 
+DeleteDeploymentTargetResponse Alibabacloud_Ververica20220718::Client::deleteDeploymentTargetWithOptions(shared_ptr<string> namespace_,
+                                                                                                         shared_ptr<string> deploymentTargetName,
+                                                                                                         shared_ptr<DeleteDeploymentTargetHeaders> headers,
+                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDeploymentTarget"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/deployment-targets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(deploymentTargetName)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteDeploymentTargetResponse(callApi(params, req, runtime));
+}
+
+DeleteDeploymentTargetResponse Alibabacloud_Ververica20220718::Client::deleteDeploymentTarget(shared_ptr<string> namespace_, shared_ptr<string> deploymentTargetName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<DeleteDeploymentTargetHeaders> headers = make_shared<DeleteDeploymentTargetHeaders>();
+  return deleteDeploymentTargetWithOptions(shared_ptr<string> namespace_, deploymentTargetName, headers, runtime);
+}
+
 DeleteFolderResponse Alibabacloud_Ververica20220718::Client::deleteFolderWithOptions(shared_ptr<string> namespace_,
                                                                                      shared_ptr<string> folderId,
                                                                                      shared_ptr<DeleteFolderHeaders> headers,
@@ -535,6 +716,74 @@ DeleteSavepointResponse Alibabacloud_Ververica20220718::Client::deleteSavepoint(
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<DeleteSavepointHeaders> headers = make_shared<DeleteSavepointHeaders>();
   return deleteSavepointWithOptions(shared_ptr<string> namespace_, savepointId, headers, runtime);
+}
+
+DeleteScheduledPlanResponse Alibabacloud_Ververica20220718::Client::deleteScheduledPlanWithOptions(shared_ptr<string> namespace_,
+                                                                                                   shared_ptr<string> scheduledPlanId,
+                                                                                                   shared_ptr<DeleteScheduledPlanHeaders> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteScheduledPlan"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/scheduled-plans/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(scheduledPlanId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteScheduledPlanResponse(callApi(params, req, runtime));
+}
+
+DeleteScheduledPlanResponse Alibabacloud_Ververica20220718::Client::deleteScheduledPlan(shared_ptr<string> namespace_, shared_ptr<string> scheduledPlanId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<DeleteScheduledPlanHeaders> headers = make_shared<DeleteScheduledPlanHeaders>();
+  return deleteScheduledPlanWithOptions(shared_ptr<string> namespace_, scheduledPlanId, headers, runtime);
+}
+
+DeleteSessionClusterResponse Alibabacloud_Ververica20220718::Client::deleteSessionClusterWithOptions(shared_ptr<string> namespace_,
+                                                                                                     shared_ptr<string> sessionClusterName,
+                                                                                                     shared_ptr<DeleteSessionClusterHeaders> headers,
+                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteSessionCluster"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/sessionclusters/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(sessionClusterName)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteSessionClusterResponse(callApi(params, req, runtime));
+}
+
+DeleteSessionClusterResponse Alibabacloud_Ververica20220718::Client::deleteSessionCluster(shared_ptr<string> namespace_, shared_ptr<string> sessionClusterName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<DeleteSessionClusterHeaders> headers = make_shared<DeleteSessionClusterHeaders>();
+  return deleteSessionClusterWithOptions(shared_ptr<string> namespace_, sessionClusterName, headers, runtime);
 }
 
 DeleteUdfArtifactResponse Alibabacloud_Ververica20220718::Client::deleteUdfArtifactWithOptions(shared_ptr<string> namespace_,
@@ -804,6 +1053,46 @@ GenerateResourcePlanWithFlinkConfAsyncResponse Alibabacloud_Ververica20220718::C
   return generateResourcePlanWithFlinkConfAsyncWithOptions(shared_ptr<string> namespace_, deploymentId, request, headers, runtime);
 }
 
+GetAppliedScheduledPlanResponse Alibabacloud_Ververica20220718::Client::getAppliedScheduledPlanWithOptions(shared_ptr<string> namespace_,
+                                                                                                           shared_ptr<GetAppliedScheduledPlanRequest> request,
+                                                                                                           shared_ptr<GetAppliedScheduledPlanHeaders> headers,
+                                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deploymentId)) {
+    query->insert(pair<string, string>("deploymentId", *request->deploymentId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAppliedScheduledPlan"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/scheduled-plans%3AgetExecutedScheduledPlan"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAppliedScheduledPlanResponse(callApi(params, req, runtime));
+}
+
+GetAppliedScheduledPlanResponse Alibabacloud_Ververica20220718::Client::getAppliedScheduledPlan(shared_ptr<string> namespace_, shared_ptr<GetAppliedScheduledPlanRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<GetAppliedScheduledPlanHeaders> headers = make_shared<GetAppliedScheduledPlanHeaders>();
+  return getAppliedScheduledPlanWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+}
+
 GetCatalogsResponse Alibabacloud_Ververica20220718::Client::getCatalogsWithOptions(shared_ptr<string> namespace_,
                                                                                    shared_ptr<GetCatalogsRequest> request,
                                                                                    shared_ptr<GetCatalogsHeaders> headers,
@@ -1025,6 +1314,52 @@ GetDeploymentDraftLockResponse Alibabacloud_Ververica20220718::Client::getDeploy
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<GetDeploymentDraftLockHeaders> headers = make_shared<GetDeploymentDraftLockHeaders>();
   return getDeploymentDraftLockWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+}
+
+GetEventsResponse Alibabacloud_Ververica20220718::Client::getEventsWithOptions(shared_ptr<string> namespace_,
+                                                                               shared_ptr<GetEventsRequest> request,
+                                                                               shared_ptr<GetEventsHeaders> headers,
+                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deploymentId)) {
+    query->insert(pair<string, string>("deploymentId", *request->deploymentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageIndex)) {
+    query->insert(pair<string, long>("pageIndex", *request->pageIndex));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetEvents"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/events"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetEventsResponse(callApi(params, req, runtime));
+}
+
+GetEventsResponse Alibabacloud_Ververica20220718::Client::getEvents(shared_ptr<string> namespace_, shared_ptr<GetEventsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<GetEventsHeaders> headers = make_shared<GetEventsHeaders>();
+  return getEventsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
 GetFolderResponse Alibabacloud_Ververica20220718::Client::getFolderWithOptions(shared_ptr<string> namespace_,
@@ -1302,6 +1637,40 @@ GetSavepointResponse Alibabacloud_Ververica20220718::Client::getSavepoint(shared
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<GetSavepointHeaders> headers = make_shared<GetSavepointHeaders>();
   return getSavepointWithOptions(shared_ptr<string> namespace_, savepointId, headers, runtime);
+}
+
+GetSessionClusterResponse Alibabacloud_Ververica20220718::Client::getSessionClusterWithOptions(shared_ptr<string> namespace_,
+                                                                                               shared_ptr<string> sessionClusterName,
+                                                                                               shared_ptr<GetSessionClusterHeaders> headers,
+                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSessionCluster"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/sessionclusters/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(sessionClusterName)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSessionClusterResponse(callApi(params, req, runtime));
+}
+
+GetSessionClusterResponse Alibabacloud_Ververica20220718::Client::getSessionCluster(shared_ptr<string> namespace_, shared_ptr<string> sessionClusterName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<GetSessionClusterHeaders> headers = make_shared<GetSessionClusterHeaders>();
+  return getSessionClusterWithOptions(shared_ptr<string> namespace_, sessionClusterName, headers, runtime);
 }
 
 GetTablesResponse Alibabacloud_Ververica20220718::Client::getTablesWithOptions(shared_ptr<string> namespace_,
@@ -1818,6 +2187,126 @@ ListSavepointsResponse Alibabacloud_Ververica20220718::Client::listSavepoints(sh
   return listSavepointsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
+ListScheduledPlanResponse Alibabacloud_Ververica20220718::Client::listScheduledPlanWithOptions(shared_ptr<string> namespace_,
+                                                                                               shared_ptr<ListScheduledPlanRequest> request,
+                                                                                               shared_ptr<ListScheduledPlanHeaders> headers,
+                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deploymentId)) {
+    query->insert(pair<string, string>("deploymentId", *request->deploymentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageIndex)) {
+    query->insert(pair<string, long>("pageIndex", *request->pageIndex));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListScheduledPlan"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/scheduled-plans"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListScheduledPlanResponse(callApi(params, req, runtime));
+}
+
+ListScheduledPlanResponse Alibabacloud_Ververica20220718::Client::listScheduledPlan(shared_ptr<string> namespace_, shared_ptr<ListScheduledPlanRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ListScheduledPlanHeaders> headers = make_shared<ListScheduledPlanHeaders>();
+  return listScheduledPlanWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+}
+
+ListScheduledPlanExecutedHistoryResponse Alibabacloud_Ververica20220718::Client::listScheduledPlanExecutedHistoryWithOptions(shared_ptr<string> namespace_,
+                                                                                                                             shared_ptr<ListScheduledPlanExecutedHistoryRequest> request,
+                                                                                                                             shared_ptr<ListScheduledPlanExecutedHistoryHeaders> headers,
+                                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deploymentId)) {
+    query->insert(pair<string, string>("deploymentId", *request->deploymentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->origin)) {
+    query->insert(pair<string, string>("origin", *request->origin));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListScheduledPlanExecutedHistory"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/job-resource-upgradings"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListScheduledPlanExecutedHistoryResponse(callApi(params, req, runtime));
+}
+
+ListScheduledPlanExecutedHistoryResponse Alibabacloud_Ververica20220718::Client::listScheduledPlanExecutedHistory(shared_ptr<string> namespace_, shared_ptr<ListScheduledPlanExecutedHistoryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ListScheduledPlanExecutedHistoryHeaders> headers = make_shared<ListScheduledPlanExecutedHistoryHeaders>();
+  return listScheduledPlanExecutedHistoryWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+}
+
+ListSessionClustersResponse Alibabacloud_Ververica20220718::Client::listSessionClustersWithOptions(shared_ptr<string> namespace_, shared_ptr<ListSessionClustersHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSessionClusters"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/sessionclusters"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSessionClustersResponse(callApi(params, req, runtime));
+}
+
+ListSessionClustersResponse Alibabacloud_Ververica20220718::Client::listSessionClusters(shared_ptr<string> namespace_) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ListSessionClustersHeaders> headers = make_shared<ListSessionClustersHeaders>();
+  return listSessionClustersWithOptions(shared_ptr<string> namespace_, headers, runtime);
+}
+
 ListVariablesResponse Alibabacloud_Ververica20220718::Client::listVariablesWithOptions(shared_ptr<string> namespace_,
                                                                                        shared_ptr<ListVariablesRequest> request,
                                                                                        shared_ptr<ListVariablesHeaders> headers,
@@ -2019,6 +2508,74 @@ StartJobWithParamsResponse Alibabacloud_Ververica20220718::Client::startJobWithP
   return startJobWithParamsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
+StartSessionClusterResponse Alibabacloud_Ververica20220718::Client::startSessionClusterWithOptions(shared_ptr<string> namespace_,
+                                                                                                   shared_ptr<string> sessionClusterName,
+                                                                                                   shared_ptr<StartSessionClusterHeaders> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartSessionCluster"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/sessionclusters/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(sessionClusterName)) + string("%3Astart"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartSessionClusterResponse(callApi(params, req, runtime));
+}
+
+StartSessionClusterResponse Alibabacloud_Ververica20220718::Client::startSessionCluster(shared_ptr<string> namespace_, shared_ptr<string> sessionClusterName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<StartSessionClusterHeaders> headers = make_shared<StartSessionClusterHeaders>();
+  return startSessionClusterWithOptions(shared_ptr<string> namespace_, sessionClusterName, headers, runtime);
+}
+
+StopApplyScheduledPlanResponse Alibabacloud_Ververica20220718::Client::stopApplyScheduledPlanWithOptions(shared_ptr<string> namespace_,
+                                                                                                         shared_ptr<string> scheduledPlanId,
+                                                                                                         shared_ptr<StopApplyScheduledPlanHeaders> headers,
+                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopApplyScheduledPlan"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/scheduled-plans/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(scheduledPlanId)) + string("%3Astop"))},
+    {"method", boost::any(string("PATCH"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopApplyScheduledPlanResponse(callApi(params, req, runtime));
+}
+
+StopApplyScheduledPlanResponse Alibabacloud_Ververica20220718::Client::stopApplyScheduledPlan(shared_ptr<string> namespace_, shared_ptr<string> scheduledPlanId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<StopApplyScheduledPlanHeaders> headers = make_shared<StopApplyScheduledPlanHeaders>();
+  return stopApplyScheduledPlanWithOptions(shared_ptr<string> namespace_, scheduledPlanId, headers, runtime);
+}
+
 StopJobResponse Alibabacloud_Ververica20220718::Client::stopJobWithOptions(shared_ptr<string> namespace_,
                                                                            shared_ptr<string> jobId,
                                                                            shared_ptr<StopJobRequest> request,
@@ -2054,6 +2611,40 @@ StopJobResponse Alibabacloud_Ververica20220718::Client::stopJob(shared_ptr<strin
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<StopJobHeaders> headers = make_shared<StopJobHeaders>();
   return stopJobWithOptions(shared_ptr<string> namespace_, jobId, request, headers, runtime);
+}
+
+StopSessionClusterResponse Alibabacloud_Ververica20220718::Client::stopSessionClusterWithOptions(shared_ptr<string> namespace_,
+                                                                                                 shared_ptr<string> sessionClusterName,
+                                                                                                 shared_ptr<StopSessionClusterHeaders> headers,
+                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopSessionCluster"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/sessionclusters/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(sessionClusterName)) + string("%3Astop"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopSessionClusterResponse(callApi(params, req, runtime));
+}
+
+StopSessionClusterResponse Alibabacloud_Ververica20220718::Client::stopSessionCluster(shared_ptr<string> namespace_, shared_ptr<string> sessionClusterName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<StopSessionClusterHeaders> headers = make_shared<StopSessionClusterHeaders>();
+  return stopSessionClusterWithOptions(shared_ptr<string> namespace_, sessionClusterName, headers, runtime);
 }
 
 UpdateDeploymentResponse Alibabacloud_Ververica20220718::Client::updateDeploymentWithOptions(shared_ptr<string> namespace_,
@@ -2130,6 +2721,43 @@ UpdateDeploymentDraftResponse Alibabacloud_Ververica20220718::Client::updateDepl
   return updateDeploymentDraftWithOptions(shared_ptr<string> namespace_, deploymentDraftId, request, headers, runtime);
 }
 
+UpdateDeploymentTargetResponse Alibabacloud_Ververica20220718::Client::updateDeploymentTargetWithOptions(shared_ptr<string> namespace_,
+                                                                                                         shared_ptr<string> deploymentTargetName,
+                                                                                                         shared_ptr<UpdateDeploymentTargetRequest> request,
+                                                                                                         shared_ptr<UpdateDeploymentTargetHeaders> headers,
+                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateDeploymentTarget"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/deployment-targets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(deploymentTargetName)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateDeploymentTargetResponse(callApi(params, req, runtime));
+}
+
+UpdateDeploymentTargetResponse Alibabacloud_Ververica20220718::Client::updateDeploymentTarget(shared_ptr<string> namespace_, shared_ptr<string> deploymentTargetName, shared_ptr<UpdateDeploymentTargetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<UpdateDeploymentTargetHeaders> headers = make_shared<UpdateDeploymentTargetHeaders>();
+  return updateDeploymentTargetWithOptions(shared_ptr<string> namespace_, deploymentTargetName, request, headers, runtime);
+}
+
 UpdateFolderResponse Alibabacloud_Ververica20220718::Client::updateFolderWithOptions(shared_ptr<string> namespace_,
                                                                                      shared_ptr<string> folderId,
                                                                                      shared_ptr<UpdateFolderRequest> request,
@@ -2201,6 +2829,80 @@ UpdateMemberResponse Alibabacloud_Ververica20220718::Client::updateMember(shared
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<UpdateMemberHeaders> headers = make_shared<UpdateMemberHeaders>();
   return updateMemberWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+}
+
+UpdateScheduledPlanResponse Alibabacloud_Ververica20220718::Client::updateScheduledPlanWithOptions(shared_ptr<string> namespace_,
+                                                                                                   shared_ptr<string> scheduledPlanId,
+                                                                                                   shared_ptr<UpdateScheduledPlanRequest> request,
+                                                                                                   shared_ptr<UpdateScheduledPlanHeaders> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateScheduledPlan"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/scheduled-plans/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(scheduledPlanId)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateScheduledPlanResponse(callApi(params, req, runtime));
+}
+
+UpdateScheduledPlanResponse Alibabacloud_Ververica20220718::Client::updateScheduledPlan(shared_ptr<string> namespace_, shared_ptr<string> scheduledPlanId, shared_ptr<UpdateScheduledPlanRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<UpdateScheduledPlanHeaders> headers = make_shared<UpdateScheduledPlanHeaders>();
+  return updateScheduledPlanWithOptions(shared_ptr<string> namespace_, scheduledPlanId, request, headers, runtime);
+}
+
+UpdateSessionClusterResponse Alibabacloud_Ververica20220718::Client::updateSessionClusterWithOptions(shared_ptr<string> namespace_,
+                                                                                                     shared_ptr<string> sessionClusterName,
+                                                                                                     shared_ptr<UpdateSessionClusterRequest> request,
+                                                                                                     shared_ptr<UpdateSessionClusterHeaders> headers,
+                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateSessionCluster"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/sessionclusters/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(sessionClusterName)))},
+    {"method", boost::any(string("PATCH"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateSessionClusterResponse(callApi(params, req, runtime));
+}
+
+UpdateSessionClusterResponse Alibabacloud_Ververica20220718::Client::updateSessionCluster(shared_ptr<string> namespace_, shared_ptr<string> sessionClusterName, shared_ptr<UpdateSessionClusterRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<UpdateSessionClusterHeaders> headers = make_shared<UpdateSessionClusterHeaders>();
+  return updateSessionClusterWithOptions(shared_ptr<string> namespace_, sessionClusterName, request, headers, runtime);
 }
 
 UpdateUdfArtifactResponse Alibabacloud_Ververica20220718::Client::updateUdfArtifactWithOptions(shared_ptr<string> namespace_,
