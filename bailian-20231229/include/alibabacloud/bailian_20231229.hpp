@@ -1334,11 +1334,104 @@ public:
 
   virtual ~CreateIndexRequestColumns() = default;
 };
+class CreateIndexRequestDataSource : public Darabonba::Model {
+public:
+  shared_ptr<string> credentialId{};
+  shared_ptr<string> credentialKey{};
+  shared_ptr<string> database{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<bool> isPrivateLink{};
+  shared_ptr<string> region{};
+  shared_ptr<string> subPath{};
+  shared_ptr<string> subType{};
+  shared_ptr<string> table{};
+  shared_ptr<string> type{};
+
+  CreateIndexRequestDataSource() {}
+
+  explicit CreateIndexRequestDataSource(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialId) {
+      res["CredentialId"] = boost::any(*credentialId);
+    }
+    if (credentialKey) {
+      res["CredentialKey"] = boost::any(*credentialKey);
+    }
+    if (database) {
+      res["Database"] = boost::any(*database);
+    }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (isPrivateLink) {
+      res["IsPrivateLink"] = boost::any(*isPrivateLink);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (subPath) {
+      res["SubPath"] = boost::any(*subPath);
+    }
+    if (subType) {
+      res["SubType"] = boost::any(*subType);
+    }
+    if (table) {
+      res["Table"] = boost::any(*table);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialId") != m.end() && !m["CredentialId"].empty()) {
+      credentialId = make_shared<string>(boost::any_cast<string>(m["CredentialId"]));
+    }
+    if (m.find("CredentialKey") != m.end() && !m["CredentialKey"].empty()) {
+      credentialKey = make_shared<string>(boost::any_cast<string>(m["CredentialKey"]));
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["Database"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("IsPrivateLink") != m.end() && !m["IsPrivateLink"].empty()) {
+      isPrivateLink = make_shared<bool>(boost::any_cast<bool>(m["IsPrivateLink"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("SubPath") != m.end() && !m["SubPath"].empty()) {
+      subPath = make_shared<string>(boost::any_cast<string>(m["SubPath"]));
+    }
+    if (m.find("SubType") != m.end() && !m["SubType"].empty()) {
+      subType = make_shared<string>(boost::any_cast<string>(m["SubType"]));
+    }
+    if (m.find("Table") != m.end() && !m["Table"].empty()) {
+      table = make_shared<string>(boost::any_cast<string>(m["Table"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateIndexRequestDataSource() = default;
+};
 class CreateIndexRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> categoryIds{};
   shared_ptr<long> chunkSize{};
   shared_ptr<vector<CreateIndexRequestColumns>> columns{};
+  shared_ptr<CreateIndexRequestDataSource> dataSource{};
   shared_ptr<string> description{};
   shared_ptr<vector<string>> documentIds{};
   shared_ptr<string> embeddingModelName{};
@@ -1375,6 +1468,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Columns"] = boost::any(temp1);
+    }
+    if (dataSource) {
+      res["DataSource"] = dataSource ? boost::any(dataSource->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -1445,6 +1541,13 @@ public:
         columns = make_shared<vector<CreateIndexRequestColumns>>(expect1);
       }
     }
+    if (m.find("DataSource") != m.end() && !m["DataSource"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DataSource"].type()) {
+        CreateIndexRequestDataSource model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DataSource"]));
+        dataSource = make_shared<CreateIndexRequestDataSource>(model1);
+      }
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -1501,6 +1604,7 @@ public:
   shared_ptr<string> categoryIdsShrink{};
   shared_ptr<long> chunkSize{};
   shared_ptr<string> columnsShrink{};
+  shared_ptr<string> dataSourceShrink{};
   shared_ptr<string> description{};
   shared_ptr<string> documentIdsShrink{};
   shared_ptr<string> embeddingModelName{};
@@ -1533,6 +1637,9 @@ public:
     }
     if (columnsShrink) {
       res["Columns"] = boost::any(*columnsShrink);
+    }
+    if (dataSourceShrink) {
+      res["DataSource"] = boost::any(*dataSourceShrink);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -1585,6 +1692,9 @@ public:
     }
     if (m.find("Columns") != m.end() && !m["Columns"].empty()) {
       columnsShrink = make_shared<string>(boost::any_cast<string>(m["Columns"]));
+    }
+    if (m.find("DataSource") != m.end() && !m["DataSource"].empty()) {
+      dataSourceShrink = make_shared<string>(boost::any_cast<string>(m["DataSource"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -6935,6 +7045,7 @@ public:
   shared_ptr<long> denseSimilarityTopK{};
   shared_ptr<bool> enableReranking{};
   shared_ptr<bool> enableRewrite{};
+  shared_ptr<vector<string>> images{};
   shared_ptr<string> indexId{};
   shared_ptr<string> query{};
   shared_ptr<vector<RetrieveRequestRerank>> rerank{};
@@ -6963,6 +7074,9 @@ public:
     }
     if (enableRewrite) {
       res["EnableRewrite"] = boost::any(*enableRewrite);
+    }
+    if (images) {
+      res["Images"] = boost::any(*images);
     }
     if (indexId) {
       res["IndexId"] = boost::any(*indexId);
@@ -7011,6 +7125,16 @@ public:
     }
     if (m.find("EnableRewrite") != m.end() && !m["EnableRewrite"].empty()) {
       enableRewrite = make_shared<bool>(boost::any_cast<bool>(m["EnableRewrite"]));
+    }
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Images"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      images = make_shared<vector<string>>(toVec1);
     }
     if (m.find("IndexId") != m.end() && !m["IndexId"].empty()) {
       indexId = make_shared<string>(boost::any_cast<string>(m["IndexId"]));
@@ -7081,6 +7205,7 @@ public:
   shared_ptr<long> denseSimilarityTopK{};
   shared_ptr<bool> enableReranking{};
   shared_ptr<bool> enableRewrite{};
+  shared_ptr<string> imagesShrink{};
   shared_ptr<string> indexId{};
   shared_ptr<string> query{};
   shared_ptr<string> rerankShrink{};
@@ -7109,6 +7234,9 @@ public:
     }
     if (enableRewrite) {
       res["EnableRewrite"] = boost::any(*enableRewrite);
+    }
+    if (imagesShrink) {
+      res["Images"] = boost::any(*imagesShrink);
     }
     if (indexId) {
       res["IndexId"] = boost::any(*indexId);
@@ -7149,6 +7277,9 @@ public:
     }
     if (m.find("EnableRewrite") != m.end() && !m["EnableRewrite"].empty()) {
       enableRewrite = make_shared<bool>(boost::any_cast<bool>(m["EnableRewrite"]));
+    }
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      imagesShrink = make_shared<string>(boost::any_cast<string>(m["Images"]));
     }
     if (m.find("IndexId") != m.end() && !m["IndexId"].empty()) {
       indexId = make_shared<string>(boost::any_cast<string>(m["IndexId"]));

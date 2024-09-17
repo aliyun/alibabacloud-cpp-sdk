@@ -215,6 +215,9 @@ CreateIndexResponse Alibabacloud_Bailian20231229::Client::createIndexWithOptions
   if (!Darabonba_Util::Client::isUnset<vector<CreateIndexRequestColumns>>(tmpReq->columns)) {
     request->columnsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->columns, make_shared<string>("Columns"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateIndexRequestDataSource>(tmpReq->dataSource)) {
+    request->dataSourceShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dataSource, make_shared<string>("DataSource"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->documentIds)) {
     request->documentIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->documentIds, make_shared<string>("DocumentIds"), make_shared<string>("json")));
   }
@@ -227,6 +230,9 @@ CreateIndexResponse Alibabacloud_Bailian20231229::Client::createIndexWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->columnsShrink)) {
     query->insert(pair<string, string>("Columns", *request->columnsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceShrink)) {
+    query->insert(pair<string, string>("DataSource", *request->dataSourceShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
@@ -1045,6 +1051,9 @@ RetrieveResponse Alibabacloud_Bailian20231229::Client::retrieveWithOptions(share
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<RetrieveShrinkRequest> request = make_shared<RetrieveShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->images)) {
+    request->imagesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->images, make_shared<string>("Images"), make_shared<string>("simple")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<RetrieveRequestRerank>>(tmpReq->rerank)) {
     request->rerankShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->rerank, make_shared<string>("Rerank"), make_shared<string>("json")));
   }
@@ -1063,6 +1072,9 @@ RetrieveResponse Alibabacloud_Bailian20231229::Client::retrieveWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableRewrite)) {
     query->insert(pair<string, bool>("EnableRewrite", *request->enableRewrite));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imagesShrink)) {
+    query->insert(pair<string, string>("Images", *request->imagesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->indexId)) {
     query->insert(pair<string, string>("IndexId", *request->indexId));
