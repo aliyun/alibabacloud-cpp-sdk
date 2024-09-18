@@ -15946,6 +15946,198 @@ public:
 
   virtual ~GetChatMediaUrlResponse() = default;
 };
+class GetChatRoutingProfileRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  GetChatRoutingProfileRequest() {}
+
+  explicit GetChatRoutingProfileRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GetChatRoutingProfileRequest() = default;
+};
+class GetChatRoutingProfileResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> agentConcurrencySettings{};
+  shared_ptr<string> chatSettings{};
+  shared_ptr<string> distributionSettings{};
+  shared_ptr<string> routingType{};
+
+  GetChatRoutingProfileResponseBodyData() {}
+
+  explicit GetChatRoutingProfileResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentConcurrencySettings) {
+      res["AgentConcurrencySettings"] = boost::any(*agentConcurrencySettings);
+    }
+    if (chatSettings) {
+      res["ChatSettings"] = boost::any(*chatSettings);
+    }
+    if (distributionSettings) {
+      res["DistributionSettings"] = boost::any(*distributionSettings);
+    }
+    if (routingType) {
+      res["RoutingType"] = boost::any(*routingType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentConcurrencySettings") != m.end() && !m["AgentConcurrencySettings"].empty()) {
+      agentConcurrencySettings = make_shared<string>(boost::any_cast<string>(m["AgentConcurrencySettings"]));
+    }
+    if (m.find("ChatSettings") != m.end() && !m["ChatSettings"].empty()) {
+      chatSettings = make_shared<string>(boost::any_cast<string>(m["ChatSettings"]));
+    }
+    if (m.find("DistributionSettings") != m.end() && !m["DistributionSettings"].empty()) {
+      distributionSettings = make_shared<string>(boost::any_cast<string>(m["DistributionSettings"]));
+    }
+    if (m.find("RoutingType") != m.end() && !m["RoutingType"].empty()) {
+      routingType = make_shared<string>(boost::any_cast<string>(m["RoutingType"]));
+    }
+  }
+
+
+  virtual ~GetChatRoutingProfileResponseBodyData() = default;
+};
+class GetChatRoutingProfileResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetChatRoutingProfileResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  GetChatRoutingProfileResponseBody() {}
+
+  explicit GetChatRoutingProfileResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetChatRoutingProfileResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetChatRoutingProfileResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetChatRoutingProfileResponseBody() = default;
+};
+class GetChatRoutingProfileResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetChatRoutingProfileResponseBody> body{};
+
+  GetChatRoutingProfileResponse() {}
+
+  explicit GetChatRoutingProfileResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetChatRoutingProfileResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetChatRoutingProfileResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetChatRoutingProfileResponse() = default;
+};
 class GetContactFlowRequest : public Darabonba::Model {
 public:
   shared_ptr<string> contactFlowId{};
@@ -73287,6 +73479,158 @@ public:
 
   virtual ~UpdateCampaignResponse() = default;
 };
+class UpdateChatRoutingProfileRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> routingProfiles{};
+
+  UpdateChatRoutingProfileRequest() {}
+
+  explicit UpdateChatRoutingProfileRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (routingProfiles) {
+      res["RoutingProfiles"] = boost::any(*routingProfiles);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RoutingProfiles") != m.end() && !m["RoutingProfiles"].empty()) {
+      routingProfiles = make_shared<string>(boost::any_cast<string>(m["RoutingProfiles"]));
+    }
+  }
+
+
+  virtual ~UpdateChatRoutingProfileRequest() = default;
+};
+class UpdateChatRoutingProfileResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<vector<string>> params{};
+  shared_ptr<string> requestId{};
+
+  UpdateChatRoutingProfileResponseBody() {}
+
+  explicit UpdateChatRoutingProfileResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Params"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Params"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      params = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateChatRoutingProfileResponseBody() = default;
+};
+class UpdateChatRoutingProfileResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateChatRoutingProfileResponseBody> body{};
+
+  UpdateChatRoutingProfileResponse() {}
+
+  explicit UpdateChatRoutingProfileResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateChatRoutingProfileResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateChatRoutingProfileResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateChatRoutingProfileResponse() = default;
+};
 class UpdateConfigItemsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> configItems{};
@@ -74298,6 +74642,8 @@ public:
   GetCaseFileUploadUrlResponse getCaseFileUploadUrl(shared_ptr<GetCaseFileUploadUrlRequest> request);
   GetChatMediaUrlResponse getChatMediaUrlWithOptions(shared_ptr<GetChatMediaUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetChatMediaUrlResponse getChatMediaUrl(shared_ptr<GetChatMediaUrlRequest> request);
+  GetChatRoutingProfileResponse getChatRoutingProfileWithOptions(shared_ptr<GetChatRoutingProfileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetChatRoutingProfileResponse getChatRoutingProfile(shared_ptr<GetChatRoutingProfileRequest> request);
   GetContactFlowResponse getContactFlowWithOptions(shared_ptr<GetContactFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetContactFlowResponse getContactFlow(shared_ptr<GetContactFlowRequest> request);
   GetConversationDetailResponse getConversationDetailWithOptions(shared_ptr<GetConversationDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -74624,6 +74970,8 @@ public:
   UnregisterDeviceResponse unregisterDevice(shared_ptr<UnregisterDeviceRequest> request);
   UpdateCampaignResponse updateCampaignWithOptions(shared_ptr<UpdateCampaignRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateCampaignResponse updateCampaign(shared_ptr<UpdateCampaignRequest> request);
+  UpdateChatRoutingProfileResponse updateChatRoutingProfileWithOptions(shared_ptr<UpdateChatRoutingProfileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateChatRoutingProfileResponse updateChatRoutingProfile(shared_ptr<UpdateChatRoutingProfileRequest> request);
   UpdateConfigItemsResponse updateConfigItemsWithOptions(shared_ptr<UpdateConfigItemsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateConfigItemsResponse updateConfigItems(shared_ptr<UpdateConfigItemsRequest> request);
   UpdateSchemaPropertyResponse updateSchemaPropertyWithOptions(shared_ptr<UpdateSchemaPropertyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

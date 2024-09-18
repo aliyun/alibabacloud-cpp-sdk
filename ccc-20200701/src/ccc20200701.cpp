@@ -2456,6 +2456,34 @@ GetChatMediaUrlResponse Alibabacloud_CCC20200701::Client::getChatMediaUrl(shared
   return getChatMediaUrlWithOptions(request, runtime);
 }
 
+GetChatRoutingProfileResponse Alibabacloud_CCC20200701::Client::getChatRoutingProfileWithOptions(shared_ptr<GetChatRoutingProfileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetChatRoutingProfile"))},
+    {"version", boost::any(string("2020-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetChatRoutingProfileResponse(callApi(params, req, runtime));
+}
+
+GetChatRoutingProfileResponse Alibabacloud_CCC20200701::Client::getChatRoutingProfile(shared_ptr<GetChatRoutingProfileRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getChatRoutingProfileWithOptions(request, runtime);
+}
+
 GetContactFlowResponse Alibabacloud_CCC20200701::Client::getContactFlowWithOptions(shared_ptr<GetContactFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -8701,6 +8729,37 @@ UpdateCampaignResponse Alibabacloud_CCC20200701::Client::updateCampaignWithOptio
 UpdateCampaignResponse Alibabacloud_CCC20200701::Client::updateCampaign(shared_ptr<UpdateCampaignRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateCampaignWithOptions(request, runtime);
+}
+
+UpdateChatRoutingProfileResponse Alibabacloud_CCC20200701::Client::updateChatRoutingProfileWithOptions(shared_ptr<UpdateChatRoutingProfileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routingProfiles)) {
+    query->insert(pair<string, string>("RoutingProfiles", *request->routingProfiles));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateChatRoutingProfile"))},
+    {"version", boost::any(string("2020-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateChatRoutingProfileResponse(callApi(params, req, runtime));
+}
+
+UpdateChatRoutingProfileResponse Alibabacloud_CCC20200701::Client::updateChatRoutingProfile(shared_ptr<UpdateChatRoutingProfileRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateChatRoutingProfileWithOptions(request, runtime);
 }
 
 UpdateConfigItemsResponse Alibabacloud_CCC20200701::Client::updateConfigItemsWithOptions(shared_ptr<UpdateConfigItemsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
