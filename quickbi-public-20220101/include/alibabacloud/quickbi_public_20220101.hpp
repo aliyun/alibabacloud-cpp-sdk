@@ -12732,6 +12732,7 @@ public:
   shared_ptr<string> dimensionType{};
   shared_ptr<string> expression{};
   shared_ptr<string> factColumn{};
+  shared_ptr<string> fieldDescription{};
   shared_ptr<string> granularity{};
   shared_ptr<string> refUid{};
   shared_ptr<string> tableUniqueId{};
@@ -12761,6 +12762,9 @@ public:
     }
     if (factColumn) {
       res["FactColumn"] = boost::any(*factColumn);
+    }
+    if (fieldDescription) {
+      res["FieldDescription"] = boost::any(*fieldDescription);
     }
     if (granularity) {
       res["Granularity"] = boost::any(*granularity);
@@ -12792,6 +12796,9 @@ public:
     }
     if (m.find("FactColumn") != m.end() && !m["FactColumn"].empty()) {
       factColumn = make_shared<string>(boost::any_cast<string>(m["FactColumn"]));
+    }
+    if (m.find("FieldDescription") != m.end() && !m["FieldDescription"].empty()) {
+      fieldDescription = make_shared<string>(boost::any_cast<string>(m["FieldDescription"]));
     }
     if (m.find("Granularity") != m.end() && !m["Granularity"].empty()) {
       granularity = make_shared<string>(boost::any_cast<string>(m["Granularity"]));
@@ -12866,6 +12873,7 @@ public:
   shared_ptr<string> dataType{};
   shared_ptr<string> expression{};
   shared_ptr<string> factColumn{};
+  shared_ptr<string> fieldDescription{};
   shared_ptr<string> measureType{};
   shared_ptr<string> tableUniqueId{};
   shared_ptr<string> uid{};
@@ -12892,6 +12900,9 @@ public:
     if (factColumn) {
       res["FactColumn"] = boost::any(*factColumn);
     }
+    if (fieldDescription) {
+      res["FieldDescription"] = boost::any(*fieldDescription);
+    }
     if (measureType) {
       res["MeasureType"] = boost::any(*measureType);
     }
@@ -12916,6 +12927,9 @@ public:
     }
     if (m.find("FactColumn") != m.end() && !m["FactColumn"].empty()) {
       factColumn = make_shared<string>(boost::any_cast<string>(m["FactColumn"]));
+    }
+    if (m.find("FieldDescription") != m.end() && !m["FieldDescription"].empty()) {
+      fieldDescription = make_shared<string>(boost::any_cast<string>(m["FieldDescription"]));
     }
     if (m.find("MeasureType") != m.end() && !m["MeasureType"].empty()) {
       measureType = make_shared<string>(boost::any_cast<string>(m["MeasureType"]));
