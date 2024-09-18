@@ -64,6 +64,9 @@ BuildIndexResponse Alibabacloud_Searchengine20211025::Client::buildIndexWithOpti
   if (!Darabonba_Util::Client::isUnset<string>(request->partition)) {
     body->insert(pair<string, string>("partition", *request->partition));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tag)) {
+    body->insert(pair<string, string>("tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -494,6 +497,12 @@ CreateInstanceResponse Alibabacloud_Searchengine20211025::Client::createInstance
   }
   if (!Darabonba_Util::Client::isUnset<CreateInstanceRequestOrder>(request->order)) {
     body->insert(pair<string, CreateInstanceRequestOrder>("order", *request->order));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateInstanceRequestTags>>(request->tags)) {
+    body->insert(pair<string, vector<CreateInstanceRequestTags>>("tags", *request->tags));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1953,8 +1962,17 @@ ListIndexesResponse Alibabacloud_Searchengine20211025::Client::listIndexesWithOp
                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->catalog)) {
+    query->insert(pair<string, string>("catalog", *request->catalog));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->database)) {
+    query->insert(pair<string, string>("database", *request->database));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->newMode)) {
     query->insert(pair<string, bool>("newMode", *request->newMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->table)) {
+    query->insert(pair<string, string>("table", *request->table));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2021,6 +2039,15 @@ ListInstancesResponse Alibabacloud_Searchengine20211025::Client::listInstancesWi
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->catalog)) {
+    query->insert(pair<string, string>("catalog", *request->catalog));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceType)) {
+    query->insert(pair<string, string>("dataSourceType", *request->dataSourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->database)) {
+    query->insert(pair<string, string>("database", *request->database));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("description", *request->description));
   }
@@ -2038,6 +2065,9 @@ ListInstancesResponse Alibabacloud_Searchengine20211025::Client::listInstancesWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->table)) {
+    query->insert(pair<string, string>("table", *request->table));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
     query->insert(pair<string, string>("tags", *request->tagsShrink));
@@ -2930,6 +2960,9 @@ ModifyIndexResponse Alibabacloud_Searchengine20211025::Client::modifyIndexWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
     body->insert(pair<string, string>("domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->extend)) {
+    body->insert(pair<string, map<string, boost::any>>("extend", *request->extend));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->mergeParallelNum)) {
     body->insert(pair<string, long>("mergeParallelNum", *request->mergeParallelNum));

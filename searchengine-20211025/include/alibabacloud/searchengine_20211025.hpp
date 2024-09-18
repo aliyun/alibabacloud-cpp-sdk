@@ -638,6 +638,7 @@ public:
   shared_ptr<string> domain{};
   shared_ptr<long> generation{};
   shared_ptr<string> partition{};
+  shared_ptr<string> tag{};
 
   BuildIndexRequest() {}
 
@@ -670,6 +671,9 @@ public:
     if (partition) {
       res["partition"] = boost::any(*partition);
     }
+    if (tag) {
+      res["tag"] = boost::any(*tag);
+    }
     return res;
   }
 
@@ -694,6 +698,9 @@ public:
     }
     if (m.find("partition") != m.end() && !m["partition"].empty()) {
       partition = make_shared<string>(boost::any_cast<string>(m["partition"]));
+    }
+    if (m.find("tag") != m.end() && !m["tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["tag"]));
     }
   }
 
@@ -1752,6 +1759,8 @@ public:
   shared_ptr<string> accessKey{};
   shared_ptr<string> accessSecret{};
   shared_ptr<string> bucket{};
+  shared_ptr<string> catalog{};
+  shared_ptr<string> database{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> ossPath{};
@@ -1759,6 +1768,7 @@ public:
   shared_ptr<string> path{};
   shared_ptr<string> project{};
   shared_ptr<string> table{};
+  shared_ptr<string> tag{};
 
   CreateDataSourceRequestConfig() {}
 
@@ -1778,6 +1788,12 @@ public:
     }
     if (bucket) {
       res["bucket"] = boost::any(*bucket);
+    }
+    if (catalog) {
+      res["catalog"] = boost::any(*catalog);
+    }
+    if (database) {
+      res["database"] = boost::any(*database);
     }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
@@ -1800,6 +1816,9 @@ public:
     if (table) {
       res["table"] = boost::any(*table);
     }
+    if (tag) {
+      res["tag"] = boost::any(*tag);
+    }
     return res;
   }
 
@@ -1812,6 +1831,12 @@ public:
     }
     if (m.find("bucket") != m.end() && !m["bucket"].empty()) {
       bucket = make_shared<string>(boost::any_cast<string>(m["bucket"]));
+    }
+    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
+      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
+    }
+    if (m.find("database") != m.end() && !m["database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["database"]));
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
@@ -1833,6 +1858,9 @@ public:
     }
     if (m.find("table") != m.end() && !m["table"].empty()) {
       table = make_shared<string>(boost::any_cast<string>(m["table"]));
+    }
+    if (m.find("tag") != m.end() && !m["tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["tag"]));
     }
   }
 
@@ -2272,6 +2300,8 @@ public:
   shared_ptr<string> accessKey{};
   shared_ptr<string> accessSecret{};
   shared_ptr<string> bucket{};
+  shared_ptr<string> catalog{};
+  shared_ptr<string> database{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> ossPath{};
@@ -2279,6 +2309,7 @@ public:
   shared_ptr<string> path{};
   shared_ptr<string> project{};
   shared_ptr<string> table{};
+  shared_ptr<string> tag{};
 
   CreateIndexRequestDataSourceInfoConfig() {}
 
@@ -2298,6 +2329,12 @@ public:
     }
     if (bucket) {
       res["bucket"] = boost::any(*bucket);
+    }
+    if (catalog) {
+      res["catalog"] = boost::any(*catalog);
+    }
+    if (database) {
+      res["database"] = boost::any(*database);
     }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
@@ -2320,6 +2357,9 @@ public:
     if (table) {
       res["table"] = boost::any(*table);
     }
+    if (tag) {
+      res["tag"] = boost::any(*tag);
+    }
     return res;
   }
 
@@ -2332,6 +2372,12 @@ public:
     }
     if (m.find("bucket") != m.end() && !m["bucket"].empty()) {
       bucket = make_shared<string>(boost::any_cast<string>(m["bucket"]));
+    }
+    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
+      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
+    }
+    if (m.find("database") != m.end() && !m["database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["database"]));
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
@@ -2353,6 +2399,9 @@ public:
     }
     if (m.find("table") != m.end() && !m["table"].empty()) {
       table = make_shared<string>(boost::any_cast<string>(m["table"]));
+    }
+    if (m.find("tag") != m.end() && !m["tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["tag"]));
     }
   }
 
@@ -2761,11 +2810,49 @@ public:
 
   virtual ~CreateInstanceRequestOrder() = default;
 };
+class CreateInstanceRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateInstanceRequestTags() {}
+
+  explicit CreateInstanceRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["key"] = boost::any(*key);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~CreateInstanceRequestTags() = default;
+};
 class CreateInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> chargeType{};
   shared_ptr<vector<CreateInstanceRequestComponents>> components{};
   shared_ptr<CreateInstanceRequestOrder> order{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<CreateInstanceRequestTags>> tags{};
 
   CreateInstanceRequest() {}
 
@@ -2789,6 +2876,16 @@ public:
     }
     if (order) {
       res["order"] = order ? boost::any(order->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceGroupId) {
+      res["resourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
     }
     return res;
   }
@@ -2815,6 +2912,22 @@ public:
         CreateInstanceRequestOrder model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["order"]));
         order = make_shared<CreateInstanceRequestOrder>(model1);
+      }
+    }
+    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<CreateInstanceRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateInstanceRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateInstanceRequestTags>>(expect1);
       }
     }
   }
@@ -3398,11 +3511,14 @@ public:
   shared_ptr<string> accessKey{};
   shared_ptr<string> accessSecret{};
   shared_ptr<string> bucket{};
+  shared_ptr<string> catalog{};
+  shared_ptr<string> database{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> ossPath{};
   shared_ptr<string> partition{};
   shared_ptr<string> project{};
   shared_ptr<string> table{};
+  shared_ptr<string> tag{};
 
   CreateTableRequestDataSourceConfig() {}
 
@@ -3423,6 +3539,12 @@ public:
     if (bucket) {
       res["bucket"] = boost::any(*bucket);
     }
+    if (catalog) {
+      res["catalog"] = boost::any(*catalog);
+    }
+    if (database) {
+      res["database"] = boost::any(*database);
+    }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
     }
@@ -3438,6 +3560,9 @@ public:
     if (table) {
       res["table"] = boost::any(*table);
     }
+    if (tag) {
+      res["tag"] = boost::any(*tag);
+    }
     return res;
   }
 
@@ -3450,6 +3575,12 @@ public:
     }
     if (m.find("bucket") != m.end() && !m["bucket"].empty()) {
       bucket = make_shared<string>(boost::any_cast<string>(m["bucket"]));
+    }
+    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
+      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
+    }
+    if (m.find("database") != m.end() && !m["database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["database"]));
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
@@ -3465,6 +3596,9 @@ public:
     }
     if (m.find("table") != m.end() && !m["table"].empty()) {
       table = make_shared<string>(boost::any_cast<string>(m["table"]));
+    }
+    if (m.find("tag") != m.end() && !m["tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["tag"]));
     }
   }
 
@@ -7577,6 +7711,8 @@ public:
   shared_ptr<string> accessKey{};
   shared_ptr<string> accessSecret{};
   shared_ptr<string> bucket{};
+  shared_ptr<string> catalog{};
+  shared_ptr<string> database{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> ossPath{};
@@ -7584,6 +7720,7 @@ public:
   shared_ptr<string> path{};
   shared_ptr<string> project{};
   shared_ptr<string> table{};
+  shared_ptr<string> tag{};
 
   GetDataSourceDeployResponseBodyResultStorage() {}
 
@@ -7603,6 +7740,12 @@ public:
     }
     if (bucket) {
       res["bucket"] = boost::any(*bucket);
+    }
+    if (catalog) {
+      res["catalog"] = boost::any(*catalog);
+    }
+    if (database) {
+      res["database"] = boost::any(*database);
     }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
@@ -7625,6 +7768,9 @@ public:
     if (table) {
       res["table"] = boost::any(*table);
     }
+    if (tag) {
+      res["tag"] = boost::any(*tag);
+    }
     return res;
   }
 
@@ -7637,6 +7783,12 @@ public:
     }
     if (m.find("bucket") != m.end() && !m["bucket"].empty()) {
       bucket = make_shared<string>(boost::any_cast<string>(m["bucket"]));
+    }
+    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
+      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
+    }
+    if (m.find("database") != m.end() && !m["database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["database"]));
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
@@ -7658,6 +7810,9 @@ public:
     }
     if (m.find("table") != m.end() && !m["table"].empty()) {
       table = make_shared<string>(boost::any_cast<string>(m["table"]));
+    }
+    if (m.find("tag") != m.end() && !m["tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["tag"]));
     }
   }
 
@@ -8742,6 +8897,8 @@ public:
   shared_ptr<string> accessKey{};
   shared_ptr<string> accessSecret{};
   shared_ptr<string> bucket{};
+  shared_ptr<string> catalog{};
+  shared_ptr<string> database{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> ossPath{};
@@ -8749,6 +8906,7 @@ public:
   shared_ptr<string> path{};
   shared_ptr<string> project{};
   shared_ptr<string> table{};
+  shared_ptr<string> tag{};
 
   GetIndexResponseBodyResultDataSourceInfoConfig() {}
 
@@ -8768,6 +8926,12 @@ public:
     }
     if (bucket) {
       res["bucket"] = boost::any(*bucket);
+    }
+    if (catalog) {
+      res["catalog"] = boost::any(*catalog);
+    }
+    if (database) {
+      res["database"] = boost::any(*database);
     }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
@@ -8790,6 +8954,9 @@ public:
     if (table) {
       res["table"] = boost::any(*table);
     }
+    if (tag) {
+      res["tag"] = boost::any(*tag);
+    }
     return res;
   }
 
@@ -8802,6 +8969,12 @@ public:
     }
     if (m.find("bucket") != m.end() && !m["bucket"].empty()) {
       bucket = make_shared<string>(boost::any_cast<string>(m["bucket"]));
+    }
+    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
+      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
+    }
+    if (m.find("database") != m.end() && !m["database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["database"]));
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
@@ -8823,6 +8996,9 @@ public:
     }
     if (m.find("table") != m.end() && !m["table"].empty()) {
       table = make_shared<string>(boost::any_cast<string>(m["table"]));
+    }
+    if (m.find("tag") != m.end() && !m["tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["tag"]));
     }
   }
 
@@ -14362,7 +14538,10 @@ public:
 };
 class ListIndexesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> catalog{};
+  shared_ptr<string> database{};
   shared_ptr<bool> newMode{};
+  shared_ptr<string> table{};
 
   ListIndexesRequest() {}
 
@@ -14374,15 +14553,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (catalog) {
+      res["catalog"] = boost::any(*catalog);
+    }
+    if (database) {
+      res["database"] = boost::any(*database);
+    }
     if (newMode) {
       res["newMode"] = boost::any(*newMode);
+    }
+    if (table) {
+      res["table"] = boost::any(*table);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
+      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
+    }
+    if (m.find("database") != m.end() && !m["database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["database"]));
+    }
     if (m.find("newMode") != m.end() && !m["newMode"].empty()) {
       newMode = make_shared<bool>(boost::any_cast<bool>(m["newMode"]));
+    }
+    if (m.find("table") != m.end() && !m["table"].empty()) {
+      table = make_shared<string>(boost::any_cast<string>(m["table"]));
     }
   }
 
@@ -14394,6 +14591,8 @@ public:
   shared_ptr<string> accessKey{};
   shared_ptr<string> accessSecret{};
   shared_ptr<string> bucket{};
+  shared_ptr<string> catalog{};
+  shared_ptr<string> database{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> ossPath{};
@@ -14401,6 +14600,7 @@ public:
   shared_ptr<string> path{};
   shared_ptr<string> project{};
   shared_ptr<string> table{};
+  shared_ptr<string> tag{};
 
   ListIndexesResponseBodyResultDataSourceInfoConfig() {}
 
@@ -14420,6 +14620,12 @@ public:
     }
     if (bucket) {
       res["bucket"] = boost::any(*bucket);
+    }
+    if (catalog) {
+      res["catalog"] = boost::any(*catalog);
+    }
+    if (database) {
+      res["database"] = boost::any(*database);
     }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
@@ -14442,6 +14648,9 @@ public:
     if (table) {
       res["table"] = boost::any(*table);
     }
+    if (tag) {
+      res["tag"] = boost::any(*tag);
+    }
     return res;
   }
 
@@ -14454,6 +14663,12 @@ public:
     }
     if (m.find("bucket") != m.end() && !m["bucket"].empty()) {
       bucket = make_shared<string>(boost::any_cast<string>(m["bucket"]));
+    }
+    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
+      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
+    }
+    if (m.find("database") != m.end() && !m["database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["database"]));
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
@@ -14475,6 +14690,9 @@ public:
     }
     if (m.find("table") != m.end() && !m["table"].empty()) {
       table = make_shared<string>(boost::any_cast<string>(m["table"]));
+    }
+    if (m.find("tag") != m.end() && !m["tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["tag"]));
     }
   }
 
@@ -15176,12 +15394,16 @@ public:
 };
 class ListInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> catalog{};
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<string> database{};
   shared_ptr<string> description{};
   shared_ptr<string> edition{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> table{};
   shared_ptr<vector<ListInstancesRequestTags>> tags{};
 
   ListInstancesRequest() {}
@@ -15194,6 +15416,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (catalog) {
+      res["catalog"] = boost::any(*catalog);
+    }
+    if (dataSourceType) {
+      res["dataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (database) {
+      res["database"] = boost::any(*database);
+    }
     if (description) {
       res["description"] = boost::any(*description);
     }
@@ -15212,6 +15443,9 @@ public:
     if (resourceGroupId) {
       res["resourceGroupId"] = boost::any(*resourceGroupId);
     }
+    if (table) {
+      res["table"] = boost::any(*table);
+    }
     if (tags) {
       vector<boost::any> temp1;
       for(auto item1:*tags){
@@ -15223,6 +15457,15 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
+      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
+    }
+    if (m.find("dataSourceType") != m.end() && !m["dataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["dataSourceType"]));
+    }
+    if (m.find("database") != m.end() && !m["database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["database"]));
+    }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
     }
@@ -15240,6 +15483,9 @@ public:
     }
     if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
+    }
+    if (m.find("table") != m.end() && !m["table"].empty()) {
+      table = make_shared<string>(boost::any_cast<string>(m["table"]));
     }
     if (m.find("tags") != m.end() && !m["tags"].empty()) {
       if (typeid(vector<boost::any>) == m["tags"].type()) {
@@ -15261,12 +15507,16 @@ public:
 };
 class ListInstancesShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> catalog{};
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<string> database{};
   shared_ptr<string> description{};
   shared_ptr<string> edition{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> table{};
   shared_ptr<string> tagsShrink{};
 
   ListInstancesShrinkRequest() {}
@@ -15279,6 +15529,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (catalog) {
+      res["catalog"] = boost::any(*catalog);
+    }
+    if (dataSourceType) {
+      res["dataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (database) {
+      res["database"] = boost::any(*database);
+    }
     if (description) {
       res["description"] = boost::any(*description);
     }
@@ -15297,6 +15556,9 @@ public:
     if (resourceGroupId) {
       res["resourceGroupId"] = boost::any(*resourceGroupId);
     }
+    if (table) {
+      res["table"] = boost::any(*table);
+    }
     if (tagsShrink) {
       res["tags"] = boost::any(*tagsShrink);
     }
@@ -15304,6 +15566,15 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
+      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
+    }
+    if (m.find("dataSourceType") != m.end() && !m["dataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["dataSourceType"]));
+    }
+    if (m.find("database") != m.end() && !m["database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["database"]));
+    }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
     }
@@ -15322,6 +15593,9 @@ public:
     if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
+    if (m.find("table") != m.end() && !m["table"].empty()) {
+      table = make_shared<string>(boost::any_cast<string>(m["table"]));
+    }
     if (m.find("tags") != m.end() && !m["tags"].empty()) {
       tagsShrink = make_shared<string>(boost::any_cast<string>(m["tags"]));
     }
@@ -15329,6 +15603,159 @@ public:
 
 
   virtual ~ListInstancesShrinkRequest() = default;
+};
+class ListInstancesResponseBodyResultDataSourceDetailsConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKey{};
+  shared_ptr<string> bucket{};
+  shared_ptr<string> catalog{};
+  shared_ptr<string> database{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> ossPath{};
+  shared_ptr<string> partition{};
+  shared_ptr<string> path{};
+  shared_ptr<string> project{};
+  shared_ptr<string> table{};
+  shared_ptr<string> tag{};
+
+  ListInstancesResponseBodyResultDataSourceDetailsConfig() {}
+
+  explicit ListInstancesResponseBodyResultDataSourceDetailsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKey) {
+      res["accessKey"] = boost::any(*accessKey);
+    }
+    if (bucket) {
+      res["bucket"] = boost::any(*bucket);
+    }
+    if (catalog) {
+      res["catalog"] = boost::any(*catalog);
+    }
+    if (database) {
+      res["database"] = boost::any(*database);
+    }
+    if (endpoint) {
+      res["endpoint"] = boost::any(*endpoint);
+    }
+    if (namespace_) {
+      res["namespace"] = boost::any(*namespace_);
+    }
+    if (ossPath) {
+      res["ossPath"] = boost::any(*ossPath);
+    }
+    if (partition) {
+      res["partition"] = boost::any(*partition);
+    }
+    if (path) {
+      res["path"] = boost::any(*path);
+    }
+    if (project) {
+      res["project"] = boost::any(*project);
+    }
+    if (table) {
+      res["table"] = boost::any(*table);
+    }
+    if (tag) {
+      res["tag"] = boost::any(*tag);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessKey") != m.end() && !m["accessKey"].empty()) {
+      accessKey = make_shared<string>(boost::any_cast<string>(m["accessKey"]));
+    }
+    if (m.find("bucket") != m.end() && !m["bucket"].empty()) {
+      bucket = make_shared<string>(boost::any_cast<string>(m["bucket"]));
+    }
+    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
+      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
+    }
+    if (m.find("database") != m.end() && !m["database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["database"]));
+    }
+    if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
+    }
+    if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
+    }
+    if (m.find("ossPath") != m.end() && !m["ossPath"].empty()) {
+      ossPath = make_shared<string>(boost::any_cast<string>(m["ossPath"]));
+    }
+    if (m.find("partition") != m.end() && !m["partition"].empty()) {
+      partition = make_shared<string>(boost::any_cast<string>(m["partition"]));
+    }
+    if (m.find("path") != m.end() && !m["path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["path"]));
+    }
+    if (m.find("project") != m.end() && !m["project"].empty()) {
+      project = make_shared<string>(boost::any_cast<string>(m["project"]));
+    }
+    if (m.find("table") != m.end() && !m["table"].empty()) {
+      table = make_shared<string>(boost::any_cast<string>(m["table"]));
+    }
+    if (m.find("tag") != m.end() && !m["tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["tag"]));
+    }
+  }
+
+
+  virtual ~ListInstancesResponseBodyResultDataSourceDetailsConfig() = default;
+};
+class ListInstancesResponseBodyResultDataSourceDetails : public Darabonba::Model {
+public:
+  shared_ptr<ListInstancesResponseBodyResultDataSourceDetailsConfig> config{};
+  shared_ptr<string> indexName{};
+  shared_ptr<string> type{};
+
+  ListInstancesResponseBodyResultDataSourceDetails() {}
+
+  explicit ListInstancesResponseBodyResultDataSourceDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["config"] = config ? boost::any(config->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (indexName) {
+      res["indexName"] = boost::any(*indexName);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("config") != m.end() && !m["config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["config"].type()) {
+        ListInstancesResponseBodyResultDataSourceDetailsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["config"]));
+        config = make_shared<ListInstancesResponseBodyResultDataSourceDetailsConfig>(model1);
+      }
+    }
+    if (m.find("indexName") != m.end() && !m["indexName"].empty()) {
+      indexName = make_shared<string>(boost::any_cast<string>(m["indexName"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~ListInstancesResponseBodyResultDataSourceDetails() = default;
 };
 class ListInstancesResponseBodyResultNetwork : public Darabonba::Model {
 public:
@@ -15586,6 +16013,7 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<string> commodityCode{};
   shared_ptr<string> createTime{};
+  shared_ptr<vector<ListInstancesResponseBodyResultDataSourceDetails>> dataSourceDetails{};
   shared_ptr<string> description{};
   shared_ptr<string> edition{};
   shared_ptr<string> expiredTime{};
@@ -15620,6 +16048,13 @@ public:
     }
     if (createTime) {
       res["createTime"] = boost::any(*createTime);
+    }
+    if (dataSourceDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*dataSourceDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["dataSourceDetails"] = boost::any(temp1);
     }
     if (description) {
       res["description"] = boost::any(*description);
@@ -15682,6 +16117,19 @@ public:
     }
     if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
+    }
+    if (m.find("dataSourceDetails") != m.end() && !m["dataSourceDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["dataSourceDetails"].type()) {
+        vector<ListInstancesResponseBodyResultDataSourceDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["dataSourceDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListInstancesResponseBodyResultDataSourceDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dataSourceDetails = make_shared<vector<ListInstancesResponseBodyResultDataSourceDetails>>(expect1);
+      }
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
@@ -18964,6 +19412,8 @@ public:
   shared_ptr<string> accessKey{};
   shared_ptr<string> accessSecret{};
   shared_ptr<string> bucket{};
+  shared_ptr<string> catalog{};
+  shared_ptr<string> database{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> ossPath{};
@@ -18971,6 +19421,7 @@ public:
   shared_ptr<string> path{};
   shared_ptr<string> project{};
   shared_ptr<string> table{};
+  shared_ptr<string> tag{};
 
   ModifyDataSourceDeployRequestStorage() {}
 
@@ -18990,6 +19441,12 @@ public:
     }
     if (bucket) {
       res["bucket"] = boost::any(*bucket);
+    }
+    if (catalog) {
+      res["catalog"] = boost::any(*catalog);
+    }
+    if (database) {
+      res["database"] = boost::any(*database);
     }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
@@ -19012,6 +19469,9 @@ public:
     if (table) {
       res["table"] = boost::any(*table);
     }
+    if (tag) {
+      res["tag"] = boost::any(*tag);
+    }
     return res;
   }
 
@@ -19024,6 +19484,12 @@ public:
     }
     if (m.find("bucket") != m.end() && !m["bucket"].empty()) {
       bucket = make_shared<string>(boost::any_cast<string>(m["bucket"]));
+    }
+    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
+      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
+    }
+    if (m.find("database") != m.end() && !m["database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["database"]));
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
@@ -19045,6 +19511,9 @@ public:
     }
     if (m.find("table") != m.end() && !m["table"].empty()) {
       table = make_shared<string>(boost::any_cast<string>(m["table"]));
+    }
+    if (m.find("tag") != m.end() && !m["tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["tag"]));
     }
   }
 
@@ -19408,6 +19877,8 @@ public:
   shared_ptr<string> accessKey{};
   shared_ptr<string> accessSecret{};
   shared_ptr<string> bucket{};
+  shared_ptr<string> catalog{};
+  shared_ptr<string> database{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> ossPath{};
@@ -19415,6 +19886,7 @@ public:
   shared_ptr<string> path{};
   shared_ptr<string> project{};
   shared_ptr<string> table{};
+  shared_ptr<string> tag{};
 
   ModifyIndexRequestDataSourceInfoConfig() {}
 
@@ -19434,6 +19906,12 @@ public:
     }
     if (bucket) {
       res["bucket"] = boost::any(*bucket);
+    }
+    if (catalog) {
+      res["catalog"] = boost::any(*catalog);
+    }
+    if (database) {
+      res["database"] = boost::any(*database);
     }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
@@ -19456,6 +19934,9 @@ public:
     if (table) {
       res["table"] = boost::any(*table);
     }
+    if (tag) {
+      res["tag"] = boost::any(*tag);
+    }
     return res;
   }
 
@@ -19468,6 +19949,12 @@ public:
     }
     if (m.find("bucket") != m.end() && !m["bucket"].empty()) {
       bucket = make_shared<string>(boost::any_cast<string>(m["bucket"]));
+    }
+    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
+      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
+    }
+    if (m.find("database") != m.end() && !m["database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["database"]));
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
@@ -19489,6 +19976,9 @@ public:
     }
     if (m.find("table") != m.end() && !m["table"].empty()) {
       table = make_shared<string>(boost::any_cast<string>(m["table"]));
+    }
+    if (m.find("tag") != m.end() && !m["tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["tag"]));
     }
   }
 
@@ -19649,6 +20139,7 @@ public:
   shared_ptr<ModifyIndexRequestDataSourceInfo> dataSourceInfo{};
   shared_ptr<string> description{};
   shared_ptr<string> domain{};
+  shared_ptr<map<string, boost::any>> extend{};
   shared_ptr<long> mergeParallelNum{};
   shared_ptr<long> partition{};
   shared_ptr<string> pushMode{};
@@ -19694,6 +20185,9 @@ public:
     }
     if (domain) {
       res["domain"] = boost::any(*domain);
+    }
+    if (extend) {
+      res["extend"] = boost::any(*extend);
     }
     if (mergeParallelNum) {
       res["mergeParallelNum"] = boost::any(*mergeParallelNum);
@@ -19761,6 +20255,14 @@ public:
     }
     if (m.find("domain") != m.end() && !m["domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["domain"]));
+    }
+    if (m.find("extend") != m.end() && !m["extend"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["extend"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      extend = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("mergeParallelNum") != m.end() && !m["mergeParallelNum"].empty()) {
       mergeParallelNum = make_shared<long>(boost::any_cast<long>(m["mergeParallelNum"]));
@@ -21221,11 +21723,14 @@ public:
   shared_ptr<string> accessKey{};
   shared_ptr<string> accessSecret{};
   shared_ptr<string> bucket{};
+  shared_ptr<string> catalog{};
+  shared_ptr<string> database{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> ossPath{};
   shared_ptr<string> partition{};
   shared_ptr<string> project{};
   shared_ptr<string> table{};
+  shared_ptr<string> tag{};
 
   ModifyTableRequestDataSourceConfig() {}
 
@@ -21246,6 +21751,12 @@ public:
     if (bucket) {
       res["bucket"] = boost::any(*bucket);
     }
+    if (catalog) {
+      res["catalog"] = boost::any(*catalog);
+    }
+    if (database) {
+      res["database"] = boost::any(*database);
+    }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
     }
@@ -21261,6 +21772,9 @@ public:
     if (table) {
       res["table"] = boost::any(*table);
     }
+    if (tag) {
+      res["tag"] = boost::any(*tag);
+    }
     return res;
   }
 
@@ -21273,6 +21787,12 @@ public:
     }
     if (m.find("bucket") != m.end() && !m["bucket"].empty()) {
       bucket = make_shared<string>(boost::any_cast<string>(m["bucket"]));
+    }
+    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
+      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
+    }
+    if (m.find("database") != m.end() && !m["database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["database"]));
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
@@ -21288,6 +21808,9 @@ public:
     }
     if (m.find("table") != m.end() && !m["table"].empty()) {
       table = make_shared<string>(boost::any_cast<string>(m["table"]));
+    }
+    if (m.find("tag") != m.end() && !m["tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["tag"]));
     }
   }
 
