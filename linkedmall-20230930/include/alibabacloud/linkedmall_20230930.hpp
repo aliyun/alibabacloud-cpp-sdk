@@ -1747,6 +1747,7 @@ public:
   shared_ptr<string> distributorId{};
   shared_ptr<string> logisticsStatus{};
   shared_ptr<long> orderAmount{};
+  shared_ptr<string> orderClosedReason{};
   shared_ptr<string> orderId{};
   shared_ptr<vector<OrderLineResult>> orderLineList{};
   shared_ptr<string> orderStatus{};
@@ -1773,6 +1774,9 @@ public:
     }
     if (orderAmount) {
       res["orderAmount"] = boost::any(*orderAmount);
+    }
+    if (orderClosedReason) {
+      res["orderClosedReason"] = boost::any(*orderClosedReason);
     }
     if (orderId) {
       res["orderId"] = boost::any(*orderId);
@@ -1805,6 +1809,9 @@ public:
     }
     if (m.find("orderAmount") != m.end() && !m["orderAmount"].empty()) {
       orderAmount = make_shared<long>(boost::any_cast<long>(m["orderAmount"]));
+    }
+    if (m.find("orderClosedReason") != m.end() && !m["orderClosedReason"].empty()) {
+      orderClosedReason = make_shared<string>(boost::any_cast<string>(m["orderClosedReason"]));
     }
     if (m.find("orderId") != m.end() && !m["orderId"].empty()) {
       orderId = make_shared<string>(boost::any_cast<string>(m["orderId"]));
