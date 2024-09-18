@@ -43992,6 +43992,49 @@ public:
 
   virtual ~GetRemindResponseBodyDataProjects() = default;
 };
+class GetRemindResponseBodyDataReceivers : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> alertTargets{};
+  shared_ptr<string> alertUnit{};
+
+  GetRemindResponseBodyDataReceivers() {}
+
+  explicit GetRemindResponseBodyDataReceivers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertTargets) {
+      res["AlertTargets"] = boost::any(*alertTargets);
+    }
+    if (alertUnit) {
+      res["AlertUnit"] = boost::any(*alertUnit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlertTargets") != m.end() && !m["AlertTargets"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AlertTargets"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AlertTargets"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      alertTargets = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AlertUnit") != m.end() && !m["AlertUnit"].empty()) {
+      alertUnit = make_shared<string>(boost::any_cast<string>(m["AlertUnit"]));
+    }
+  }
+
+
+  virtual ~GetRemindResponseBodyDataReceivers() = default;
+};
 class GetRemindResponseBodyDataRobots : public Darabonba::Model {
 public:
   shared_ptr<bool> atAll{};
@@ -44034,6 +44077,7 @@ public:
   shared_ptr<vector<string>> alertMethods{};
   shared_ptr<vector<string>> alertTargets{};
   shared_ptr<string> alertUnit{};
+  shared_ptr<vector<long>> allowNodes{};
   shared_ptr<vector<GetRemindResponseBodyDataBaselines>> baselines{};
   shared_ptr<vector<GetRemindResponseBodyDataBizProcesses>> bizProcesses{};
   shared_ptr<string> detail{};
@@ -44043,6 +44087,7 @@ public:
   shared_ptr<long> maxAlertTimes{};
   shared_ptr<vector<GetRemindResponseBodyDataNodes>> nodes{};
   shared_ptr<vector<GetRemindResponseBodyDataProjects>> projects{};
+  shared_ptr<vector<GetRemindResponseBodyDataReceivers>> receivers{};
   shared_ptr<long> remindId{};
   shared_ptr<string> remindName{};
   shared_ptr<string> remindType{};
@@ -44072,6 +44117,9 @@ public:
     }
     if (alertUnit) {
       res["AlertUnit"] = boost::any(*alertUnit);
+    }
+    if (allowNodes) {
+      res["AllowNodes"] = boost::any(*allowNodes);
     }
     if (baselines) {
       vector<boost::any> temp1;
@@ -44115,6 +44163,13 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Projects"] = boost::any(temp1);
+    }
+    if (receivers) {
+      vector<boost::any> temp1;
+      for(auto item1:*receivers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Receivers"] = boost::any(temp1);
     }
     if (remindId) {
       res["RemindId"] = boost::any(*remindId);
@@ -44170,6 +44225,16 @@ public:
     }
     if (m.find("AlertUnit") != m.end() && !m["AlertUnit"].empty()) {
       alertUnit = make_shared<string>(boost::any_cast<string>(m["AlertUnit"]));
+    }
+    if (m.find("AllowNodes") != m.end() && !m["AllowNodes"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowNodes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowNodes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      allowNodes = make_shared<vector<long>>(toVec1);
     }
     if (m.find("Baselines") != m.end() && !m["Baselines"].empty()) {
       if (typeid(vector<boost::any>) == m["Baselines"].type()) {
@@ -44236,6 +44301,19 @@ public:
           }
         }
         projects = make_shared<vector<GetRemindResponseBodyDataProjects>>(expect1);
+      }
+    }
+    if (m.find("Receivers") != m.end() && !m["Receivers"].empty()) {
+      if (typeid(vector<boost::any>) == m["Receivers"].type()) {
+        vector<GetRemindResponseBodyDataReceivers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Receivers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetRemindResponseBodyDataReceivers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        receivers = make_shared<vector<GetRemindResponseBodyDataReceivers>>(expect1);
       }
     }
     if (m.find("RemindId") != m.end() && !m["RemindId"].empty()) {
