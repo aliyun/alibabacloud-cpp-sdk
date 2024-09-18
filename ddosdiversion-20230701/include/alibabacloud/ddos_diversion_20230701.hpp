@@ -875,8 +875,9 @@ public:
   shared_ptr<string> mode{};
   shared_ptr<string> net{};
   shared_ptr<string> netExtend{};
-  shared_ptr<long> netMain{};
+  shared_ptr<string> netMain{};
   shared_ptr<string> netType{};
+  shared_ptr<long> permit{};
   shared_ptr<string> saleId{};
   shared_ptr<string> upstreamType{};
   shared_ptr<string> userId{};
@@ -927,6 +928,9 @@ public:
     }
     if (netType) {
       res["NetType"] = boost::any(*netType);
+    }
+    if (permit) {
+      res["Permit"] = boost::any(*permit);
     }
     if (saleId) {
       res["SaleId"] = boost::any(*saleId);
@@ -983,10 +987,13 @@ public:
       netExtend = make_shared<string>(boost::any_cast<string>(m["NetExtend"]));
     }
     if (m.find("NetMain") != m.end() && !m["NetMain"].empty()) {
-      netMain = make_shared<long>(boost::any_cast<long>(m["NetMain"]));
+      netMain = make_shared<string>(boost::any_cast<string>(m["NetMain"]));
     }
     if (m.find("NetType") != m.end() && !m["NetType"].empty()) {
       netType = make_shared<string>(boost::any_cast<string>(m["NetType"]));
+    }
+    if (m.find("Permit") != m.end() && !m["Permit"].empty()) {
+      permit = make_shared<long>(boost::any_cast<long>(m["Permit"]));
     }
     if (m.find("SaleId") != m.end() && !m["SaleId"].empty()) {
       saleId = make_shared<string>(boost::any_cast<string>(m["SaleId"]));
