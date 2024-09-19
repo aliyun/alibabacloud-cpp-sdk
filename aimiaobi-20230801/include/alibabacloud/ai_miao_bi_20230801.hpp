@@ -8493,11 +8493,16 @@ public:
 };
 class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesNews : public Darabonba::Model {
 public:
+  shared_ptr<string> content{};
   shared_ptr<string> docId{};
   shared_ptr<string> docUuid{};
   shared_ptr<vector<string>> imageUrls{};
+  shared_ptr<string> source{};
+  shared_ptr<string> summary{};
   shared_ptr<vector<string>> tags{};
+  shared_ptr<string> title{};
   shared_ptr<string> topic{};
+  shared_ptr<string> url{};
 
   GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesNews() {}
 
@@ -8509,6 +8514,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
     if (docId) {
       res["DocId"] = boost::any(*docId);
     }
@@ -8518,16 +8526,31 @@ public:
     if (imageUrls) {
       res["ImageUrls"] = boost::any(*imageUrls);
     }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (summary) {
+      res["Summary"] = boost::any(*summary);
+    }
     if (tags) {
       res["Tags"] = boost::any(*tags);
     }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
     if (topic) {
       res["Topic"] = boost::any(*topic);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
     if (m.find("DocId") != m.end() && !m["DocId"].empty()) {
       docId = make_shared<string>(boost::any_cast<string>(m["DocId"]));
     }
@@ -8544,6 +8567,12 @@ public:
       }
       imageUrls = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("Summary") != m.end() && !m["Summary"].empty()) {
+      summary = make_shared<string>(boost::any_cast<string>(m["Summary"]));
+    }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
@@ -8554,8 +8583,14 @@ public:
       }
       tags = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
     if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
       topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
   }
 
