@@ -270,7 +270,6 @@ public:
   shared_ptr<string> certRegion{};
   shared_ptr<string> domain{};
   shared_ptr<string> key{};
-  shared_ptr<string> resourceGroupId{};
 
   AssociateWebCertRequest() {}
 
@@ -303,9 +302,6 @@ public:
     if (key) {
       res["Key"] = boost::any(*key);
     }
-    if (resourceGroupId) {
-      res["ResourceGroupId"] = boost::any(*resourceGroupId);
-    }
     return res;
   }
 
@@ -330,9 +326,6 @@ public:
     }
     if (m.find("Key") != m.end() && !m["Key"].empty()) {
       key = make_shared<string>(boost::any_cast<string>(m["Key"]));
-    }
-    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -15107,6 +15100,7 @@ public:
   shared_ptr<vector<DescribeL7RsPolicyResponseBodyAttributes>> attributes{};
   shared_ptr<string> proxyMode{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> rsAttrRwTimeoutMax{};
   shared_ptr<long> upstreamRetry{};
 
   DescribeL7RsPolicyResponseBody() {}
@@ -15131,6 +15125,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (rsAttrRwTimeoutMax) {
+      res["RsAttrRwTimeoutMax"] = boost::any(*rsAttrRwTimeoutMax);
     }
     if (upstreamRetry) {
       res["UpstreamRetry"] = boost::any(*upstreamRetry);
@@ -15157,6 +15154,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RsAttrRwTimeoutMax") != m.end() && !m["RsAttrRwTimeoutMax"].empty()) {
+      rsAttrRwTimeoutMax = make_shared<long>(boost::any_cast<long>(m["RsAttrRwTimeoutMax"]));
     }
     if (m.find("UpstreamRetry") != m.end() && !m["UpstreamRetry"].empty()) {
       upstreamRetry = make_shared<long>(boost::any_cast<long>(m["UpstreamRetry"]));
@@ -25569,6 +25569,7 @@ public:
   shared_ptr<bool> ssl13Enabled{};
   shared_ptr<string> sslCiphers{};
   shared_ptr<string> sslProtocols{};
+  shared_ptr<string> userCertName{};
   shared_ptr<vector<string>> whiteList{};
 
   DescribeWebRulesResponseBodyWebRules() {}
@@ -25657,6 +25658,9 @@ public:
     }
     if (sslProtocols) {
       res["SslProtocols"] = boost::any(*sslProtocols);
+    }
+    if (userCertName) {
+      res["UserCertName"] = boost::any(*userCertName);
     }
     if (whiteList) {
       res["WhiteList"] = boost::any(*whiteList);
@@ -25771,6 +25775,9 @@ public:
     }
     if (m.find("SslProtocols") != m.end() && !m["SslProtocols"].empty()) {
       sslProtocols = make_shared<string>(boost::any_cast<string>(m["SslProtocols"]));
+    }
+    if (m.find("UserCertName") != m.end() && !m["UserCertName"].empty()) {
+      userCertName = make_shared<string>(boost::any_cast<string>(m["UserCertName"]));
     }
     if (m.find("WhiteList") != m.end() && !m["WhiteList"].empty()) {
       vector<string> toVec1;
