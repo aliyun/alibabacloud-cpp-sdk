@@ -77,10 +77,15 @@ AddCategoryResponse Alibabacloud_Bailian20231229::Client::addCategory(shared_ptr
 }
 
 AddFileResponse Alibabacloud_Bailian20231229::Client::addFileWithOptions(shared_ptr<string> WorkspaceId,
-                                                                         shared_ptr<AddFileRequest> request,
+                                                                         shared_ptr<AddFileRequest> tmpReq,
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AddFileShrinkRequest> request = make_shared<AddFileShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->categoryId)) {
     body->insert(pair<string, string>("CategoryId", *request->categoryId));
@@ -90,6 +95,9 @@ AddFileResponse Alibabacloud_Bailian20231229::Client::addFileWithOptions(shared_
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->parser)) {
     body->insert(pair<string, string>("Parser", *request->parser));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    body->insert(pair<string, string>("Tags", *request->tagsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},

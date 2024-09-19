@@ -218,6 +218,7 @@ public:
   shared_ptr<string> categoryId{};
   shared_ptr<string> leaseId{};
   shared_ptr<string> parser{};
+  shared_ptr<vector<string>> tags{};
 
   AddFileRequest() {}
 
@@ -238,6 +239,9 @@ public:
     if (parser) {
       res["Parser"] = boost::any(*parser);
     }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
     return res;
   }
 
@@ -251,10 +255,70 @@ public:
     if (m.find("Parser") != m.end() && !m["Parser"].empty()) {
       parser = make_shared<string>(boost::any_cast<string>(m["Parser"]));
     }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Tags"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tags = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~AddFileRequest() = default;
+};
+class AddFileShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryId{};
+  shared_ptr<string> leaseId{};
+  shared_ptr<string> parser{};
+  shared_ptr<string> tagsShrink{};
+
+  AddFileShrinkRequest() {}
+
+  explicit AddFileShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryId) {
+      res["CategoryId"] = boost::any(*categoryId);
+    }
+    if (leaseId) {
+      res["LeaseId"] = boost::any(*leaseId);
+    }
+    if (parser) {
+      res["Parser"] = boost::any(*parser);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
+      categoryId = make_shared<string>(boost::any_cast<string>(m["CategoryId"]));
+    }
+    if (m.find("LeaseId") != m.end() && !m["LeaseId"].empty()) {
+      leaseId = make_shared<string>(boost::any_cast<string>(m["LeaseId"]));
+    }
+    if (m.find("Parser") != m.end() && !m["Parser"].empty()) {
+      parser = make_shared<string>(boost::any_cast<string>(m["Parser"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+  }
+
+
+  virtual ~AddFileShrinkRequest() = default;
 };
 class AddFileResponseBodyData : public Darabonba::Model {
 public:
@@ -3082,6 +3146,7 @@ public:
   shared_ptr<string> parser{};
   shared_ptr<long> sizeInBytes{};
   shared_ptr<string> status{};
+  shared_ptr<vector<string>> tags{};
 
   DescribeFileResponseBodyData() {}
 
@@ -3117,6 +3182,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
     return res;
   }
 
@@ -3144,6 +3212,16 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Tags"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tags = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -4966,6 +5044,7 @@ public:
   shared_ptr<string> parser{};
   shared_ptr<long> sizeInBytes{};
   shared_ptr<string> status{};
+  shared_ptr<vector<string>> tags{};
 
   ListFileResponseBodyDataFileList() {}
 
@@ -5001,6 +5080,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
     return res;
   }
 
@@ -5028,6 +5110,16 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Tags"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tags = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -8815,7 +8907,7 @@ public:
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddCategoryResponse addCategory(shared_ptr<string> WorkspaceId, shared_ptr<AddCategoryRequest> request);
   AddFileResponse addFileWithOptions(shared_ptr<string> WorkspaceId,
-                                     shared_ptr<AddFileRequest> request,
+                                     shared_ptr<AddFileRequest> tmpReq,
                                      shared_ptr<map<string, string>> headers,
                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddFileResponse addFile(shared_ptr<string> WorkspaceId, shared_ptr<AddFileRequest> request);
