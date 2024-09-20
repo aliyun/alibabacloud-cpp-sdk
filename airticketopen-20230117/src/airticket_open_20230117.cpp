@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1026,6 +1025,9 @@ SearchResponse Alibabacloud_AirticketOpen20230117::Client::searchWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<vector<SearchRequestAirLegs>>(tmpReq->airLegs)) {
     request->airLegsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->airLegs, make_shared<string>("air_legs"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<SearchRequestSearchControlOptions>(tmpReq->searchControlOptions)) {
+    request->searchControlOptionsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->searchControlOptions, make_shared<string>("search_control_options"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->adults)) {
     body->insert(pair<string, long>("adults", *request->adults));
@@ -1041,6 +1043,9 @@ SearchResponse Alibabacloud_AirticketOpen20230117::Client::searchWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->infants)) {
     body->insert(pair<string, long>("infants", *request->infants));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->searchControlOptionsShrink)) {
+    body->insert(pair<string, string>("search_control_options", *request->searchControlOptionsShrink));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
