@@ -942,6 +942,791 @@ public:
 
   virtual ~OrgEmission() = default;
 };
+class BatchSaveInstructionStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> factoryId{};
+  shared_ptr<string> pKey{};
+  shared_ptr<string> statusList{};
+
+  BatchSaveInstructionStatusRequest() {}
+
+  explicit BatchSaveInstructionStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (factoryId) {
+      res["factoryId"] = boost::any(*factoryId);
+    }
+    if (pKey) {
+      res["pKey"] = boost::any(*pKey);
+    }
+    if (statusList) {
+      res["statusList"] = boost::any(*statusList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("factoryId") != m.end() && !m["factoryId"].empty()) {
+      factoryId = make_shared<string>(boost::any_cast<string>(m["factoryId"]));
+    }
+    if (m.find("pKey") != m.end() && !m["pKey"].empty()) {
+      pKey = make_shared<string>(boost::any_cast<string>(m["pKey"]));
+    }
+    if (m.find("statusList") != m.end() && !m["statusList"].empty()) {
+      statusList = make_shared<string>(boost::any_cast<string>(m["statusList"]));
+    }
+  }
+
+
+  virtual ~BatchSaveInstructionStatusRequest() = default;
+};
+class BatchSaveInstructionStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  BatchSaveInstructionStatusResponseBody() {}
+
+  explicit BatchSaveInstructionStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["data"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~BatchSaveInstructionStatusResponseBody() = default;
+};
+class BatchSaveInstructionStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchSaveInstructionStatusResponseBody> body{};
+
+  BatchSaveInstructionStatusResponse() {}
+
+  explicit BatchSaveInstructionStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchSaveInstructionStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchSaveInstructionStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchSaveInstructionStatusResponse() = default;
+};
+class BatchUpdateSystemRunningPlanRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> controlType{};
+  shared_ptr<long> dateType{};
+  shared_ptr<string> earliestStartupTime{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> factoryId{};
+  shared_ptr<string> latestShutdownTime{};
+  shared_ptr<double> maxCarbonDioxide{};
+  shared_ptr<double> maxTem{};
+  shared_ptr<double> minTem{};
+  shared_ptr<long> seasonMode{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> systemId{};
+  shared_ptr<string> workingEndTime{};
+  shared_ptr<string> workingStartTime{};
+
+  BatchUpdateSystemRunningPlanRequest() {}
+
+  explicit BatchUpdateSystemRunningPlanRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (controlType) {
+      res["controlType"] = boost::any(*controlType);
+    }
+    if (dateType) {
+      res["dateType"] = boost::any(*dateType);
+    }
+    if (earliestStartupTime) {
+      res["earliestStartupTime"] = boost::any(*earliestStartupTime);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (factoryId) {
+      res["factoryId"] = boost::any(*factoryId);
+    }
+    if (latestShutdownTime) {
+      res["latestShutdownTime"] = boost::any(*latestShutdownTime);
+    }
+    if (maxCarbonDioxide) {
+      res["maxCarbonDioxide"] = boost::any(*maxCarbonDioxide);
+    }
+    if (maxTem) {
+      res["maxTem"] = boost::any(*maxTem);
+    }
+    if (minTem) {
+      res["minTem"] = boost::any(*minTem);
+    }
+    if (seasonMode) {
+      res["seasonMode"] = boost::any(*seasonMode);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (systemId) {
+      res["systemId"] = boost::any(*systemId);
+    }
+    if (workingEndTime) {
+      res["workingEndTime"] = boost::any(*workingEndTime);
+    }
+    if (workingStartTime) {
+      res["workingStartTime"] = boost::any(*workingStartTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("controlType") != m.end() && !m["controlType"].empty()) {
+      controlType = make_shared<long>(boost::any_cast<long>(m["controlType"]));
+    }
+    if (m.find("dateType") != m.end() && !m["dateType"].empty()) {
+      dateType = make_shared<long>(boost::any_cast<long>(m["dateType"]));
+    }
+    if (m.find("earliestStartupTime") != m.end() && !m["earliestStartupTime"].empty()) {
+      earliestStartupTime = make_shared<string>(boost::any_cast<string>(m["earliestStartupTime"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("factoryId") != m.end() && !m["factoryId"].empty()) {
+      factoryId = make_shared<string>(boost::any_cast<string>(m["factoryId"]));
+    }
+    if (m.find("latestShutdownTime") != m.end() && !m["latestShutdownTime"].empty()) {
+      latestShutdownTime = make_shared<string>(boost::any_cast<string>(m["latestShutdownTime"]));
+    }
+    if (m.find("maxCarbonDioxide") != m.end() && !m["maxCarbonDioxide"].empty()) {
+      maxCarbonDioxide = make_shared<double>(boost::any_cast<double>(m["maxCarbonDioxide"]));
+    }
+    if (m.find("maxTem") != m.end() && !m["maxTem"].empty()) {
+      maxTem = make_shared<double>(boost::any_cast<double>(m["maxTem"]));
+    }
+    if (m.find("minTem") != m.end() && !m["minTem"].empty()) {
+      minTem = make_shared<double>(boost::any_cast<double>(m["minTem"]));
+    }
+    if (m.find("seasonMode") != m.end() && !m["seasonMode"].empty()) {
+      seasonMode = make_shared<long>(boost::any_cast<long>(m["seasonMode"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+    if (m.find("systemId") != m.end() && !m["systemId"].empty()) {
+      systemId = make_shared<string>(boost::any_cast<string>(m["systemId"]));
+    }
+    if (m.find("workingEndTime") != m.end() && !m["workingEndTime"].empty()) {
+      workingEndTime = make_shared<string>(boost::any_cast<string>(m["workingEndTime"]));
+    }
+    if (m.find("workingStartTime") != m.end() && !m["workingStartTime"].empty()) {
+      workingStartTime = make_shared<string>(boost::any_cast<string>(m["workingStartTime"]));
+    }
+  }
+
+
+  virtual ~BatchUpdateSystemRunningPlanRequest() = default;
+};
+class BatchUpdateSystemRunningPlanResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  BatchUpdateSystemRunningPlanResponseBody() {}
+
+  explicit BatchUpdateSystemRunningPlanResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["data"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~BatchUpdateSystemRunningPlanResponseBody() = default;
+};
+class BatchUpdateSystemRunningPlanResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchUpdateSystemRunningPlanResponseBody> body{};
+
+  BatchUpdateSystemRunningPlanResponse() {}
+
+  explicit BatchUpdateSystemRunningPlanResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchUpdateSystemRunningPlanResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchUpdateSystemRunningPlanResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchUpdateSystemRunningPlanResponse() = default;
+};
+class EditProhibitedDevicesRequestHvacDeviceConfigVOList : public Darabonba::Model {
+public:
+  shared_ptr<string> buildingId{};
+  shared_ptr<string> deviceId{};
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> fenceId{};
+  shared_ptr<string> floorId{};
+  shared_ptr<long> isForbidden{};
+  shared_ptr<long> isUnfavorableArea{};
+
+  EditProhibitedDevicesRequestHvacDeviceConfigVOList() {}
+
+  explicit EditProhibitedDevicesRequestHvacDeviceConfigVOList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (buildingId) {
+      res["buildingId"] = boost::any(*buildingId);
+    }
+    if (deviceId) {
+      res["deviceId"] = boost::any(*deviceId);
+    }
+    if (deviceName) {
+      res["deviceName"] = boost::any(*deviceName);
+    }
+    if (deviceType) {
+      res["deviceType"] = boost::any(*deviceType);
+    }
+    if (fenceId) {
+      res["fenceId"] = boost::any(*fenceId);
+    }
+    if (floorId) {
+      res["floorId"] = boost::any(*floorId);
+    }
+    if (isForbidden) {
+      res["isForbidden"] = boost::any(*isForbidden);
+    }
+    if (isUnfavorableArea) {
+      res["isUnfavorableArea"] = boost::any(*isUnfavorableArea);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("buildingId") != m.end() && !m["buildingId"].empty()) {
+      buildingId = make_shared<string>(boost::any_cast<string>(m["buildingId"]));
+    }
+    if (m.find("deviceId") != m.end() && !m["deviceId"].empty()) {
+      deviceId = make_shared<string>(boost::any_cast<string>(m["deviceId"]));
+    }
+    if (m.find("deviceName") != m.end() && !m["deviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["deviceName"]));
+    }
+    if (m.find("deviceType") != m.end() && !m["deviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["deviceType"]));
+    }
+    if (m.find("fenceId") != m.end() && !m["fenceId"].empty()) {
+      fenceId = make_shared<string>(boost::any_cast<string>(m["fenceId"]));
+    }
+    if (m.find("floorId") != m.end() && !m["floorId"].empty()) {
+      floorId = make_shared<string>(boost::any_cast<string>(m["floorId"]));
+    }
+    if (m.find("isForbidden") != m.end() && !m["isForbidden"].empty()) {
+      isForbidden = make_shared<long>(boost::any_cast<long>(m["isForbidden"]));
+    }
+    if (m.find("isUnfavorableArea") != m.end() && !m["isUnfavorableArea"].empty()) {
+      isUnfavorableArea = make_shared<long>(boost::any_cast<long>(m["isUnfavorableArea"]));
+    }
+  }
+
+
+  virtual ~EditProhibitedDevicesRequestHvacDeviceConfigVOList() = default;
+};
+class EditProhibitedDevicesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> factoryId{};
+  shared_ptr<vector<EditProhibitedDevicesRequestHvacDeviceConfigVOList>> hvacDeviceConfigVOList{};
+  shared_ptr<string> systemId{};
+
+  EditProhibitedDevicesRequest() {}
+
+  explicit EditProhibitedDevicesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (factoryId) {
+      res["factoryId"] = boost::any(*factoryId);
+    }
+    if (hvacDeviceConfigVOList) {
+      vector<boost::any> temp1;
+      for(auto item1:*hvacDeviceConfigVOList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["hvacDeviceConfigVOList"] = boost::any(temp1);
+    }
+    if (systemId) {
+      res["systemId"] = boost::any(*systemId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("factoryId") != m.end() && !m["factoryId"].empty()) {
+      factoryId = make_shared<string>(boost::any_cast<string>(m["factoryId"]));
+    }
+    if (m.find("hvacDeviceConfigVOList") != m.end() && !m["hvacDeviceConfigVOList"].empty()) {
+      if (typeid(vector<boost::any>) == m["hvacDeviceConfigVOList"].type()) {
+        vector<EditProhibitedDevicesRequestHvacDeviceConfigVOList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["hvacDeviceConfigVOList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            EditProhibitedDevicesRequestHvacDeviceConfigVOList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hvacDeviceConfigVOList = make_shared<vector<EditProhibitedDevicesRequestHvacDeviceConfigVOList>>(expect1);
+      }
+    }
+    if (m.find("systemId") != m.end() && !m["systemId"].empty()) {
+      systemId = make_shared<string>(boost::any_cast<string>(m["systemId"]));
+    }
+  }
+
+
+  virtual ~EditProhibitedDevicesRequest() = default;
+};
+class EditProhibitedDevicesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  EditProhibitedDevicesResponseBody() {}
+
+  explicit EditProhibitedDevicesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["data"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~EditProhibitedDevicesResponseBody() = default;
+};
+class EditProhibitedDevicesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EditProhibitedDevicesResponseBody> body{};
+
+  EditProhibitedDevicesResponse() {}
+
+  explicit EditProhibitedDevicesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EditProhibitedDevicesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EditProhibitedDevicesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EditProhibitedDevicesResponse() = default;
+};
+class EditUnfavorableAreaDevicesRequestHvacDeviceConfigVOList : public Darabonba::Model {
+public:
+  shared_ptr<string> buildingId{};
+  shared_ptr<string> deviceId{};
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> fenceId{};
+  shared_ptr<string> floorId{};
+  shared_ptr<long> isForbidden{};
+  shared_ptr<long> isUnfavorableArea{};
+
+  EditUnfavorableAreaDevicesRequestHvacDeviceConfigVOList() {}
+
+  explicit EditUnfavorableAreaDevicesRequestHvacDeviceConfigVOList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (buildingId) {
+      res["buildingId"] = boost::any(*buildingId);
+    }
+    if (deviceId) {
+      res["deviceId"] = boost::any(*deviceId);
+    }
+    if (deviceName) {
+      res["deviceName"] = boost::any(*deviceName);
+    }
+    if (deviceType) {
+      res["deviceType"] = boost::any(*deviceType);
+    }
+    if (fenceId) {
+      res["fenceId"] = boost::any(*fenceId);
+    }
+    if (floorId) {
+      res["floorId"] = boost::any(*floorId);
+    }
+    if (isForbidden) {
+      res["isForbidden"] = boost::any(*isForbidden);
+    }
+    if (isUnfavorableArea) {
+      res["isUnfavorableArea"] = boost::any(*isUnfavorableArea);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("buildingId") != m.end() && !m["buildingId"].empty()) {
+      buildingId = make_shared<string>(boost::any_cast<string>(m["buildingId"]));
+    }
+    if (m.find("deviceId") != m.end() && !m["deviceId"].empty()) {
+      deviceId = make_shared<string>(boost::any_cast<string>(m["deviceId"]));
+    }
+    if (m.find("deviceName") != m.end() && !m["deviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["deviceName"]));
+    }
+    if (m.find("deviceType") != m.end() && !m["deviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["deviceType"]));
+    }
+    if (m.find("fenceId") != m.end() && !m["fenceId"].empty()) {
+      fenceId = make_shared<string>(boost::any_cast<string>(m["fenceId"]));
+    }
+    if (m.find("floorId") != m.end() && !m["floorId"].empty()) {
+      floorId = make_shared<string>(boost::any_cast<string>(m["floorId"]));
+    }
+    if (m.find("isForbidden") != m.end() && !m["isForbidden"].empty()) {
+      isForbidden = make_shared<long>(boost::any_cast<long>(m["isForbidden"]));
+    }
+    if (m.find("isUnfavorableArea") != m.end() && !m["isUnfavorableArea"].empty()) {
+      isUnfavorableArea = make_shared<long>(boost::any_cast<long>(m["isUnfavorableArea"]));
+    }
+  }
+
+
+  virtual ~EditUnfavorableAreaDevicesRequestHvacDeviceConfigVOList() = default;
+};
+class EditUnfavorableAreaDevicesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> factoryId{};
+  shared_ptr<vector<EditUnfavorableAreaDevicesRequestHvacDeviceConfigVOList>> hvacDeviceConfigVOList{};
+  shared_ptr<string> systemId{};
+
+  EditUnfavorableAreaDevicesRequest() {}
+
+  explicit EditUnfavorableAreaDevicesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (factoryId) {
+      res["factoryId"] = boost::any(*factoryId);
+    }
+    if (hvacDeviceConfigVOList) {
+      vector<boost::any> temp1;
+      for(auto item1:*hvacDeviceConfigVOList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["hvacDeviceConfigVOList"] = boost::any(temp1);
+    }
+    if (systemId) {
+      res["systemId"] = boost::any(*systemId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("factoryId") != m.end() && !m["factoryId"].empty()) {
+      factoryId = make_shared<string>(boost::any_cast<string>(m["factoryId"]));
+    }
+    if (m.find("hvacDeviceConfigVOList") != m.end() && !m["hvacDeviceConfigVOList"].empty()) {
+      if (typeid(vector<boost::any>) == m["hvacDeviceConfigVOList"].type()) {
+        vector<EditUnfavorableAreaDevicesRequestHvacDeviceConfigVOList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["hvacDeviceConfigVOList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            EditUnfavorableAreaDevicesRequestHvacDeviceConfigVOList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hvacDeviceConfigVOList = make_shared<vector<EditUnfavorableAreaDevicesRequestHvacDeviceConfigVOList>>(expect1);
+      }
+    }
+    if (m.find("systemId") != m.end() && !m["systemId"].empty()) {
+      systemId = make_shared<string>(boost::any_cast<string>(m["systemId"]));
+    }
+  }
+
+
+  virtual ~EditUnfavorableAreaDevicesRequest() = default;
+};
+class EditUnfavorableAreaDevicesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  EditUnfavorableAreaDevicesResponseBody() {}
+
+  explicit EditUnfavorableAreaDevicesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["data"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~EditUnfavorableAreaDevicesResponseBody() = default;
+};
+class EditUnfavorableAreaDevicesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EditUnfavorableAreaDevicesResponseBody> body{};
+
+  EditUnfavorableAreaDevicesResponse() {}
+
+  explicit EditUnfavorableAreaDevicesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EditUnfavorableAreaDevicesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EditUnfavorableAreaDevicesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EditUnfavorableAreaDevicesResponse() = default;
+};
 class GenerateResultRequest : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
@@ -9016,6 +9801,228 @@ public:
 
   virtual ~SendDocumentAskQuestionResponse() = default;
 };
+class SetRunningPlanRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> controlType{};
+  shared_ptr<long> dateType{};
+  shared_ptr<string> earliestStartupTime{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> factoryId{};
+  shared_ptr<string> latestShutdownTime{};
+  shared_ptr<double> maxCarbonDioxide{};
+  shared_ptr<double> maxTem{};
+  shared_ptr<double> minTem{};
+  shared_ptr<string> pKey{};
+  shared_ptr<long> seasonMode{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> statisticsTime{};
+  shared_ptr<string> systemId{};
+  shared_ptr<string> workingEndTime{};
+  shared_ptr<string> workingStartTime{};
+
+  SetRunningPlanRequest() {}
+
+  explicit SetRunningPlanRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (controlType) {
+      res["controlType"] = boost::any(*controlType);
+    }
+    if (dateType) {
+      res["dateType"] = boost::any(*dateType);
+    }
+    if (earliestStartupTime) {
+      res["earliestStartupTime"] = boost::any(*earliestStartupTime);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (factoryId) {
+      res["factoryId"] = boost::any(*factoryId);
+    }
+    if (latestShutdownTime) {
+      res["latestShutdownTime"] = boost::any(*latestShutdownTime);
+    }
+    if (maxCarbonDioxide) {
+      res["maxCarbonDioxide"] = boost::any(*maxCarbonDioxide);
+    }
+    if (maxTem) {
+      res["maxTem"] = boost::any(*maxTem);
+    }
+    if (minTem) {
+      res["minTem"] = boost::any(*minTem);
+    }
+    if (pKey) {
+      res["pKey"] = boost::any(*pKey);
+    }
+    if (seasonMode) {
+      res["seasonMode"] = boost::any(*seasonMode);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (statisticsTime) {
+      res["statisticsTime"] = boost::any(*statisticsTime);
+    }
+    if (systemId) {
+      res["systemId"] = boost::any(*systemId);
+    }
+    if (workingEndTime) {
+      res["workingEndTime"] = boost::any(*workingEndTime);
+    }
+    if (workingStartTime) {
+      res["workingStartTime"] = boost::any(*workingStartTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("controlType") != m.end() && !m["controlType"].empty()) {
+      controlType = make_shared<long>(boost::any_cast<long>(m["controlType"]));
+    }
+    if (m.find("dateType") != m.end() && !m["dateType"].empty()) {
+      dateType = make_shared<long>(boost::any_cast<long>(m["dateType"]));
+    }
+    if (m.find("earliestStartupTime") != m.end() && !m["earliestStartupTime"].empty()) {
+      earliestStartupTime = make_shared<string>(boost::any_cast<string>(m["earliestStartupTime"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("factoryId") != m.end() && !m["factoryId"].empty()) {
+      factoryId = make_shared<string>(boost::any_cast<string>(m["factoryId"]));
+    }
+    if (m.find("latestShutdownTime") != m.end() && !m["latestShutdownTime"].empty()) {
+      latestShutdownTime = make_shared<string>(boost::any_cast<string>(m["latestShutdownTime"]));
+    }
+    if (m.find("maxCarbonDioxide") != m.end() && !m["maxCarbonDioxide"].empty()) {
+      maxCarbonDioxide = make_shared<double>(boost::any_cast<double>(m["maxCarbonDioxide"]));
+    }
+    if (m.find("maxTem") != m.end() && !m["maxTem"].empty()) {
+      maxTem = make_shared<double>(boost::any_cast<double>(m["maxTem"]));
+    }
+    if (m.find("minTem") != m.end() && !m["minTem"].empty()) {
+      minTem = make_shared<double>(boost::any_cast<double>(m["minTem"]));
+    }
+    if (m.find("pKey") != m.end() && !m["pKey"].empty()) {
+      pKey = make_shared<string>(boost::any_cast<string>(m["pKey"]));
+    }
+    if (m.find("seasonMode") != m.end() && !m["seasonMode"].empty()) {
+      seasonMode = make_shared<long>(boost::any_cast<long>(m["seasonMode"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+    if (m.find("statisticsTime") != m.end() && !m["statisticsTime"].empty()) {
+      statisticsTime = make_shared<string>(boost::any_cast<string>(m["statisticsTime"]));
+    }
+    if (m.find("systemId") != m.end() && !m["systemId"].empty()) {
+      systemId = make_shared<string>(boost::any_cast<string>(m["systemId"]));
+    }
+    if (m.find("workingEndTime") != m.end() && !m["workingEndTime"].empty()) {
+      workingEndTime = make_shared<string>(boost::any_cast<string>(m["workingEndTime"]));
+    }
+    if (m.find("workingStartTime") != m.end() && !m["workingStartTime"].empty()) {
+      workingStartTime = make_shared<string>(boost::any_cast<string>(m["workingStartTime"]));
+    }
+  }
+
+
+  virtual ~SetRunningPlanRequest() = default;
+};
+class SetRunningPlanResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  SetRunningPlanResponseBody() {}
+
+  explicit SetRunningPlanResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["data"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~SetRunningPlanResponseBody() = default;
+};
+class SetRunningPlanResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetRunningPlanResponseBody> body{};
+
+  SetRunningPlanResponse() {}
+
+  explicit SetRunningPlanResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetRunningPlanResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetRunningPlanResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetRunningPlanResponse() = default;
+};
 class SubmitDocumentAnalyzeJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
@@ -9247,6 +10254,14 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  BatchSaveInstructionStatusResponse batchSaveInstructionStatusWithOptions(shared_ptr<BatchSaveInstructionStatusRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchSaveInstructionStatusResponse batchSaveInstructionStatus(shared_ptr<BatchSaveInstructionStatusRequest> request);
+  BatchUpdateSystemRunningPlanResponse batchUpdateSystemRunningPlanWithOptions(shared_ptr<BatchUpdateSystemRunningPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchUpdateSystemRunningPlanResponse batchUpdateSystemRunningPlan(shared_ptr<BatchUpdateSystemRunningPlanRequest> request);
+  EditProhibitedDevicesResponse editProhibitedDevicesWithOptions(shared_ptr<EditProhibitedDevicesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EditProhibitedDevicesResponse editProhibitedDevices(shared_ptr<EditProhibitedDevicesRequest> request);
+  EditUnfavorableAreaDevicesResponse editUnfavorableAreaDevicesWithOptions(shared_ptr<EditUnfavorableAreaDevicesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EditUnfavorableAreaDevicesResponse editUnfavorableAreaDevices(shared_ptr<EditUnfavorableAreaDevicesRequest> request);
   GenerateResultResponse generateResultWithOptions(shared_ptr<GenerateResultRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateResultResponse generateResult(shared_ptr<GenerateResultRequest> request);
   GetAreaElecConstituteResponse getAreaElecConstituteWithOptions(shared_ptr<GetAreaElecConstituteRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9307,6 +10322,8 @@ public:
   RecalculateCarbonEmissionResponse recalculateCarbonEmission(shared_ptr<RecalculateCarbonEmissionRequest> request);
   SendDocumentAskQuestionResponse sendDocumentAskQuestionWithOptions(shared_ptr<SendDocumentAskQuestionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SendDocumentAskQuestionResponse sendDocumentAskQuestion(shared_ptr<SendDocumentAskQuestionRequest> request);
+  SetRunningPlanResponse setRunningPlanWithOptions(shared_ptr<SetRunningPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetRunningPlanResponse setRunningPlan(shared_ptr<SetRunningPlanRequest> request);
   SubmitDocumentAnalyzeJobResponse submitDocumentAnalyzeJobWithOptions(shared_ptr<SubmitDocumentAnalyzeJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitDocumentAnalyzeJobResponse submitDocumentAnalyzeJob(shared_ptr<SubmitDocumentAnalyzeJobRequest> request);
   SubmitDocumentAnalyzeJobResponse submitDocumentAnalyzeJobAdvance(shared_ptr<SubmitDocumentAnalyzeJobAdvanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

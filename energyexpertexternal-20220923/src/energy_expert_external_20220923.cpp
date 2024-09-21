@@ -41,6 +41,183 @@ string Alibabacloud_EnergyExpertExternal20220923::Client::getEndpoint(shared_ptr
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+BatchSaveInstructionStatusResponse Alibabacloud_EnergyExpertExternal20220923::Client::batchSaveInstructionStatusWithOptions(shared_ptr<BatchSaveInstructionStatusRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->factoryId)) {
+    body->insert(pair<string, string>("factoryId", *request->factoryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pKey)) {
+    body->insert(pair<string, string>("pKey", *request->pKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statusList)) {
+    body->insert(pair<string, string>("statusList", *request->statusList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchSaveInstructionStatus"))},
+    {"version", boost::any(string("2022-09-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/carbon/hvac/batchSaveInstructionStatus"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchSaveInstructionStatusResponse(callApi(params, req, runtime));
+}
+
+BatchSaveInstructionStatusResponse Alibabacloud_EnergyExpertExternal20220923::Client::batchSaveInstructionStatus(shared_ptr<BatchSaveInstructionStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return batchSaveInstructionStatusWithOptions(request, headers, runtime);
+}
+
+BatchUpdateSystemRunningPlanResponse Alibabacloud_EnergyExpertExternal20220923::Client::batchUpdateSystemRunningPlanWithOptions(shared_ptr<BatchUpdateSystemRunningPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->controlType)) {
+    body->insert(pair<string, long>("controlType", *request->controlType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dateType)) {
+    body->insert(pair<string, long>("dateType", *request->dateType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->earliestStartupTime)) {
+    body->insert(pair<string, string>("earliestStartupTime", *request->earliestStartupTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    body->insert(pair<string, string>("endTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->factoryId)) {
+    body->insert(pair<string, string>("factoryId", *request->factoryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->latestShutdownTime)) {
+    body->insert(pair<string, string>("latestShutdownTime", *request->latestShutdownTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->maxCarbonDioxide)) {
+    body->insert(pair<string, double>("maxCarbonDioxide", *request->maxCarbonDioxide));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->maxTem)) {
+    body->insert(pair<string, double>("maxTem", *request->maxTem));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->minTem)) {
+    body->insert(pair<string, double>("minTem", *request->minTem));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->seasonMode)) {
+    body->insert(pair<string, long>("seasonMode", *request->seasonMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    body->insert(pair<string, string>("startTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->systemId)) {
+    body->insert(pair<string, string>("systemId", *request->systemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workingEndTime)) {
+    body->insert(pair<string, string>("workingEndTime", *request->workingEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workingStartTime)) {
+    body->insert(pair<string, string>("workingStartTime", *request->workingStartTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchUpdateSystemRunningPlan"))},
+    {"version", boost::any(string("2022-09-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/carbon/hvac/batchUpdateSystemRunningPlan"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchUpdateSystemRunningPlanResponse(callApi(params, req, runtime));
+}
+
+BatchUpdateSystemRunningPlanResponse Alibabacloud_EnergyExpertExternal20220923::Client::batchUpdateSystemRunningPlan(shared_ptr<BatchUpdateSystemRunningPlanRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return batchUpdateSystemRunningPlanWithOptions(request, headers, runtime);
+}
+
+EditProhibitedDevicesResponse Alibabacloud_EnergyExpertExternal20220923::Client::editProhibitedDevicesWithOptions(shared_ptr<EditProhibitedDevicesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->factoryId)) {
+    body->insert(pair<string, string>("factoryId", *request->factoryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<EditProhibitedDevicesRequestHvacDeviceConfigVOList>>(request->hvacDeviceConfigVOList)) {
+    body->insert(pair<string, vector<EditProhibitedDevicesRequestHvacDeviceConfigVOList>>("hvacDeviceConfigVOList", *request->hvacDeviceConfigVOList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->systemId)) {
+    body->insert(pair<string, string>("systemId", *request->systemId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EditProhibitedDevices"))},
+    {"version", boost::any(string("2022-09-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/carbon/hvac/editProhibitedDevices"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EditProhibitedDevicesResponse(callApi(params, req, runtime));
+}
+
+EditProhibitedDevicesResponse Alibabacloud_EnergyExpertExternal20220923::Client::editProhibitedDevices(shared_ptr<EditProhibitedDevicesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return editProhibitedDevicesWithOptions(request, headers, runtime);
+}
+
+EditUnfavorableAreaDevicesResponse Alibabacloud_EnergyExpertExternal20220923::Client::editUnfavorableAreaDevicesWithOptions(shared_ptr<EditUnfavorableAreaDevicesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->factoryId)) {
+    body->insert(pair<string, string>("factoryId", *request->factoryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<EditUnfavorableAreaDevicesRequestHvacDeviceConfigVOList>>(request->hvacDeviceConfigVOList)) {
+    body->insert(pair<string, vector<EditUnfavorableAreaDevicesRequestHvacDeviceConfigVOList>>("hvacDeviceConfigVOList", *request->hvacDeviceConfigVOList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->systemId)) {
+    body->insert(pair<string, string>("systemId", *request->systemId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EditUnfavorableAreaDevices"))},
+    {"version", boost::any(string("2022-09-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/carbon/hvac/editUnfavorableAreaDevices"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EditUnfavorableAreaDevicesResponse(callApi(params, req, runtime));
+}
+
+EditUnfavorableAreaDevicesResponse Alibabacloud_EnergyExpertExternal20220923::Client::editUnfavorableAreaDevices(shared_ptr<EditUnfavorableAreaDevicesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return editUnfavorableAreaDevicesWithOptions(request, headers, runtime);
+}
+
 GenerateResultResponse Alibabacloud_EnergyExpertExternal20220923::Client::generateResultWithOptions(shared_ptr<GenerateResultRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1110,6 +1287,81 @@ SendDocumentAskQuestionResponse Alibabacloud_EnergyExpertExternal20220923::Clien
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return sendDocumentAskQuestionWithOptions(request, headers, runtime);
+}
+
+SetRunningPlanResponse Alibabacloud_EnergyExpertExternal20220923::Client::setRunningPlanWithOptions(shared_ptr<SetRunningPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->controlType)) {
+    body->insert(pair<string, long>("controlType", *request->controlType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dateType)) {
+    body->insert(pair<string, long>("dateType", *request->dateType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->earliestStartupTime)) {
+    body->insert(pair<string, string>("earliestStartupTime", *request->earliestStartupTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    body->insert(pair<string, string>("endTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->factoryId)) {
+    body->insert(pair<string, string>("factoryId", *request->factoryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->latestShutdownTime)) {
+    body->insert(pair<string, string>("latestShutdownTime", *request->latestShutdownTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->maxCarbonDioxide)) {
+    body->insert(pair<string, double>("maxCarbonDioxide", *request->maxCarbonDioxide));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->maxTem)) {
+    body->insert(pair<string, double>("maxTem", *request->maxTem));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->minTem)) {
+    body->insert(pair<string, double>("minTem", *request->minTem));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pKey)) {
+    body->insert(pair<string, string>("pKey", *request->pKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->seasonMode)) {
+    body->insert(pair<string, long>("seasonMode", *request->seasonMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    body->insert(pair<string, string>("startTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statisticsTime)) {
+    body->insert(pair<string, string>("statisticsTime", *request->statisticsTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->systemId)) {
+    body->insert(pair<string, string>("systemId", *request->systemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workingEndTime)) {
+    body->insert(pair<string, string>("workingEndTime", *request->workingEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workingStartTime)) {
+    body->insert(pair<string, string>("workingStartTime", *request->workingStartTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetRunningPlan"))},
+    {"version", boost::any(string("2022-09-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/carbon/hvac/setRunningPlan"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetRunningPlanResponse(callApi(params, req, runtime));
+}
+
+SetRunningPlanResponse Alibabacloud_EnergyExpertExternal20220923::Client::setRunningPlan(shared_ptr<SetRunningPlanRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return setRunningPlanWithOptions(request, headers, runtime);
 }
 
 SubmitDocumentAnalyzeJobResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitDocumentAnalyzeJobWithOptions(shared_ptr<SubmitDocumentAnalyzeJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
