@@ -4900,6 +4900,7 @@ public:
   shared_ptr<long> endTimestamp{};
   shared_ptr<string> extend{};
   shared_ptr<string> labels{};
+  shared_ptr<string> riskLevel{};
   shared_ptr<string> riskTips{};
   shared_ptr<string> riskWords{};
   shared_ptr<double> score{};
@@ -4929,6 +4930,9 @@ public:
     }
     if (labels) {
       res["Labels"] = boost::any(*labels);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     if (riskTips) {
       res["RiskTips"] = boost::any(*riskTips);
@@ -4967,6 +4971,9 @@ public:
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
     }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
     if (m.find("RiskTips") != m.end() && !m["RiskTips"].empty()) {
       riskTips = make_shared<string>(boost::any_cast<string>(m["RiskTips"]));
     }
@@ -4996,6 +5003,7 @@ public:
 class VideoModerationResultResponseBodyDataAudioResult : public Darabonba::Model {
 public:
   shared_ptr<vector<VideoModerationResultResponseBodyDataAudioResultAudioSummarys>> audioSummarys{};
+  shared_ptr<string> riskLevel{};
   shared_ptr<vector<VideoModerationResultResponseBodyDataAudioResultSliceDetails>> sliceDetails{};
 
   VideoModerationResultResponseBodyDataAudioResult() {}
@@ -5014,6 +5022,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["AudioSummarys"] = boost::any(temp1);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     if (sliceDetails) {
       vector<boost::any> temp1;
@@ -5039,6 +5050,9 @@ public:
         audioSummarys = make_shared<vector<VideoModerationResultResponseBodyDataAudioResultAudioSummarys>>(expect1);
       }
     }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
     if (m.find("SliceDetails") != m.end() && !m["SliceDetails"].empty()) {
       if (typeid(vector<boost::any>) == m["SliceDetails"].type()) {
         vector<VideoModerationResultResponseBodyDataAudioResultSliceDetails> expect1;
@@ -5059,6 +5073,7 @@ public:
 };
 class VideoModerationResultResponseBodyDataFrameResultFrameSummarys : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
   shared_ptr<string> label{};
   shared_ptr<long> labelSum{};
 
@@ -5072,6 +5087,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (label) {
       res["Label"] = boost::any(*label);
     }
@@ -5082,6 +5100,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
     }
@@ -5161,6 +5182,7 @@ public:
 class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult : public Darabonba::Model {
 public:
   shared_ptr<double> confidence{};
+  shared_ptr<string> description{};
   shared_ptr<string> label{};
 
   VideoModerationResultResponseBodyDataFrameResultFramesResultsResult() {}
@@ -5176,6 +5198,9 @@ public:
     if (confidence) {
       res["Confidence"] = boost::any(*confidence);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (label) {
       res["Label"] = boost::any(*label);
     }
@@ -5185,6 +5210,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
       confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
@@ -5302,6 +5330,7 @@ class VideoModerationResultResponseBodyDataFrameResultFrames : public Darabonba:
 public:
   shared_ptr<double> offset{};
   shared_ptr<vector<VideoModerationResultResponseBodyDataFrameResultFramesResults>> results{};
+  shared_ptr<string> riskLevel{};
   shared_ptr<string> tempUrl{};
   shared_ptr<long> timestamp{};
 
@@ -5324,6 +5353,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Results"] = boost::any(temp1);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     if (tempUrl) {
       res["TempUrl"] = boost::any(*tempUrl);
@@ -5351,6 +5383,9 @@ public:
         results = make_shared<vector<VideoModerationResultResponseBodyDataFrameResultFramesResults>>(expect1);
       }
     }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
     if (m.find("TempUrl") != m.end() && !m["TempUrl"].empty()) {
       tempUrl = make_shared<string>(boost::any_cast<string>(m["TempUrl"]));
     }
@@ -5367,6 +5402,7 @@ public:
   shared_ptr<long> frameNum{};
   shared_ptr<vector<VideoModerationResultResponseBodyDataFrameResultFrameSummarys>> frameSummarys{};
   shared_ptr<vector<VideoModerationResultResponseBodyDataFrameResultFrames>> frames{};
+  shared_ptr<string> riskLevel{};
 
   VideoModerationResultResponseBodyDataFrameResult() {}
 
@@ -5394,6 +5430,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Frames"] = boost::any(temp1);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     return res;
   }
@@ -5428,6 +5467,9 @@ public:
         frames = make_shared<vector<VideoModerationResultResponseBodyDataFrameResultFrames>>(expect1);
       }
     }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
   }
 
 
@@ -5439,6 +5481,7 @@ public:
   shared_ptr<string> dataId{};
   shared_ptr<VideoModerationResultResponseBodyDataFrameResult> frameResult{};
   shared_ptr<string> liveId{};
+  shared_ptr<string> riskLevel{};
   shared_ptr<string> taskId{};
 
   VideoModerationResultResponseBodyData() {}
@@ -5462,6 +5505,9 @@ public:
     }
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
@@ -5489,6 +5535,9 @@ public:
     }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
