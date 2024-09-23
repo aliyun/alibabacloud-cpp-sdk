@@ -3303,6 +3303,7 @@ public:
   shared_ptr<string> algorithm{};
   shared_ptr<bool> buyInAliyun{};
   shared_ptr<string> cert{};
+  shared_ptr<string> certIdentifier{};
   shared_ptr<string> city{};
   shared_ptr<string> common{};
   shared_ptr<string> country{};
@@ -3346,6 +3347,9 @@ public:
     }
     if (cert) {
       res["Cert"] = boost::any(*cert);
+    }
+    if (certIdentifier) {
+      res["CertIdentifier"] = boost::any(*certIdentifier);
     }
     if (city) {
       res["City"] = boost::any(*city);
@@ -3431,6 +3435,9 @@ public:
     }
     if (m.find("Cert") != m.end() && !m["Cert"].empty()) {
       cert = make_shared<string>(boost::any_cast<string>(m["Cert"]));
+    }
+    if (m.find("CertIdentifier") != m.end() && !m["CertIdentifier"].empty()) {
+      certIdentifier = make_shared<string>(boost::any_cast<string>(m["CertIdentifier"]));
     }
     if (m.find("City") != m.end() && !m["City"].empty()) {
       city = make_shared<string>(boost::any_cast<string>(m["City"]));
