@@ -310,6 +310,42 @@ public:
 
   virtual ~ChangeResourceGroupResponse() = default;
 };
+class CreateIpamRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateIpamRequestTag() {}
+
+  explicit CreateIpamRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateIpamRequestTag() = default;
+};
 class CreateIpamRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -323,6 +359,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<CreateIpamRequestTag>> tag{};
 
   CreateIpamRequest() {}
 
@@ -367,6 +404,13 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -410,6 +454,19 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateIpamRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateIpamRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateIpamRequestTag>>(expect1);
+      }
     }
   }
 
@@ -539,11 +596,48 @@ public:
 
   virtual ~CreateIpamResponse() = default;
 };
+class CreateIpamPoolRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateIpamPoolRequestTag() {}
+
+  explicit CreateIpamPoolRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateIpamPoolRequestTag() = default;
+};
 class CreateIpamPoolRequest : public Darabonba::Model {
 public:
   shared_ptr<long> allocationDefaultCidrMask{};
   shared_ptr<long> allocationMaxCidrMask{};
   shared_ptr<long> allocationMinCidrMask{};
+  shared_ptr<bool> autoImport{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ipVersion{};
@@ -557,6 +651,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> sourceIpamPoolId{};
+  shared_ptr<vector<CreateIpamPoolRequestTag>> tag{};
 
   CreateIpamPoolRequest() {}
 
@@ -576,6 +671,9 @@ public:
     }
     if (allocationMinCidrMask) {
       res["AllocationMinCidrMask"] = boost::any(*allocationMinCidrMask);
+    }
+    if (autoImport) {
+      res["AutoImport"] = boost::any(*autoImport);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -616,6 +714,13 @@ public:
     if (sourceIpamPoolId) {
       res["SourceIpamPoolId"] = boost::any(*sourceIpamPoolId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -628,6 +733,9 @@ public:
     }
     if (m.find("AllocationMinCidrMask") != m.end() && !m["AllocationMinCidrMask"].empty()) {
       allocationMinCidrMask = make_shared<long>(boost::any_cast<long>(m["AllocationMinCidrMask"]));
+    }
+    if (m.find("AutoImport") != m.end() && !m["AutoImport"].empty()) {
+      autoImport = make_shared<bool>(boost::any_cast<bool>(m["AutoImport"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -667,6 +775,19 @@ public:
     }
     if (m.find("SourceIpamPoolId") != m.end() && !m["SourceIpamPoolId"].empty()) {
       sourceIpamPoolId = make_shared<string>(boost::any_cast<string>(m["SourceIpamPoolId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateIpamPoolRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateIpamPoolRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateIpamPoolRequestTag>>(expect1);
+      }
     }
   }
 
@@ -927,6 +1048,42 @@ public:
 
   virtual ~CreateIpamPoolAllocationResponse() = default;
 };
+class CreateIpamScopeRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateIpamScopeRequestTag() {}
+
+  explicit CreateIpamScopeRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateIpamScopeRequestTag() = default;
+};
 class CreateIpamScopeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -940,6 +1097,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<CreateIpamScopeRequestTag>> tag{};
 
   CreateIpamScopeRequest() {}
 
@@ -984,6 +1142,13 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1020,6 +1185,19 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateIpamScopeRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateIpamScopeRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateIpamScopeRequestTag>>(expect1);
+      }
     }
   }
 
@@ -2198,6 +2376,7 @@ public:
 };
 class ListIpamPoolAllocationsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> count{};
   shared_ptr<vector<ListIpamPoolAllocationsResponseBodyIpamPoolAllocations>> ipamPoolAllocations{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -2214,6 +2393,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
     if (ipamPoolAllocations) {
       vector<boost::any> temp1;
       for(auto item1:*ipamPoolAllocations){
@@ -2237,6 +2419,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
     if (m.find("IpamPoolAllocations") != m.end() && !m["IpamPoolAllocations"].empty()) {
       if (typeid(vector<boost::any>) == m["IpamPoolAllocations"].type()) {
         vector<ListIpamPoolAllocationsResponseBodyIpamPoolAllocations> expect1;
@@ -2421,6 +2606,7 @@ public:
 };
 class ListIpamPoolCidrsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> count{};
   shared_ptr<vector<ListIpamPoolCidrsResponseBodyIpamPoolCidrs>> ipamPoolCidrs{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -2437,6 +2623,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
     if (ipamPoolCidrs) {
       vector<boost::any> temp1;
       for(auto item1:*ipamPoolCidrs){
@@ -2460,6 +2649,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
     if (m.find("IpamPoolCidrs") != m.end() && !m["IpamPoolCidrs"].empty()) {
       if (typeid(vector<boost::any>) == m["IpamPoolCidrs"].type()) {
         vector<ListIpamPoolCidrsResponseBodyIpamPoolCidrs> expect1;
@@ -2583,6 +2775,7 @@ public:
   shared_ptr<vector<string>> ipamPoolIds{};
   shared_ptr<string> ipamPoolName{};
   shared_ptr<string> ipamScopeId{};
+  shared_ptr<bool> isShared{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> ownerAccount{};
@@ -2613,6 +2806,9 @@ public:
     }
     if (ipamScopeId) {
       res["IpamScopeId"] = boost::any(*ipamScopeId);
+    }
+    if (isShared) {
+      res["IsShared"] = boost::any(*isShared);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -2670,6 +2866,9 @@ public:
     }
     if (m.find("IpamScopeId") != m.end() && !m["IpamScopeId"].empty()) {
       ipamScopeId = make_shared<string>(boost::any_cast<string>(m["IpamScopeId"]));
+    }
+    if (m.find("IsShared") != m.end() && !m["IsShared"].empty()) {
+      isShared = make_shared<bool>(boost::any_cast<bool>(m["IsShared"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
@@ -2760,6 +2959,7 @@ public:
   shared_ptr<long> allocationDefaultCidrMask{};
   shared_ptr<long> allocationMaxCidrMask{};
   shared_ptr<long> allocationMinCidrMask{};
+  shared_ptr<bool> autoImport{};
   shared_ptr<string> createTime{};
   shared_ptr<bool> hasSubPool{};
   shared_ptr<string> ipVersion{};
@@ -2770,6 +2970,7 @@ public:
   shared_ptr<string> ipamRegionId{};
   shared_ptr<string> ipamScopeId{};
   shared_ptr<string> ipamScopeType{};
+  shared_ptr<bool> isShared{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> poolDepth{};
   shared_ptr<string> poolRegionId{};
@@ -2796,6 +2997,9 @@ public:
     }
     if (allocationMinCidrMask) {
       res["AllocationMinCidrMask"] = boost::any(*allocationMinCidrMask);
+    }
+    if (autoImport) {
+      res["AutoImport"] = boost::any(*autoImport);
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
@@ -2826,6 +3030,9 @@ public:
     }
     if (ipamScopeType) {
       res["IpamScopeType"] = boost::any(*ipamScopeType);
+    }
+    if (isShared) {
+      res["IsShared"] = boost::any(*isShared);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -2865,6 +3072,9 @@ public:
     if (m.find("AllocationMinCidrMask") != m.end() && !m["AllocationMinCidrMask"].empty()) {
       allocationMinCidrMask = make_shared<long>(boost::any_cast<long>(m["AllocationMinCidrMask"]));
     }
+    if (m.find("AutoImport") != m.end() && !m["AutoImport"].empty()) {
+      autoImport = make_shared<bool>(boost::any_cast<bool>(m["AutoImport"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
@@ -2894,6 +3104,9 @@ public:
     }
     if (m.find("IpamScopeType") != m.end() && !m["IpamScopeType"].empty()) {
       ipamScopeType = make_shared<string>(boost::any_cast<string>(m["IpamScopeType"]));
+    }
+    if (m.find("IsShared") != m.end() && !m["IsShared"].empty()) {
+      isShared = make_shared<bool>(boost::any_cast<bool>(m["IsShared"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -2933,6 +3146,7 @@ public:
 };
 class ListIpamPoolsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> count{};
   shared_ptr<vector<ListIpamPoolsResponseBodyIpamPools>> ipamPools{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -2949,6 +3163,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
     if (ipamPools) {
       vector<boost::any> temp1;
       for(auto item1:*ipamPools){
@@ -2972,6 +3189,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
     if (m.find("IpamPools") != m.end() && !m["IpamPools"].empty()) {
       if (typeid(vector<boost::any>) == m["IpamPools"].type()) {
         vector<ListIpamPoolsResponseBodyIpamPools> expect1;
@@ -3064,6 +3284,7 @@ public:
   shared_ptr<string> resourceId{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> resourceType{};
+  shared_ptr<string> vpcId{};
 
   ListIpamResourceCidrsRequest() {}
 
@@ -3099,6 +3320,9 @@ public:
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
@@ -3127,6 +3351,9 @@ public:
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
   }
 
 
@@ -3150,6 +3377,7 @@ public:
   shared_ptr<string> resourceType{};
   shared_ptr<string> sourceCidr{};
   shared_ptr<string> status{};
+  shared_ptr<string> vpcId{};
 
   ListIpamResourceCidrsResponseBodyIpamResourceCidrs() {}
 
@@ -3209,6 +3437,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
@@ -3261,6 +3492,9 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
   }
 
 
@@ -3268,6 +3502,7 @@ public:
 };
 class ListIpamResourceCidrsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> count{};
   shared_ptr<vector<ListIpamResourceCidrsResponseBodyIpamResourceCidrs>> ipamResourceCidrs{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -3284,6 +3519,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
     if (ipamResourceCidrs) {
       vector<boost::any> temp1;
       for(auto item1:*ipamResourceCidrs){
@@ -3307,6 +3545,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
     if (m.find("IpamResourceCidrs") != m.end() && !m["IpamResourceCidrs"].empty()) {
       if (typeid(vector<boost::any>) == m["IpamResourceCidrs"].type()) {
         vector<ListIpamResourceCidrsResponseBodyIpamResourceCidrs> expect1;
@@ -3717,6 +3958,7 @@ public:
 };
 class ListIpamScopesResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> count{};
   shared_ptr<vector<ListIpamScopesResponseBodyIpamScopes>> ipamScopes{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -3733,6 +3975,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
     if (ipamScopes) {
       vector<boost::any> temp1;
       for(auto item1:*ipamScopes){
@@ -3756,6 +4001,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
     if (m.find("IpamScopes") != m.end() && !m["IpamScopes"].empty()) {
       if (typeid(vector<boost::any>) == m["IpamScopes"].type()) {
         vector<ListIpamScopesResponseBodyIpamScopes> expect1;
@@ -4187,6 +4435,7 @@ public:
 };
 class ListIpamsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> count{};
   shared_ptr<vector<ListIpamsResponseBodyIpams>> ipams{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -4203,6 +4452,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
     if (ipams) {
       vector<boost::any> temp1;
       for(auto item1:*ipams){
@@ -4226,6 +4478,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
     if (m.find("Ipams") != m.end() && !m["Ipams"].empty()) {
       if (typeid(vector<boost::any>) == m["Ipams"].type()) {
         vector<ListIpamsResponseBodyIpams> expect1;
@@ -5377,6 +5632,7 @@ public:
   shared_ptr<long> allocationDefaultCidrMask{};
   shared_ptr<long> allocationMaxCidrMask{};
   shared_ptr<long> allocationMinCidrMask{};
+  shared_ptr<bool> autoImport{};
   shared_ptr<bool> clearAllocationDefaultCidrMask{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
@@ -5407,6 +5663,9 @@ public:
     }
     if (allocationMinCidrMask) {
       res["AllocationMinCidrMask"] = boost::any(*allocationMinCidrMask);
+    }
+    if (autoImport) {
+      res["AutoImport"] = boost::any(*autoImport);
     }
     if (clearAllocationDefaultCidrMask) {
       res["ClearAllocationDefaultCidrMask"] = boost::any(*clearAllocationDefaultCidrMask);
@@ -5453,6 +5712,9 @@ public:
     }
     if (m.find("AllocationMinCidrMask") != m.end() && !m["AllocationMinCidrMask"].empty()) {
       allocationMinCidrMask = make_shared<long>(boost::any_cast<long>(m["AllocationMinCidrMask"]));
+    }
+    if (m.find("AutoImport") != m.end() && !m["AutoImport"].empty()) {
+      autoImport = make_shared<bool>(boost::any_cast<bool>(m["AutoImport"]));
     }
     if (m.find("ClearAllocationDefaultCidrMask") != m.end() && !m["ClearAllocationDefaultCidrMask"].empty()) {
       clearAllocationDefaultCidrMask = make_shared<bool>(boost::any_cast<bool>(m["ClearAllocationDefaultCidrMask"]));

@@ -162,6 +162,9 @@ CreateIpamResponse Alibabacloud_VpcIpam20230228::Client::createIpamWithOptions(s
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateIpamRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateIpamRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -195,6 +198,9 @@ CreateIpamPoolResponse Alibabacloud_VpcIpam20230228::Client::createIpamPoolWithO
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->allocationMinCidrMask)) {
     query->insert(pair<string, long>("AllocationMinCidrMask", *request->allocationMinCidrMask));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoImport)) {
+    query->insert(pair<string, bool>("AutoImport", *request->autoImport));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -234,6 +240,9 @@ CreateIpamPoolResponse Alibabacloud_VpcIpam20230228::Client::createIpamPoolWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceIpamPoolId)) {
     query->insert(pair<string, string>("SourceIpamPoolId", *request->sourceIpamPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateIpamPoolRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateIpamPoolRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -335,6 +344,9 @@ CreateIpamScopeResponse Alibabacloud_VpcIpam20230228::Client::createIpamScopeWit
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateIpamScopeRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateIpamScopeRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -726,6 +738,9 @@ ListIpamPoolsResponse Alibabacloud_VpcIpam20230228::Client::listIpamPoolsWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->ipamScopeId)) {
     query->insert(pair<string, string>("IpamScopeId", *request->ipamScopeId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isShared)) {
+    query->insert(pair<string, bool>("IsShared", *request->isShared));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
@@ -807,6 +822,9 @@ ListIpamResourceCidrsResponse Alibabacloud_VpcIpam20230228::Client::listIpamReso
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1223,6 +1241,9 @@ UpdateIpamPoolResponse Alibabacloud_VpcIpam20230228::Client::updateIpamPoolWithO
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->allocationMinCidrMask)) {
     query->insert(pair<string, long>("AllocationMinCidrMask", *request->allocationMinCidrMask));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoImport)) {
+    query->insert(pair<string, bool>("AutoImport", *request->autoImport));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->clearAllocationDefaultCidrMask)) {
     query->insert(pair<string, bool>("ClearAllocationDefaultCidrMask", *request->clearAllocationDefaultCidrMask));
