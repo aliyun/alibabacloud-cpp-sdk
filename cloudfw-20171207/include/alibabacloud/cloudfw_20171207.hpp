@@ -10519,6 +10519,7 @@ public:
   shared_ptr<string> aclStatus{};
   shared_ptr<vector<DescribeOutgoingDestinationIPResponseBodyDstIPListAddressGroupList>> addressGroupList{};
   shared_ptr<vector<DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList>> applicationPortList{};
+  shared_ptr<long> assetCount{};
   shared_ptr<string> categoryClassId{};
   shared_ptr<string> categoryId{};
   shared_ptr<string> categoryName{};
@@ -10528,7 +10529,9 @@ public:
   shared_ptr<bool> hasAclRecommend{};
   shared_ptr<long> inBytes{};
   shared_ptr<bool> isMarkNormal{};
+  shared_ptr<string> locationName{};
   shared_ptr<long> outBytes{};
+  shared_ptr<long> privateAssetCount{};
   shared_ptr<string> ruleId{};
   shared_ptr<string> ruleName{};
   shared_ptr<string> securityReason{};
@@ -10570,6 +10573,9 @@ public:
       }
       res["ApplicationPortList"] = boost::any(temp1);
     }
+    if (assetCount) {
+      res["AssetCount"] = boost::any(*assetCount);
+    }
     if (categoryClassId) {
       res["CategoryClassId"] = boost::any(*categoryClassId);
     }
@@ -10597,8 +10603,14 @@ public:
     if (isMarkNormal) {
       res["IsMarkNormal"] = boost::any(*isMarkNormal);
     }
+    if (locationName) {
+      res["LocationName"] = boost::any(*locationName);
+    }
     if (outBytes) {
       res["OutBytes"] = boost::any(*outBytes);
+    }
+    if (privateAssetCount) {
+      res["PrivateAssetCount"] = boost::any(*privateAssetCount);
     }
     if (ruleId) {
       res["RuleId"] = boost::any(*ruleId);
@@ -10664,6 +10676,9 @@ public:
         applicationPortList = make_shared<vector<DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList>>(expect1);
       }
     }
+    if (m.find("AssetCount") != m.end() && !m["AssetCount"].empty()) {
+      assetCount = make_shared<long>(boost::any_cast<long>(m["AssetCount"]));
+    }
     if (m.find("CategoryClassId") != m.end() && !m["CategoryClassId"].empty()) {
       categoryClassId = make_shared<string>(boost::any_cast<string>(m["CategoryClassId"]));
     }
@@ -10691,8 +10706,14 @@ public:
     if (m.find("IsMarkNormal") != m.end() && !m["IsMarkNormal"].empty()) {
       isMarkNormal = make_shared<bool>(boost::any_cast<bool>(m["IsMarkNormal"]));
     }
+    if (m.find("LocationName") != m.end() && !m["LocationName"].empty()) {
+      locationName = make_shared<string>(boost::any_cast<string>(m["LocationName"]));
+    }
     if (m.find("OutBytes") != m.end() && !m["OutBytes"].empty()) {
       outBytes = make_shared<long>(boost::any_cast<long>(m["OutBytes"]));
+    }
+    if (m.find("PrivateAssetCount") != m.end() && !m["PrivateAssetCount"].empty()) {
+      privateAssetCount = make_shared<long>(boost::any_cast<long>(m["PrivateAssetCount"]));
     }
     if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
       ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
@@ -11002,6 +11023,8 @@ public:
   shared_ptr<string> aclStatus{};
   shared_ptr<string> addressGroupName{};
   shared_ptr<string> addressGroupUUID{};
+  shared_ptr<vector<string>> applicationNameList{};
+  shared_ptr<long> assetCount{};
   shared_ptr<string> business{};
   shared_ptr<string> categoryClassId{};
   shared_ptr<string> categoryId{};
@@ -11014,6 +11037,7 @@ public:
   shared_ptr<bool> isMarkNormal{};
   shared_ptr<string> organization{};
   shared_ptr<long> outBytes{};
+  shared_ptr<long> privateAssetCount{};
   shared_ptr<string> ruleId{};
   shared_ptr<string> ruleName{};
   shared_ptr<string> securityReason{};
@@ -11046,6 +11070,12 @@ public:
     }
     if (addressGroupUUID) {
       res["AddressGroupUUID"] = boost::any(*addressGroupUUID);
+    }
+    if (applicationNameList) {
+      res["ApplicationNameList"] = boost::any(*applicationNameList);
+    }
+    if (assetCount) {
+      res["AssetCount"] = boost::any(*assetCount);
     }
     if (business) {
       res["Business"] = boost::any(*business);
@@ -11082,6 +11112,9 @@ public:
     }
     if (outBytes) {
       res["OutBytes"] = boost::any(*outBytes);
+    }
+    if (privateAssetCount) {
+      res["PrivateAssetCount"] = boost::any(*privateAssetCount);
     }
     if (ruleId) {
       res["RuleId"] = boost::any(*ruleId);
@@ -11127,6 +11160,19 @@ public:
     if (m.find("AddressGroupUUID") != m.end() && !m["AddressGroupUUID"].empty()) {
       addressGroupUUID = make_shared<string>(boost::any_cast<string>(m["AddressGroupUUID"]));
     }
+    if (m.find("ApplicationNameList") != m.end() && !m["ApplicationNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApplicationNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApplicationNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      applicationNameList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AssetCount") != m.end() && !m["AssetCount"].empty()) {
+      assetCount = make_shared<long>(boost::any_cast<long>(m["AssetCount"]));
+    }
     if (m.find("Business") != m.end() && !m["Business"].empty()) {
       business = make_shared<string>(boost::any_cast<string>(m["Business"]));
     }
@@ -11162,6 +11208,9 @@ public:
     }
     if (m.find("OutBytes") != m.end() && !m["OutBytes"].empty()) {
       outBytes = make_shared<long>(boost::any_cast<long>(m["OutBytes"]));
+    }
+    if (m.find("PrivateAssetCount") != m.end() && !m["PrivateAssetCount"].empty()) {
+      privateAssetCount = make_shared<long>(boost::any_cast<long>(m["PrivateAssetCount"]));
     }
     if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
       ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
