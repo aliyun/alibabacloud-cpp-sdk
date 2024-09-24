@@ -481,6 +481,9 @@ CreateStackGroupResponse Alibabacloud_ROS20190910::Client::createStackGroupWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->stackArn)) {
+    query->insert(pair<string, string>("StackArn", *request->stackArn));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->stackGroupName)) {
     query->insert(pair<string, string>("StackGroupName", *request->stackGroupName));
   }
@@ -2059,6 +2062,63 @@ GetTemplateSummaryResponse Alibabacloud_ROS20190910::Client::getTemplateSummaryW
 GetTemplateSummaryResponse Alibabacloud_ROS20190910::Client::getTemplateSummary(shared_ptr<GetTemplateSummaryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getTemplateSummaryWithOptions(request, runtime);
+}
+
+ImportStacksToStackGroupResponse Alibabacloud_ROS20190910::Client::importStacksToStackGroupWithOptions(shared_ptr<ImportStacksToStackGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ImportStacksToStackGroupShrinkRequest> request = make_shared<ImportStacksToStackGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->operationPreferences)) {
+    request->operationPreferencesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->operationPreferences, make_shared<string>("OperationPreferences"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->resourceDirectoryFolderIds)) {
+    request->resourceDirectoryFolderIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceDirectoryFolderIds, make_shared<string>("ResourceDirectoryFolderIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->stackArns)) {
+    request->stackArnsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->stackArns, make_shared<string>("StackArns"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operationDescription)) {
+    query->insert(pair<string, string>("OperationDescription", *request->operationDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operationPreferencesShrink)) {
+    query->insert(pair<string, string>("OperationPreferences", *request->operationPreferencesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceDirectoryFolderIdsShrink)) {
+    query->insert(pair<string, string>("ResourceDirectoryFolderIds", *request->resourceDirectoryFolderIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->stackArnsShrink)) {
+    query->insert(pair<string, string>("StackArns", *request->stackArnsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->stackGroupName)) {
+    query->insert(pair<string, string>("StackGroupName", *request->stackGroupName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ImportStacksToStackGroup"))},
+    {"version", boost::any(string("2019-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ImportStacksToStackGroupResponse(callApi(params, req, runtime));
+}
+
+ImportStacksToStackGroupResponse Alibabacloud_ROS20190910::Client::importStacksToStackGroup(shared_ptr<ImportStacksToStackGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return importStacksToStackGroupWithOptions(request, runtime);
 }
 
 ListAITaskEventsResponse Alibabacloud_ROS20190910::Client::listAITaskEventsWithOptions(shared_ptr<ListAITaskEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

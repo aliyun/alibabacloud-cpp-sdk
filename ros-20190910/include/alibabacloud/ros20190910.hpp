@@ -1859,6 +1859,7 @@ public:
   shared_ptr<string> permissionModel{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> stackArn{};
   shared_ptr<string> stackGroupName{};
   shared_ptr<vector<CreateStackGroupRequestTags>> tags{};
   shared_ptr<string> templateBody{};
@@ -1909,6 +1910,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (stackArn) {
+      res["StackArn"] = boost::any(*stackArn);
     }
     if (stackGroupName) {
       res["StackGroupName"] = boost::any(*stackGroupName);
@@ -1986,6 +1990,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("StackArn") != m.end() && !m["StackArn"].empty()) {
+      stackArn = make_shared<string>(boost::any_cast<string>(m["StackArn"]));
     }
     if (m.find("StackGroupName") != m.end() && !m["StackGroupName"].empty()) {
       stackGroupName = make_shared<string>(boost::any_cast<string>(m["StackGroupName"]));
@@ -2104,6 +2111,7 @@ public:
   shared_ptr<string> permissionModel{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> stackArn{};
   shared_ptr<string> stackGroupName{};
   shared_ptr<vector<CreateStackGroupShrinkRequestTags>> tags{};
   shared_ptr<string> templateBody{};
@@ -2154,6 +2162,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (stackArn) {
+      res["StackArn"] = boost::any(*stackArn);
     }
     if (stackGroupName) {
       res["StackGroupName"] = boost::any(*stackGroupName);
@@ -2227,6 +2238,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("StackArn") != m.end() && !m["StackArn"].empty()) {
+      stackArn = make_shared<string>(boost::any_cast<string>(m["StackArn"]));
     }
     if (m.find("StackGroupName") != m.end() && !m["StackGroupName"].empty()) {
       stackGroupName = make_shared<string>(boost::any_cast<string>(m["StackGroupName"]));
@@ -14276,6 +14290,255 @@ public:
 
   virtual ~GetTemplateSummaryResponse() = default;
 };
+class ImportStacksToStackGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> operationDescription{};
+  shared_ptr<map<string, boost::any>> operationPreferences{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> resourceDirectoryFolderIds{};
+  shared_ptr<vector<string>> stackArns{};
+  shared_ptr<string> stackGroupName{};
+
+  ImportStacksToStackGroupRequest() {}
+
+  explicit ImportStacksToStackGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (operationDescription) {
+      res["OperationDescription"] = boost::any(*operationDescription);
+    }
+    if (operationPreferences) {
+      res["OperationPreferences"] = boost::any(*operationPreferences);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceDirectoryFolderIds) {
+      res["ResourceDirectoryFolderIds"] = boost::any(*resourceDirectoryFolderIds);
+    }
+    if (stackArns) {
+      res["StackArns"] = boost::any(*stackArns);
+    }
+    if (stackGroupName) {
+      res["StackGroupName"] = boost::any(*stackGroupName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OperationDescription") != m.end() && !m["OperationDescription"].empty()) {
+      operationDescription = make_shared<string>(boost::any_cast<string>(m["OperationDescription"]));
+    }
+    if (m.find("OperationPreferences") != m.end() && !m["OperationPreferences"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["OperationPreferences"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      operationPreferences = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceDirectoryFolderIds") != m.end() && !m["ResourceDirectoryFolderIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceDirectoryFolderIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceDirectoryFolderIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceDirectoryFolderIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("StackArns") != m.end() && !m["StackArns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["StackArns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["StackArns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      stackArns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("StackGroupName") != m.end() && !m["StackGroupName"].empty()) {
+      stackGroupName = make_shared<string>(boost::any_cast<string>(m["StackGroupName"]));
+    }
+  }
+
+
+  virtual ~ImportStacksToStackGroupRequest() = default;
+};
+class ImportStacksToStackGroupShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> operationDescription{};
+  shared_ptr<string> operationPreferencesShrink{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceDirectoryFolderIdsShrink{};
+  shared_ptr<string> stackArnsShrink{};
+  shared_ptr<string> stackGroupName{};
+
+  ImportStacksToStackGroupShrinkRequest() {}
+
+  explicit ImportStacksToStackGroupShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (operationDescription) {
+      res["OperationDescription"] = boost::any(*operationDescription);
+    }
+    if (operationPreferencesShrink) {
+      res["OperationPreferences"] = boost::any(*operationPreferencesShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceDirectoryFolderIdsShrink) {
+      res["ResourceDirectoryFolderIds"] = boost::any(*resourceDirectoryFolderIdsShrink);
+    }
+    if (stackArnsShrink) {
+      res["StackArns"] = boost::any(*stackArnsShrink);
+    }
+    if (stackGroupName) {
+      res["StackGroupName"] = boost::any(*stackGroupName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OperationDescription") != m.end() && !m["OperationDescription"].empty()) {
+      operationDescription = make_shared<string>(boost::any_cast<string>(m["OperationDescription"]));
+    }
+    if (m.find("OperationPreferences") != m.end() && !m["OperationPreferences"].empty()) {
+      operationPreferencesShrink = make_shared<string>(boost::any_cast<string>(m["OperationPreferences"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceDirectoryFolderIds") != m.end() && !m["ResourceDirectoryFolderIds"].empty()) {
+      resourceDirectoryFolderIdsShrink = make_shared<string>(boost::any_cast<string>(m["ResourceDirectoryFolderIds"]));
+    }
+    if (m.find("StackArns") != m.end() && !m["StackArns"].empty()) {
+      stackArnsShrink = make_shared<string>(boost::any_cast<string>(m["StackArns"]));
+    }
+    if (m.find("StackGroupName") != m.end() && !m["StackGroupName"].empty()) {
+      stackGroupName = make_shared<string>(boost::any_cast<string>(m["StackGroupName"]));
+    }
+  }
+
+
+  virtual ~ImportStacksToStackGroupShrinkRequest() = default;
+};
+class ImportStacksToStackGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> operationId{};
+  shared_ptr<string> requestId{};
+
+  ImportStacksToStackGroupResponseBody() {}
+
+  explicit ImportStacksToStackGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (operationId) {
+      res["OperationId"] = boost::any(*operationId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OperationId") != m.end() && !m["OperationId"].empty()) {
+      operationId = make_shared<string>(boost::any_cast<string>(m["OperationId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ImportStacksToStackGroupResponseBody() = default;
+};
+class ImportStacksToStackGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ImportStacksToStackGroupResponseBody> body{};
+
+  ImportStacksToStackGroupResponse() {}
+
+  explicit ImportStacksToStackGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ImportStacksToStackGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ImportStacksToStackGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ImportStacksToStackGroupResponse() = default;
+};
 class ListAITaskEventsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> maxResults{};
@@ -26032,6 +26295,8 @@ public:
   GetTemplateScratchResponse getTemplateScratch(shared_ptr<GetTemplateScratchRequest> request);
   GetTemplateSummaryResponse getTemplateSummaryWithOptions(shared_ptr<GetTemplateSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTemplateSummaryResponse getTemplateSummary(shared_ptr<GetTemplateSummaryRequest> request);
+  ImportStacksToStackGroupResponse importStacksToStackGroupWithOptions(shared_ptr<ImportStacksToStackGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ImportStacksToStackGroupResponse importStacksToStackGroup(shared_ptr<ImportStacksToStackGroupRequest> request);
   ListAITaskEventsResponse listAITaskEventsWithOptions(shared_ptr<ListAITaskEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAITaskEventsResponse listAITaskEvents(shared_ptr<ListAITaskEventsRequest> request);
   ListAITasksResponse listAITasksWithOptions(shared_ptr<ListAITasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
