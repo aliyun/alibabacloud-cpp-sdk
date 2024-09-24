@@ -3256,7 +3256,7 @@ public:
 class GetResult4QueryInstancePrice4ModifyResponseBodyDataPriceList : public Darabonba::Model {
 public:
   shared_ptr<double> discountAmount{};
-  shared_ptr<string> ERROR{};
+  shared_ptr<string> error{};
   shared_ptr<string> nodeType{};
   shared_ptr<double> originalAmount{};
   shared_ptr<string> priceUnit{};
@@ -3276,8 +3276,8 @@ public:
     if (discountAmount) {
       res["DiscountAmount"] = boost::any(*discountAmount);
     }
-    if (ERROR) {
-      res["ERROR"] = boost::any(*ERROR);
+    if (error) {
+      res["Error"] = boost::any(*error);
     }
     if (nodeType) {
       res["NodeType"] = boost::any(*nodeType);
@@ -3301,8 +3301,8 @@ public:
     if (m.find("DiscountAmount") != m.end() && !m["DiscountAmount"].empty()) {
       discountAmount = make_shared<double>(boost::any_cast<double>(m["DiscountAmount"]));
     }
-    if (m.find("ERROR") != m.end() && !m["ERROR"].empty()) {
-      ERROR = make_shared<string>(boost::any_cast<string>(m["ERROR"]));
+    if (m.find("Error") != m.end() && !m["Error"].empty()) {
+      error = make_shared<string>(boost::any_cast<string>(m["Error"]));
     }
     if (m.find("NodeType") != m.end() && !m["NodeType"].empty()) {
       nodeType = make_shared<string>(boost::any_cast<string>(m["NodeType"]));
@@ -5667,11 +5667,111 @@ public:
 
   virtual ~QueryInstanceSpec4ModifyShrinkRequest() = default;
 };
+class QueryInstanceSpec4ModifyResponseBodyDataOptionalValues : public Darabonba::Model {
+public:
+  shared_ptr<string> label{};
+  shared_ptr<double> max{};
+  shared_ptr<double> min{};
+  shared_ptr<double> step{};
+  shared_ptr<string> value{};
+
+  QueryInstanceSpec4ModifyResponseBodyDataOptionalValues() {}
+
+  explicit QueryInstanceSpec4ModifyResponseBodyDataOptionalValues(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (max) {
+      res["Max"] = boost::any(*max);
+    }
+    if (min) {
+      res["Min"] = boost::any(*min);
+    }
+    if (step) {
+      res["Step"] = boost::any(*step);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("Max") != m.end() && !m["Max"].empty()) {
+      max = make_shared<double>(boost::any_cast<double>(m["Max"]));
+    }
+    if (m.find("Min") != m.end() && !m["Min"].empty()) {
+      min = make_shared<double>(boost::any_cast<double>(m["Min"]));
+    }
+    if (m.find("Step") != m.end() && !m["Step"].empty()) {
+      step = make_shared<double>(boost::any_cast<double>(m["Step"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~QueryInstanceSpec4ModifyResponseBodyDataOptionalValues() = default;
+};
+class QueryInstanceSpec4ModifyResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<QueryInstanceSpec4ModifyResponseBodyDataOptionalValues>> optionalValues{};
+
+  QueryInstanceSpec4ModifyResponseBodyData() {}
+
+  explicit QueryInstanceSpec4ModifyResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (optionalValues) {
+      vector<boost::any> temp1;
+      for(auto item1:*optionalValues){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OptionalValues"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OptionalValues") != m.end() && !m["OptionalValues"].empty()) {
+      if (typeid(vector<boost::any>) == m["OptionalValues"].type()) {
+        vector<QueryInstanceSpec4ModifyResponseBodyDataOptionalValues> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OptionalValues"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryInstanceSpec4ModifyResponseBodyDataOptionalValues model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        optionalValues = make_shared<vector<QueryInstanceSpec4ModifyResponseBodyDataOptionalValues>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryInstanceSpec4ModifyResponseBodyData() = default;
+};
 class QueryInstanceSpec4ModifyResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
-  shared_ptr<string> data{};
+  shared_ptr<QueryInstanceSpec4ModifyResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -5693,7 +5793,7 @@ public:
       res["Code"] = boost::any(*code);
     }
     if (data) {
-      res["Data"] = boost::any(*data);
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -5715,7 +5815,11 @@ public:
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QueryInstanceSpec4ModifyResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QueryInstanceSpec4ModifyResponseBodyData>(model1);
+      }
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
