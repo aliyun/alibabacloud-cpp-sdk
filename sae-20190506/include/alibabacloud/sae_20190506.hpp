@@ -1885,6 +1885,7 @@ public:
   shared_ptr<string> namespaceName{};
   shared_ptr<NASConfig> nasConfig{};
   shared_ptr<OSSMountConfig> ossMountConfig{};
+  shared_ptr<string> programmingLanguage{};
   shared_ptr<string> runtime{};
   shared_ptr<ScaleConfig> scaleConfig{};
   shared_ptr<SLSConfig> slsConfig{};
@@ -2031,6 +2032,9 @@ public:
     }
     if (ossMountConfig) {
       res["ossMountConfig"] = ossMountConfig ? boost::any(ossMountConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (programmingLanguage) {
+      res["programmingLanguage"] = boost::any(*programmingLanguage);
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
@@ -2254,6 +2258,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ossMountConfig"]));
         ossMountConfig = make_shared<OSSMountConfig>(model1);
       }
+    }
+    if (m.find("programmingLanguage") != m.end() && !m["programmingLanguage"].empty()) {
+      programmingLanguage = make_shared<string>(boost::any_cast<string>(m["programmingLanguage"]));
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
@@ -4522,6 +4529,7 @@ public:
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<long> diskSize{};
+  shared_ptr<bool> enableAppMetric{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<long> gpuMemorySize{};
   shared_ptr<string> handler{};
@@ -4541,6 +4549,7 @@ public:
   shared_ptr<string> namespaceID{};
   shared_ptr<NASConfig> nasConfig{};
   shared_ptr<OSSMountConfig> ossMountConfig{};
+  shared_ptr<string> programmingLanguage{};
   shared_ptr<string> runtime{};
   shared_ptr<ScaleConfig> scaleConfig{};
   shared_ptr<SLSConfig> slsConfig{};
@@ -4594,6 +4603,9 @@ public:
     }
     if (diskSize) {
       res["diskSize"] = boost::any(*diskSize);
+    }
+    if (enableAppMetric) {
+      res["enableAppMetric"] = boost::any(*enableAppMetric);
     }
     if (environmentVariables) {
       res["environmentVariables"] = boost::any(*environmentVariables);
@@ -4651,6 +4663,9 @@ public:
     }
     if (ossMountConfig) {
       res["ossMountConfig"] = ossMountConfig ? boost::any(ossMountConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (programmingLanguage) {
+      res["programmingLanguage"] = boost::any(*programmingLanguage);
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
@@ -4732,6 +4747,9 @@ public:
     }
     if (m.find("diskSize") != m.end() && !m["diskSize"].empty()) {
       diskSize = make_shared<long>(boost::any_cast<long>(m["diskSize"]));
+    }
+    if (m.find("enableAppMetric") != m.end() && !m["enableAppMetric"].empty()) {
+      enableAppMetric = make_shared<bool>(boost::any_cast<bool>(m["enableAppMetric"]));
     }
     if (m.find("environmentVariables") != m.end() && !m["environmentVariables"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["environmentVariables"]);
@@ -4829,6 +4847,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ossMountConfig"]));
         ossMountConfig = make_shared<OSSMountConfig>(model1);
       }
+    }
+    if (m.find("programmingLanguage") != m.end() && !m["programmingLanguage"].empty()) {
+      programmingLanguage = make_shared<string>(boost::any_cast<string>(m["programmingLanguage"]));
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
@@ -9889,8 +9910,10 @@ public:
   shared_ptr<Probe> livenessProbe{};
   shared_ptr<LogConfig> logConfig{};
   shared_ptr<long> memorySize{};
+  shared_ptr<string> namespaceID{};
   shared_ptr<NASConfig> nasConfig{};
   shared_ptr<OSSMountConfig> ossMountConfig{};
+  shared_ptr<string> programmingLanguage{};
   shared_ptr<string> runtime{};
   shared_ptr<ScaleConfig> scaleConfig{};
   shared_ptr<SLSConfig> slsConfig{};
@@ -9996,11 +10019,17 @@ public:
     if (memorySize) {
       res["memorySize"] = boost::any(*memorySize);
     }
+    if (namespaceID) {
+      res["namespaceID"] = boost::any(*namespaceID);
+    }
     if (nasConfig) {
       res["nasConfig"] = nasConfig ? boost::any(nasConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ossMountConfig) {
       res["ossMountConfig"] = ossMountConfig ? boost::any(ossMountConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (programmingLanguage) {
+      res["programmingLanguage"] = boost::any(*programmingLanguage);
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
@@ -10166,6 +10195,9 @@ public:
     if (m.find("memorySize") != m.end() && !m["memorySize"].empty()) {
       memorySize = make_shared<long>(boost::any_cast<long>(m["memorySize"]));
     }
+    if (m.find("namespaceID") != m.end() && !m["namespaceID"].empty()) {
+      namespaceID = make_shared<string>(boost::any_cast<string>(m["namespaceID"]));
+    }
     if (m.find("nasConfig") != m.end() && !m["nasConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["nasConfig"].type()) {
         NASConfig model1;
@@ -10179,6 +10211,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ossMountConfig"]));
         ossMountConfig = make_shared<OSSMountConfig>(model1);
       }
+    }
+    if (m.find("programmingLanguage") != m.end() && !m["programmingLanguage"].empty()) {
+      programmingLanguage = make_shared<string>(boost::any_cast<string>(m["programmingLanguage"]));
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
@@ -12394,6 +12429,7 @@ public:
   shared_ptr<long> cpu{};
   shared_ptr<string> customHostAlias{};
   shared_ptr<bool> deploy{};
+  shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
   shared_ptr<string> enableEbpf{};
   shared_ptr<bool> enableNewArms{};
@@ -12494,6 +12530,9 @@ public:
     }
     if (deploy) {
       res["Deploy"] = boost::any(*deploy);
+    }
+    if (dotnet) {
+      res["Dotnet"] = boost::any(*dotnet);
     }
     if (edasContainerVersion) {
       res["EdasContainerVersion"] = boost::any(*edasContainerVersion);
@@ -12684,6 +12723,9 @@ public:
     }
     if (m.find("Deploy") != m.end() && !m["Deploy"].empty()) {
       deploy = make_shared<bool>(boost::any_cast<bool>(m["Deploy"]));
+    }
+    if (m.find("Dotnet") != m.end() && !m["Dotnet"].empty()) {
+      dotnet = make_shared<string>(boost::any_cast<string>(m["Dotnet"]));
     }
     if (m.find("EdasContainerVersion") != m.end() && !m["EdasContainerVersion"].empty()) {
       edasContainerVersion = make_shared<string>(boost::any_cast<string>(m["EdasContainerVersion"]));
@@ -13000,6 +13042,7 @@ public:
 class CreateApplicationScalingRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<bool> enableIdle{};
   shared_ptr<long> minReadyInstanceRatio{};
   shared_ptr<long> minReadyInstances{};
   shared_ptr<bool> scalingRuleEnable{};
@@ -13020,6 +13063,9 @@ public:
     map<string, boost::any> res;
     if (appId) {
       res["AppId"] = boost::any(*appId);
+    }
+    if (enableIdle) {
+      res["EnableIdle"] = boost::any(*enableIdle);
     }
     if (minReadyInstanceRatio) {
       res["MinReadyInstanceRatio"] = boost::any(*minReadyInstanceRatio);
@@ -13048,6 +13094,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("EnableIdle") != m.end() && !m["EnableIdle"].empty()) {
+      enableIdle = make_shared<bool>(boost::any_cast<bool>(m["EnableIdle"]));
     }
     if (m.find("MinReadyInstanceRatio") != m.end() && !m["MinReadyInstanceRatio"].empty()) {
       minReadyInstanceRatio = make_shared<long>(boost::any_cast<long>(m["MinReadyInstanceRatio"]));
@@ -13314,6 +13363,7 @@ class CreateApplicationScalingRuleResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<long> createTime{};
+  shared_ptr<bool> enableIdle{};
   shared_ptr<long> lastDisableTime{};
   shared_ptr<CreateApplicationScalingRuleResponseBodyDataMetric> metric{};
   shared_ptr<bool> scaleRuleEnabled{};
@@ -13337,6 +13387,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (enableIdle) {
+      res["EnableIdle"] = boost::any(*enableIdle);
     }
     if (lastDisableTime) {
       res["LastDisableTime"] = boost::any(*lastDisableTime);
@@ -13368,6 +13421,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("EnableIdle") != m.end() && !m["EnableIdle"].empty()) {
+      enableIdle = make_shared<bool>(boost::any_cast<bool>(m["EnableIdle"]));
     }
     if (m.find("LastDisableTime") != m.end() && !m["LastDisableTime"].empty()) {
       lastDisableTime = make_shared<long>(boost::any_cast<long>(m["LastDisableTime"]));
@@ -13962,6 +14018,7 @@ public:
   shared_ptr<string> certIds{};
   shared_ptr<string> defaultRule{};
   shared_ptr<string> description{};
+  shared_ptr<long> idleTimeout{};
   shared_ptr<long> listenerPort{};
   shared_ptr<string> listenerProtocol{};
   shared_ptr<string> loadBalanceType{};
@@ -13992,6 +14049,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (idleTimeout) {
+      res["IdleTimeout"] = boost::any(*idleTimeout);
     }
     if (listenerPort) {
       res["ListenerPort"] = boost::any(*listenerPort);
@@ -14032,6 +14092,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
+      idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
     }
     if (m.find("ListenerPort") != m.end() && !m["ListenerPort"].empty()) {
       listenerPort = make_shared<long>(boost::any_cast<long>(m["ListenerPort"]));
@@ -17307,6 +17370,7 @@ public:
   shared_ptr<long> cpu{};
   shared_ptr<string> customHostAlias{};
   shared_ptr<string> deploy{};
+  shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
   shared_ptr<string> enableAhas{};
   shared_ptr<bool> enableGreyTagRoute{};
@@ -17404,6 +17468,9 @@ public:
     }
     if (deploy) {
       res["Deploy"] = boost::any(*deploy);
+    }
+    if (dotnet) {
+      res["Dotnet"] = boost::any(*dotnet);
     }
     if (edasContainerVersion) {
       res["EdasContainerVersion"] = boost::any(*edasContainerVersion);
@@ -17591,6 +17658,9 @@ public:
     }
     if (m.find("Deploy") != m.end() && !m["Deploy"].empty()) {
       deploy = make_shared<string>(boost::any_cast<string>(m["Deploy"]));
+    }
+    if (m.find("Dotnet") != m.end() && !m["Dotnet"].empty()) {
+      dotnet = make_shared<string>(boost::any_cast<string>(m["Dotnet"]));
     }
     if (m.find("EdasContainerVersion") != m.end() && !m["EdasContainerVersion"].empty()) {
       edasContainerVersion = make_shared<string>(boost::any_cast<string>(m["EdasContainerVersion"]));
@@ -18648,6 +18718,7 @@ public:
   shared_ptr<vector<DescribeApplicationConfigResponseBodyDataConfigMapMountDesc>> configMapMountDesc{};
   shared_ptr<long> cpu{};
   shared_ptr<string> customHostAlias{};
+  shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
   shared_ptr<string> enableAhas{};
   shared_ptr<bool> enableGreyTagRoute{};
@@ -18757,6 +18828,9 @@ public:
     }
     if (customHostAlias) {
       res["CustomHostAlias"] = boost::any(*customHostAlias);
+    }
+    if (dotnet) {
+      res["Dotnet"] = boost::any(*dotnet);
     }
     if (edasContainerVersion) {
       res["EdasContainerVersion"] = boost::any(*edasContainerVersion);
@@ -18990,6 +19064,9 @@ public:
     }
     if (m.find("CustomHostAlias") != m.end() && !m["CustomHostAlias"].empty()) {
       customHostAlias = make_shared<string>(boost::any_cast<string>(m["CustomHostAlias"]));
+    }
+    if (m.find("Dotnet") != m.end() && !m["Dotnet"].empty()) {
+      dotnet = make_shared<string>(boost::any_cast<string>(m["Dotnet"]));
     }
     if (m.find("EdasContainerVersion") != m.end() && !m["EdasContainerVersion"].empty()) {
       edasContainerVersion = make_shared<string>(boost::any_cast<string>(m["EdasContainerVersion"]));
@@ -20786,6 +20863,7 @@ class DescribeApplicationScalingRuleResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<long> createTime{};
+  shared_ptr<bool> enableIdle{};
   shared_ptr<long> lastDisableTime{};
   shared_ptr<DescribeApplicationScalingRuleResponseBodyDataMetric> metric{};
   shared_ptr<long> minReadyInstanceRatio{};
@@ -20811,6 +20889,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (enableIdle) {
+      res["EnableIdle"] = boost::any(*enableIdle);
     }
     if (lastDisableTime) {
       res["LastDisableTime"] = boost::any(*lastDisableTime);
@@ -20848,6 +20929,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("EnableIdle") != m.end() && !m["EnableIdle"].empty()) {
+      enableIdle = make_shared<bool>(boost::any_cast<bool>(m["EnableIdle"]));
     }
     if (m.find("LastDisableTime") != m.end() && !m["LastDisableTime"].empty()) {
       lastDisableTime = make_shared<long>(boost::any_cast<long>(m["LastDisableTime"]));
@@ -21595,6 +21679,7 @@ class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRules : p
 public:
   shared_ptr<string> appId{};
   shared_ptr<long> createTime{};
+  shared_ptr<bool> enableIdle{};
   shared_ptr<long> lastDisableTime{};
   shared_ptr<DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetric> metric{};
   shared_ptr<long> minReadyInstanceRatio{};
@@ -21620,6 +21705,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (enableIdle) {
+      res["EnableIdle"] = boost::any(*enableIdle);
     }
     if (lastDisableTime) {
       res["LastDisableTime"] = boost::any(*lastDisableTime);
@@ -21657,6 +21745,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("EnableIdle") != m.end() && !m["EnableIdle"].empty()) {
+      enableIdle = make_shared<bool>(boost::any_cast<bool>(m["EnableIdle"]));
     }
     if (m.find("LastDisableTime") != m.end() && !m["LastDisableTime"].empty()) {
       lastDisableTime = make_shared<long>(boost::any_cast<long>(m["LastDisableTime"]));
@@ -25361,6 +25452,7 @@ public:
   shared_ptr<DescribeIngressResponseBodyDataDefaultRule> defaultRule{};
   shared_ptr<string> description{};
   shared_ptr<long> id{};
+  shared_ptr<long> idleTimeout{};
   shared_ptr<long> listenerPort{};
   shared_ptr<string> listenerProtocol{};
   shared_ptr<string> loadBalanceType{};
@@ -25396,6 +25488,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (idleTimeout) {
+      res["IdleTimeout"] = boost::any(*idleTimeout);
     }
     if (listenerPort) {
       res["ListenerPort"] = boost::any(*listenerPort);
@@ -25453,6 +25548,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
+      idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
     }
     if (m.find("ListenerPort") != m.end() && !m["ListenerPort"].empty()) {
       listenerPort = make_shared<long>(boost::any_cast<long>(m["ListenerPort"]));
@@ -33027,11 +33125,13 @@ public:
   shared_ptr<string> baseAppId{};
   shared_ptr<vector<ListApplicationsResponseBodyDataApplicationsChildren>> children{};
   shared_ptr<long> cpu{};
+  shared_ptr<string> imageUrl{};
   shared_ptr<long> instances{};
   shared_ptr<long> mem{};
   shared_ptr<bool> mseEnabled{};
   shared_ptr<string> mseNamespaceId{};
   shared_ptr<string> namespaceId{};
+  shared_ptr<string> packageUrl{};
   shared_ptr<string> programmingLanguage{};
   shared_ptr<string> regionId{};
   shared_ptr<long> runningInstances{};
@@ -33072,6 +33172,9 @@ public:
     if (cpu) {
       res["Cpu"] = boost::any(*cpu);
     }
+    if (imageUrl) {
+      res["ImageUrl"] = boost::any(*imageUrl);
+    }
     if (instances) {
       res["Instances"] = boost::any(*instances);
     }
@@ -33086,6 +33189,9 @@ public:
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    if (packageUrl) {
+      res["PackageUrl"] = boost::any(*packageUrl);
     }
     if (programmingLanguage) {
       res["ProgrammingLanguage"] = boost::any(*programmingLanguage);
@@ -33138,6 +33244,9 @@ public:
     if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
       cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
     }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
     if (m.find("Instances") != m.end() && !m["Instances"].empty()) {
       instances = make_shared<long>(boost::any_cast<long>(m["Instances"]));
     }
@@ -33152,6 +33261,9 @@ public:
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+    if (m.find("PackageUrl") != m.end() && !m["PackageUrl"].empty()) {
+      packageUrl = make_shared<string>(boost::any_cast<string>(m["PackageUrl"]));
     }
     if (m.find("ProgrammingLanguage") != m.end() && !m["ProgrammingLanguage"].empty()) {
       programmingLanguage = make_shared<string>(boost::any_cast<string>(m["ProgrammingLanguage"]));
@@ -38841,6 +38953,9 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> cpu{};
   shared_ptr<string> memory{};
+  shared_ptr<bool> autoEnableApplicationScalingRule{};
+  shared_ptr<long> minReadyInstanceRatio{};
+  shared_ptr<long> minReadyInstances{};
 
   RescaleApplicationVerticallyRequest() {}
 
@@ -38861,6 +38976,15 @@ public:
     if (memory) {
       res["Memory"] = boost::any(*memory);
     }
+    if (autoEnableApplicationScalingRule) {
+      res["autoEnableApplicationScalingRule"] = boost::any(*autoEnableApplicationScalingRule);
+    }
+    if (minReadyInstanceRatio) {
+      res["minReadyInstanceRatio"] = boost::any(*minReadyInstanceRatio);
+    }
+    if (minReadyInstances) {
+      res["minReadyInstances"] = boost::any(*minReadyInstances);
+    }
     return res;
   }
 
@@ -38873,6 +38997,15 @@ public:
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<string>(boost::any_cast<string>(m["Memory"]));
+    }
+    if (m.find("autoEnableApplicationScalingRule") != m.end() && !m["autoEnableApplicationScalingRule"].empty()) {
+      autoEnableApplicationScalingRule = make_shared<bool>(boost::any_cast<bool>(m["autoEnableApplicationScalingRule"]));
+    }
+    if (m.find("minReadyInstanceRatio") != m.end() && !m["minReadyInstanceRatio"].empty()) {
+      minReadyInstanceRatio = make_shared<long>(boost::any_cast<long>(m["minReadyInstanceRatio"]));
+    }
+    if (m.find("minReadyInstances") != m.end() && !m["minReadyInstances"].empty()) {
+      minReadyInstances = make_shared<long>(boost::any_cast<long>(m["minReadyInstances"]));
     }
   }
 
@@ -41217,6 +41350,7 @@ public:
 class UpdateApplicationScalingRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<bool> enableIdle{};
   shared_ptr<long> minReadyInstanceRatio{};
   shared_ptr<long> minReadyInstances{};
   shared_ptr<string> scalingRuleMetric{};
@@ -41235,6 +41369,9 @@ public:
     map<string, boost::any> res;
     if (appId) {
       res["AppId"] = boost::any(*appId);
+    }
+    if (enableIdle) {
+      res["EnableIdle"] = boost::any(*enableIdle);
     }
     if (minReadyInstanceRatio) {
       res["MinReadyInstanceRatio"] = boost::any(*minReadyInstanceRatio);
@@ -41257,6 +41394,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("EnableIdle") != m.end() && !m["EnableIdle"].empty()) {
+      enableIdle = make_shared<bool>(boost::any_cast<bool>(m["EnableIdle"]));
     }
     if (m.find("MinReadyInstanceRatio") != m.end() && !m["MinReadyInstanceRatio"].empty()) {
       minReadyInstanceRatio = make_shared<long>(boost::any_cast<long>(m["MinReadyInstanceRatio"]));
@@ -41517,6 +41657,7 @@ class UpdateApplicationScalingRuleResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<long> createTime{};
+  shared_ptr<bool> enableIdle{};
   shared_ptr<long> lastDisableTime{};
   shared_ptr<UpdateApplicationScalingRuleResponseBodyDataMetric> metric{};
   shared_ptr<bool> scaleRuleEnabled{};
@@ -41540,6 +41681,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (enableIdle) {
+      res["EnableIdle"] = boost::any(*enableIdle);
     }
     if (lastDisableTime) {
       res["LastDisableTime"] = boost::any(*lastDisableTime);
@@ -41571,6 +41715,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("EnableIdle") != m.end() && !m["EnableIdle"].empty()) {
+      enableIdle = make_shared<bool>(boost::any_cast<bool>(m["EnableIdle"]));
     }
     if (m.find("LastDisableTime") != m.end() && !m["LastDisableTime"].empty()) {
       lastDisableTime = make_shared<long>(boost::any_cast<long>(m["LastDisableTime"]));
@@ -42303,6 +42450,7 @@ public:
   shared_ptr<string> certIds{};
   shared_ptr<string> defaultRule{};
   shared_ptr<string> description{};
+  shared_ptr<long> idleTimeout{};
   shared_ptr<long> ingressId{};
   shared_ptr<string> listenerPort{};
   shared_ptr<string> listenerProtocol{};
@@ -42332,6 +42480,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (idleTimeout) {
+      res["IdleTimeout"] = boost::any(*idleTimeout);
     }
     if (ingressId) {
       res["IngressId"] = boost::any(*ingressId);
@@ -42369,6 +42520,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
+      idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
     }
     if (m.find("IngressId") != m.end() && !m["IngressId"].empty()) {
       ingressId = make_shared<long>(boost::any_cast<long>(m["IngressId"]));

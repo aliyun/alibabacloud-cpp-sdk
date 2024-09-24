@@ -283,6 +283,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<bool>(request->deploy)) {
     query->insert(pair<string, bool>("Deploy", *request->deploy));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dotnet)) {
+    query->insert(pair<string, string>("Dotnet", *request->dotnet));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->edasContainerVersion)) {
     query->insert(pair<string, string>("EdasContainerVersion", *request->edasContainerVersion));
   }
@@ -471,6 +474,9 @@ CreateApplicationScalingRuleResponse Alibabacloud_Sae20190506::Client::createApp
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableIdle)) {
+    query->insert(pair<string, bool>("EnableIdle", *request->enableIdle));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->minReadyInstanceRatio)) {
     query->insert(pair<string, long>("MinReadyInstanceRatio", *request->minReadyInstanceRatio));
   }
@@ -616,6 +622,9 @@ CreateIngressResponse Alibabacloud_Sae20190506::Client::createIngressWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->idleTimeout)) {
+    query->insert(pair<string, long>("IdleTimeout", *request->idleTimeout));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->listenerPort)) {
     query->insert(pair<string, long>("ListenerPort", *request->listenerPort));
@@ -1420,6 +1429,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deploy)) {
     query->insert(pair<string, string>("Deploy", *request->deploy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dotnet)) {
+    query->insert(pair<string, string>("Dotnet", *request->dotnet));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->edasContainerVersion)) {
     query->insert(pair<string, string>("EdasContainerVersion", *request->edasContainerVersion));
@@ -4029,6 +4041,15 @@ RescaleApplicationVerticallyResponse Alibabacloud_Sae20190506::Client::rescaleAp
   if (!Darabonba_Util::Client::isUnset<string>(request->memory)) {
     query->insert(pair<string, string>("Memory", *request->memory));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoEnableApplicationScalingRule)) {
+    query->insert(pair<string, bool>("autoEnableApplicationScalingRule", *request->autoEnableApplicationScalingRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minReadyInstanceRatio)) {
+    query->insert(pair<string, long>("minReadyInstanceRatio", *request->minReadyInstanceRatio));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minReadyInstances)) {
+    query->insert(pair<string, long>("minReadyInstances", *request->minReadyInstances));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4521,6 +4542,9 @@ UpdateApplicationScalingRuleResponse Alibabacloud_Sae20190506::Client::updateApp
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableIdle)) {
+    query->insert(pair<string, bool>("EnableIdle", *request->enableIdle));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->minReadyInstanceRatio)) {
     query->insert(pair<string, long>("MinReadyInstanceRatio", *request->minReadyInstanceRatio));
   }
@@ -4687,6 +4711,9 @@ UpdateIngressResponse Alibabacloud_Sae20190506::Client::updateIngressWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->idleTimeout)) {
+    query->insert(pair<string, long>("IdleTimeout", *request->idleTimeout));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ingressId)) {
     query->insert(pair<string, long>("IngressId", *request->ingressId));
