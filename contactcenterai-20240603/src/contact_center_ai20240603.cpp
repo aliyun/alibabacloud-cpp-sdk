@@ -44,6 +44,9 @@ AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyz
                                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<AnalyzeConversationRequestCategoryTags>>(request->categoryTags)) {
+    body->insert(pair<string, vector<AnalyzeConversationRequestCategoryTags>>("categoryTags", *request->categoryTags));
+  }
   if (!Darabonba_Util::Client::isUnset<AnalyzeConversationRequestDialogue>(request->dialogue)) {
     body->insert(pair<string, AnalyzeConversationRequestDialogue>("dialogue", *request->dialogue));
   }
@@ -67,6 +70,9 @@ AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyz
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
     body->insert(pair<string, bool>("stream", *request->stream));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<AnalyzeConversationRequestUserProfiles>>(request->userProfiles)) {
+    body->insert(pair<string, vector<AnalyzeConversationRequestUserProfiles>>("userProfiles", *request->userProfiles));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},

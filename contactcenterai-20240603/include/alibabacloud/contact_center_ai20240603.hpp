@@ -13,6 +13,42 @@
 using namespace std;
 
 namespace Alibabacloud_ContactCenterAI20240603 {
+class AnalyzeConversationRequestCategoryTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagDesc{};
+  shared_ptr<string> tagName{};
+
+  AnalyzeConversationRequestCategoryTags() {}
+
+  explicit AnalyzeConversationRequestCategoryTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagDesc) {
+      res["tagDesc"] = boost::any(*tagDesc);
+    }
+    if (tagName) {
+      res["tagName"] = boost::any(*tagName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tagDesc") != m.end() && !m["tagDesc"].empty()) {
+      tagDesc = make_shared<string>(boost::any_cast<string>(m["tagDesc"]));
+    }
+    if (m.find("tagName") != m.end() && !m["tagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["tagName"]));
+    }
+  }
+
+
+  virtual ~AnalyzeConversationRequestCategoryTags() = default;
+};
 class AnalyzeConversationRequestDialogueSentences : public Darabonba::Model {
 public:
   shared_ptr<string> role{};
@@ -385,8 +421,45 @@ public:
 
   virtual ~AnalyzeConversationRequestServiceInspection() = default;
 };
+class AnalyzeConversationRequestUserProfiles : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  AnalyzeConversationRequestUserProfiles() {}
+
+  explicit AnalyzeConversationRequestUserProfiles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~AnalyzeConversationRequestUserProfiles() = default;
+};
 class AnalyzeConversationRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<AnalyzeConversationRequestCategoryTags>> categoryTags{};
   shared_ptr<AnalyzeConversationRequestDialogue> dialogue{};
   shared_ptr<vector<AnalyzeConversationRequestExamples>> examples{};
   shared_ptr<vector<AnalyzeConversationRequestFields>> fields{};
@@ -395,6 +468,7 @@ public:
   shared_ptr<string> sceneName{};
   shared_ptr<AnalyzeConversationRequestServiceInspection> serviceInspection{};
   shared_ptr<bool> stream{};
+  shared_ptr<vector<AnalyzeConversationRequestUserProfiles>> userProfiles{};
 
   AnalyzeConversationRequest() {}
 
@@ -406,6 +480,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (categoryTags) {
+      vector<boost::any> temp1;
+      for(auto item1:*categoryTags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["categoryTags"] = boost::any(temp1);
+    }
     if (dialogue) {
       res["dialogue"] = dialogue ? boost::any(dialogue->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -438,10 +519,30 @@ public:
     if (stream) {
       res["stream"] = boost::any(*stream);
     }
+    if (userProfiles) {
+      vector<boost::any> temp1;
+      for(auto item1:*userProfiles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["userProfiles"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("categoryTags") != m.end() && !m["categoryTags"].empty()) {
+      if (typeid(vector<boost::any>) == m["categoryTags"].type()) {
+        vector<AnalyzeConversationRequestCategoryTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["categoryTags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AnalyzeConversationRequestCategoryTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        categoryTags = make_shared<vector<AnalyzeConversationRequestCategoryTags>>(expect1);
+      }
+    }
     if (m.find("dialogue") != m.end() && !m["dialogue"].empty()) {
       if (typeid(map<string, boost::any>) == m["dialogue"].type()) {
         AnalyzeConversationRequestDialogue model1;
@@ -500,6 +601,19 @@ public:
     }
     if (m.find("stream") != m.end() && !m["stream"].empty()) {
       stream = make_shared<bool>(boost::any_cast<bool>(m["stream"]));
+    }
+    if (m.find("userProfiles") != m.end() && !m["userProfiles"].empty()) {
+      if (typeid(vector<boost::any>) == m["userProfiles"].type()) {
+        vector<AnalyzeConversationRequestUserProfiles> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["userProfiles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AnalyzeConversationRequestUserProfiles model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        userProfiles = make_shared<vector<AnalyzeConversationRequestUserProfiles>>(expect1);
+      }
     }
   }
 
