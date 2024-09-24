@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_oss_sddp_20240222Targets.cmake")
+check_required_components("alibabacloud_oss_sddp_20240222")
