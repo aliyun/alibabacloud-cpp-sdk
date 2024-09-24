@@ -2485,14 +2485,14 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (requestId) {
-      res["requestId"] = boost::any(*requestId);
+      res["request_id"] = boost::any(*requestId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    if (m.find("request_id") != m.end() && !m["request_id"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["request_id"]));
     }
   }
 
@@ -3434,6 +3434,8 @@ public:
   shared_ptr<vector<string>> accessControlList{};
   shared_ptr<vector<Addon>> addons{};
   shared_ptr<string> apiAudiences{};
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<long> autoRenewPeriod{};
   shared_ptr<string> chargeType{};
   shared_ptr<bool> cisEnabled{};
   shared_ptr<bool> cloudMonitorFlags{};
@@ -3523,6 +3525,7 @@ public:
   shared_ptr<string> workerSystemDiskSnapshotPolicyId{};
   shared_ptr<vector<string>> workerVswitchIds{};
   shared_ptr<string> zoneId{};
+  shared_ptr<vector<string>> zoneIds{};
 
   CreateClusterRequest() {}
 
@@ -3546,6 +3549,12 @@ public:
     }
     if (apiAudiences) {
       res["api_audiences"] = boost::any(*apiAudiences);
+    }
+    if (autoRenew) {
+      res["auto_renew"] = boost::any(*autoRenew);
+    }
+    if (autoRenewPeriod) {
+      res["auto_renew_period"] = boost::any(*autoRenewPeriod);
     }
     if (chargeType) {
       res["charge_type"] = boost::any(*chargeType);
@@ -3830,6 +3839,9 @@ public:
     if (zoneId) {
       res["zone_id"] = boost::any(*zoneId);
     }
+    if (zoneIds) {
+      res["zone_ids"] = boost::any(*zoneIds);
+    }
     return res;
   }
 
@@ -3859,6 +3871,12 @@ public:
     }
     if (m.find("api_audiences") != m.end() && !m["api_audiences"].empty()) {
       apiAudiences = make_shared<string>(boost::any_cast<string>(m["api_audiences"]));
+    }
+    if (m.find("auto_renew") != m.end() && !m["auto_renew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["auto_renew"]));
+    }
+    if (m.find("auto_renew_period") != m.end() && !m["auto_renew_period"].empty()) {
+      autoRenewPeriod = make_shared<long>(boost::any_cast<long>(m["auto_renew_period"]));
     }
     if (m.find("charge_type") != m.end() && !m["charge_type"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["charge_type"]));
@@ -4240,6 +4258,16 @@ public:
     }
     if (m.find("zone_id") != m.end() && !m["zone_id"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["zone_id"]));
+    }
+    if (m.find("zone_ids") != m.end() && !m["zone_ids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["zone_ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["zone_ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      zoneIds = make_shared<vector<string>>(toVec1);
     }
   }
 

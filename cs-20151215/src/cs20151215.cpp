@@ -528,6 +528,12 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->apiAudiences)) {
     body->insert(pair<string, string>("api_audiences", *request->apiAudiences));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
+    body->insert(pair<string, bool>("auto_renew", *request->autoRenew));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->autoRenewPeriod)) {
+    body->insert(pair<string, long>("auto_renew_period", *request->autoRenewPeriod));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
     body->insert(pair<string, string>("charge_type", *request->chargeType));
   }
@@ -794,6 +800,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
     body->insert(pair<string, string>("zone_id", *request->zoneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->zoneIds)) {
+    body->insert(pair<string, vector<string>>("zone_ids", *request->zoneIds));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
