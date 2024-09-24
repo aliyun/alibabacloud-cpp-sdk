@@ -36814,6 +36814,7 @@ public:
   shared_ptr<string> cityName{};
   shared_ptr<string> isp{};
   shared_ptr<string> ispName{};
+  shared_ptr<string> type{};
 
   DescribeSiteMonitorAttributeResponseBodySiteMonitorsIspCitiesIspCity() {}
 
@@ -36837,6 +36838,9 @@ public:
     if (ispName) {
       res["IspName"] = boost::any(*ispName);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -36852,6 +36856,9 @@ public:
     }
     if (m.find("IspName") != m.end() && !m["IspName"].empty()) {
       ispName = make_shared<string>(boost::any_cast<string>(m["IspName"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
@@ -37404,6 +37411,7 @@ public:
   shared_ptr<string> responseContent{};
   shared_ptr<string> responseFormat{};
   shared_ptr<long> retryDelay{};
+  shared_ptr<bool> screenShot{};
   shared_ptr<bool> strictMode{};
   shared_ptr<long> timeOut{};
   shared_ptr<DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementBlacklist> trafficHijackElementBlacklist{};
@@ -37541,6 +37549,9 @@ public:
     }
     if (retryDelay) {
       res["retry_delay"] = boost::any(*retryDelay);
+    }
+    if (screenShot) {
+      res["screen_shot"] = boost::any(*screenShot);
     }
     if (strictMode) {
       res["strict_mode"] = boost::any(*strictMode);
@@ -37712,6 +37723,9 @@ public:
     }
     if (m.find("retry_delay") != m.end() && !m["retry_delay"].empty()) {
       retryDelay = make_shared<long>(boost::any_cast<long>(m["retry_delay"]));
+    }
+    if (m.find("screen_shot") != m.end() && !m["screen_shot"].empty()) {
+      screenShot = make_shared<bool>(boost::any_cast<bool>(m["screen_shot"]));
     }
     if (m.find("strict_mode") != m.end() && !m["strict_mode"].empty()) {
       strictMode = make_shared<bool>(boost::any_cast<bool>(m["strict_mode"]));
@@ -39904,6 +39918,376 @@ public:
 
 
   virtual ~DescribeSiteMonitorStatisticsResponse() = default;
+};
+class DescribeSyntheticProbeListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> city{};
+  shared_ptr<bool> idcProbe{};
+  shared_ptr<bool> ipv4{};
+  shared_ptr<bool> ipv6{};
+  shared_ptr<string> isp{};
+  shared_ptr<bool> lmProbe{};
+  shared_ptr<bool> mbProbe{};
+  shared_ptr<string> regionId{};
+  shared_ptr<bool> viewAll{};
+
+  DescribeSyntheticProbeListRequest() {}
+
+  explicit DescribeSyntheticProbeListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (city) {
+      res["City"] = boost::any(*city);
+    }
+    if (idcProbe) {
+      res["IdcProbe"] = boost::any(*idcProbe);
+    }
+    if (ipv4) {
+      res["Ipv4"] = boost::any(*ipv4);
+    }
+    if (ipv6) {
+      res["Ipv6"] = boost::any(*ipv6);
+    }
+    if (isp) {
+      res["Isp"] = boost::any(*isp);
+    }
+    if (lmProbe) {
+      res["LmProbe"] = boost::any(*lmProbe);
+    }
+    if (mbProbe) {
+      res["MbProbe"] = boost::any(*mbProbe);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (viewAll) {
+      res["ViewAll"] = boost::any(*viewAll);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("City") != m.end() && !m["City"].empty()) {
+      city = make_shared<string>(boost::any_cast<string>(m["City"]));
+    }
+    if (m.find("IdcProbe") != m.end() && !m["IdcProbe"].empty()) {
+      idcProbe = make_shared<bool>(boost::any_cast<bool>(m["IdcProbe"]));
+    }
+    if (m.find("Ipv4") != m.end() && !m["Ipv4"].empty()) {
+      ipv4 = make_shared<bool>(boost::any_cast<bool>(m["Ipv4"]));
+    }
+    if (m.find("Ipv6") != m.end() && !m["Ipv6"].empty()) {
+      ipv6 = make_shared<bool>(boost::any_cast<bool>(m["Ipv6"]));
+    }
+    if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
+      isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
+    }
+    if (m.find("LmProbe") != m.end() && !m["LmProbe"].empty()) {
+      lmProbe = make_shared<bool>(boost::any_cast<bool>(m["LmProbe"]));
+    }
+    if (m.find("MbProbe") != m.end() && !m["MbProbe"].empty()) {
+      mbProbe = make_shared<bool>(boost::any_cast<bool>(m["MbProbe"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ViewAll") != m.end() && !m["ViewAll"].empty()) {
+      viewAll = make_shared<bool>(boost::any_cast<bool>(m["ViewAll"]));
+    }
+  }
+
+
+  virtual ~DescribeSyntheticProbeListRequest() = default;
+};
+class DescribeSyntheticProbeListResponseBodyIspCityList : public Darabonba::Model {
+public:
+  shared_ptr<string> areaCn{};
+  shared_ptr<string> areaEn{};
+  shared_ptr<string> city{};
+  shared_ptr<string> cityCn{};
+  shared_ptr<string> cityEn{};
+  shared_ptr<string> country{};
+  shared_ptr<string> countryCn{};
+  shared_ptr<string> countryEn{};
+  shared_ptr<long> idcV4ProbeCount{};
+  shared_ptr<long> idcV6ProbeCount{};
+  shared_ptr<vector<string>> ipPool{};
+  shared_ptr<string> isp{};
+  shared_ptr<string> ispCn{};
+  shared_ptr<string> ispEn{};
+  shared_ptr<long> lmProbeCount{};
+  shared_ptr<long> mbProbeCount{};
+  shared_ptr<string> region{};
+  shared_ptr<string> regionCn{};
+  shared_ptr<string> regionEn{};
+
+  DescribeSyntheticProbeListResponseBodyIspCityList() {}
+
+  explicit DescribeSyntheticProbeListResponseBodyIspCityList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (areaCn) {
+      res["AreaCn"] = boost::any(*areaCn);
+    }
+    if (areaEn) {
+      res["AreaEn"] = boost::any(*areaEn);
+    }
+    if (city) {
+      res["City"] = boost::any(*city);
+    }
+    if (cityCn) {
+      res["CityCn"] = boost::any(*cityCn);
+    }
+    if (cityEn) {
+      res["CityEn"] = boost::any(*cityEn);
+    }
+    if (country) {
+      res["Country"] = boost::any(*country);
+    }
+    if (countryCn) {
+      res["CountryCn"] = boost::any(*countryCn);
+    }
+    if (countryEn) {
+      res["CountryEn"] = boost::any(*countryEn);
+    }
+    if (idcV4ProbeCount) {
+      res["IdcV4ProbeCount"] = boost::any(*idcV4ProbeCount);
+    }
+    if (idcV6ProbeCount) {
+      res["IdcV6ProbeCount"] = boost::any(*idcV6ProbeCount);
+    }
+    if (ipPool) {
+      res["IpPool"] = boost::any(*ipPool);
+    }
+    if (isp) {
+      res["Isp"] = boost::any(*isp);
+    }
+    if (ispCn) {
+      res["IspCn"] = boost::any(*ispCn);
+    }
+    if (ispEn) {
+      res["IspEn"] = boost::any(*ispEn);
+    }
+    if (lmProbeCount) {
+      res["LmProbeCount"] = boost::any(*lmProbeCount);
+    }
+    if (mbProbeCount) {
+      res["MbProbeCount"] = boost::any(*mbProbeCount);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (regionCn) {
+      res["RegionCn"] = boost::any(*regionCn);
+    }
+    if (regionEn) {
+      res["RegionEn"] = boost::any(*regionEn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AreaCn") != m.end() && !m["AreaCn"].empty()) {
+      areaCn = make_shared<string>(boost::any_cast<string>(m["AreaCn"]));
+    }
+    if (m.find("AreaEn") != m.end() && !m["AreaEn"].empty()) {
+      areaEn = make_shared<string>(boost::any_cast<string>(m["AreaEn"]));
+    }
+    if (m.find("City") != m.end() && !m["City"].empty()) {
+      city = make_shared<string>(boost::any_cast<string>(m["City"]));
+    }
+    if (m.find("CityCn") != m.end() && !m["CityCn"].empty()) {
+      cityCn = make_shared<string>(boost::any_cast<string>(m["CityCn"]));
+    }
+    if (m.find("CityEn") != m.end() && !m["CityEn"].empty()) {
+      cityEn = make_shared<string>(boost::any_cast<string>(m["CityEn"]));
+    }
+    if (m.find("Country") != m.end() && !m["Country"].empty()) {
+      country = make_shared<string>(boost::any_cast<string>(m["Country"]));
+    }
+    if (m.find("CountryCn") != m.end() && !m["CountryCn"].empty()) {
+      countryCn = make_shared<string>(boost::any_cast<string>(m["CountryCn"]));
+    }
+    if (m.find("CountryEn") != m.end() && !m["CountryEn"].empty()) {
+      countryEn = make_shared<string>(boost::any_cast<string>(m["CountryEn"]));
+    }
+    if (m.find("IdcV4ProbeCount") != m.end() && !m["IdcV4ProbeCount"].empty()) {
+      idcV4ProbeCount = make_shared<long>(boost::any_cast<long>(m["IdcV4ProbeCount"]));
+    }
+    if (m.find("IdcV6ProbeCount") != m.end() && !m["IdcV6ProbeCount"].empty()) {
+      idcV6ProbeCount = make_shared<long>(boost::any_cast<long>(m["IdcV6ProbeCount"]));
+    }
+    if (m.find("IpPool") != m.end() && !m["IpPool"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IpPool"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IpPool"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipPool = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
+      isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
+    }
+    if (m.find("IspCn") != m.end() && !m["IspCn"].empty()) {
+      ispCn = make_shared<string>(boost::any_cast<string>(m["IspCn"]));
+    }
+    if (m.find("IspEn") != m.end() && !m["IspEn"].empty()) {
+      ispEn = make_shared<string>(boost::any_cast<string>(m["IspEn"]));
+    }
+    if (m.find("LmProbeCount") != m.end() && !m["LmProbeCount"].empty()) {
+      lmProbeCount = make_shared<long>(boost::any_cast<long>(m["LmProbeCount"]));
+    }
+    if (m.find("MbProbeCount") != m.end() && !m["MbProbeCount"].empty()) {
+      mbProbeCount = make_shared<long>(boost::any_cast<long>(m["MbProbeCount"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("RegionCn") != m.end() && !m["RegionCn"].empty()) {
+      regionCn = make_shared<string>(boost::any_cast<string>(m["RegionCn"]));
+    }
+    if (m.find("RegionEn") != m.end() && !m["RegionEn"].empty()) {
+      regionEn = make_shared<string>(boost::any_cast<string>(m["RegionEn"]));
+    }
+  }
+
+
+  virtual ~DescribeSyntheticProbeListResponseBodyIspCityList() = default;
+};
+class DescribeSyntheticProbeListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<DescribeSyntheticProbeListResponseBodyIspCityList>> ispCityList{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  DescribeSyntheticProbeListResponseBody() {}
+
+  explicit DescribeSyntheticProbeListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (ispCityList) {
+      vector<boost::any> temp1;
+      for(auto item1:*ispCityList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IspCityList"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("IspCityList") != m.end() && !m["IspCityList"].empty()) {
+      if (typeid(vector<boost::any>) == m["IspCityList"].type()) {
+        vector<DescribeSyntheticProbeListResponseBodyIspCityList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IspCityList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSyntheticProbeListResponseBodyIspCityList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ispCityList = make_shared<vector<DescribeSyntheticProbeListResponseBodyIspCityList>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DescribeSyntheticProbeListResponseBody() = default;
+};
+class DescribeSyntheticProbeListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSyntheticProbeListResponseBody> body{};
+
+  DescribeSyntheticProbeListResponse() {}
+
+  explicit DescribeSyntheticProbeListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSyntheticProbeListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSyntheticProbeListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSyntheticProbeListResponse() = default;
 };
 class DescribeSystemEventAttributeRequest : public Darabonba::Model {
 public:
@@ -54355,6 +54739,8 @@ public:
   DescribeSiteMonitorQuotaResponse describeSiteMonitorQuota(shared_ptr<DescribeSiteMonitorQuotaRequest> request);
   DescribeSiteMonitorStatisticsResponse describeSiteMonitorStatisticsWithOptions(shared_ptr<DescribeSiteMonitorStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSiteMonitorStatisticsResponse describeSiteMonitorStatistics(shared_ptr<DescribeSiteMonitorStatisticsRequest> request);
+  DescribeSyntheticProbeListResponse describeSyntheticProbeListWithOptions(shared_ptr<DescribeSyntheticProbeListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSyntheticProbeListResponse describeSyntheticProbeList(shared_ptr<DescribeSyntheticProbeListRequest> request);
   DescribeSystemEventAttributeResponse describeSystemEventAttributeWithOptions(shared_ptr<DescribeSystemEventAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSystemEventAttributeResponse describeSystemEventAttribute(shared_ptr<DescribeSystemEventAttributeRequest> request);
   DescribeSystemEventCountResponse describeSystemEventCountWithOptions(shared_ptr<DescribeSystemEventCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
