@@ -3470,6 +3470,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> remark{};
   shared_ptr<string> status{};
+  shared_ptr<string> tenantIsolationType{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vendor{};
   shared_ptr<string> vpcId{};
@@ -3524,6 +3525,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tenantIsolationType) {
+      res["TenantIsolationType"] = boost::any(*tenantIsolationType);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -3582,6 +3586,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TenantIsolationType") != m.end() && !m["TenantIsolationType"].empty()) {
+      tenantIsolationType = make_shared<string>(boost::any_cast<string>(m["TenantIsolationType"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -5236,6 +5243,7 @@ public:
   shared_ptr<long> currentPage{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> tenantIsolationType{};
 
   ListInstancesRequest() {}
 
@@ -5256,6 +5264,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (tenantIsolationType) {
+      res["TenantIsolationType"] = boost::any(*tenantIsolationType);
+    }
     return res;
   }
 
@@ -5268,6 +5279,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("TenantIsolationType") != m.end() && !m["TenantIsolationType"].empty()) {
+      tenantIsolationType = make_shared<string>(boost::any_cast<string>(m["TenantIsolationType"]));
     }
   }
 
