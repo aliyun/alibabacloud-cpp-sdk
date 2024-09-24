@@ -1329,6 +1329,204 @@ public:
 
   virtual ~SparkAttemptInfo() = default;
 };
+class SparkBatchSQLStatement : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> error{};
+  shared_ptr<string> result{};
+  shared_ptr<string> resultUri{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> state{};
+  shared_ptr<string> statementId{};
+
+  SparkBatchSQLStatement() {}
+
+  explicit SparkBatchSQLStatement(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (error) {
+      res["Error"] = boost::any(*error);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (resultUri) {
+      res["ResultUri"] = boost::any(*resultUri);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    if (statementId) {
+      res["StatementId"] = boost::any(*statementId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Error") != m.end() && !m["Error"].empty()) {
+      error = make_shared<string>(boost::any_cast<string>(m["Error"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["Result"]));
+    }
+    if (m.find("ResultUri") != m.end() && !m["ResultUri"].empty()) {
+      resultUri = make_shared<string>(boost::any_cast<string>(m["ResultUri"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("StatementId") != m.end() && !m["StatementId"].empty()) {
+      statementId = make_shared<string>(boost::any_cast<string>(m["StatementId"]));
+    }
+  }
+
+
+  virtual ~SparkBatchSQLStatement() = default;
+};
+class SparkBatchSQL : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<string> query{};
+  shared_ptr<long> queryEndTime{};
+  shared_ptr<string> queryId{};
+  shared_ptr<long> queryStartTime{};
+  shared_ptr<string> queryState{};
+  shared_ptr<long> querySubmissionTime{};
+  shared_ptr<string> resourceGroupName{};
+  shared_ptr<string> schema{};
+  shared_ptr<vector<SparkBatchSQLStatement>> statements{};
+  shared_ptr<long> uid{};
+
+  SparkBatchSQL() {}
+
+  explicit SparkBatchSQL(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (errMessage) {
+      res["ErrMessage"] = boost::any(*errMessage);
+    }
+    if (query) {
+      res["Query"] = boost::any(*query);
+    }
+    if (queryEndTime) {
+      res["QueryEndTime"] = boost::any(*queryEndTime);
+    }
+    if (queryId) {
+      res["QueryId"] = boost::any(*queryId);
+    }
+    if (queryStartTime) {
+      res["QueryStartTime"] = boost::any(*queryStartTime);
+    }
+    if (queryState) {
+      res["QueryState"] = boost::any(*queryState);
+    }
+    if (querySubmissionTime) {
+      res["QuerySubmissionTime"] = boost::any(*querySubmissionTime);
+    }
+    if (resourceGroupName) {
+      res["ResourceGroupName"] = boost::any(*resourceGroupName);
+    }
+    if (schema) {
+      res["Schema"] = boost::any(*schema);
+    }
+    if (statements) {
+      vector<boost::any> temp1;
+      for(auto item1:*statements){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Statements"] = boost::any(temp1);
+    }
+    if (uid) {
+      res["Uid"] = boost::any(*uid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    }
+    if (m.find("Query") != m.end() && !m["Query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
+    if (m.find("QueryEndTime") != m.end() && !m["QueryEndTime"].empty()) {
+      queryEndTime = make_shared<long>(boost::any_cast<long>(m["QueryEndTime"]));
+    }
+    if (m.find("QueryId") != m.end() && !m["QueryId"].empty()) {
+      queryId = make_shared<string>(boost::any_cast<string>(m["QueryId"]));
+    }
+    if (m.find("QueryStartTime") != m.end() && !m["QueryStartTime"].empty()) {
+      queryStartTime = make_shared<long>(boost::any_cast<long>(m["QueryStartTime"]));
+    }
+    if (m.find("QueryState") != m.end() && !m["QueryState"].empty()) {
+      queryState = make_shared<string>(boost::any_cast<string>(m["QueryState"]));
+    }
+    if (m.find("QuerySubmissionTime") != m.end() && !m["QuerySubmissionTime"].empty()) {
+      querySubmissionTime = make_shared<long>(boost::any_cast<long>(m["QuerySubmissionTime"]));
+    }
+    if (m.find("ResourceGroupName") != m.end() && !m["ResourceGroupName"].empty()) {
+      resourceGroupName = make_shared<string>(boost::any_cast<string>(m["ResourceGroupName"]));
+    }
+    if (m.find("Schema") != m.end() && !m["Schema"].empty()) {
+      schema = make_shared<string>(boost::any_cast<string>(m["Schema"]));
+    }
+    if (m.find("Statements") != m.end() && !m["Statements"].empty()) {
+      if (typeid(vector<boost::any>) == m["Statements"].type()) {
+        vector<SparkBatchSQLStatement> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Statements"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SparkBatchSQLStatement model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        statements = make_shared<vector<SparkBatchSQLStatement>>(expect1);
+      }
+    }
+    if (m.find("Uid") != m.end() && !m["Uid"].empty()) {
+      uid = make_shared<long>(boost::any_cast<long>(m["Uid"]));
+    }
+  }
+
+
+  virtual ~SparkBatchSQL() = default;
+};
 class SparkOperatorInfo : public Darabonba::Model {
 public:
   shared_ptr<long> metricValue{};
@@ -3225,6 +3423,7 @@ public:
 class CreateDBClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> backupSetId{};
+  shared_ptr<string> cloneSourceRegionId{};
   shared_ptr<string> computeResource{};
   shared_ptr<string> DBClusterDescription{};
   shared_ptr<string> DBClusterNetworkType{};
@@ -3261,6 +3460,9 @@ public:
     map<string, boost::any> res;
     if (backupSetId) {
       res["BackupSetId"] = boost::any(*backupSetId);
+    }
+    if (cloneSourceRegionId) {
+      res["CloneSourceRegionId"] = boost::any(*cloneSourceRegionId);
     }
     if (computeResource) {
       res["ComputeResource"] = boost::any(*computeResource);
@@ -3341,6 +3543,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BackupSetId") != m.end() && !m["BackupSetId"].empty()) {
       backupSetId = make_shared<string>(boost::any_cast<string>(m["BackupSetId"]));
+    }
+    if (m.find("CloneSourceRegionId") != m.end() && !m["CloneSourceRegionId"].empty()) {
+      cloneSourceRegionId = make_shared<string>(boost::any_cast<string>(m["CloneSourceRegionId"]));
     }
     if (m.find("ComputeResource") != m.end() && !m["ComputeResource"].empty()) {
       computeResource = make_shared<string>(boost::any_cast<string>(m["ComputeResource"]));
@@ -14469,6 +14674,42 @@ public:
 
   virtual ~DescribeDiagnosisRecordsRequest() = default;
 };
+class DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties() {}
+
+  explicit DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties() = default;
+};
 class DescribeDiagnosisRecordsResponseBodyQuerys : public Darabonba::Model {
 public:
   shared_ptr<string> clientIp{};
@@ -14480,6 +14721,7 @@ public:
   shared_ptr<long> outputRows{};
   shared_ptr<long> peakMemory{};
   shared_ptr<string> processId{};
+  shared_ptr<vector<DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties>> queryProperties{};
   shared_ptr<long> queueTime{};
   shared_ptr<string> rcHost{};
   shared_ptr<long> resourceCostRank{};
@@ -14531,6 +14773,13 @@ public:
     }
     if (processId) {
       res["ProcessId"] = boost::any(*processId);
+    }
+    if (queryProperties) {
+      vector<boost::any> temp1;
+      for(auto item1:*queryProperties){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["QueryProperties"] = boost::any(temp1);
     }
     if (queueTime) {
       res["QueueTime"] = boost::any(*queueTime);
@@ -14604,6 +14853,19 @@ public:
     }
     if (m.find("ProcessId") != m.end() && !m["ProcessId"].empty()) {
       processId = make_shared<string>(boost::any_cast<string>(m["ProcessId"]));
+    }
+    if (m.find("QueryProperties") != m.end() && !m["QueryProperties"].empty()) {
+      if (typeid(vector<boost::any>) == m["QueryProperties"].type()) {
+        vector<DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["QueryProperties"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        queryProperties = make_shared<vector<DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties>>(expect1);
+      }
     }
     if (m.find("QueueTime") != m.end() && !m["QueueTime"].empty()) {
       queueTime = make_shared<long>(boost::any_cast<long>(m["QueueTime"]));
@@ -27241,6 +27503,7 @@ public:
   shared_ptr<bool> enableDefaultResourcePool{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> productForm{};
   shared_ptr<string> regionId{};
   shared_ptr<long> reservedNodeCount{};
   shared_ptr<string> reservedNodeSize{};
@@ -27271,6 +27534,9 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (productForm) {
+      res["ProductForm"] = boost::any(*productForm);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -27305,6 +27571,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ProductForm") != m.end() && !m["ProductForm"].empty()) {
+      productForm = make_shared<string>(boost::any_cast<string>(m["ProductForm"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
