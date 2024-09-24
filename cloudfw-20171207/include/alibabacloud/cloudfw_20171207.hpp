@@ -7959,6 +7959,8 @@ public:
   shared_ptr<long> riskLevel{};
   shared_ptr<string> riskReason{};
   shared_ptr<vector<string>> serviceNameList{};
+  shared_ptr<long> srcIpCnt{};
+  shared_ptr<long> totalReplyBytes{};
   shared_ptr<string> trafficPercent1Day{};
   shared_ptr<string> trafficPercent30Day{};
   shared_ptr<string> trafficPercent7Day{};
@@ -8008,6 +8010,12 @@ public:
     }
     if (serviceNameList) {
       res["ServiceNameList"] = boost::any(*serviceNameList);
+    }
+    if (srcIpCnt) {
+      res["SrcIpCnt"] = boost::any(*srcIpCnt);
+    }
+    if (totalReplyBytes) {
+      res["TotalReplyBytes"] = boost::any(*totalReplyBytes);
     }
     if (trafficPercent1Day) {
       res["TrafficPercent1Day"] = boost::any(*trafficPercent1Day);
@@ -8071,6 +8079,12 @@ public:
         }
       }
       serviceNameList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SrcIpCnt") != m.end() && !m["SrcIpCnt"].empty()) {
+      srcIpCnt = make_shared<long>(boost::any_cast<long>(m["SrcIpCnt"]));
+    }
+    if (m.find("TotalReplyBytes") != m.end() && !m["TotalReplyBytes"].empty()) {
+      totalReplyBytes = make_shared<long>(boost::any_cast<long>(m["TotalReplyBytes"]));
     }
     if (m.find("TrafficPercent1Day") != m.end() && !m["TrafficPercent1Day"].empty()) {
       trafficPercent1Day = make_shared<string>(boost::any_cast<string>(m["TrafficPercent1Day"]));
@@ -11570,6 +11584,7 @@ public:
   shared_ptr<string> lang{};
   shared_ptr<string> order{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> regionNo{};
   shared_ptr<string> searchItem{};
   shared_ptr<string> startTime{};
   shared_ptr<string> trafficType{};
@@ -11599,6 +11614,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
     if (searchItem) {
       res["SearchItem"] = boost::any(*searchItem);
     }
@@ -11627,6 +11645,9 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
     if (m.find("SearchItem") != m.end() && !m["SearchItem"].empty()) {
       searchItem = make_shared<string>(boost::any_cast<string>(m["SearchItem"]));
     }
@@ -11648,6 +11669,7 @@ public:
   shared_ptr<string> instanceType{};
   shared_ptr<long> outBytes{};
   shared_ptr<long> protectionDuration{};
+  shared_ptr<string> regionNo{};
   shared_ptr<string> resourceId{};
   shared_ptr<long> totalBytes{};
   shared_ptr<string> trafficDay{};
@@ -11677,6 +11699,9 @@ public:
     }
     if (protectionDuration) {
       res["ProtectionDuration"] = boost::any(*protectionDuration);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
@@ -11708,6 +11733,9 @@ public:
     }
     if (m.find("ProtectionDuration") != m.end() && !m["ProtectionDuration"].empty()) {
       protectionDuration = make_shared<long>(boost::any_cast<long>(m["ProtectionDuration"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
@@ -15157,6 +15185,200 @@ public:
 
 
   virtual ~DescribeUserAssetIPTrafficInfoResponse() = default;
+};
+class DescribeUserBuyVersionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  DescribeUserBuyVersionRequest() {}
+
+  explicit DescribeUserBuyVersionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~DescribeUserBuyVersionRequest() = default;
+};
+class DescribeUserBuyVersionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> aliUid{};
+  shared_ptr<long> expire{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceStatus{};
+  shared_ptr<long> ipNumber{};
+  shared_ptr<bool> logStatus{};
+  shared_ptr<long> logStorage{};
+  shared_ptr<long> maxOverflow{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> startTime{};
+  shared_ptr<bool> userStatus{};
+  shared_ptr<long> version{};
+  shared_ptr<long> vpcNumber{};
+
+  DescribeUserBuyVersionResponseBody() {}
+
+  explicit DescribeUserBuyVersionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliUid) {
+      res["AliUid"] = boost::any(*aliUid);
+    }
+    if (expire) {
+      res["Expire"] = boost::any(*expire);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceStatus) {
+      res["InstanceStatus"] = boost::any(*instanceStatus);
+    }
+    if (ipNumber) {
+      res["IpNumber"] = boost::any(*ipNumber);
+    }
+    if (logStatus) {
+      res["LogStatus"] = boost::any(*logStatus);
+    }
+    if (logStorage) {
+      res["LogStorage"] = boost::any(*logStorage);
+    }
+    if (maxOverflow) {
+      res["MaxOverflow"] = boost::any(*maxOverflow);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (userStatus) {
+      res["UserStatus"] = boost::any(*userStatus);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    if (vpcNumber) {
+      res["VpcNumber"] = boost::any(*vpcNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliUid") != m.end() && !m["AliUid"].empty()) {
+      aliUid = make_shared<long>(boost::any_cast<long>(m["AliUid"]));
+    }
+    if (m.find("Expire") != m.end() && !m["Expire"].empty()) {
+      expire = make_shared<long>(boost::any_cast<long>(m["Expire"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceStatus") != m.end() && !m["InstanceStatus"].empty()) {
+      instanceStatus = make_shared<string>(boost::any_cast<string>(m["InstanceStatus"]));
+    }
+    if (m.find("IpNumber") != m.end() && !m["IpNumber"].empty()) {
+      ipNumber = make_shared<long>(boost::any_cast<long>(m["IpNumber"]));
+    }
+    if (m.find("LogStatus") != m.end() && !m["LogStatus"].empty()) {
+      logStatus = make_shared<bool>(boost::any_cast<bool>(m["LogStatus"]));
+    }
+    if (m.find("LogStorage") != m.end() && !m["LogStorage"].empty()) {
+      logStorage = make_shared<long>(boost::any_cast<long>(m["LogStorage"]));
+    }
+    if (m.find("MaxOverflow") != m.end() && !m["MaxOverflow"].empty()) {
+      maxOverflow = make_shared<long>(boost::any_cast<long>(m["MaxOverflow"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("UserStatus") != m.end() && !m["UserStatus"].empty()) {
+      userStatus = make_shared<bool>(boost::any_cast<bool>(m["UserStatus"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<long>(boost::any_cast<long>(m["Version"]));
+    }
+    if (m.find("VpcNumber") != m.end() && !m["VpcNumber"].empty()) {
+      vpcNumber = make_shared<long>(boost::any_cast<long>(m["VpcNumber"]));
+    }
+  }
+
+
+  virtual ~DescribeUserBuyVersionResponseBody() = default;
+};
+class DescribeUserBuyVersionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeUserBuyVersionResponseBody> body{};
+
+  DescribeUserBuyVersionResponse() {}
+
+  explicit DescribeUserBuyVersionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeUserBuyVersionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeUserBuyVersionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeUserBuyVersionResponse() = default;
 };
 class DescribeUserIPSWhitelistRequest : public Darabonba::Model {
 public:
@@ -24873,6 +25095,8 @@ public:
   DescribeTrFirewallsV2RouteListResponse describeTrFirewallsV2RouteList(shared_ptr<DescribeTrFirewallsV2RouteListRequest> request);
   DescribeUserAssetIPTrafficInfoResponse describeUserAssetIPTrafficInfoWithOptions(shared_ptr<DescribeUserAssetIPTrafficInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeUserAssetIPTrafficInfoResponse describeUserAssetIPTrafficInfo(shared_ptr<DescribeUserAssetIPTrafficInfoRequest> request);
+  DescribeUserBuyVersionResponse describeUserBuyVersionWithOptions(shared_ptr<DescribeUserBuyVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeUserBuyVersionResponse describeUserBuyVersion(shared_ptr<DescribeUserBuyVersionRequest> request);
   DescribeUserIPSWhitelistResponse describeUserIPSWhitelistWithOptions(shared_ptr<DescribeUserIPSWhitelistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeUserIPSWhitelistResponse describeUserIPSWhitelist(shared_ptr<DescribeUserIPSWhitelistRequest> request);
   DescribeVpcFirewallAclGroupListResponse describeVpcFirewallAclGroupListWithOptions(shared_ptr<DescribeVpcFirewallAclGroupListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
