@@ -256,6 +256,49 @@ CancelDataFlowAutoRefreshResponse Alibabacloud_NAS20170626::Client::cancelDataFl
   return cancelDataFlowAutoRefreshWithOptions(request, runtime);
 }
 
+CancelDataFlowSubTaskResponse Alibabacloud_NAS20170626::Client::cancelDataFlowSubTaskWithOptions(shared_ptr<CancelDataFlowSubTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFlowId)) {
+    query->insert(pair<string, string>("DataFlowId", *request->dataFlowId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFlowSubTaskId)) {
+    query->insert(pair<string, string>("DataFlowSubTaskId", *request->dataFlowSubTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFlowTaskId)) {
+    query->insert(pair<string, string>("DataFlowTaskId", *request->dataFlowTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
+    query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelDataFlowSubTask"))},
+    {"version", boost::any(string("2017-06-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelDataFlowSubTaskResponse(callApi(params, req, runtime));
+}
+
+CancelDataFlowSubTaskResponse Alibabacloud_NAS20170626::Client::cancelDataFlowSubTask(shared_ptr<CancelDataFlowSubTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return cancelDataFlowSubTaskWithOptions(request, runtime);
+}
+
 CancelDataFlowTaskResponse Alibabacloud_NAS20170626::Client::cancelDataFlowTaskWithOptions(shared_ptr<CancelDataFlowTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -672,6 +715,55 @@ CreateDataFlowResponse Alibabacloud_NAS20170626::Client::createDataFlowWithOptio
 CreateDataFlowResponse Alibabacloud_NAS20170626::Client::createDataFlow(shared_ptr<CreateDataFlowRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createDataFlowWithOptions(request, runtime);
+}
+
+CreateDataFlowSubTaskResponse Alibabacloud_NAS20170626::Client::createDataFlowSubTaskWithOptions(shared_ptr<CreateDataFlowSubTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateDataFlowSubTaskRequestCondition>(request->condition)) {
+    query->insert(pair<string, CreateDataFlowSubTaskRequestCondition>("Condition", *request->condition));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFlowId)) {
+    query->insert(pair<string, string>("DataFlowId", *request->dataFlowId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFlowTaskId)) {
+    query->insert(pair<string, string>("DataFlowTaskId", *request->dataFlowTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dstFilePath)) {
+    query->insert(pair<string, string>("DstFilePath", *request->dstFilePath));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
+    query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->srcFilePath)) {
+    query->insert(pair<string, string>("SrcFilePath", *request->srcFilePath));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDataFlowSubTask"))},
+    {"version", boost::any(string("2017-06-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDataFlowSubTaskResponse(callApi(params, req, runtime));
+}
+
+CreateDataFlowSubTaskResponse Alibabacloud_NAS20170626::Client::createDataFlowSubTask(shared_ptr<CreateDataFlowSubTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDataFlowSubTaskWithOptions(request, runtime);
 }
 
 CreateDataFlowTaskResponse Alibabacloud_NAS20170626::Client::createDataFlowTaskWithOptions(shared_ptr<CreateDataFlowTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2034,6 +2126,43 @@ DescribeBlackListClientsResponse Alibabacloud_NAS20170626::Client::describeBlack
 DescribeBlackListClientsResponse Alibabacloud_NAS20170626::Client::describeBlackListClients(shared_ptr<DescribeBlackListClientsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeBlackListClientsWithOptions(request, runtime);
+}
+
+DescribeDataFlowSubTasksResponse Alibabacloud_NAS20170626::Client::describeDataFlowSubTasksWithOptions(shared_ptr<DescribeDataFlowSubTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
+    query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeDataFlowSubTasksRequestFilters>>(request->filters)) {
+    query->insert(pair<string, vector<DescribeDataFlowSubTasksRequestFilters>>("Filters", *request->filters));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDataFlowSubTasks"))},
+    {"version", boost::any(string("2017-06-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDataFlowSubTasksResponse(callApi(params, req, runtime));
+}
+
+DescribeDataFlowSubTasksResponse Alibabacloud_NAS20170626::Client::describeDataFlowSubTasks(shared_ptr<DescribeDataFlowSubTasksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDataFlowSubTasksWithOptions(request, runtime);
 }
 
 DescribeDataFlowTasksResponse Alibabacloud_NAS20170626::Client::describeDataFlowTasksWithOptions(shared_ptr<DescribeDataFlowTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
