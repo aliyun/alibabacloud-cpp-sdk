@@ -10957,6 +10957,9 @@ ModifyAccountMaskingPrivilegeResponse Alibabacloud_Rds20140815::Client::modifyAc
   if (!Darabonba_Util::Client::isUnset<string>(request->privilege)) {
     query->insert(pair<string, string>("Privilege", *request->privilege));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
@@ -13180,6 +13183,9 @@ ModifyMaskingRulesResponse Alibabacloud_Rds20140815::Client::modifyMaskingRulesW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerId)) {
     query->insert(pair<string, string>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
