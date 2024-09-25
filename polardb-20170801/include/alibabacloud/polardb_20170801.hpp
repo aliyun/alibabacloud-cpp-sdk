@@ -21570,6 +21570,7 @@ public:
   shared_ptr<long> queryTimeMS{};
   shared_ptr<long> queryTimes{};
   shared_ptr<long> returnRowCounts{};
+  shared_ptr<string> SQLHash{};
   shared_ptr<string> SQLText{};
 
   DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord() {}
@@ -21609,6 +21610,9 @@ public:
     if (returnRowCounts) {
       res["ReturnRowCounts"] = boost::any(*returnRowCounts);
     }
+    if (SQLHash) {
+      res["SQLHash"] = boost::any(*SQLHash);
+    }
     if (SQLText) {
       res["SQLText"] = boost::any(*SQLText);
     }
@@ -21642,6 +21646,9 @@ public:
     }
     if (m.find("ReturnRowCounts") != m.end() && !m["ReturnRowCounts"].empty()) {
       returnRowCounts = make_shared<long>(boost::any_cast<long>(m["ReturnRowCounts"]));
+    }
+    if (m.find("SQLHash") != m.end() && !m["SQLHash"].empty()) {
+      SQLHash = make_shared<string>(boost::any_cast<string>(m["SQLHash"]));
     }
     if (m.find("SQLText") != m.end() && !m["SQLText"].empty()) {
       SQLText = make_shared<string>(boost::any_cast<string>(m["SQLText"]));

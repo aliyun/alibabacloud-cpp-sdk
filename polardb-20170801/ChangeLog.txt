@@ -1,3 +1,32 @@
+2024-09-25 Version: 4.1.5
+- Update API CreateDBClusterEndpoint: add param PolarSccTimeoutAction.
+- Update API CreateDBClusterEndpoint: add param PolarSccWaitTimeout.
+- Update API CreateDBClusterEndpoint: add param SccMode.
+- Update API CreateGlobalDatabaseNetwork: add param EnableGlobalDomainName.
+- Update API DeleteDBCluster: update param AccessKeyId.
+- Update API DeleteDBCluster: update param BackupRetentionPolicyOnClusterDeletion.
+- Update API DescribeAccounts: update response param.
+- Update API DescribeDBClusterAttribute: update response param.
+- Update API DescribeDBClusterEndpoints: update response param.
+- Update API DescribeDBClusterPerformance: add param Type.
+- Update API DescribeDBClusterServerlessConf: update response param.
+- Update API DescribeDBClusters: update response param.
+- Update API DescribeDBProxyPerformance: add param DBNodeId.
+- Update API DescribeGlobalDatabaseNetwork: update response param.
+- Update API DescribeGlobalDatabaseNetworks: update response param.
+- Update API DescribeScheduleTasks: update response param.
+- Update API DescribeSlowLogRecords: update param AccessKeyId.
+- Update API DescribeSlowLogRecords: update response param.
+- Update API FailoverDBCluster: add param TargetZoneType.
+- Update API ModifyDBClusterEndpoint: add param PolarSccTimeoutAction.
+- Update API ModifyDBClusterEndpoint: add param PolarSccWaitTimeout.
+- Update API ModifyDBClusterEndpoint: add param SccMode.
+- Update API ModifyDBNodeClass: add param PlannedFlashingOffTime.
+- Update API ModifyDBNodesClass: add param PlannedFlashingOffTime.
+- Update API ModifyGlobalDatabaseNetwork: add param EnableGlobalDomainName.
+- Update API ModifyGlobalDatabaseNetwork: update param GDNDescription.
+
+
 2024-08-29 Version: 4.1.5
 - Update API CreateDBClusterEndpoint: add param PolarSccTimeoutAction.
 - Update API CreateDBClusterEndpoint: add param PolarSccWaitTimeout.
