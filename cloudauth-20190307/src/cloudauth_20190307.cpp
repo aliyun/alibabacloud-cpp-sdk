@@ -478,8 +478,13 @@ CreateVerifySettingResponse Alibabacloud_Cloudauth20190307::Client::createVerify
   return createVerifySettingWithOptions(request, runtime);
 }
 
-CredentialVerifyResponse Alibabacloud_Cloudauth20190307::Client::credentialVerifyWithOptions(shared_ptr<CredentialVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CredentialVerifyResponse Alibabacloud_Cloudauth20190307::Client::credentialVerifyWithOptions(shared_ptr<CredentialVerifyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CredentialVerifyShrinkRequest> request = make_shared<CredentialVerifyShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CredentialVerifyRequestMerchantDetail>>(tmpReq->merchantDetail)) {
+    request->merchantDetailShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->merchantDetail, make_shared<string>("MerchantDetail"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->certNum)) {
     query->insert(pair<string, string>("CertNum", *request->certNum));
@@ -502,8 +507,20 @@ CredentialVerifyResponse Alibabacloud_Cloudauth20190307::Client::credentialVerif
   if (!Darabonba_Util::Client::isUnset<string>(request->isOCR)) {
     query->insert(pair<string, string>("IsOCR", *request->isOCR));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->merchantDetailShrink)) {
+    query->insert(pair<string, string>("MerchantDetail", *request->merchantDetailShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->merchantId)) {
     query->insert(pair<string, string>("MerchantId", *request->merchantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    query->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
+    query->insert(pair<string, string>("Prompt", *request->prompt));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->promptModel)) {
+    query->insert(pair<string, string>("PromptModel", *request->promptModel));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
     query->insert(pair<string, string>("UserName", *request->userName));
@@ -1090,6 +1107,49 @@ InitFaceVerifyResponse Alibabacloud_Cloudauth20190307::Client::initFaceVerify(sh
   return initFaceVerifyWithOptions(request, runtime);
 }
 
+InsertWhiteListSettingResponse Alibabacloud_Cloudauth20190307::Client::insertWhiteListSettingWithOptions(shared_ptr<InsertWhiteListSettingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->certNo)) {
+    query->insert(pair<string, string>("CertNo", *request->certNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certifyId)) {
+    query->insert(pair<string, string>("CertifyId", *request->certifyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sceneId)) {
+    query->insert(pair<string, long>("SceneId", *request->sceneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    query->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->validDay)) {
+    query->insert(pair<string, long>("ValidDay", *request->validDay));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InsertWhiteListSetting"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InsertWhiteListSettingResponse(callApi(params, req, runtime));
+}
+
+InsertWhiteListSettingResponse Alibabacloud_Cloudauth20190307::Client::insertWhiteListSetting(shared_ptr<InsertWhiteListSettingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return insertWhiteListSettingWithOptions(request, runtime);
+}
+
 LivenessFaceVerifyResponse Alibabacloud_Cloudauth20190307::Client::livenessFaceVerifyWithOptions(shared_ptr<LivenessFaceVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1364,6 +1424,94 @@ ModifyDeviceInfoResponse Alibabacloud_Cloudauth20190307::Client::modifyDeviceInf
 ModifyDeviceInfoResponse Alibabacloud_Cloudauth20190307::Client::modifyDeviceInfo(shared_ptr<ModifyDeviceInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyDeviceInfoWithOptions(request, runtime);
+}
+
+PageQueryWhiteListSettingResponse Alibabacloud_Cloudauth20190307::Client::pageQueryWhiteListSettingWithOptions(shared_ptr<PageQueryWhiteListSettingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->certNo)) {
+    query->insert(pair<string, string>("CertNo", *request->certNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certifyId)) {
+    query->insert(pair<string, string>("CertifyId", *request->certifyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sceneId)) {
+    query->insert(pair<string, long>("SceneId", *request->sceneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    query->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->validEndDate)) {
+    query->insert(pair<string, string>("ValidEndDate", *request->validEndDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->validStartDate)) {
+    query->insert(pair<string, string>("ValidStartDate", *request->validStartDate));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PageQueryWhiteListSetting"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PageQueryWhiteListSettingResponse(callApi(params, req, runtime));
+}
+
+PageQueryWhiteListSettingResponse Alibabacloud_Cloudauth20190307::Client::pageQueryWhiteListSetting(shared_ptr<PageQueryWhiteListSettingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return pageQueryWhiteListSettingWithOptions(request, runtime);
+}
+
+RemoveWhiteListSettingResponse Alibabacloud_Cloudauth20190307::Client::removeWhiteListSettingWithOptions(shared_ptr<RemoveWhiteListSettingRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<RemoveWhiteListSettingShrinkRequest> request = make_shared<RemoveWhiteListSettingShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->ids)) {
+    request->idsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ids, make_shared<string>("Ids"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->idsShrink)) {
+    query->insert(pair<string, string>("Ids", *request->idsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    query->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RemoveWhiteListSetting"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RemoveWhiteListSettingResponse(callApi(params, req, runtime));
+}
+
+RemoveWhiteListSettingResponse Alibabacloud_Cloudauth20190307::Client::removeWhiteListSetting(shared_ptr<RemoveWhiteListSettingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return removeWhiteListSettingWithOptions(request, runtime);
 }
 
 Vehicle5ItemQueryResponse Alibabacloud_Cloudauth20190307::Client::vehicle5ItemQueryWithOptions(shared_ptr<Vehicle5ItemQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
