@@ -31279,6 +31279,7 @@ public:
   shared_ptr<string> group{};
   shared_ptr<long> instanceNum{};
   shared_ptr<string> serviceName{};
+  shared_ptr<string> serviceType{};
   shared_ptr<string> version{};
 
   GetServiceListPageResponseBodyDataResult() {}
@@ -31309,6 +31310,9 @@ public:
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
     }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
     if (version) {
       res["Version"] = boost::any(*version);
     }
@@ -31333,6 +31337,9 @@ public:
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["Version"]));
