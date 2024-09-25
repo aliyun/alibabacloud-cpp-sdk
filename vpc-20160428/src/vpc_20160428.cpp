@@ -2922,6 +2922,9 @@ CreateFlowLogResponse Alibabacloud_Vpc20160428::Client::createFlowLogWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->flowLogName)) {
     query->insert(pair<string, string>("FlowLogName", *request->flowLogName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipVersion)) {
+    query->insert(pair<string, string>("IpVersion", *request->ipVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->logStoreName)) {
     query->insert(pair<string, string>("LogStoreName", *request->logStoreName));
   }
@@ -16355,6 +16358,9 @@ ModifyFlowLogAttributeResponse Alibabacloud_Vpc20160428::Client::modifyFlowLogAt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->flowLogName)) {
     query->insert(pair<string, string>("FlowLogName", *request->flowLogName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipVersion)) {
+    query->insert(pair<string, string>("IpVersion", *request->ipVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));

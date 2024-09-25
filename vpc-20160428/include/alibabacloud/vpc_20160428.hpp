@@ -9423,6 +9423,7 @@ public:
   shared_ptr<long> aggregationInterval{};
   shared_ptr<string> description{};
   shared_ptr<string> flowLogName{};
+  shared_ptr<string> ipVersion{};
   shared_ptr<string> logStoreName{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -9455,6 +9456,9 @@ public:
     }
     if (flowLogName) {
       res["FlowLogName"] = boost::any(*flowLogName);
+    }
+    if (ipVersion) {
+      res["IpVersion"] = boost::any(*ipVersion);
     }
     if (logStoreName) {
       res["LogStoreName"] = boost::any(*logStoreName);
@@ -9511,6 +9515,9 @@ public:
     }
     if (m.find("FlowLogName") != m.end() && !m["FlowLogName"].empty()) {
       flowLogName = make_shared<string>(boost::any_cast<string>(m["FlowLogName"]));
+    }
+    if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
+      ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
     }
     if (m.find("LogStoreName") != m.end() && !m["LogStoreName"].empty()) {
       logStoreName = make_shared<string>(boost::any_cast<string>(m["LogStoreName"]));
@@ -38987,6 +38994,7 @@ public:
   shared_ptr<string> flowLogDeliverStatus{};
   shared_ptr<string> flowLogId{};
   shared_ptr<string> flowLogName{};
+  shared_ptr<string> ipVersion{};
   shared_ptr<string> logStoreName{};
   shared_ptr<string> projectName{};
   shared_ptr<string> regionId{};
@@ -39032,6 +39040,9 @@ public:
     }
     if (flowLogName) {
       res["FlowLogName"] = boost::any(*flowLogName);
+    }
+    if (ipVersion) {
+      res["IpVersion"] = boost::any(*ipVersion);
     }
     if (logStoreName) {
       res["LogStoreName"] = boost::any(*logStoreName);
@@ -39093,6 +39104,9 @@ public:
     }
     if (m.find("FlowLogName") != m.end() && !m["FlowLogName"].empty()) {
       flowLogName = make_shared<string>(boost::any_cast<string>(m["FlowLogName"]));
+    }
+    if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
+      ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
     }
     if (m.find("LogStoreName") != m.end() && !m["LogStoreName"].empty()) {
       logStoreName = make_shared<string>(boost::any_cast<string>(m["LogStoreName"]));
@@ -83994,6 +84008,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> flowLogId{};
   shared_ptr<string> flowLogName{};
+  shared_ptr<string> ipVersion{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -84021,6 +84036,9 @@ public:
     }
     if (flowLogName) {
       res["FlowLogName"] = boost::any(*flowLogName);
+    }
+    if (ipVersion) {
+      res["IpVersion"] = boost::any(*ipVersion);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -84052,6 +84070,9 @@ public:
     }
     if (m.find("FlowLogName") != m.end() && !m["FlowLogName"].empty()) {
       flowLogName = make_shared<string>(boost::any_cast<string>(m["FlowLogName"]));
+    }
+    if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
+      ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
