@@ -1263,6 +1263,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> deployMetadata{};
   shared_ptr<string> deployType{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<long> duration{};
   shared_ptr<bool> isSupportOperated{};
   shared_ptr<string> licenseMetadata{};
@@ -1311,6 +1312,9 @@ public:
     }
     if (deployType) {
       res["DeployType"] = boost::any(*deployType);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
     }
     if (duration) {
       res["Duration"] = boost::any(*duration);
@@ -1402,6 +1406,9 @@ public:
     if (m.find("DeployType") != m.end() && !m["DeployType"].empty()) {
       deployType = make_shared<string>(boost::any_cast<string>(m["DeployType"]));
     }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
     }
@@ -1487,8 +1494,142 @@ public:
 
   virtual ~CreateServiceRequest() = default;
 };
+class CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> action{};
+  shared_ptr<string> resource{};
+  shared_ptr<string> serviceName{};
+
+  CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy() {}
+
+  explicit CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (resource) {
+      res["Resource"] = boost::any(*resource);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Action"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Action"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      action = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Resource") != m.end() && !m["Resource"].empty()) {
+      resource = make_shared<string>(boost::any_cast<string>(m["Resource"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+  }
+
+
+  virtual ~CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy() = default;
+};
+class CreateServiceResponseBodyDryRunResultRolePolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy>> missingPolicy{};
+  shared_ptr<string> policy{};
+
+  CreateServiceResponseBodyDryRunResultRolePolicy() {}
+
+  explicit CreateServiceResponseBodyDryRunResultRolePolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (missingPolicy) {
+      vector<boost::any> temp1;
+      for(auto item1:*missingPolicy){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MissingPolicy"] = boost::any(temp1);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MissingPolicy") != m.end() && !m["MissingPolicy"].empty()) {
+      if (typeid(vector<boost::any>) == m["MissingPolicy"].type()) {
+        vector<CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MissingPolicy"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        missingPolicy = make_shared<vector<CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy>>(expect1);
+      }
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+  }
+
+
+  virtual ~CreateServiceResponseBodyDryRunResultRolePolicy() = default;
+};
+class CreateServiceResponseBodyDryRunResult : public Darabonba::Model {
+public:
+  shared_ptr<CreateServiceResponseBodyDryRunResultRolePolicy> rolePolicy{};
+
+  CreateServiceResponseBodyDryRunResult() {}
+
+  explicit CreateServiceResponseBodyDryRunResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rolePolicy) {
+      res["RolePolicy"] = rolePolicy ? boost::any(rolePolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RolePolicy") != m.end() && !m["RolePolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RolePolicy"].type()) {
+        CreateServiceResponseBodyDryRunResultRolePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RolePolicy"]));
+        rolePolicy = make_shared<CreateServiceResponseBodyDryRunResultRolePolicy>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateServiceResponseBodyDryRunResult() = default;
+};
 class CreateServiceResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<CreateServiceResponseBodyDryRunResult> dryRunResult{};
   shared_ptr<string> requestId{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> status{};
@@ -1504,6 +1645,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dryRunResult) {
+      res["DryRunResult"] = dryRunResult ? boost::any(dryRunResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -1520,6 +1664,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DryRunResult") != m.end() && !m["DryRunResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DryRunResult"].type()) {
+        CreateServiceResponseBodyDryRunResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DryRunResult"]));
+        dryRunResult = make_shared<CreateServiceResponseBodyDryRunResult>(model1);
+      }
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -6465,6 +6616,172 @@ public:
 
   virtual ~GetUploadCredentialsResponse() = default;
 };
+class LaunchServiceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> categories{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> recommend{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<string> serviceVersion{};
+
+  LaunchServiceRequest() {}
+
+  explicit LaunchServiceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categories) {
+      res["Categories"] = boost::any(*categories);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (recommend) {
+      res["Recommend"] = boost::any(*recommend);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceVersion) {
+      res["ServiceVersion"] = boost::any(*serviceVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Categories") != m.end() && !m["Categories"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Categories"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Categories"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      categories = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Recommend") != m.end() && !m["Recommend"].empty()) {
+      recommend = make_shared<bool>(boost::any_cast<bool>(m["Recommend"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceVersion") != m.end() && !m["ServiceVersion"].empty()) {
+      serviceVersion = make_shared<string>(boost::any_cast<string>(m["ServiceVersion"]));
+    }
+  }
+
+
+  virtual ~LaunchServiceRequest() = default;
+};
+class LaunchServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> serviceLaunchResultType{};
+  shared_ptr<string> version{};
+
+  LaunchServiceResponseBody() {}
+
+  explicit LaunchServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (serviceLaunchResultType) {
+      res["ServiceLaunchResultType"] = boost::any(*serviceLaunchResultType);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ServiceLaunchResultType") != m.end() && !m["ServiceLaunchResultType"].empty()) {
+      serviceLaunchResultType = make_shared<string>(boost::any_cast<string>(m["ServiceLaunchResultType"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~LaunchServiceResponseBody() = default;
+};
+class LaunchServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<LaunchServiceResponseBody> body{};
+
+  LaunchServiceResponse() {}
+
+  explicit LaunchServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        LaunchServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<LaunchServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~LaunchServiceResponse() = default;
+};
 class ListAcrImageRepositoriesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> artifactType{};
@@ -9929,6 +10246,130 @@ public:
 
   virtual ~ModifyServiceInstanceResourcesResponse() = default;
 };
+class PreLaunchServiceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> serviceId{};
+
+  PreLaunchServiceRequest() {}
+
+  explicit PreLaunchServiceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+  }
+
+
+  virtual ~PreLaunchServiceRequest() = default;
+};
+class PreLaunchServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  PreLaunchServiceResponseBody() {}
+
+  explicit PreLaunchServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~PreLaunchServiceResponseBody() = default;
+};
+class PreLaunchServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PreLaunchServiceResponseBody> body{};
+
+  PreLaunchServiceResponse() {}
+
+  explicit PreLaunchServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PreLaunchServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PreLaunchServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PreLaunchServiceResponse() = default;
+};
 class PushMeteringDataRequest : public Darabonba::Model {
 public:
   shared_ptr<string> metering{};
@@ -11347,7 +11788,7 @@ public:
 };
 class UpdateServiceRequestCommodityComponentsMappings : public Darabonba::Model {
 public:
-  shared_ptr<string> mappings{};
+  shared_ptr<map<string, string>> mappings{};
   shared_ptr<string> templateName{};
 
   UpdateServiceRequestCommodityComponentsMappings() {}
@@ -11371,7 +11812,12 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Mappings") != m.end() && !m["Mappings"].empty()) {
-      mappings = make_shared<string>(boost::any_cast<string>(m["Mappings"]));
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Mappings"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      mappings = make_shared<map<string, string>>(toMap1);
     }
     if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
       templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
@@ -11795,6 +12241,7 @@ public:
   shared_ptr<UpdateServiceRequestCommodity> commodity{};
   shared_ptr<string> deployMetadata{};
   shared_ptr<string> deployType{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<long> duration{};
   shared_ptr<bool> isSupportOperated{};
   shared_ptr<string> licenseMetadata{};
@@ -11841,6 +12288,9 @@ public:
     }
     if (deployType) {
       res["DeployType"] = boost::any(*deployType);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
     }
     if (duration) {
       res["Duration"] = boost::any(*duration);
@@ -11925,6 +12375,9 @@ public:
     }
     if (m.find("DeployType") != m.end() && !m["DeployType"].empty()) {
       deployType = make_shared<string>(boost::any_cast<string>(m["DeployType"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
     }
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
@@ -12121,6 +12574,7 @@ public:
   shared_ptr<string> commodityShrink{};
   shared_ptr<string> deployMetadata{};
   shared_ptr<string> deployType{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<long> duration{};
   shared_ptr<bool> isSupportOperated{};
   shared_ptr<string> licenseMetadata{};
@@ -12167,6 +12621,9 @@ public:
     }
     if (deployType) {
       res["DeployType"] = boost::any(*deployType);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
     }
     if (duration) {
       res["Duration"] = boost::any(*duration);
@@ -12248,6 +12705,9 @@ public:
     if (m.find("DeployType") != m.end() && !m["DeployType"].empty()) {
       deployType = make_shared<string>(boost::any_cast<string>(m["DeployType"]));
     }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
     }
@@ -12317,8 +12777,142 @@ public:
 
   virtual ~UpdateServiceShrinkRequest() = default;
 };
+class UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> action{};
+  shared_ptr<string> resource{};
+  shared_ptr<string> serviceName{};
+
+  UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy() {}
+
+  explicit UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (resource) {
+      res["Resource"] = boost::any(*resource);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Action"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Action"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      action = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Resource") != m.end() && !m["Resource"].empty()) {
+      resource = make_shared<string>(boost::any_cast<string>(m["Resource"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy() = default;
+};
+class UpdateServiceResponseBodyDryRunResultRolePolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy>> missingPolicy{};
+  shared_ptr<string> policy{};
+
+  UpdateServiceResponseBodyDryRunResultRolePolicy() {}
+
+  explicit UpdateServiceResponseBodyDryRunResultRolePolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (missingPolicy) {
+      vector<boost::any> temp1;
+      for(auto item1:*missingPolicy){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MissingPolicy"] = boost::any(temp1);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MissingPolicy") != m.end() && !m["MissingPolicy"].empty()) {
+      if (typeid(vector<boost::any>) == m["MissingPolicy"].type()) {
+        vector<UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MissingPolicy"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        missingPolicy = make_shared<vector<UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy>>(expect1);
+      }
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceResponseBodyDryRunResultRolePolicy() = default;
+};
+class UpdateServiceResponseBodyDryRunResult : public Darabonba::Model {
+public:
+  shared_ptr<UpdateServiceResponseBodyDryRunResultRolePolicy> rolePolicy{};
+
+  UpdateServiceResponseBodyDryRunResult() {}
+
+  explicit UpdateServiceResponseBodyDryRunResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rolePolicy) {
+      res["RolePolicy"] = rolePolicy ? boost::any(rolePolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RolePolicy") != m.end() && !m["RolePolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RolePolicy"].type()) {
+        UpdateServiceResponseBodyDryRunResultRolePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RolePolicy"]));
+        rolePolicy = make_shared<UpdateServiceResponseBodyDryRunResultRolePolicy>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateServiceResponseBodyDryRunResult() = default;
+};
 class UpdateServiceResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<UpdateServiceResponseBodyDryRunResult> dryRunResult{};
   shared_ptr<string> requestId{};
 
   UpdateServiceResponseBody() {}
@@ -12331,6 +12925,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dryRunResult) {
+      res["DryRunResult"] = dryRunResult ? boost::any(dryRunResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -12338,6 +12935,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DryRunResult") != m.end() && !m["DryRunResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DryRunResult"].type()) {
+        UpdateServiceResponseBodyDryRunResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DryRunResult"]));
+        dryRunResult = make_shared<UpdateServiceResponseBodyDryRunResult>(model1);
+      }
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -12431,6 +13035,7 @@ class UpdateServiceInstanceAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
   shared_ptr<UpdateServiceInstanceAttributeRequestLicenseData> licenseData{};
+  shared_ptr<string> reason{};
   shared_ptr<string> regionId{};
   shared_ptr<string> serviceInstanceId{};
 
@@ -12449,6 +13054,9 @@ public:
     }
     if (licenseData) {
       res["LicenseData"] = licenseData ? boost::any(licenseData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -12470,6 +13078,9 @@ public:
         licenseData = make_shared<UpdateServiceInstanceAttributeRequestLicenseData>(model1);
       }
     }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -12485,6 +13096,7 @@ class UpdateServiceInstanceAttributeShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
   shared_ptr<string> licenseDataShrink{};
+  shared_ptr<string> reason{};
   shared_ptr<string> regionId{};
   shared_ptr<string> serviceInstanceId{};
 
@@ -12504,6 +13116,9 @@ public:
     if (licenseDataShrink) {
       res["LicenseData"] = boost::any(*licenseDataShrink);
     }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -12519,6 +13134,9 @@ public:
     }
     if (m.find("LicenseData") != m.end() && !m["LicenseData"].empty()) {
       licenseDataShrink = make_shared<string>(boost::any_cast<string>(m["LicenseData"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -13121,6 +13739,8 @@ public:
   GetServiceTemplateParameterConstraintsResponse getServiceTemplateParameterConstraints(shared_ptr<GetServiceTemplateParameterConstraintsRequest> request);
   GetUploadCredentialsResponse getUploadCredentialsWithOptions(shared_ptr<GetUploadCredentialsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetUploadCredentialsResponse getUploadCredentials(shared_ptr<GetUploadCredentialsRequest> request);
+  LaunchServiceResponse launchServiceWithOptions(shared_ptr<LaunchServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  LaunchServiceResponse launchService(shared_ptr<LaunchServiceRequest> request);
   ListAcrImageRepositoriesResponse listAcrImageRepositoriesWithOptions(shared_ptr<ListAcrImageRepositoriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAcrImageRepositoriesResponse listAcrImageRepositories(shared_ptr<ListAcrImageRepositoriesRequest> request);
   ListAcrImageTagsResponse listAcrImageTagsWithOptions(shared_ptr<ListAcrImageTagsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -13141,6 +13761,8 @@ public:
   ListServicesResponse listServices(shared_ptr<ListServicesRequest> request);
   ModifyServiceInstanceResourcesResponse modifyServiceInstanceResourcesWithOptions(shared_ptr<ModifyServiceInstanceResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyServiceInstanceResourcesResponse modifyServiceInstanceResources(shared_ptr<ModifyServiceInstanceResourcesRequest> request);
+  PreLaunchServiceResponse preLaunchServiceWithOptions(shared_ptr<PreLaunchServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PreLaunchServiceResponse preLaunchService(shared_ptr<PreLaunchServiceRequest> request);
   PushMeteringDataResponse pushMeteringDataWithOptions(shared_ptr<PushMeteringDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PushMeteringDataResponse pushMeteringData(shared_ptr<PushMeteringDataRequest> request);
   RegisterServiceResponse registerServiceWithOptions(shared_ptr<RegisterServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
