@@ -37763,6 +37763,7 @@ public:
 };
 class DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig : public Darabonba::Model {
 public:
+  shared_ptr<string> region{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> vswitchId{};
@@ -37777,6 +37778,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
     }
@@ -37790,6 +37794,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
     }
