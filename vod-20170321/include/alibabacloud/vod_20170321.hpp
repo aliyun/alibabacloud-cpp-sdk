@@ -13,6 +13,339 @@
 using namespace std;
 
 namespace Alibabacloud_Vod20170321 {
+class AppInfoDTOPlatforms : public Darabonba::Model {
+public:
+  shared_ptr<string> itemId{};
+  shared_ptr<vector<string>> licenseItemIds{};
+  shared_ptr<string> pkgName{};
+  shared_ptr<string> pkgSignature{};
+  shared_ptr<long> platformType{};
+  shared_ptr<long> type{};
+
+  AppInfoDTOPlatforms() {}
+
+  explicit AppInfoDTOPlatforms(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (itemId) {
+      res["ItemId"] = boost::any(*itemId);
+    }
+    if (licenseItemIds) {
+      res["LicenseItemIds"] = boost::any(*licenseItemIds);
+    }
+    if (pkgName) {
+      res["PkgName"] = boost::any(*pkgName);
+    }
+    if (pkgSignature) {
+      res["PkgSignature"] = boost::any(*pkgSignature);
+    }
+    if (platformType) {
+      res["PlatformType"] = boost::any(*platformType);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
+      itemId = make_shared<string>(boost::any_cast<string>(m["ItemId"]));
+    }
+    if (m.find("LicenseItemIds") != m.end() && !m["LicenseItemIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LicenseItemIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LicenseItemIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      licenseItemIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PkgName") != m.end() && !m["PkgName"].empty()) {
+      pkgName = make_shared<string>(boost::any_cast<string>(m["PkgName"]));
+    }
+    if (m.find("PkgSignature") != m.end() && !m["PkgSignature"].empty()) {
+      pkgSignature = make_shared<string>(boost::any_cast<string>(m["PkgSignature"]));
+    }
+    if (m.find("PlatformType") != m.end() && !m["PlatformType"].empty()) {
+      platformType = make_shared<long>(boost::any_cast<long>(m["PlatformType"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+  }
+
+
+  virtual ~AppInfoDTOPlatforms() = default;
+};
+class AppInfoDTO : public Darabonba::Model {
+public:
+  shared_ptr<string> appName{};
+  shared_ptr<long> appType{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> itemId{};
+  shared_ptr<vector<AppInfoDTOPlatforms>> platforms{};
+  shared_ptr<long> userId{};
+
+  AppInfoDTO() {}
+
+  explicit AppInfoDTO(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (appType) {
+      res["AppType"] = boost::any(*appType);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (itemId) {
+      res["ItemId"] = boost::any(*itemId);
+    }
+    if (platforms) {
+      vector<boost::any> temp1;
+      for(auto item1:*platforms){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Platforms"] = boost::any(temp1);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
+      appType = make_shared<long>(boost::any_cast<long>(m["AppType"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
+      itemId = make_shared<string>(boost::any_cast<string>(m["ItemId"]));
+    }
+    if (m.find("Platforms") != m.end() && !m["Platforms"].empty()) {
+      if (typeid(vector<boost::any>) == m["Platforms"].type()) {
+        vector<AppInfoDTOPlatforms> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Platforms"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AppInfoDTOPlatforms model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        platforms = make_shared<vector<AppInfoDTOPlatforms>>(expect1);
+      }
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~AppInfoDTO() = default;
+};
+class LicenseInstanceAppDTOLicenseConfigs : public Darabonba::Model {
+public:
+  shared_ptr<string> businessType{};
+  shared_ptr<string> featureIds{};
+  shared_ptr<long> sdkId{};
+  shared_ptr<string> sdkName{};
+  shared_ptr<string> subscription{};
+  shared_ptr<string> subscriptionImp{};
+  shared_ptr<string> subscriptionPkg{};
+
+  LicenseInstanceAppDTOLicenseConfigs() {}
+
+  explicit LicenseInstanceAppDTOLicenseConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessType) {
+      res["BusinessType"] = boost::any(*businessType);
+    }
+    if (featureIds) {
+      res["FeatureIds"] = boost::any(*featureIds);
+    }
+    if (sdkId) {
+      res["SdkId"] = boost::any(*sdkId);
+    }
+    if (sdkName) {
+      res["SdkName"] = boost::any(*sdkName);
+    }
+    if (subscription) {
+      res["Subscription"] = boost::any(*subscription);
+    }
+    if (subscriptionImp) {
+      res["SubscriptionImp"] = boost::any(*subscriptionImp);
+    }
+    if (subscriptionPkg) {
+      res["SubscriptionPkg"] = boost::any(*subscriptionPkg);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessType") != m.end() && !m["BusinessType"].empty()) {
+      businessType = make_shared<string>(boost::any_cast<string>(m["BusinessType"]));
+    }
+    if (m.find("FeatureIds") != m.end() && !m["FeatureIds"].empty()) {
+      featureIds = make_shared<string>(boost::any_cast<string>(m["FeatureIds"]));
+    }
+    if (m.find("SdkId") != m.end() && !m["SdkId"].empty()) {
+      sdkId = make_shared<long>(boost::any_cast<long>(m["SdkId"]));
+    }
+    if (m.find("SdkName") != m.end() && !m["SdkName"].empty()) {
+      sdkName = make_shared<string>(boost::any_cast<string>(m["SdkName"]));
+    }
+    if (m.find("Subscription") != m.end() && !m["Subscription"].empty()) {
+      subscription = make_shared<string>(boost::any_cast<string>(m["Subscription"]));
+    }
+    if (m.find("SubscriptionImp") != m.end() && !m["SubscriptionImp"].empty()) {
+      subscriptionImp = make_shared<string>(boost::any_cast<string>(m["SubscriptionImp"]));
+    }
+    if (m.find("SubscriptionPkg") != m.end() && !m["SubscriptionPkg"].empty()) {
+      subscriptionPkg = make_shared<string>(boost::any_cast<string>(m["SubscriptionPkg"]));
+    }
+  }
+
+
+  virtual ~LicenseInstanceAppDTOLicenseConfigs() = default;
+};
+class LicenseInstanceAppDTO : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> beginOn{};
+  shared_ptr<string> contractNo{};
+  shared_ptr<string> creationTime{};
+  shared_ptr<string> expiredOn{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> itemId{};
+  shared_ptr<vector<LicenseInstanceAppDTOLicenseConfigs>> licenseConfigs{};
+  shared_ptr<string> modificationTime{};
+  shared_ptr<string> status{};
+  shared_ptr<long> userId{};
+
+  LicenseInstanceAppDTO() {}
+
+  explicit LicenseInstanceAppDTO(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (beginOn) {
+      res["BeginOn"] = boost::any(*beginOn);
+    }
+    if (contractNo) {
+      res["ContractNo"] = boost::any(*contractNo);
+    }
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (expiredOn) {
+      res["ExpiredOn"] = boost::any(*expiredOn);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (itemId) {
+      res["ItemId"] = boost::any(*itemId);
+    }
+    if (licenseConfigs) {
+      vector<boost::any> temp1;
+      for(auto item1:*licenseConfigs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["LicenseConfigs"] = boost::any(temp1);
+    }
+    if (modificationTime) {
+      res["ModificationTime"] = boost::any(*modificationTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("BeginOn") != m.end() && !m["BeginOn"].empty()) {
+      beginOn = make_shared<string>(boost::any_cast<string>(m["BeginOn"]));
+    }
+    if (m.find("ContractNo") != m.end() && !m["ContractNo"].empty()) {
+      contractNo = make_shared<string>(boost::any_cast<string>(m["ContractNo"]));
+    }
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("ExpiredOn") != m.end() && !m["ExpiredOn"].empty()) {
+      expiredOn = make_shared<string>(boost::any_cast<string>(m["ExpiredOn"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
+      itemId = make_shared<string>(boost::any_cast<string>(m["ItemId"]));
+    }
+    if (m.find("LicenseConfigs") != m.end() && !m["LicenseConfigs"].empty()) {
+      if (typeid(vector<boost::any>) == m["LicenseConfigs"].type()) {
+        vector<LicenseInstanceAppDTOLicenseConfigs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["LicenseConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            LicenseInstanceAppDTOLicenseConfigs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        licenseConfigs = make_shared<vector<LicenseInstanceAppDTOLicenseConfigs>>(expect1);
+      }
+    }
+    if (m.find("ModificationTime") != m.end() && !m["ModificationTime"].empty()) {
+      modificationTime = make_shared<string>(boost::any_cast<string>(m["ModificationTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~LicenseInstanceAppDTO() = default;
+};
 class AddAITemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> templateConfig{};
@@ -2380,6 +2713,137 @@ public:
 
 
   virtual ~CancelUrlUploadJobsResponse() = default;
+};
+class ChangeResourceGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceRegionId{};
+  shared_ptr<string> resourceType{};
+
+  ChangeResourceGroupRequest() {}
+
+  explicit ChangeResourceGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceRegionId) {
+      res["ResourceRegionId"] = boost::any(*resourceRegionId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceRegionId") != m.end() && !m["ResourceRegionId"].empty()) {
+      resourceRegionId = make_shared<string>(boost::any_cast<string>(m["ResourceRegionId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~ChangeResourceGroupRequest() = default;
+};
+class ChangeResourceGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ChangeResourceGroupResponseBody() {}
+
+  explicit ChangeResourceGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ChangeResourceGroupResponseBody() = default;
+};
+class ChangeResourceGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ChangeResourceGroupResponseBody> body{};
+
+  ChangeResourceGroupResponse() {}
+
+  explicit ChangeResourceGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ChangeResourceGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ChangeResourceGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ChangeResourceGroupResponse() = default;
 };
 class CreateAppInfoRequest : public Darabonba::Model {
 public:
@@ -42063,6 +42527,8 @@ public:
   BatchStopVodDomainResponse batchStopVodDomain(shared_ptr<BatchStopVodDomainRequest> request);
   CancelUrlUploadJobsResponse cancelUrlUploadJobsWithOptions(shared_ptr<CancelUrlUploadJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelUrlUploadJobsResponse cancelUrlUploadJobs(shared_ptr<CancelUrlUploadJobsRequest> request);
+  ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
   CreateAppInfoResponse createAppInfoWithOptions(shared_ptr<CreateAppInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAppInfoResponse createAppInfo(shared_ptr<CreateAppInfoRequest> request);
   CreateAuditResponse createAuditWithOptions(shared_ptr<CreateAuditRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
