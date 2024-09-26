@@ -472,6 +472,9 @@ CreateDocResponse Alibabacloud_Chatbot20220408::Client::createDocWithOptions(sha
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateDocShrinkRequest> request = make_shared<CreateDocShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateDocRequestDocMetadata>>(tmpReq->docMetadata)) {
+    request->docMetadataShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->docMetadata, make_shared<string>("DocMetadata"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->tagIds)) {
     request->tagIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagIds, make_shared<string>("TagIds"), make_shared<string>("json")));
   }
@@ -487,6 +490,9 @@ CreateDocResponse Alibabacloud_Chatbot20220408::Client::createDocWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     query->insert(pair<string, string>("Content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->docMetadataShrink)) {
+    query->insert(pair<string, string>("DocMetadata", *request->docMetadataShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endDate)) {
     query->insert(pair<string, string>("EndDate", *request->endDate));
@@ -2868,6 +2874,9 @@ UpdateDocResponse Alibabacloud_Chatbot20220408::Client::updateDocWithOptions(sha
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateDocShrinkRequest> request = make_shared<UpdateDocShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateDocRequestDocMetadata>>(tmpReq->docMetadata)) {
+    request->docMetadataShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->docMetadata, make_shared<string>("DocMetadata"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->tagIds)) {
     request->tagIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagIds, make_shared<string>("TagIds"), make_shared<string>("json")));
   }
@@ -2883,6 +2892,9 @@ UpdateDocResponse Alibabacloud_Chatbot20220408::Client::updateDocWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     query->insert(pair<string, string>("Content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->docMetadataShrink)) {
+    query->insert(pair<string, string>("DocMetadata", *request->docMetadataShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->docName)) {
     query->insert(pair<string, string>("DocName", *request->docName));

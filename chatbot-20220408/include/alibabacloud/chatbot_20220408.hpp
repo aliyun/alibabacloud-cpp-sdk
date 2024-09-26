@@ -2658,12 +2658,113 @@ public:
 
   virtual ~CreateDSEntityValueResponse() = default;
 };
+class CreateDocRequestDocMetadataMetaCellInfoDTOList : public Darabonba::Model {
+public:
+  shared_ptr<string> fieldCode{};
+  shared_ptr<string> fieldName{};
+  shared_ptr<string> value{};
+
+  CreateDocRequestDocMetadataMetaCellInfoDTOList() {}
+
+  explicit CreateDocRequestDocMetadataMetaCellInfoDTOList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fieldCode) {
+      res["FieldCode"] = boost::any(*fieldCode);
+    }
+    if (fieldName) {
+      res["FieldName"] = boost::any(*fieldName);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FieldCode") != m.end() && !m["FieldCode"].empty()) {
+      fieldCode = make_shared<string>(boost::any_cast<string>(m["FieldCode"]));
+    }
+    if (m.find("FieldName") != m.end() && !m["FieldName"].empty()) {
+      fieldName = make_shared<string>(boost::any_cast<string>(m["FieldName"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateDocRequestDocMetadataMetaCellInfoDTOList() = default;
+};
+class CreateDocRequestDocMetadata : public Darabonba::Model {
+public:
+  shared_ptr<string> businessViewId{};
+  shared_ptr<string> businessViewName{};
+  shared_ptr<vector<CreateDocRequestDocMetadataMetaCellInfoDTOList>> metaCellInfoDTOList{};
+
+  CreateDocRequestDocMetadata() {}
+
+  explicit CreateDocRequestDocMetadata(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessViewId) {
+      res["BusinessViewId"] = boost::any(*businessViewId);
+    }
+    if (businessViewName) {
+      res["BusinessViewName"] = boost::any(*businessViewName);
+    }
+    if (metaCellInfoDTOList) {
+      vector<boost::any> temp1;
+      for(auto item1:*metaCellInfoDTOList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MetaCellInfoDTOList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessViewId") != m.end() && !m["BusinessViewId"].empty()) {
+      businessViewId = make_shared<string>(boost::any_cast<string>(m["BusinessViewId"]));
+    }
+    if (m.find("BusinessViewName") != m.end() && !m["BusinessViewName"].empty()) {
+      businessViewName = make_shared<string>(boost::any_cast<string>(m["BusinessViewName"]));
+    }
+    if (m.find("MetaCellInfoDTOList") != m.end() && !m["MetaCellInfoDTOList"].empty()) {
+      if (typeid(vector<boost::any>) == m["MetaCellInfoDTOList"].type()) {
+        vector<CreateDocRequestDocMetadataMetaCellInfoDTOList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MetaCellInfoDTOList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateDocRequestDocMetadataMetaCellInfoDTOList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        metaCellInfoDTOList = make_shared<vector<CreateDocRequestDocMetadataMetaCellInfoDTOList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDocRequestDocMetadata() = default;
+};
 class CreateDocRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
   shared_ptr<long> categoryId{};
   shared_ptr<string> config{};
   shared_ptr<string> content{};
+  shared_ptr<vector<CreateDocRequestDocMetadata>> docMetadata{};
   shared_ptr<string> endDate{};
   shared_ptr<string> meta{};
   shared_ptr<string> startDate{};
@@ -2692,6 +2793,13 @@ public:
     }
     if (content) {
       res["Content"] = boost::any(*content);
+    }
+    if (docMetadata) {
+      vector<boost::any> temp1;
+      for(auto item1:*docMetadata){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DocMetadata"] = boost::any(temp1);
     }
     if (endDate) {
       res["EndDate"] = boost::any(*endDate);
@@ -2726,6 +2834,19 @@ public:
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("DocMetadata") != m.end() && !m["DocMetadata"].empty()) {
+      if (typeid(vector<boost::any>) == m["DocMetadata"].type()) {
+        vector<CreateDocRequestDocMetadata> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DocMetadata"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateDocRequestDocMetadata model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        docMetadata = make_shared<vector<CreateDocRequestDocMetadata>>(expect1);
+      }
     }
     if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
       endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
@@ -2763,6 +2884,7 @@ public:
   shared_ptr<long> categoryId{};
   shared_ptr<string> config{};
   shared_ptr<string> content{};
+  shared_ptr<string> docMetadataShrink{};
   shared_ptr<string> endDate{};
   shared_ptr<string> meta{};
   shared_ptr<string> startDate{};
@@ -2791,6 +2913,9 @@ public:
     }
     if (content) {
       res["Content"] = boost::any(*content);
+    }
+    if (docMetadataShrink) {
+      res["DocMetadata"] = boost::any(*docMetadataShrink);
     }
     if (endDate) {
       res["EndDate"] = boost::any(*endDate);
@@ -2825,6 +2950,9 @@ public:
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("DocMetadata") != m.end() && !m["DocMetadata"].empty()) {
+      docMetadataShrink = make_shared<string>(boost::any_cast<string>(m["DocMetadata"]));
     }
     if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
       endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
@@ -7053,6 +7181,106 @@ public:
 
   virtual ~DescribeDocResponseBodyDocInfo() = default;
 };
+class DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList : public Darabonba::Model {
+public:
+  shared_ptr<string> fieldCode{};
+  shared_ptr<string> fieldName{};
+  shared_ptr<string> value{};
+
+  DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList() {}
+
+  explicit DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fieldCode) {
+      res["FieldCode"] = boost::any(*fieldCode);
+    }
+    if (fieldName) {
+      res["FieldName"] = boost::any(*fieldName);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FieldCode") != m.end() && !m["FieldCode"].empty()) {
+      fieldCode = make_shared<string>(boost::any_cast<string>(m["FieldCode"]));
+    }
+    if (m.find("FieldName") != m.end() && !m["FieldName"].empty()) {
+      fieldName = make_shared<string>(boost::any_cast<string>(m["FieldName"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList() = default;
+};
+class DescribeDocResponseBodyDocMetadata : public Darabonba::Model {
+public:
+  shared_ptr<string> businessViewId{};
+  shared_ptr<string> businessViewName{};
+  shared_ptr<vector<DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList>> metaCellInfoDTOList{};
+
+  DescribeDocResponseBodyDocMetadata() {}
+
+  explicit DescribeDocResponseBodyDocMetadata(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessViewId) {
+      res["BusinessViewId"] = boost::any(*businessViewId);
+    }
+    if (businessViewName) {
+      res["BusinessViewName"] = boost::any(*businessViewName);
+    }
+    if (metaCellInfoDTOList) {
+      vector<boost::any> temp1;
+      for(auto item1:*metaCellInfoDTOList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MetaCellInfoDTOList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessViewId") != m.end() && !m["BusinessViewId"].empty()) {
+      businessViewId = make_shared<string>(boost::any_cast<string>(m["BusinessViewId"]));
+    }
+    if (m.find("BusinessViewName") != m.end() && !m["BusinessViewName"].empty()) {
+      businessViewName = make_shared<string>(boost::any_cast<string>(m["BusinessViewName"]));
+    }
+    if (m.find("MetaCellInfoDTOList") != m.end() && !m["MetaCellInfoDTOList"].empty()) {
+      if (typeid(vector<boost::any>) == m["MetaCellInfoDTOList"].type()) {
+        vector<DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MetaCellInfoDTOList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        metaCellInfoDTOList = make_shared<vector<DescribeDocResponseBodyDocMetadataMetaCellInfoDTOList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDocResponseBodyDocMetadata() = default;
+};
 class DescribeDocResponseBodyDocTags : public Darabonba::Model {
 public:
   shared_ptr<bool> defaultTag{};
@@ -7119,6 +7347,7 @@ public:
   shared_ptr<long> createUserId{};
   shared_ptr<string> createUserName{};
   shared_ptr<DescribeDocResponseBodyDocInfo> docInfo{};
+  shared_ptr<vector<DescribeDocResponseBodyDocMetadata>> docMetadata{};
   shared_ptr<string> docName{};
   shared_ptr<vector<DescribeDocResponseBodyDocTags>> docTags{};
   shared_ptr<long> effectStatus{};
@@ -7167,6 +7396,13 @@ public:
     }
     if (docInfo) {
       res["DocInfo"] = docInfo ? boost::any(docInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (docMetadata) {
+      vector<boost::any> temp1;
+      for(auto item1:*docMetadata){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DocMetadata"] = boost::any(temp1);
     }
     if (docName) {
       res["DocName"] = boost::any(*docName);
@@ -7250,6 +7486,19 @@ public:
         DescribeDocResponseBodyDocInfo model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DocInfo"]));
         docInfo = make_shared<DescribeDocResponseBodyDocInfo>(model1);
+      }
+    }
+    if (m.find("DocMetadata") != m.end() && !m["DocMetadata"].empty()) {
+      if (typeid(vector<boost::any>) == m["DocMetadata"].type()) {
+        vector<DescribeDocResponseBodyDocMetadata> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DocMetadata"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDocResponseBodyDocMetadata model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        docMetadata = make_shared<vector<DescribeDocResponseBodyDocMetadata>>(expect1);
       }
     }
     if (m.find("DocName") != m.end() && !m["DocName"].empty()) {
@@ -16055,12 +16304,113 @@ public:
 
   virtual ~UpdateDSEntityValueResponse() = default;
 };
+class UpdateDocRequestDocMetadataMetaCellInfoDTOList : public Darabonba::Model {
+public:
+  shared_ptr<string> fieldCode{};
+  shared_ptr<string> fieldName{};
+  shared_ptr<string> value{};
+
+  UpdateDocRequestDocMetadataMetaCellInfoDTOList() {}
+
+  explicit UpdateDocRequestDocMetadataMetaCellInfoDTOList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fieldCode) {
+      res["FieldCode"] = boost::any(*fieldCode);
+    }
+    if (fieldName) {
+      res["FieldName"] = boost::any(*fieldName);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FieldCode") != m.end() && !m["FieldCode"].empty()) {
+      fieldCode = make_shared<string>(boost::any_cast<string>(m["FieldCode"]));
+    }
+    if (m.find("FieldName") != m.end() && !m["FieldName"].empty()) {
+      fieldName = make_shared<string>(boost::any_cast<string>(m["FieldName"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateDocRequestDocMetadataMetaCellInfoDTOList() = default;
+};
+class UpdateDocRequestDocMetadata : public Darabonba::Model {
+public:
+  shared_ptr<string> businessViewId{};
+  shared_ptr<string> businessViewName{};
+  shared_ptr<vector<UpdateDocRequestDocMetadataMetaCellInfoDTOList>> metaCellInfoDTOList{};
+
+  UpdateDocRequestDocMetadata() {}
+
+  explicit UpdateDocRequestDocMetadata(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessViewId) {
+      res["BusinessViewId"] = boost::any(*businessViewId);
+    }
+    if (businessViewName) {
+      res["BusinessViewName"] = boost::any(*businessViewName);
+    }
+    if (metaCellInfoDTOList) {
+      vector<boost::any> temp1;
+      for(auto item1:*metaCellInfoDTOList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MetaCellInfoDTOList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessViewId") != m.end() && !m["BusinessViewId"].empty()) {
+      businessViewId = make_shared<string>(boost::any_cast<string>(m["BusinessViewId"]));
+    }
+    if (m.find("BusinessViewName") != m.end() && !m["BusinessViewName"].empty()) {
+      businessViewName = make_shared<string>(boost::any_cast<string>(m["BusinessViewName"]));
+    }
+    if (m.find("MetaCellInfoDTOList") != m.end() && !m["MetaCellInfoDTOList"].empty()) {
+      if (typeid(vector<boost::any>) == m["MetaCellInfoDTOList"].type()) {
+        vector<UpdateDocRequestDocMetadataMetaCellInfoDTOList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MetaCellInfoDTOList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateDocRequestDocMetadataMetaCellInfoDTOList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        metaCellInfoDTOList = make_shared<vector<UpdateDocRequestDocMetadataMetaCellInfoDTOList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateDocRequestDocMetadata() = default;
+};
 class UpdateDocRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
   shared_ptr<long> categoryId{};
   shared_ptr<string> config{};
   shared_ptr<string> content{};
+  shared_ptr<vector<UpdateDocRequestDocMetadata>> docMetadata{};
   shared_ptr<string> docName{};
   shared_ptr<string> endDate{};
   shared_ptr<long> knowledgeId{};
@@ -16090,6 +16440,13 @@ public:
     }
     if (content) {
       res["Content"] = boost::any(*content);
+    }
+    if (docMetadata) {
+      vector<boost::any> temp1;
+      for(auto item1:*docMetadata){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DocMetadata"] = boost::any(temp1);
     }
     if (docName) {
       res["DocName"] = boost::any(*docName);
@@ -16127,6 +16484,19 @@ public:
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("DocMetadata") != m.end() && !m["DocMetadata"].empty()) {
+      if (typeid(vector<boost::any>) == m["DocMetadata"].type()) {
+        vector<UpdateDocRequestDocMetadata> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DocMetadata"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateDocRequestDocMetadata model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        docMetadata = make_shared<vector<UpdateDocRequestDocMetadata>>(expect1);
+      }
     }
     if (m.find("DocName") != m.end() && !m["DocName"].empty()) {
       docName = make_shared<string>(boost::any_cast<string>(m["DocName"]));
@@ -16167,6 +16537,7 @@ public:
   shared_ptr<long> categoryId{};
   shared_ptr<string> config{};
   shared_ptr<string> content{};
+  shared_ptr<string> docMetadataShrink{};
   shared_ptr<string> docName{};
   shared_ptr<string> endDate{};
   shared_ptr<long> knowledgeId{};
@@ -16196,6 +16567,9 @@ public:
     }
     if (content) {
       res["Content"] = boost::any(*content);
+    }
+    if (docMetadataShrink) {
+      res["DocMetadata"] = boost::any(*docMetadataShrink);
     }
     if (docName) {
       res["DocName"] = boost::any(*docName);
@@ -16233,6 +16607,9 @@ public:
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("DocMetadata") != m.end() && !m["DocMetadata"].empty()) {
+      docMetadataShrink = make_shared<string>(boost::any_cast<string>(m["DocMetadata"]));
     }
     if (m.find("DocName") != m.end() && !m["DocName"].empty()) {
       docName = make_shared<string>(boost::any_cast<string>(m["DocName"]));
