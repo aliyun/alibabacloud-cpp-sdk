@@ -37,6 +37,39 @@ string Alibabacloud_QuanMiaoLightApp20240801::Client::getEndpoint(shared_ptr<str
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+GenerateBroadcastNewsResponse Alibabacloud_QuanMiaoLightApp20240801::Client::generateBroadcastNewsWithOptions(shared_ptr<string> workspaceId,
+                                                                                                              shared_ptr<GenerateBroadcastNewsRequest> request,
+                                                                                                              shared_ptr<map<string, string>> headers,
+                                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
+    body->insert(pair<string, string>("prompt", *request->prompt));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GenerateBroadcastNews"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/GenerateBroadcastNews"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GenerateBroadcastNewsResponse(callApi(params, req, runtime));
+}
+
+GenerateBroadcastNewsResponse Alibabacloud_QuanMiaoLightApp20240801::Client::generateBroadcastNews(shared_ptr<string> workspaceId, shared_ptr<GenerateBroadcastNewsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return generateBroadcastNewsWithOptions(workspaceId, request, headers, runtime);
+}
+
 ListHotTopicSummariesResponse Alibabacloud_QuanMiaoLightApp20240801::Client::listHotTopicSummariesWithOptions(shared_ptr<string> workspaceId,
                                                                                                               shared_ptr<ListHotTopicSummariesRequest> request,
                                                                                                               shared_ptr<map<string, string>> headers,
@@ -80,6 +113,48 @@ ListHotTopicSummariesResponse Alibabacloud_QuanMiaoLightApp20240801::Client::lis
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listHotTopicSummariesWithOptions(workspaceId, request, headers, runtime);
+}
+
+RunCommentGenerationResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runCommentGenerationWithOptions(shared_ptr<string> workspaceId,
+                                                                                                            shared_ptr<RunCommentGenerationRequest> request,
+                                                                                                            shared_ptr<map<string, string>> headers,
+                                                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->length)) {
+    body->insert(pair<string, string>("length", *request->length));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->numComments)) {
+    body->insert(pair<string, string>("numComments", *request->numComments));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceMaterial)) {
+    body->insert(pair<string, string>("sourceMaterial", *request->sourceMaterial));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->style)) {
+    body->insert(pair<string, string>("style", *request->style));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunCommentGeneration"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/runCommentGeneration"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunCommentGenerationResponse(callApi(params, req, runtime));
+}
+
+RunCommentGenerationResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runCommentGeneration(shared_ptr<string> workspaceId, shared_ptr<RunCommentGenerationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runCommentGenerationWithOptions(workspaceId, request, headers, runtime);
 }
 
 RunMarketingInformationExtractResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runMarketingInformationExtractWithOptions(shared_ptr<string> workspaceId,
@@ -337,8 +412,14 @@ RunVideoAnalysisResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runVideo
   if (!Darabonba_Util::Client::isUnset<string>(request->originalSessionId)) {
     body->insert(pair<string, string>("originalSessionId", *request->originalSessionId));
   }
+  if (!Darabonba_Util::Client::isUnset<double>(request->snapshotInterval)) {
+    body->insert(pair<string, double>("snapshotInterval", *request->snapshotInterval));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     body->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoExtraInfo)) {
+    body->insert(pair<string, string>("videoExtraInfo", *request->videoExtraInfo));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoModelCustomPromptTemplate)) {
     body->insert(pair<string, string>("videoModelCustomPromptTemplate", *request->videoModelCustomPromptTemplate));
