@@ -12850,10 +12850,12 @@ public:
 };
 class DescribeDBClusterTDEResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> automaticRotation{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> encryptNewTables{};
   shared_ptr<string> encryptionKey{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> rotationInterval{};
   shared_ptr<string> TDERegion{};
   shared_ptr<string> TDEStatus{};
 
@@ -12867,6 +12869,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (automaticRotation) {
+      res["AutomaticRotation"] = boost::any(*automaticRotation);
+    }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
     }
@@ -12879,6 +12884,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (rotationInterval) {
+      res["RotationInterval"] = boost::any(*rotationInterval);
+    }
     if (TDERegion) {
       res["TDERegion"] = boost::any(*TDERegion);
     }
@@ -12889,6 +12897,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutomaticRotation") != m.end() && !m["AutomaticRotation"].empty()) {
+      automaticRotation = make_shared<string>(boost::any_cast<string>(m["AutomaticRotation"]));
+    }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
@@ -12900,6 +12911,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RotationInterval") != m.end() && !m["RotationInterval"].empty()) {
+      rotationInterval = make_shared<string>(boost::any_cast<string>(m["RotationInterval"]));
     }
     if (m.find("TDERegion") != m.end() && !m["TDERegion"].empty()) {
       TDERegion = make_shared<string>(boost::any_cast<string>(m["TDERegion"]));
@@ -21166,6 +21180,7 @@ public:
 class DescribeScheduleTasksResponseBodyDataTimerInfos : public Darabonba::Model {
 public:
   shared_ptr<string> action{};
+  shared_ptr<string> crontabJobId{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> dbClusterDescription{};
   shared_ptr<string> dbClusterStatus{};
@@ -21191,6 +21206,9 @@ public:
     map<string, boost::any> res;
     if (action) {
       res["Action"] = boost::any(*action);
+    }
+    if (crontabJobId) {
+      res["CrontabJobId"] = boost::any(*crontabJobId);
     }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
@@ -21234,6 +21252,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Action") != m.end() && !m["Action"].empty()) {
       action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("CrontabJobId") != m.end() && !m["CrontabJobId"].empty()) {
+      crontabJobId = make_shared<string>(boost::any_cast<string>(m["CrontabJobId"]));
     }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
@@ -27692,6 +27713,7 @@ public:
 class ModifyDBClusterServerlessConfRequest : public Darabonba::Model {
 public:
   shared_ptr<string> allowShutDown{};
+  shared_ptr<string> crontabJobId{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<bool> fromTimeService{};
   shared_ptr<string> ownerAccount{};
@@ -27710,6 +27732,7 @@ public:
   shared_ptr<string> serverlessRuleCpuEnlargeThreshold{};
   shared_ptr<string> serverlessRuleCpuShrinkThreshold{};
   shared_ptr<string> serverlessRuleMode{};
+  shared_ptr<string> taskId{};
 
   ModifyDBClusterServerlessConfRequest() {}
 
@@ -27723,6 +27746,9 @@ public:
     map<string, boost::any> res;
     if (allowShutDown) {
       res["AllowShutDown"] = boost::any(*allowShutDown);
+    }
+    if (crontabJobId) {
+      res["CrontabJobId"] = boost::any(*crontabJobId);
     }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
@@ -27778,12 +27804,18 @@ public:
     if (serverlessRuleMode) {
       res["ServerlessRuleMode"] = boost::any(*serverlessRuleMode);
     }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AllowShutDown") != m.end() && !m["AllowShutDown"].empty()) {
       allowShutDown = make_shared<string>(boost::any_cast<string>(m["AllowShutDown"]));
+    }
+    if (m.find("CrontabJobId") != m.end() && !m["CrontabJobId"].empty()) {
+      crontabJobId = make_shared<string>(boost::any_cast<string>(m["CrontabJobId"]));
     }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
@@ -27838,6 +27870,9 @@ public:
     }
     if (m.find("ServerlessRuleMode") != m.end() && !m["ServerlessRuleMode"].empty()) {
       serverlessRuleMode = make_shared<string>(boost::any_cast<string>(m["ServerlessRuleMode"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
   }
 
@@ -28122,6 +28157,7 @@ public:
 class ModifyDBClusterTDERequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
+  shared_ptr<string> enableAutomaticRotation{};
   shared_ptr<string> encryptNewTables{};
   shared_ptr<string> encryptionKey{};
   shared_ptr<string> ownerAccount{};
@@ -28143,6 +28179,9 @@ public:
     map<string, boost::any> res;
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (enableAutomaticRotation) {
+      res["EnableAutomaticRotation"] = boost::any(*enableAutomaticRotation);
     }
     if (encryptNewTables) {
       res["EncryptNewTables"] = boost::any(*encryptNewTables);
@@ -28174,6 +28213,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("EnableAutomaticRotation") != m.end() && !m["EnableAutomaticRotation"].empty()) {
+      enableAutomaticRotation = make_shared<string>(boost::any_cast<string>(m["EnableAutomaticRotation"]));
     }
     if (m.find("EncryptNewTables") != m.end() && !m["EncryptNewTables"].empty()) {
       encryptNewTables = make_shared<string>(boost::any_cast<string>(m["EncryptNewTables"]));

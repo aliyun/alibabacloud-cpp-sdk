@@ -5770,6 +5770,9 @@ ModifyDBClusterServerlessConfResponse Alibabacloud_Polardb20170801::Client::modi
   if (!Darabonba_Util::Client::isUnset<string>(request->allowShutDown)) {
     query->insert(pair<string, string>("AllowShutDown", *request->allowShutDown));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->crontabJobId)) {
+    query->insert(pair<string, string>("CrontabJobId", *request->crontabJobId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
   }
@@ -5823,6 +5826,9 @@ ModifyDBClusterServerlessConfResponse Alibabacloud_Polardb20170801::Client::modi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serverlessRuleMode)) {
     query->insert(pair<string, string>("ServerlessRuleMode", *request->serverlessRuleMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("TaskId", *request->taskId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5906,6 +5912,9 @@ ModifyDBClusterTDEResponse Alibabacloud_Polardb20170801::Client::modifyDBCluster
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableAutomaticRotation)) {
+    query->insert(pair<string, string>("EnableAutomaticRotation", *request->enableAutomaticRotation));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->encryptNewTables)) {
     query->insert(pair<string, string>("EncryptNewTables", *request->encryptNewTables));
