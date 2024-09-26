@@ -2759,6 +2759,7 @@ public:
   shared_ptr<long> serviceId{};
   shared_ptr<long> timeout{};
   shared_ptr<string> tokenKey{};
+  shared_ptr<bool> withRematchRoute{};
   shared_ptr<bool> withRequestBody{};
 
   AddGatewayAuthRequestExternalAuthZJSON() {}
@@ -2794,6 +2795,9 @@ public:
     }
     if (tokenKey) {
       res["TokenKey"] = boost::any(*tokenKey);
+    }
+    if (withRematchRoute) {
+      res["WithRematchRoute"] = boost::any(*withRematchRoute);
     }
     if (withRequestBody) {
       res["WithRequestBody"] = boost::any(*withRequestBody);
@@ -2839,6 +2843,9 @@ public:
     }
     if (m.find("TokenKey") != m.end() && !m["TokenKey"].empty()) {
       tokenKey = make_shared<string>(boost::any_cast<string>(m["TokenKey"]));
+    }
+    if (m.find("WithRematchRoute") != m.end() && !m["WithRematchRoute"].empty()) {
+      withRematchRoute = make_shared<bool>(boost::any_cast<bool>(m["WithRematchRoute"]));
     }
     if (m.find("WithRequestBody") != m.end() && !m["WithRequestBody"].empty()) {
       withRequestBody = make_shared<bool>(boost::any_cast<bool>(m["WithRequestBody"]));
@@ -23661,6 +23668,7 @@ public:
   shared_ptr<long> serviceId{};
   shared_ptr<long> timeout{};
   shared_ptr<string> tokenKey{};
+  shared_ptr<bool> withRematchRoute{};
   shared_ptr<bool> withRequestBody{};
 
   GetGatewayAuthDetailResponseBodyDataExternalAuthZ() {}
@@ -23699,6 +23707,9 @@ public:
     }
     if (tokenKey) {
       res["TokenKey"] = boost::any(*tokenKey);
+    }
+    if (withRematchRoute) {
+      res["WithRematchRoute"] = boost::any(*withRematchRoute);
     }
     if (withRequestBody) {
       res["WithRequestBody"] = boost::any(*withRequestBody);
@@ -23751,6 +23762,9 @@ public:
     }
     if (m.find("TokenKey") != m.end() && !m["TokenKey"].empty()) {
       tokenKey = make_shared<string>(boost::any_cast<string>(m["TokenKey"]));
+    }
+    if (m.find("WithRematchRoute") != m.end() && !m["WithRematchRoute"].empty()) {
+      withRematchRoute = make_shared<bool>(boost::any_cast<bool>(m["WithRematchRoute"]));
     }
     if (m.find("WithRequestBody") != m.end() && !m["WithRequestBody"].empty()) {
       withRequestBody = make_shared<bool>(boost::any_cast<bool>(m["WithRequestBody"]));
