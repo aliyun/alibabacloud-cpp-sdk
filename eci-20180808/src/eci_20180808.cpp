@@ -530,6 +530,9 @@ CreateImageCacheResponse Alibabacloud_Eci20180808::Client::createImageCacheWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->insecureRegistry)) {
     query->insert(pair<string, string>("InsecureRegistry", *request->insecureRegistry));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->osType)) {
+    query->insert(pair<string, string>("OsType", *request->osType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }

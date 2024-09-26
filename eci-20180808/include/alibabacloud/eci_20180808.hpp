@@ -4346,6 +4346,7 @@ public:
   shared_ptr<long> imageCacheSize{};
   shared_ptr<vector<CreateImageCacheRequestImageRegistryCredential>> imageRegistryCredential{};
   shared_ptr<string> insecureRegistry{};
+  shared_ptr<string> osType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> plainHttpRegistry{};
@@ -4416,6 +4417,9 @@ public:
     }
     if (insecureRegistry) {
       res["InsecureRegistry"] = boost::any(*insecureRegistry);
+    }
+    if (osType) {
+      res["OsType"] = boost::any(*osType);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -4529,6 +4533,9 @@ public:
     }
     if (m.find("InsecureRegistry") != m.end() && !m["InsecureRegistry"].empty()) {
       insecureRegistry = make_shared<string>(boost::any_cast<string>(m["InsecureRegistry"]));
+    }
+    if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
+      osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -12176,6 +12183,7 @@ public:
   shared_ptr<string> creationTime{};
   shared_ptr<long> discount{};
   shared_ptr<DescribeContainerGroupsResponseBodyContainerGroupsDnsConfig> dnsConfig{};
+  shared_ptr<string> dnsPolicy{};
   shared_ptr<DescribeContainerGroupsResponseBodyContainerGroupsEciSecurityContext> eciSecurityContext{};
   shared_ptr<string> eniInstanceId{};
   shared_ptr<long> ephemeralStorage{};
@@ -12245,6 +12253,9 @@ public:
     }
     if (dnsConfig) {
       res["DnsConfig"] = dnsConfig ? boost::any(dnsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dnsPolicy) {
+      res["DnsPolicy"] = boost::any(*dnsPolicy);
     }
     if (eciSecurityContext) {
       res["EciSecurityContext"] = eciSecurityContext ? boost::any(eciSecurityContext->toMap()) : boost::any(map<string,boost::any>({}));
@@ -12400,6 +12411,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DnsConfig"]));
         dnsConfig = make_shared<DescribeContainerGroupsResponseBodyContainerGroupsDnsConfig>(model1);
       }
+    }
+    if (m.find("DnsPolicy") != m.end() && !m["DnsPolicy"].empty()) {
+      dnsPolicy = make_shared<string>(boost::any_cast<string>(m["DnsPolicy"]));
     }
     if (m.find("EciSecurityContext") != m.end() && !m["EciSecurityContext"].empty()) {
       if (typeid(map<string, boost::any>) == m["EciSecurityContext"].type()) {
