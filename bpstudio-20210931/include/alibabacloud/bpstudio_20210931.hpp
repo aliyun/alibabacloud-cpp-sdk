@@ -1397,10 +1397,60 @@ public:
 
   virtual ~ExecuteOperationSyncShrinkRequest() = default;
 };
+class ExecuteOperationSyncResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> arguments{};
+  shared_ptr<string> message{};
+  shared_ptr<string> operationId{};
+  shared_ptr<string> status{};
+
+  ExecuteOperationSyncResponseBodyData() {}
+
+  explicit ExecuteOperationSyncResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arguments) {
+      res["Arguments"] = boost::any(*arguments);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (operationId) {
+      res["OperationId"] = boost::any(*operationId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Arguments") != m.end() && !m["Arguments"].empty()) {
+      arguments = make_shared<string>(boost::any_cast<string>(m["Arguments"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("OperationId") != m.end() && !m["OperationId"].empty()) {
+      operationId = make_shared<string>(boost::any_cast<string>(m["OperationId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ExecuteOperationSyncResponseBodyData() = default;
+};
 class ExecuteOperationSyncResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> code{};
-  shared_ptr<string> data{};
+  shared_ptr<ExecuteOperationSyncResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
@@ -1418,7 +1468,7 @@ public:
       res["Code"] = boost::any(*code);
     }
     if (data) {
-      res["Data"] = boost::any(*data);
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -1434,7 +1484,11 @@ public:
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ExecuteOperationSyncResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ExecuteOperationSyncResponseBodyData>(model1);
+      }
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
