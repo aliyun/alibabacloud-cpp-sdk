@@ -4639,6 +4639,7 @@ public:
   shared_ptr<string> cpuPolicy{};
   shared_ptr<vector<Tag>> labels{};
   shared_ptr<string> nodeNameMode{};
+  shared_ptr<string> preUserData{};
   shared_ptr<string> runtime{};
   shared_ptr<string> runtimeVersion{};
   shared_ptr<vector<Taint>> taints{};
@@ -4670,6 +4671,9 @@ public:
     }
     if (nodeNameMode) {
       res["node_name_mode"] = boost::any(*nodeNameMode);
+    }
+    if (preUserData) {
+      res["pre_user_data"] = boost::any(*preUserData);
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
@@ -4715,6 +4719,9 @@ public:
     }
     if (m.find("node_name_mode") != m.end() && !m["node_name_mode"].empty()) {
       nodeNameMode = make_shared<string>(boost::any_cast<string>(m["node_name_mode"]));
+    }
+    if (m.find("pre_user_data") != m.end() && !m["pre_user_data"].empty()) {
+      preUserData = make_shared<string>(boost::any_cast<string>(m["pre_user_data"]));
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
@@ -9924,6 +9931,7 @@ public:
   shared_ptr<string> cpuPolicy{};
   shared_ptr<vector<Tag>> labels{};
   shared_ptr<string> nodeNameMode{};
+  shared_ptr<string> preUserData{};
   shared_ptr<string> runtime{};
   shared_ptr<string> runtimeVersion{};
   shared_ptr<vector<Taint>> taints{};
@@ -9955,6 +9963,9 @@ public:
     }
     if (nodeNameMode) {
       res["node_name_mode"] = boost::any(*nodeNameMode);
+    }
+    if (preUserData) {
+      res["pre_user_data"] = boost::any(*preUserData);
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
@@ -10000,6 +10011,9 @@ public:
     }
     if (m.find("node_name_mode") != m.end() && !m["node_name_mode"].empty()) {
       nodeNameMode = make_shared<string>(boost::any_cast<string>(m["node_name_mode"]));
+    }
+    if (m.find("pre_user_data") != m.end() && !m["pre_user_data"].empty()) {
+      preUserData = make_shared<string>(boost::any_cast<string>(m["pre_user_data"]));
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
@@ -11362,6 +11376,7 @@ public:
   shared_ptr<string> cpuPolicy{};
   shared_ptr<vector<Tag>> labels{};
   shared_ptr<string> nodeNameMode{};
+  shared_ptr<string> preUserData{};
   shared_ptr<string> runtime{};
   shared_ptr<string> runtimeVersion{};
   shared_ptr<vector<Taint>> taints{};
@@ -11393,6 +11408,9 @@ public:
     }
     if (nodeNameMode) {
       res["node_name_mode"] = boost::any(*nodeNameMode);
+    }
+    if (preUserData) {
+      res["pre_user_data"] = boost::any(*preUserData);
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
@@ -11438,6 +11456,9 @@ public:
     }
     if (m.find("node_name_mode") != m.end() && !m["node_name_mode"].empty()) {
       nodeNameMode = make_shared<string>(boost::any_cast<string>(m["node_name_mode"]));
+    }
+    if (m.find("pre_user_data") != m.end() && !m["pre_user_data"].empty()) {
+      preUserData = make_shared<string>(boost::any_cast<string>(m["pre_user_data"]));
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
@@ -23759,6 +23780,7 @@ public:
   shared_ptr<bool> cmsEnabled{};
   shared_ptr<string> cpuPolicy{};
   shared_ptr<vector<Tag>> labels{};
+  shared_ptr<string> preUserData{};
   shared_ptr<string> runtime{};
   shared_ptr<string> runtimeVersion{};
   shared_ptr<vector<Taint>> taints{};
@@ -23787,6 +23809,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["labels"] = boost::any(temp1);
+    }
+    if (preUserData) {
+      res["pre_user_data"] = boost::any(*preUserData);
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
@@ -23829,6 +23854,9 @@ public:
         }
         labels = make_shared<vector<Tag>>(expect1);
       }
+    }
+    if (m.find("pre_user_data") != m.end() && !m["pre_user_data"].empty()) {
+      preUserData = make_shared<string>(boost::any_cast<string>(m["pre_user_data"]));
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
