@@ -1367,6 +1367,9 @@ SetRunningPlanResponse Alibabacloud_EnergyExpertExternal20220923::Client::setRun
 SubmitDocumentAnalyzeJobResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitDocumentAnalyzeJobWithOptions(shared_ptr<SubmitDocumentAnalyzeJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataType)) {
+    query->insert(pair<string, string>("dataType", *request->dataType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
     query->insert(pair<string, string>("fileName", *request->fileName));
   }

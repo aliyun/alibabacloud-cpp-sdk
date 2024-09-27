@@ -10025,6 +10025,7 @@ public:
 };
 class SubmitDocumentAnalyzeJobRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> dataType{};
   shared_ptr<string> fileName{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> folderId{};
@@ -10040,6 +10041,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dataType) {
+      res["dataType"] = boost::any(*dataType);
+    }
     if (fileName) {
       res["fileName"] = boost::any(*fileName);
     }
@@ -10056,6 +10060,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("dataType") != m.end() && !m["dataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["dataType"]));
+    }
     if (m.find("fileName") != m.end() && !m["fileName"].empty()) {
       fileName = make_shared<string>(boost::any_cast<string>(m["fileName"]));
     }
@@ -10075,6 +10082,7 @@ public:
 };
 class SubmitDocumentAnalyzeJobAdvanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> dataType{};
   shared_ptr<string> fileName{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
   shared_ptr<string> folderId{};
@@ -10090,6 +10098,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dataType) {
+      res["dataType"] = boost::any(*dataType);
+    }
     if (fileName) {
       res["fileName"] = boost::any(*fileName);
     }
@@ -10106,6 +10117,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("dataType") != m.end() && !m["dataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["dataType"]));
+    }
     if (m.find("fileName") != m.end() && !m["fileName"].empty()) {
       fileName = make_shared<string>(boost::any_cast<string>(m["fileName"]));
     }
