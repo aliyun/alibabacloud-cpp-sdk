@@ -504,6 +504,229 @@ public:
 
   virtual ~ListInstanceRecordsResponse() = default;
 };
+class ListTerminalCommandsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> terminalSessionToken{};
+
+  ListTerminalCommandsRequest() {}
+
+  explicit ListTerminalCommandsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (terminalSessionToken) {
+      res["TerminalSessionToken"] = boost::any(*terminalSessionToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("TerminalSessionToken") != m.end() && !m["TerminalSessionToken"].empty()) {
+      terminalSessionToken = make_shared<string>(boost::any_cast<string>(m["TerminalSessionToken"]));
+    }
+  }
+
+
+  virtual ~ListTerminalCommandsRequest() = default;
+};
+class ListTerminalCommandsResponseBodyTerminalCommandList : public Darabonba::Model {
+public:
+  shared_ptr<string> commandLine{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> executePath{};
+  shared_ptr<string> loginUser{};
+
+  ListTerminalCommandsResponseBodyTerminalCommandList() {}
+
+  explicit ListTerminalCommandsResponseBodyTerminalCommandList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commandLine) {
+      res["CommandLine"] = boost::any(*commandLine);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (executePath) {
+      res["ExecutePath"] = boost::any(*executePath);
+    }
+    if (loginUser) {
+      res["LoginUser"] = boost::any(*loginUser);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommandLine") != m.end() && !m["CommandLine"].empty()) {
+      commandLine = make_shared<string>(boost::any_cast<string>(m["CommandLine"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("ExecutePath") != m.end() && !m["ExecutePath"].empty()) {
+      executePath = make_shared<string>(boost::any_cast<string>(m["ExecutePath"]));
+    }
+    if (m.find("LoginUser") != m.end() && !m["LoginUser"].empty()) {
+      loginUser = make_shared<string>(boost::any_cast<string>(m["LoginUser"]));
+    }
+  }
+
+
+  virtual ~ListTerminalCommandsResponseBodyTerminalCommandList() = default;
+};
+class ListTerminalCommandsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListTerminalCommandsResponseBodyTerminalCommandList>> terminalCommandList{};
+  shared_ptr<long> totalCount{};
+
+  ListTerminalCommandsResponseBody() {}
+
+  explicit ListTerminalCommandsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (terminalCommandList) {
+      vector<boost::any> temp1;
+      for(auto item1:*terminalCommandList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TerminalCommandList"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TerminalCommandList") != m.end() && !m["TerminalCommandList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TerminalCommandList"].type()) {
+        vector<ListTerminalCommandsResponseBodyTerminalCommandList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TerminalCommandList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTerminalCommandsResponseBodyTerminalCommandList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        terminalCommandList = make_shared<vector<ListTerminalCommandsResponseBodyTerminalCommandList>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListTerminalCommandsResponseBody() = default;
+};
+class ListTerminalCommandsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListTerminalCommandsResponseBody> body{};
+
+  ListTerminalCommandsResponse() {}
+
+  explicit ListTerminalCommandsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListTerminalCommandsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListTerminalCommandsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListTerminalCommandsResponse() = default;
+};
 class LoginInstanceRequestInstanceLoginInfoOptionsContainerInfo : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -1744,6 +1967,8 @@ public:
   GetInstanceRecordConfigResponse getInstanceRecordConfig(shared_ptr<GetInstanceRecordConfigRequest> request);
   ListInstanceRecordsResponse listInstanceRecordsWithOptions(shared_ptr<ListInstanceRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInstanceRecordsResponse listInstanceRecords(shared_ptr<ListInstanceRecordsRequest> request);
+  ListTerminalCommandsResponse listTerminalCommandsWithOptions(shared_ptr<ListTerminalCommandsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListTerminalCommandsResponse listTerminalCommands(shared_ptr<ListTerminalCommandsRequest> request);
   LoginInstanceResponse loginInstanceWithOptions(shared_ptr<LoginInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   LoginInstanceResponse loginInstance(shared_ptr<LoginInstanceRequest> request);
   SetInstanceRecordConfigResponse setInstanceRecordConfigWithOptions(shared_ptr<SetInstanceRecordConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
