@@ -1035,6 +1035,272 @@ public:
 
   virtual ~AddTerminalResponse() = default;
 };
+class AddTerminalsRequestAddTerminalParams : public Darabonba::Model {
+public:
+  shared_ptr<string> alias{};
+  shared_ptr<long> clientType{};
+  shared_ptr<string> serialNumber{};
+  shared_ptr<string> terminalGroupId{};
+  shared_ptr<string> uuid{};
+
+  AddTerminalsRequestAddTerminalParams() {}
+
+  explicit AddTerminalsRequestAddTerminalParams(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alias) {
+      res["Alias"] = boost::any(*alias);
+    }
+    if (clientType) {
+      res["ClientType"] = boost::any(*clientType);
+    }
+    if (serialNumber) {
+      res["SerialNumber"] = boost::any(*serialNumber);
+    }
+    if (terminalGroupId) {
+      res["TerminalGroupId"] = boost::any(*terminalGroupId);
+    }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
+      alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
+    }
+    if (m.find("ClientType") != m.end() && !m["ClientType"].empty()) {
+      clientType = make_shared<long>(boost::any_cast<long>(m["ClientType"]));
+    }
+    if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
+      serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
+    }
+    if (m.find("TerminalGroupId") != m.end() && !m["TerminalGroupId"].empty()) {
+      terminalGroupId = make_shared<string>(boost::any_cast<string>(m["TerminalGroupId"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
+    }
+  }
+
+
+  virtual ~AddTerminalsRequestAddTerminalParams() = default;
+};
+class AddTerminalsRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<AddTerminalsRequestAddTerminalParams>> addTerminalParams{};
+
+  AddTerminalsRequest() {}
+
+  explicit AddTerminalsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addTerminalParams) {
+      vector<boost::any> temp1;
+      for(auto item1:*addTerminalParams){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AddTerminalParams"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddTerminalParams") != m.end() && !m["AddTerminalParams"].empty()) {
+      if (typeid(vector<boost::any>) == m["AddTerminalParams"].type()) {
+        vector<AddTerminalsRequestAddTerminalParams> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AddTerminalParams"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddTerminalsRequestAddTerminalParams model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        addTerminalParams = make_shared<vector<AddTerminalsRequestAddTerminalParams>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~AddTerminalsRequest() = default;
+};
+class AddTerminalsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> serialNumber{};
+
+  AddTerminalsResponseBodyData() {}
+
+  explicit AddTerminalsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (serialNumber) {
+      res["SerialNumber"] = boost::any(*serialNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
+      serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
+    }
+  }
+
+
+  virtual ~AddTerminalsResponseBodyData() = default;
+};
+class AddTerminalsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<AddTerminalsResponseBodyData>> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AddTerminalsResponseBody() {}
+
+  explicit AddTerminalsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<AddTerminalsResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddTerminalsResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<AddTerminalsResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AddTerminalsResponseBody() = default;
+};
+class AddTerminalsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddTerminalsResponseBody> body{};
+
+  AddTerminalsResponse() {}
+
+  explicit AddTerminalsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddTerminalsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddTerminalsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddTerminalsResponse() = default;
+};
 class AttachEndUsersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endUserIds{};
@@ -1757,6 +2023,7 @@ public:
   shared_ptr<string> serialNo{};
   shared_ptr<string> uuid{};
   shared_ptr<string> wlan{};
+  shared_ptr<string> wosAppVersion{};
 
   CheckUuidValidRequest() {}
 
@@ -1795,6 +2062,9 @@ public:
     if (wlan) {
       res["Wlan"] = boost::any(*wlan);
     }
+    if (wosAppVersion) {
+      res["WosAppVersion"] = boost::any(*wosAppVersion);
+    }
     return res;
   }
 
@@ -1826,14 +2096,47 @@ public:
     if (m.find("Wlan") != m.end() && !m["Wlan"].empty()) {
       wlan = make_shared<string>(boost::any_cast<string>(m["Wlan"]));
     }
+    if (m.find("WosAppVersion") != m.end() && !m["WosAppVersion"].empty()) {
+      wosAppVersion = make_shared<string>(boost::any_cast<string>(m["WosAppVersion"]));
+    }
   }
 
 
   virtual ~CheckUuidValidRequest() = default;
 };
+class CheckUuidValidResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<bool> newUpgrade{};
+
+  CheckUuidValidResponseBodyData() {}
+
+  explicit CheckUuidValidResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (newUpgrade) {
+      res["NewUpgrade"] = boost::any(*newUpgrade);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NewUpgrade") != m.end() && !m["NewUpgrade"].empty()) {
+      newUpgrade = make_shared<bool>(boost::any_cast<bool>(m["NewUpgrade"]));
+    }
+  }
+
+
+  virtual ~CheckUuidValidResponseBodyData() = default;
+};
 class CheckUuidValidResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<CheckUuidValidResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
@@ -1850,6 +2153,9 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
@@ -1862,6 +2168,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CheckUuidValidResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CheckUuidValidResponseBodyData>(model1);
+      }
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -10652,12 +10965,15 @@ public:
 };
 class ListTerminalsRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> inManage{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> passwordFreeLoginUser{};
   shared_ptr<string> searchKeyword{};
   shared_ptr<vector<string>> serialNumbers{};
   shared_ptr<string> terminalGroupId{};
   shared_ptr<vector<string>> uuids{};
+  shared_ptr<bool> withBindUser{};
 
   ListTerminalsRequest() {}
 
@@ -10669,11 +10985,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (inManage) {
+      res["InManage"] = boost::any(*inManage);
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
+    }
+    if (passwordFreeLoginUser) {
+      res["PasswordFreeLoginUser"] = boost::any(*passwordFreeLoginUser);
     }
     if (searchKeyword) {
       res["SearchKeyword"] = boost::any(*searchKeyword);
@@ -10687,15 +11009,24 @@ public:
     if (uuids) {
       res["Uuids"] = boost::any(*uuids);
     }
+    if (withBindUser) {
+      res["WithBindUser"] = boost::any(*withBindUser);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("InManage") != m.end() && !m["InManage"].empty()) {
+      inManage = make_shared<bool>(boost::any_cast<bool>(m["InManage"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PasswordFreeLoginUser") != m.end() && !m["PasswordFreeLoginUser"].empty()) {
+      passwordFreeLoginUser = make_shared<string>(boost::any_cast<string>(m["PasswordFreeLoginUser"]));
     }
     if (m.find("SearchKeyword") != m.end() && !m["SearchKeyword"].empty()) {
       searchKeyword = make_shared<string>(boost::any_cast<string>(m["SearchKeyword"]));
@@ -10723,6 +11054,9 @@ public:
       }
       uuids = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("WithBindUser") != m.end() && !m["WithBindUser"].empty()) {
+      withBindUser = make_shared<bool>(boost::any_cast<bool>(m["WithBindUser"]));
+    }
   }
 
 
@@ -10731,16 +11065,19 @@ public:
 class ListTerminalsResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> alias{};
+  shared_ptr<long> bindUserCount{};
   shared_ptr<string> buildId{};
   shared_ptr<long> clientType{};
   shared_ptr<string> currentConnectDesktop{};
   shared_ptr<string> currentLoginUser{};
   shared_ptr<string> ipv4{};
+  shared_ptr<string> lastLoginUser{};
   shared_ptr<string> locationInfo{};
   shared_ptr<string> manageTime{};
   shared_ptr<string> model{};
   shared_ptr<bool> online{};
   shared_ptr<string> passwordFreeLoginUser{};
+  shared_ptr<string> publicIpv4{};
   shared_ptr<string> serialNumber{};
   shared_ptr<string> setPasswordFreeLoginUserTime{};
   shared_ptr<string> terminalGroupId{};
@@ -10759,6 +11096,9 @@ public:
     if (alias) {
       res["Alias"] = boost::any(*alias);
     }
+    if (bindUserCount) {
+      res["BindUserCount"] = boost::any(*bindUserCount);
+    }
     if (buildId) {
       res["BuildId"] = boost::any(*buildId);
     }
@@ -10774,6 +11114,9 @@ public:
     if (ipv4) {
       res["Ipv4"] = boost::any(*ipv4);
     }
+    if (lastLoginUser) {
+      res["LastLoginUser"] = boost::any(*lastLoginUser);
+    }
     if (locationInfo) {
       res["LocationInfo"] = boost::any(*locationInfo);
     }
@@ -10788,6 +11131,9 @@ public:
     }
     if (passwordFreeLoginUser) {
       res["PasswordFreeLoginUser"] = boost::any(*passwordFreeLoginUser);
+    }
+    if (publicIpv4) {
+      res["PublicIpv4"] = boost::any(*publicIpv4);
     }
     if (serialNumber) {
       res["SerialNumber"] = boost::any(*serialNumber);
@@ -10808,6 +11154,9 @@ public:
     if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
       alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
     }
+    if (m.find("BindUserCount") != m.end() && !m["BindUserCount"].empty()) {
+      bindUserCount = make_shared<long>(boost::any_cast<long>(m["BindUserCount"]));
+    }
     if (m.find("BuildId") != m.end() && !m["BuildId"].empty()) {
       buildId = make_shared<string>(boost::any_cast<string>(m["BuildId"]));
     }
@@ -10823,6 +11172,9 @@ public:
     if (m.find("Ipv4") != m.end() && !m["Ipv4"].empty()) {
       ipv4 = make_shared<string>(boost::any_cast<string>(m["Ipv4"]));
     }
+    if (m.find("LastLoginUser") != m.end() && !m["LastLoginUser"].empty()) {
+      lastLoginUser = make_shared<string>(boost::any_cast<string>(m["LastLoginUser"]));
+    }
     if (m.find("LocationInfo") != m.end() && !m["LocationInfo"].empty()) {
       locationInfo = make_shared<string>(boost::any_cast<string>(m["LocationInfo"]));
     }
@@ -10837,6 +11189,9 @@ public:
     }
     if (m.find("PasswordFreeLoginUser") != m.end() && !m["PasswordFreeLoginUser"].empty()) {
       passwordFreeLoginUser = make_shared<string>(boost::any_cast<string>(m["PasswordFreeLoginUser"]));
+    }
+    if (m.find("PublicIpv4") != m.end() && !m["PublicIpv4"].empty()) {
+      publicIpv4 = make_shared<string>(boost::any_cast<string>(m["PublicIpv4"]));
     }
     if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
       serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
@@ -15787,6 +16142,8 @@ public:
   AddOrUpdateDeviceSeatsResponse addOrUpdateDeviceSeats(shared_ptr<AddOrUpdateDeviceSeatsRequest> request);
   AddTerminalResponse addTerminalWithOptions(shared_ptr<AddTerminalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddTerminalResponse addTerminal(shared_ptr<AddTerminalRequest> request);
+  AddTerminalsResponse addTerminalsWithOptions(shared_ptr<AddTerminalsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddTerminalsResponse addTerminals(shared_ptr<AddTerminalsRequest> request);
   AttachEndUsersResponse attachEndUsersWithOptions(shared_ptr<AttachEndUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachEndUsersResponse attachEndUsers(shared_ptr<AttachEndUsersRequest> request);
   AttachLabelResponse attachLabelWithOptions(shared_ptr<AttachLabelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

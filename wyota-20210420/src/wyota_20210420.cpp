@@ -291,6 +291,36 @@ AddTerminalResponse Alibabacloud_Wyota20210420::Client::addTerminal(shared_ptr<A
   return addTerminalWithOptions(request, runtime);
 }
 
+AddTerminalsResponse Alibabacloud_Wyota20210420::Client::addTerminalsWithOptions(shared_ptr<AddTerminalsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<AddTerminalsRequestAddTerminalParams>>(request->addTerminalParams)) {
+    bodyFlat->insert(pair<string, vector<AddTerminalsRequestAddTerminalParams>>("AddTerminalParams", *request->addTerminalParams));
+  }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddTerminals"))},
+    {"version", boost::any(string("2021-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddTerminalsResponse(callApi(params, req, runtime));
+}
+
+AddTerminalsResponse Alibabacloud_Wyota20210420::Client::addTerminals(shared_ptr<AddTerminalsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addTerminalsWithOptions(request, runtime);
+}
+
 AttachEndUsersResponse Alibabacloud_Wyota20210420::Client::attachEndUsersWithOptions(shared_ptr<AttachEndUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -487,6 +517,9 @@ CheckUuidValidResponse Alibabacloud_Wyota20210420::Client::checkUuidValidWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->wlan)) {
     body->insert(pair<string, string>("Wlan", *request->wlan));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wosAppVersion)) {
+    body->insert(pair<string, string>("WosAppVersion", *request->wosAppVersion));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1823,28 +1856,37 @@ ListTerminalResponse Alibabacloud_Wyota20210420::Client::listTerminal(shared_ptr
 
 ListTerminalsResponse Alibabacloud_Wyota20210420::Client::listTerminalsWithOptions(shared_ptr<ListTerminalsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->serialNumbers)) {
-    query->insert(pair<string, vector<string>>("SerialNumbers", *request->serialNumbers));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->uuids)) {
-    query->insert(pair<string, vector<string>>("Uuids", *request->uuids));
-  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->inManage)) {
+    body->insert(pair<string, bool>("InManage", *request->inManage));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     body->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     body->insert(pair<string, string>("NextToken", *request->nextToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->passwordFreeLoginUser)) {
+    body->insert(pair<string, string>("PasswordFreeLoginUser", *request->passwordFreeLoginUser));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->searchKeyword)) {
     body->insert(pair<string, string>("SearchKeyword", *request->searchKeyword));
+  }
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->serialNumbers)) {
+    bodyFlat->insert(pair<string, vector<string>>("SerialNumbers", *request->serialNumbers));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->terminalGroupId)) {
     body->insert(pair<string, string>("TerminalGroupId", *request->terminalGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->uuids)) {
+    bodyFlat->insert(pair<string, vector<string>>("Uuids", *request->uuids));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->withBindUser)) {
+    body->insert(pair<string, bool>("WithBindUser", *request->withBindUser));
+  }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
