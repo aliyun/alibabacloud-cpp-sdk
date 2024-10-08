@@ -10455,6 +10455,7 @@ public:
   shared_ptr<string> parentServiceUid{};
   shared_ptr<string> quotaId{};
   shared_ptr<string> resourceName{};
+  shared_ptr<string> role{};
   shared_ptr<string> serviceName{};
   shared_ptr<string> serviceStatus{};
   shared_ptr<string> serviceType{};
@@ -10501,6 +10502,9 @@ public:
     }
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
+    }
+    if (role) {
+      res["Role"] = boost::any(*role);
     }
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
@@ -10559,6 +10563,9 @@ public:
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
     }
+    if (m.find("Role") != m.end() && !m["Role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["Role"]));
+    }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
     }
@@ -10594,6 +10601,7 @@ public:
   shared_ptr<string> parentServiceUid{};
   shared_ptr<string> quotaId{};
   shared_ptr<string> resourceName{};
+  shared_ptr<string> role{};
   shared_ptr<string> serviceName{};
   shared_ptr<string> serviceStatus{};
   shared_ptr<string> serviceType{};
@@ -10640,6 +10648,9 @@ public:
     }
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
+    }
+    if (role) {
+      res["Role"] = boost::any(*role);
     }
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
@@ -10692,6 +10703,9 @@ public:
     }
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
+    }
+    if (m.find("Role") != m.end() && !m["Role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["Role"]));
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));

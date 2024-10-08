@@ -2129,6 +2129,9 @@ ListServicesResponse Alibabacloud_Eas20210701::Client::listServicesWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceName)) {
     query->insert(pair<string, string>("ResourceName", *request->resourceName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->role)) {
+    query->insert(pair<string, string>("Role", *request->role));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
     query->insert(pair<string, string>("ServiceName", *request->serviceName));
   }
