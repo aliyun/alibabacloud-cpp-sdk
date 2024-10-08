@@ -8988,6 +8988,12 @@ DescribeExposedInstanceDetailResponse Alibabacloud_Sas20181203::Client::describe
 DescribeExposedInstanceListResponse Alibabacloud_Sas20181203::Client::describeExposedInstanceListWithOptions(shared_ptr<DescribeExposedInstanceListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->assetType)) {
+    query->insert(pair<string, string>("AssetType", *request->assetType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->cspmStatus)) {
+    query->insert(pair<string, bool>("CspmStatus", *request->cspmStatus));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
@@ -11774,6 +11780,9 @@ DescribeOnceTaskResponse Alibabacloud_Sas20181203::Client::describeOnceTaskWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->rootTaskId)) {
     query->insert(pair<string, string>("RootTaskId", *request->rootTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTimeQuery)) {
     query->insert(pair<string, long>("StartTimeQuery", *request->startTimeQuery));
@@ -17615,6 +17624,34 @@ GetBackupStorageCountResponse Alibabacloud_Sas20181203::Client::getBackupStorage
 GetBackupStorageCountResponse Alibabacloud_Sas20181203::Client::getBackupStorageCount() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getBackupStorageCountWithOptions(runtime);
+}
+
+GetBuildRiskDefineRuleConfigResponse Alibabacloud_Sas20181203::Client::getBuildRiskDefineRuleConfigWithOptions(shared_ptr<GetBuildRiskDefineRuleConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetBuildRiskDefineRuleConfig"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetBuildRiskDefineRuleConfigResponse(callApi(params, req, runtime));
+}
+
+GetBuildRiskDefineRuleConfigResponse Alibabacloud_Sas20181203::Client::getBuildRiskDefineRuleConfig(shared_ptr<GetBuildRiskDefineRuleConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getBuildRiskDefineRuleConfigWithOptions(request, runtime);
 }
 
 GetCanTrySasResponse Alibabacloud_Sas20181203::Client::getCanTrySasWithOptions(shared_ptr<GetCanTrySasRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -28535,6 +28572,34 @@ SendCustomizeReportResponse Alibabacloud_Sas20181203::Client::sendCustomizeRepor
 SendCustomizeReportResponse Alibabacloud_Sas20181203::Client::sendCustomizeReport(shared_ptr<SendCustomizeReportRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return sendCustomizeReportWithOptions(request, runtime);
+}
+
+SetBuildRiskDefineRuleConfigResponse Alibabacloud_Sas20181203::Client::setBuildRiskDefineRuleConfigWithOptions(shared_ptr<SetBuildRiskDefineRuleConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->config)) {
+    query->insert(pair<string, string>("Config", *request->config));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetBuildRiskDefineRuleConfig"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetBuildRiskDefineRuleConfigResponse(callApi(params, req, runtime));
+}
+
+SetBuildRiskDefineRuleConfigResponse Alibabacloud_Sas20181203::Client::setBuildRiskDefineRuleConfig(shared_ptr<SetBuildRiskDefineRuleConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setBuildRiskDefineRuleConfigWithOptions(request, runtime);
 }
 
 SetClusterInterceptionConfigResponse Alibabacloud_Sas20181203::Client::setClusterInterceptionConfigWithOptions(shared_ptr<SetClusterInterceptionConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
