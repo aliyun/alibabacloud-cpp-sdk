@@ -5113,6 +5113,9 @@ GetStackResponse Alibabacloud_ARMS20190808::Client::getStackWithOptions(shared_p
   if (!Darabonba_Util::Client::isUnset<string>(request->rpcID)) {
     query->insert(pair<string, string>("RpcID", *request->rpcID));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->spanID)) {
+    query->insert(pair<string, string>("SpanID", *request->spanID));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
   }
@@ -9347,6 +9350,9 @@ UpdateRumAppResponse Alibabacloud_ARMS20190808::Client::updateRumAppWithOptions(
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoRestart)) {
     query->insert(pair<string, bool>("AutoRestart", *request->autoRestart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->backendServiceTraceRegion)) {
+    query->insert(pair<string, string>("BackendServiceTraceRegion", *request->backendServiceTraceRegion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->bonreeSDKConfigJson)) {
     query->insert(pair<string, string>("BonreeSDKConfigJson", *request->bonreeSDKConfigJson));

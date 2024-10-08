@@ -32824,9 +32824,46 @@ public:
 
   virtual ~GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig() = default;
 };
+class GetRumAppInfoResponseBodyDataBonreeSDKConfigSamplingConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> samplingRate{};
+  shared_ptr<long> samplingType{};
+
+  GetRumAppInfoResponseBodyDataBonreeSDKConfigSamplingConfig() {}
+
+  explicit GetRumAppInfoResponseBodyDataBonreeSDKConfigSamplingConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (samplingRate) {
+      res["samplingRate"] = boost::any(*samplingRate);
+    }
+    if (samplingType) {
+      res["samplingType"] = boost::any(*samplingType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("samplingRate") != m.end() && !m["samplingRate"].empty()) {
+      samplingRate = make_shared<long>(boost::any_cast<long>(m["samplingRate"]));
+    }
+    if (m.find("samplingType") != m.end() && !m["samplingType"].empty()) {
+      samplingType = make_shared<long>(boost::any_cast<long>(m["samplingType"]));
+    }
+  }
+
+
+  virtual ~GetRumAppInfoResponseBodyDataBonreeSDKConfigSamplingConfig() = default;
+};
 class GetRumAppInfoResponseBodyDataBonreeSDKConfig : public Darabonba::Model {
 public:
   shared_ptr<GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig> moduleConfig{};
+  shared_ptr<GetRumAppInfoResponseBodyDataBonreeSDKConfigSamplingConfig> samplingConfig{};
 
   GetRumAppInfoResponseBodyDataBonreeSDKConfig() {}
 
@@ -32841,6 +32878,9 @@ public:
     if (moduleConfig) {
       res["moduleConfig"] = moduleConfig ? boost::any(moduleConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (samplingConfig) {
+      res["samplingConfig"] = samplingConfig ? boost::any(samplingConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -32850,6 +32890,13 @@ public:
         GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["moduleConfig"]));
         moduleConfig = make_shared<GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig>(model1);
+      }
+    }
+    if (m.find("samplingConfig") != m.end() && !m["samplingConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["samplingConfig"].type()) {
+        GetRumAppInfoResponseBodyDataBonreeSDKConfigSamplingConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["samplingConfig"]));
+        samplingConfig = make_shared<GetRumAppInfoResponseBodyDataBonreeSDKConfigSamplingConfig>(model1);
       }
     }
   }
@@ -32961,6 +33008,7 @@ class GetRumAppInfoResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> appGroup{};
   shared_ptr<string> appType{};
+  shared_ptr<string> backendServiceTraceRegion{};
   shared_ptr<GetRumAppInfoResponseBodyDataBonreeSDKConfig> bonreeSDKConfig{};
   shared_ptr<string> cdnDomain{};
   shared_ptr<string> createTime{};
@@ -32995,6 +33043,9 @@ public:
     }
     if (appType) {
       res["AppType"] = boost::any(*appType);
+    }
+    if (backendServiceTraceRegion) {
+      res["BackendServiceTraceRegion"] = boost::any(*backendServiceTraceRegion);
     }
     if (bonreeSDKConfig) {
       res["BonreeSDKConfig"] = bonreeSDKConfig ? boost::any(bonreeSDKConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -33067,6 +33118,9 @@ public:
     }
     if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
       appType = make_shared<string>(boost::any_cast<string>(m["AppType"]));
+    }
+    if (m.find("BackendServiceTraceRegion") != m.end() && !m["BackendServiceTraceRegion"].empty()) {
+      backendServiceTraceRegion = make_shared<string>(boost::any_cast<string>(m["BackendServiceTraceRegion"]));
     }
     if (m.find("BonreeSDKConfig") != m.end() && !m["BonreeSDKConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["BonreeSDKConfig"].type()) {
@@ -35210,6 +35264,7 @@ public:
   shared_ptr<string> pid{};
   shared_ptr<string> regionId{};
   shared_ptr<string> rpcID{};
+  shared_ptr<string> spanID{};
   shared_ptr<long> startTime{};
   shared_ptr<string> traceID{};
 
@@ -35235,6 +35290,9 @@ public:
     if (rpcID) {
       res["RpcID"] = boost::any(*rpcID);
     }
+    if (spanID) {
+      res["SpanID"] = boost::any(*spanID);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -35256,6 +35314,9 @@ public:
     }
     if (m.find("RpcID") != m.end() && !m["RpcID"].empty()) {
       rpcID = make_shared<string>(boost::any_cast<string>(m["RpcID"]));
+    }
+    if (m.find("SpanID") != m.end() && !m["SpanID"].empty()) {
+      spanID = make_shared<string>(boost::any_cast<string>(m["SpanID"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -35307,6 +35368,7 @@ public:
 class GetStackResponseBodyStackInfo : public Darabonba::Model {
 public:
   shared_ptr<string> api{};
+  shared_ptr<string> callCount{};
   shared_ptr<long> duration{};
   shared_ptr<string> exception{};
   shared_ptr<GetStackResponseBodyStackInfoExtInfo> extInfo{};
@@ -35327,6 +35389,9 @@ public:
     map<string, boost::any> res;
     if (api) {
       res["Api"] = boost::any(*api);
+    }
+    if (callCount) {
+      res["CallCount"] = boost::any(*callCount);
     }
     if (duration) {
       res["Duration"] = boost::any(*duration);
@@ -35355,6 +35420,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Api") != m.end() && !m["Api"].empty()) {
       api = make_shared<string>(boost::any_cast<string>(m["Api"]));
+    }
+    if (m.find("CallCount") != m.end() && !m["CallCount"].empty()) {
+      callCount = make_shared<string>(boost::any_cast<string>(m["CallCount"]));
     }
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
@@ -61803,6 +61871,7 @@ public:
   shared_ptr<string> operationName{};
   shared_ptr<string> serviceIp{};
   shared_ptr<string> serviceName{};
+  shared_ptr<string> spanID{};
   shared_ptr<long> timestamp{};
   shared_ptr<string> traceID{};
 
@@ -61828,6 +61897,9 @@ public:
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
     }
+    if (spanID) {
+      res["SpanID"] = boost::any(*spanID);
+    }
     if (timestamp) {
       res["Timestamp"] = boost::any(*timestamp);
     }
@@ -61849,6 +61921,9 @@ public:
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("SpanID") != m.end() && !m["SpanID"].empty()) {
+      spanID = make_shared<string>(boost::any_cast<string>(m["SpanID"]));
     }
     if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
       timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
@@ -62189,6 +62264,7 @@ public:
   shared_ptr<string> operationName{};
   shared_ptr<string> serviceIp{};
   shared_ptr<string> serviceName{};
+  shared_ptr<string> spanID{};
   shared_ptr<long> timestamp{};
   shared_ptr<string> traceID{};
 
@@ -62214,6 +62290,9 @@ public:
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
     }
+    if (spanID) {
+      res["SpanID"] = boost::any(*spanID);
+    }
     if (timestamp) {
       res["Timestamp"] = boost::any(*timestamp);
     }
@@ -62235,6 +62314,9 @@ public:
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("SpanID") != m.end() && !m["SpanID"].empty()) {
+      spanID = make_shared<string>(boost::any_cast<string>(m["SpanID"]));
     }
     if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
       timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
@@ -67917,6 +67999,7 @@ public:
 class UpdateRumAppRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRestart{};
+  shared_ptr<string> backendServiceTraceRegion{};
   shared_ptr<string> bonreeSDKConfigJson{};
   shared_ptr<string> description{};
   shared_ptr<bool> isSubscribe{};
@@ -67940,6 +68023,9 @@ public:
     map<string, boost::any> res;
     if (autoRestart) {
       res["AutoRestart"] = boost::any(*autoRestart);
+    }
+    if (backendServiceTraceRegion) {
+      res["BackendServiceTraceRegion"] = boost::any(*backendServiceTraceRegion);
     }
     if (bonreeSDKConfigJson) {
       res["BonreeSDKConfigJson"] = boost::any(*bonreeSDKConfigJson);
@@ -67977,6 +68063,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoRestart") != m.end() && !m["AutoRestart"].empty()) {
       autoRestart = make_shared<bool>(boost::any_cast<bool>(m["AutoRestart"]));
+    }
+    if (m.find("BackendServiceTraceRegion") != m.end() && !m["BackendServiceTraceRegion"].empty()) {
+      backendServiceTraceRegion = make_shared<string>(boost::any_cast<string>(m["BackendServiceTraceRegion"]));
     }
     if (m.find("BonreeSDKConfigJson") != m.end() && !m["BonreeSDKConfigJson"].empty()) {
       bonreeSDKConfigJson = make_shared<string>(boost::any_cast<string>(m["BonreeSDKConfigJson"]));
