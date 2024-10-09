@@ -10864,7 +10864,11 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> osType{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> requiredDataDiskSize{};
+  shared_ptr<long> requiredSystemDiskSize{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> sourceImageName{};
+  shared_ptr<string> sourceImageVersion{};
   shared_ptr<string> status{};
   shared_ptr<string> systemSnapshotId{};
   shared_ptr<string> systemSnapshotName{};
@@ -10920,8 +10924,20 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (requiredDataDiskSize) {
+      res["RequiredDataDiskSize"] = boost::any(*requiredDataDiskSize);
+    }
+    if (requiredSystemDiskSize) {
+      res["RequiredSystemDiskSize"] = boost::any(*requiredSystemDiskSize);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (sourceImageName) {
+      res["SourceImageName"] = boost::any(*sourceImageName);
+    }
+    if (sourceImageVersion) {
+      res["SourceImageVersion"] = boost::any(*sourceImageVersion);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -10992,8 +11008,20 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("RequiredDataDiskSize") != m.end() && !m["RequiredDataDiskSize"].empty()) {
+      requiredDataDiskSize = make_shared<long>(boost::any_cast<long>(m["RequiredDataDiskSize"]));
+    }
+    if (m.find("RequiredSystemDiskSize") != m.end() && !m["RequiredSystemDiskSize"].empty()) {
+      requiredSystemDiskSize = make_shared<long>(boost::any_cast<long>(m["RequiredSystemDiskSize"]));
+    }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SourceImageName") != m.end() && !m["SourceImageName"].empty()) {
+      sourceImageName = make_shared<string>(boost::any_cast<string>(m["SourceImageName"]));
+    }
+    if (m.find("SourceImageVersion") != m.end() && !m["SourceImageVersion"].empty()) {
+      sourceImageVersion = make_shared<string>(boost::any_cast<string>(m["SourceImageVersion"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
