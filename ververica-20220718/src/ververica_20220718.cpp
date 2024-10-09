@@ -1939,6 +1939,9 @@ ListDeploymentsResponse Alibabacloud_Ververica20220718::Client::listDeploymentsW
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("pageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortName)) {
+    query->insert(pair<string, string>("sortName", *request->sortName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("status", *request->status));
   }

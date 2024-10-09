@@ -15179,6 +15179,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<long> pageIndex{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> sortName{};
   shared_ptr<string> status{};
 
   ListDeploymentsRequest() {}
@@ -15215,6 +15216,9 @@ public:
     if (pageSize) {
       res["pageSize"] = boost::any(*pageSize);
     }
+    if (sortName) {
+      res["sortName"] = boost::any(*sortName);
+    }
     if (status) {
       res["status"] = boost::any(*status);
     }
@@ -15245,6 +15249,9 @@ public:
     }
     if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+    if (m.find("sortName") != m.end() && !m["sortName"].empty()) {
+      sortName = make_shared<string>(boost::any_cast<string>(m["sortName"]));
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["status"]));
