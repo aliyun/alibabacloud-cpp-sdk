@@ -7903,6 +7903,68 @@ DescribeDiagnosticReportsResponse Alibabacloud_Ecs20140526::Client::describeDiag
   return describeDiagnosticReportsWithOptions(request, runtime);
 }
 
+DescribeDiskDefaultKMSKeyIdResponse Alibabacloud_Ecs20140526::Client::describeDiskDefaultKMSKeyIdWithOptions(shared_ptr<DescribeDiskDefaultKMSKeyIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDiskDefaultKMSKeyId"))},
+    {"version", boost::any(string("2014-05-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDiskDefaultKMSKeyIdResponse(callApi(params, req, runtime));
+}
+
+DescribeDiskDefaultKMSKeyIdResponse Alibabacloud_Ecs20140526::Client::describeDiskDefaultKMSKeyId(shared_ptr<DescribeDiskDefaultKMSKeyIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDiskDefaultKMSKeyIdWithOptions(request, runtime);
+}
+
+DescribeDiskEncryptionByDefaultStatusResponse Alibabacloud_Ecs20140526::Client::describeDiskEncryptionByDefaultStatusWithOptions(shared_ptr<DescribeDiskEncryptionByDefaultStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDiskEncryptionByDefaultStatus"))},
+    {"version", boost::any(string("2014-05-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDiskEncryptionByDefaultStatusResponse(callApi(params, req, runtime));
+}
+
+DescribeDiskEncryptionByDefaultStatusResponse Alibabacloud_Ecs20140526::Client::describeDiskEncryptionByDefaultStatus(shared_ptr<DescribeDiskEncryptionByDefaultStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDiskEncryptionByDefaultStatusWithOptions(request, runtime);
+}
+
 DescribeDiskMonitorDataResponse Alibabacloud_Ecs20140526::Client::describeDiskMonitorDataWithOptions(shared_ptr<DescribeDiskMonitorDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -13589,6 +13651,37 @@ DisableActivationResponse Alibabacloud_Ecs20140526::Client::disableActivation(sh
   return disableActivationWithOptions(request, runtime);
 }
 
+DisableDiskEncryptionByDefaultResponse Alibabacloud_Ecs20140526::Client::disableDiskEncryptionByDefaultWithOptions(shared_ptr<DisableDiskEncryptionByDefaultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DisableDiskEncryptionByDefault"))},
+    {"version", boost::any(string("2014-05-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DisableDiskEncryptionByDefaultResponse(callApi(params, req, runtime));
+}
+
+DisableDiskEncryptionByDefaultResponse Alibabacloud_Ecs20140526::Client::disableDiskEncryptionByDefault(shared_ptr<DisableDiskEncryptionByDefaultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return disableDiskEncryptionByDefaultWithOptions(request, runtime);
+}
+
 EipFillParamsResponse Alibabacloud_Ecs20140526::Client::eipFillParamsWithOptions(shared_ptr<EipFillParamsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -13725,6 +13818,46 @@ EipNotifyPaidResponse Alibabacloud_Ecs20140526::Client::eipNotifyPaidWithOptions
 EipNotifyPaidResponse Alibabacloud_Ecs20140526::Client::eipNotifyPaid(shared_ptr<EipNotifyPaidRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return eipNotifyPaidWithOptions(request, runtime);
+}
+
+EnableDiskEncryptionByDefaultResponse Alibabacloud_Ecs20140526::Client::enableDiskEncryptionByDefaultWithOptions(shared_ptr<EnableDiskEncryptionByDefaultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EnableDiskEncryptionByDefault"))},
+    {"version", boost::any(string("2014-05-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EnableDiskEncryptionByDefaultResponse(callApi(params, req, runtime));
+}
+
+EnableDiskEncryptionByDefaultResponse Alibabacloud_Ecs20140526::Client::enableDiskEncryptionByDefault(shared_ptr<EnableDiskEncryptionByDefaultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return enableDiskEncryptionByDefaultWithOptions(request, runtime);
 }
 
 EnablePhysicalConnectionResponse Alibabacloud_Ecs20140526::Client::enablePhysicalConnectionWithOptions(shared_ptr<EnablePhysicalConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -13989,6 +14122,12 @@ ImportImageResponse Alibabacloud_Ecs20140526::Client::importImageWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<vector<ImportImageRequestDiskDeviceMapping>>(request->diskDeviceMapping)) {
     query->insert(pair<string, vector<ImportImageRequestDiskDeviceMapping>>("DiskDeviceMapping", *request->diskDeviceMapping));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<ImportImageRequestFeatures>(request->features)) {
+    query->insert(pair<string, ImportImageRequestFeatures>("Features", *request->features));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageName)) {
     query->insert(pair<string, string>("ImageName", *request->imageName));
@@ -15502,6 +15641,40 @@ ModifyDiskChargeTypeResponse Alibabacloud_Ecs20140526::Client::modifyDiskChargeT
   return modifyDiskChargeTypeWithOptions(request, runtime);
 }
 
+ModifyDiskDefaultKMSKeyIdResponse Alibabacloud_Ecs20140526::Client::modifyDiskDefaultKMSKeyIdWithOptions(shared_ptr<ModifyDiskDefaultKMSKeyIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->KMSKeyId)) {
+    query->insert(pair<string, string>("KMSKeyId", *request->KMSKeyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyDiskDefaultKMSKeyId"))},
+    {"version", boost::any(string("2014-05-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyDiskDefaultKMSKeyIdResponse(callApi(params, req, runtime));
+}
+
+ModifyDiskDefaultKMSKeyIdResponse Alibabacloud_Ecs20140526::Client::modifyDiskDefaultKMSKeyId(shared_ptr<ModifyDiskDefaultKMSKeyIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyDiskDefaultKMSKeyIdWithOptions(request, runtime);
+}
+
 ModifyDiskDeploymentResponse Alibabacloud_Ecs20140526::Client::modifyDiskDeploymentWithOptions(shared_ptr<ModifyDiskDeploymentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -15658,8 +15831,14 @@ ModifyEipAddressAttributeResponse Alibabacloud_Ecs20140526::Client::modifyEipAdd
 ModifyElasticityAssuranceResponse Alibabacloud_Ecs20140526::Client::modifyElasticityAssuranceWithOptions(shared_ptr<ModifyElasticityAssuranceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->instanceAmount)) {
+    query->insert(pair<string, long>("InstanceAmount", *request->instanceAmount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
@@ -16963,6 +17142,9 @@ ModifyNetworkInterfaceAttributeResponse Alibabacloud_Ecs20140526::Client::modify
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->securityGroupId)) {
     query->insert(pair<string, vector<string>>("SecurityGroupId", *request->securityGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->sourceDestCheck)) {
+    query->insert(pair<string, bool>("SourceDestCheck", *request->sourceDestCheck));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->txQueueSize)) {
     query->insert(pair<string, long>("TxQueueSize", *request->txQueueSize));
   }
@@ -18224,6 +18406,49 @@ ModifyVpcAttributeResponse Alibabacloud_Ecs20140526::Client::modifyVpcAttribute(
   return modifyVpcAttributeWithOptions(request, runtime);
 }
 
+PurchaseElasticityAssuranceResponse Alibabacloud_Ecs20140526::Client::purchaseElasticityAssuranceWithOptions(shared_ptr<PurchaseElasticityAssuranceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
+    query->insert(pair<string, long>("Period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
+    query->insert(pair<string, string>("PeriodUnit", *request->periodUnit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<PurchaseElasticityAssuranceRequestPrivatePoolOptions>(request->privatePoolOptions)) {
+    query->insert(pair<string, PurchaseElasticityAssuranceRequestPrivatePoolOptions>("PrivatePoolOptions", *request->privatePoolOptions));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PurchaseElasticityAssurance"))},
+    {"version", boost::any(string("2014-05-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PurchaseElasticityAssuranceResponse(callApi(params, req, runtime));
+}
+
+PurchaseElasticityAssuranceResponse Alibabacloud_Ecs20140526::Client::purchaseElasticityAssurance(shared_ptr<PurchaseElasticityAssuranceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return purchaseElasticityAssuranceWithOptions(request, runtime);
+}
+
 PurchaseReservedInstancesOfferingResponse Alibabacloud_Ecs20140526::Client::purchaseReservedInstancesOfferingWithOptions(shared_ptr<PurchaseReservedInstancesOfferingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -19387,6 +19612,37 @@ ResetDiskResponse Alibabacloud_Ecs20140526::Client::resetDiskWithOptions(shared_
 ResetDiskResponse Alibabacloud_Ecs20140526::Client::resetDisk(shared_ptr<ResetDiskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return resetDiskWithOptions(request, runtime);
+}
+
+ResetDiskDefaultKMSKeyIdResponse Alibabacloud_Ecs20140526::Client::resetDiskDefaultKMSKeyIdWithOptions(shared_ptr<ResetDiskDefaultKMSKeyIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ResetDiskDefaultKMSKeyId"))},
+    {"version", boost::any(string("2014-05-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ResetDiskDefaultKMSKeyIdResponse(callApi(params, req, runtime));
+}
+
+ResetDiskDefaultKMSKeyIdResponse Alibabacloud_Ecs20140526::Client::resetDiskDefaultKMSKeyId(shared_ptr<ResetDiskDefaultKMSKeyIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return resetDiskDefaultKMSKeyIdWithOptions(request, runtime);
 }
 
 ResetDisksResponse Alibabacloud_Ecs20140526::Client::resetDisksWithOptions(shared_ptr<ResetDisksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

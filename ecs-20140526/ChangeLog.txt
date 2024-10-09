@@ -1,3 +1,22 @@
+2024-10-09 Version: 3.3.0
+- Support API DescribeDiskDefaultKMSKeyId.
+- Support API DescribeDiskEncryptionByDefaultStatus.
+- Support API DisableDiskEncryptionByDefault.
+- Support API EnableDiskEncryptionByDefault.
+- Support API ModifyDiskDefaultKMSKeyId.
+- Support API PurchaseElasticityAssurance.
+- Support API ResetDiskDefaultKMSKeyId.
+- Update API DescribeInstanceTypes: update param InstanceTypes.
+- Update API DescribeNetworkInterfaceAttribute: update response param.
+- Update API DescribeNetworkInterfaces: update response param.
+- Update API DescribeSecurityGroups: update response param.
+- Update API ImportImage: add param DryRun.
+- Update API ImportImage: add param Features.
+- Update API ModifyElasticityAssurance: add param ClientToken.
+- Update API ModifyElasticityAssurance: add param InstanceAmount.
+- Update API ModifyNetworkInterfaceAttribute: add param SourceDestCheck.
+
+
 2024-08-23 Version: 3.2.0
 - Support API RenewElasticityAssurances.
 - Update API ResizeDisk: update response param.
