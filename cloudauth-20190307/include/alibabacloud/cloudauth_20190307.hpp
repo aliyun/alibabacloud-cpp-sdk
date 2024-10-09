@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_CLOUDAUTH20190307_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/any.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -2006,7 +2005,7 @@ public:
 class CredentialVerifyResponseBodyResultObjectVlResult : public Darabonba::Model {
 public:
   shared_ptr<bool> success{};
-  shared_ptr<map<string, boost::any>> vlContent{};
+  shared_ptr<string> vlContent{};
 
   CredentialVerifyResponseBodyResultObjectVlResult() {}
 
@@ -2032,12 +2031,7 @@ public:
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
     if (m.find("VlContent") != m.end() && !m["VlContent"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["VlContent"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      vlContent = make_shared<map<string, boost::any>>(toMap1);
+      vlContent = make_shared<string>(boost::any_cast<string>(m["VlContent"]));
     }
   }
 
