@@ -21311,6 +21311,9 @@ ListCheckResultResponse Alibabacloud_Sas20181203::Client::listCheckResultWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->operationTypes)) {
+    query->insert(pair<string, vector<string>>("OperationTypes", *request->operationTypes));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
@@ -29039,6 +29042,9 @@ SubmitOperationTaskResponse Alibabacloud_Sas20181203::Client::submitOperationTas
   }
   if (!Darabonba_Util::Client::isUnset<vector<SubmitOperationTaskRequestOperationTaskInstances>>(request->operationTaskInstances)) {
     query->insert(pair<string, vector<SubmitOperationTaskRequestOperationTaskInstances>>("OperationTaskInstances", *request->operationTaskInstances));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->relationKey)) {
+    query->insert(pair<string, string>("RelationKey", *request->relationKey));
   }
   if (!Darabonba_Util::Client::isUnset<vector<SubmitOperationTaskRequestRepairTempParam>>(request->repairTempParam)) {
     query->insert(pair<string, vector<SubmitOperationTaskRequestRepairTempParam>>("RepairTempParam", *request->repairTempParam));
