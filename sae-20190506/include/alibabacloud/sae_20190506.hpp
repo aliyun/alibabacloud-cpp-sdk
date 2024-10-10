@@ -30292,6 +30292,191 @@ public:
 
   virtual ~DisableApplicationScalingRuleResponse() = default;
 };
+class DowngradeApplicationApmServiceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+
+  DowngradeApplicationApmServiceRequest() {}
+
+  explicit DowngradeApplicationApmServiceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+  }
+
+
+  virtual ~DowngradeApplicationApmServiceRequest() = default;
+};
+class DowngradeApplicationApmServiceResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<bool> status{};
+
+  DowngradeApplicationApmServiceResponseBodyData() {}
+
+  explicit DowngradeApplicationApmServiceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<bool>(boost::any_cast<bool>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DowngradeApplicationApmServiceResponseBodyData() = default;
+};
+class DowngradeApplicationApmServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<DowngradeApplicationApmServiceResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  DowngradeApplicationApmServiceResponseBody() {}
+
+  explicit DowngradeApplicationApmServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DowngradeApplicationApmServiceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DowngradeApplicationApmServiceResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~DowngradeApplicationApmServiceResponseBody() = default;
+};
+class DowngradeApplicationApmServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DowngradeApplicationApmServiceResponseBody> body{};
+
+  DowngradeApplicationApmServiceResponse() {}
+
+  explicit DowngradeApplicationApmServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DowngradeApplicationApmServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DowngradeApplicationApmServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DowngradeApplicationApmServiceResponse() = default;
+};
 class EnableApplicationScalingRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -30712,6 +30897,275 @@ public:
 
 
   virtual ~ExecJobResponse() = default;
+};
+class GetApplicationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> namespaceId{};
+
+  GetApplicationRequest() {}
+
+  explicit GetApplicationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+  }
+
+
+  virtual ~GetApplicationRequest() = default;
+};
+class GetApplicationResponseBodyApplication : public Darabonba::Model {
+public:
+  shared_ptr<string> appDescription{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> baseAppId{};
+  shared_ptr<long> cpu{};
+  shared_ptr<long> instances{};
+  shared_ptr<long> mem{};
+  shared_ptr<bool> mseEnabled{};
+  shared_ptr<string> mseNamespaceId{};
+  shared_ptr<string> namespaceId{};
+  shared_ptr<string> programmingLanguage{};
+  shared_ptr<long> runningInstances{};
+  shared_ptr<string> scaleRuleEnabled{};
+  shared_ptr<string> scaleRuleType{};
+
+  GetApplicationResponseBodyApplication() {}
+
+  explicit GetApplicationResponseBodyApplication(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appDescription) {
+      res["AppDescription"] = boost::any(*appDescription);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (baseAppId) {
+      res["BaseAppId"] = boost::any(*baseAppId);
+    }
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (instances) {
+      res["Instances"] = boost::any(*instances);
+    }
+    if (mem) {
+      res["Mem"] = boost::any(*mem);
+    }
+    if (mseEnabled) {
+      res["MseEnabled"] = boost::any(*mseEnabled);
+    }
+    if (mseNamespaceId) {
+      res["MseNamespaceId"] = boost::any(*mseNamespaceId);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    if (programmingLanguage) {
+      res["ProgrammingLanguage"] = boost::any(*programmingLanguage);
+    }
+    if (runningInstances) {
+      res["RunningInstances"] = boost::any(*runningInstances);
+    }
+    if (scaleRuleEnabled) {
+      res["ScaleRuleEnabled"] = boost::any(*scaleRuleEnabled);
+    }
+    if (scaleRuleType) {
+      res["ScaleRuleType"] = boost::any(*scaleRuleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppDescription") != m.end() && !m["AppDescription"].empty()) {
+      appDescription = make_shared<string>(boost::any_cast<string>(m["AppDescription"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("BaseAppId") != m.end() && !m["BaseAppId"].empty()) {
+      baseAppId = make_shared<string>(boost::any_cast<string>(m["BaseAppId"]));
+    }
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("Instances") != m.end() && !m["Instances"].empty()) {
+      instances = make_shared<long>(boost::any_cast<long>(m["Instances"]));
+    }
+    if (m.find("Mem") != m.end() && !m["Mem"].empty()) {
+      mem = make_shared<long>(boost::any_cast<long>(m["Mem"]));
+    }
+    if (m.find("MseEnabled") != m.end() && !m["MseEnabled"].empty()) {
+      mseEnabled = make_shared<bool>(boost::any_cast<bool>(m["MseEnabled"]));
+    }
+    if (m.find("MseNamespaceId") != m.end() && !m["MseNamespaceId"].empty()) {
+      mseNamespaceId = make_shared<string>(boost::any_cast<string>(m["MseNamespaceId"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+    if (m.find("ProgrammingLanguage") != m.end() && !m["ProgrammingLanguage"].empty()) {
+      programmingLanguage = make_shared<string>(boost::any_cast<string>(m["ProgrammingLanguage"]));
+    }
+    if (m.find("RunningInstances") != m.end() && !m["RunningInstances"].empty()) {
+      runningInstances = make_shared<long>(boost::any_cast<long>(m["RunningInstances"]));
+    }
+    if (m.find("ScaleRuleEnabled") != m.end() && !m["ScaleRuleEnabled"].empty()) {
+      scaleRuleEnabled = make_shared<string>(boost::any_cast<string>(m["ScaleRuleEnabled"]));
+    }
+    if (m.find("ScaleRuleType") != m.end() && !m["ScaleRuleType"].empty()) {
+      scaleRuleType = make_shared<string>(boost::any_cast<string>(m["ScaleRuleType"]));
+    }
+  }
+
+
+  virtual ~GetApplicationResponseBodyApplication() = default;
+};
+class GetApplicationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetApplicationResponseBodyApplication> application{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> traceId{};
+
+  GetApplicationResponseBody() {}
+
+  explicit GetApplicationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (application) {
+      res["Application"] = application ? boost::any(application->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Application") != m.end() && !m["Application"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Application"].type()) {
+        GetApplicationResponseBodyApplication model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Application"]));
+        application = make_shared<GetApplicationResponseBodyApplication>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~GetApplicationResponseBody() = default;
+};
+class GetApplicationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetApplicationResponseBody> body{};
+
+  GetApplicationResponse() {}
+
+  explicit GetApplicationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetApplicationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetApplicationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetApplicationResponse() = default;
 };
 class GetArmsTopNMetricRequest : public Darabonba::Model {
 public:
@@ -44256,6 +44710,191 @@ public:
 
   virtual ~UpdateWebCustomDomainResponse() = default;
 };
+class UpgradeApplicationApmServiceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+
+  UpgradeApplicationApmServiceRequest() {}
+
+  explicit UpgradeApplicationApmServiceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+  }
+
+
+  virtual ~UpgradeApplicationApmServiceRequest() = default;
+};
+class UpgradeApplicationApmServiceResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<bool> status{};
+
+  UpgradeApplicationApmServiceResponseBodyData() {}
+
+  explicit UpgradeApplicationApmServiceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<bool>(boost::any_cast<bool>(m["Status"]));
+    }
+  }
+
+
+  virtual ~UpgradeApplicationApmServiceResponseBodyData() = default;
+};
+class UpgradeApplicationApmServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<UpgradeApplicationApmServiceResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  UpgradeApplicationApmServiceResponseBody() {}
+
+  explicit UpgradeApplicationApmServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        UpgradeApplicationApmServiceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<UpgradeApplicationApmServiceResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~UpgradeApplicationApmServiceResponseBody() = default;
+};
+class UpgradeApplicationApmServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpgradeApplicationApmServiceResponseBody> body{};
+
+  UpgradeApplicationApmServiceResponse() {}
+
+  explicit UpgradeApplicationApmServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpgradeApplicationApmServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpgradeApplicationApmServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpgradeApplicationApmServiceResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -44429,10 +45068,14 @@ public:
   DescribeWebInstanceLogsResponse describeWebInstanceLogs(shared_ptr<string> ApplicationId, shared_ptr<string> InstanceId, shared_ptr<DescribeWebInstanceLogsRequest> request);
   DisableApplicationScalingRuleResponse disableApplicationScalingRuleWithOptions(shared_ptr<DisableApplicationScalingRuleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableApplicationScalingRuleResponse disableApplicationScalingRule(shared_ptr<DisableApplicationScalingRuleRequest> request);
+  DowngradeApplicationApmServiceResponse downgradeApplicationApmServiceWithOptions(shared_ptr<DowngradeApplicationApmServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DowngradeApplicationApmServiceResponse downgradeApplicationApmService(shared_ptr<DowngradeApplicationApmServiceRequest> request);
   EnableApplicationScalingRuleResponse enableApplicationScalingRuleWithOptions(shared_ptr<EnableApplicationScalingRuleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableApplicationScalingRuleResponse enableApplicationScalingRule(shared_ptr<EnableApplicationScalingRuleRequest> request);
   ExecJobResponse execJobWithOptions(shared_ptr<ExecJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExecJobResponse execJob(shared_ptr<ExecJobRequest> request);
+  GetApplicationResponse getApplicationWithOptions(shared_ptr<GetApplicationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetApplicationResponse getApplication(shared_ptr<GetApplicationRequest> request);
   GetArmsTopNMetricResponse getArmsTopNMetricWithOptions(shared_ptr<GetArmsTopNMetricRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetArmsTopNMetricResponse getArmsTopNMetric(shared_ptr<GetArmsTopNMetricRequest> request);
   GetAvailabilityMetricResponse getAvailabilityMetricWithOptions(shared_ptr<GetAvailabilityMetricRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -44572,6 +45215,8 @@ public:
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateWebCustomDomainResponse updateWebCustomDomain(shared_ptr<string> DomainName, shared_ptr<UpdateWebCustomDomainRequest> request);
+  UpgradeApplicationApmServiceResponse upgradeApplicationApmServiceWithOptions(shared_ptr<UpgradeApplicationApmServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpgradeApplicationApmServiceResponse upgradeApplicationApmService(shared_ptr<UpgradeApplicationApmServiceRequest> request);
 
   virtual ~Client() = default;
 };
