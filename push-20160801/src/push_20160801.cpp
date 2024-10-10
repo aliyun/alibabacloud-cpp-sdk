@@ -617,11 +617,23 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   if (!Darabonba_Util::Client::isUnset<string>(request->harmonyActionType)) {
     query->insert(pair<string, string>("HarmonyActionType", *request->harmonyActionType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->harmonyBadgeAddNum)) {
+    query->insert(pair<string, long>("HarmonyBadgeAddNum", *request->harmonyBadgeAddNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->harmonyBadgeSetNum)) {
+    query->insert(pair<string, long>("HarmonyBadgeSetNum", *request->harmonyBadgeSetNum));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->harmonyCategory)) {
     query->insert(pair<string, string>("HarmonyCategory", *request->harmonyCategory));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->harmonyExtParameters)) {
     query->insert(pair<string, string>("HarmonyExtParameters", *request->harmonyExtParameters));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyExtensionExtraData)) {
+    query->insert(pair<string, string>("HarmonyExtensionExtraData", *request->harmonyExtensionExtraData));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->harmonyExtensionPush)) {
+    query->insert(pair<string, bool>("HarmonyExtensionPush", *request->harmonyExtensionPush));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->harmonyImageUrl)) {
     query->insert(pair<string, string>("HarmonyImageUrl", *request->harmonyImageUrl));

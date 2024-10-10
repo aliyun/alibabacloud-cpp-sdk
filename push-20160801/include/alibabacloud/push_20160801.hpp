@@ -1733,8 +1733,12 @@ public:
   shared_ptr<string> expireTime{};
   shared_ptr<string> harmonyAction{};
   shared_ptr<string> harmonyActionType{};
+  shared_ptr<long> harmonyBadgeAddNum{};
+  shared_ptr<long> harmonyBadgeSetNum{};
   shared_ptr<string> harmonyCategory{};
   shared_ptr<string> harmonyExtParameters{};
+  shared_ptr<string> harmonyExtensionExtraData{};
+  shared_ptr<bool> harmonyExtensionPush{};
   shared_ptr<string> harmonyImageUrl{};
   shared_ptr<string> harmonyInboxContent{};
   shared_ptr<string> harmonyNotificationSlotType{};
@@ -1923,11 +1927,23 @@ public:
     if (harmonyActionType) {
       res["HarmonyActionType"] = boost::any(*harmonyActionType);
     }
+    if (harmonyBadgeAddNum) {
+      res["HarmonyBadgeAddNum"] = boost::any(*harmonyBadgeAddNum);
+    }
+    if (harmonyBadgeSetNum) {
+      res["HarmonyBadgeSetNum"] = boost::any(*harmonyBadgeSetNum);
+    }
     if (harmonyCategory) {
       res["HarmonyCategory"] = boost::any(*harmonyCategory);
     }
     if (harmonyExtParameters) {
       res["HarmonyExtParameters"] = boost::any(*harmonyExtParameters);
+    }
+    if (harmonyExtensionExtraData) {
+      res["HarmonyExtensionExtraData"] = boost::any(*harmonyExtensionExtraData);
+    }
+    if (harmonyExtensionPush) {
+      res["HarmonyExtensionPush"] = boost::any(*harmonyExtensionPush);
     }
     if (harmonyImageUrl) {
       res["HarmonyImageUrl"] = boost::any(*harmonyImageUrl);
@@ -2182,11 +2198,23 @@ public:
     if (m.find("HarmonyActionType") != m.end() && !m["HarmonyActionType"].empty()) {
       harmonyActionType = make_shared<string>(boost::any_cast<string>(m["HarmonyActionType"]));
     }
+    if (m.find("HarmonyBadgeAddNum") != m.end() && !m["HarmonyBadgeAddNum"].empty()) {
+      harmonyBadgeAddNum = make_shared<long>(boost::any_cast<long>(m["HarmonyBadgeAddNum"]));
+    }
+    if (m.find("HarmonyBadgeSetNum") != m.end() && !m["HarmonyBadgeSetNum"].empty()) {
+      harmonyBadgeSetNum = make_shared<long>(boost::any_cast<long>(m["HarmonyBadgeSetNum"]));
+    }
     if (m.find("HarmonyCategory") != m.end() && !m["HarmonyCategory"].empty()) {
       harmonyCategory = make_shared<string>(boost::any_cast<string>(m["HarmonyCategory"]));
     }
     if (m.find("HarmonyExtParameters") != m.end() && !m["HarmonyExtParameters"].empty()) {
       harmonyExtParameters = make_shared<string>(boost::any_cast<string>(m["HarmonyExtParameters"]));
+    }
+    if (m.find("HarmonyExtensionExtraData") != m.end() && !m["HarmonyExtensionExtraData"].empty()) {
+      harmonyExtensionExtraData = make_shared<string>(boost::any_cast<string>(m["HarmonyExtensionExtraData"]));
+    }
+    if (m.find("HarmonyExtensionPush") != m.end() && !m["HarmonyExtensionPush"].empty()) {
+      harmonyExtensionPush = make_shared<bool>(boost::any_cast<bool>(m["HarmonyExtensionPush"]));
     }
     if (m.find("HarmonyImageUrl") != m.end() && !m["HarmonyImageUrl"].empty()) {
       harmonyImageUrl = make_shared<string>(boost::any_cast<string>(m["HarmonyImageUrl"]));
@@ -2529,8 +2557,12 @@ public:
   shared_ptr<string> expireTime{};
   shared_ptr<string> harmonyAction{};
   shared_ptr<string> harmonyActionType{};
+  shared_ptr<long> harmonyBadgeAddNum{};
+  shared_ptr<long> harmonyBadgeSetNum{};
   shared_ptr<string> harmonyCategory{};
   shared_ptr<string> harmonyExtParameters{};
+  shared_ptr<string> harmonyExtensionExtraData{};
+  shared_ptr<bool> harmonyExtensionPush{};
   shared_ptr<string> harmonyImageUrl{};
   shared_ptr<string> harmonyInboxContent{};
   shared_ptr<string> harmonyNotificationSlotType{};
@@ -2727,11 +2759,23 @@ public:
     if (harmonyActionType) {
       res["HarmonyActionType"] = boost::any(*harmonyActionType);
     }
+    if (harmonyBadgeAddNum) {
+      res["HarmonyBadgeAddNum"] = boost::any(*harmonyBadgeAddNum);
+    }
+    if (harmonyBadgeSetNum) {
+      res["HarmonyBadgeSetNum"] = boost::any(*harmonyBadgeSetNum);
+    }
     if (harmonyCategory) {
       res["HarmonyCategory"] = boost::any(*harmonyCategory);
     }
     if (harmonyExtParameters) {
       res["HarmonyExtParameters"] = boost::any(*harmonyExtParameters);
+    }
+    if (harmonyExtensionExtraData) {
+      res["HarmonyExtensionExtraData"] = boost::any(*harmonyExtensionExtraData);
+    }
+    if (harmonyExtensionPush) {
+      res["HarmonyExtensionPush"] = boost::any(*harmonyExtensionPush);
     }
     if (harmonyImageUrl) {
       res["HarmonyImageUrl"] = boost::any(*harmonyImageUrl);
@@ -3004,11 +3048,23 @@ public:
     if (m.find("HarmonyActionType") != m.end() && !m["HarmonyActionType"].empty()) {
       harmonyActionType = make_shared<string>(boost::any_cast<string>(m["HarmonyActionType"]));
     }
+    if (m.find("HarmonyBadgeAddNum") != m.end() && !m["HarmonyBadgeAddNum"].empty()) {
+      harmonyBadgeAddNum = make_shared<long>(boost::any_cast<long>(m["HarmonyBadgeAddNum"]));
+    }
+    if (m.find("HarmonyBadgeSetNum") != m.end() && !m["HarmonyBadgeSetNum"].empty()) {
+      harmonyBadgeSetNum = make_shared<long>(boost::any_cast<long>(m["HarmonyBadgeSetNum"]));
+    }
     if (m.find("HarmonyCategory") != m.end() && !m["HarmonyCategory"].empty()) {
       harmonyCategory = make_shared<string>(boost::any_cast<string>(m["HarmonyCategory"]));
     }
     if (m.find("HarmonyExtParameters") != m.end() && !m["HarmonyExtParameters"].empty()) {
       harmonyExtParameters = make_shared<string>(boost::any_cast<string>(m["HarmonyExtParameters"]));
+    }
+    if (m.find("HarmonyExtensionExtraData") != m.end() && !m["HarmonyExtensionExtraData"].empty()) {
+      harmonyExtensionExtraData = make_shared<string>(boost::any_cast<string>(m["HarmonyExtensionExtraData"]));
+    }
+    if (m.find("HarmonyExtensionPush") != m.end() && !m["HarmonyExtensionPush"].empty()) {
+      harmonyExtensionPush = make_shared<bool>(boost::any_cast<bool>(m["HarmonyExtensionPush"]));
     }
     if (m.find("HarmonyImageUrl") != m.end() && !m["HarmonyImageUrl"].empty()) {
       harmonyImageUrl = make_shared<string>(boost::any_cast<string>(m["HarmonyImageUrl"]));
