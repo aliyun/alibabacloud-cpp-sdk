@@ -3080,6 +3080,7 @@ public:
 class GetResource4ModifyRecordResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> attribute{};
+  shared_ptr<string> error{};
   shared_ptr<string> modifyTime{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> status{};
@@ -3097,6 +3098,9 @@ public:
     map<string, boost::any> res;
     if (attribute) {
       res["Attribute"] = boost::any(*attribute);
+    }
+    if (error) {
+      res["Error"] = boost::any(*error);
     }
     if (modifyTime) {
       res["ModifyTime"] = boost::any(*modifyTime);
@@ -3116,6 +3120,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Attribute") != m.end() && !m["Attribute"].empty()) {
       attribute = make_shared<string>(boost::any_cast<string>(m["Attribute"]));
+    }
+    if (m.find("Error") != m.end() && !m["Error"].empty()) {
+      error = make_shared<string>(boost::any_cast<string>(m["Error"]));
     }
     if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
       modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
