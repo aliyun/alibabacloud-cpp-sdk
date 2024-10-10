@@ -1118,6 +1118,37 @@ DeleteUserTagMetaResponse Alibabacloud_Quickbi-public20220101::Client::deleteUse
   return deleteUserTagMetaWithOptions(request, runtime);
 }
 
+GetMailTaskStatusResponse Alibabacloud_Quickbi-public20220101::Client::getMailTaskStatusWithOptions(shared_ptr<GetMailTaskStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->mailId)) {
+    query->insert(pair<string, string>("MailId", *request->mailId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->taskId)) {
+    query->insert(pair<string, long>("TaskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetMailTaskStatus"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetMailTaskStatusResponse(callApi(params, req, runtime));
+}
+
+GetMailTaskStatusResponse Alibabacloud_Quickbi-public20220101::Client::getMailTaskStatus(shared_ptr<GetMailTaskStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getMailTaskStatusWithOptions(request, runtime);
+}
+
 GetUserGroupInfoResponse Alibabacloud_Quickbi-public20220101::Client::getUserGroupInfoWithOptions(shared_ptr<GetUserGroupInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1144,6 +1175,46 @@ GetUserGroupInfoResponse Alibabacloud_Quickbi-public20220101::Client::getUserGro
 GetUserGroupInfoResponse Alibabacloud_Quickbi-public20220101::Client::getUserGroupInfo(shared_ptr<GetUserGroupInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getUserGroupInfoWithOptions(request, runtime);
+}
+
+GetWorksEmbedListResponse Alibabacloud_Quickbi-public20220101::Client::getWorksEmbedListWithOptions(shared_ptr<GetWorksEmbedListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    query->insert(pair<string, string>("Keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->worksType)) {
+    query->insert(pair<string, string>("WorksType", *request->worksType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wsId)) {
+    query->insert(pair<string, string>("WsId", *request->wsId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetWorksEmbedList"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetWorksEmbedListResponse(callApi(params, req, runtime));
+}
+
+GetWorksEmbedListResponse Alibabacloud_Quickbi-public20220101::Client::getWorksEmbedList(shared_ptr<GetWorksEmbedListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getWorksEmbedListWithOptions(request, runtime);
 }
 
 ListApiDatasourceResponse Alibabacloud_Quickbi-public20220101::Client::listApiDatasourceWithOptions(shared_ptr<ListApiDatasourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1629,6 +1700,34 @@ ListWorkspaceRolesResponse Alibabacloud_Quickbi-public20220101::Client::listWork
 ListWorkspaceRolesResponse Alibabacloud_Quickbi-public20220101::Client::listWorkspaceRoles(shared_ptr<ListWorkspaceRolesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listWorkspaceRolesWithOptions(request, runtime);
+}
+
+ManualRunMailTaskResponse Alibabacloud_Quickbi-public20220101::Client::manualRunMailTaskWithOptions(shared_ptr<ManualRunMailTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->mailId)) {
+    query->insert(pair<string, string>("MailId", *request->mailId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ManualRunMailTask"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ManualRunMailTaskResponse(callApi(params, req, runtime));
+}
+
+ManualRunMailTaskResponse Alibabacloud_Quickbi-public20220101::Client::manualRunMailTask(shared_ptr<ManualRunMailTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return manualRunMailTaskWithOptions(request, runtime);
 }
 
 ModifyApiDatasourceParametersResponse Alibabacloud_Quickbi-public20220101::Client::modifyApiDatasourceParametersWithOptions(shared_ptr<ModifyApiDatasourceParametersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
