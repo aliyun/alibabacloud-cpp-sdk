@@ -1014,6 +1014,8 @@ public:
 class ExecuteMultiAccountSQLQueryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> expression{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
   shared_ptr<string> scope{};
 
   ExecuteMultiAccountSQLQueryRequest() {}
@@ -1029,6 +1031,12 @@ public:
     if (expression) {
       res["Expression"] = boost::any(*expression);
     }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
     if (scope) {
       res["Scope"] = boost::any(*scope);
     }
@@ -1038,6 +1046,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Expression") != m.end() && !m["Expression"].empty()) {
       expression = make_shared<string>(boost::any_cast<string>(m["Expression"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
       scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
@@ -1216,6 +1230,8 @@ public:
 class ExecuteSQLQueryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> expression{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
   shared_ptr<string> scope{};
 
   ExecuteSQLQueryRequest() {}
@@ -1231,6 +1247,12 @@ public:
     if (expression) {
       res["Expression"] = boost::any(*expression);
     }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
     if (scope) {
       res["Scope"] = boost::any(*scope);
     }
@@ -1240,6 +1262,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Expression") != m.end() && !m["Expression"].empty()) {
       expression = make_shared<string>(boost::any_cast<string>(m["Expression"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
       scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));

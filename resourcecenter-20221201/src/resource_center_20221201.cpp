@@ -297,6 +297,12 @@ ExecuteMultiAccountSQLQueryResponse Alibabacloud_ResourceCenter20221201::Client:
   if (!Darabonba_Util::Client::isUnset<string>(request->expression)) {
     query->insert(pair<string, string>("Expression", *request->expression));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
     query->insert(pair<string, string>("Scope", *request->scope));
   }
@@ -327,6 +333,12 @@ ExecuteSQLQueryResponse Alibabacloud_ResourceCenter20221201::Client::executeSQLQ
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->expression)) {
     query->insert(pair<string, string>("Expression", *request->expression));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
     query->insert(pair<string, string>("Scope", *request->scope));
