@@ -175,6 +175,70 @@ public:
 
   virtual ~GetConnectionTicketRequest() = default;
 };
+class GetConnectionTicketResponseBodyBindQueueInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> length{};
+  shared_ptr<long> rank{};
+  shared_ptr<long> remainingTimeMin{};
+  shared_ptr<string> requestKey{};
+  shared_ptr<string> targetId{};
+  shared_ptr<long> waitTimeMin{};
+
+  GetConnectionTicketResponseBodyBindQueueInfo() {}
+
+  explicit GetConnectionTicketResponseBodyBindQueueInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (length) {
+      res["Length"] = boost::any(*length);
+    }
+    if (rank) {
+      res["Rank"] = boost::any(*rank);
+    }
+    if (remainingTimeMin) {
+      res["RemainingTimeMin"] = boost::any(*remainingTimeMin);
+    }
+    if (requestKey) {
+      res["RequestKey"] = boost::any(*requestKey);
+    }
+    if (targetId) {
+      res["TargetId"] = boost::any(*targetId);
+    }
+    if (waitTimeMin) {
+      res["WaitTimeMin"] = boost::any(*waitTimeMin);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Length") != m.end() && !m["Length"].empty()) {
+      length = make_shared<long>(boost::any_cast<long>(m["Length"]));
+    }
+    if (m.find("Rank") != m.end() && !m["Rank"].empty()) {
+      rank = make_shared<long>(boost::any_cast<long>(m["Rank"]));
+    }
+    if (m.find("RemainingTimeMin") != m.end() && !m["RemainingTimeMin"].empty()) {
+      remainingTimeMin = make_shared<long>(boost::any_cast<long>(m["RemainingTimeMin"]));
+    }
+    if (m.find("RequestKey") != m.end() && !m["RequestKey"].empty()) {
+      requestKey = make_shared<string>(boost::any_cast<string>(m["RequestKey"]));
+    }
+    if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
+      targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
+    }
+    if (m.find("WaitTimeMin") != m.end() && !m["WaitTimeMin"].empty()) {
+      waitTimeMin = make_shared<long>(boost::any_cast<long>(m["WaitTimeMin"]));
+    }
+  }
+
+
+  virtual ~GetConnectionTicketResponseBodyBindQueueInfo() = default;
+};
 class GetConnectionTicketResponseBodyPolicy : public Darabonba::Model {
 public:
   shared_ptr<string> resolutionAdaptive{};
@@ -223,6 +287,7 @@ public:
   shared_ptr<string> appInstanceGroupId{};
   shared_ptr<string> appInstanceId{};
   shared_ptr<string> appInstancePersistentId{};
+  shared_ptr<GetConnectionTicketResponseBodyBindQueueInfo> bindQueueInfo{};
   shared_ptr<string> code{};
   shared_ptr<string> loginToken{};
   shared_ptr<string> message{};
@@ -254,6 +319,9 @@ public:
     }
     if (appInstancePersistentId) {
       res["AppInstancePersistentId"] = boost::any(*appInstancePersistentId);
+    }
+    if (bindQueueInfo) {
+      res["BindQueueInfo"] = bindQueueInfo ? boost::any(bindQueueInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (code) {
       res["Code"] = boost::any(*code);
@@ -303,6 +371,13 @@ public:
     }
     if (m.find("AppInstancePersistentId") != m.end() && !m["AppInstancePersistentId"].empty()) {
       appInstancePersistentId = make_shared<string>(boost::any_cast<string>(m["AppInstancePersistentId"]));
+    }
+    if (m.find("BindQueueInfo") != m.end() && !m["BindQueueInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BindQueueInfo"].type()) {
+        GetConnectionTicketResponseBodyBindQueueInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BindQueueInfo"]));
+        bindQueueInfo = make_shared<GetConnectionTicketResponseBodyBindQueueInfo>(model1);
+      }
     }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
