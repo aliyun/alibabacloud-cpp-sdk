@@ -2793,6 +2793,9 @@ CreateImageComponentResponse Alibabacloud_Ecs20140526::Client::createImageCompon
   if (!Darabonba_Util::Client::isUnset<string>(request->componentType)) {
     query->insert(pair<string, string>("ComponentType", *request->componentType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->componentVersion)) {
+    query->insert(pair<string, string>("ComponentVersion", *request->componentVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     query->insert(pair<string, string>("Content", *request->content));
   }
@@ -2878,6 +2881,9 @@ CreateImagePipelineResponse Alibabacloud_Ecs20140526::Client::createImagePipelin
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageFamily)) {
+    query->insert(pair<string, string>("ImageFamily", *request->imageFamily));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageName)) {
     query->insert(pair<string, string>("ImageName", *request->imageName));
   }
@@ -2902,6 +2908,9 @@ CreateImagePipelineResponse Alibabacloud_Ecs20140526::Client::createImagePipelin
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repairMode)) {
+    query->insert(pair<string, string>("RepairMode", *request->repairMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -2919,6 +2928,9 @@ CreateImagePipelineResponse Alibabacloud_Ecs20140526::Client::createImagePipelin
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateImagePipelineRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<CreateImagePipelineRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->testContent)) {
+    query->insert(pair<string, string>("TestContent", *request->testContent));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->toRegionId)) {
     query->insert(pair<string, vector<string>>("ToRegionId", *request->toRegionId));
@@ -8672,6 +8684,12 @@ DescribeHpcClustersResponse Alibabacloud_Ecs20140526::Client::describeHpcCluster
 DescribeImageComponentsResponse Alibabacloud_Ecs20140526::Client::describeImageComponentsWithOptions(shared_ptr<DescribeImageComponentsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->componentType)) {
+    query->insert(pair<string, string>("ComponentType", *request->componentType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->componentVersion)) {
+    query->insert(pair<string, string>("ComponentVersion", *request->componentVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->imageComponentId)) {
     query->insert(pair<string, vector<string>>("ImageComponentId", *request->imageComponentId));
   }
@@ -8710,6 +8728,9 @@ DescribeImageComponentsResponse Alibabacloud_Ecs20140526::Client::describeImageC
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->systemType)) {
+    query->insert(pair<string, string>("SystemType", *request->systemType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<DescribeImageComponentsRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<DescribeImageComponentsRequestTag>>("Tag", *request->tag));
