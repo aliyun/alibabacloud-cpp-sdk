@@ -5945,6 +5945,35 @@ public:
 
   virtual ~CreateScalingConfigurationRequestNetworkInterfaces() = default;
 };
+class CreateScalingConfigurationRequestSecurityOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> confidentialComputingMode{};
+
+  CreateScalingConfigurationRequestSecurityOptions() {}
+
+  explicit CreateScalingConfigurationRequestSecurityOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidentialComputingMode) {
+      res["ConfidentialComputingMode"] = boost::any(*confidentialComputingMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfidentialComputingMode") != m.end() && !m["ConfidentialComputingMode"].empty()) {
+      confidentialComputingMode = make_shared<string>(boost::any_cast<string>(m["ConfidentialComputingMode"]));
+    }
+  }
+
+
+  virtual ~CreateScalingConfigurationRequestSecurityOptions() = default;
+};
 class CreateScalingConfigurationRequestSpotPriceLimits : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -6029,6 +6058,7 @@ public:
   shared_ptr<string> securityEnhancementStrategy{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<vector<string>> securityGroupIds{};
+  shared_ptr<CreateScalingConfigurationRequestSecurityOptions> securityOptions{};
   shared_ptr<long> spotDuration{};
   shared_ptr<string> spotInterruptionBehavior{};
   shared_ptr<vector<CreateScalingConfigurationRequestSpotPriceLimits>> spotPriceLimits{};
@@ -6208,6 +6238,9 @@ public:
     }
     if (securityGroupIds) {
       res["SecurityGroupIds"] = boost::any(*securityGroupIds);
+    }
+    if (securityOptions) {
+      res["SecurityOptions"] = securityOptions ? boost::any(securityOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (spotDuration) {
       res["SpotDuration"] = boost::any(*spotDuration);
@@ -6468,6 +6501,13 @@ public:
         }
       }
       securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SecurityOptions") != m.end() && !m["SecurityOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityOptions"].type()) {
+        CreateScalingConfigurationRequestSecurityOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityOptions"]));
+        securityOptions = make_shared<CreateScalingConfigurationRequestSecurityOptions>(model1);
+      }
     }
     if (m.find("SpotDuration") != m.end() && !m["SpotDuration"].empty()) {
       spotDuration = make_shared<long>(boost::any_cast<long>(m["SpotDuration"]));
@@ -7176,6 +7216,35 @@ public:
 
   virtual ~CreateScalingConfigurationShrinkRequestNetworkInterfaces() = default;
 };
+class CreateScalingConfigurationShrinkRequestSecurityOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> confidentialComputingMode{};
+
+  CreateScalingConfigurationShrinkRequestSecurityOptions() {}
+
+  explicit CreateScalingConfigurationShrinkRequestSecurityOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidentialComputingMode) {
+      res["ConfidentialComputingMode"] = boost::any(*confidentialComputingMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfidentialComputingMode") != m.end() && !m["ConfidentialComputingMode"].empty()) {
+      confidentialComputingMode = make_shared<string>(boost::any_cast<string>(m["ConfidentialComputingMode"]));
+    }
+  }
+
+
+  virtual ~CreateScalingConfigurationShrinkRequestSecurityOptions() = default;
+};
 class CreateScalingConfigurationShrinkRequestSpotPriceLimits : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -7260,6 +7329,7 @@ public:
   shared_ptr<string> securityEnhancementStrategy{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<vector<string>> securityGroupIds{};
+  shared_ptr<CreateScalingConfigurationShrinkRequestSecurityOptions> securityOptions{};
   shared_ptr<long> spotDuration{};
   shared_ptr<string> spotInterruptionBehavior{};
   shared_ptr<vector<CreateScalingConfigurationShrinkRequestSpotPriceLimits>> spotPriceLimits{};
@@ -7439,6 +7509,9 @@ public:
     }
     if (securityGroupIds) {
       res["SecurityGroupIds"] = boost::any(*securityGroupIds);
+    }
+    if (securityOptions) {
+      res["SecurityOptions"] = securityOptions ? boost::any(securityOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (spotDuration) {
       res["SpotDuration"] = boost::any(*spotDuration);
@@ -7694,6 +7767,13 @@ public:
         }
       }
       securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SecurityOptions") != m.end() && !m["SecurityOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityOptions"].type()) {
+        CreateScalingConfigurationShrinkRequestSecurityOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityOptions"]));
+        securityOptions = make_shared<CreateScalingConfigurationShrinkRequestSecurityOptions>(model1);
+      }
     }
     if (m.find("SpotDuration") != m.end() && !m["SpotDuration"].empty()) {
       spotDuration = make_shared<long>(boost::any_cast<long>(m["SpotDuration"]));
@@ -19261,6 +19341,35 @@ public:
 
   virtual ~DescribeScalingConfigurationsResponseBodyScalingConfigurationsSchedulerOptions() = default;
 };
+class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> confidentialComputingMode{};
+
+  DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions() {}
+
+  explicit DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidentialComputingMode) {
+      res["ConfidentialComputingMode"] = boost::any(*confidentialComputingMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfidentialComputingMode") != m.end() && !m["ConfidentialComputingMode"].empty()) {
+      confidentialComputingMode = make_shared<string>(boost::any_cast<string>(m["ConfidentialComputingMode"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions() = default;
+};
 class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSpotPriceLimits : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -19381,6 +19490,7 @@ public:
   shared_ptr<string> securityEnhancementStrategy{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<vector<string>> securityGroupIds{};
+  shared_ptr<DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions> securityOptions{};
   shared_ptr<long> spotDuration{};
   shared_ptr<string> spotInterruptionBehavior{};
   shared_ptr<vector<DescribeScalingConfigurationsResponseBodyScalingConfigurationsSpotPriceLimits>> spotPriceLimits{};
@@ -19568,6 +19678,9 @@ public:
     }
     if (securityGroupIds) {
       res["SecurityGroupIds"] = boost::any(*securityGroupIds);
+    }
+    if (securityOptions) {
+      res["SecurityOptions"] = securityOptions ? boost::any(securityOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (spotDuration) {
       res["SpotDuration"] = boost::any(*spotDuration);
@@ -19845,6 +19958,13 @@ public:
         }
       }
       securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SecurityOptions") != m.end() && !m["SecurityOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityOptions"].type()) {
+        DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityOptions"]));
+        securityOptions = make_shared<DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions>(model1);
+      }
     }
     if (m.find("SpotDuration") != m.end() && !m["SpotDuration"].empty()) {
       spotDuration = make_shared<long>(boost::any_cast<long>(m["SpotDuration"]));
@@ -31319,6 +31439,35 @@ public:
 
   virtual ~ModifyScalingConfigurationRequestNetworkInterfaces() = default;
 };
+class ModifyScalingConfigurationRequestSecurityOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> confidentialComputingMode{};
+
+  ModifyScalingConfigurationRequestSecurityOptions() {}
+
+  explicit ModifyScalingConfigurationRequestSecurityOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidentialComputingMode) {
+      res["ConfidentialComputingMode"] = boost::any(*confidentialComputingMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfidentialComputingMode") != m.end() && !m["ConfidentialComputingMode"].empty()) {
+      confidentialComputingMode = make_shared<string>(boost::any_cast<string>(m["ConfidentialComputingMode"]));
+    }
+  }
+
+
+  virtual ~ModifyScalingConfigurationRequestSecurityOptions() = default;
+};
 class ModifyScalingConfigurationRequestSpotPriceLimits : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -31400,6 +31549,7 @@ public:
   shared_ptr<map<string, boost::any>> schedulerOptions{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<vector<string>> securityGroupIds{};
+  shared_ptr<ModifyScalingConfigurationRequestSecurityOptions> securityOptions{};
   shared_ptr<long> spotDuration{};
   shared_ptr<string> spotInterruptionBehavior{};
   shared_ptr<vector<ModifyScalingConfigurationRequestSpotPriceLimits>> spotPriceLimits{};
@@ -31570,6 +31720,9 @@ public:
     }
     if (securityGroupIds) {
       res["SecurityGroupIds"] = boost::any(*securityGroupIds);
+    }
+    if (securityOptions) {
+      res["SecurityOptions"] = securityOptions ? boost::any(securityOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (spotDuration) {
       res["SpotDuration"] = boost::any(*spotDuration);
@@ -31821,6 +31974,13 @@ public:
         }
       }
       securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SecurityOptions") != m.end() && !m["SecurityOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityOptions"].type()) {
+        ModifyScalingConfigurationRequestSecurityOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityOptions"]));
+        securityOptions = make_shared<ModifyScalingConfigurationRequestSecurityOptions>(model1);
+      }
     }
     if (m.find("SpotDuration") != m.end() && !m["SpotDuration"].empty()) {
       spotDuration = make_shared<long>(boost::any_cast<long>(m["SpotDuration"]));
@@ -32529,6 +32689,35 @@ public:
 
   virtual ~ModifyScalingConfigurationShrinkRequestNetworkInterfaces() = default;
 };
+class ModifyScalingConfigurationShrinkRequestSecurityOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> confidentialComputingMode{};
+
+  ModifyScalingConfigurationShrinkRequestSecurityOptions() {}
+
+  explicit ModifyScalingConfigurationShrinkRequestSecurityOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidentialComputingMode) {
+      res["ConfidentialComputingMode"] = boost::any(*confidentialComputingMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfidentialComputingMode") != m.end() && !m["ConfidentialComputingMode"].empty()) {
+      confidentialComputingMode = make_shared<string>(boost::any_cast<string>(m["ConfidentialComputingMode"]));
+    }
+  }
+
+
+  virtual ~ModifyScalingConfigurationShrinkRequestSecurityOptions() = default;
+};
 class ModifyScalingConfigurationShrinkRequestSpotPriceLimits : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -32610,6 +32799,7 @@ public:
   shared_ptr<string> schedulerOptionsShrink{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<vector<string>> securityGroupIds{};
+  shared_ptr<ModifyScalingConfigurationShrinkRequestSecurityOptions> securityOptions{};
   shared_ptr<long> spotDuration{};
   shared_ptr<string> spotInterruptionBehavior{};
   shared_ptr<vector<ModifyScalingConfigurationShrinkRequestSpotPriceLimits>> spotPriceLimits{};
@@ -32780,6 +32970,9 @@ public:
     }
     if (securityGroupIds) {
       res["SecurityGroupIds"] = boost::any(*securityGroupIds);
+    }
+    if (securityOptions) {
+      res["SecurityOptions"] = securityOptions ? boost::any(securityOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (spotDuration) {
       res["SpotDuration"] = boost::any(*spotDuration);
@@ -33026,6 +33219,13 @@ public:
         }
       }
       securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SecurityOptions") != m.end() && !m["SecurityOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityOptions"].type()) {
+        ModifyScalingConfigurationShrinkRequestSecurityOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityOptions"]));
+        securityOptions = make_shared<ModifyScalingConfigurationShrinkRequestSecurityOptions>(model1);
+      }
     }
     if (m.find("SpotDuration") != m.end() && !m["SpotDuration"].empty()) {
       spotDuration = make_shared<long>(boost::any_cast<long>(m["SpotDuration"]));

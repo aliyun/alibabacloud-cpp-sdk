@@ -1079,6 +1079,9 @@ CreateScalingConfigurationResponse Alibabacloud_Ess20220222::Client::createScali
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->securityGroupIds)) {
     query->insert(pair<string, vector<string>>("SecurityGroupIds", *request->securityGroupIds));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateScalingConfigurationShrinkRequestSecurityOptions>(request->securityOptions)) {
+    query->insert(pair<string, CreateScalingConfigurationShrinkRequestSecurityOptions>("SecurityOptions", *request->securityOptions));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->spotDuration)) {
     query->insert(pair<string, long>("SpotDuration", *request->spotDuration));
   }
@@ -4123,6 +4126,9 @@ ModifyScalingConfigurationResponse Alibabacloud_Ess20220222::Client::modifyScali
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->securityGroupIds)) {
     query->insert(pair<string, vector<string>>("SecurityGroupIds", *request->securityGroupIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<ModifyScalingConfigurationShrinkRequestSecurityOptions>(request->securityOptions)) {
+    query->insert(pair<string, ModifyScalingConfigurationShrinkRequestSecurityOptions>("SecurityOptions", *request->securityOptions));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->spotDuration)) {
     query->insert(pair<string, long>("SpotDuration", *request->spotDuration));
