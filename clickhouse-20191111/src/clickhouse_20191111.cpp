@@ -2425,6 +2425,9 @@ ModifyDBClusterResponse Alibabacloud_Clickhouse20191111::Client::modifyDBCluster
   if (!Darabonba_Util::Client::isUnset<string>(request->dbNodeStorageType)) {
     query->insert(pair<string, string>("DbNodeStorageType", *request->dbNodeStorageType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->disableWriteWindows)) {
+    query->insert(pair<string, string>("DisableWriteWindows", *request->disableWriteWindows));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }

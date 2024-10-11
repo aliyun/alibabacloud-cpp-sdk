@@ -8048,6 +8048,7 @@ public:
   shared_ptr<long> port{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> scaleOutDisableWriteWindows{};
   shared_ptr<DescribeDBClustersResponseBodyDBClustersDBClusterScaleOutStatus> scaleOutStatus{};
   shared_ptr<string> storageType{};
   shared_ptr<DescribeDBClustersResponseBodyDBClustersDBClusterTags> tags{};
@@ -8140,6 +8141,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (scaleOutDisableWriteWindows) {
+      res["ScaleOutDisableWriteWindows"] = boost::any(*scaleOutDisableWriteWindows);
     }
     if (scaleOutStatus) {
       res["ScaleOutStatus"] = scaleOutStatus ? boost::any(scaleOutStatus->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8240,6 +8244,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ScaleOutDisableWriteWindows") != m.end() && !m["ScaleOutDisableWriteWindows"].empty()) {
+      scaleOutDisableWriteWindows = make_shared<string>(boost::any_cast<string>(m["ScaleOutDisableWriteWindows"]));
     }
     if (m.find("ScaleOutStatus") != m.end() && !m["ScaleOutStatus"].empty()) {
       if (typeid(map<string, boost::any>) == m["ScaleOutStatus"].type()) {
@@ -11901,6 +11908,7 @@ public:
   shared_ptr<string> DBNodeGroupCount{};
   shared_ptr<string> DBNodeStorage{};
   shared_ptr<string> dbNodeStorageType{};
+  shared_ptr<string> disableWriteWindows{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -11931,6 +11939,9 @@ public:
     }
     if (dbNodeStorageType) {
       res["DbNodeStorageType"] = boost::any(*dbNodeStorageType);
+    }
+    if (disableWriteWindows) {
+      res["DisableWriteWindows"] = boost::any(*disableWriteWindows);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -11965,6 +11976,9 @@ public:
     }
     if (m.find("DbNodeStorageType") != m.end() && !m["DbNodeStorageType"].empty()) {
       dbNodeStorageType = make_shared<string>(boost::any_cast<string>(m["DbNodeStorageType"]));
+    }
+    if (m.find("DisableWriteWindows") != m.end() && !m["DisableWriteWindows"].empty()) {
+      disableWriteWindows = make_shared<string>(boost::any_cast<string>(m["DisableWriteWindows"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
