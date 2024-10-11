@@ -168,6 +168,64 @@ CreateConversationAnalysisTaskResponse Alibabacloud_ContactCenterAI20240603::Cli
   return createConversationAnalysisTaskWithOptions(workspaceId, appId, request, headers, runtime);
 }
 
+CreateTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                                       shared_ptr<string> appId,
+                                                                                       shared_ptr<CreateTaskRequest> request,
+                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<CreateTaskRequestDialogue>(request->dialogue)) {
+    body->insert(pair<string, CreateTaskRequestDialogue>("dialogue", *request->dialogue));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateTaskRequestExamples>(request->examples)) {
+    body->insert(pair<string, CreateTaskRequestExamples>("examples", *request->examples));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateTaskRequestFields>>(request->fields)) {
+    body->insert(pair<string, vector<CreateTaskRequestFields>>("fields", *request->fields));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelCode)) {
+    body->insert(pair<string, string>("modelCode", *request->modelCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resultTypes)) {
+    body->insert(pair<string, vector<string>>("resultTypes", *request->resultTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateTaskRequestServiceInspection>(request->serviceInspection)) {
+    body->insert(pair<string, CreateTaskRequestServiceInspection>("serviceInspection", *request->serviceInspection));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskType)) {
+    body->insert(pair<string, string>("taskType", *request->taskType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->templateIds)) {
+    body->insert(pair<string, vector<string>>("templateIds", *request->templateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateTaskRequestTranscription>(request->transcription)) {
+    body->insert(pair<string, CreateTaskRequestTranscription>("transcription", *request->transcription));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateTask"))},
+    {"version", boost::any(string("2024-06-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/ccai/app/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appId)) + string("/createTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateTaskResponse(callApi(params, req, runtime));
+}
+
+CreateTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createTask(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<CreateTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createTaskWithOptions(workspaceId, appId, request, headers, runtime);
+}
+
 GetTaskResultResponse Alibabacloud_ContactCenterAI20240603::Client::getTaskResultWithOptions(shared_ptr<GetTaskResultRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
