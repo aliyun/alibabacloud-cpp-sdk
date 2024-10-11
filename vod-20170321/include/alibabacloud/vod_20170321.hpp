@@ -26648,6 +26648,7 @@ public:
   shared_ptr<string> definition{};
   shared_ptr<string> duration{};
   shared_ptr<long> encrypt{};
+  shared_ptr<string> encryptMode{};
   shared_ptr<string> encryptType{};
   shared_ptr<string> format{};
   shared_ptr<string> fps{};
@@ -26693,6 +26694,9 @@ public:
     }
     if (encrypt) {
       res["Encrypt"] = boost::any(*encrypt);
+    }
+    if (encryptMode) {
+      res["EncryptMode"] = boost::any(*encryptMode);
     }
     if (encryptType) {
       res["EncryptType"] = boost::any(*encryptType);
@@ -26766,6 +26770,9 @@ public:
     }
     if (m.find("Encrypt") != m.end() && !m["Encrypt"].empty()) {
       encrypt = make_shared<long>(boost::any_cast<long>(m["Encrypt"]));
+    }
+    if (m.find("EncryptMode") != m.end() && !m["EncryptMode"].empty()) {
+      encryptMode = make_shared<string>(boost::any_cast<string>(m["EncryptMode"]));
     }
     if (m.find("EncryptType") != m.end() && !m["EncryptType"].empty()) {
       encryptType = make_shared<string>(boost::any_cast<string>(m["EncryptType"]));
