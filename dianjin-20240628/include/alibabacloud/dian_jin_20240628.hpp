@@ -14,6 +14,250 @@
 using namespace std;
 
 namespace Alibabacloud_DianJin20240628 {
+class CreateDocsSummaryTaskRequestDocInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> docId{};
+  shared_ptr<long> endPage{};
+  shared_ptr<string> libraryId{};
+  shared_ptr<long> startPage{};
+
+  CreateDocsSummaryTaskRequestDocInfos() {}
+
+  explicit CreateDocsSummaryTaskRequestDocInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (docId) {
+      res["docId"] = boost::any(*docId);
+    }
+    if (endPage) {
+      res["endPage"] = boost::any(*endPage);
+    }
+    if (libraryId) {
+      res["libraryId"] = boost::any(*libraryId);
+    }
+    if (startPage) {
+      res["startPage"] = boost::any(*startPage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("docId") != m.end() && !m["docId"].empty()) {
+      docId = make_shared<string>(boost::any_cast<string>(m["docId"]));
+    }
+    if (m.find("endPage") != m.end() && !m["endPage"].empty()) {
+      endPage = make_shared<long>(boost::any_cast<long>(m["endPage"]));
+    }
+    if (m.find("libraryId") != m.end() && !m["libraryId"].empty()) {
+      libraryId = make_shared<string>(boost::any_cast<string>(m["libraryId"]));
+    }
+    if (m.find("startPage") != m.end() && !m["startPage"].empty()) {
+      startPage = make_shared<long>(boost::any_cast<long>(m["startPage"]));
+    }
+  }
+
+
+  virtual ~CreateDocsSummaryTaskRequestDocInfos() = default;
+};
+class CreateDocsSummaryTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateDocsSummaryTaskRequestDocInfos>> docInfos{};
+  shared_ptr<bool> enableTable{};
+  shared_ptr<string> instruction{};
+  shared_ptr<string> modelId{};
+
+  CreateDocsSummaryTaskRequest() {}
+
+  explicit CreateDocsSummaryTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (docInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*docInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["docInfos"] = boost::any(temp1);
+    }
+    if (enableTable) {
+      res["enableTable"] = boost::any(*enableTable);
+    }
+    if (instruction) {
+      res["instruction"] = boost::any(*instruction);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("docInfos") != m.end() && !m["docInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["docInfos"].type()) {
+        vector<CreateDocsSummaryTaskRequestDocInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["docInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateDocsSummaryTaskRequestDocInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        docInfos = make_shared<vector<CreateDocsSummaryTaskRequestDocInfos>>(expect1);
+      }
+    }
+    if (m.find("enableTable") != m.end() && !m["enableTable"].empty()) {
+      enableTable = make_shared<bool>(boost::any_cast<bool>(m["enableTable"]));
+    }
+    if (m.find("instruction") != m.end() && !m["instruction"].empty()) {
+      instruction = make_shared<string>(boost::any_cast<string>(m["instruction"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+  }
+
+
+  virtual ~CreateDocsSummaryTaskRequest() = default;
+};
+class CreateDocsSummaryTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> cost{};
+  shared_ptr<string> data{};
+  shared_ptr<string> dataType{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> time{};
+
+  CreateDocsSummaryTaskResponseBody() {}
+
+  explicit CreateDocsSummaryTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cost) {
+      res["cost"] = boost::any(*cost);
+    }
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (dataType) {
+      res["dataType"] = boost::any(*dataType);
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cost") != m.end() && !m["cost"].empty()) {
+      cost = make_shared<long>(boost::any_cast<long>(m["cost"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["data"]));
+    }
+    if (m.find("dataType") != m.end() && !m["dataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["dataType"]));
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["time"]));
+    }
+  }
+
+
+  virtual ~CreateDocsSummaryTaskResponseBody() = default;
+};
+class CreateDocsSummaryTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDocsSummaryTaskResponseBody> body{};
+
+  CreateDocsSummaryTaskResponse() {}
+
+  explicit CreateDocsSummaryTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDocsSummaryTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDocsSummaryTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDocsSummaryTaskResponse() = default;
+};
 class CreateFinReportSummaryTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> docId{};
@@ -1283,6 +1527,419 @@ public:
 
 
   virtual ~CreatePredefinedDocumentResponse() = default;
+};
+class CreateQualityCheckTaskRequestConversationListDialogueList : public Darabonba::Model {
+public:
+  shared_ptr<long> begin{};
+  shared_ptr<string> beginTime{};
+  shared_ptr<string> content{};
+  shared_ptr<string> customerId{};
+  shared_ptr<string> customerServiceId{};
+  shared_ptr<string> customerServiceType{};
+  shared_ptr<long> end{};
+  shared_ptr<string> role{};
+  shared_ptr<string> type{};
+
+  CreateQualityCheckTaskRequestConversationListDialogueList() {}
+
+  explicit CreateQualityCheckTaskRequestConversationListDialogueList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (begin) {
+      res["begin"] = boost::any(*begin);
+    }
+    if (beginTime) {
+      res["beginTime"] = boost::any(*beginTime);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (customerId) {
+      res["customerId"] = boost::any(*customerId);
+    }
+    if (customerServiceId) {
+      res["customerServiceId"] = boost::any(*customerServiceId);
+    }
+    if (customerServiceType) {
+      res["customerServiceType"] = boost::any(*customerServiceType);
+    }
+    if (end) {
+      res["end"] = boost::any(*end);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("begin") != m.end() && !m["begin"].empty()) {
+      begin = make_shared<long>(boost::any_cast<long>(m["begin"]));
+    }
+    if (m.find("beginTime") != m.end() && !m["beginTime"].empty()) {
+      beginTime = make_shared<string>(boost::any_cast<string>(m["beginTime"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("customerId") != m.end() && !m["customerId"].empty()) {
+      customerId = make_shared<string>(boost::any_cast<string>(m["customerId"]));
+    }
+    if (m.find("customerServiceId") != m.end() && !m["customerServiceId"].empty()) {
+      customerServiceId = make_shared<string>(boost::any_cast<string>(m["customerServiceId"]));
+    }
+    if (m.find("customerServiceType") != m.end() && !m["customerServiceType"].empty()) {
+      customerServiceType = make_shared<string>(boost::any_cast<string>(m["customerServiceType"]));
+    }
+    if (m.find("end") != m.end() && !m["end"].empty()) {
+      end = make_shared<long>(boost::any_cast<long>(m["end"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~CreateQualityCheckTaskRequestConversationListDialogueList() = default;
+};
+class CreateQualityCheckTaskRequestConversationList : public Darabonba::Model {
+public:
+  shared_ptr<string> callType{};
+  shared_ptr<string> customerId{};
+  shared_ptr<string> customerName{};
+  shared_ptr<string> customerServiceId{};
+  shared_ptr<string> customerServiceName{};
+  shared_ptr<vector<CreateQualityCheckTaskRequestConversationListDialogueList>> dialogueList{};
+  shared_ptr<string> gmtService{};
+
+  CreateQualityCheckTaskRequestConversationList() {}
+
+  explicit CreateQualityCheckTaskRequestConversationList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callType) {
+      res["callType"] = boost::any(*callType);
+    }
+    if (customerId) {
+      res["customerId"] = boost::any(*customerId);
+    }
+    if (customerName) {
+      res["customerName"] = boost::any(*customerName);
+    }
+    if (customerServiceId) {
+      res["customerServiceId"] = boost::any(*customerServiceId);
+    }
+    if (customerServiceName) {
+      res["customerServiceName"] = boost::any(*customerServiceName);
+    }
+    if (dialogueList) {
+      vector<boost::any> temp1;
+      for(auto item1:*dialogueList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["dialogueList"] = boost::any(temp1);
+    }
+    if (gmtService) {
+      res["gmtService"] = boost::any(*gmtService);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("callType") != m.end() && !m["callType"].empty()) {
+      callType = make_shared<string>(boost::any_cast<string>(m["callType"]));
+    }
+    if (m.find("customerId") != m.end() && !m["customerId"].empty()) {
+      customerId = make_shared<string>(boost::any_cast<string>(m["customerId"]));
+    }
+    if (m.find("customerName") != m.end() && !m["customerName"].empty()) {
+      customerName = make_shared<string>(boost::any_cast<string>(m["customerName"]));
+    }
+    if (m.find("customerServiceId") != m.end() && !m["customerServiceId"].empty()) {
+      customerServiceId = make_shared<string>(boost::any_cast<string>(m["customerServiceId"]));
+    }
+    if (m.find("customerServiceName") != m.end() && !m["customerServiceName"].empty()) {
+      customerServiceName = make_shared<string>(boost::any_cast<string>(m["customerServiceName"]));
+    }
+    if (m.find("dialogueList") != m.end() && !m["dialogueList"].empty()) {
+      if (typeid(vector<boost::any>) == m["dialogueList"].type()) {
+        vector<CreateQualityCheckTaskRequestConversationListDialogueList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["dialogueList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateQualityCheckTaskRequestConversationListDialogueList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dialogueList = make_shared<vector<CreateQualityCheckTaskRequestConversationListDialogueList>>(expect1);
+      }
+    }
+    if (m.find("gmtService") != m.end() && !m["gmtService"].empty()) {
+      gmtService = make_shared<string>(boost::any_cast<string>(m["gmtService"]));
+    }
+  }
+
+
+  virtual ~CreateQualityCheckTaskRequestConversationList() = default;
+};
+class CreateQualityCheckTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<CreateQualityCheckTaskRequestConversationList> conversationList{};
+  shared_ptr<string> gmtService{};
+  shared_ptr<map<string, string>> metaData{};
+  shared_ptr<vector<string>> qualityGroup{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> type{};
+
+  CreateQualityCheckTaskRequest() {}
+
+  explicit CreateQualityCheckTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conversationList) {
+      res["conversationList"] = conversationList ? boost::any(conversationList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (gmtService) {
+      res["gmtService"] = boost::any(*gmtService);
+    }
+    if (metaData) {
+      res["metaData"] = boost::any(*metaData);
+    }
+    if (qualityGroup) {
+      res["qualityGroup"] = boost::any(*qualityGroup);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("conversationList") != m.end() && !m["conversationList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["conversationList"].type()) {
+        CreateQualityCheckTaskRequestConversationList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["conversationList"]));
+        conversationList = make_shared<CreateQualityCheckTaskRequestConversationList>(model1);
+      }
+    }
+    if (m.find("gmtService") != m.end() && !m["gmtService"].empty()) {
+      gmtService = make_shared<string>(boost::any_cast<string>(m["gmtService"]));
+    }
+    if (m.find("metaData") != m.end() && !m["metaData"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["metaData"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      metaData = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("qualityGroup") != m.end() && !m["qualityGroup"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["qualityGroup"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["qualityGroup"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      qualityGroup = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~CreateQualityCheckTaskRequest() = default;
+};
+class CreateQualityCheckTaskResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+
+  CreateQualityCheckTaskResponseBodyData() {}
+
+  explicit CreateQualityCheckTaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+  }
+
+
+  virtual ~CreateQualityCheckTaskResponseBodyData() = default;
+};
+class CreateQualityCheckTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> cost{};
+  shared_ptr<CreateQualityCheckTaskResponseBodyData> data{};
+  shared_ptr<string> dataType{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> time{};
+
+  CreateQualityCheckTaskResponseBody() {}
+
+  explicit CreateQualityCheckTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cost) {
+      res["cost"] = boost::any(*cost);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dataType) {
+      res["dataType"] = boost::any(*dataType);
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cost") != m.end() && !m["cost"].empty()) {
+      cost = make_shared<long>(boost::any_cast<long>(m["cost"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        CreateQualityCheckTaskResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<CreateQualityCheckTaskResponseBodyData>(model1);
+      }
+    }
+    if (m.find("dataType") != m.end() && !m["dataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["dataType"]));
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["time"]));
+    }
+  }
+
+
+  virtual ~CreateQualityCheckTaskResponseBody() = default;
+};
+class CreateQualityCheckTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateQualityCheckTaskResponseBody> body{};
+
+  CreateQualityCheckTaskResponse() {}
+
+  explicit CreateQualityCheckTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateQualityCheckTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateQualityCheckTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateQualityCheckTaskResponse() = default;
 };
 class DeleteDocumentRequest : public Darabonba::Model {
 public:
@@ -5532,6 +6189,640 @@ public:
 
 
   virtual ~GetParseResultResponse() = default;
+};
+class GetQualityCheckTaskResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+
+  GetQualityCheckTaskResultRequest() {}
+
+  explicit GetQualityCheckTaskResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+  }
+
+
+  virtual ~GetQualityCheckTaskResultRequest() = default;
+};
+class GetQualityCheckTaskResultResponseBodyDataConversationListDialogueList : public Darabonba::Model {
+public:
+  shared_ptr<long> begin{};
+  shared_ptr<string> beginTime{};
+  shared_ptr<string> content{};
+  shared_ptr<string> customerId{};
+  shared_ptr<string> customerServiceId{};
+  shared_ptr<string> customerServiceType{};
+  shared_ptr<long> end{};
+  shared_ptr<long> id{};
+  shared_ptr<string> role{};
+  shared_ptr<string> type{};
+
+  GetQualityCheckTaskResultResponseBodyDataConversationListDialogueList() {}
+
+  explicit GetQualityCheckTaskResultResponseBodyDataConversationListDialogueList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (begin) {
+      res["begin"] = boost::any(*begin);
+    }
+    if (beginTime) {
+      res["beginTime"] = boost::any(*beginTime);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (customerId) {
+      res["customerId"] = boost::any(*customerId);
+    }
+    if (customerServiceId) {
+      res["customerServiceId"] = boost::any(*customerServiceId);
+    }
+    if (customerServiceType) {
+      res["customerServiceType"] = boost::any(*customerServiceType);
+    }
+    if (end) {
+      res["end"] = boost::any(*end);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("begin") != m.end() && !m["begin"].empty()) {
+      begin = make_shared<long>(boost::any_cast<long>(m["begin"]));
+    }
+    if (m.find("beginTime") != m.end() && !m["beginTime"].empty()) {
+      beginTime = make_shared<string>(boost::any_cast<string>(m["beginTime"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("customerId") != m.end() && !m["customerId"].empty()) {
+      customerId = make_shared<string>(boost::any_cast<string>(m["customerId"]));
+    }
+    if (m.find("customerServiceId") != m.end() && !m["customerServiceId"].empty()) {
+      customerServiceId = make_shared<string>(boost::any_cast<string>(m["customerServiceId"]));
+    }
+    if (m.find("customerServiceType") != m.end() && !m["customerServiceType"].empty()) {
+      customerServiceType = make_shared<string>(boost::any_cast<string>(m["customerServiceType"]));
+    }
+    if (m.find("end") != m.end() && !m["end"].empty()) {
+      end = make_shared<long>(boost::any_cast<long>(m["end"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~GetQualityCheckTaskResultResponseBodyDataConversationListDialogueList() = default;
+};
+class GetQualityCheckTaskResultResponseBodyDataConversationList : public Darabonba::Model {
+public:
+  shared_ptr<string> callType{};
+  shared_ptr<string> customerId{};
+  shared_ptr<string> customerName{};
+  shared_ptr<string> customerServiceId{};
+  shared_ptr<string> customerServiceName{};
+  shared_ptr<vector<GetQualityCheckTaskResultResponseBodyDataConversationListDialogueList>> dialogueList{};
+  shared_ptr<string> gmtService{};
+
+  GetQualityCheckTaskResultResponseBodyDataConversationList() {}
+
+  explicit GetQualityCheckTaskResultResponseBodyDataConversationList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callType) {
+      res["callType"] = boost::any(*callType);
+    }
+    if (customerId) {
+      res["customerId"] = boost::any(*customerId);
+    }
+    if (customerName) {
+      res["customerName"] = boost::any(*customerName);
+    }
+    if (customerServiceId) {
+      res["customerServiceId"] = boost::any(*customerServiceId);
+    }
+    if (customerServiceName) {
+      res["customerServiceName"] = boost::any(*customerServiceName);
+    }
+    if (dialogueList) {
+      vector<boost::any> temp1;
+      for(auto item1:*dialogueList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["dialogueList"] = boost::any(temp1);
+    }
+    if (gmtService) {
+      res["gmtService"] = boost::any(*gmtService);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("callType") != m.end() && !m["callType"].empty()) {
+      callType = make_shared<string>(boost::any_cast<string>(m["callType"]));
+    }
+    if (m.find("customerId") != m.end() && !m["customerId"].empty()) {
+      customerId = make_shared<string>(boost::any_cast<string>(m["customerId"]));
+    }
+    if (m.find("customerName") != m.end() && !m["customerName"].empty()) {
+      customerName = make_shared<string>(boost::any_cast<string>(m["customerName"]));
+    }
+    if (m.find("customerServiceId") != m.end() && !m["customerServiceId"].empty()) {
+      customerServiceId = make_shared<string>(boost::any_cast<string>(m["customerServiceId"]));
+    }
+    if (m.find("customerServiceName") != m.end() && !m["customerServiceName"].empty()) {
+      customerServiceName = make_shared<string>(boost::any_cast<string>(m["customerServiceName"]));
+    }
+    if (m.find("dialogueList") != m.end() && !m["dialogueList"].empty()) {
+      if (typeid(vector<boost::any>) == m["dialogueList"].type()) {
+        vector<GetQualityCheckTaskResultResponseBodyDataConversationListDialogueList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["dialogueList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetQualityCheckTaskResultResponseBodyDataConversationListDialogueList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dialogueList = make_shared<vector<GetQualityCheckTaskResultResponseBodyDataConversationListDialogueList>>(expect1);
+      }
+    }
+    if (m.find("gmtService") != m.end() && !m["gmtService"].empty()) {
+      gmtService = make_shared<string>(boost::any_cast<string>(m["gmtService"]));
+    }
+  }
+
+
+  virtual ~GetQualityCheckTaskResultResponseBodyDataConversationList() = default;
+};
+class GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDialogue : public Darabonba::Model {
+public:
+  shared_ptr<long> begin{};
+  shared_ptr<string> beginTime{};
+  shared_ptr<string> content{};
+  shared_ptr<string> customerId{};
+  shared_ptr<string> customerServiceId{};
+  shared_ptr<string> customerServiceType{};
+  shared_ptr<long> end{};
+  shared_ptr<long> id{};
+  shared_ptr<string> role{};
+  shared_ptr<string> type{};
+
+  GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDialogue() {}
+
+  explicit GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDialogue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (begin) {
+      res["begin"] = boost::any(*begin);
+    }
+    if (beginTime) {
+      res["beginTime"] = boost::any(*beginTime);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (customerId) {
+      res["customerId"] = boost::any(*customerId);
+    }
+    if (customerServiceId) {
+      res["customerServiceId"] = boost::any(*customerServiceId);
+    }
+    if (customerServiceType) {
+      res["customerServiceType"] = boost::any(*customerServiceType);
+    }
+    if (end) {
+      res["end"] = boost::any(*end);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("begin") != m.end() && !m["begin"].empty()) {
+      begin = make_shared<long>(boost::any_cast<long>(m["begin"]));
+    }
+    if (m.find("beginTime") != m.end() && !m["beginTime"].empty()) {
+      beginTime = make_shared<string>(boost::any_cast<string>(m["beginTime"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("customerId") != m.end() && !m["customerId"].empty()) {
+      customerId = make_shared<string>(boost::any_cast<string>(m["customerId"]));
+    }
+    if (m.find("customerServiceId") != m.end() && !m["customerServiceId"].empty()) {
+      customerServiceId = make_shared<string>(boost::any_cast<string>(m["customerServiceId"]));
+    }
+    if (m.find("customerServiceType") != m.end() && !m["customerServiceType"].empty()) {
+      customerServiceType = make_shared<string>(boost::any_cast<string>(m["customerServiceType"]));
+    }
+    if (m.find("end") != m.end() && !m["end"].empty()) {
+      end = make_shared<long>(boost::any_cast<long>(m["end"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDialogue() = default;
+};
+class GetQualityCheckTaskResultResponseBodyDataQualityCheckList : public Darabonba::Model {
+public:
+  shared_ptr<string> checkExplanation{};
+  shared_ptr<string> checkPassed{};
+  shared_ptr<string> checkProcess{};
+  shared_ptr<string> checked{};
+  shared_ptr<string> gmtEnd{};
+  shared_ptr<string> gmtStart{};
+  shared_ptr<string> mode{};
+  shared_ptr<vector<GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDialogue>> originDialogue{};
+  shared_ptr<string> qualityGroupId{};
+  shared_ptr<string> ruleDescription{};
+  shared_ptr<string> ruleId{};
+
+  GetQualityCheckTaskResultResponseBodyDataQualityCheckList() {}
+
+  explicit GetQualityCheckTaskResultResponseBodyDataQualityCheckList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkExplanation) {
+      res["checkExplanation"] = boost::any(*checkExplanation);
+    }
+    if (checkPassed) {
+      res["checkPassed"] = boost::any(*checkPassed);
+    }
+    if (checkProcess) {
+      res["checkProcess"] = boost::any(*checkProcess);
+    }
+    if (checked) {
+      res["checked"] = boost::any(*checked);
+    }
+    if (gmtEnd) {
+      res["gmtEnd"] = boost::any(*gmtEnd);
+    }
+    if (gmtStart) {
+      res["gmtStart"] = boost::any(*gmtStart);
+    }
+    if (mode) {
+      res["mode"] = boost::any(*mode);
+    }
+    if (originDialogue) {
+      vector<boost::any> temp1;
+      for(auto item1:*originDialogue){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["originDialogue"] = boost::any(temp1);
+    }
+    if (qualityGroupId) {
+      res["qualityGroupId"] = boost::any(*qualityGroupId);
+    }
+    if (ruleDescription) {
+      res["ruleDescription"] = boost::any(*ruleDescription);
+    }
+    if (ruleId) {
+      res["ruleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("checkExplanation") != m.end() && !m["checkExplanation"].empty()) {
+      checkExplanation = make_shared<string>(boost::any_cast<string>(m["checkExplanation"]));
+    }
+    if (m.find("checkPassed") != m.end() && !m["checkPassed"].empty()) {
+      checkPassed = make_shared<string>(boost::any_cast<string>(m["checkPassed"]));
+    }
+    if (m.find("checkProcess") != m.end() && !m["checkProcess"].empty()) {
+      checkProcess = make_shared<string>(boost::any_cast<string>(m["checkProcess"]));
+    }
+    if (m.find("checked") != m.end() && !m["checked"].empty()) {
+      checked = make_shared<string>(boost::any_cast<string>(m["checked"]));
+    }
+    if (m.find("gmtEnd") != m.end() && !m["gmtEnd"].empty()) {
+      gmtEnd = make_shared<string>(boost::any_cast<string>(m["gmtEnd"]));
+    }
+    if (m.find("gmtStart") != m.end() && !m["gmtStart"].empty()) {
+      gmtStart = make_shared<string>(boost::any_cast<string>(m["gmtStart"]));
+    }
+    if (m.find("mode") != m.end() && !m["mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["mode"]));
+    }
+    if (m.find("originDialogue") != m.end() && !m["originDialogue"].empty()) {
+      if (typeid(vector<boost::any>) == m["originDialogue"].type()) {
+        vector<GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDialogue> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["originDialogue"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDialogue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        originDialogue = make_shared<vector<GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDialogue>>(expect1);
+      }
+    }
+    if (m.find("qualityGroupId") != m.end() && !m["qualityGroupId"].empty()) {
+      qualityGroupId = make_shared<string>(boost::any_cast<string>(m["qualityGroupId"]));
+    }
+    if (m.find("ruleDescription") != m.end() && !m["ruleDescription"].empty()) {
+      ruleDescription = make_shared<string>(boost::any_cast<string>(m["ruleDescription"]));
+    }
+    if (m.find("ruleId") != m.end() && !m["ruleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["ruleId"]));
+    }
+  }
+
+
+  virtual ~GetQualityCheckTaskResultResponseBodyDataQualityCheckList() = default;
+};
+class GetQualityCheckTaskResultResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<GetQualityCheckTaskResultResponseBodyDataConversationList> conversationList{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtEnd{};
+  shared_ptr<string> gmtStart{};
+  shared_ptr<vector<GetQualityCheckTaskResultResponseBodyDataQualityCheckList>> qualityCheckList{};
+  shared_ptr<string> status{};
+  shared_ptr<string> taskId{};
+
+  GetQualityCheckTaskResultResponseBodyData() {}
+
+  explicit GetQualityCheckTaskResultResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conversationList) {
+      res["conversationList"] = conversationList ? boost::any(conversationList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (gmtCreate) {
+      res["gmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtEnd) {
+      res["gmtEnd"] = boost::any(*gmtEnd);
+    }
+    if (gmtStart) {
+      res["gmtStart"] = boost::any(*gmtStart);
+    }
+    if (qualityCheckList) {
+      vector<boost::any> temp1;
+      for(auto item1:*qualityCheckList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["qualityCheckList"] = boost::any(temp1);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("conversationList") != m.end() && !m["conversationList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["conversationList"].type()) {
+        GetQualityCheckTaskResultResponseBodyDataConversationList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["conversationList"]));
+        conversationList = make_shared<GetQualityCheckTaskResultResponseBodyDataConversationList>(model1);
+      }
+    }
+    if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmtCreate"]));
+    }
+    if (m.find("gmtEnd") != m.end() && !m["gmtEnd"].empty()) {
+      gmtEnd = make_shared<string>(boost::any_cast<string>(m["gmtEnd"]));
+    }
+    if (m.find("gmtStart") != m.end() && !m["gmtStart"].empty()) {
+      gmtStart = make_shared<string>(boost::any_cast<string>(m["gmtStart"]));
+    }
+    if (m.find("qualityCheckList") != m.end() && !m["qualityCheckList"].empty()) {
+      if (typeid(vector<boost::any>) == m["qualityCheckList"].type()) {
+        vector<GetQualityCheckTaskResultResponseBodyDataQualityCheckList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["qualityCheckList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetQualityCheckTaskResultResponseBodyDataQualityCheckList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        qualityCheckList = make_shared<vector<GetQualityCheckTaskResultResponseBodyDataQualityCheckList>>(expect1);
+      }
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+  }
+
+
+  virtual ~GetQualityCheckTaskResultResponseBodyData() = default;
+};
+class GetQualityCheckTaskResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> cost{};
+  shared_ptr<GetQualityCheckTaskResultResponseBodyData> data{};
+  shared_ptr<string> dataType{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> time{};
+
+  GetQualityCheckTaskResultResponseBody() {}
+
+  explicit GetQualityCheckTaskResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cost) {
+      res["cost"] = boost::any(*cost);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dataType) {
+      res["dataType"] = boost::any(*dataType);
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cost") != m.end() && !m["cost"].empty()) {
+      cost = make_shared<long>(boost::any_cast<long>(m["cost"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        GetQualityCheckTaskResultResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<GetQualityCheckTaskResultResponseBodyData>(model1);
+      }
+    }
+    if (m.find("dataType") != m.end() && !m["dataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["dataType"]));
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["time"]));
+    }
+  }
+
+
+  virtual ~GetQualityCheckTaskResultResponseBody() = default;
+};
+class GetQualityCheckTaskResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetQualityCheckTaskResultResponseBody> body{};
+
+  GetQualityCheckTaskResultResponse() {}
+
+  explicit GetQualityCheckTaskResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetQualityCheckTaskResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetQualityCheckTaskResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetQualityCheckTaskResultResponse() = default;
 };
 class GetSummaryTaskResultRequest : public Darabonba::Model {
 public:
@@ -10863,6 +12154,11 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  CreateDocsSummaryTaskResponse createDocsSummaryTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                 shared_ptr<CreateDocsSummaryTaskRequest> request,
+                                                                 shared_ptr<map<string, string>> headers,
+                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDocsSummaryTaskResponse createDocsSummaryTask(shared_ptr<string> workspaceId, shared_ptr<CreateDocsSummaryTaskRequest> request);
   CreateFinReportSummaryTaskResponse createFinReportSummaryTaskWithOptions(shared_ptr<string> workspaceId,
                                                                            shared_ptr<CreateFinReportSummaryTaskRequest> request,
                                                                            shared_ptr<map<string, string>> headers,
@@ -10883,6 +12179,11 @@ public:
                                                                        shared_ptr<map<string, string>> headers,
                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePredefinedDocumentResponse createPredefinedDocument(shared_ptr<string> workspaceId, shared_ptr<CreatePredefinedDocumentRequest> request);
+  CreateQualityCheckTaskResponse createQualityCheckTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                   shared_ptr<CreateQualityCheckTaskRequest> request,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateQualityCheckTaskResponse createQualityCheckTask(shared_ptr<string> workspaceId, shared_ptr<CreateQualityCheckTaskRequest> request);
   DeleteDocumentResponse deleteDocumentWithOptions(shared_ptr<string> workspaceId,
                                                    shared_ptr<DeleteDocumentRequest> request,
                                                    shared_ptr<map<string, string>> headers,
@@ -10940,6 +12241,11 @@ public:
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetParseResultResponse getParseResult(shared_ptr<string> workspaceId, shared_ptr<GetParseResultRequest> request);
+  GetQualityCheckTaskResultResponse getQualityCheckTaskResultWithOptions(shared_ptr<string> workspaceId,
+                                                                         shared_ptr<GetQualityCheckTaskResultRequest> request,
+                                                                         shared_ptr<map<string, string>> headers,
+                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetQualityCheckTaskResultResponse getQualityCheckTaskResult(shared_ptr<string> workspaceId, shared_ptr<GetQualityCheckTaskResultRequest> request);
   GetSummaryTaskResultResponse getSummaryTaskResultWithOptions(shared_ptr<string> workspaceId,
                                                                shared_ptr<GetSummaryTaskResultRequest> request,
                                                                shared_ptr<map<string, string>> headers,
