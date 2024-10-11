@@ -4199,6 +4199,9 @@ ListCallDetailRecordsV2Response Alibabacloud_CCC20200701::Client::listCallDetail
   if (!Darabonba_Util::Client::isUnset<string>(request->agentId)) {
     query->insert(pair<string, string>("AgentId", *request->agentId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->analyticsReportReady)) {
+    query->insert(pair<string, bool>("AnalyticsReportReady", *request->analyticsReportReady));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->broker)) {
     query->insert(pair<string, string>("Broker", *request->broker));
   }
