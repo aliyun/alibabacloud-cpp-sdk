@@ -457,17 +457,29 @@ CreateDBResourceGroupResponse Alibabacloud_Adb20211201::Client::createDBResource
   if (!Darabonba_Util::Client::isUnset<string>(request->maxComputeResource)) {
     query->insert(pair<string, string>("MaxComputeResource", *request->maxComputeResource));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxGpuQuantity)) {
+    query->insert(pair<string, long>("MaxGpuQuantity", *request->maxGpuQuantity));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->minClusterCount)) {
     query->insert(pair<string, long>("MinClusterCount", *request->minClusterCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->minComputeResource)) {
     query->insert(pair<string, string>("MinComputeResource", *request->minComputeResource));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minGpuQuantity)) {
+    query->insert(pair<string, long>("MinGpuQuantity", *request->minGpuQuantity));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->rulesShrink)) {
     query->insert(pair<string, string>("Rules", *request->rulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->specName)) {
+    query->insert(pair<string, string>("SpecName", *request->specName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetResourceGroupName)) {
+    query->insert(pair<string, string>("TargetResourceGroupName", *request->targetResourceGroupName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4597,17 +4609,29 @@ ModifyDBResourceGroupResponse Alibabacloud_Adb20211201::Client::modifyDBResource
   if (!Darabonba_Util::Client::isUnset<string>(request->maxComputeResource)) {
     query->insert(pair<string, string>("MaxComputeResource", *request->maxComputeResource));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxGpuQuantity)) {
+    query->insert(pair<string, long>("MaxGpuQuantity", *request->maxGpuQuantity));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->minClusterCount)) {
     query->insert(pair<string, long>("MinClusterCount", *request->minClusterCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->minComputeResource)) {
     query->insert(pair<string, string>("MinComputeResource", *request->minComputeResource));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minGpuQuantity)) {
+    query->insert(pair<string, long>("MinGpuQuantity", *request->minGpuQuantity));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->rulesShrink)) {
     query->insert(pair<string, string>("Rules", *request->rulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->specName)) {
+    query->insert(pair<string, string>("SpecName", *request->specName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetResourceGroupName)) {
+    query->insert(pair<string, string>("TargetResourceGroupName", *request->targetResourceGroupName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

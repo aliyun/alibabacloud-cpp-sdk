@@ -3788,10 +3788,14 @@ public:
   shared_ptr<string> groupType{};
   shared_ptr<long> maxClusterCount{};
   shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> maxGpuQuantity{};
   shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
+  shared_ptr<long> minGpuQuantity{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<CreateDBResourceGroupRequestRules>> rules{};
+  shared_ptr<string> specName{};
+  shared_ptr<string> targetResourceGroupName{};
 
   CreateDBResourceGroupRequest() {}
 
@@ -3833,11 +3837,17 @@ public:
     if (maxComputeResource) {
       res["MaxComputeResource"] = boost::any(*maxComputeResource);
     }
+    if (maxGpuQuantity) {
+      res["MaxGpuQuantity"] = boost::any(*maxGpuQuantity);
+    }
     if (minClusterCount) {
       res["MinClusterCount"] = boost::any(*minClusterCount);
     }
     if (minComputeResource) {
       res["MinComputeResource"] = boost::any(*minComputeResource);
+    }
+    if (minGpuQuantity) {
+      res["MinGpuQuantity"] = boost::any(*minGpuQuantity);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -3848,6 +3858,12 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Rules"] = boost::any(temp1);
+    }
+    if (specName) {
+      res["SpecName"] = boost::any(*specName);
+    }
+    if (targetResourceGroupName) {
+      res["TargetResourceGroupName"] = boost::any(*targetResourceGroupName);
     }
     return res;
   }
@@ -3888,11 +3904,17 @@ public:
     if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
       maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
     }
+    if (m.find("MaxGpuQuantity") != m.end() && !m["MaxGpuQuantity"].empty()) {
+      maxGpuQuantity = make_shared<long>(boost::any_cast<long>(m["MaxGpuQuantity"]));
+    }
     if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
       minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
     }
     if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
       minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
+    }
+    if (m.find("MinGpuQuantity") != m.end() && !m["MinGpuQuantity"].empty()) {
+      minGpuQuantity = make_shared<long>(boost::any_cast<long>(m["MinGpuQuantity"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -3909,6 +3931,12 @@ public:
         }
         rules = make_shared<vector<CreateDBResourceGroupRequestRules>>(expect1);
       }
+    }
+    if (m.find("SpecName") != m.end() && !m["SpecName"].empty()) {
+      specName = make_shared<string>(boost::any_cast<string>(m["SpecName"]));
+    }
+    if (m.find("TargetResourceGroupName") != m.end() && !m["TargetResourceGroupName"].empty()) {
+      targetResourceGroupName = make_shared<string>(boost::any_cast<string>(m["TargetResourceGroupName"]));
     }
   }
 
@@ -3927,10 +3955,14 @@ public:
   shared_ptr<string> groupType{};
   shared_ptr<long> maxClusterCount{};
   shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> maxGpuQuantity{};
   shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
+  shared_ptr<long> minGpuQuantity{};
   shared_ptr<string> regionId{};
   shared_ptr<string> rulesShrink{};
+  shared_ptr<string> specName{};
+  shared_ptr<string> targetResourceGroupName{};
 
   CreateDBResourceGroupShrinkRequest() {}
 
@@ -3972,17 +4004,29 @@ public:
     if (maxComputeResource) {
       res["MaxComputeResource"] = boost::any(*maxComputeResource);
     }
+    if (maxGpuQuantity) {
+      res["MaxGpuQuantity"] = boost::any(*maxGpuQuantity);
+    }
     if (minClusterCount) {
       res["MinClusterCount"] = boost::any(*minClusterCount);
     }
     if (minComputeResource) {
       res["MinComputeResource"] = boost::any(*minComputeResource);
     }
+    if (minGpuQuantity) {
+      res["MinGpuQuantity"] = boost::any(*minGpuQuantity);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
     if (rulesShrink) {
       res["Rules"] = boost::any(*rulesShrink);
+    }
+    if (specName) {
+      res["SpecName"] = boost::any(*specName);
+    }
+    if (targetResourceGroupName) {
+      res["TargetResourceGroupName"] = boost::any(*targetResourceGroupName);
     }
     return res;
   }
@@ -4018,17 +4062,29 @@ public:
     if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
       maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
     }
+    if (m.find("MaxGpuQuantity") != m.end() && !m["MaxGpuQuantity"].empty()) {
+      maxGpuQuantity = make_shared<long>(boost::any_cast<long>(m["MaxGpuQuantity"]));
+    }
     if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
       minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
     }
     if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
       minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
     }
+    if (m.find("MinGpuQuantity") != m.end() && !m["MinGpuQuantity"].empty()) {
+      minGpuQuantity = make_shared<long>(boost::any_cast<long>(m["MinGpuQuantity"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
       rulesShrink = make_shared<string>(boost::any_cast<string>(m["Rules"]));
+    }
+    if (m.find("SpecName") != m.end() && !m["SpecName"].empty()) {
+      specName = make_shared<string>(boost::any_cast<string>(m["SpecName"]));
+    }
+    if (m.find("TargetResourceGroupName") != m.end() && !m["TargetResourceGroupName"].empty()) {
+      targetResourceGroupName = make_shared<string>(boost::any_cast<string>(m["TargetResourceGroupName"]));
     }
   }
 
@@ -14063,12 +14119,16 @@ public:
   shared_ptr<string> groupUsers{};
   shared_ptr<long> maxClusterCount{};
   shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> maxGpuQuantity{};
   shared_ptr<string> message{};
   shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
+  shared_ptr<long> minGpuQuantity{};
   shared_ptr<vector<DescribeDBResourceGroupResponseBodyGroupsInfoRules>> rules{};
   shared_ptr<long> runningClusterCount{};
+  shared_ptr<string> specName{};
   shared_ptr<string> status{};
+  shared_ptr<string> targetResourceGroupName{};
   shared_ptr<string> updateTime{};
 
   DescribeDBResourceGroupResponseBodyGroupsInfo() {}
@@ -14117,6 +14177,9 @@ public:
     if (maxComputeResource) {
       res["MaxComputeResource"] = boost::any(*maxComputeResource);
     }
+    if (maxGpuQuantity) {
+      res["MaxGpuQuantity"] = boost::any(*maxGpuQuantity);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
@@ -14125,6 +14188,9 @@ public:
     }
     if (minComputeResource) {
       res["MinComputeResource"] = boost::any(*minComputeResource);
+    }
+    if (minGpuQuantity) {
+      res["MinGpuQuantity"] = boost::any(*minGpuQuantity);
     }
     if (rules) {
       vector<boost::any> temp1;
@@ -14136,8 +14202,14 @@ public:
     if (runningClusterCount) {
       res["RunningClusterCount"] = boost::any(*runningClusterCount);
     }
+    if (specName) {
+      res["SpecName"] = boost::any(*specName);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (targetResourceGroupName) {
+      res["TargetResourceGroupName"] = boost::any(*targetResourceGroupName);
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
@@ -14187,6 +14259,9 @@ public:
     if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
       maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
     }
+    if (m.find("MaxGpuQuantity") != m.end() && !m["MaxGpuQuantity"].empty()) {
+      maxGpuQuantity = make_shared<long>(boost::any_cast<long>(m["MaxGpuQuantity"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
@@ -14195,6 +14270,9 @@ public:
     }
     if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
       minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
+    }
+    if (m.find("MinGpuQuantity") != m.end() && !m["MinGpuQuantity"].empty()) {
+      minGpuQuantity = make_shared<long>(boost::any_cast<long>(m["MinGpuQuantity"]));
     }
     if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
       if (typeid(vector<boost::any>) == m["Rules"].type()) {
@@ -14212,8 +14290,14 @@ public:
     if (m.find("RunningClusterCount") != m.end() && !m["RunningClusterCount"].empty()) {
       runningClusterCount = make_shared<long>(boost::any_cast<long>(m["RunningClusterCount"]));
     }
+    if (m.find("SpecName") != m.end() && !m["SpecName"].empty()) {
+      specName = make_shared<string>(boost::any_cast<string>(m["SpecName"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TargetResourceGroupName") != m.end() && !m["TargetResourceGroupName"].empty()) {
+      targetResourceGroupName = make_shared<string>(boost::any_cast<string>(m["TargetResourceGroupName"]));
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -27985,10 +28069,14 @@ public:
   shared_ptr<string> groupType{};
   shared_ptr<long> maxClusterCount{};
   shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> maxGpuQuantity{};
   shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
+  shared_ptr<long> minGpuQuantity{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<ModifyDBResourceGroupRequestRules>> rules{};
+  shared_ptr<string> specName{};
+  shared_ptr<string> targetResourceGroupName{};
 
   ModifyDBResourceGroupRequest() {}
 
@@ -28027,11 +28115,17 @@ public:
     if (maxComputeResource) {
       res["MaxComputeResource"] = boost::any(*maxComputeResource);
     }
+    if (maxGpuQuantity) {
+      res["MaxGpuQuantity"] = boost::any(*maxGpuQuantity);
+    }
     if (minClusterCount) {
       res["MinClusterCount"] = boost::any(*minClusterCount);
     }
     if (minComputeResource) {
       res["MinComputeResource"] = boost::any(*minComputeResource);
+    }
+    if (minGpuQuantity) {
+      res["MinGpuQuantity"] = boost::any(*minGpuQuantity);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -28042,6 +28136,12 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Rules"] = boost::any(temp1);
+    }
+    if (specName) {
+      res["SpecName"] = boost::any(*specName);
+    }
+    if (targetResourceGroupName) {
+      res["TargetResourceGroupName"] = boost::any(*targetResourceGroupName);
     }
     return res;
   }
@@ -28079,11 +28179,17 @@ public:
     if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
       maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
     }
+    if (m.find("MaxGpuQuantity") != m.end() && !m["MaxGpuQuantity"].empty()) {
+      maxGpuQuantity = make_shared<long>(boost::any_cast<long>(m["MaxGpuQuantity"]));
+    }
     if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
       minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
     }
     if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
       minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
+    }
+    if (m.find("MinGpuQuantity") != m.end() && !m["MinGpuQuantity"].empty()) {
+      minGpuQuantity = make_shared<long>(boost::any_cast<long>(m["MinGpuQuantity"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -28101,6 +28207,12 @@ public:
         rules = make_shared<vector<ModifyDBResourceGroupRequestRules>>(expect1);
       }
     }
+    if (m.find("SpecName") != m.end() && !m["SpecName"].empty()) {
+      specName = make_shared<string>(boost::any_cast<string>(m["SpecName"]));
+    }
+    if (m.find("TargetResourceGroupName") != m.end() && !m["TargetResourceGroupName"].empty()) {
+      targetResourceGroupName = make_shared<string>(boost::any_cast<string>(m["TargetResourceGroupName"]));
+    }
   }
 
 
@@ -28117,10 +28229,14 @@ public:
   shared_ptr<string> groupType{};
   shared_ptr<long> maxClusterCount{};
   shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> maxGpuQuantity{};
   shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
+  shared_ptr<long> minGpuQuantity{};
   shared_ptr<string> regionId{};
   shared_ptr<string> rulesShrink{};
+  shared_ptr<string> specName{};
+  shared_ptr<string> targetResourceGroupName{};
 
   ModifyDBResourceGroupShrinkRequest() {}
 
@@ -28159,17 +28275,29 @@ public:
     if (maxComputeResource) {
       res["MaxComputeResource"] = boost::any(*maxComputeResource);
     }
+    if (maxGpuQuantity) {
+      res["MaxGpuQuantity"] = boost::any(*maxGpuQuantity);
+    }
     if (minClusterCount) {
       res["MinClusterCount"] = boost::any(*minClusterCount);
     }
     if (minComputeResource) {
       res["MinComputeResource"] = boost::any(*minComputeResource);
     }
+    if (minGpuQuantity) {
+      res["MinGpuQuantity"] = boost::any(*minGpuQuantity);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
     if (rulesShrink) {
       res["Rules"] = boost::any(*rulesShrink);
+    }
+    if (specName) {
+      res["SpecName"] = boost::any(*specName);
+    }
+    if (targetResourceGroupName) {
+      res["TargetResourceGroupName"] = boost::any(*targetResourceGroupName);
     }
     return res;
   }
@@ -28202,17 +28330,29 @@ public:
     if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
       maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
     }
+    if (m.find("MaxGpuQuantity") != m.end() && !m["MaxGpuQuantity"].empty()) {
+      maxGpuQuantity = make_shared<long>(boost::any_cast<long>(m["MaxGpuQuantity"]));
+    }
     if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
       minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
     }
     if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
       minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
     }
+    if (m.find("MinGpuQuantity") != m.end() && !m["MinGpuQuantity"].empty()) {
+      minGpuQuantity = make_shared<long>(boost::any_cast<long>(m["MinGpuQuantity"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
       rulesShrink = make_shared<string>(boost::any_cast<string>(m["Rules"]));
+    }
+    if (m.find("SpecName") != m.end() && !m["SpecName"].empty()) {
+      specName = make_shared<string>(boost::any_cast<string>(m["SpecName"]));
+    }
+    if (m.find("TargetResourceGroupName") != m.end() && !m["TargetResourceGroupName"].empty()) {
+      targetResourceGroupName = make_shared<string>(boost::any_cast<string>(m["TargetResourceGroupName"]));
     }
   }
 
