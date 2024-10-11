@@ -12431,6 +12431,7 @@ public:
   shared_ptr<bool> deploy{};
   shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
+  shared_ptr<bool> enableCpuBurst{};
   shared_ptr<string> enableEbpf{};
   shared_ptr<bool> enableNewArms{};
   shared_ptr<string> envs{};
@@ -12536,6 +12537,9 @@ public:
     }
     if (edasContainerVersion) {
       res["EdasContainerVersion"] = boost::any(*edasContainerVersion);
+    }
+    if (enableCpuBurst) {
+      res["EnableCpuBurst"] = boost::any(*enableCpuBurst);
     }
     if (enableEbpf) {
       res["EnableEbpf"] = boost::any(*enableEbpf);
@@ -12729,6 +12733,9 @@ public:
     }
     if (m.find("EdasContainerVersion") != m.end() && !m["EdasContainerVersion"].empty()) {
       edasContainerVersion = make_shared<string>(boost::any_cast<string>(m["EdasContainerVersion"]));
+    }
+    if (m.find("EnableCpuBurst") != m.end() && !m["EnableCpuBurst"].empty()) {
+      enableCpuBurst = make_shared<bool>(boost::any_cast<bool>(m["EnableCpuBurst"]));
     }
     if (m.find("EnableEbpf") != m.end() && !m["EnableEbpf"].empty()) {
       enableEbpf = make_shared<string>(boost::any_cast<string>(m["EnableEbpf"]));
@@ -17373,6 +17380,7 @@ public:
   shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
   shared_ptr<string> enableAhas{};
+  shared_ptr<bool> enableCpuBurst{};
   shared_ptr<bool> enableGreyTagRoute{};
   shared_ptr<bool> enableNewArms{};
   shared_ptr<string> envs{};
@@ -17477,6 +17485,9 @@ public:
     }
     if (enableAhas) {
       res["EnableAhas"] = boost::any(*enableAhas);
+    }
+    if (enableCpuBurst) {
+      res["EnableCpuBurst"] = boost::any(*enableCpuBurst);
     }
     if (enableGreyTagRoute) {
       res["EnableGreyTagRoute"] = boost::any(*enableGreyTagRoute);
@@ -17667,6 +17678,9 @@ public:
     }
     if (m.find("EnableAhas") != m.end() && !m["EnableAhas"].empty()) {
       enableAhas = make_shared<string>(boost::any_cast<string>(m["EnableAhas"]));
+    }
+    if (m.find("EnableCpuBurst") != m.end() && !m["EnableCpuBurst"].empty()) {
+      enableCpuBurst = make_shared<bool>(boost::any_cast<bool>(m["EnableCpuBurst"]));
     }
     if (m.find("EnableGreyTagRoute") != m.end() && !m["EnableGreyTagRoute"].empty()) {
       enableGreyTagRoute = make_shared<bool>(boost::any_cast<bool>(m["EnableGreyTagRoute"]));
@@ -18721,6 +18735,7 @@ public:
   shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
   shared_ptr<string> enableAhas{};
+  shared_ptr<string> enableCpuBurst{};
   shared_ptr<bool> enableGreyTagRoute{};
   shared_ptr<bool> enableIdle{};
   shared_ptr<bool> enableNewArms{};
@@ -18837,6 +18852,9 @@ public:
     }
     if (enableAhas) {
       res["EnableAhas"] = boost::any(*enableAhas);
+    }
+    if (enableCpuBurst) {
+      res["EnableCpuBurst"] = boost::any(*enableCpuBurst);
     }
     if (enableGreyTagRoute) {
       res["EnableGreyTagRoute"] = boost::any(*enableGreyTagRoute);
@@ -19073,6 +19091,9 @@ public:
     }
     if (m.find("EnableAhas") != m.end() && !m["EnableAhas"].empty()) {
       enableAhas = make_shared<string>(boost::any_cast<string>(m["EnableAhas"]));
+    }
+    if (m.find("EnableCpuBurst") != m.end() && !m["EnableCpuBurst"].empty()) {
+      enableCpuBurst = make_shared<string>(boost::any_cast<string>(m["EnableCpuBurst"]));
     }
     if (m.find("EnableGreyTagRoute") != m.end() && !m["EnableGreyTagRoute"].empty()) {
       enableGreyTagRoute = make_shared<bool>(boost::any_cast<bool>(m["EnableGreyTagRoute"]));

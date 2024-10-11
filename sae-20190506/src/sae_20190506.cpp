@@ -289,6 +289,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->edasContainerVersion)) {
     query->insert(pair<string, string>("EdasContainerVersion", *request->edasContainerVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableCpuBurst)) {
+    query->insert(pair<string, bool>("EnableCpuBurst", *request->enableCpuBurst));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->enableEbpf)) {
     query->insert(pair<string, string>("EnableEbpf", *request->enableEbpf));
   }
@@ -1438,6 +1441,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->enableAhas)) {
     query->insert(pair<string, string>("EnableAhas", *request->enableAhas));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableCpuBurst)) {
+    query->insert(pair<string, bool>("EnableCpuBurst", *request->enableCpuBurst));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableGreyTagRoute)) {
     query->insert(pair<string, bool>("EnableGreyTagRoute", *request->enableGreyTagRoute));
