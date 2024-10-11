@@ -33606,6 +33606,205 @@ public:
 
   virtual ~ImportZookeeperDataResponse() = default;
 };
+class InitializeServiceLinkRoleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> roleName{};
+  shared_ptr<string> token{};
+
+  InitializeServiceLinkRoleRequest() {}
+
+  explicit InitializeServiceLinkRoleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
+    }
+    if (token) {
+      res["Token"] = boost::any(*token);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
+    }
+    if (m.find("Token") != m.end() && !m["Token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
+    }
+  }
+
+
+  virtual ~InitializeServiceLinkRoleRequest() = default;
+};
+class InitializeServiceLinkRoleResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> requiredPermission{};
+  shared_ptr<string> roleName{};
+  shared_ptr<string> serviceName{};
+
+  InitializeServiceLinkRoleResponseBodyData() {}
+
+  explicit InitializeServiceLinkRoleResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requiredPermission) {
+      res["RequiredPermission"] = boost::any(*requiredPermission);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequiredPermission") != m.end() && !m["RequiredPermission"].empty()) {
+      requiredPermission = make_shared<string>(boost::any_cast<string>(m["RequiredPermission"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+  }
+
+
+  virtual ~InitializeServiceLinkRoleResponseBodyData() = default;
+};
+class InitializeServiceLinkRoleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<InitializeServiceLinkRoleResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  InitializeServiceLinkRoleResponseBody() {}
+
+  explicit InitializeServiceLinkRoleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        InitializeServiceLinkRoleResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<InitializeServiceLinkRoleResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~InitializeServiceLinkRoleResponseBody() = default;
+};
+class InitializeServiceLinkRoleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<InitializeServiceLinkRoleResponseBody> body{};
+
+  InitializeServiceLinkRoleResponse() {}
+
+  explicit InitializeServiceLinkRoleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        InitializeServiceLinkRoleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<InitializeServiceLinkRoleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InitializeServiceLinkRoleResponse() = default;
+};
 class ListAnsInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -73648,6 +73847,8 @@ public:
   ImportServicesResponse importServices(shared_ptr<ImportServicesRequest> request);
   ImportZookeeperDataResponse importZookeeperDataWithOptions(shared_ptr<ImportZookeeperDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportZookeeperDataResponse importZookeeperData(shared_ptr<ImportZookeeperDataRequest> request);
+  InitializeServiceLinkRoleResponse initializeServiceLinkRoleWithOptions(shared_ptr<InitializeServiceLinkRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InitializeServiceLinkRoleResponse initializeServiceLinkRole(shared_ptr<InitializeServiceLinkRoleRequest> request);
   ListAnsInstancesResponse listAnsInstancesWithOptions(shared_ptr<ListAnsInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAnsInstancesResponse listAnsInstances(shared_ptr<ListAnsInstancesRequest> request);
   ListAnsServiceClustersResponse listAnsServiceClustersWithOptions(shared_ptr<ListAnsServiceClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
