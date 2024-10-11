@@ -10264,6 +10264,233 @@ public:
 
   virtual ~DeleteCustomScenePolicyResponse() = default;
 };
+class DeleteKvRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> namespace_{};
+
+  DeleteKvRequest() {}
+
+  explicit DeleteKvRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~DeleteKvRequest() = default;
+};
+class DeleteKvResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteKvResponseBody() {}
+
+  explicit DeleteKvResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteKvResponseBody() = default;
+};
+class DeleteKvResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteKvResponseBody> body{};
+
+  DeleteKvResponse() {}
+
+  explicit DeleteKvResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteKvResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteKvResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteKvResponse() = default;
+};
+class DeleteKvNamespaceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> namespace_{};
+
+  DeleteKvNamespaceRequest() {}
+
+  explicit DeleteKvNamespaceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~DeleteKvNamespaceRequest() = default;
+};
+class DeleteKvNamespaceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteKvNamespaceResponseBody() {}
+
+  explicit DeleteKvNamespaceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteKvNamespaceResponseBody() = default;
+};
+class DeleteKvNamespaceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteKvNamespaceResponseBody> body{};
+
+  DeleteKvNamespaceResponse() {}
+
+  explicit DeleteKvNamespaceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteKvNamespaceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteKvNamespaceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteKvNamespaceResponse() = default;
+};
 class DeleteListRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
@@ -12701,6 +12928,94 @@ public:
 
   virtual ~DescribeIPRangeListResponse() = default;
 };
+class DescribeKvAccountStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  DescribeKvAccountStatusResponseBody() {}
+
+  explicit DescribeKvAccountStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeKvAccountStatusResponseBody() = default;
+};
+class DescribeKvAccountStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeKvAccountStatusResponseBody> body{};
+
+  DescribeKvAccountStatusResponse() {}
+
+  explicit DescribeKvAccountStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeKvAccountStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeKvAccountStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeKvAccountStatusResponse() = default;
+};
 class DescribePreloadTasksRequest : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -13861,6 +14176,366 @@ public:
 
 
   virtual ~GetCacheReserveSpecificationResponse() = default;
+};
+class GetKvRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> base64{};
+  shared_ptr<string> key{};
+  shared_ptr<string> namespace_{};
+
+  GetKvRequest() {}
+
+  explicit GetKvRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (base64) {
+      res["Base64"] = boost::any(*base64);
+    }
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Base64") != m.end() && !m["Base64"].empty()) {
+      base64 = make_shared<bool>(boost::any_cast<bool>(m["Base64"]));
+    }
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~GetKvRequest() = default;
+};
+class GetKvResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> value{};
+
+  GetKvResponseBody() {}
+
+  explicit GetKvResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetKvResponseBody() = default;
+};
+class GetKvResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetKvResponseBody> body{};
+
+  GetKvResponse() {}
+
+  explicit GetKvResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetKvResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetKvResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetKvResponse() = default;
+};
+class GetKvAccountResponseBodyNamespaceList : public Darabonba::Model {
+public:
+  shared_ptr<long> capacity{};
+  shared_ptr<string> capacityString{};
+  shared_ptr<long> capacityUsed{};
+  shared_ptr<string> capacityUsedString{};
+  shared_ptr<string> description{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespaceId{};
+  shared_ptr<string> status{};
+
+  GetKvAccountResponseBodyNamespaceList() {}
+
+  explicit GetKvAccountResponseBodyNamespaceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (capacity) {
+      res["Capacity"] = boost::any(*capacity);
+    }
+    if (capacityString) {
+      res["CapacityString"] = boost::any(*capacityString);
+    }
+    if (capacityUsed) {
+      res["CapacityUsed"] = boost::any(*capacityUsed);
+    }
+    if (capacityUsedString) {
+      res["CapacityUsedString"] = boost::any(*capacityUsedString);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Capacity") != m.end() && !m["Capacity"].empty()) {
+      capacity = make_shared<long>(boost::any_cast<long>(m["Capacity"]));
+    }
+    if (m.find("CapacityString") != m.end() && !m["CapacityString"].empty()) {
+      capacityString = make_shared<string>(boost::any_cast<string>(m["CapacityString"]));
+    }
+    if (m.find("CapacityUsed") != m.end() && !m["CapacityUsed"].empty()) {
+      capacityUsed = make_shared<long>(boost::any_cast<long>(m["CapacityUsed"]));
+    }
+    if (m.find("CapacityUsedString") != m.end() && !m["CapacityUsedString"].empty()) {
+      capacityUsedString = make_shared<string>(boost::any_cast<string>(m["CapacityUsedString"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetKvAccountResponseBodyNamespaceList() = default;
+};
+class GetKvAccountResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> capacity{};
+  shared_ptr<string> capacityString{};
+  shared_ptr<long> capacityUsed{};
+  shared_ptr<string> capacityUsedString{};
+  shared_ptr<vector<GetKvAccountResponseBodyNamespaceList>> namespaceList{};
+  shared_ptr<long> namespaceQuota{};
+  shared_ptr<long> namespaceUsed{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  GetKvAccountResponseBody() {}
+
+  explicit GetKvAccountResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (capacity) {
+      res["Capacity"] = boost::any(*capacity);
+    }
+    if (capacityString) {
+      res["CapacityString"] = boost::any(*capacityString);
+    }
+    if (capacityUsed) {
+      res["CapacityUsed"] = boost::any(*capacityUsed);
+    }
+    if (capacityUsedString) {
+      res["CapacityUsedString"] = boost::any(*capacityUsedString);
+    }
+    if (namespaceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*namespaceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NamespaceList"] = boost::any(temp1);
+    }
+    if (namespaceQuota) {
+      res["NamespaceQuota"] = boost::any(*namespaceQuota);
+    }
+    if (namespaceUsed) {
+      res["NamespaceUsed"] = boost::any(*namespaceUsed);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Capacity") != m.end() && !m["Capacity"].empty()) {
+      capacity = make_shared<long>(boost::any_cast<long>(m["Capacity"]));
+    }
+    if (m.find("CapacityString") != m.end() && !m["CapacityString"].empty()) {
+      capacityString = make_shared<string>(boost::any_cast<string>(m["CapacityString"]));
+    }
+    if (m.find("CapacityUsed") != m.end() && !m["CapacityUsed"].empty()) {
+      capacityUsed = make_shared<long>(boost::any_cast<long>(m["CapacityUsed"]));
+    }
+    if (m.find("CapacityUsedString") != m.end() && !m["CapacityUsedString"].empty()) {
+      capacityUsedString = make_shared<string>(boost::any_cast<string>(m["CapacityUsedString"]));
+    }
+    if (m.find("NamespaceList") != m.end() && !m["NamespaceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["NamespaceList"].type()) {
+        vector<GetKvAccountResponseBodyNamespaceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NamespaceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetKvAccountResponseBodyNamespaceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        namespaceList = make_shared<vector<GetKvAccountResponseBodyNamespaceList>>(expect1);
+      }
+    }
+    if (m.find("NamespaceQuota") != m.end() && !m["NamespaceQuota"].empty()) {
+      namespaceQuota = make_shared<long>(boost::any_cast<long>(m["NamespaceQuota"]));
+    }
+    if (m.find("NamespaceUsed") != m.end() && !m["NamespaceUsed"].empty()) {
+      namespaceUsed = make_shared<long>(boost::any_cast<long>(m["NamespaceUsed"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetKvAccountResponseBody() = default;
+};
+class GetKvAccountResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetKvAccountResponseBody> body{};
+
+  GetKvAccountResponse() {}
+
+  explicit GetKvAccountResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetKvAccountResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetKvAccountResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetKvAccountResponse() = default;
 };
 class GetKvNamespaceRequest : public Darabonba::Model {
 public:
@@ -33434,6 +34109,10 @@ public:
   CreateWaitingRoomRuleResponse createWaitingRoomRule(shared_ptr<CreateWaitingRoomRuleRequest> request);
   DeleteCustomScenePolicyResponse deleteCustomScenePolicyWithOptions(shared_ptr<DeleteCustomScenePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteCustomScenePolicyResponse deleteCustomScenePolicy(shared_ptr<DeleteCustomScenePolicyRequest> request);
+  DeleteKvResponse deleteKvWithOptions(shared_ptr<DeleteKvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteKvResponse deleteKv(shared_ptr<DeleteKvRequest> request);
+  DeleteKvNamespaceResponse deleteKvNamespaceWithOptions(shared_ptr<DeleteKvNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteKvNamespaceResponse deleteKvNamespace(shared_ptr<DeleteKvNamespaceRequest> request);
   DeleteListResponse deleteListWithOptions(shared_ptr<DeleteListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteListResponse deleteList(shared_ptr<DeleteListRequest> request);
   DeletePageResponse deletePageWithOptions(shared_ptr<DeletePageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -33470,6 +34149,8 @@ public:
   DescribeHttpDDoSAttackProtectionResponse describeHttpDDoSAttackProtection(shared_ptr<DescribeHttpDDoSAttackProtectionRequest> request);
   DescribeIPRangeListResponse describeIPRangeListWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeIPRangeListResponse describeIPRangeList();
+  DescribeKvAccountStatusResponse describeKvAccountStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeKvAccountStatusResponse describeKvAccountStatus();
   DescribePreloadTasksResponse describePreloadTasksWithOptions(shared_ptr<DescribePreloadTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePreloadTasksResponse describePreloadTasks(shared_ptr<DescribePreloadTasksRequest> request);
   DescribePurgeTasksResponse describePurgeTasksWithOptions(shared_ptr<DescribePurgeTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -33484,6 +34165,10 @@ public:
   ExportRecordsResponse exportRecords(shared_ptr<ExportRecordsRequest> request);
   GetCacheReserveSpecificationResponse getCacheReserveSpecificationWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCacheReserveSpecificationResponse getCacheReserveSpecification();
+  GetKvResponse getKvWithOptions(shared_ptr<GetKvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetKvResponse getKv(shared_ptr<GetKvRequest> request);
+  GetKvAccountResponse getKvAccountWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetKvAccountResponse getKvAccount();
   GetKvNamespaceResponse getKvNamespaceWithOptions(shared_ptr<GetKvNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetKvNamespaceResponse getKvNamespace(shared_ptr<GetKvNamespaceRequest> request);
   GetListResponse getListWithOptions(shared_ptr<GetListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
