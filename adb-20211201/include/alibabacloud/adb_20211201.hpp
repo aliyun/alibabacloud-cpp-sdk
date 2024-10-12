@@ -9597,6 +9597,7 @@ public:
 class DescribeBackupsResponseBodyItemsBackup : public Darabonba::Model {
 public:
   shared_ptr<string> backupEndTime{};
+  shared_ptr<string> backupExpiredTime{};
   shared_ptr<string> backupId{};
   shared_ptr<string> backupMethod{};
   shared_ptr<long> backupSize{};
@@ -9616,6 +9617,9 @@ public:
     map<string, boost::any> res;
     if (backupEndTime) {
       res["BackupEndTime"] = boost::any(*backupEndTime);
+    }
+    if (backupExpiredTime) {
+      res["BackupExpiredTime"] = boost::any(*backupExpiredTime);
     }
     if (backupId) {
       res["BackupId"] = boost::any(*backupId);
@@ -9641,6 +9645,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BackupEndTime") != m.end() && !m["BackupEndTime"].empty()) {
       backupEndTime = make_shared<string>(boost::any_cast<string>(m["BackupEndTime"]));
+    }
+    if (m.find("BackupExpiredTime") != m.end() && !m["BackupExpiredTime"].empty()) {
+      backupExpiredTime = make_shared<string>(boost::any_cast<string>(m["BackupExpiredTime"]));
     }
     if (m.find("BackupId") != m.end() && !m["BackupId"].empty()) {
       backupId = make_shared<string>(boost::any_cast<string>(m["BackupId"]));
@@ -9710,10 +9717,12 @@ public:
 };
 class DescribeBackupsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> freeBackupSize{};
   shared_ptr<DescribeBackupsResponseBodyItems> items{};
   shared_ptr<string> pageNumber{};
   shared_ptr<string> pageSize{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> totalBackupSize{};
   shared_ptr<string> totalCount{};
 
   DescribeBackupsResponseBody() {}
@@ -9726,6 +9735,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (freeBackupSize) {
+      res["FreeBackupSize"] = boost::any(*freeBackupSize);
+    }
     if (items) {
       res["Items"] = items ? boost::any(items->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -9738,6 +9750,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (totalBackupSize) {
+      res["TotalBackupSize"] = boost::any(*totalBackupSize);
+    }
     if (totalCount) {
       res["TotalCount"] = boost::any(*totalCount);
     }
@@ -9745,6 +9760,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FreeBackupSize") != m.end() && !m["FreeBackupSize"].empty()) {
+      freeBackupSize = make_shared<long>(boost::any_cast<long>(m["FreeBackupSize"]));
+    }
     if (m.find("Items") != m.end() && !m["Items"].empty()) {
       if (typeid(map<string, boost::any>) == m["Items"].type()) {
         DescribeBackupsResponseBodyItems model1;
@@ -9760,6 +9778,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalBackupSize") != m.end() && !m["TotalBackupSize"].empty()) {
+      totalBackupSize = make_shared<long>(boost::any_cast<long>(m["TotalBackupSize"]));
     }
     if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
       totalCount = make_shared<string>(boost::any_cast<string>(m["TotalCount"]));
