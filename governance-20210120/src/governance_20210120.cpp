@@ -143,8 +143,13 @@ DeleteAccountFactoryBaselineResponse Alibabacloud_Governance20210120::Client::de
   return deleteAccountFactoryBaselineWithOptions(request, runtime);
 }
 
-EnrollAccountResponse Alibabacloud_Governance20210120::Client::enrollAccountWithOptions(shared_ptr<EnrollAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+EnrollAccountResponse Alibabacloud_Governance20210120::Client::enrollAccountWithOptions(shared_ptr<EnrollAccountRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<EnrollAccountShrinkRequest> request = make_shared<EnrollAccountShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<EnrollAccountRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->accountNamePrefix)) {
     query->insert(pair<string, string>("AccountNamePrefix", *request->accountNamePrefix));
@@ -155,8 +160,8 @@ EnrollAccountResponse Alibabacloud_Governance20210120::Client::enrollAccountWith
   if (!Darabonba_Util::Client::isUnset<string>(request->baselineId)) {
     query->insert(pair<string, string>("BaselineId", *request->baselineId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<EnrollAccountRequestBaselineItems>>(request->baselineItems)) {
-    query->insert(pair<string, vector<EnrollAccountRequestBaselineItems>>("BaselineItems", *request->baselineItems));
+  if (!Darabonba_Util::Client::isUnset<vector<EnrollAccountShrinkRequestBaselineItems>>(request->baselineItems)) {
+    query->insert(pair<string, vector<EnrollAccountShrinkRequestBaselineItems>>("BaselineItems", *request->baselineItems));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->displayName)) {
     query->insert(pair<string, string>("DisplayName", *request->displayName));
@@ -172,6 +177,9 @@ EnrollAccountResponse Alibabacloud_Governance20210120::Client::enrollAccountWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resellAccountType)) {
     query->insert(pair<string, string>("ResellAccountType", *request->resellAccountType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -473,6 +481,9 @@ ListEvaluationResultsResponse Alibabacloud_Governance20210120::Client::listEvalu
 ListEvaluationScoreHistoryResponse Alibabacloud_Governance20210120::Client::listEvaluationScoreHistoryWithOptions(shared_ptr<ListEvaluationScoreHistoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->accountId)) {
+    query->insert(pair<string, long>("AccountId", *request->accountId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endDate)) {
     query->insert(pair<string, string>("EndDate", *request->endDate));
   }

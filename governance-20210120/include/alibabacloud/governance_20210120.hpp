@@ -613,6 +613,42 @@ public:
 
   virtual ~EnrollAccountRequestBaselineItems() = default;
 };
+class EnrollAccountRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  EnrollAccountRequestTag() {}
+
+  explicit EnrollAccountRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~EnrollAccountRequestTag() = default;
+};
 class EnrollAccountRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountNamePrefix{};
@@ -624,6 +660,7 @@ public:
   shared_ptr<long> payerAccountUid{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resellAccountType{};
+  shared_ptr<vector<EnrollAccountRequestTag>> tag{};
 
   EnrollAccountRequest() {}
 
@@ -666,6 +703,13 @@ public:
     if (resellAccountType) {
       res["ResellAccountType"] = boost::any(*resellAccountType);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -707,10 +751,179 @@ public:
     if (m.find("ResellAccountType") != m.end() && !m["ResellAccountType"].empty()) {
       resellAccountType = make_shared<string>(boost::any_cast<string>(m["ResellAccountType"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<EnrollAccountRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            EnrollAccountRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<EnrollAccountRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~EnrollAccountRequest() = default;
+};
+class EnrollAccountShrinkRequestBaselineItems : public Darabonba::Model {
+public:
+  shared_ptr<string> config{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> skip{};
+  shared_ptr<string> version{};
+
+  EnrollAccountShrinkRequestBaselineItems() {}
+
+  explicit EnrollAccountShrinkRequestBaselineItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["Config"] = boost::any(*config);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (skip) {
+      res["Skip"] = boost::any(*skip);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Skip") != m.end() && !m["Skip"].empty()) {
+      skip = make_shared<bool>(boost::any_cast<bool>(m["Skip"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~EnrollAccountShrinkRequestBaselineItems() = default;
+};
+class EnrollAccountShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountNamePrefix{};
+  shared_ptr<long> accountUid{};
+  shared_ptr<string> baselineId{};
+  shared_ptr<vector<EnrollAccountShrinkRequestBaselineItems>> baselineItems{};
+  shared_ptr<string> displayName{};
+  shared_ptr<string> folderId{};
+  shared_ptr<long> payerAccountUid{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resellAccountType{};
+  shared_ptr<string> tagShrink{};
+
+  EnrollAccountShrinkRequest() {}
+
+  explicit EnrollAccountShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountNamePrefix) {
+      res["AccountNamePrefix"] = boost::any(*accountNamePrefix);
+    }
+    if (accountUid) {
+      res["AccountUid"] = boost::any(*accountUid);
+    }
+    if (baselineId) {
+      res["BaselineId"] = boost::any(*baselineId);
+    }
+    if (baselineItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*baselineItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BaselineItems"] = boost::any(temp1);
+    }
+    if (displayName) {
+      res["DisplayName"] = boost::any(*displayName);
+    }
+    if (folderId) {
+      res["FolderId"] = boost::any(*folderId);
+    }
+    if (payerAccountUid) {
+      res["PayerAccountUid"] = boost::any(*payerAccountUid);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resellAccountType) {
+      res["ResellAccountType"] = boost::any(*resellAccountType);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountNamePrefix") != m.end() && !m["AccountNamePrefix"].empty()) {
+      accountNamePrefix = make_shared<string>(boost::any_cast<string>(m["AccountNamePrefix"]));
+    }
+    if (m.find("AccountUid") != m.end() && !m["AccountUid"].empty()) {
+      accountUid = make_shared<long>(boost::any_cast<long>(m["AccountUid"]));
+    }
+    if (m.find("BaselineId") != m.end() && !m["BaselineId"].empty()) {
+      baselineId = make_shared<string>(boost::any_cast<string>(m["BaselineId"]));
+    }
+    if (m.find("BaselineItems") != m.end() && !m["BaselineItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["BaselineItems"].type()) {
+        vector<EnrollAccountShrinkRequestBaselineItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BaselineItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            EnrollAccountShrinkRequestBaselineItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        baselineItems = make_shared<vector<EnrollAccountShrinkRequestBaselineItems>>(expect1);
+      }
+    }
+    if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
+      displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
+    }
+    if (m.find("FolderId") != m.end() && !m["FolderId"].empty()) {
+      folderId = make_shared<string>(boost::any_cast<string>(m["FolderId"]));
+    }
+    if (m.find("PayerAccountUid") != m.end() && !m["PayerAccountUid"].empty()) {
+      payerAccountUid = make_shared<long>(boost::any_cast<long>(m["PayerAccountUid"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResellAccountType") != m.end() && !m["ResellAccountType"].empty()) {
+      resellAccountType = make_shared<string>(boost::any_cast<string>(m["ResellAccountType"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~EnrollAccountShrinkRequest() = default;
 };
 class EnrollAccountResponseBody : public Darabonba::Model {
 public:
@@ -1209,6 +1422,42 @@ public:
 
   virtual ~GetEnrolledAccountResponseBodyInputsBaselineItems() = default;
 };
+class GetEnrolledAccountResponseBodyInputsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetEnrolledAccountResponseBodyInputsTag() {}
+
+  explicit GetEnrolledAccountResponseBodyInputsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetEnrolledAccountResponseBodyInputsTag() = default;
+};
 class GetEnrolledAccountResponseBodyInputs : public Darabonba::Model {
 public:
   shared_ptr<string> accountNamePrefix{};
@@ -1217,6 +1466,7 @@ public:
   shared_ptr<string> displayName{};
   shared_ptr<string> folderId{};
   shared_ptr<long> payerAccountUid{};
+  shared_ptr<vector<GetEnrolledAccountResponseBodyInputsTag>> tag{};
 
   GetEnrolledAccountResponseBodyInputs() {}
 
@@ -1250,6 +1500,13 @@ public:
     if (payerAccountUid) {
       res["PayerAccountUid"] = boost::any(*payerAccountUid);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1281,6 +1538,19 @@ public:
     }
     if (m.find("PayerAccountUid") != m.end() && !m["PayerAccountUid"].empty()) {
       payerAccountUid = make_shared<long>(boost::any_cast<long>(m["PayerAccountUid"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<GetEnrolledAccountResponseBodyInputsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetEnrolledAccountResponseBodyInputsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<GetEnrolledAccountResponseBodyInputsTag>>(expect1);
+      }
     }
   }
 
@@ -2968,6 +3238,7 @@ public:
 };
 class ListEvaluationMetricDetailsResponseBodyResources : public Darabonba::Model {
 public:
+  shared_ptr<string> complianceType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceClassification{};
   shared_ptr<string> resourceId{};
@@ -2986,6 +3257,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (complianceType) {
+      res["ComplianceType"] = boost::any(*complianceType);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -3015,6 +3289,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceType") != m.end() && !m["ComplianceType"].empty()) {
+      complianceType = make_shared<string>(boost::any_cast<string>(m["ComplianceType"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -3505,6 +3782,7 @@ public:
 };
 class ListEvaluationScoreHistoryRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> accountId{};
   shared_ptr<string> endDate{};
   shared_ptr<string> regionId{};
   shared_ptr<string> startDate{};
@@ -3519,6 +3797,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
     if (endDate) {
       res["EndDate"] = boost::any(*endDate);
     }
@@ -3532,6 +3813,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<long>(boost::any_cast<long>(m["AccountId"]));
+    }
     if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
       endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
     }
@@ -4052,7 +4336,7 @@ public:
   CreateAccountFactoryBaselineResponse createAccountFactoryBaseline(shared_ptr<CreateAccountFactoryBaselineRequest> request);
   DeleteAccountFactoryBaselineResponse deleteAccountFactoryBaselineWithOptions(shared_ptr<DeleteAccountFactoryBaselineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAccountFactoryBaselineResponse deleteAccountFactoryBaseline(shared_ptr<DeleteAccountFactoryBaselineRequest> request);
-  EnrollAccountResponse enrollAccountWithOptions(shared_ptr<EnrollAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnrollAccountResponse enrollAccountWithOptions(shared_ptr<EnrollAccountRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnrollAccountResponse enrollAccount(shared_ptr<EnrollAccountRequest> request);
   GetAccountFactoryBaselineResponse getAccountFactoryBaselineWithOptions(shared_ptr<GetAccountFactoryBaselineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAccountFactoryBaselineResponse getAccountFactoryBaseline(shared_ptr<GetAccountFactoryBaselineRequest> request);
