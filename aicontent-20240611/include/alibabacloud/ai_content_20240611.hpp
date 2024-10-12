@@ -823,6 +823,766 @@ public:
 
   virtual ~AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse() = default;
 };
+class AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> freeConcurrencyCount{};
+  shared_ptr<long> freeCount{};
+  shared_ptr<string> serviceCode{};
+  shared_ptr<string> serviceName{};
+
+  AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBodyData() {}
+
+  explicit AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (freeConcurrencyCount) {
+      res["FreeConcurrencyCount"] = boost::any(*freeConcurrencyCount);
+    }
+    if (freeCount) {
+      res["FreeCount"] = boost::any(*freeCount);
+    }
+    if (serviceCode) {
+      res["ServiceCode"] = boost::any(*serviceCode);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FreeConcurrencyCount") != m.end() && !m["FreeConcurrencyCount"].empty()) {
+      freeConcurrencyCount = make_shared<long>(boost::any_cast<long>(m["FreeConcurrencyCount"]));
+    }
+    if (m.find("FreeCount") != m.end() && !m["FreeCount"].empty()) {
+      freeCount = make_shared<long>(boost::any_cast<long>(m["FreeCount"]));
+    }
+    if (m.find("ServiceCode") != m.end() && !m["ServiceCode"].empty()) {
+      serviceCode = make_shared<string>(boost::any_cast<string>(m["ServiceCode"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+  }
+
+
+  virtual ~AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBodyData() = default;
+};
+class AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBodyData>> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBody() {}
+
+  explicit AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBody() = default;
+};
+class AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBody> body{};
+
+  AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse() {}
+
+  explicit AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse() = default;
+};
+class PersonalizedTextToImageAddInferenceJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> imageNumber{};
+  shared_ptr<vector<string>> imageUrl{};
+  shared_ptr<string> prompt{};
+  shared_ptr<long> seed{};
+  shared_ptr<double> strength{};
+  shared_ptr<long> trainSteps{};
+
+  PersonalizedTextToImageAddInferenceJobRequest() {}
+
+  explicit PersonalizedTextToImageAddInferenceJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageNumber) {
+      res["imageNumber"] = boost::any(*imageNumber);
+    }
+    if (imageUrl) {
+      res["imageUrl"] = boost::any(*imageUrl);
+    }
+    if (prompt) {
+      res["prompt"] = boost::any(*prompt);
+    }
+    if (seed) {
+      res["seed"] = boost::any(*seed);
+    }
+    if (strength) {
+      res["strength"] = boost::any(*strength);
+    }
+    if (trainSteps) {
+      res["trainSteps"] = boost::any(*trainSteps);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("imageNumber") != m.end() && !m["imageNumber"].empty()) {
+      imageNumber = make_shared<long>(boost::any_cast<long>(m["imageNumber"]));
+    }
+    if (m.find("imageUrl") != m.end() && !m["imageUrl"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["imageUrl"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["imageUrl"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      imageUrl = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("prompt") != m.end() && !m["prompt"].empty()) {
+      prompt = make_shared<string>(boost::any_cast<string>(m["prompt"]));
+    }
+    if (m.find("seed") != m.end() && !m["seed"].empty()) {
+      seed = make_shared<long>(boost::any_cast<long>(m["seed"]));
+    }
+    if (m.find("strength") != m.end() && !m["strength"].empty()) {
+      strength = make_shared<double>(boost::any_cast<double>(m["strength"]));
+    }
+    if (m.find("trainSteps") != m.end() && !m["trainSteps"].empty()) {
+      trainSteps = make_shared<long>(boost::any_cast<long>(m["trainSteps"]));
+    }
+  }
+
+
+  virtual ~PersonalizedTextToImageAddInferenceJobRequest() = default;
+};
+class PersonalizedTextToImageAddInferenceJobResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> id{};
+  shared_ptr<string> jobStatus{};
+  shared_ptr<double> jobTrainProgress{};
+  shared_ptr<string> modelId{};
+  shared_ptr<string> promptId{};
+  shared_ptr<vector<string>> resultImageUrl{};
+
+  PersonalizedTextToImageAddInferenceJobResponseBodyData() {}
+
+  explicit PersonalizedTextToImageAddInferenceJobResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (jobStatus) {
+      res["jobStatus"] = boost::any(*jobStatus);
+    }
+    if (jobTrainProgress) {
+      res["jobTrainProgress"] = boost::any(*jobTrainProgress);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (promptId) {
+      res["promptId"] = boost::any(*promptId);
+    }
+    if (resultImageUrl) {
+      res["resultImageUrl"] = boost::any(*resultImageUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("jobStatus") != m.end() && !m["jobStatus"].empty()) {
+      jobStatus = make_shared<string>(boost::any_cast<string>(m["jobStatus"]));
+    }
+    if (m.find("jobTrainProgress") != m.end() && !m["jobTrainProgress"].empty()) {
+      jobTrainProgress = make_shared<double>(boost::any_cast<double>(m["jobTrainProgress"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("promptId") != m.end() && !m["promptId"].empty()) {
+      promptId = make_shared<string>(boost::any_cast<string>(m["promptId"]));
+    }
+    if (m.find("resultImageUrl") != m.end() && !m["resultImageUrl"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["resultImageUrl"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["resultImageUrl"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resultImageUrl = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~PersonalizedTextToImageAddInferenceJobResponseBodyData() = default;
+};
+class PersonalizedTextToImageAddInferenceJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<PersonalizedTextToImageAddInferenceJobResponseBodyData> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  PersonalizedTextToImageAddInferenceJobResponseBody() {}
+
+  explicit PersonalizedTextToImageAddInferenceJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        PersonalizedTextToImageAddInferenceJobResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<PersonalizedTextToImageAddInferenceJobResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~PersonalizedTextToImageAddInferenceJobResponseBody() = default;
+};
+class PersonalizedTextToImageAddInferenceJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PersonalizedTextToImageAddInferenceJobResponseBody> body{};
+
+  PersonalizedTextToImageAddInferenceJobResponse() {}
+
+  explicit PersonalizedTextToImageAddInferenceJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PersonalizedTextToImageAddInferenceJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PersonalizedTextToImageAddInferenceJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PersonalizedTextToImageAddInferenceJobResponse() = default;
+};
+class PersonalizedTextToImageQueryImageAssetRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> encodeFormat{};
+  shared_ptr<string> imageId{};
+
+  PersonalizedTextToImageQueryImageAssetRequest() {}
+
+  explicit PersonalizedTextToImageQueryImageAssetRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (encodeFormat) {
+      res["encodeFormat"] = boost::any(*encodeFormat);
+    }
+    if (imageId) {
+      res["imageId"] = boost::any(*imageId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("encodeFormat") != m.end() && !m["encodeFormat"].empty()) {
+      encodeFormat = make_shared<string>(boost::any_cast<string>(m["encodeFormat"]));
+    }
+    if (m.find("imageId") != m.end() && !m["imageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["imageId"]));
+    }
+  }
+
+
+  virtual ~PersonalizedTextToImageQueryImageAssetRequest() = default;
+};
+class PersonalizedTextToImageQueryImageAssetResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<boost::any> body{};
+
+  PersonalizedTextToImageQueryImageAssetResponse() {}
+
+  explicit PersonalizedTextToImageQueryImageAssetResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<boost::any>(boost::any_cast<boost::any>(m["body"]));
+    }
+  }
+
+
+  virtual ~PersonalizedTextToImageQueryImageAssetResponse() = default;
+};
+class PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> inferenceJobId{};
+
+  PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest() {}
+
+  explicit PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inferenceJobId) {
+      res["inferenceJobId"] = boost::any(*inferenceJobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("inferenceJobId") != m.end() && !m["inferenceJobId"].empty()) {
+      inferenceJobId = make_shared<string>(boost::any_cast<string>(m["inferenceJobId"]));
+    }
+  }
+
+
+  virtual ~PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest() = default;
+};
+class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> id{};
+  shared_ptr<string> jobStatus{};
+  shared_ptr<double> jobTrainProgress{};
+  shared_ptr<string> modelId{};
+  shared_ptr<string> promptId{};
+  shared_ptr<vector<string>> resultImageUrl{};
+
+  PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyData() {}
+
+  explicit PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (jobStatus) {
+      res["jobStatus"] = boost::any(*jobStatus);
+    }
+    if (jobTrainProgress) {
+      res["jobTrainProgress"] = boost::any(*jobTrainProgress);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (promptId) {
+      res["promptId"] = boost::any(*promptId);
+    }
+    if (resultImageUrl) {
+      res["resultImageUrl"] = boost::any(*resultImageUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("jobStatus") != m.end() && !m["jobStatus"].empty()) {
+      jobStatus = make_shared<string>(boost::any_cast<string>(m["jobStatus"]));
+    }
+    if (m.find("jobTrainProgress") != m.end() && !m["jobTrainProgress"].empty()) {
+      jobTrainProgress = make_shared<double>(boost::any_cast<double>(m["jobTrainProgress"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("promptId") != m.end() && !m["promptId"].empty()) {
+      promptId = make_shared<string>(boost::any_cast<string>(m["promptId"]));
+    }
+    if (m.find("resultImageUrl") != m.end() && !m["resultImageUrl"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["resultImageUrl"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["resultImageUrl"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resultImageUrl = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyData() = default;
+};
+class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyData> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBody() {}
+
+  explicit PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBody() = default;
+};
+class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBody> body{};
+
+  PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse() {}
+
+  explicit PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse() = default;
+};
 class Personalizedtxt2imgAddInferenceJobRequest : public Darabonba::Model {
 public:
   shared_ptr<long> imageNumber{};
@@ -2275,6 +3035,14 @@ public:
                      shared_ptr<string> endpoint);
   AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse aliyunConsoleOpenApiQueryAliyunConsoleServcieListWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse aliyunConsoleOpenApiQueryAliyunConsoleServcieList();
+  AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse aliyunConsoleOpenApiQueryAliyunConsoleServiceListWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse aliyunConsoleOpenApiQueryAliyunConsoleServiceList();
+  PersonalizedTextToImageAddInferenceJobResponse personalizedTextToImageAddInferenceJobWithOptions(shared_ptr<PersonalizedTextToImageAddInferenceJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PersonalizedTextToImageAddInferenceJobResponse personalizedTextToImageAddInferenceJob(shared_ptr<PersonalizedTextToImageAddInferenceJobRequest> request);
+  PersonalizedTextToImageQueryImageAssetResponse personalizedTextToImageQueryImageAssetWithOptions(shared_ptr<PersonalizedTextToImageQueryImageAssetRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PersonalizedTextToImageQueryImageAssetResponse personalizedTextToImageQueryImageAsset(shared_ptr<PersonalizedTextToImageQueryImageAssetRequest> request);
+  PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse personalizedTextToImageQueryPreModelInferenceJobInfoWithOptions(shared_ptr<PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse personalizedTextToImageQueryPreModelInferenceJobInfo(shared_ptr<PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest> request);
   Personalizedtxt2imgAddInferenceJobResponse personalizedtxt2imgAddInferenceJobWithOptions(shared_ptr<Personalizedtxt2imgAddInferenceJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   Personalizedtxt2imgAddInferenceJobResponse personalizedtxt2imgAddInferenceJob(shared_ptr<Personalizedtxt2imgAddInferenceJobRequest> request);
   Personalizedtxt2imgAddModelTrainJobResponse personalizedtxt2imgAddModelTrainJobWithOptions(shared_ptr<Personalizedtxt2imgAddModelTrainJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
