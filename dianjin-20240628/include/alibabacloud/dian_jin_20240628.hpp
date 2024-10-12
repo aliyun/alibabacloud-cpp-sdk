@@ -14,6 +14,271 @@
 using namespace std;
 
 namespace Alibabacloud_DianJin20240628 {
+class CreateAnnualDocSummaryTaskRequestDocInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> docId{};
+  shared_ptr<long> docYear{};
+  shared_ptr<long> endPage{};
+  shared_ptr<string> libraryId{};
+  shared_ptr<long> startPage{};
+
+  CreateAnnualDocSummaryTaskRequestDocInfos() {}
+
+  explicit CreateAnnualDocSummaryTaskRequestDocInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (docId) {
+      res["docId"] = boost::any(*docId);
+    }
+    if (docYear) {
+      res["docYear"] = boost::any(*docYear);
+    }
+    if (endPage) {
+      res["endPage"] = boost::any(*endPage);
+    }
+    if (libraryId) {
+      res["libraryId"] = boost::any(*libraryId);
+    }
+    if (startPage) {
+      res["startPage"] = boost::any(*startPage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("docId") != m.end() && !m["docId"].empty()) {
+      docId = make_shared<string>(boost::any_cast<string>(m["docId"]));
+    }
+    if (m.find("docYear") != m.end() && !m["docYear"].empty()) {
+      docYear = make_shared<long>(boost::any_cast<long>(m["docYear"]));
+    }
+    if (m.find("endPage") != m.end() && !m["endPage"].empty()) {
+      endPage = make_shared<long>(boost::any_cast<long>(m["endPage"]));
+    }
+    if (m.find("libraryId") != m.end() && !m["libraryId"].empty()) {
+      libraryId = make_shared<string>(boost::any_cast<string>(m["libraryId"]));
+    }
+    if (m.find("startPage") != m.end() && !m["startPage"].empty()) {
+      startPage = make_shared<long>(boost::any_cast<long>(m["startPage"]));
+    }
+  }
+
+
+  virtual ~CreateAnnualDocSummaryTaskRequestDocInfos() = default;
+};
+class CreateAnnualDocSummaryTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> anaYears{};
+  shared_ptr<vector<CreateAnnualDocSummaryTaskRequestDocInfos>> docInfos{};
+  shared_ptr<bool> enableTable{};
+  shared_ptr<string> instruction{};
+  shared_ptr<string> modelId{};
+
+  CreateAnnualDocSummaryTaskRequest() {}
+
+  explicit CreateAnnualDocSummaryTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (anaYears) {
+      res["anaYears"] = boost::any(*anaYears);
+    }
+    if (docInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*docInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["docInfos"] = boost::any(temp1);
+    }
+    if (enableTable) {
+      res["enableTable"] = boost::any(*enableTable);
+    }
+    if (instruction) {
+      res["instruction"] = boost::any(*instruction);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("anaYears") != m.end() && !m["anaYears"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["anaYears"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["anaYears"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      anaYears = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("docInfos") != m.end() && !m["docInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["docInfos"].type()) {
+        vector<CreateAnnualDocSummaryTaskRequestDocInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["docInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAnnualDocSummaryTaskRequestDocInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        docInfos = make_shared<vector<CreateAnnualDocSummaryTaskRequestDocInfos>>(expect1);
+      }
+    }
+    if (m.find("enableTable") != m.end() && !m["enableTable"].empty()) {
+      enableTable = make_shared<bool>(boost::any_cast<bool>(m["enableTable"]));
+    }
+    if (m.find("instruction") != m.end() && !m["instruction"].empty()) {
+      instruction = make_shared<string>(boost::any_cast<string>(m["instruction"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+  }
+
+
+  virtual ~CreateAnnualDocSummaryTaskRequest() = default;
+};
+class CreateAnnualDocSummaryTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> cost{};
+  shared_ptr<string> data{};
+  shared_ptr<string> dataType{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> time{};
+
+  CreateAnnualDocSummaryTaskResponseBody() {}
+
+  explicit CreateAnnualDocSummaryTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cost) {
+      res["cost"] = boost::any(*cost);
+    }
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (dataType) {
+      res["dataType"] = boost::any(*dataType);
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cost") != m.end() && !m["cost"].empty()) {
+      cost = make_shared<long>(boost::any_cast<long>(m["cost"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["data"]));
+    }
+    if (m.find("dataType") != m.end() && !m["dataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["dataType"]));
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["time"]));
+    }
+  }
+
+
+  virtual ~CreateAnnualDocSummaryTaskResponseBody() = default;
+};
+class CreateAnnualDocSummaryTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateAnnualDocSummaryTaskResponseBody> body{};
+
+  CreateAnnualDocSummaryTaskResponse() {}
+
+  explicit CreateAnnualDocSummaryTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateAnnualDocSummaryTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAnnualDocSummaryTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAnnualDocSummaryTaskResponse() = default;
+};
 class CreateDocsSummaryTaskRequestDocInfos : public Darabonba::Model {
 public:
   shared_ptr<string> docId{};
@@ -12154,6 +12419,11 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  CreateAnnualDocSummaryTaskResponse createAnnualDocSummaryTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                           shared_ptr<CreateAnnualDocSummaryTaskRequest> request,
+                                                                           shared_ptr<map<string, string>> headers,
+                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAnnualDocSummaryTaskResponse createAnnualDocSummaryTask(shared_ptr<string> workspaceId, shared_ptr<CreateAnnualDocSummaryTaskRequest> request);
   CreateDocsSummaryTaskResponse createDocsSummaryTaskWithOptions(shared_ptr<string> workspaceId,
                                                                  shared_ptr<CreateDocsSummaryTaskRequest> request,
                                                                  shared_ptr<map<string, string>> headers,

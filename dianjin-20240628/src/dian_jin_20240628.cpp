@@ -41,6 +41,51 @@ string Alibabacloud_DianJin20240628::Client::getEndpoint(shared_ptr<string> prod
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CreateAnnualDocSummaryTaskResponse Alibabacloud_DianJin20240628::Client::createAnnualDocSummaryTaskWithOptions(shared_ptr<string> workspaceId,
+                                                                                                               shared_ptr<CreateAnnualDocSummaryTaskRequest> request,
+                                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->anaYears)) {
+    body->insert(pair<string, vector<long>>("anaYears", *request->anaYears));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAnnualDocSummaryTaskRequestDocInfos>>(request->docInfos)) {
+    body->insert(pair<string, vector<CreateAnnualDocSummaryTaskRequestDocInfos>>("docInfos", *request->docInfos));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableTable)) {
+    body->insert(pair<string, bool>("enableTable", *request->enableTable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instruction)) {
+    body->insert(pair<string, string>("instruction", *request->instruction));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelId)) {
+    body->insert(pair<string, string>("modelId", *request->modelId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateAnnualDocSummaryTask"))},
+    {"version", boost::any(string("2024-06-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/api/task/summary/doc/annual"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateAnnualDocSummaryTaskResponse(callApi(params, req, runtime));
+}
+
+CreateAnnualDocSummaryTaskResponse Alibabacloud_DianJin20240628::Client::createAnnualDocSummaryTask(shared_ptr<string> workspaceId, shared_ptr<CreateAnnualDocSummaryTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createAnnualDocSummaryTaskWithOptions(workspaceId, request, headers, runtime);
+}
+
 CreateDocsSummaryTaskResponse Alibabacloud_DianJin20240628::Client::createDocsSummaryTaskWithOptions(shared_ptr<string> workspaceId,
                                                                                                      shared_ptr<CreateDocsSummaryTaskRequest> request,
                                                                                                      shared_ptr<map<string, string>> headers,
