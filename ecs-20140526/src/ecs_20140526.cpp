@@ -3247,6 +3247,15 @@ CreateLaunchTemplateResponse Alibabacloud_Ecs20140526::Client::createLaunchTempl
   if (!Darabonba_Util::Client::isUnset<string>(request->hostName)) {
     query->insert(pair<string, string>("HostName", *request->hostName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpEndpoint)) {
+    query->insert(pair<string, string>("HttpEndpoint", *request->httpEndpoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->httpPutResponseHopLimit)) {
+    query->insert(pair<string, long>("HttpPutResponseHopLimit", *request->httpPutResponseHopLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpTokens)) {
+    query->insert(pair<string, string>("HttpTokens", *request->httpTokens));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     query->insert(pair<string, string>("ImageId", *request->imageId));
   }
@@ -3424,6 +3433,15 @@ CreateLaunchTemplateVersionResponse Alibabacloud_Ecs20140526::Client::createLaun
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->hostName)) {
     query->insert(pair<string, string>("HostName", *request->hostName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpEndpoint)) {
+    query->insert(pair<string, string>("HttpEndpoint", *request->httpEndpoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->httpPutResponseHopLimit)) {
+    query->insert(pair<string, long>("HttpPutResponseHopLimit", *request->httpPutResponseHopLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpTokens)) {
+    query->insert(pair<string, string>("HttpTokens", *request->httpTokens));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     query->insert(pair<string, string>("ImageId", *request->imageId));
@@ -18433,6 +18451,12 @@ PurchaseElasticityAssuranceResponse Alibabacloud_Ecs20140526::Client::purchaseEl
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
     query->insert(pair<string, long>("Period", *request->period));
   }
@@ -18441,6 +18465,12 @@ PurchaseElasticityAssuranceResponse Alibabacloud_Ecs20140526::Client::purchaseEl
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
