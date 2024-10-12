@@ -27893,9 +27893,46 @@ public:
 
   virtual ~SubmitDocClusterTaskResponse() = default;
 };
+class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments : public Darabonba::Model {
+public:
+  shared_ptr<string> text{};
+  shared_ptr<string> username{};
+
+  SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments() {}
+
+  explicit SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+  }
+
+
+  virtual ~SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments() = default;
+};
 class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocuments : public Darabonba::Model {
 public:
   shared_ptr<string> author{};
+  shared_ptr<vector<SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments>> comments{};
   shared_ptr<string> content{};
   shared_ptr<string> pubTime{};
   shared_ptr<string> source{};
@@ -27915,6 +27952,13 @@ public:
     map<string, boost::any> res;
     if (author) {
       res["Author"] = boost::any(*author);
+    }
+    if (comments) {
+      vector<boost::any> temp1;
+      for(auto item1:*comments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Comments"] = boost::any(temp1);
     }
     if (content) {
       res["Content"] = boost::any(*content);
@@ -27940,6 +27984,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Author") != m.end() && !m["Author"].empty()) {
       author = make_shared<string>(boost::any_cast<string>(m["Author"]));
+    }
+    if (m.find("Comments") != m.end() && !m["Comments"].empty()) {
+      if (typeid(vector<boost::any>) == m["Comments"].type()) {
+        vector<SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Comments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        comments = make_shared<vector<SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments>>(expect1);
+      }
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
