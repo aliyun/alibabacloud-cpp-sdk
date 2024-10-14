@@ -403,9 +403,18 @@ GetIdleInstanceCullerResponse Alibabacloud_Pai-dsw20220101::Client::getIdleInsta
   return getIdleInstanceCullerWithOptions(InstanceId, headers, runtime);
 }
 
-GetInstanceResponse Alibabacloud_Pai-dsw20220101::Client::getInstanceWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetInstanceResponse Alibabacloud_Pai-dsw20220101::Client::getInstanceWithOptions(shared_ptr<string> InstanceId,
+                                                                                 shared_ptr<GetInstanceRequest> request,
+                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
+    query->insert(pair<string, string>("Token", *request->token));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetInstance"))},
@@ -421,10 +430,10 @@ GetInstanceResponse Alibabacloud_Pai-dsw20220101::Client::getInstanceWithOptions
   return GetInstanceResponse(callApi(params, req, runtime));
 }
 
-GetInstanceResponse Alibabacloud_Pai-dsw20220101::Client::getInstance(shared_ptr<string> InstanceId) {
+GetInstanceResponse Alibabacloud_Pai-dsw20220101::Client::getInstance(shared_ptr<string> InstanceId, shared_ptr<GetInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getInstanceWithOptions(InstanceId, headers, runtime);
+  return getInstanceWithOptions(InstanceId, request, headers, runtime);
 }
 
 GetInstanceEventsResponse Alibabacloud_Pai-dsw20220101::Client::getInstanceEventsWithOptions(shared_ptr<string> InstanceId,
@@ -441,6 +450,9 @@ GetInstanceEventsResponse Alibabacloud_Pai-dsw20220101::Client::getInstanceEvent
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
+    query->insert(pair<string, string>("Token", *request->token));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -579,6 +591,9 @@ GetLifecycleResponse Alibabacloud_Pai-dsw20220101::Client::getLifecycleWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
+    query->insert(pair<string, string>("Token", *request->token));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},

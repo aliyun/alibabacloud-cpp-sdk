@@ -2573,6 +2573,35 @@ public:
 
   virtual ~GetIdleInstanceCullerResponse() = default;
 };
+class GetInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> token{};
+
+  GetInstanceRequest() {}
+
+  explicit GetInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (token) {
+      res["Token"] = boost::any(*token);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Token") != m.end() && !m["Token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
+    }
+  }
+
+
+  virtual ~GetInstanceRequest() = default;
+};
 class GetInstanceResponseBodyAffinityCPU : public Darabonba::Model {
 public:
   shared_ptr<bool> enable{};
@@ -3748,6 +3777,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<long> maxEventsNum{};
   shared_ptr<string> startTime{};
+  shared_ptr<string> token{};
 
   GetInstanceEventsRequest() {}
 
@@ -3768,6 +3798,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (token) {
+      res["Token"] = boost::any(*token);
+    }
     return res;
   }
 
@@ -3780,6 +3813,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Token") != m.end() && !m["Token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
     }
   }
 
@@ -4590,6 +4626,7 @@ public:
   shared_ptr<string> order{};
   shared_ptr<long> sessionNumber{};
   shared_ptr<string> startTime{};
+  shared_ptr<string> token{};
 
   GetLifecycleRequest() {}
 
@@ -4616,6 +4653,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (token) {
+      res["Token"] = boost::any(*token);
+    }
     return res;
   }
 
@@ -4634,6 +4674,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Token") != m.end() && !m["Token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
     }
   }
 
@@ -9097,8 +9140,11 @@ public:
   DeleteInstanceSnapshotResponse deleteInstanceSnapshot(shared_ptr<string> InstanceId, shared_ptr<string> SnapshotId);
   GetIdleInstanceCullerResponse getIdleInstanceCullerWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetIdleInstanceCullerResponse getIdleInstanceCuller(shared_ptr<string> InstanceId);
-  GetInstanceResponse getInstanceWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetInstanceResponse getInstance(shared_ptr<string> InstanceId);
+  GetInstanceResponse getInstanceWithOptions(shared_ptr<string> InstanceId,
+                                             shared_ptr<GetInstanceRequest> request,
+                                             shared_ptr<map<string, string>> headers,
+                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetInstanceResponse getInstance(shared_ptr<string> InstanceId, shared_ptr<GetInstanceRequest> request);
   GetInstanceEventsResponse getInstanceEventsWithOptions(shared_ptr<string> InstanceId,
                                                          shared_ptr<GetInstanceEventsRequest> request,
                                                          shared_ptr<map<string, string>> headers,
