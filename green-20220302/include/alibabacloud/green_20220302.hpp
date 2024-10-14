@@ -6005,6 +6005,7 @@ public:
   shared_ptr<string> extend{};
   shared_ptr<string> labels{};
   shared_ptr<map<string, boost::any>> originAlgoResult{};
+  shared_ptr<string> riskLevel{};
   shared_ptr<string> riskTips{};
   shared_ptr<string> riskWords{};
   shared_ptr<double> score{};
@@ -6037,6 +6038,9 @@ public:
     }
     if (originAlgoResult) {
       res["OriginAlgoResult"] = boost::any(*originAlgoResult);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     if (riskTips) {
       res["RiskTips"] = boost::any(*riskTips);
@@ -6083,6 +6087,9 @@ public:
       }
       originAlgoResult = make_shared<map<string, boost::any>>(toMap1);
     }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
     if (m.find("RiskTips") != m.end() && !m["RiskTips"].empty()) {
       riskTips = make_shared<string>(boost::any_cast<string>(m["RiskTips"]));
     }
@@ -6113,6 +6120,7 @@ class VoiceModerationResultResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> dataId{};
   shared_ptr<string> liveId{};
+  shared_ptr<string> riskLevel{};
   shared_ptr<vector<VoiceModerationResultResponseBodyDataSliceDetails>> sliceDetails{};
   shared_ptr<string> taskId{};
   shared_ptr<string> url{};
@@ -6132,6 +6140,9 @@ public:
     }
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     if (sliceDetails) {
       vector<boost::any> temp1;
@@ -6155,6 +6166,9 @@ public:
     }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
     }
     if (m.find("SliceDetails") != m.end() && !m["SliceDetails"].empty()) {
       if (typeid(vector<boost::any>) == m["SliceDetails"].type()) {
