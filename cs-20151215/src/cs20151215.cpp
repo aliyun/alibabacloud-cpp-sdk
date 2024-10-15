@@ -624,6 +624,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->loginPassword)) {
     body->insert(pair<string, string>("login_password", *request->loginPassword));
   }
+  if (!Darabonba_Util::Client::isUnset<MaintenanceWindow>(request->maintenanceWindow)) {
+    body->insert(pair<string, MaintenanceWindow>("maintenance_window", *request->maintenanceWindow));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->masterAutoRenew)) {
     body->insert(pair<string, bool>("master_auto_renew", *request->masterAutoRenew));
   }
@@ -680,6 +683,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->numOfNodes)) {
     body->insert(pair<string, long>("num_of_nodes", *request->numOfNodes));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateClusterRequestOperationPolicy>(request->operationPolicy)) {
+    body->insert(pair<string, CreateClusterRequestOperationPolicy>("operation_policy", *request->operationPolicy));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->osType)) {
     body->insert(pair<string, string>("os_type", *request->osType));

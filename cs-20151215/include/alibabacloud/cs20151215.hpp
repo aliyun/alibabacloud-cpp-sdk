@@ -3379,6 +3379,75 @@ public:
 
   virtual ~CreateAutoscalingConfigResponse() = default;
 };
+class CreateClusterRequestOperationPolicyClusterAutoUpgrade : public Darabonba::Model {
+public:
+  shared_ptr<string> channel{};
+  shared_ptr<bool> enabled{};
+
+  CreateClusterRequestOperationPolicyClusterAutoUpgrade() {}
+
+  explicit CreateClusterRequestOperationPolicyClusterAutoUpgrade(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channel) {
+      res["channel"] = boost::any(*channel);
+    }
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("channel") != m.end() && !m["channel"].empty()) {
+      channel = make_shared<string>(boost::any_cast<string>(m["channel"]));
+    }
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+  }
+
+
+  virtual ~CreateClusterRequestOperationPolicyClusterAutoUpgrade() = default;
+};
+class CreateClusterRequestOperationPolicy : public Darabonba::Model {
+public:
+  shared_ptr<CreateClusterRequestOperationPolicyClusterAutoUpgrade> clusterAutoUpgrade{};
+
+  CreateClusterRequestOperationPolicy() {}
+
+  explicit CreateClusterRequestOperationPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterAutoUpgrade) {
+      res["cluster_auto_upgrade"] = clusterAutoUpgrade ? boost::any(clusterAutoUpgrade->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cluster_auto_upgrade") != m.end() && !m["cluster_auto_upgrade"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cluster_auto_upgrade"].type()) {
+        CreateClusterRequestOperationPolicyClusterAutoUpgrade model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cluster_auto_upgrade"]));
+        clusterAutoUpgrade = make_shared<CreateClusterRequestOperationPolicyClusterAutoUpgrade>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateClusterRequestOperationPolicy() = default;
+};
 class CreateClusterRequestWorkerDataDisks : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
@@ -3466,6 +3535,7 @@ public:
   shared_ptr<string> loadBalancerSpec{};
   shared_ptr<string> loggingType{};
   shared_ptr<string> loginPassword{};
+  shared_ptr<MaintenanceWindow> maintenanceWindow{};
   shared_ptr<bool> masterAutoRenew{};
   shared_ptr<long> masterAutoRenewPeriod{};
   shared_ptr<long> masterCount{};
@@ -3485,6 +3555,7 @@ public:
   shared_ptr<string> nodePortRange{};
   shared_ptr<vector<Nodepool>> nodepools{};
   shared_ptr<long> numOfNodes{};
+  shared_ptr<CreateClusterRequestOperationPolicy> operationPolicy{};
   shared_ptr<string> osType{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
@@ -3646,6 +3717,9 @@ public:
     if (loginPassword) {
       res["login_password"] = boost::any(*loginPassword);
     }
+    if (maintenanceWindow) {
+      res["maintenance_window"] = maintenanceWindow ? boost::any(maintenanceWindow->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (masterAutoRenew) {
       res["master_auto_renew"] = boost::any(*masterAutoRenew);
     }
@@ -3706,6 +3780,9 @@ public:
     }
     if (numOfNodes) {
       res["num_of_nodes"] = boost::any(*numOfNodes);
+    }
+    if (operationPolicy) {
+      res["operation_policy"] = operationPolicy ? boost::any(operationPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (osType) {
       res["os_type"] = boost::any(*osType);
@@ -3982,6 +4059,13 @@ public:
     if (m.find("login_password") != m.end() && !m["login_password"].empty()) {
       loginPassword = make_shared<string>(boost::any_cast<string>(m["login_password"]));
     }
+    if (m.find("maintenance_window") != m.end() && !m["maintenance_window"].empty()) {
+      if (typeid(map<string, boost::any>) == m["maintenance_window"].type()) {
+        MaintenanceWindow model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["maintenance_window"]));
+        maintenanceWindow = make_shared<MaintenanceWindow>(model1);
+      }
+    }
     if (m.find("master_auto_renew") != m.end() && !m["master_auto_renew"].empty()) {
       masterAutoRenew = make_shared<bool>(boost::any_cast<bool>(m["master_auto_renew"]));
     }
@@ -4062,6 +4146,13 @@ public:
     }
     if (m.find("num_of_nodes") != m.end() && !m["num_of_nodes"].empty()) {
       numOfNodes = make_shared<long>(boost::any_cast<long>(m["num_of_nodes"]));
+    }
+    if (m.find("operation_policy") != m.end() && !m["operation_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["operation_policy"].type()) {
+        CreateClusterRequestOperationPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["operation_policy"]));
+        operationPolicy = make_shared<CreateClusterRequestOperationPolicy>(model1);
+      }
     }
     if (m.find("os_type") != m.end() && !m["os_type"].empty()) {
       osType = make_shared<string>(boost::any_cast<string>(m["os_type"]));
@@ -9061,6 +9152,75 @@ public:
 
   virtual ~DescribeClusterAttachScriptsResponse() = default;
 };
+class DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade : public Darabonba::Model {
+public:
+  shared_ptr<string> channel{};
+  shared_ptr<bool> enabled{};
+
+  DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade() {}
+
+  explicit DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channel) {
+      res["channel"] = boost::any(*channel);
+    }
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("channel") != m.end() && !m["channel"].empty()) {
+      channel = make_shared<string>(boost::any_cast<string>(m["channel"]));
+    }
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade() = default;
+};
+class DescribeClusterDetailResponseBodyOperationPolicy : public Darabonba::Model {
+public:
+  shared_ptr<DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade> clusterAutoUpgrade{};
+
+  DescribeClusterDetailResponseBodyOperationPolicy() {}
+
+  explicit DescribeClusterDetailResponseBodyOperationPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterAutoUpgrade) {
+      res["cluster_auto_upgrade"] = clusterAutoUpgrade ? boost::any(clusterAutoUpgrade->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cluster_auto_upgrade") != m.end() && !m["cluster_auto_upgrade"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cluster_auto_upgrade"].type()) {
+        DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cluster_auto_upgrade"]));
+        clusterAutoUpgrade = make_shared<DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeClusterDetailResponseBodyOperationPolicy() = default;
+};
 class DescribeClusterDetailResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -9078,6 +9238,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> networkMode{};
   shared_ptr<string> nextVersion{};
+  shared_ptr<DescribeClusterDetailResponseBodyOperationPolicy> operationPolicy{};
   shared_ptr<map<string, string>> parameters{};
   shared_ptr<bool> privateZone{};
   shared_ptr<string> profile{};
@@ -9148,6 +9309,9 @@ public:
     }
     if (nextVersion) {
       res["next_version"] = boost::any(*nextVersion);
+    }
+    if (operationPolicy) {
+      res["operation_policy"] = operationPolicy ? boost::any(operationPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (parameters) {
       res["parameters"] = boost::any(*parameters);
@@ -9250,6 +9414,13 @@ public:
     }
     if (m.find("next_version") != m.end() && !m["next_version"].empty()) {
       nextVersion = make_shared<string>(boost::any_cast<string>(m["next_version"]));
+    }
+    if (m.find("operation_policy") != m.end() && !m["operation_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["operation_policy"].type()) {
+        DescribeClusterDetailResponseBodyOperationPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["operation_policy"]));
+        operationPolicy = make_shared<DescribeClusterDetailResponseBodyOperationPolicy>(model1);
+      }
     }
     if (m.find("parameters") != m.end() && !m["parameters"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["parameters"]);
@@ -14590,6 +14761,75 @@ public:
 
   virtual ~DescribeClustersV1Request() = default;
 };
+class DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpgrade : public Darabonba::Model {
+public:
+  shared_ptr<string> channel{};
+  shared_ptr<bool> enabled{};
+
+  DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpgrade() {}
+
+  explicit DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpgrade(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channel) {
+      res["channel"] = boost::any(*channel);
+    }
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("channel") != m.end() && !m["channel"].empty()) {
+      channel = make_shared<string>(boost::any_cast<string>(m["channel"]));
+    }
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+  }
+
+
+  virtual ~DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpgrade() = default;
+};
+class DescribeClustersV1ResponseBodyClustersOperationPolicy : public Darabonba::Model {
+public:
+  shared_ptr<DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpgrade> clusterAutoUpgrade{};
+
+  DescribeClustersV1ResponseBodyClustersOperationPolicy() {}
+
+  explicit DescribeClustersV1ResponseBodyClustersOperationPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterAutoUpgrade) {
+      res["cluster_auto_upgrade"] = clusterAutoUpgrade ? boost::any(clusterAutoUpgrade->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cluster_auto_upgrade") != m.end() && !m["cluster_auto_upgrade"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cluster_auto_upgrade"].type()) {
+        DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpgrade model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cluster_auto_upgrade"]));
+        clusterAutoUpgrade = make_shared<DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpgrade>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeClustersV1ResponseBodyClustersOperationPolicy() = default;
+};
 class DescribeClustersV1ResponseBodyClusters : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -14607,6 +14847,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> networkMode{};
   shared_ptr<string> nextVersion{};
+  shared_ptr<DescribeClustersV1ResponseBodyClustersOperationPolicy> operationPolicy{};
   shared_ptr<bool> privateZone{};
   shared_ptr<string> profile{};
   shared_ptr<string> regionId{};
@@ -14676,6 +14917,9 @@ public:
     }
     if (nextVersion) {
       res["next_version"] = boost::any(*nextVersion);
+    }
+    if (operationPolicy) {
+      res["operation_policy"] = operationPolicy ? boost::any(operationPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (privateZone) {
       res["private_zone"] = boost::any(*privateZone);
@@ -14775,6 +15019,13 @@ public:
     }
     if (m.find("next_version") != m.end() && !m["next_version"].empty()) {
       nextVersion = make_shared<string>(boost::any_cast<string>(m["next_version"]));
+    }
+    if (m.find("operation_policy") != m.end() && !m["operation_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["operation_policy"].type()) {
+        DescribeClustersV1ResponseBodyClustersOperationPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["operation_policy"]));
+        operationPolicy = make_shared<DescribeClustersV1ResponseBodyClustersOperationPolicy>(model1);
+      }
     }
     if (m.find("private_zone") != m.end() && !m["private_zone"].empty()) {
       privateZone = make_shared<bool>(boost::any_cast<bool>(m["private_zone"]));
