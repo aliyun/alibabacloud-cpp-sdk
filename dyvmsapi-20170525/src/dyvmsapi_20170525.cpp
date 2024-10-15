@@ -1067,6 +1067,9 @@ PlayVideoFileResponse Alibabacloud_Dyvmsapi20170525::Client::playVideoFileWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->calledNumber)) {
     query->insert(pair<string, string>("CalledNumber", *request->calledNumber));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->onlyPhone)) {
+    query->insert(pair<string, bool>("OnlyPhone", *request->onlyPhone));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
     query->insert(pair<string, string>("OutId", *request->outId));
   }

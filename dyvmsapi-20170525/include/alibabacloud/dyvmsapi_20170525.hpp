@@ -4560,6 +4560,7 @@ class PlayVideoFileRequest : public Darabonba::Model {
 public:
   shared_ptr<string> callId{};
   shared_ptr<string> calledNumber{};
+  shared_ptr<bool> onlyPhone{};
   shared_ptr<string> outId{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -4581,6 +4582,9 @@ public:
     }
     if (calledNumber) {
       res["CalledNumber"] = boost::any(*calledNumber);
+    }
+    if (onlyPhone) {
+      res["OnlyPhone"] = boost::any(*onlyPhone);
     }
     if (outId) {
       res["OutId"] = boost::any(*outId);
@@ -4606,6 +4610,9 @@ public:
     }
     if (m.find("CalledNumber") != m.end() && !m["CalledNumber"].empty()) {
       calledNumber = make_shared<string>(boost::any_cast<string>(m["CalledNumber"]));
+    }
+    if (m.find("OnlyPhone") != m.end() && !m["OnlyPhone"].empty()) {
+      onlyPhone = make_shared<bool>(boost::any_cast<bool>(m["OnlyPhone"]));
     }
     if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
       outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));
