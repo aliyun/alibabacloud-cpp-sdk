@@ -343,6 +343,9 @@ AddressGetResponse Alibabacloud_BtripOpen20220520::Client::addressGetWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->itineraryId)) {
     query->insert(pair<string, string>("itinerary_id", *request->itineraryId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->middlePage)) {
+    query->insert(pair<string, long>("middle_page", *request->middlePage));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
     query->insert(pair<string, string>("order_Id", *request->orderId));
   }
@@ -354,6 +357,9 @@ AddressGetResponse Alibabacloud_BtripOpen20220520::Client::addressGetWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taobaoCallbackUrl)) {
     query->insert(pair<string, string>("taobao_callback_url", *request->taobaoCallbackUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->thirdpartApplyId)) {
+    query->insert(pair<string, string>("thirdpart_apply_id", *request->thirdpartApplyId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->travelerId)) {
     query->insert(pair<string, string>("traveler_id", *request->travelerId));
@@ -1886,6 +1892,110 @@ CooperatorHotelBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Clien
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<CooperatorHotelBillSettlementQueryHeaders> headers = make_shared<CooperatorHotelBillSettlementQueryHeaders>();
   return cooperatorHotelBillSettlementQueryWithOptions(request, headers, runtime);
+}
+
+CooperatorHotelEventPushResponse Alibabacloud_BtripOpen20220520::Client::cooperatorHotelEventPushWithOptions(shared_ptr<CooperatorHotelEventPushRequest> request, shared_ptr<CooperatorHotelEventPushHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->changeOrderStatus)) {
+    body->insert(pair<string, long>("change_order_status", *request->changeOrderStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->changeOrderStatusDesc)) {
+    body->insert(pair<string, string>("change_order_status_desc", *request->changeOrderStatusDesc));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cooperatorOrderId)) {
+    body->insert(pair<string, string>("cooperator_order_id", *request->cooperatorOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->event)) {
+    body->insert(pair<string, string>("event", *request->event));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventDesc)) {
+    body->insert(pair<string, string>("event_desc", *request->eventDesc));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventTime)) {
+    body->insert(pair<string, string>("event_time", *request->eventTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
+    body->insert(pair<string, string>("order_id", *request->orderId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CooperatorHotelEventPush"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/coop-hotel/v1/orders/events"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CooperatorHotelEventPushResponse(callApi(params, req, runtime));
+}
+
+CooperatorHotelEventPushResponse Alibabacloud_BtripOpen20220520::Client::cooperatorHotelEventPush(shared_ptr<CooperatorHotelEventPushRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<CooperatorHotelEventPushHeaders> headers = make_shared<CooperatorHotelEventPushHeaders>();
+  return cooperatorHotelEventPushWithOptions(request, headers, runtime);
+}
+
+CooperatorSyncPayStatusResponse Alibabacloud_BtripOpen20220520::Client::cooperatorSyncPayStatusWithOptions(shared_ptr<CooperatorSyncPayStatusRequest> request, shared_ptr<CooperatorSyncPayStatusHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cooperatorOrderId)) {
+    body->insert(pair<string, string>("cooperator_order_id", *request->cooperatorOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cooperatorPayNo)) {
+    body->insert(pair<string, string>("cooperator_pay_no", *request->cooperatorPayNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
+    body->insert(pair<string, string>("order_id", *request->orderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->payStatus)) {
+    body->insert(pair<string, string>("pay_status", *request->payStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->payTime)) {
+    body->insert(pair<string, long>("pay_time", *request->payTime));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CooperatorSyncPayStatus"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/coop-pay/v1/cashiers/status"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CooperatorSyncPayStatusResponse(callApi(params, req, runtime));
+}
+
+CooperatorSyncPayStatusResponse Alibabacloud_BtripOpen20220520::Client::cooperatorSyncPayStatus(shared_ptr<CooperatorSyncPayStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<CooperatorSyncPayStatusHeaders> headers = make_shared<CooperatorSyncPayStatusHeaders>();
+  return cooperatorSyncPayStatusWithOptions(request, headers, runtime);
 }
 
 CorpAuthLinkInfoQueryResponse Alibabacloud_BtripOpen20220520::Client::corpAuthLinkInfoQueryWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
