@@ -13106,6 +13106,9 @@ public:
   shared_ptr<string> dstIP{};
   shared_ptr<long> dstPort{};
   shared_ptr<string> dstVpcId{};
+  shared_ptr<long> hitContentType{};
+  shared_ptr<long> hitTo{};
+  shared_ptr<string> parsedContent{};
   shared_ptr<string> payload{};
   shared_ptr<long> payloadLen{};
   shared_ptr<string> proto{};
@@ -13134,6 +13137,15 @@ public:
     }
     if (dstVpcId) {
       res["DstVpcId"] = boost::any(*dstVpcId);
+    }
+    if (hitContentType) {
+      res["HitContentType"] = boost::any(*hitContentType);
+    }
+    if (hitTo) {
+      res["HitTo"] = boost::any(*hitTo);
+    }
+    if (parsedContent) {
+      res["ParsedContent"] = boost::any(*parsedContent);
     }
     if (payload) {
       res["Payload"] = boost::any(*payload);
@@ -13174,6 +13186,15 @@ public:
     }
     if (m.find("DstVpcId") != m.end() && !m["DstVpcId"].empty()) {
       dstVpcId = make_shared<string>(boost::any_cast<string>(m["DstVpcId"]));
+    }
+    if (m.find("HitContentType") != m.end() && !m["HitContentType"].empty()) {
+      hitContentType = make_shared<long>(boost::any_cast<long>(m["HitContentType"]));
+    }
+    if (m.find("HitTo") != m.end() && !m["HitTo"].empty()) {
+      hitTo = make_shared<long>(boost::any_cast<long>(m["HitTo"]));
+    }
+    if (m.find("ParsedContent") != m.end() && !m["ParsedContent"].empty()) {
+      parsedContent = make_shared<string>(boost::any_cast<string>(m["ParsedContent"]));
     }
     if (m.find("Payload") != m.end() && !m["Payload"].empty()) {
       payload = make_shared<string>(boost::any_cast<string>(m["Payload"]));
