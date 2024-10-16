@@ -372,6 +372,42 @@ CreateMemoryNodeResponse Alibabacloud_Bailian20231229::Client::createMemoryNode(
   return createMemoryNodeWithOptions(workspaceId, memoryId, request, headers, runtime);
 }
 
+CreatePromptTemplateResponse Alibabacloud_Bailian20231229::Client::createPromptTemplateWithOptions(shared_ptr<string> workspaceId,
+                                                                                                   shared_ptr<CreatePromptTemplateRequest> request,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    query->insert(pair<string, string>("content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreatePromptTemplate"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/promptTemplates"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreatePromptTemplateResponse(callApi(params, req, runtime));
+}
+
+CreatePromptTemplateResponse Alibabacloud_Bailian20231229::Client::createPromptTemplate(shared_ptr<string> workspaceId, shared_ptr<CreatePromptTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createPromptTemplateWithOptions(workspaceId, request, headers, runtime);
+}
+
 DeleteAgentResponse Alibabacloud_Bailian20231229::Client::deleteAgentWithOptions(shared_ptr<string> workspaceId,
                                                                                  shared_ptr<string> appCode,
                                                                                  shared_ptr<map<string, string>> headers,
@@ -582,6 +618,33 @@ DeleteMemoryNodeResponse Alibabacloud_Bailian20231229::Client::deleteMemoryNode(
   return deleteMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, headers, runtime);
 }
 
+DeletePromptTemplateResponse Alibabacloud_Bailian20231229::Client::deletePromptTemplateWithOptions(shared_ptr<string> workspaceId,
+                                                                                                   shared_ptr<string> promptTemplateId,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeletePromptTemplate"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/promptTemplates/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(promptTemplateId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeletePromptTemplateResponse(callApi(params, req, runtime));
+}
+
+DeletePromptTemplateResponse Alibabacloud_Bailian20231229::Client::deletePromptTemplate(shared_ptr<string> workspaceId, shared_ptr<string> promptTemplateId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deletePromptTemplateWithOptions(workspaceId, promptTemplateId, headers, runtime);
+}
+
 DescribeFileResponse Alibabacloud_Bailian20231229::Client::describeFileWithOptions(shared_ptr<string> WorkspaceId,
                                                                                    shared_ptr<string> FileId,
                                                                                    shared_ptr<map<string, string>> headers,
@@ -706,6 +769,33 @@ GetMemoryNodeResponse Alibabacloud_Bailian20231229::Client::getMemoryNode(shared
   return getMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, headers, runtime);
 }
 
+GetPromptTemplateResponse Alibabacloud_Bailian20231229::Client::getPromptTemplateWithOptions(shared_ptr<string> workspaceId,
+                                                                                             shared_ptr<string> promptTemplateId,
+                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPromptTemplate"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/promptTemplates/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(promptTemplateId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPromptTemplateResponse(callApi(params, req, runtime));
+}
+
+GetPromptTemplateResponse Alibabacloud_Bailian20231229::Client::getPromptTemplate(shared_ptr<string> workspaceId, shared_ptr<string> promptTemplateId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getPromptTemplateWithOptions(workspaceId, promptTemplateId, headers, runtime);
+}
+
 GetPublishedAgentResponse Alibabacloud_Bailian20231229::Client::getPublishedAgentWithOptions(shared_ptr<string> workspaceId,
                                                                                              shared_ptr<string> appCode,
                                                                                              shared_ptr<map<string, string>> headers,
@@ -828,6 +918,9 @@ ListFileResponse Alibabacloud_Bailian20231229::Client::listFileWithOptions(share
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->categoryId)) {
     query->insert(pair<string, string>("CategoryId", *request->categoryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    query->insert(pair<string, string>("FileName", *request->fileName));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
@@ -1014,6 +1107,48 @@ ListMemoryNodesResponse Alibabacloud_Bailian20231229::Client::listMemoryNodes(sh
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listMemoryNodesWithOptions(workspaceId, memoryId, request, headers, runtime);
+}
+
+ListPromptTemplatesResponse Alibabacloud_Bailian20231229::Client::listPromptTemplatesWithOptions(shared_ptr<string> workspaceId,
+                                                                                                 shared_ptr<ListPromptTemplatesRequest> request,
+                                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("maxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("nextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListPromptTemplates"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/promptTemplates"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListPromptTemplatesResponse(callApi(params, req, runtime));
+}
+
+ListPromptTemplatesResponse Alibabacloud_Bailian20231229::Client::listPromptTemplates(shared_ptr<string> workspaceId, shared_ptr<ListPromptTemplatesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listPromptTemplatesWithOptions(workspaceId, request, headers, runtime);
 }
 
 ListPublishedAgentResponse Alibabacloud_Bailian20231229::Client::listPublishedAgentWithOptions(shared_ptr<string> workspaceId,
@@ -1336,5 +1471,42 @@ UpdateMemoryNodeResponse Alibabacloud_Bailian20231229::Client::updateMemoryNode(
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, request, headers, runtime);
+}
+
+UpdatePromptTemplateResponse Alibabacloud_Bailian20231229::Client::updatePromptTemplateWithOptions(shared_ptr<string> workspaceId,
+                                                                                                   shared_ptr<string> promptTemplateId,
+                                                                                                   shared_ptr<UpdatePromptTemplateRequest> request,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    query->insert(pair<string, string>("content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdatePromptTemplate"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/promptTemplates/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(promptTemplateId)))},
+    {"method", boost::any(string("PATCH"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdatePromptTemplateResponse(callApi(params, req, runtime));
+}
+
+UpdatePromptTemplateResponse Alibabacloud_Bailian20231229::Client::updatePromptTemplate(shared_ptr<string> workspaceId, shared_ptr<string> promptTemplateId, shared_ptr<UpdatePromptTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updatePromptTemplateWithOptions(workspaceId, promptTemplateId, request, headers, runtime);
 }
 

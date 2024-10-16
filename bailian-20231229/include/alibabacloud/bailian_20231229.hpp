@@ -2187,6 +2187,130 @@ public:
 
   virtual ~CreateMemoryNodeResponse() = default;
 };
+class CreatePromptTemplateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> name{};
+
+  CreatePromptTemplateRequest() {}
+
+  explicit CreatePromptTemplateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~CreatePromptTemplateRequest() = default;
+};
+class CreatePromptTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> promptTemplateId{};
+  shared_ptr<string> requestId{};
+
+  CreatePromptTemplateResponseBody() {}
+
+  explicit CreatePromptTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (promptTemplateId) {
+      res["promptTemplateId"] = boost::any(*promptTemplateId);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("promptTemplateId") != m.end() && !m["promptTemplateId"].empty()) {
+      promptTemplateId = make_shared<string>(boost::any_cast<string>(m["promptTemplateId"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~CreatePromptTemplateResponseBody() = default;
+};
+class CreatePromptTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreatePromptTemplateResponseBody> body{};
+
+  CreatePromptTemplateResponse() {}
+
+  explicit CreatePromptTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreatePromptTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreatePromptTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePromptTemplateResponse() = default;
+};
 class DeleteAgentResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
@@ -3136,6 +3260,87 @@ public:
 
   virtual ~DeleteMemoryNodeResponse() = default;
 };
+class DeletePromptTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeletePromptTemplateResponseBody() {}
+
+  explicit DeletePromptTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~DeletePromptTemplateResponseBody() = default;
+};
+class DeletePromptTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeletePromptTemplateResponseBody> body{};
+
+  DeletePromptTemplateResponse() {}
+
+  explicit DeletePromptTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeletePromptTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeletePromptTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeletePromptTemplateResponse() = default;
+};
 class DescribeFileResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> categoryId{};
@@ -3842,6 +4047,129 @@ public:
 
 
   virtual ~GetMemoryNodeResponse() = default;
+};
+class GetPromptTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> name{};
+  shared_ptr<string> promptTemplateId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> variables{};
+  shared_ptr<string> workspaceId{};
+
+  GetPromptTemplateResponseBody() {}
+
+  explicit GetPromptTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (promptTemplateId) {
+      res["promptTemplateId"] = boost::any(*promptTemplateId);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (variables) {
+      res["variables"] = boost::any(*variables);
+    }
+    if (workspaceId) {
+      res["workspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("promptTemplateId") != m.end() && !m["promptTemplateId"].empty()) {
+      promptTemplateId = make_shared<string>(boost::any_cast<string>(m["promptTemplateId"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("variables") != m.end() && !m["variables"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["variables"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["variables"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      variables = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("workspaceId") != m.end() && !m["workspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["workspaceId"]));
+    }
+  }
+
+
+  virtual ~GetPromptTemplateResponseBody() = default;
+};
+class GetPromptTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetPromptTemplateResponseBody> body{};
+
+  GetPromptTemplateResponse() {}
+
+  explicit GetPromptTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetPromptTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetPromptTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetPromptTemplateResponse() = default;
 };
 class GetPublishedAgentResponseBodyDataApplicationConfigHistoryConfig : public Darabonba::Model {
 public:
@@ -4994,6 +5322,7 @@ public:
 class ListFileRequest : public Darabonba::Model {
 public:
   shared_ptr<string> categoryId{};
+  shared_ptr<string> fileName{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
 
@@ -5010,6 +5339,9 @@ public:
     if (categoryId) {
       res["CategoryId"] = boost::any(*categoryId);
     }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
@@ -5022,6 +5354,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
       categoryId = make_shared<string>(boost::any_cast<string>(m["CategoryId"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
@@ -6400,6 +6735,250 @@ public:
 
 
   virtual ~ListMemoryNodesResponse() = default;
+};
+class ListPromptTemplatesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> name{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> type{};
+
+  ListPromptTemplatesRequest() {}
+
+  explicit ListPromptTemplatesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["maxResults"] = boost::any(*maxResults);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("maxResults") != m.end() && !m["maxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["maxResults"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~ListPromptTemplatesRequest() = default;
+};
+class ListPromptTemplatesResponseBodyPromptTemplates : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> name{};
+  shared_ptr<string> promptTemplateId{};
+  shared_ptr<string> type{};
+  shared_ptr<vector<string>> variables{};
+
+  ListPromptTemplatesResponseBodyPromptTemplates() {}
+
+  explicit ListPromptTemplatesResponseBodyPromptTemplates(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (promptTemplateId) {
+      res["promptTemplateId"] = boost::any(*promptTemplateId);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (variables) {
+      res["variables"] = boost::any(*variables);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("promptTemplateId") != m.end() && !m["promptTemplateId"].empty()) {
+      promptTemplateId = make_shared<string>(boost::any_cast<string>(m["promptTemplateId"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("variables") != m.end() && !m["variables"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["variables"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["variables"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      variables = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListPromptTemplatesResponseBodyPromptTemplates() = default;
+};
+class ListPromptTemplatesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<ListPromptTemplatesResponseBodyPromptTemplates>> promptTemplates{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<string> workspaceId{};
+
+  ListPromptTemplatesResponseBody() {}
+
+  explicit ListPromptTemplatesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["maxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    if (promptTemplates) {
+      vector<boost::any> temp1;
+      for(auto item1:*promptTemplates){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["promptTemplates"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["totalCount"] = boost::any(*totalCount);
+    }
+    if (workspaceId) {
+      res["workspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("maxResults") != m.end() && !m["maxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["maxResults"]));
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("promptTemplates") != m.end() && !m["promptTemplates"].empty()) {
+      if (typeid(vector<boost::any>) == m["promptTemplates"].type()) {
+        vector<ListPromptTemplatesResponseBodyPromptTemplates> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["promptTemplates"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPromptTemplatesResponseBodyPromptTemplates model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        promptTemplates = make_shared<vector<ListPromptTemplatesResponseBodyPromptTemplates>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("totalCount") != m.end() && !m["totalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["totalCount"]));
+    }
+    if (m.find("workspaceId") != m.end() && !m["workspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["workspaceId"]));
+    }
+  }
+
+
+  virtual ~ListPromptTemplatesResponseBody() = default;
+};
+class ListPromptTemplatesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListPromptTemplatesResponseBody> body{};
+
+  ListPromptTemplatesResponse() {}
+
+  explicit ListPromptTemplatesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListPromptTemplatesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListPromptTemplatesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListPromptTemplatesResponse() = default;
 };
 class ListPublishedAgentRequest : public Darabonba::Model {
 public:
@@ -8891,6 +9470,123 @@ public:
 
   virtual ~UpdateMemoryNodeResponse() = default;
 };
+class UpdatePromptTemplateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> name{};
+
+  UpdatePromptTemplateRequest() {}
+
+  explicit UpdatePromptTemplateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~UpdatePromptTemplateRequest() = default;
+};
+class UpdatePromptTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdatePromptTemplateResponseBody() {}
+
+  explicit UpdatePromptTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~UpdatePromptTemplateResponseBody() = default;
+};
+class UpdatePromptTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdatePromptTemplateResponseBody> body{};
+
+  UpdatePromptTemplateResponse() {}
+
+  explicit UpdatePromptTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdatePromptTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdatePromptTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdatePromptTemplateResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -8938,6 +9634,11 @@ public:
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateMemoryNodeResponse createMemoryNode(shared_ptr<string> workspaceId, shared_ptr<string> memoryId, shared_ptr<CreateMemoryNodeRequest> request);
+  CreatePromptTemplateResponse createPromptTemplateWithOptions(shared_ptr<string> workspaceId,
+                                                               shared_ptr<CreatePromptTemplateRequest> request,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePromptTemplateResponse createPromptTemplate(shared_ptr<string> workspaceId, shared_ptr<CreatePromptTemplateRequest> request);
   DeleteAgentResponse deleteAgentWithOptions(shared_ptr<string> workspaceId,
                                              shared_ptr<string> appCode,
                                              shared_ptr<map<string, string>> headers,
@@ -8974,6 +9675,11 @@ public:
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteMemoryNodeResponse deleteMemoryNode(shared_ptr<string> workspaceId, shared_ptr<string> memoryId, shared_ptr<string> memoryNodeId);
+  DeletePromptTemplateResponse deletePromptTemplateWithOptions(shared_ptr<string> workspaceId,
+                                                               shared_ptr<string> promptTemplateId,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeletePromptTemplateResponse deletePromptTemplate(shared_ptr<string> workspaceId, shared_ptr<string> promptTemplateId);
   DescribeFileResponse describeFileWithOptions(shared_ptr<string> WorkspaceId,
                                                shared_ptr<string> FileId,
                                                shared_ptr<map<string, string>> headers,
@@ -8995,6 +9701,11 @@ public:
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMemoryNodeResponse getMemoryNode(shared_ptr<string> workspaceId, shared_ptr<string> memoryId, shared_ptr<string> memoryNodeId);
+  GetPromptTemplateResponse getPromptTemplateWithOptions(shared_ptr<string> workspaceId,
+                                                         shared_ptr<string> promptTemplateId,
+                                                         shared_ptr<map<string, string>> headers,
+                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetPromptTemplateResponse getPromptTemplate(shared_ptr<string> workspaceId, shared_ptr<string> promptTemplateId);
   GetPublishedAgentResponse getPublishedAgentWithOptions(shared_ptr<string> workspaceId,
                                                          shared_ptr<string> appCode,
                                                          shared_ptr<map<string, string>> headers,
@@ -9036,6 +9747,11 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListMemoryNodesResponse listMemoryNodes(shared_ptr<string> workspaceId, shared_ptr<string> memoryId, shared_ptr<ListMemoryNodesRequest> request);
+  ListPromptTemplatesResponse listPromptTemplatesWithOptions(shared_ptr<string> workspaceId,
+                                                             shared_ptr<ListPromptTemplatesRequest> request,
+                                                             shared_ptr<map<string, string>> headers,
+                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListPromptTemplatesResponse listPromptTemplates(shared_ptr<string> workspaceId, shared_ptr<ListPromptTemplatesRequest> request);
   ListPublishedAgentResponse listPublishedAgentWithOptions(shared_ptr<string> workspaceId,
                                                            shared_ptr<ListPublishedAgentRequest> request,
                                                            shared_ptr<map<string, string>> headers,
@@ -9078,6 +9794,12 @@ public:
                                             shared_ptr<string> memoryId,
                                             shared_ptr<string> memoryNodeId,
                                             shared_ptr<UpdateMemoryNodeRequest> request);
+  UpdatePromptTemplateResponse updatePromptTemplateWithOptions(shared_ptr<string> workspaceId,
+                                                               shared_ptr<string> promptTemplateId,
+                                                               shared_ptr<UpdatePromptTemplateRequest> request,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdatePromptTemplateResponse updatePromptTemplate(shared_ptr<string> workspaceId, shared_ptr<string> promptTemplateId, shared_ptr<UpdatePromptTemplateRequest> request);
 
   virtual ~Client() = default;
 };
