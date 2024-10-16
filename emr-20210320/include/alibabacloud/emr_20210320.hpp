@@ -1521,6 +1521,7 @@ public:
   shared_ptr<string> activityType{};
   shared_ptr<long> adjustmentValue{};
   shared_ptr<MetricsTrigger> metricsTrigger{};
+  shared_ptr<long> minAdjustmentValue{};
   shared_ptr<string> ruleName{};
   shared_ptr<TimeTrigger> timeTrigger{};
   shared_ptr<string> triggerType{};
@@ -1543,6 +1544,9 @@ public:
     }
     if (metricsTrigger) {
       res["MetricsTrigger"] = metricsTrigger ? boost::any(metricsTrigger->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (minAdjustmentValue) {
+      res["MinAdjustmentValue"] = boost::any(*minAdjustmentValue);
     }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
@@ -1569,6 +1573,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MetricsTrigger"]));
         metricsTrigger = make_shared<MetricsTrigger>(model1);
       }
+    }
+    if (m.find("MinAdjustmentValue") != m.end() && !m["MinAdjustmentValue"].empty()) {
+      minAdjustmentValue = make_shared<long>(boost::any_cast<long>(m["MinAdjustmentValue"]));
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
@@ -4514,6 +4521,49 @@ public:
 
 
   virtual ~ListApiTemplatesDTO() = default;
+};
+class ManagedScalingConstraints : public Darabonba::Model {
+public:
+  shared_ptr<long> maxCapacity{};
+  shared_ptr<long> maxOnDemandCapacity{};
+  shared_ptr<long> minCapacity{};
+
+  ManagedScalingConstraints() {}
+
+  explicit ManagedScalingConstraints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxCapacity) {
+      res["MaxCapacity"] = boost::any(*maxCapacity);
+    }
+    if (maxOnDemandCapacity) {
+      res["MaxOnDemandCapacity"] = boost::any(*maxOnDemandCapacity);
+    }
+    if (minCapacity) {
+      res["MinCapacity"] = boost::any(*minCapacity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxCapacity") != m.end() && !m["MaxCapacity"].empty()) {
+      maxCapacity = make_shared<long>(boost::any_cast<long>(m["MaxCapacity"]));
+    }
+    if (m.find("MaxOnDemandCapacity") != m.end() && !m["MaxOnDemandCapacity"].empty()) {
+      maxOnDemandCapacity = make_shared<long>(boost::any_cast<long>(m["MaxOnDemandCapacity"]));
+    }
+    if (m.find("MinCapacity") != m.end() && !m["MinCapacity"].empty()) {
+      minCapacity = make_shared<long>(boost::any_cast<long>(m["MinCapacity"]));
+    }
+  }
+
+
+  virtual ~ManagedScalingConstraints() = default;
 };
 class MetaStoreConf : public Darabonba::Model {
 public:
