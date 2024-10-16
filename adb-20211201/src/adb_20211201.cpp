@@ -427,6 +427,9 @@ CreateDBResourceGroupResponse Alibabacloud_Adb20211201::Client::createDBResource
     request->rulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->rules, make_shared<string>("Rules"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->autoStopInterval)) {
+    query->insert(pair<string, string>("AutoStopInterval", *request->autoStopInterval));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterMode)) {
     query->insert(pair<string, string>("ClusterMode", *request->clusterMode));
   }
@@ -4582,6 +4585,9 @@ ModifyDBResourceGroupResponse Alibabacloud_Adb20211201::Client::modifyDBResource
     request->rulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->rules, make_shared<string>("Rules"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->autoStopInterval)) {
+    query->insert(pair<string, string>("AutoStopInterval", *request->autoStopInterval));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterMode)) {
     query->insert(pair<string, string>("ClusterMode", *request->clusterMode));
   }
@@ -4629,6 +4635,9 @@ ModifyDBResourceGroupResponse Alibabacloud_Adb20211201::Client::modifyDBResource
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->specName)) {
     query->insert(pair<string, string>("SpecName", *request->specName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->targetResourceGroupName)) {
     query->insert(pair<string, string>("TargetResourceGroupName", *request->targetResourceGroupName));

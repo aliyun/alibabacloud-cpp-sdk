@@ -3778,6 +3778,7 @@ public:
 };
 class CreateDBResourceGroupRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> autoStopInterval{};
   shared_ptr<string> clusterMode{};
   shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> DBClusterId{};
@@ -3807,6 +3808,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoStopInterval) {
+      res["AutoStopInterval"] = boost::any(*autoStopInterval);
+    }
     if (clusterMode) {
       res["ClusterMode"] = boost::any(*clusterMode);
     }
@@ -3869,6 +3873,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoStopInterval") != m.end() && !m["AutoStopInterval"].empty()) {
+      autoStopInterval = make_shared<string>(boost::any_cast<string>(m["AutoStopInterval"]));
+    }
     if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
       clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
     }
@@ -3945,6 +3952,7 @@ public:
 };
 class CreateDBResourceGroupShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> autoStopInterval{};
   shared_ptr<string> clusterMode{};
   shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> DBClusterId{};
@@ -3974,6 +3982,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoStopInterval) {
+      res["AutoStopInterval"] = boost::any(*autoStopInterval);
+    }
     if (clusterMode) {
       res["ClusterMode"] = boost::any(*clusterMode);
     }
@@ -4032,6 +4043,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoStopInterval") != m.end() && !m["AutoStopInterval"].empty()) {
+      autoStopInterval = make_shared<string>(boost::any_cast<string>(m["AutoStopInterval"]));
+    }
     if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
       clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
     }
@@ -14128,6 +14142,7 @@ public:
 };
 class DescribeDBResourceGroupResponseBodyGroupsInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> autoStopInterval{};
   shared_ptr<string> clusterMode{};
   shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> createTime{};
@@ -14162,6 +14177,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoStopInterval) {
+      res["AutoStopInterval"] = boost::any(*autoStopInterval);
+    }
     if (clusterMode) {
       res["ClusterMode"] = boost::any(*clusterMode);
     }
@@ -14239,6 +14257,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoStopInterval") != m.end() && !m["AutoStopInterval"].empty()) {
+      autoStopInterval = make_shared<string>(boost::any_cast<string>(m["AutoStopInterval"]));
+    }
     if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
       clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
     }
@@ -17846,6 +17867,9 @@ public:
 };
 class DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKeys : public Darabonba::Model {
 public:
+  shared_ptr<bool> enableAutoMc{};
+  shared_ptr<vector<string>> engine{};
+  shared_ptr<vector<string>> groupType{};
   shared_ptr<string> keyName{};
   shared_ptr<bool> selected{};
 
@@ -17859,6 +17883,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enableAutoMc) {
+      res["EnableAutoMc"] = boost::any(*enableAutoMc);
+    }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
+    }
+    if (groupType) {
+      res["GroupType"] = boost::any(*groupType);
+    }
     if (keyName) {
       res["KeyName"] = boost::any(*keyName);
     }
@@ -17869,6 +17902,29 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableAutoMc") != m.end() && !m["EnableAutoMc"].empty()) {
+      enableAutoMc = make_shared<bool>(boost::any_cast<bool>(m["EnableAutoMc"]));
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Engine"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Engine"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      engine = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("GroupType") != m.end() && !m["GroupType"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GroupType"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GroupType"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      groupType = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("KeyName") != m.end() && !m["KeyName"].empty()) {
       keyName = make_shared<string>(boost::any_cast<string>(m["KeyName"]));
     }
@@ -28081,6 +28137,7 @@ public:
 };
 class ModifyDBResourceGroupRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> autoStopInterval{};
   shared_ptr<string> clusterMode{};
   shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> DBClusterId{};
@@ -28097,6 +28154,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<vector<ModifyDBResourceGroupRequestRules>> rules{};
   shared_ptr<string> specName{};
+  shared_ptr<string> status{};
   shared_ptr<string> targetResourceGroupName{};
 
   ModifyDBResourceGroupRequest() {}
@@ -28109,6 +28167,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoStopInterval) {
+      res["AutoStopInterval"] = boost::any(*autoStopInterval);
+    }
     if (clusterMode) {
       res["ClusterMode"] = boost::any(*clusterMode);
     }
@@ -28161,6 +28222,9 @@ public:
     if (specName) {
       res["SpecName"] = boost::any(*specName);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (targetResourceGroupName) {
       res["TargetResourceGroupName"] = boost::any(*targetResourceGroupName);
     }
@@ -28168,6 +28232,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoStopInterval") != m.end() && !m["AutoStopInterval"].empty()) {
+      autoStopInterval = make_shared<string>(boost::any_cast<string>(m["AutoStopInterval"]));
+    }
     if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
       clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
     }
@@ -28231,6 +28298,9 @@ public:
     if (m.find("SpecName") != m.end() && !m["SpecName"].empty()) {
       specName = make_shared<string>(boost::any_cast<string>(m["SpecName"]));
     }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
     if (m.find("TargetResourceGroupName") != m.end() && !m["TargetResourceGroupName"].empty()) {
       targetResourceGroupName = make_shared<string>(boost::any_cast<string>(m["TargetResourceGroupName"]));
     }
@@ -28241,6 +28311,7 @@ public:
 };
 class ModifyDBResourceGroupShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> autoStopInterval{};
   shared_ptr<string> clusterMode{};
   shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> DBClusterId{};
@@ -28257,6 +28328,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> rulesShrink{};
   shared_ptr<string> specName{};
+  shared_ptr<string> status{};
   shared_ptr<string> targetResourceGroupName{};
 
   ModifyDBResourceGroupShrinkRequest() {}
@@ -28269,6 +28341,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoStopInterval) {
+      res["AutoStopInterval"] = boost::any(*autoStopInterval);
+    }
     if (clusterMode) {
       res["ClusterMode"] = boost::any(*clusterMode);
     }
@@ -28317,6 +28392,9 @@ public:
     if (specName) {
       res["SpecName"] = boost::any(*specName);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (targetResourceGroupName) {
       res["TargetResourceGroupName"] = boost::any(*targetResourceGroupName);
     }
@@ -28324,6 +28402,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoStopInterval") != m.end() && !m["AutoStopInterval"].empty()) {
+      autoStopInterval = make_shared<string>(boost::any_cast<string>(m["AutoStopInterval"]));
+    }
     if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
       clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
     }
@@ -28371,6 +28452,9 @@ public:
     }
     if (m.find("SpecName") != m.end() && !m["SpecName"].empty()) {
       specName = make_shared<string>(boost::any_cast<string>(m["SpecName"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("TargetResourceGroupName") != m.end() && !m["TargetResourceGroupName"].empty()) {
       targetResourceGroupName = make_shared<string>(boost::any_cast<string>(m["TargetResourceGroupName"]));
