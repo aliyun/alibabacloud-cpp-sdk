@@ -50847,6 +50847,461 @@ public:
 
   virtual ~RunApplicationActionResponse() = default;
 };
+class RunClusterRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<ApplicationConfig>> applicationConfigs{};
+  shared_ptr<vector<Application>> applications{};
+  shared_ptr<vector<Script>> bootstrapScripts{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> clusterName{};
+  shared_ptr<string> clusterType{};
+  shared_ptr<string> deployMode{};
+  shared_ptr<string> description{};
+  shared_ptr<NodeAttributes> nodeAttributes{};
+  shared_ptr<vector<NodeGroupConfig>> nodeGroups{};
+  shared_ptr<string> paymentType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> releaseVersion{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> securityMode{};
+  shared_ptr<SubscriptionConfig> subscriptionConfig{};
+  shared_ptr<vector<Tag>> tags{};
+
+  RunClusterRequest() {}
+
+  explicit RunClusterRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationConfigs) {
+      vector<boost::any> temp1;
+      for(auto item1:*applicationConfigs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ApplicationConfigs"] = boost::any(temp1);
+    }
+    if (applications) {
+      vector<boost::any> temp1;
+      for(auto item1:*applications){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Applications"] = boost::any(temp1);
+    }
+    if (bootstrapScripts) {
+      vector<boost::any> temp1;
+      for(auto item1:*bootstrapScripts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BootstrapScripts"] = boost::any(temp1);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
+    if (clusterType) {
+      res["ClusterType"] = boost::any(*clusterType);
+    }
+    if (deployMode) {
+      res["DeployMode"] = boost::any(*deployMode);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (nodeAttributes) {
+      res["NodeAttributes"] = nodeAttributes ? boost::any(nodeAttributes->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (nodeGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*nodeGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NodeGroups"] = boost::any(temp1);
+    }
+    if (paymentType) {
+      res["PaymentType"] = boost::any(*paymentType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (releaseVersion) {
+      res["ReleaseVersion"] = boost::any(*releaseVersion);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (securityMode) {
+      res["SecurityMode"] = boost::any(*securityMode);
+    }
+    if (subscriptionConfig) {
+      res["SubscriptionConfig"] = subscriptionConfig ? boost::any(subscriptionConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationConfigs") != m.end() && !m["ApplicationConfigs"].empty()) {
+      if (typeid(vector<boost::any>) == m["ApplicationConfigs"].type()) {
+        vector<ApplicationConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ApplicationConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ApplicationConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        applicationConfigs = make_shared<vector<ApplicationConfig>>(expect1);
+      }
+    }
+    if (m.find("Applications") != m.end() && !m["Applications"].empty()) {
+      if (typeid(vector<boost::any>) == m["Applications"].type()) {
+        vector<Application> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Applications"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Application model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        applications = make_shared<vector<Application>>(expect1);
+      }
+    }
+    if (m.find("BootstrapScripts") != m.end() && !m["BootstrapScripts"].empty()) {
+      if (typeid(vector<boost::any>) == m["BootstrapScripts"].type()) {
+        vector<Script> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BootstrapScripts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Script model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        bootstrapScripts = make_shared<vector<Script>>(expect1);
+      }
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
+    if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
+      clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
+    }
+    if (m.find("DeployMode") != m.end() && !m["DeployMode"].empty()) {
+      deployMode = make_shared<string>(boost::any_cast<string>(m["DeployMode"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("NodeAttributes") != m.end() && !m["NodeAttributes"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NodeAttributes"].type()) {
+        NodeAttributes model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NodeAttributes"]));
+        nodeAttributes = make_shared<NodeAttributes>(model1);
+      }
+    }
+    if (m.find("NodeGroups") != m.end() && !m["NodeGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["NodeGroups"].type()) {
+        vector<NodeGroupConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NodeGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            NodeGroupConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        nodeGroups = make_shared<vector<NodeGroupConfig>>(expect1);
+      }
+    }
+    if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ReleaseVersion") != m.end() && !m["ReleaseVersion"].empty()) {
+      releaseVersion = make_shared<string>(boost::any_cast<string>(m["ReleaseVersion"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SecurityMode") != m.end() && !m["SecurityMode"].empty()) {
+      securityMode = make_shared<string>(boost::any_cast<string>(m["SecurityMode"]));
+    }
+    if (m.find("SubscriptionConfig") != m.end() && !m["SubscriptionConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SubscriptionConfig"].type()) {
+        SubscriptionConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SubscriptionConfig"]));
+        subscriptionConfig = make_shared<SubscriptionConfig>(model1);
+      }
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<Tag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Tag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<Tag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RunClusterRequest() = default;
+};
+class RunClusterShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationConfigsShrink{};
+  shared_ptr<string> applicationsShrink{};
+  shared_ptr<string> bootstrapScriptsShrink{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> clusterName{};
+  shared_ptr<string> clusterType{};
+  shared_ptr<string> deployMode{};
+  shared_ptr<string> description{};
+  shared_ptr<string> nodeAttributesShrink{};
+  shared_ptr<string> nodeGroupsShrink{};
+  shared_ptr<string> paymentType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> releaseVersion{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> securityMode{};
+  shared_ptr<string> subscriptionConfigShrink{};
+  shared_ptr<string> tagsShrink{};
+
+  RunClusterShrinkRequest() {}
+
+  explicit RunClusterShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationConfigsShrink) {
+      res["ApplicationConfigs"] = boost::any(*applicationConfigsShrink);
+    }
+    if (applicationsShrink) {
+      res["Applications"] = boost::any(*applicationsShrink);
+    }
+    if (bootstrapScriptsShrink) {
+      res["BootstrapScripts"] = boost::any(*bootstrapScriptsShrink);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
+    if (clusterType) {
+      res["ClusterType"] = boost::any(*clusterType);
+    }
+    if (deployMode) {
+      res["DeployMode"] = boost::any(*deployMode);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (nodeAttributesShrink) {
+      res["NodeAttributes"] = boost::any(*nodeAttributesShrink);
+    }
+    if (nodeGroupsShrink) {
+      res["NodeGroups"] = boost::any(*nodeGroupsShrink);
+    }
+    if (paymentType) {
+      res["PaymentType"] = boost::any(*paymentType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (releaseVersion) {
+      res["ReleaseVersion"] = boost::any(*releaseVersion);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (securityMode) {
+      res["SecurityMode"] = boost::any(*securityMode);
+    }
+    if (subscriptionConfigShrink) {
+      res["SubscriptionConfig"] = boost::any(*subscriptionConfigShrink);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationConfigs") != m.end() && !m["ApplicationConfigs"].empty()) {
+      applicationConfigsShrink = make_shared<string>(boost::any_cast<string>(m["ApplicationConfigs"]));
+    }
+    if (m.find("Applications") != m.end() && !m["Applications"].empty()) {
+      applicationsShrink = make_shared<string>(boost::any_cast<string>(m["Applications"]));
+    }
+    if (m.find("BootstrapScripts") != m.end() && !m["BootstrapScripts"].empty()) {
+      bootstrapScriptsShrink = make_shared<string>(boost::any_cast<string>(m["BootstrapScripts"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
+    if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
+      clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
+    }
+    if (m.find("DeployMode") != m.end() && !m["DeployMode"].empty()) {
+      deployMode = make_shared<string>(boost::any_cast<string>(m["DeployMode"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("NodeAttributes") != m.end() && !m["NodeAttributes"].empty()) {
+      nodeAttributesShrink = make_shared<string>(boost::any_cast<string>(m["NodeAttributes"]));
+    }
+    if (m.find("NodeGroups") != m.end() && !m["NodeGroups"].empty()) {
+      nodeGroupsShrink = make_shared<string>(boost::any_cast<string>(m["NodeGroups"]));
+    }
+    if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ReleaseVersion") != m.end() && !m["ReleaseVersion"].empty()) {
+      releaseVersion = make_shared<string>(boost::any_cast<string>(m["ReleaseVersion"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SecurityMode") != m.end() && !m["SecurityMode"].empty()) {
+      securityMode = make_shared<string>(boost::any_cast<string>(m["SecurityMode"]));
+    }
+    if (m.find("SubscriptionConfig") != m.end() && !m["SubscriptionConfig"].empty()) {
+      subscriptionConfigShrink = make_shared<string>(boost::any_cast<string>(m["SubscriptionConfig"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+  }
+
+
+  virtual ~RunClusterShrinkRequest() = default;
+};
+class RunClusterResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> operationId{};
+  shared_ptr<string> requestId{};
+
+  RunClusterResponseBody() {}
+
+  explicit RunClusterResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (operationId) {
+      res["OperationId"] = boost::any(*operationId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("OperationId") != m.end() && !m["OperationId"].empty()) {
+      operationId = make_shared<string>(boost::any_cast<string>(m["OperationId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RunClusterResponseBody() = default;
+};
+class RunClusterResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RunClusterResponseBody> body{};
+
+  RunClusterResponse() {}
+
+  explicit RunClusterResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RunClusterResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RunClusterResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunClusterResponse() = default;
+};
 class TagResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -51826,6 +52281,8 @@ public:
   RunApiTemplateResponse runApiTemplate(shared_ptr<RunApiTemplateRequest> request);
   RunApplicationActionResponse runApplicationActionWithOptions(shared_ptr<RunApplicationActionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunApplicationActionResponse runApplicationAction(shared_ptr<RunApplicationActionRequest> request);
+  RunClusterResponse runClusterWithOptions(shared_ptr<RunClusterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RunClusterResponse runCluster(shared_ptr<RunClusterRequest> request);
   TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
