@@ -15237,6 +15237,7 @@ public:
   shared_ptr<vector<string>> recommendZones{};
   shared_ptr<string> regionEndpoint{};
   shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> unavailableZones{};
   shared_ptr<vector<string>> zones{};
 
   DescribeRegionsResponseBodyRegions() {}
@@ -15257,6 +15258,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (unavailableZones) {
+      res["UnavailableZones"] = boost::any(*unavailableZones);
     }
     if (zones) {
       res["Zones"] = boost::any(*zones);
@@ -15280,6 +15284,16 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("UnavailableZones") != m.end() && !m["UnavailableZones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UnavailableZones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UnavailableZones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      unavailableZones = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Zones") != m.end() && !m["Zones"].empty()) {
       vector<string> toVec1;
