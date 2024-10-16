@@ -197,11 +197,97 @@ public:
 
   virtual ~Body() = default;
 };
+class Message2ThirdChannel : public Darabonba::Model {
+public:
+  shared_ptr<long> setBadge{};
+  shared_ptr<long> addBadge{};
+  shared_ptr<string> bigBody{};
+  shared_ptr<string> bigTitle{};
+  shared_ptr<string> expandImage{};
+  shared_ptr<string> img{};
+  shared_ptr<string> sound{};
+  shared_ptr<string> text{};
+  shared_ptr<string> title{};
+
+  Message2ThirdChannel() {}
+
+  explicit Message2ThirdChannel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (setBadge) {
+      res["SetBadge"] = boost::any(*setBadge);
+    }
+    if (addBadge) {
+      res["addBadge"] = boost::any(*addBadge);
+    }
+    if (bigBody) {
+      res["bigBody"] = boost::any(*bigBody);
+    }
+    if (bigTitle) {
+      res["bigTitle"] = boost::any(*bigTitle);
+    }
+    if (expandImage) {
+      res["expandImage"] = boost::any(*expandImage);
+    }
+    if (img) {
+      res["img"] = boost::any(*img);
+    }
+    if (sound) {
+      res["sound"] = boost::any(*sound);
+    }
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SetBadge") != m.end() && !m["SetBadge"].empty()) {
+      setBadge = make_shared<long>(boost::any_cast<long>(m["SetBadge"]));
+    }
+    if (m.find("addBadge") != m.end() && !m["addBadge"].empty()) {
+      addBadge = make_shared<long>(boost::any_cast<long>(m["addBadge"]));
+    }
+    if (m.find("bigBody") != m.end() && !m["bigBody"].empty()) {
+      bigBody = make_shared<string>(boost::any_cast<string>(m["bigBody"]));
+    }
+    if (m.find("bigTitle") != m.end() && !m["bigTitle"].empty()) {
+      bigTitle = make_shared<string>(boost::any_cast<string>(m["bigTitle"]));
+    }
+    if (m.find("expandImage") != m.end() && !m["expandImage"].empty()) {
+      expandImage = make_shared<string>(boost::any_cast<string>(m["expandImage"]));
+    }
+    if (m.find("img") != m.end() && !m["img"].empty()) {
+      img = make_shared<string>(boost::any_cast<string>(m["img"]));
+    }
+    if (m.find("sound") != m.end() && !m["sound"].empty()) {
+      sound = make_shared<string>(boost::any_cast<string>(m["sound"]));
+    }
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~Message2ThirdChannel() = default;
+};
 class AndroidPayload : public Darabonba::Model {
 public:
   shared_ptr<Body> body{};
   shared_ptr<string> displayType{};
   shared_ptr<map<string, boost::any>> extra{};
+  shared_ptr<Message2ThirdChannel> message2ThirdChannel{};
 
   AndroidPayload() {}
 
@@ -221,6 +307,9 @@ public:
     }
     if (extra) {
       res["extra"] = boost::any(*extra);
+    }
+    if (message2ThirdChannel) {
+      res["message2ThirdChannel"] = message2ThirdChannel ? boost::any(message2ThirdChannel->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -243,6 +332,13 @@ public:
          toMap1[item.first] = item.second;
       }
       extra = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("message2ThirdChannel") != m.end() && !m["message2ThirdChannel"].empty()) {
+      if (typeid(map<string, boost::any>) == m["message2ThirdChannel"].type()) {
+        Message2ThirdChannel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["message2ThirdChannel"]));
+        message2ThirdChannel = make_shared<Message2ThirdChannel>(model1);
+      }
     }
   }
 
