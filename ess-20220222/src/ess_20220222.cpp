@@ -1269,6 +1269,9 @@ CreateScalingGroupResponse Alibabacloud_Ess20220222::Client::createScalingGroupW
   if (!Darabonba_Util::Client::isUnset<bool>(request->spotInstanceRemedy)) {
     query->insert(pair<string, bool>("SpotInstanceRemedy", *request->spotInstanceRemedy));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->stopInstanceTimeout)) {
+    query->insert(pair<string, long>("StopInstanceTimeout", *request->stopInstanceTimeout));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->syncAlarmRuleToCms)) {
     query->insert(pair<string, bool>("SyncAlarmRuleToCms", *request->syncAlarmRuleToCms));
   }
@@ -4290,6 +4293,9 @@ ModifyScalingGroupResponse Alibabacloud_Ess20220222::Client::modifyScalingGroupW
   if (!Darabonba_Util::Client::isUnset<bool>(request->spotInstanceRemedy)) {
     query->insert(pair<string, bool>("SpotInstanceRemedy", *request->spotInstanceRemedy));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->stopInstanceTimeout)) {
+    query->insert(pair<string, long>("StopInstanceTimeout", *request->stopInstanceTimeout));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vSwitchIds)) {
     query->insert(pair<string, vector<string>>("VSwitchIds", *request->vSwitchIds));
   }
@@ -4621,6 +4627,9 @@ RemoveInstancesResponse Alibabacloud_Ess20220222::Client::removeInstancesWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scalingGroupId)) {
     query->insert(pair<string, string>("ScalingGroupId", *request->scalingGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->stopInstanceTimeout)) {
+    query->insert(pair<string, long>("StopInstanceTimeout", *request->stopInstanceTimeout));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

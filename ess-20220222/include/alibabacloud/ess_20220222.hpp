@@ -8375,6 +8375,7 @@ public:
   shared_ptr<string> spotAllocationStrategy{};
   shared_ptr<long> spotInstancePools{};
   shared_ptr<bool> spotInstanceRemedy{};
+  shared_ptr<long> stopInstanceTimeout{};
   shared_ptr<bool> syncAlarmRuleToCms{};
   shared_ptr<vector<CreateScalingGroupRequestTags>> tags{};
   shared_ptr<vector<CreateScalingGroupRequestVServerGroups>> VServerGroups{};
@@ -8534,6 +8535,9 @@ public:
     }
     if (spotInstanceRemedy) {
       res["SpotInstanceRemedy"] = boost::any(*spotInstanceRemedy);
+    }
+    if (stopInstanceTimeout) {
+      res["StopInstanceTimeout"] = boost::any(*stopInstanceTimeout);
     }
     if (syncAlarmRuleToCms) {
       res["SyncAlarmRuleToCms"] = boost::any(*syncAlarmRuleToCms);
@@ -8755,6 +8759,9 @@ public:
     }
     if (m.find("SpotInstanceRemedy") != m.end() && !m["SpotInstanceRemedy"].empty()) {
       spotInstanceRemedy = make_shared<bool>(boost::any_cast<bool>(m["SpotInstanceRemedy"]));
+    }
+    if (m.find("StopInstanceTimeout") != m.end() && !m["StopInstanceTimeout"].empty()) {
+      stopInstanceTimeout = make_shared<long>(boost::any_cast<long>(m["StopInstanceTimeout"]));
     }
     if (m.find("SyncAlarmRuleToCms") != m.end() && !m["SyncAlarmRuleToCms"].empty()) {
       syncAlarmRuleToCms = make_shared<bool>(boost::any_cast<bool>(m["SyncAlarmRuleToCms"]));
@@ -21803,6 +21810,7 @@ public:
   shared_ptr<long> spotInstancePools{};
   shared_ptr<bool> spotInstanceRemedy{};
   shared_ptr<long> standbyCapacity{};
+  shared_ptr<long> stopInstanceTimeout{};
   shared_ptr<long> stoppedCapacity{};
   shared_ptr<vector<string>> suspendedProcesses{};
   shared_ptr<bool> systemSuspended{};
@@ -21996,6 +22004,9 @@ public:
     }
     if (standbyCapacity) {
       res["StandbyCapacity"] = boost::any(*standbyCapacity);
+    }
+    if (stopInstanceTimeout) {
+      res["StopInstanceTimeout"] = boost::any(*stopInstanceTimeout);
     }
     if (stoppedCapacity) {
       res["StoppedCapacity"] = boost::any(*stoppedCapacity);
@@ -22269,6 +22280,9 @@ public:
     }
     if (m.find("StandbyCapacity") != m.end() && !m["StandbyCapacity"].empty()) {
       standbyCapacity = make_shared<long>(boost::any_cast<long>(m["StandbyCapacity"]));
+    }
+    if (m.find("StopInstanceTimeout") != m.end() && !m["StopInstanceTimeout"].empty()) {
+      stopInstanceTimeout = make_shared<long>(boost::any_cast<long>(m["StopInstanceTimeout"]));
     }
     if (m.find("StoppedCapacity") != m.end() && !m["StoppedCapacity"].empty()) {
       stoppedCapacity = make_shared<long>(boost::any_cast<long>(m["StoppedCapacity"]));
@@ -33439,6 +33453,7 @@ public:
   shared_ptr<string> spotAllocationStrategy{};
   shared_ptr<long> spotInstancePools{};
   shared_ptr<bool> spotInstanceRemedy{};
+  shared_ptr<long> stopInstanceTimeout{};
   shared_ptr<vector<string>> vSwitchIds{};
 
   ModifyScalingGroupRequest() {}
@@ -33547,6 +33562,9 @@ public:
     }
     if (spotInstanceRemedy) {
       res["SpotInstanceRemedy"] = boost::any(*spotInstanceRemedy);
+    }
+    if (stopInstanceTimeout) {
+      res["StopInstanceTimeout"] = boost::any(*stopInstanceTimeout);
     }
     if (vSwitchIds) {
       res["VSwitchIds"] = boost::any(*vSwitchIds);
@@ -33671,6 +33689,9 @@ public:
     }
     if (m.find("SpotInstanceRemedy") != m.end() && !m["SpotInstanceRemedy"].empty()) {
       spotInstanceRemedy = make_shared<bool>(boost::any_cast<bool>(m["SpotInstanceRemedy"]));
+    }
+    if (m.find("StopInstanceTimeout") != m.end() && !m["StopInstanceTimeout"].empty()) {
+      stopInstanceTimeout = make_shared<long>(boost::any_cast<long>(m["StopInstanceTimeout"]));
     }
     if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
       vector<string> toVec1;
@@ -34827,6 +34848,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> scalingGroupId{};
+  shared_ptr<long> stopInstanceTimeout{};
 
   RemoveInstancesRequest() {}
 
@@ -34871,6 +34893,9 @@ public:
     if (scalingGroupId) {
       res["ScalingGroupId"] = boost::any(*scalingGroupId);
     }
+    if (stopInstanceTimeout) {
+      res["StopInstanceTimeout"] = boost::any(*stopInstanceTimeout);
+    }
     return res;
   }
 
@@ -34914,6 +34939,9 @@ public:
     }
     if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
       scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("StopInstanceTimeout") != m.end() && !m["StopInstanceTimeout"].empty()) {
+      stopInstanceTimeout = make_shared<long>(boost::any_cast<long>(m["StopInstanceTimeout"]));
     }
   }
 
