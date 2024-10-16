@@ -2246,6 +2246,7 @@ public:
   shared_ptr<string> category{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> DBInstanceClass{};
+  shared_ptr<string> DBInstanceDescription{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<long> DBInstanceStorage{};
   shared_ptr<string> DBInstanceStorageType{};
@@ -2303,6 +2304,9 @@ public:
     }
     if (DBInstanceClass) {
       res["DBInstanceClass"] = boost::any(*DBInstanceClass);
+    }
+    if (DBInstanceDescription) {
+      res["DBInstanceDescription"] = boost::any(*DBInstanceDescription);
     }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
@@ -2401,6 +2405,9 @@ public:
     if (m.find("DBInstanceClass") != m.end() && !m["DBInstanceClass"].empty()) {
       DBInstanceClass = make_shared<string>(boost::any_cast<string>(m["DBInstanceClass"]));
     }
+    if (m.find("DBInstanceDescription") != m.end() && !m["DBInstanceDescription"].empty()) {
+      DBInstanceDescription = make_shared<string>(boost::any_cast<string>(m["DBInstanceDescription"]));
+    }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
     }
@@ -2489,6 +2496,7 @@ public:
   shared_ptr<string> category{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> DBInstanceClass{};
+  shared_ptr<string> DBInstanceDescription{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<long> DBInstanceStorage{};
   shared_ptr<string> DBInstanceStorageType{};
@@ -2546,6 +2554,9 @@ public:
     }
     if (DBInstanceClass) {
       res["DBInstanceClass"] = boost::any(*DBInstanceClass);
+    }
+    if (DBInstanceDescription) {
+      res["DBInstanceDescription"] = boost::any(*DBInstanceDescription);
     }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
@@ -2643,6 +2654,9 @@ public:
     }
     if (m.find("DBInstanceClass") != m.end() && !m["DBInstanceClass"].empty()) {
       DBInstanceClass = make_shared<string>(boost::any_cast<string>(m["DBInstanceClass"]));
+    }
+    if (m.find("DBInstanceDescription") != m.end() && !m["DBInstanceDescription"].empty()) {
+      DBInstanceDescription = make_shared<string>(boost::any_cast<string>(m["DBInstanceDescription"]));
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
@@ -23979,6 +23993,7 @@ public:
   shared_ptr<long> maxConnections{};
   shared_ptr<long> maxIOMBPS{};
   shared_ptr<long> maxIOPS{};
+  shared_ptr<bool> multipleTempUpgrade{};
   shared_ptr<string> PGBouncerEnabled{};
   shared_ptr<string> payType{};
   shared_ptr<string> port{};
@@ -24175,6 +24190,9 @@ public:
     }
     if (maxIOPS) {
       res["MaxIOPS"] = boost::any(*maxIOPS);
+    }
+    if (multipleTempUpgrade) {
+      res["MultipleTempUpgrade"] = boost::any(*multipleTempUpgrade);
     }
     if (PGBouncerEnabled) {
       res["PGBouncerEnabled"] = boost::any(*PGBouncerEnabled);
@@ -24425,6 +24443,9 @@ public:
     }
     if (m.find("MaxIOPS") != m.end() && !m["MaxIOPS"].empty()) {
       maxIOPS = make_shared<long>(boost::any_cast<long>(m["MaxIOPS"]));
+    }
+    if (m.find("MultipleTempUpgrade") != m.end() && !m["MultipleTempUpgrade"].empty()) {
+      multipleTempUpgrade = make_shared<bool>(boost::any_cast<bool>(m["MultipleTempUpgrade"]));
     }
     if (m.find("PGBouncerEnabled") != m.end() && !m["PGBouncerEnabled"].empty()) {
       PGBouncerEnabled = make_shared<string>(boost::any_cast<string>(m["PGBouncerEnabled"]));
@@ -33151,6 +33172,92 @@ public:
 
   virtual ~DescribeDBProxyResponseBodyDBProxyConnectStringItems() = default;
 };
+class DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes : public Darabonba::Model {
+public:
+  shared_ptr<string> cpuCores{};
+  shared_ptr<string> nodeId{};
+  shared_ptr<string> zoneId{};
+
+  DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes() {}
+
+  explicit DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpuCores) {
+      res["cpuCores"] = boost::any(*cpuCores);
+    }
+    if (nodeId) {
+      res["nodeId"] = boost::any(*nodeId);
+    }
+    if (zoneId) {
+      res["zoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cpuCores") != m.end() && !m["cpuCores"].empty()) {
+      cpuCores = make_shared<string>(boost::any_cast<string>(m["cpuCores"]));
+    }
+    if (m.find("nodeId") != m.end() && !m["nodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["nodeId"]));
+    }
+    if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
+    }
+  }
+
+
+  virtual ~DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes() = default;
+};
+class DescribeDBProxyResponseBodyDBProxyNodes : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes>> DBProxyNodes{};
+
+  DescribeDBProxyResponseBodyDBProxyNodes() {}
+
+  explicit DescribeDBProxyResponseBodyDBProxyNodes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBProxyNodes) {
+      vector<boost::any> temp1;
+      for(auto item1:*DBProxyNodes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DBProxyNodes"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBProxyNodes") != m.end() && !m["DBProxyNodes"].empty()) {
+      if (typeid(vector<boost::any>) == m["DBProxyNodes"].type()) {
+        vector<DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DBProxyNodes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        DBProxyNodes = make_shared<vector<DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDBProxyResponseBodyDBProxyNodes() = default;
+};
 class DescribeDBProxyResponseBodyDbProxyEndpointItemsDbProxyEndpointItems : public Darabonba::Model {
 public:
   shared_ptr<string> dbProxyEndpointAliases{};
@@ -33256,6 +33363,8 @@ public:
   shared_ptr<string> DBProxyInstanceSize{};
   shared_ptr<string> DBProxyInstanceStatus{};
   shared_ptr<string> DBProxyInstanceType{};
+  shared_ptr<string> DBProxyKindCode{};
+  shared_ptr<DescribeDBProxyResponseBodyDBProxyNodes> DBProxyNodes{};
   shared_ptr<string> DBProxyPersistentConnectionStatus{};
   shared_ptr<string> DBProxyServiceStatus{};
   shared_ptr<DescribeDBProxyResponseBodyDbProxyEndpointItems> dbProxyEndpointItems{};
@@ -33301,6 +33410,12 @@ public:
     }
     if (DBProxyInstanceType) {
       res["DBProxyInstanceType"] = boost::any(*DBProxyInstanceType);
+    }
+    if (DBProxyKindCode) {
+      res["DBProxyKindCode"] = boost::any(*DBProxyKindCode);
+    }
+    if (DBProxyNodes) {
+      res["DBProxyNodes"] = DBProxyNodes ? boost::any(DBProxyNodes->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (DBProxyPersistentConnectionStatus) {
       res["DBProxyPersistentConnectionStatus"] = boost::any(*DBProxyPersistentConnectionStatus);
@@ -33358,6 +33473,16 @@ public:
     }
     if (m.find("DBProxyInstanceType") != m.end() && !m["DBProxyInstanceType"].empty()) {
       DBProxyInstanceType = make_shared<string>(boost::any_cast<string>(m["DBProxyInstanceType"]));
+    }
+    if (m.find("DBProxyKindCode") != m.end() && !m["DBProxyKindCode"].empty()) {
+      DBProxyKindCode = make_shared<string>(boost::any_cast<string>(m["DBProxyKindCode"]));
+    }
+    if (m.find("DBProxyNodes") != m.end() && !m["DBProxyNodes"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DBProxyNodes"].type()) {
+        DescribeDBProxyResponseBodyDBProxyNodes model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DBProxyNodes"]));
+        DBProxyNodes = make_shared<DescribeDBProxyResponseBodyDBProxyNodes>(model1);
+      }
     }
     if (m.find("DBProxyPersistentConnectionStatus") != m.end() && !m["DBProxyPersistentConnectionStatus"].empty()) {
       DBProxyPersistentConnectionStatus = make_shared<string>(boost::any_cast<string>(m["DBProxyPersistentConnectionStatus"]));
@@ -33513,6 +33638,92 @@ public:
 
   virtual ~DescribeDBProxyEndpointRequest() = default;
 };
+class DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes : public Darabonba::Model {
+public:
+  shared_ptr<string> cpuCores{};
+  shared_ptr<string> nodeId{};
+  shared_ptr<string> zoneId{};
+
+  DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes() {}
+
+  explicit DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpuCores) {
+      res["cpuCores"] = boost::any(*cpuCores);
+    }
+    if (nodeId) {
+      res["nodeId"] = boost::any(*nodeId);
+    }
+    if (zoneId) {
+      res["zoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cpuCores") != m.end() && !m["cpuCores"].empty()) {
+      cpuCores = make_shared<string>(boost::any_cast<string>(m["cpuCores"]));
+    }
+    if (m.find("nodeId") != m.end() && !m["nodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["nodeId"]));
+    }
+    if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
+    }
+  }
+
+
+  virtual ~DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes() = default;
+};
+class DescribeDBProxyEndpointResponseBodyDBProxyNodes : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes>> DBProxyNodes{};
+
+  DescribeDBProxyEndpointResponseBodyDBProxyNodes() {}
+
+  explicit DescribeDBProxyEndpointResponseBodyDBProxyNodes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBProxyNodes) {
+      vector<boost::any> temp1;
+      for(auto item1:*DBProxyNodes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DBProxyNodes"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBProxyNodes") != m.end() && !m["DBProxyNodes"].empty()) {
+      if (typeid(vector<boost::any>) == m["DBProxyNodes"].type()) {
+        vector<DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DBProxyNodes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        DBProxyNodes = make_shared<vector<DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDBProxyEndpointResponseBodyDBProxyNodes() = default;
+};
 class DescribeDBProxyEndpointResponseBodyEndpointConnectItemsEndpointConnectItems : public Darabonba::Model {
 public:
   shared_ptr<string> dbProxyEndpointConnectString{};
@@ -33607,8 +33818,11 @@ public:
   shared_ptr<string> DBProxyEndpointId{};
   shared_ptr<string> DBProxyEngineType{};
   shared_ptr<string> DBProxyFeatures{};
+  shared_ptr<DescribeDBProxyEndpointResponseBodyDBProxyNodes> DBProxyNodes{};
   shared_ptr<string> dbProxyEndpointAliases{};
   shared_ptr<string> dbProxyEndpointReadWriteMode{};
+  shared_ptr<string> dbProxyEndpointVswitchId{};
+  shared_ptr<string> dbProxyEndpointZoneId{};
   shared_ptr<DescribeDBProxyEndpointResponseBodyEndpointConnectItems> endpointConnectItems{};
   shared_ptr<string> readOnlyInstanceDistributionType{};
   shared_ptr<string> readOnlyInstanceMaxDelayTime{};
@@ -33643,11 +33857,20 @@ public:
     if (DBProxyFeatures) {
       res["DBProxyFeatures"] = boost::any(*DBProxyFeatures);
     }
+    if (DBProxyNodes) {
+      res["DBProxyNodes"] = DBProxyNodes ? boost::any(DBProxyNodes->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (dbProxyEndpointAliases) {
       res["DbProxyEndpointAliases"] = boost::any(*dbProxyEndpointAliases);
     }
     if (dbProxyEndpointReadWriteMode) {
       res["DbProxyEndpointReadWriteMode"] = boost::any(*dbProxyEndpointReadWriteMode);
+    }
+    if (dbProxyEndpointVswitchId) {
+      res["DbProxyEndpointVswitchId"] = boost::any(*dbProxyEndpointVswitchId);
+    }
+    if (dbProxyEndpointZoneId) {
+      res["DbProxyEndpointZoneId"] = boost::any(*dbProxyEndpointZoneId);
     }
     if (endpointConnectItems) {
       res["EndpointConnectItems"] = endpointConnectItems ? boost::any(endpointConnectItems->toMap()) : boost::any(map<string,boost::any>({}));
@@ -33686,11 +33909,24 @@ public:
     if (m.find("DBProxyFeatures") != m.end() && !m["DBProxyFeatures"].empty()) {
       DBProxyFeatures = make_shared<string>(boost::any_cast<string>(m["DBProxyFeatures"]));
     }
+    if (m.find("DBProxyNodes") != m.end() && !m["DBProxyNodes"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DBProxyNodes"].type()) {
+        DescribeDBProxyEndpointResponseBodyDBProxyNodes model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DBProxyNodes"]));
+        DBProxyNodes = make_shared<DescribeDBProxyEndpointResponseBodyDBProxyNodes>(model1);
+      }
+    }
     if (m.find("DbProxyEndpointAliases") != m.end() && !m["DbProxyEndpointAliases"].empty()) {
       dbProxyEndpointAliases = make_shared<string>(boost::any_cast<string>(m["DbProxyEndpointAliases"]));
     }
     if (m.find("DbProxyEndpointReadWriteMode") != m.end() && !m["DbProxyEndpointReadWriteMode"].empty()) {
       dbProxyEndpointReadWriteMode = make_shared<string>(boost::any_cast<string>(m["DbProxyEndpointReadWriteMode"]));
+    }
+    if (m.find("DbProxyEndpointVswitchId") != m.end() && !m["DbProxyEndpointVswitchId"].empty()) {
+      dbProxyEndpointVswitchId = make_shared<string>(boost::any_cast<string>(m["DbProxyEndpointVswitchId"]));
+    }
+    if (m.find("DbProxyEndpointZoneId") != m.end() && !m["DbProxyEndpointZoneId"].empty()) {
+      dbProxyEndpointZoneId = make_shared<string>(boost::any_cast<string>(m["DbProxyEndpointZoneId"]));
     }
     if (m.find("EndpointConnectItems") != m.end() && !m["EndpointConnectItems"].empty()) {
       if (typeid(map<string, boost::any>) == m["EndpointConnectItems"].type()) {
@@ -59489,6 +59725,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> commodityCode{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> engine{};
   shared_ptr<string> orderType{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -59513,6 +59750,9 @@ public:
     }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
     }
     if (orderType) {
       res["OrderType"] = boost::any(*orderType);
@@ -59541,6 +59781,9 @@ public:
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
     }
     if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
       orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
@@ -59574,6 +59817,8 @@ public:
   shared_ptr<string> maxIOPS{};
   shared_ptr<string> memoryClass{};
   shared_ptr<string> referencePrice{};
+  shared_ptr<string> category{};
+  shared_ptr<string> storageType{};
 
   ListClassesResponseBodyItems() {}
 
@@ -59615,6 +59860,12 @@ public:
     if (referencePrice) {
       res["ReferencePrice"] = boost::any(*referencePrice);
     }
+    if (category) {
+      res["category"] = boost::any(*category);
+    }
+    if (storageType) {
+      res["storageType"] = boost::any(*storageType);
+    }
     return res;
   }
 
@@ -59648,6 +59899,12 @@ public:
     }
     if (m.find("ReferencePrice") != m.end() && !m["ReferencePrice"].empty()) {
       referencePrice = make_shared<string>(boost::any_cast<string>(m["ReferencePrice"]));
+    }
+    if (m.find("category") != m.end() && !m["category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["category"]));
+    }
+    if (m.find("storageType") != m.end() && !m["storageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["storageType"]));
     }
   }
 
@@ -67455,6 +67712,49 @@ public:
 
   virtual ~ModifyDBNodeResponse() = default;
 };
+class ModifyDBProxyRequestDBProxyNodes : public Darabonba::Model {
+public:
+  shared_ptr<string> cpuCores{};
+  shared_ptr<string> nodeCounts{};
+  shared_ptr<string> zoneId{};
+
+  ModifyDBProxyRequestDBProxyNodes() {}
+
+  explicit ModifyDBProxyRequestDBProxyNodes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpuCores) {
+      res["cpuCores"] = boost::any(*cpuCores);
+    }
+    if (nodeCounts) {
+      res["nodeCounts"] = boost::any(*nodeCounts);
+    }
+    if (zoneId) {
+      res["zoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cpuCores") != m.end() && !m["cpuCores"].empty()) {
+      cpuCores = make_shared<string>(boost::any_cast<string>(m["cpuCores"]));
+    }
+    if (m.find("nodeCounts") != m.end() && !m["nodeCounts"].empty()) {
+      nodeCounts = make_shared<string>(boost::any_cast<string>(m["nodeCounts"]));
+    }
+    if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
+    }
+  }
+
+
+  virtual ~ModifyDBProxyRequestDBProxyNodes() = default;
+};
 class ModifyDBProxyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> configDBProxyService{};
@@ -67462,6 +67762,7 @@ public:
   shared_ptr<string> DBProxyEngineType{};
   shared_ptr<string> DBProxyInstanceNum{};
   shared_ptr<string> DBProxyInstanceType{};
+  shared_ptr<vector<ModifyDBProxyRequestDBProxyNodes>> DBProxyNodes{};
   shared_ptr<string> instanceNetworkType{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> persistentConnectionStatus{};
@@ -67496,6 +67797,13 @@ public:
     }
     if (DBProxyInstanceType) {
       res["DBProxyInstanceType"] = boost::any(*DBProxyInstanceType);
+    }
+    if (DBProxyNodes) {
+      vector<boost::any> temp1;
+      for(auto item1:*DBProxyNodes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DBProxyNodes"] = boost::any(temp1);
     }
     if (instanceNetworkType) {
       res["InstanceNetworkType"] = boost::any(*instanceNetworkType);
@@ -67543,6 +67851,19 @@ public:
     if (m.find("DBProxyInstanceType") != m.end() && !m["DBProxyInstanceType"].empty()) {
       DBProxyInstanceType = make_shared<string>(boost::any_cast<string>(m["DBProxyInstanceType"]));
     }
+    if (m.find("DBProxyNodes") != m.end() && !m["DBProxyNodes"].empty()) {
+      if (typeid(vector<boost::any>) == m["DBProxyNodes"].type()) {
+        vector<ModifyDBProxyRequestDBProxyNodes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DBProxyNodes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyDBProxyRequestDBProxyNodes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        DBProxyNodes = make_shared<vector<ModifyDBProxyRequestDBProxyNodes>>(expect1);
+      }
+    }
     if (m.find("InstanceNetworkType") != m.end() && !m["InstanceNetworkType"].empty()) {
       instanceNetworkType = make_shared<string>(boost::any_cast<string>(m["InstanceNetworkType"]));
     }
@@ -67574,6 +67895,133 @@ public:
 
 
   virtual ~ModifyDBProxyRequest() = default;
+};
+class ModifyDBProxyShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> configDBProxyService{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> DBProxyEngineType{};
+  shared_ptr<string> DBProxyInstanceNum{};
+  shared_ptr<string> DBProxyInstanceType{};
+  shared_ptr<string> DBProxyNodesShrink{};
+  shared_ptr<string> instanceNetworkType{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> persistentConnectionStatus{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> VPCId{};
+  shared_ptr<string> vSwitchId{};
+
+  ModifyDBProxyShrinkRequest() {}
+
+  explicit ModifyDBProxyShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configDBProxyService) {
+      res["ConfigDBProxyService"] = boost::any(*configDBProxyService);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (DBProxyEngineType) {
+      res["DBProxyEngineType"] = boost::any(*DBProxyEngineType);
+    }
+    if (DBProxyInstanceNum) {
+      res["DBProxyInstanceNum"] = boost::any(*DBProxyInstanceNum);
+    }
+    if (DBProxyInstanceType) {
+      res["DBProxyInstanceType"] = boost::any(*DBProxyInstanceType);
+    }
+    if (DBProxyNodesShrink) {
+      res["DBProxyNodes"] = boost::any(*DBProxyNodesShrink);
+    }
+    if (instanceNetworkType) {
+      res["InstanceNetworkType"] = boost::any(*instanceNetworkType);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (persistentConnectionStatus) {
+      res["PersistentConnectionStatus"] = boost::any(*persistentConnectionStatus);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (VPCId) {
+      res["VPCId"] = boost::any(*VPCId);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigDBProxyService") != m.end() && !m["ConfigDBProxyService"].empty()) {
+      configDBProxyService = make_shared<string>(boost::any_cast<string>(m["ConfigDBProxyService"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DBProxyEngineType") != m.end() && !m["DBProxyEngineType"].empty()) {
+      DBProxyEngineType = make_shared<string>(boost::any_cast<string>(m["DBProxyEngineType"]));
+    }
+    if (m.find("DBProxyInstanceNum") != m.end() && !m["DBProxyInstanceNum"].empty()) {
+      DBProxyInstanceNum = make_shared<string>(boost::any_cast<string>(m["DBProxyInstanceNum"]));
+    }
+    if (m.find("DBProxyInstanceType") != m.end() && !m["DBProxyInstanceType"].empty()) {
+      DBProxyInstanceType = make_shared<string>(boost::any_cast<string>(m["DBProxyInstanceType"]));
+    }
+    if (m.find("DBProxyNodes") != m.end() && !m["DBProxyNodes"].empty()) {
+      DBProxyNodesShrink = make_shared<string>(boost::any_cast<string>(m["DBProxyNodes"]));
+    }
+    if (m.find("InstanceNetworkType") != m.end() && !m["InstanceNetworkType"].empty()) {
+      instanceNetworkType = make_shared<string>(boost::any_cast<string>(m["InstanceNetworkType"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PersistentConnectionStatus") != m.end() && !m["PersistentConnectionStatus"].empty()) {
+      persistentConnectionStatus = make_shared<string>(boost::any_cast<string>(m["PersistentConnectionStatus"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("VPCId") != m.end() && !m["VPCId"].empty()) {
+      VPCId = make_shared<string>(boost::any_cast<string>(m["VPCId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+  }
+
+
+  virtual ~ModifyDBProxyShrinkRequest() = default;
 };
 class ModifyDBProxyResponseBody : public Darabonba::Model {
 public:
@@ -67666,6 +68114,8 @@ public:
   shared_ptr<string> dbEndpointOperator{};
   shared_ptr<string> dbEndpointReadWriteMode{};
   shared_ptr<string> dbEndpointType{};
+  shared_ptr<string> effectiveSpecificTime{};
+  shared_ptr<string> effectiveTime{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> readOnlyInstanceDistributionType{};
   shared_ptr<string> readOnlyInstanceMaxDelayTime{};
@@ -67673,6 +68123,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> vSwitchId{};
 
   ModifyDBProxyEndpointRequest() {}
 
@@ -67708,6 +68159,12 @@ public:
     if (dbEndpointType) {
       res["DbEndpointType"] = boost::any(*dbEndpointType);
     }
+    if (effectiveSpecificTime) {
+      res["EffectiveSpecificTime"] = boost::any(*effectiveSpecificTime);
+    }
+    if (effectiveTime) {
+      res["EffectiveTime"] = boost::any(*effectiveTime);
+    }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
@@ -67728,6 +68185,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
     }
     return res;
   }
@@ -67757,6 +68217,12 @@ public:
     if (m.find("DbEndpointType") != m.end() && !m["DbEndpointType"].empty()) {
       dbEndpointType = make_shared<string>(boost::any_cast<string>(m["DbEndpointType"]));
     }
+    if (m.find("EffectiveSpecificTime") != m.end() && !m["EffectiveSpecificTime"].empty()) {
+      effectiveSpecificTime = make_shared<string>(boost::any_cast<string>(m["EffectiveSpecificTime"]));
+    }
+    if (m.find("EffectiveTime") != m.end() && !m["EffectiveTime"].empty()) {
+      effectiveTime = make_shared<string>(boost::any_cast<string>(m["EffectiveTime"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
@@ -67777,6 +68243,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
   }
 
@@ -68030,14 +68499,95 @@ public:
 
   virtual ~ModifyDBProxyEndpointAddressResponse() = default;
 };
+class ModifyDBProxyInstanceRequestDBProxyNodes : public Darabonba::Model {
+public:
+  shared_ptr<string> cpuCores{};
+  shared_ptr<string> nodeCounts{};
+  shared_ptr<string> zoneId{};
+
+  ModifyDBProxyInstanceRequestDBProxyNodes() {}
+
+  explicit ModifyDBProxyInstanceRequestDBProxyNodes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpuCores) {
+      res["cpuCores"] = boost::any(*cpuCores);
+    }
+    if (nodeCounts) {
+      res["nodeCounts"] = boost::any(*nodeCounts);
+    }
+    if (zoneId) {
+      res["zoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cpuCores") != m.end() && !m["cpuCores"].empty()) {
+      cpuCores = make_shared<string>(boost::any_cast<string>(m["cpuCores"]));
+    }
+    if (m.find("nodeCounts") != m.end() && !m["nodeCounts"].empty()) {
+      nodeCounts = make_shared<string>(boost::any_cast<string>(m["nodeCounts"]));
+    }
+    if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
+    }
+  }
+
+
+  virtual ~ModifyDBProxyInstanceRequestDBProxyNodes() = default;
+};
+class ModifyDBProxyInstanceRequestMigrateAZ : public Darabonba::Model {
+public:
+  shared_ptr<string> dbProxyEndpointId{};
+  shared_ptr<string> destVSwitchId{};
+
+  ModifyDBProxyInstanceRequestMigrateAZ() {}
+
+  explicit ModifyDBProxyInstanceRequestMigrateAZ(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbProxyEndpointId) {
+      res["dbProxyEndpointId"] = boost::any(*dbProxyEndpointId);
+    }
+    if (destVSwitchId) {
+      res["destVSwitchId"] = boost::any(*destVSwitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("dbProxyEndpointId") != m.end() && !m["dbProxyEndpointId"].empty()) {
+      dbProxyEndpointId = make_shared<string>(boost::any_cast<string>(m["dbProxyEndpointId"]));
+    }
+    if (m.find("destVSwitchId") != m.end() && !m["destVSwitchId"].empty()) {
+      destVSwitchId = make_shared<string>(boost::any_cast<string>(m["destVSwitchId"]));
+    }
+  }
+
+
+  virtual ~ModifyDBProxyInstanceRequestMigrateAZ() = default;
+};
 class ModifyDBProxyInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> DBProxyEngineType{};
   shared_ptr<string> DBProxyInstanceNum{};
   shared_ptr<string> DBProxyInstanceType{};
+  shared_ptr<vector<ModifyDBProxyInstanceRequestDBProxyNodes>> DBProxyNodes{};
   shared_ptr<string> effectiveSpecificTime{};
   shared_ptr<string> effectiveTime{};
+  shared_ptr<vector<ModifyDBProxyInstanceRequestMigrateAZ>> migrateAZ{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -68066,11 +68616,25 @@ public:
     if (DBProxyInstanceType) {
       res["DBProxyInstanceType"] = boost::any(*DBProxyInstanceType);
     }
+    if (DBProxyNodes) {
+      vector<boost::any> temp1;
+      for(auto item1:*DBProxyNodes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DBProxyNodes"] = boost::any(temp1);
+    }
     if (effectiveSpecificTime) {
       res["EffectiveSpecificTime"] = boost::any(*effectiveSpecificTime);
     }
     if (effectiveTime) {
       res["EffectiveTime"] = boost::any(*effectiveTime);
+    }
+    if (migrateAZ) {
+      vector<boost::any> temp1;
+      for(auto item1:*migrateAZ){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MigrateAZ"] = boost::any(temp1);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -68103,11 +68667,37 @@ public:
     if (m.find("DBProxyInstanceType") != m.end() && !m["DBProxyInstanceType"].empty()) {
       DBProxyInstanceType = make_shared<string>(boost::any_cast<string>(m["DBProxyInstanceType"]));
     }
+    if (m.find("DBProxyNodes") != m.end() && !m["DBProxyNodes"].empty()) {
+      if (typeid(vector<boost::any>) == m["DBProxyNodes"].type()) {
+        vector<ModifyDBProxyInstanceRequestDBProxyNodes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DBProxyNodes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyDBProxyInstanceRequestDBProxyNodes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        DBProxyNodes = make_shared<vector<ModifyDBProxyInstanceRequestDBProxyNodes>>(expect1);
+      }
+    }
     if (m.find("EffectiveSpecificTime") != m.end() && !m["EffectiveSpecificTime"].empty()) {
       effectiveSpecificTime = make_shared<string>(boost::any_cast<string>(m["EffectiveSpecificTime"]));
     }
     if (m.find("EffectiveTime") != m.end() && !m["EffectiveTime"].empty()) {
       effectiveTime = make_shared<string>(boost::any_cast<string>(m["EffectiveTime"]));
+    }
+    if (m.find("MigrateAZ") != m.end() && !m["MigrateAZ"].empty()) {
+      if (typeid(vector<boost::any>) == m["MigrateAZ"].type()) {
+        vector<ModifyDBProxyInstanceRequestMigrateAZ> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MigrateAZ"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyDBProxyInstanceRequestMigrateAZ model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        migrateAZ = make_shared<vector<ModifyDBProxyInstanceRequestMigrateAZ>>(expect1);
+      }
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -68128,6 +68718,119 @@ public:
 
 
   virtual ~ModifyDBProxyInstanceRequest() = default;
+};
+class ModifyDBProxyInstanceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> DBProxyEngineType{};
+  shared_ptr<string> DBProxyInstanceNum{};
+  shared_ptr<string> DBProxyInstanceType{};
+  shared_ptr<string> DBProxyNodesShrink{};
+  shared_ptr<string> effectiveSpecificTime{};
+  shared_ptr<string> effectiveTime{};
+  shared_ptr<string> migrateAZShrink{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> vSwitchIds{};
+
+  ModifyDBProxyInstanceShrinkRequest() {}
+
+  explicit ModifyDBProxyInstanceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (DBProxyEngineType) {
+      res["DBProxyEngineType"] = boost::any(*DBProxyEngineType);
+    }
+    if (DBProxyInstanceNum) {
+      res["DBProxyInstanceNum"] = boost::any(*DBProxyInstanceNum);
+    }
+    if (DBProxyInstanceType) {
+      res["DBProxyInstanceType"] = boost::any(*DBProxyInstanceType);
+    }
+    if (DBProxyNodesShrink) {
+      res["DBProxyNodes"] = boost::any(*DBProxyNodesShrink);
+    }
+    if (effectiveSpecificTime) {
+      res["EffectiveSpecificTime"] = boost::any(*effectiveSpecificTime);
+    }
+    if (effectiveTime) {
+      res["EffectiveTime"] = boost::any(*effectiveTime);
+    }
+    if (migrateAZShrink) {
+      res["MigrateAZ"] = boost::any(*migrateAZShrink);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DBProxyEngineType") != m.end() && !m["DBProxyEngineType"].empty()) {
+      DBProxyEngineType = make_shared<string>(boost::any_cast<string>(m["DBProxyEngineType"]));
+    }
+    if (m.find("DBProxyInstanceNum") != m.end() && !m["DBProxyInstanceNum"].empty()) {
+      DBProxyInstanceNum = make_shared<string>(boost::any_cast<string>(m["DBProxyInstanceNum"]));
+    }
+    if (m.find("DBProxyInstanceType") != m.end() && !m["DBProxyInstanceType"].empty()) {
+      DBProxyInstanceType = make_shared<string>(boost::any_cast<string>(m["DBProxyInstanceType"]));
+    }
+    if (m.find("DBProxyNodes") != m.end() && !m["DBProxyNodes"].empty()) {
+      DBProxyNodesShrink = make_shared<string>(boost::any_cast<string>(m["DBProxyNodes"]));
+    }
+    if (m.find("EffectiveSpecificTime") != m.end() && !m["EffectiveSpecificTime"].empty()) {
+      effectiveSpecificTime = make_shared<string>(boost::any_cast<string>(m["EffectiveSpecificTime"]));
+    }
+    if (m.find("EffectiveTime") != m.end() && !m["EffectiveTime"].empty()) {
+      effectiveTime = make_shared<string>(boost::any_cast<string>(m["EffectiveTime"]));
+    }
+    if (m.find("MigrateAZ") != m.end() && !m["MigrateAZ"].empty()) {
+      migrateAZShrink = make_shared<string>(boost::any_cast<string>(m["MigrateAZ"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+  }
+
+
+  virtual ~ModifyDBProxyInstanceShrinkRequest() = default;
 };
 class ModifyDBProxyInstanceResponseBody : public Darabonba::Model {
 public:
@@ -78437,6 +79140,7 @@ class SyncRCKeyPairRequest : public Darabonba::Model {
 public:
   shared_ptr<string> keyPairName{};
   shared_ptr<string> regionId{};
+  shared_ptr<bool> syncMode{};
 
   SyncRCKeyPairRequest() {}
 
@@ -78454,6 +79158,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (syncMode) {
+      res["SyncMode"] = boost::any(*syncMode);
+    }
     return res;
   }
 
@@ -78463,6 +79170,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SyncMode") != m.end() && !m["SyncMode"].empty()) {
+      syncMode = make_shared<bool>(boost::any_cast<bool>(m["SyncMode"]));
     }
   }
 
@@ -81207,13 +81917,13 @@ public:
   ModifyDBInstanceTDEResponse modifyDBInstanceTDE(shared_ptr<ModifyDBInstanceTDERequest> request);
   ModifyDBNodeResponse modifyDBNodeWithOptions(shared_ptr<ModifyDBNodeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBNodeResponse modifyDBNode(shared_ptr<ModifyDBNodeRequest> request);
-  ModifyDBProxyResponse modifyDBProxyWithOptions(shared_ptr<ModifyDBProxyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyDBProxyResponse modifyDBProxyWithOptions(shared_ptr<ModifyDBProxyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBProxyResponse modifyDBProxy(shared_ptr<ModifyDBProxyRequest> request);
   ModifyDBProxyEndpointResponse modifyDBProxyEndpointWithOptions(shared_ptr<ModifyDBProxyEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBProxyEndpointResponse modifyDBProxyEndpoint(shared_ptr<ModifyDBProxyEndpointRequest> request);
   ModifyDBProxyEndpointAddressResponse modifyDBProxyEndpointAddressWithOptions(shared_ptr<ModifyDBProxyEndpointAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBProxyEndpointAddressResponse modifyDBProxyEndpointAddress(shared_ptr<ModifyDBProxyEndpointAddressRequest> request);
-  ModifyDBProxyInstanceResponse modifyDBProxyInstanceWithOptions(shared_ptr<ModifyDBProxyInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyDBProxyInstanceResponse modifyDBProxyInstanceWithOptions(shared_ptr<ModifyDBProxyInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBProxyInstanceResponse modifyDBProxyInstance(shared_ptr<ModifyDBProxyInstanceRequest> request);
   ModifyDTCSecurityIpHostsForSQLServerResponse modifyDTCSecurityIpHostsForSQLServerWithOptions(shared_ptr<ModifyDTCSecurityIpHostsForSQLServerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDTCSecurityIpHostsForSQLServerResponse modifyDTCSecurityIpHostsForSQLServer(shared_ptr<ModifyDTCSecurityIpHostsForSQLServerRequest> request);

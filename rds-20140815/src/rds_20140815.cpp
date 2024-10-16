@@ -690,6 +690,9 @@ CloneDBInstanceResponse Alibabacloud_Rds20140815::Client::cloneDBInstanceWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceClass)) {
     query->insert(pair<string, string>("DBInstanceClass", *request->DBInstanceClass));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceDescription)) {
+    query->insert(pair<string, string>("DBInstanceDescription", *request->DBInstanceDescription));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }
@@ -10394,6 +10397,9 @@ ListClassesResponse Alibabacloud_Rds20140815::Client::listClassesWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
+    query->insert(pair<string, string>("Engine", *request->engine));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderType)) {
     query->insert(pair<string, string>("OrderType", *request->orderType));
   }
@@ -12467,8 +12473,13 @@ ModifyDBNodeResponse Alibabacloud_Rds20140815::Client::modifyDBNode(shared_ptr<M
   return modifyDBNodeWithOptions(request, runtime);
 }
 
-ModifyDBProxyResponse Alibabacloud_Rds20140815::Client::modifyDBProxyWithOptions(shared_ptr<ModifyDBProxyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ModifyDBProxyResponse Alibabacloud_Rds20140815::Client::modifyDBProxyWithOptions(shared_ptr<ModifyDBProxyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ModifyDBProxyShrinkRequest> request = make_shared<ModifyDBProxyShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyDBProxyRequestDBProxyNodes>>(tmpReq->DBProxyNodes)) {
+    request->DBProxyNodesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->DBProxyNodes, make_shared<string>("DBProxyNodes"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->configDBProxyService)) {
     query->insert(pair<string, string>("ConfigDBProxyService", *request->configDBProxyService));
@@ -12487,6 +12498,9 @@ ModifyDBProxyResponse Alibabacloud_Rds20140815::Client::modifyDBProxyWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBProxyInstanceType)) {
     query->insert(pair<string, string>("DBProxyInstanceType", *request->DBProxyInstanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBProxyNodesShrink)) {
+    query->insert(pair<string, string>("DBProxyNodes", *request->DBProxyNodesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceNetworkType)) {
     query->insert(pair<string, string>("InstanceNetworkType", *request->instanceNetworkType));
@@ -12567,6 +12581,12 @@ ModifyDBProxyEndpointResponse Alibabacloud_Rds20140815::Client::modifyDBProxyEnd
   if (!Darabonba_Util::Client::isUnset<string>(request->dbEndpointType)) {
     query->insert(pair<string, string>("DbEndpointType", *request->dbEndpointType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->effectiveSpecificTime)) {
+    query->insert(pair<string, string>("EffectiveSpecificTime", *request->effectiveSpecificTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->effectiveTime)) {
+    query->insert(pair<string, string>("EffectiveTime", *request->effectiveTime));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
@@ -12587,6 +12607,9 @@ ModifyDBProxyEndpointResponse Alibabacloud_Rds20140815::Client::modifyDBProxyEnd
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
+    query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -12665,8 +12688,16 @@ ModifyDBProxyEndpointAddressResponse Alibabacloud_Rds20140815::Client::modifyDBP
   return modifyDBProxyEndpointAddressWithOptions(request, runtime);
 }
 
-ModifyDBProxyInstanceResponse Alibabacloud_Rds20140815::Client::modifyDBProxyInstanceWithOptions(shared_ptr<ModifyDBProxyInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ModifyDBProxyInstanceResponse Alibabacloud_Rds20140815::Client::modifyDBProxyInstanceWithOptions(shared_ptr<ModifyDBProxyInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ModifyDBProxyInstanceShrinkRequest> request = make_shared<ModifyDBProxyInstanceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyDBProxyInstanceRequestDBProxyNodes>>(tmpReq->DBProxyNodes)) {
+    request->DBProxyNodesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->DBProxyNodes, make_shared<string>("DBProxyNodes"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyDBProxyInstanceRequestMigrateAZ>>(tmpReq->migrateAZ)) {
+    request->migrateAZShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->migrateAZ, make_shared<string>("MigrateAZ"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
@@ -12683,11 +12714,17 @@ ModifyDBProxyInstanceResponse Alibabacloud_Rds20140815::Client::modifyDBProxyIns
   if (!Darabonba_Util::Client::isUnset<string>(request->DBProxyInstanceType)) {
     query->insert(pair<string, string>("DBProxyInstanceType", *request->DBProxyInstanceType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBProxyNodesShrink)) {
+    query->insert(pair<string, string>("DBProxyNodes", *request->DBProxyNodesShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->effectiveSpecificTime)) {
     query->insert(pair<string, string>("EffectiveSpecificTime", *request->effectiveSpecificTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->effectiveTime)) {
     query->insert(pair<string, string>("EffectiveTime", *request->effectiveTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->migrateAZShrink)) {
+    query->insert(pair<string, string>("MigrateAZ", *request->migrateAZShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
@@ -15383,6 +15420,9 @@ SyncRCKeyPairResponse Alibabacloud_Rds20140815::Client::syncRCKeyPairWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->syncMode)) {
+    query->insert(pair<string, bool>("SyncMode", *request->syncMode));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
