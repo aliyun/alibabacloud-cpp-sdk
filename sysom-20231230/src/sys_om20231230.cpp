@@ -40,6 +40,12 @@ string Alibabacloud_SysOM20231230::Client::getEndpoint(shared_ptr<string> produc
 AuthDiagnosisResponse Alibabacloud_SysOM20231230::Client::authDiagnosisWithOptions(shared_ptr<AuthDiagnosisRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoCreateRole)) {
+    body->insert(pair<string, bool>("autoCreateRole", *request->autoCreateRole));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoInstallAgent)) {
+    body->insert(pair<string, bool>("autoInstallAgent", *request->autoInstallAgent));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<AuthDiagnosisRequestInstances>>(request->instances)) {
     body->insert(pair<string, vector<AuthDiagnosisRequestInstances>>("instances", *request->instances));
   }
@@ -97,6 +103,51 @@ GenerateCopilotResponseResponse Alibabacloud_SysOM20231230::Client::generateCopi
   return generateCopilotResponseWithOptions(request, headers, runtime);
 }
 
+GetAbnormalEventsCountResponse Alibabacloud_SysOM20231230::Client::getAbnormalEventsCountWithOptions(shared_ptr<GetAbnormalEventsCountRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cluster)) {
+    query->insert(pair<string, string>("cluster", *request->cluster));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->end)) {
+    query->insert(pair<string, double>("end", *request->end));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instance)) {
+    query->insert(pair<string, string>("instance", *request->instance));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pod)) {
+    query->insert(pair<string, string>("pod", *request->pod));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->start)) {
+    query->insert(pair<string, double>("start", *request->start));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAbnormalEventsCount"))},
+    {"version", boost::any(string("2023-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/openapi/cluster_health/range/abnormaly_events_count"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAbnormalEventsCountResponse(callApi(params, req, runtime));
+}
+
+GetAbnormalEventsCountResponse Alibabacloud_SysOM20231230::Client::getAbnormalEventsCount(shared_ptr<GetAbnormalEventsCountRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getAbnormalEventsCountWithOptions(request, headers, runtime);
+}
+
 GetDiagnosisResultResponse Alibabacloud_SysOM20231230::Client::getDiagnosisResultWithOptions(shared_ptr<GetDiagnosisResultRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -125,6 +176,45 @@ GetDiagnosisResultResponse Alibabacloud_SysOM20231230::Client::getDiagnosisResul
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getDiagnosisResultWithOptions(request, headers, runtime);
+}
+
+GetHealthPercentageResponse Alibabacloud_SysOM20231230::Client::getHealthPercentageWithOptions(shared_ptr<GetHealthPercentageRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cluster)) {
+    query->insert(pair<string, string>("cluster", *request->cluster));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->end)) {
+    query->insert(pair<string, double>("end", *request->end));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instance)) {
+    query->insert(pair<string, string>("instance", *request->instance));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->start)) {
+    query->insert(pair<string, double>("start", *request->start));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetHealthPercentage"))},
+    {"version", boost::any(string("2023-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/openapi/cluster_health/range/health_percentage"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetHealthPercentageResponse(callApi(params, req, runtime));
+}
+
+GetHealthPercentageResponse Alibabacloud_SysOM20231230::Client::getHealthPercentage(shared_ptr<GetHealthPercentageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getHealthPercentageWithOptions(request, headers, runtime);
 }
 
 InvokeDiagnosisResponse Alibabacloud_SysOM20231230::Client::invokeDiagnosisWithOptions(shared_ptr<InvokeDiagnosisRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
