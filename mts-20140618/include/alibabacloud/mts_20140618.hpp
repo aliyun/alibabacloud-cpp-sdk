@@ -29182,6 +29182,7 @@ public:
 class QuerySmarttagJobResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> jobStatus{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<QuerySmarttagJobResponseBodyResults> results{};
   shared_ptr<string> userData{};
@@ -29199,6 +29200,9 @@ public:
     if (jobStatus) {
       res["JobStatus"] = boost::any(*jobStatus);
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -29214,6 +29218,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("JobStatus") != m.end() && !m["JobStatus"].empty()) {
       jobStatus = make_shared<string>(boost::any_cast<string>(m["JobStatus"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -32581,6 +32588,7 @@ public:
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> personId{};
+  shared_ptr<string> personName{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
 
@@ -32609,6 +32617,9 @@ public:
     if (personId) {
       res["PersonId"] = boost::any(*personId);
     }
+    if (personName) {
+      res["PersonName"] = boost::any(*personName);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -32633,6 +32644,9 @@ public:
     }
     if (m.find("PersonId") != m.end() && !m["PersonId"].empty()) {
       personId = make_shared<string>(boost::any_cast<string>(m["PersonId"]));
+    }
+    if (m.find("PersonName") != m.end() && !m["PersonName"].empty()) {
+      personName = make_shared<string>(boost::any_cast<string>(m["PersonName"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));

@@ -2837,6 +2837,9 @@ RegisterCustomFaceResponse Alibabacloud_Mts20140618::Client::registerCustomFaceW
   if (!Darabonba_Util::Client::isUnset<string>(request->personId)) {
     query->insert(pair<string, string>("PersonId", *request->personId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->personName)) {
+    query->insert(pair<string, string>("PersonName", *request->personName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
