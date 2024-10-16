@@ -2396,6 +2396,40 @@ ListTongyiChatHistorysResponse Alibabacloud_Chatbot20220408::Client::listTongyiC
   return listTongyiChatHistorysWithOptions(request, runtime);
 }
 
+ListTongyiConversationLogsResponse Alibabacloud_Chatbot20220408::Client::listTongyiConversationLogsWithOptions(shared_ptr<ListTongyiConversationLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
+    query->insert(pair<string, string>("AgentKey", *request->agentKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->robotInstanceId)) {
+    query->insert(pair<string, string>("RobotInstanceId", *request->robotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    query->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTongyiConversationLogs"))},
+    {"version", boost::any(string("2022-04-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTongyiConversationLogsResponse(callApi(params, req, runtime));
+}
+
+ListTongyiConversationLogsResponse Alibabacloud_Chatbot20220408::Client::listTongyiConversationLogs(shared_ptr<ListTongyiConversationLogsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listTongyiConversationLogsWithOptions(request, runtime);
+}
+
 ListUserSayResponse Alibabacloud_Chatbot20220408::Client::listUserSayWithOptions(shared_ptr<ListUserSayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
