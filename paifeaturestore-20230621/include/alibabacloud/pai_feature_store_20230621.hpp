@@ -3364,8 +3364,38 @@ public:
 
   virtual ~GetFeatureViewResponse() = default;
 };
+class GetInstanceResponseBodyFeatureDBInstanceInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+
+  GetInstanceResponseBodyFeatureDBInstanceInfo() {}
+
+  explicit GetInstanceResponseBodyFeatureDBInstanceInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetInstanceResponseBodyFeatureDBInstanceInfo() = default;
+};
 class GetInstanceResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<GetInstanceResponseBodyFeatureDBInstanceInfo> featureDBInstanceInfo{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<string> message{};
@@ -3385,6 +3415,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (featureDBInstanceInfo) {
+      res["FeatureDBInstanceInfo"] = featureDBInstanceInfo ? boost::any(featureDBInstanceInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (gmtCreateTime) {
       res["GmtCreateTime"] = boost::any(*gmtCreateTime);
     }
@@ -3413,6 +3446,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FeatureDBInstanceInfo") != m.end() && !m["FeatureDBInstanceInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FeatureDBInstanceInfo"].type()) {
+        GetInstanceResponseBodyFeatureDBInstanceInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FeatureDBInstanceInfo"]));
+        featureDBInstanceInfo = make_shared<GetInstanceResponseBodyFeatureDBInstanceInfo>(model1);
+      }
+    }
     if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
       gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
     }
@@ -6978,8 +7018,38 @@ public:
 
   virtual ~ListInstancesRequest() = default;
 };
+class ListInstancesResponseBodyInstancesFeatureDBInstanceInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+
+  ListInstancesResponseBodyInstancesFeatureDBInstanceInfo() {}
+
+  explicit ListInstancesResponseBodyInstancesFeatureDBInstanceInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListInstancesResponseBodyInstancesFeatureDBInstanceInfo() = default;
+};
 class ListInstancesResponseBodyInstances : public Darabonba::Model {
 public:
+  shared_ptr<ListInstancesResponseBodyInstancesFeatureDBInstanceInfo> featureDBInstanceInfo{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<string> instanceId{};
@@ -6997,6 +7067,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (featureDBInstanceInfo) {
+      res["FeatureDBInstanceInfo"] = featureDBInstanceInfo ? boost::any(featureDBInstanceInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (gmtCreateTime) {
       res["GmtCreateTime"] = boost::any(*gmtCreateTime);
     }
@@ -7019,6 +7092,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FeatureDBInstanceInfo") != m.end() && !m["FeatureDBInstanceInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FeatureDBInstanceInfo"].type()) {
+        ListInstancesResponseBodyInstancesFeatureDBInstanceInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FeatureDBInstanceInfo"]));
+        featureDBInstanceInfo = make_shared<ListInstancesResponseBodyInstancesFeatureDBInstanceInfo>(model1);
+      }
+    }
     if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
       gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
     }
