@@ -627,6 +627,37 @@ QueryDomainTransferStatusResponse Alibabacloud_Domain20180208::Client::queryDoma
   return queryDomainTransferStatusWithOptions(request, runtime);
 }
 
+QueryExchangeRateResponse Alibabacloud_Domain20180208::Client::queryExchangeRateWithOptions(shared_ptr<QueryExchangeRateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fromCurrency)) {
+    query->insert(pair<string, string>("FromCurrency", *request->fromCurrency));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->toCurrency)) {
+    query->insert(pair<string, string>("ToCurrency", *request->toCurrency));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryExchangeRate"))},
+    {"version", boost::any(string("2018-02-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryExchangeRateResponse(callApi(params, req, runtime));
+}
+
+QueryExchangeRateResponse Alibabacloud_Domain20180208::Client::queryExchangeRate(shared_ptr<QueryExchangeRateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryExchangeRateWithOptions(request, runtime);
+}
+
 QueryPurchasedDomainsResponse Alibabacloud_Domain20180208::Client::queryPurchasedDomainsWithOptions(shared_ptr<QueryPurchasedDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
