@@ -152,6 +152,9 @@ CheckResourceStockResponse Alibabacloud_Eds-aic20230930::Client::checkResourceSt
   if (!Darabonba_Util::Client::isUnset<string>(request->acpSpecId)) {
     query->insert(pair<string, string>("AcpSpecId", *request->acpSpecId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->amount)) {
+    query->insert(pair<string, long>("Amount", *request->amount));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
     query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
   }
@@ -389,6 +392,9 @@ CreatePolicyGroupResponse Alibabacloud_Eds-aic20230930::Client::createPolicyGrou
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->localDrive)) {
     body->insert(pair<string, string>("LocalDrive", *request->localDrive));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lockResolution)) {
+    body->insert(pair<string, string>("LockResolution", *request->lockResolution));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->netRedirectPolicyShrink)) {
     body->insert(pair<string, string>("NetRedirectPolicy", *request->netRedirectPolicyShrink));
@@ -633,11 +639,17 @@ DescribeAndroidInstancesResponse Alibabacloud_Eds-aic20230930::Client::describeA
   if (!Darabonba_Util::Client::isUnset<string>(request->androidInstanceName)) {
     query->insert(pair<string, string>("AndroidInstanceName", *request->androidInstanceName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
+    query->insert(pair<string, string>("ChargeType", *request->chargeType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceGroupId)) {
     query->insert(pair<string, string>("InstanceGroupId", *request->instanceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceGroupIds)) {
     query->insert(pair<string, vector<string>>("InstanceGroupIds", *request->instanceGroupIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceGroupName)) {
+    query->insert(pair<string, string>("InstanceGroupName", *request->instanceGroupName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyPairId)) {
     query->insert(pair<string, string>("KeyPairId", *request->keyPairId));
@@ -915,6 +927,9 @@ DescribeRegionsResponse Alibabacloud_Eds-aic20230930::Client::describeRegions() 
 DescribeSpecResponse Alibabacloud_Eds-aic20230930::Client::describeSpecWithOptions(shared_ptr<DescribeSpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
+    query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
@@ -1416,6 +1431,9 @@ ModifyPolicyGroupResponse Alibabacloud_Eds-aic20230930::Client::modifyPolicyGrou
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->localDrive)) {
     body->insert(pair<string, string>("LocalDrive", *request->localDrive));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lockResolution)) {
+    body->insert(pair<string, string>("LockResolution", *request->lockResolution));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->netRedirectPolicyShrink)) {
     body->insert(pair<string, string>("NetRedirectPolicy", *request->netRedirectPolicyShrink));

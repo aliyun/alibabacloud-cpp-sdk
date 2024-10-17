@@ -450,9 +450,60 @@ public:
 
   virtual ~BackupFileRequest() = default;
 };
+class BackupFileResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> androidInstanceId{};
+  shared_ptr<string> backupFileId{};
+  shared_ptr<string> backupFileName{};
+  shared_ptr<string> taskId{};
+
+  BackupFileResponseBodyData() {}
+
+  explicit BackupFileResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceId) {
+      res["AndroidInstanceId"] = boost::any(*androidInstanceId);
+    }
+    if (backupFileId) {
+      res["BackupFileId"] = boost::any(*backupFileId);
+    }
+    if (backupFileName) {
+      res["BackupFileName"] = boost::any(*backupFileName);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceId") != m.end() && !m["AndroidInstanceId"].empty()) {
+      androidInstanceId = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceId"]));
+    }
+    if (m.find("BackupFileId") != m.end() && !m["BackupFileId"].empty()) {
+      backupFileId = make_shared<string>(boost::any_cast<string>(m["BackupFileId"]));
+    }
+    if (m.find("BackupFileName") != m.end() && !m["BackupFileName"].empty()) {
+      backupFileName = make_shared<string>(boost::any_cast<string>(m["BackupFileName"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~BackupFileResponseBodyData() = default;
+};
 class BackupFileResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> data{};
+  shared_ptr<long> count{};
+  shared_ptr<vector<BackupFileResponseBodyData>> data{};
   shared_ptr<string> requestId{};
 
   BackupFileResponseBody() {}
@@ -465,8 +516,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
     if (data) {
-      res["Data"] = boost::any(*data);
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -475,8 +533,21 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<BackupFileResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BackupFileResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<BackupFileResponseBodyData>>(expect1);
+      }
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -541,6 +612,7 @@ public:
 class CheckResourceStockRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acpSpecId{};
+  shared_ptr<long> amount{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<bool> gpuAcceleration{};
   shared_ptr<string> zoneId{};
@@ -558,6 +630,9 @@ public:
     if (acpSpecId) {
       res["AcpSpecId"] = boost::any(*acpSpecId);
     }
+    if (amount) {
+      res["Amount"] = boost::any(*amount);
+    }
     if (bizRegionId) {
       res["BizRegionId"] = boost::any(*bizRegionId);
     }
@@ -573,6 +648,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcpSpecId") != m.end() && !m["AcpSpecId"].empty()) {
       acpSpecId = make_shared<string>(boost::any_cast<string>(m["AcpSpecId"]));
+    }
+    if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
+      amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
     }
     if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
       bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
@@ -1543,6 +1621,7 @@ public:
   shared_ptr<string> clipboard{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> localDrive{};
+  shared_ptr<string> lockResolution{};
   shared_ptr<CreatePolicyGroupRequestNetRedirectPolicy> netRedirectPolicy{};
   shared_ptr<string> policyGroupName{};
   shared_ptr<long> resolutionHeight{};
@@ -1569,6 +1648,9 @@ public:
     }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (lockResolution) {
+      res["LockResolution"] = boost::any(*lockResolution);
     }
     if (netRedirectPolicy) {
       res["NetRedirectPolicy"] = netRedirectPolicy ? boost::any(netRedirectPolicy->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1598,6 +1680,9 @@ public:
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
     }
+    if (m.find("LockResolution") != m.end() && !m["LockResolution"].empty()) {
+      lockResolution = make_shared<string>(boost::any_cast<string>(m["LockResolution"]));
+    }
     if (m.find("NetRedirectPolicy") != m.end() && !m["NetRedirectPolicy"].empty()) {
       if (typeid(map<string, boost::any>) == m["NetRedirectPolicy"].type()) {
         CreatePolicyGroupRequestNetRedirectPolicy model1;
@@ -1625,6 +1710,7 @@ public:
   shared_ptr<string> clipboard{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> localDrive{};
+  shared_ptr<string> lockResolution{};
   shared_ptr<string> netRedirectPolicyShrink{};
   shared_ptr<string> policyGroupName{};
   shared_ptr<long> resolutionHeight{};
@@ -1651,6 +1737,9 @@ public:
     }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (lockResolution) {
+      res["LockResolution"] = boost::any(*lockResolution);
     }
     if (netRedirectPolicyShrink) {
       res["NetRedirectPolicy"] = boost::any(*netRedirectPolicyShrink);
@@ -1679,6 +1768,9 @@ public:
     }
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
+    }
+    if (m.find("LockResolution") != m.end() && !m["LockResolution"].empty()) {
+      lockResolution = make_shared<string>(boost::any_cast<string>(m["LockResolution"]));
     }
     if (m.find("NetRedirectPolicy") != m.end() && !m["NetRedirectPolicy"].empty()) {
       netRedirectPolicyShrink = make_shared<string>(boost::any_cast<string>(m["NetRedirectPolicy"]));
@@ -2940,8 +3032,10 @@ class DescribeAndroidInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIds{};
   shared_ptr<string> androidInstanceName{};
+  shared_ptr<string> chargeType{};
   shared_ptr<string> instanceGroupId{};
   shared_ptr<vector<string>> instanceGroupIds{};
+  shared_ptr<string> instanceGroupName{};
   shared_ptr<string> keyPairId{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -2964,11 +3058,17 @@ public:
     if (androidInstanceName) {
       res["AndroidInstanceName"] = boost::any(*androidInstanceName);
     }
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
     if (instanceGroupId) {
       res["InstanceGroupId"] = boost::any(*instanceGroupId);
     }
     if (instanceGroupIds) {
       res["InstanceGroupIds"] = boost::any(*instanceGroupIds);
+    }
+    if (instanceGroupName) {
+      res["InstanceGroupName"] = boost::any(*instanceGroupName);
     }
     if (keyPairId) {
       res["KeyPairId"] = boost::any(*keyPairId);
@@ -3002,6 +3102,9 @@ public:
     if (m.find("AndroidInstanceName") != m.end() && !m["AndroidInstanceName"].empty()) {
       androidInstanceName = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceName"]));
     }
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
     if (m.find("InstanceGroupId") != m.end() && !m["InstanceGroupId"].empty()) {
       instanceGroupId = make_shared<string>(boost::any_cast<string>(m["InstanceGroupId"]));
     }
@@ -3014,6 +3117,9 @@ public:
         }
       }
       instanceGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceGroupName") != m.end() && !m["InstanceGroupName"].empty()) {
+      instanceGroupName = make_shared<string>(boost::any_cast<string>(m["InstanceGroupName"]));
     }
     if (m.find("KeyPairId") != m.end() && !m["KeyPairId"].empty()) {
       keyPairId = make_shared<string>(boost::any_cast<string>(m["KeyPairId"]));
@@ -3035,9 +3141,46 @@ public:
 
   virtual ~DescribeAndroidInstancesRequest() = default;
 };
+class DescribeAndroidInstancesResponseBodyInstanceModelDisks : public Darabonba::Model {
+public:
+  shared_ptr<long> diskSize{};
+  shared_ptr<string> diskType{};
+
+  DescribeAndroidInstancesResponseBodyInstanceModelDisks() {}
+
+  explicit DescribeAndroidInstancesResponseBodyInstanceModelDisks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskSize) {
+      res["DiskSize"] = boost::any(*diskSize);
+    }
+    if (diskType) {
+      res["DiskType"] = boost::any(*diskType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["DiskSize"]));
+    }
+    if (m.find("DiskType") != m.end() && !m["DiskType"].empty()) {
+      diskType = make_shared<string>(boost::any_cast<string>(m["DiskType"]));
+    }
+  }
+
+
+  virtual ~DescribeAndroidInstancesResponseBodyInstanceModelDisks() = default;
+};
 class DescribeAndroidInstancesResponseBodyInstanceModel : public Darabonba::Model {
 public:
   shared_ptr<string> androidInstanceGroupId{};
+  shared_ptr<string> androidInstanceGroupName{};
   shared_ptr<string> androidInstanceId{};
   shared_ptr<string> androidInstanceName{};
   shared_ptr<string> androidInstanceStatus{};
@@ -3045,12 +3188,20 @@ public:
   shared_ptr<string> appInstanceId{};
   shared_ptr<string> authorizedUserId{};
   shared_ptr<string> bindUserId{};
+  shared_ptr<string> chargeType{};
+  shared_ptr<string> cpu{};
+  shared_ptr<vector<DescribeAndroidInstancesResponseBodyInstanceModelDisks>> disks{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtExpired{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<string> instanceType{};
   shared_ptr<string> keyPairId{};
+  shared_ptr<long> memory{};
   shared_ptr<string> networkInterfaceIp{};
+  shared_ptr<string> officeSiteId{};
   shared_ptr<string> persistentAppInstanceId{};
+  shared_ptr<string> policyGroupId{};
   shared_ptr<long> rate{};
   shared_ptr<string> regionId{};
   shared_ptr<string> renderingType{};
@@ -3067,6 +3218,9 @@ public:
     map<string, boost::any> res;
     if (androidInstanceGroupId) {
       res["AndroidInstanceGroupId"] = boost::any(*androidInstanceGroupId);
+    }
+    if (androidInstanceGroupName) {
+      res["AndroidInstanceGroupName"] = boost::any(*androidInstanceGroupName);
     }
     if (androidInstanceId) {
       res["AndroidInstanceId"] = boost::any(*androidInstanceId);
@@ -3089,23 +3243,51 @@ public:
     if (bindUserId) {
       res["BindUserId"] = boost::any(*bindUserId);
     }
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (disks) {
+      vector<boost::any> temp1;
+      for(auto item1:*disks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Disks"] = boost::any(temp1);
+    }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
     }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
     }
+    if (gmtExpired) {
+      res["GmtExpired"] = boost::any(*gmtExpired);
+    }
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
     }
     if (keyPairId) {
       res["KeyPairId"] = boost::any(*keyPairId);
     }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
     if (networkInterfaceIp) {
       res["NetworkInterfaceIp"] = boost::any(*networkInterfaceIp);
     }
+    if (officeSiteId) {
+      res["OfficeSiteId"] = boost::any(*officeSiteId);
+    }
     if (persistentAppInstanceId) {
       res["PersistentAppInstanceId"] = boost::any(*persistentAppInstanceId);
+    }
+    if (policyGroupId) {
+      res["PolicyGroupId"] = boost::any(*policyGroupId);
     }
     if (rate) {
       res["Rate"] = boost::any(*rate);
@@ -3122,6 +3304,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AndroidInstanceGroupId") != m.end() && !m["AndroidInstanceGroupId"].empty()) {
       androidInstanceGroupId = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceGroupId"]));
+    }
+    if (m.find("AndroidInstanceGroupName") != m.end() && !m["AndroidInstanceGroupName"].empty()) {
+      androidInstanceGroupName = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceGroupName"]));
     }
     if (m.find("AndroidInstanceId") != m.end() && !m["AndroidInstanceId"].empty()) {
       androidInstanceId = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceId"]));
@@ -3144,23 +3329,57 @@ public:
     if (m.find("BindUserId") != m.end() && !m["BindUserId"].empty()) {
       bindUserId = make_shared<string>(boost::any_cast<string>(m["BindUserId"]));
     }
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<string>(boost::any_cast<string>(m["Cpu"]));
+    }
+    if (m.find("Disks") != m.end() && !m["Disks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Disks"].type()) {
+        vector<DescribeAndroidInstancesResponseBodyInstanceModelDisks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Disks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAndroidInstancesResponseBodyInstanceModelDisks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        disks = make_shared<vector<DescribeAndroidInstancesResponseBodyInstanceModelDisks>>(expect1);
+      }
+    }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
     }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
     }
+    if (m.find("GmtExpired") != m.end() && !m["GmtExpired"].empty()) {
+      gmtExpired = make_shared<string>(boost::any_cast<string>(m["GmtExpired"]));
+    }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
     if (m.find("KeyPairId") != m.end() && !m["KeyPairId"].empty()) {
       keyPairId = make_shared<string>(boost::any_cast<string>(m["KeyPairId"]));
     }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
     if (m.find("NetworkInterfaceIp") != m.end() && !m["NetworkInterfaceIp"].empty()) {
       networkInterfaceIp = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceIp"]));
     }
+    if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
+      officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
+    }
     if (m.find("PersistentAppInstanceId") != m.end() && !m["PersistentAppInstanceId"].empty()) {
       persistentAppInstanceId = make_shared<string>(boost::any_cast<string>(m["PersistentAppInstanceId"]));
+    }
+    if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
+      policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
     }
     if (m.find("Rate") != m.end() && !m["Rate"].empty()) {
       rate = make_shared<long>(boost::any_cast<long>(m["Rate"]));
@@ -3382,6 +3601,7 @@ public:
   shared_ptr<string> iconUrl{};
   shared_ptr<string> installationStatus{};
   shared_ptr<vector<string>> instanceGroupList{};
+  shared_ptr<string> packageName{};
   shared_ptr<string> status{};
 
   DescribeAppsResponseBodyData() {}
@@ -3423,6 +3643,9 @@ public:
     }
     if (instanceGroupList) {
       res["InstanceGroupList"] = boost::any(*instanceGroupList);
+    }
+    if (packageName) {
+      res["PackageName"] = boost::any(*packageName);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -3467,6 +3690,9 @@ public:
         }
       }
       instanceGroupList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PackageName") != m.end() && !m["PackageName"].empty()) {
+      packageName = make_shared<string>(boost::any_cast<string>(m["PackageName"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -4834,6 +5060,7 @@ public:
 };
 class DescribeSpecRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> bizRegionId{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<vector<string>> specIds{};
@@ -4850,6 +5077,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bizRegionId) {
+      res["BizRegionId"] = boost::any(*bizRegionId);
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
@@ -4869,6 +5099,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
+      bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -5880,9 +6113,45 @@ public:
 
   virtual ~FetchFileRequest() = default;
 };
+class FetchFileResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> androidInstanceId{};
+  shared_ptr<string> taskId{};
+
+  FetchFileResponseBodyData() {}
+
+  explicit FetchFileResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceId) {
+      res["AndroidInstanceId"] = boost::any(*androidInstanceId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceId") != m.end() && !m["AndroidInstanceId"].empty()) {
+      androidInstanceId = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~FetchFileResponseBodyData() = default;
+};
 class FetchFileResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> data{};
+  shared_ptr<vector<FetchFileResponseBodyData>> data{};
   shared_ptr<string> requestId{};
 
   FetchFileResponseBody() {}
@@ -5896,7 +6165,11 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (data) {
-      res["Data"] = boost::any(*data);
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -5906,7 +6179,17 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<FetchFileResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            FetchFileResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<FetchFileResponseBodyData>>(expect1);
+      }
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -6584,6 +6867,7 @@ public:
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> localDrive{};
+  shared_ptr<string> lockResolution{};
   shared_ptr<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy> netRedirectPolicy{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> policyGroupName{};
@@ -6614,6 +6898,9 @@ public:
     }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (lockResolution) {
+      res["LockResolution"] = boost::any(*lockResolution);
     }
     if (netRedirectPolicy) {
       res["NetRedirectPolicy"] = netRedirectPolicy ? boost::any(netRedirectPolicy->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6648,6 +6935,9 @@ public:
     }
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
+    }
+    if (m.find("LockResolution") != m.end() && !m["LockResolution"].empty()) {
+      lockResolution = make_shared<string>(boost::any_cast<string>(m["LockResolution"]));
     }
     if (m.find("NetRedirectPolicy") != m.end() && !m["NetRedirectPolicy"].empty()) {
       if (typeid(map<string, boost::any>) == m["NetRedirectPolicy"].type()) {
@@ -7313,6 +7603,7 @@ public:
   shared_ptr<string> clipboard{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> localDrive{};
+  shared_ptr<string> lockResolution{};
   shared_ptr<ModifyPolicyGroupRequestNetRedirectPolicy> netRedirectPolicy{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> policyGroupName{};
@@ -7340,6 +7631,9 @@ public:
     }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (lockResolution) {
+      res["LockResolution"] = boost::any(*lockResolution);
     }
     if (netRedirectPolicy) {
       res["NetRedirectPolicy"] = netRedirectPolicy ? boost::any(netRedirectPolicy->toMap()) : boost::any(map<string,boost::any>({}));
@@ -7372,6 +7666,9 @@ public:
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
     }
+    if (m.find("LockResolution") != m.end() && !m["LockResolution"].empty()) {
+      lockResolution = make_shared<string>(boost::any_cast<string>(m["LockResolution"]));
+    }
     if (m.find("NetRedirectPolicy") != m.end() && !m["NetRedirectPolicy"].empty()) {
       if (typeid(map<string, boost::any>) == m["NetRedirectPolicy"].type()) {
         ModifyPolicyGroupRequestNetRedirectPolicy model1;
@@ -7402,6 +7699,7 @@ public:
   shared_ptr<string> clipboard{};
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> localDrive{};
+  shared_ptr<string> lockResolution{};
   shared_ptr<string> netRedirectPolicyShrink{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> policyGroupName{};
@@ -7429,6 +7727,9 @@ public:
     }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (lockResolution) {
+      res["LockResolution"] = boost::any(*lockResolution);
     }
     if (netRedirectPolicyShrink) {
       res["NetRedirectPolicy"] = boost::any(*netRedirectPolicyShrink);
@@ -7460,6 +7761,9 @@ public:
     }
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
+    }
+    if (m.find("LockResolution") != m.end() && !m["LockResolution"].empty()) {
+      lockResolution = make_shared<string>(boost::any_cast<string>(m["LockResolution"]));
     }
     if (m.find("NetRedirectPolicy") != m.end() && !m["NetRedirectPolicy"].empty()) {
       netRedirectPolicyShrink = make_shared<string>(boost::any_cast<string>(m["NetRedirectPolicy"]));
@@ -7750,9 +8054,46 @@ public:
 
   virtual ~RecoveryFileRequest() = default;
 };
+class RecoveryFileResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> androidInstanceId{};
+  shared_ptr<string> taskId{};
+
+  RecoveryFileResponseBodyData() {}
+
+  explicit RecoveryFileResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceId) {
+      res["AndroidInstanceId"] = boost::any(*androidInstanceId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceId") != m.end() && !m["AndroidInstanceId"].empty()) {
+      androidInstanceId = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~RecoveryFileResponseBodyData() = default;
+};
 class RecoveryFileResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> data{};
+  shared_ptr<long> count{};
+  shared_ptr<vector<RecoveryFileResponseBodyData>> data{};
   shared_ptr<string> requestId{};
 
   RecoveryFileResponseBody() {}
@@ -7765,8 +8106,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
     if (data) {
-      res["Data"] = boost::any(*data);
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -7775,8 +8123,21 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<RecoveryFileResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecoveryFileResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<RecoveryFileResponseBodyData>>(expect1);
+      }
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -8302,9 +8663,45 @@ public:
 
   virtual ~SendFileRequest() = default;
 };
+class SendFileResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> androidInstanceId{};
+  shared_ptr<string> taskId{};
+
+  SendFileResponseBodyData() {}
+
+  explicit SendFileResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceId) {
+      res["AndroidInstanceId"] = boost::any(*androidInstanceId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceId") != m.end() && !m["AndroidInstanceId"].empty()) {
+      androidInstanceId = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~SendFileResponseBodyData() = default;
+};
 class SendFileResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> data{};
+  shared_ptr<vector<SendFileResponseBodyData>> data{};
   shared_ptr<string> requestId{};
 
   SendFileResponseBody() {}
@@ -8318,7 +8715,11 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (data) {
-      res["Data"] = boost::any(*data);
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -8328,7 +8729,17 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<SendFileResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SendFileResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<SendFileResponseBodyData>>(expect1);
+      }
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
