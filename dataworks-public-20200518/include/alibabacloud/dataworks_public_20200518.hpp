@@ -39626,6 +39626,7 @@ public:
   shared_ptr<long> projectId{};
   shared_ptr<long> relatedFlowId{};
   shared_ptr<long> repeatInterval{};
+  shared_ptr<long> repeatMode{};
   shared_ptr<string> repeatability{};
   shared_ptr<string> resGroupIdentifier{};
   shared_ptr<string> resGroupName{};
@@ -39706,6 +39707,9 @@ public:
     }
     if (repeatInterval) {
       res["RepeatInterval"] = boost::any(*repeatInterval);
+    }
+    if (repeatMode) {
+      res["RepeatMode"] = boost::any(*repeatMode);
     }
     if (repeatability) {
       res["Repeatability"] = boost::any(*repeatability);
@@ -39788,6 +39792,9 @@ public:
     }
     if (m.find("RepeatInterval") != m.end() && !m["RepeatInterval"].empty()) {
       repeatInterval = make_shared<long>(boost::any_cast<long>(m["RepeatInterval"]));
+    }
+    if (m.find("RepeatMode") != m.end() && !m["RepeatMode"].empty()) {
+      repeatMode = make_shared<long>(boost::any_cast<long>(m["RepeatMode"]));
     }
     if (m.find("Repeatability") != m.end() && !m["Repeatability"].empty()) {
       repeatability = make_shared<string>(boost::any_cast<string>(m["Repeatability"]));
@@ -61613,6 +61620,7 @@ public:
   shared_ptr<long> projectId{};
   shared_ptr<long> relatedFlowId{};
   shared_ptr<long> repeatInterval{};
+  shared_ptr<long> repeatMode{};
   shared_ptr<bool> repeatability{};
   shared_ptr<string> resGroupIdentifier{};
   shared_ptr<string> resGroupName{};
@@ -61693,6 +61701,9 @@ public:
     }
     if (repeatInterval) {
       res["RepeatInterval"] = boost::any(*repeatInterval);
+    }
+    if (repeatMode) {
+      res["RepeatMode"] = boost::any(*repeatMode);
     }
     if (repeatability) {
       res["Repeatability"] = boost::any(*repeatability);
@@ -61775,6 +61786,9 @@ public:
     }
     if (m.find("RepeatInterval") != m.end() && !m["RepeatInterval"].empty()) {
       repeatInterval = make_shared<long>(boost::any_cast<long>(m["RepeatInterval"]));
+    }
+    if (m.find("RepeatMode") != m.end() && !m["RepeatMode"].empty()) {
+      repeatMode = make_shared<long>(boost::any_cast<long>(m["RepeatMode"]));
     }
     if (m.find("Repeatability") != m.end() && !m["Repeatability"].empty()) {
       repeatability = make_shared<bool>(boost::any_cast<bool>(m["Repeatability"]));

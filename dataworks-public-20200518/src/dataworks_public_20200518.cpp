@@ -789,9 +789,6 @@ CreateDISyncTaskResponse Alibabacloud_Dataworks-public20200518::Client::createDI
   if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
     query->insert(pair<string, long>("ProjectId", *request->projectId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->taskContent)) {
-    query->insert(pair<string, string>("TaskContent", *request->taskContent));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskName)) {
     query->insert(pair<string, string>("TaskName", *request->taskName));
   }
@@ -801,8 +798,13 @@ CreateDISyncTaskResponse Alibabacloud_Dataworks-public20200518::Client::createDI
   if (!Darabonba_Util::Client::isUnset<string>(request->taskType)) {
     query->insert(pair<string, string>("TaskType", *request->taskType));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskContent)) {
+    body->insert(pair<string, string>("TaskContent", *request->taskContent));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateDISyncTask"))},
