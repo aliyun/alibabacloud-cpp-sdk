@@ -19645,6 +19645,7 @@ public:
 };
 class GetDataExportOrderDetailResponseBodyDataExportOrderDetailKeyInfo : public Darabonba::Model {
 public:
+  shared_ptr<long> jobId{};
   shared_ptr<string> jobStatus{};
   shared_ptr<long> preCheckId{};
 
@@ -19658,6 +19659,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
     if (jobStatus) {
       res["JobStatus"] = boost::any(*jobStatus);
     }
@@ -19668,6 +19672,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
+    }
     if (m.find("JobStatus") != m.end() && !m["JobStatus"].empty()) {
       jobStatus = make_shared<string>(boost::any_cast<string>(m["JobStatus"]));
     }
@@ -51320,6 +51327,151 @@ public:
 
   virtual ~PauseDataCorrectSQLJobResponse() = default;
 };
+class PauseDataExportJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> jobId{};
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  PauseDataExportJobRequest() {}
+
+  explicit PauseDataExportJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~PauseDataExportJobRequest() = default;
+};
+class PauseDataExportJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  PauseDataExportJobResponseBody() {}
+
+  explicit PauseDataExportJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~PauseDataExportJobResponseBody() = default;
+};
+class PauseDataExportJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PauseDataExportJobResponseBody> body{};
+
+  PauseDataExportJobResponse() {}
+
+  explicit PauseDataExportJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PauseDataExportJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PauseDataExportJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PauseDataExportJobResponse() = default;
+};
 class PreviewWorkflowRequest : public Darabonba::Model {
 public:
   shared_ptr<long> orderId{};
@@ -52971,6 +53123,151 @@ public:
 
   virtual ~RegisterUserResponse() = default;
 };
+class RemoveDataExportJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> jobId{};
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  RemoveDataExportJobRequest() {}
+
+  explicit RemoveDataExportJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~RemoveDataExportJobRequest() = default;
+};
+class RemoveDataExportJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  RemoveDataExportJobResponseBody() {}
+
+  explicit RemoveDataExportJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~RemoveDataExportJobResponseBody() = default;
+};
+class RemoveDataExportJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RemoveDataExportJobResponseBody> body{};
+
+  RemoveDataExportJobResponse() {}
+
+  explicit RemoveDataExportJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RemoveDataExportJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RemoveDataExportJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RemoveDataExportJobResponse() = default;
+};
 class RestartDataCorrectSQLJobRequest : public Darabonba::Model {
 public:
   shared_ptr<long> jobId{};
@@ -53122,6 +53419,151 @@ public:
 
 
   virtual ~RestartDataCorrectSQLJobResponse() = default;
+};
+class RestartDataExportJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> jobId{};
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  RestartDataExportJobRequest() {}
+
+  explicit RestartDataExportJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~RestartDataExportJobRequest() = default;
+};
+class RestartDataExportJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  RestartDataExportJobResponseBody() {}
+
+  explicit RestartDataExportJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~RestartDataExportJobResponseBody() = default;
+};
+class RestartDataExportJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RestartDataExportJobResponseBody> body{};
+
+  RestartDataExportJobResponse() {}
+
+  explicit RestartDataExportJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RestartDataExportJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RestartDataExportJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RestartDataExportJobResponse() = default;
 };
 class ResumeTaskFlowInstanceRequest : public Darabonba::Model {
 public:
@@ -56014,6 +56456,151 @@ public:
 
 
   virtual ~SubmitStructSyncOrderApprovalResponse() = default;
+};
+class SuspendDataExportJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> jobId{};
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  SuspendDataExportJobRequest() {}
+
+  explicit SuspendDataExportJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~SuspendDataExportJobRequest() = default;
+};
+class SuspendDataExportJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  SuspendDataExportJobResponseBody() {}
+
+  explicit SuspendDataExportJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SuspendDataExportJobResponseBody() = default;
+};
+class SuspendDataExportJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SuspendDataExportJobResponseBody> body{};
+
+  SuspendDataExportJobResponse() {}
+
+  explicit SuspendDataExportJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SuspendDataExportJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SuspendDataExportJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SuspendDataExportJobResponse() = default;
 };
 class SuspendTaskFlowInstanceRequest : public Darabonba::Model {
 public:
@@ -60588,6 +61175,8 @@ public:
   OfflineTaskFlowResponse offlineTaskFlow(shared_ptr<OfflineTaskFlowRequest> request);
   PauseDataCorrectSQLJobResponse pauseDataCorrectSQLJobWithOptions(shared_ptr<PauseDataCorrectSQLJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PauseDataCorrectSQLJobResponse pauseDataCorrectSQLJob(shared_ptr<PauseDataCorrectSQLJobRequest> request);
+  PauseDataExportJobResponse pauseDataExportJobWithOptions(shared_ptr<PauseDataExportJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PauseDataExportJobResponse pauseDataExportJob(shared_ptr<PauseDataExportJobRequest> request);
   PreviewWorkflowResponse previewWorkflowWithOptions(shared_ptr<PreviewWorkflowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PreviewWorkflowResponse previewWorkflow(shared_ptr<PreviewWorkflowRequest> request);
   PublishAndDeployTaskFlowResponse publishAndDeployTaskFlowWithOptions(shared_ptr<PublishAndDeployTaskFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -60604,8 +61193,12 @@ public:
   RegisterInstanceResponse registerInstance(shared_ptr<RegisterInstanceRequest> request);
   RegisterUserResponse registerUserWithOptions(shared_ptr<RegisterUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RegisterUserResponse registerUser(shared_ptr<RegisterUserRequest> request);
+  RemoveDataExportJobResponse removeDataExportJobWithOptions(shared_ptr<RemoveDataExportJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RemoveDataExportJobResponse removeDataExportJob(shared_ptr<RemoveDataExportJobRequest> request);
   RestartDataCorrectSQLJobResponse restartDataCorrectSQLJobWithOptions(shared_ptr<RestartDataCorrectSQLJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RestartDataCorrectSQLJobResponse restartDataCorrectSQLJob(shared_ptr<RestartDataCorrectSQLJobRequest> request);
+  RestartDataExportJobResponse restartDataExportJobWithOptions(shared_ptr<RestartDataExportJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RestartDataExportJobResponse restartDataExportJob(shared_ptr<RestartDataExportJobRequest> request);
   ResumeTaskFlowInstanceResponse resumeTaskFlowInstanceWithOptions(shared_ptr<ResumeTaskFlowInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResumeTaskFlowInstanceResponse resumeTaskFlowInstance(shared_ptr<ResumeTaskFlowInstanceRequest> request);
   RetryDataCorrectPreCheckResponse retryDataCorrectPreCheckWithOptions(shared_ptr<RetryDataCorrectPreCheckRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -60630,6 +61223,8 @@ public:
   SubmitOrderApprovalResponse submitOrderApproval(shared_ptr<SubmitOrderApprovalRequest> request);
   SubmitStructSyncOrderApprovalResponse submitStructSyncOrderApprovalWithOptions(shared_ptr<SubmitStructSyncOrderApprovalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitStructSyncOrderApprovalResponse submitStructSyncOrderApproval(shared_ptr<SubmitStructSyncOrderApprovalRequest> request);
+  SuspendDataExportJobResponse suspendDataExportJobWithOptions(shared_ptr<SuspendDataExportJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SuspendDataExportJobResponse suspendDataExportJob(shared_ptr<SuspendDataExportJobRequest> request);
   SuspendTaskFlowInstanceResponse suspendTaskFlowInstanceWithOptions(shared_ptr<SuspendTaskFlowInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SuspendTaskFlowInstanceResponse suspendTaskFlowInstance(shared_ptr<SuspendTaskFlowInstanceRequest> request);
   SyncDatabaseMetaResponse syncDatabaseMetaWithOptions(shared_ptr<SyncDatabaseMetaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
