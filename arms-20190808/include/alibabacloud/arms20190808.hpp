@@ -34240,10 +34240,51 @@ public:
 
   virtual ~GetRumExceptionStackRequest() = default;
 };
+class GetRumExceptionStackResponseBodyDataThreadInfoList : public Darabonba::Model {
+public:
+  shared_ptr<string> threadDetail{};
+  shared_ptr<string> threadTag{};
+
+  GetRumExceptionStackResponseBodyDataThreadInfoList() {}
+
+  explicit GetRumExceptionStackResponseBodyDataThreadInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (threadDetail) {
+      res["ThreadDetail"] = boost::any(*threadDetail);
+    }
+    if (threadTag) {
+      res["ThreadTag"] = boost::any(*threadTag);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ThreadDetail") != m.end() && !m["ThreadDetail"].empty()) {
+      threadDetail = make_shared<string>(boost::any_cast<string>(m["ThreadDetail"]));
+    }
+    if (m.find("ThreadTag") != m.end() && !m["ThreadTag"].empty()) {
+      threadTag = make_shared<string>(boost::any_cast<string>(m["ThreadTag"]));
+    }
+  }
+
+
+  virtual ~GetRumExceptionStackResponseBodyDataThreadInfoList() = default;
+};
 class GetRumExceptionStackResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> crashAddress{};
+  shared_ptr<string> crashReason{};
   shared_ptr<vector<string>> lines{};
+  shared_ptr<string> moduleName{};
   shared_ptr<string> threadId{};
+  shared_ptr<vector<GetRumExceptionStackResponseBodyDataThreadInfoList>> threadInfoList{};
+  shared_ptr<string> uuid{};
 
   GetRumExceptionStackResponseBodyData() {}
 
@@ -34255,16 +34296,41 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (crashAddress) {
+      res["CrashAddress"] = boost::any(*crashAddress);
+    }
+    if (crashReason) {
+      res["CrashReason"] = boost::any(*crashReason);
+    }
     if (lines) {
       res["Lines"] = boost::any(*lines);
     }
+    if (moduleName) {
+      res["ModuleName"] = boost::any(*moduleName);
+    }
     if (threadId) {
       res["ThreadId"] = boost::any(*threadId);
+    }
+    if (threadInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*threadInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ThreadInfoList"] = boost::any(temp1);
+    }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CrashAddress") != m.end() && !m["CrashAddress"].empty()) {
+      crashAddress = make_shared<string>(boost::any_cast<string>(m["CrashAddress"]));
+    }
+    if (m.find("CrashReason") != m.end() && !m["CrashReason"].empty()) {
+      crashReason = make_shared<string>(boost::any_cast<string>(m["CrashReason"]));
+    }
     if (m.find("Lines") != m.end() && !m["Lines"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["Lines"].type()) {
@@ -34275,8 +34341,27 @@ public:
       }
       lines = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ModuleName") != m.end() && !m["ModuleName"].empty()) {
+      moduleName = make_shared<string>(boost::any_cast<string>(m["ModuleName"]));
+    }
     if (m.find("ThreadId") != m.end() && !m["ThreadId"].empty()) {
       threadId = make_shared<string>(boost::any_cast<string>(m["ThreadId"]));
+    }
+    if (m.find("ThreadInfoList") != m.end() && !m["ThreadInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ThreadInfoList"].type()) {
+        vector<GetRumExceptionStackResponseBodyDataThreadInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ThreadInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetRumExceptionStackResponseBodyDataThreadInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        threadInfoList = make_shared<vector<GetRumExceptionStackResponseBodyDataThreadInfoList>>(expect1);
+      }
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
     }
   }
 
