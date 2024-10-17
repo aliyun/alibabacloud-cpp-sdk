@@ -48,6 +48,9 @@ string Alibabacloud_Dysmsapi20180501::Client::getEndpoint(shared_ptr<string> pro
 BatchSendMessageToGlobeResponse Alibabacloud_Dysmsapi20180501::Client::batchSendMessageToGlobeWithOptions(shared_ptr<BatchSendMessageToGlobeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->channelId)) {
+    query->insert(pair<string, string>("ChannelId", *request->channelId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
     query->insert(pair<string, string>("From", *request->from));
   }
