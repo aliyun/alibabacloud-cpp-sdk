@@ -11919,9 +11919,46 @@ public:
 
   virtual ~DescribeFileSystemsResponseBodyFileSystemsFileSystemTags() = default;
 };
+class DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> vswId{};
+
+  DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds() {}
+
+  explicit DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vswId) {
+      res["VswId"] = boost::any(*vswId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VswId") != m.end() && !m["VswId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VswId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VswId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vswId = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds() = default;
+};
 class DescribeFileSystemsResponseBodyFileSystemsFileSystem : public Darabonba::Model {
 public:
   shared_ptr<string> accessPointCount{};
+  shared_ptr<string> autoSnapshotPolicyId{};
   shared_ptr<long> bandwidth{};
   shared_ptr<long> capacity{};
   shared_ptr<string> chargeType{};
@@ -11940,6 +11977,7 @@ public:
   shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions> options{};
   shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages> packages{};
   shared_ptr<string> protocolType{};
+  shared_ptr<string> quorumVswId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
@@ -11947,6 +11985,8 @@ public:
   shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures> supportedFeatures{};
   shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemTags> tags{};
   shared_ptr<string> version{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds> vswIds{};
   shared_ptr<string> zoneId{};
 
   DescribeFileSystemsResponseBodyFileSystemsFileSystem() {}
@@ -11961,6 +12001,9 @@ public:
     map<string, boost::any> res;
     if (accessPointCount) {
       res["AccessPointCount"] = boost::any(*accessPointCount);
+    }
+    if (autoSnapshotPolicyId) {
+      res["AutoSnapshotPolicyId"] = boost::any(*autoSnapshotPolicyId);
     }
     if (bandwidth) {
       res["Bandwidth"] = boost::any(*bandwidth);
@@ -12016,6 +12059,9 @@ public:
     if (protocolType) {
       res["ProtocolType"] = boost::any(*protocolType);
     }
+    if (quorumVswId) {
+      res["QuorumVswId"] = boost::any(*quorumVswId);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -12037,6 +12083,12 @@ public:
     if (version) {
       res["Version"] = boost::any(*version);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    if (vswIds) {
+      res["VswIds"] = vswIds ? boost::any(vswIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
@@ -12046,6 +12098,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccessPointCount") != m.end() && !m["AccessPointCount"].empty()) {
       accessPointCount = make_shared<string>(boost::any_cast<string>(m["AccessPointCount"]));
+    }
+    if (m.find("AutoSnapshotPolicyId") != m.end() && !m["AutoSnapshotPolicyId"].empty()) {
+      autoSnapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["AutoSnapshotPolicyId"]));
     }
     if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
       bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
@@ -12117,6 +12172,9 @@ public:
     if (m.find("ProtocolType") != m.end() && !m["ProtocolType"].empty()) {
       protocolType = make_shared<string>(boost::any_cast<string>(m["ProtocolType"]));
     }
+    if (m.find("QuorumVswId") != m.end() && !m["QuorumVswId"].empty()) {
+      quorumVswId = make_shared<string>(boost::any_cast<string>(m["QuorumVswId"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -12145,6 +12203,16 @@ public:
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("VswIds") != m.end() && !m["VswIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VswIds"].type()) {
+        DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VswIds"]));
+        vswIds = make_shared<DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds>(model1);
+      }
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
