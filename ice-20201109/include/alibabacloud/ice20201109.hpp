@@ -57,6 +57,49 @@ public:
 
   virtual ~AIAgentRuntimeConfigAvatarChat3D() = default;
 };
+class AIAgentRuntimeConfigVisionChat : public Darabonba::Model {
+public:
+  shared_ptr<string> agentUserId{};
+  shared_ptr<string> authToken{};
+  shared_ptr<string> channelId{};
+
+  AIAgentRuntimeConfigVisionChat() {}
+
+  explicit AIAgentRuntimeConfigVisionChat(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentUserId) {
+      res["AgentUserId"] = boost::any(*agentUserId);
+    }
+    if (authToken) {
+      res["AuthToken"] = boost::any(*authToken);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentUserId") != m.end() && !m["AgentUserId"].empty()) {
+      agentUserId = make_shared<string>(boost::any_cast<string>(m["AgentUserId"]));
+    }
+    if (m.find("AuthToken") != m.end() && !m["AuthToken"].empty()) {
+      authToken = make_shared<string>(boost::any_cast<string>(m["AuthToken"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+  }
+
+
+  virtual ~AIAgentRuntimeConfigVisionChat() = default;
+};
 class AIAgentRuntimeConfigVoiceChat : public Darabonba::Model {
 public:
   shared_ptr<string> agentUserId{};
@@ -103,6 +146,7 @@ public:
 class AIAgentRuntimeConfig : public Darabonba::Model {
 public:
   shared_ptr<AIAgentRuntimeConfigAvatarChat3D> avatarChat3D{};
+  shared_ptr<AIAgentRuntimeConfigVisionChat> visionChat{};
   shared_ptr<AIAgentRuntimeConfigVoiceChat> voiceChat{};
 
   AIAgentRuntimeConfig() {}
@@ -118,6 +162,9 @@ public:
     if (avatarChat3D) {
       res["AvatarChat3D"] = avatarChat3D ? boost::any(avatarChat3D->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (visionChat) {
+      res["VisionChat"] = visionChat ? boost::any(visionChat->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (voiceChat) {
       res["VoiceChat"] = voiceChat ? boost::any(voiceChat->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -130,6 +177,13 @@ public:
         AIAgentRuntimeConfigAvatarChat3D model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AvatarChat3D"]));
         avatarChat3D = make_shared<AIAgentRuntimeConfigAvatarChat3D>(model1);
+      }
+    }
+    if (m.find("VisionChat") != m.end() && !m["VisionChat"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VisionChat"].type()) {
+        AIAgentRuntimeConfigVisionChat model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VisionChat"]));
+        visionChat = make_shared<AIAgentRuntimeConfigVisionChat>(model1);
       }
     }
     if (m.find("VoiceChat") != m.end() && !m["VoiceChat"].empty()) {
@@ -146,6 +200,7 @@ public:
 };
 class AIAgentTemplateConfigAvatarChat3D : public Darabonba::Model {
 public:
+  shared_ptr<long> asrMaxSilence{};
   shared_ptr<string> avatarId{};
   shared_ptr<bool> enableVoiceInterrupt{};
   shared_ptr<bool> gracefulShutdown{};
@@ -163,6 +218,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (asrMaxSilence) {
+      res["AsrMaxSilence"] = boost::any(*asrMaxSilence);
+    }
     if (avatarId) {
       res["AvatarId"] = boost::any(*avatarId);
     }
@@ -185,6 +243,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AsrMaxSilence") != m.end() && !m["AsrMaxSilence"].empty()) {
+      asrMaxSilence = make_shared<long>(boost::any_cast<long>(m["AsrMaxSilence"]));
+    }
     if (m.find("AvatarId") != m.end() && !m["AvatarId"].empty()) {
       avatarId = make_shared<string>(boost::any_cast<string>(m["AvatarId"]));
     }
@@ -208,17 +269,19 @@ public:
 
   virtual ~AIAgentTemplateConfigAvatarChat3D() = default;
 };
-class AIAgentTemplateConfigVoiceChat : public Darabonba::Model {
+class AIAgentTemplateConfigVisionChat : public Darabonba::Model {
 public:
+  shared_ptr<long> asrMaxSilence{};
+  shared_ptr<bool> enableIntelligentSegment{};
   shared_ptr<bool> enableVoiceInterrupt{};
   shared_ptr<bool> gracefulShutdown{};
   shared_ptr<string> greeting{};
   shared_ptr<string> voiceId{};
   shared_ptr<long> volume{};
 
-  AIAgentTemplateConfigVoiceChat() {}
+  AIAgentTemplateConfigVisionChat() {}
 
-  explicit AIAgentTemplateConfigVoiceChat(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit AIAgentTemplateConfigVisionChat(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -226,6 +289,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (asrMaxSilence) {
+      res["AsrMaxSilence"] = boost::any(*asrMaxSilence);
+    }
+    if (enableIntelligentSegment) {
+      res["EnableIntelligentSegment"] = boost::any(*enableIntelligentSegment);
+    }
     if (enableVoiceInterrupt) {
       res["EnableVoiceInterrupt"] = boost::any(*enableVoiceInterrupt);
     }
@@ -245,6 +314,76 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AsrMaxSilence") != m.end() && !m["AsrMaxSilence"].empty()) {
+      asrMaxSilence = make_shared<long>(boost::any_cast<long>(m["AsrMaxSilence"]));
+    }
+    if (m.find("EnableIntelligentSegment") != m.end() && !m["EnableIntelligentSegment"].empty()) {
+      enableIntelligentSegment = make_shared<bool>(boost::any_cast<bool>(m["EnableIntelligentSegment"]));
+    }
+    if (m.find("EnableVoiceInterrupt") != m.end() && !m["EnableVoiceInterrupt"].empty()) {
+      enableVoiceInterrupt = make_shared<bool>(boost::any_cast<bool>(m["EnableVoiceInterrupt"]));
+    }
+    if (m.find("GracefulShutdown") != m.end() && !m["GracefulShutdown"].empty()) {
+      gracefulShutdown = make_shared<bool>(boost::any_cast<bool>(m["GracefulShutdown"]));
+    }
+    if (m.find("Greeting") != m.end() && !m["Greeting"].empty()) {
+      greeting = make_shared<string>(boost::any_cast<string>(m["Greeting"]));
+    }
+    if (m.find("VoiceId") != m.end() && !m["VoiceId"].empty()) {
+      voiceId = make_shared<string>(boost::any_cast<string>(m["VoiceId"]));
+    }
+    if (m.find("Volume") != m.end() && !m["Volume"].empty()) {
+      volume = make_shared<long>(boost::any_cast<long>(m["Volume"]));
+    }
+  }
+
+
+  virtual ~AIAgentTemplateConfigVisionChat() = default;
+};
+class AIAgentTemplateConfigVoiceChat : public Darabonba::Model {
+public:
+  shared_ptr<long> asrMaxSilence{};
+  shared_ptr<bool> enableVoiceInterrupt{};
+  shared_ptr<bool> gracefulShutdown{};
+  shared_ptr<string> greeting{};
+  shared_ptr<string> voiceId{};
+  shared_ptr<long> volume{};
+
+  AIAgentTemplateConfigVoiceChat() {}
+
+  explicit AIAgentTemplateConfigVoiceChat(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (asrMaxSilence) {
+      res["AsrMaxSilence"] = boost::any(*asrMaxSilence);
+    }
+    if (enableVoiceInterrupt) {
+      res["EnableVoiceInterrupt"] = boost::any(*enableVoiceInterrupt);
+    }
+    if (gracefulShutdown) {
+      res["GracefulShutdown"] = boost::any(*gracefulShutdown);
+    }
+    if (greeting) {
+      res["Greeting"] = boost::any(*greeting);
+    }
+    if (voiceId) {
+      res["VoiceId"] = boost::any(*voiceId);
+    }
+    if (volume) {
+      res["Volume"] = boost::any(*volume);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AsrMaxSilence") != m.end() && !m["AsrMaxSilence"].empty()) {
+      asrMaxSilence = make_shared<long>(boost::any_cast<long>(m["AsrMaxSilence"]));
+    }
     if (m.find("EnableVoiceInterrupt") != m.end() && !m["EnableVoiceInterrupt"].empty()) {
       enableVoiceInterrupt = make_shared<bool>(boost::any_cast<bool>(m["EnableVoiceInterrupt"]));
     }
@@ -268,6 +407,7 @@ public:
 class AIAgentTemplateConfig : public Darabonba::Model {
 public:
   shared_ptr<AIAgentTemplateConfigAvatarChat3D> avatarChat3D{};
+  shared_ptr<AIAgentTemplateConfigVisionChat> visionChat{};
   shared_ptr<AIAgentTemplateConfigVoiceChat> voiceChat{};
 
   AIAgentTemplateConfig() {}
@@ -283,6 +423,9 @@ public:
     if (avatarChat3D) {
       res["AvatarChat3D"] = avatarChat3D ? boost::any(avatarChat3D->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (visionChat) {
+      res["VisionChat"] = visionChat ? boost::any(visionChat->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (voiceChat) {
       res["VoiceChat"] = voiceChat ? boost::any(voiceChat->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -297,6 +440,13 @@ public:
         avatarChat3D = make_shared<AIAgentTemplateConfigAvatarChat3D>(model1);
       }
     }
+    if (m.find("VisionChat") != m.end() && !m["VisionChat"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VisionChat"].type()) {
+        AIAgentTemplateConfigVisionChat model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VisionChat"]));
+        visionChat = make_shared<AIAgentTemplateConfigVisionChat>(model1);
+      }
+    }
     if (m.find("VoiceChat") != m.end() && !m["VoiceChat"].empty()) {
       if (typeid(map<string, boost::any>) == m["VoiceChat"].type()) {
         AIAgentTemplateConfigVoiceChat model1;
@@ -308,6 +458,339 @@ public:
 
 
   virtual ~AIAgentTemplateConfig() = default;
+};
+class AppInfoDTOPlatforms : public Darabonba::Model {
+public:
+  shared_ptr<string> itemId{};
+  shared_ptr<vector<string>> licenseItemIds{};
+  shared_ptr<string> pkgName{};
+  shared_ptr<string> pkgSignature{};
+  shared_ptr<long> platformType{};
+  shared_ptr<long> type{};
+
+  AppInfoDTOPlatforms() {}
+
+  explicit AppInfoDTOPlatforms(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (itemId) {
+      res["ItemId"] = boost::any(*itemId);
+    }
+    if (licenseItemIds) {
+      res["LicenseItemIds"] = boost::any(*licenseItemIds);
+    }
+    if (pkgName) {
+      res["PkgName"] = boost::any(*pkgName);
+    }
+    if (pkgSignature) {
+      res["PkgSignature"] = boost::any(*pkgSignature);
+    }
+    if (platformType) {
+      res["PlatformType"] = boost::any(*platformType);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
+      itemId = make_shared<string>(boost::any_cast<string>(m["ItemId"]));
+    }
+    if (m.find("LicenseItemIds") != m.end() && !m["LicenseItemIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LicenseItemIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LicenseItemIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      licenseItemIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PkgName") != m.end() && !m["PkgName"].empty()) {
+      pkgName = make_shared<string>(boost::any_cast<string>(m["PkgName"]));
+    }
+    if (m.find("PkgSignature") != m.end() && !m["PkgSignature"].empty()) {
+      pkgSignature = make_shared<string>(boost::any_cast<string>(m["PkgSignature"]));
+    }
+    if (m.find("PlatformType") != m.end() && !m["PlatformType"].empty()) {
+      platformType = make_shared<long>(boost::any_cast<long>(m["PlatformType"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+  }
+
+
+  virtual ~AppInfoDTOPlatforms() = default;
+};
+class AppInfoDTO : public Darabonba::Model {
+public:
+  shared_ptr<string> appName{};
+  shared_ptr<long> appType{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> itemId{};
+  shared_ptr<vector<AppInfoDTOPlatforms>> platforms{};
+  shared_ptr<long> userId{};
+
+  AppInfoDTO() {}
+
+  explicit AppInfoDTO(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (appType) {
+      res["AppType"] = boost::any(*appType);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (itemId) {
+      res["ItemId"] = boost::any(*itemId);
+    }
+    if (platforms) {
+      vector<boost::any> temp1;
+      for(auto item1:*platforms){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Platforms"] = boost::any(temp1);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
+      appType = make_shared<long>(boost::any_cast<long>(m["AppType"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
+      itemId = make_shared<string>(boost::any_cast<string>(m["ItemId"]));
+    }
+    if (m.find("Platforms") != m.end() && !m["Platforms"].empty()) {
+      if (typeid(vector<boost::any>) == m["Platforms"].type()) {
+        vector<AppInfoDTOPlatforms> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Platforms"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AppInfoDTOPlatforms model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        platforms = make_shared<vector<AppInfoDTOPlatforms>>(expect1);
+      }
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~AppInfoDTO() = default;
+};
+class LicenseInstanceAppDTOLicenseConfigs : public Darabonba::Model {
+public:
+  shared_ptr<string> businessType{};
+  shared_ptr<string> featureIds{};
+  shared_ptr<long> sdkId{};
+  shared_ptr<string> sdkName{};
+  shared_ptr<string> subscription{};
+  shared_ptr<string> subscriptionImp{};
+  shared_ptr<string> subscriptionPkg{};
+
+  LicenseInstanceAppDTOLicenseConfigs() {}
+
+  explicit LicenseInstanceAppDTOLicenseConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessType) {
+      res["BusinessType"] = boost::any(*businessType);
+    }
+    if (featureIds) {
+      res["FeatureIds"] = boost::any(*featureIds);
+    }
+    if (sdkId) {
+      res["SdkId"] = boost::any(*sdkId);
+    }
+    if (sdkName) {
+      res["SdkName"] = boost::any(*sdkName);
+    }
+    if (subscription) {
+      res["Subscription"] = boost::any(*subscription);
+    }
+    if (subscriptionImp) {
+      res["SubscriptionImp"] = boost::any(*subscriptionImp);
+    }
+    if (subscriptionPkg) {
+      res["SubscriptionPkg"] = boost::any(*subscriptionPkg);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessType") != m.end() && !m["BusinessType"].empty()) {
+      businessType = make_shared<string>(boost::any_cast<string>(m["BusinessType"]));
+    }
+    if (m.find("FeatureIds") != m.end() && !m["FeatureIds"].empty()) {
+      featureIds = make_shared<string>(boost::any_cast<string>(m["FeatureIds"]));
+    }
+    if (m.find("SdkId") != m.end() && !m["SdkId"].empty()) {
+      sdkId = make_shared<long>(boost::any_cast<long>(m["SdkId"]));
+    }
+    if (m.find("SdkName") != m.end() && !m["SdkName"].empty()) {
+      sdkName = make_shared<string>(boost::any_cast<string>(m["SdkName"]));
+    }
+    if (m.find("Subscription") != m.end() && !m["Subscription"].empty()) {
+      subscription = make_shared<string>(boost::any_cast<string>(m["Subscription"]));
+    }
+    if (m.find("SubscriptionImp") != m.end() && !m["SubscriptionImp"].empty()) {
+      subscriptionImp = make_shared<string>(boost::any_cast<string>(m["SubscriptionImp"]));
+    }
+    if (m.find("SubscriptionPkg") != m.end() && !m["SubscriptionPkg"].empty()) {
+      subscriptionPkg = make_shared<string>(boost::any_cast<string>(m["SubscriptionPkg"]));
+    }
+  }
+
+
+  virtual ~LicenseInstanceAppDTOLicenseConfigs() = default;
+};
+class LicenseInstanceAppDTO : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> beginOn{};
+  shared_ptr<string> contractNo{};
+  shared_ptr<string> creationTime{};
+  shared_ptr<string> expiredOn{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> itemId{};
+  shared_ptr<vector<LicenseInstanceAppDTOLicenseConfigs>> licenseConfigs{};
+  shared_ptr<string> modificationTime{};
+  shared_ptr<string> status{};
+  shared_ptr<long> userId{};
+
+  LicenseInstanceAppDTO() {}
+
+  explicit LicenseInstanceAppDTO(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (beginOn) {
+      res["BeginOn"] = boost::any(*beginOn);
+    }
+    if (contractNo) {
+      res["ContractNo"] = boost::any(*contractNo);
+    }
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (expiredOn) {
+      res["ExpiredOn"] = boost::any(*expiredOn);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (itemId) {
+      res["ItemId"] = boost::any(*itemId);
+    }
+    if (licenseConfigs) {
+      vector<boost::any> temp1;
+      for(auto item1:*licenseConfigs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["LicenseConfigs"] = boost::any(temp1);
+    }
+    if (modificationTime) {
+      res["ModificationTime"] = boost::any(*modificationTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("BeginOn") != m.end() && !m["BeginOn"].empty()) {
+      beginOn = make_shared<string>(boost::any_cast<string>(m["BeginOn"]));
+    }
+    if (m.find("ContractNo") != m.end() && !m["ContractNo"].empty()) {
+      contractNo = make_shared<string>(boost::any_cast<string>(m["ContractNo"]));
+    }
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("ExpiredOn") != m.end() && !m["ExpiredOn"].empty()) {
+      expiredOn = make_shared<string>(boost::any_cast<string>(m["ExpiredOn"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
+      itemId = make_shared<string>(boost::any_cast<string>(m["ItemId"]));
+    }
+    if (m.find("LicenseConfigs") != m.end() && !m["LicenseConfigs"].empty()) {
+      if (typeid(vector<boost::any>) == m["LicenseConfigs"].type()) {
+        vector<LicenseInstanceAppDTOLicenseConfigs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["LicenseConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            LicenseInstanceAppDTOLicenseConfigs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        licenseConfigs = make_shared<vector<LicenseInstanceAppDTOLicenseConfigs>>(expect1);
+      }
+    }
+    if (m.find("ModificationTime") != m.end() && !m["ModificationTime"].empty()) {
+      modificationTime = make_shared<string>(boost::any_cast<string>(m["ModificationTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~LicenseInstanceAppDTO() = default;
 };
 class AddCategoryRequest : public Darabonba::Model {
 public:
@@ -46647,6 +47130,7 @@ public:
 };
 class SearchMediaByAILabelRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> matchingMode{};
   shared_ptr<string> mediaId{};
   shared_ptr<string> mediaType{};
   shared_ptr<string> multimodalSearchType{};
@@ -46667,6 +47151,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (matchingMode) {
+      res["MatchingMode"] = boost::any(*matchingMode);
+    }
     if (mediaId) {
       res["MediaId"] = boost::any(*mediaId);
     }
@@ -46698,6 +47185,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MatchingMode") != m.end() && !m["MatchingMode"].empty()) {
+      matchingMode = make_shared<string>(boost::any_cast<string>(m["MatchingMode"]));
+    }
     if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
       mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
     }

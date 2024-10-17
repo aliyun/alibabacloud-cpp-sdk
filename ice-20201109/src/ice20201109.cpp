@@ -5280,6 +5280,9 @@ SearchMediaResponse Alibabacloud_ICE20201109::Client::searchMedia(shared_ptr<Sea
 SearchMediaByAILabelResponse Alibabacloud_ICE20201109::Client::searchMediaByAILabelWithOptions(shared_ptr<SearchMediaByAILabelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->matchingMode)) {
+    query->insert(pair<string, string>("MatchingMode", *request->matchingMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->mediaId)) {
     query->insert(pair<string, string>("MediaId", *request->mediaId));
   }
