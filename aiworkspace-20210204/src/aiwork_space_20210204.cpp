@@ -209,6 +209,12 @@ CreateDatasetResponse Alibabacloud_AIWorkSpace20210204::Client::createDatasetWit
   if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
     body->insert(pair<string, string>("Accessibility", *request->accessibility));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dataCount)) {
+    body->insert(pair<string, long>("DataCount", *request->dataCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dataSize)) {
+    body->insert(pair<string, long>("DataSize", *request->dataSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceType)) {
     body->insert(pair<string, string>("DataSourceType", *request->dataSourceType));
   }
@@ -236,6 +242,12 @@ CreateDatasetResponse Alibabacloud_AIWorkSpace20210204::Client::createDatasetWit
   if (!Darabonba_Util::Client::isUnset<string>(request->providerType)) {
     body->insert(pair<string, string>("ProviderType", *request->providerType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceDatasetId)) {
+    body->insert(pair<string, string>("SourceDatasetId", *request->sourceDatasetId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceDatasetVersion)) {
+    body->insert(pair<string, string>("SourceDatasetVersion", *request->sourceDatasetVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceId)) {
     body->insert(pair<string, string>("SourceId", *request->sourceId));
   }
@@ -247,6 +259,12 @@ CreateDatasetResponse Alibabacloud_AIWorkSpace20210204::Client::createDatasetWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     body->insert(pair<string, string>("UserId", *request->userId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->versionDescription)) {
+    body->insert(pair<string, string>("VersionDescription", *request->versionDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<Label>>(request->versionLabels)) {
+    body->insert(pair<string, vector<Label>>("VersionLabels", *request->versionLabels));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
@@ -1564,6 +1582,9 @@ ListDatasetsResponse Alibabacloud_AIWorkSpace20210204::Client::listDatasetsWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->provider)) {
     query->insert(pair<string, string>("Provider", *request->provider));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceDatasetId)) {
+    query->insert(pair<string, string>("SourceDatasetId", *request->sourceDatasetId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceId)) {
     query->insert(pair<string, string>("SourceId", *request->sourceId));

@@ -227,6 +227,133 @@ public:
 
   virtual ~Label() = default;
 };
+class DatasetVersion : public Darabonba::Model {
+public:
+  shared_ptr<long> dataCount{};
+  shared_ptr<long> dataSize{};
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifiedTime{};
+  shared_ptr<vector<Label>> labels{};
+  shared_ptr<string> options{};
+  shared_ptr<string> property{};
+  shared_ptr<string> sourceId{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> uri{};
+  shared_ptr<string> versionName{};
+
+  DatasetVersion() {}
+
+  explicit DatasetVersion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataCount) {
+      res["DataCount"] = boost::any(*dataCount);
+    }
+    if (dataSize) {
+      res["DataSize"] = boost::any(*dataSize);
+    }
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
+    if (labels) {
+      vector<boost::any> temp1;
+      for(auto item1:*labels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Labels"] = boost::any(temp1);
+    }
+    if (options) {
+      res["Options"] = boost::any(*options);
+    }
+    if (property) {
+      res["Property"] = boost::any(*property);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataCount") != m.end() && !m["DataCount"].empty()) {
+      dataCount = make_shared<long>(boost::any_cast<long>(m["DataCount"]));
+    }
+    if (m.find("DataSize") != m.end() && !m["DataSize"].empty()) {
+      dataSize = make_shared<long>(boost::any_cast<long>(m["DataSize"]));
+    }
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<Label> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Labels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Label model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        labels = make_shared<vector<Label>>(expect1);
+      }
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
+    }
+    if (m.find("Property") != m.end() && !m["Property"].empty()) {
+      property = make_shared<string>(boost::any_cast<string>(m["Property"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
+    }
+  }
+
+
+  virtual ~DatasetVersion() = default;
+};
 class Dataset : public Darabonba::Model {
 public:
   shared_ptr<string> accessibility{};
@@ -237,13 +364,17 @@ public:
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<vector<Label>> labels{};
+  shared_ptr<DatasetVersion> latestVersion{};
   shared_ptr<string> name{};
   shared_ptr<string> options{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> property{};
   shared_ptr<string> providerType{};
+  shared_ptr<string> sourceDatasetId{};
+  shared_ptr<string> sourceDatasetVersion{};
   shared_ptr<string> sourceId{};
   shared_ptr<string> sourceType{};
+  shared_ptr<string> tagTemplateType{};
   shared_ptr<string> uri{};
   shared_ptr<string> userId{};
   shared_ptr<string> workspaceId{};
@@ -286,6 +417,9 @@ public:
       }
       res["Labels"] = boost::any(temp1);
     }
+    if (latestVersion) {
+      res["LatestVersion"] = latestVersion ? boost::any(latestVersion->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -301,11 +435,20 @@ public:
     if (providerType) {
       res["ProviderType"] = boost::any(*providerType);
     }
+    if (sourceDatasetId) {
+      res["SourceDatasetId"] = boost::any(*sourceDatasetId);
+    }
+    if (sourceDatasetVersion) {
+      res["SourceDatasetVersion"] = boost::any(*sourceDatasetVersion);
+    }
     if (sourceId) {
       res["SourceId"] = boost::any(*sourceId);
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
+    }
+    if (tagTemplateType) {
+      res["TagTemplateType"] = boost::any(*tagTemplateType);
     }
     if (uri) {
       res["Uri"] = boost::any(*uri);
@@ -354,6 +497,13 @@ public:
         labels = make_shared<vector<Label>>(expect1);
       }
     }
+    if (m.find("LatestVersion") != m.end() && !m["LatestVersion"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LatestVersion"].type()) {
+        DatasetVersion model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LatestVersion"]));
+        latestVersion = make_shared<DatasetVersion>(model1);
+      }
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -369,11 +519,20 @@ public:
     if (m.find("ProviderType") != m.end() && !m["ProviderType"].empty()) {
       providerType = make_shared<string>(boost::any_cast<string>(m["ProviderType"]));
     }
+    if (m.find("SourceDatasetId") != m.end() && !m["SourceDatasetId"].empty()) {
+      sourceDatasetId = make_shared<string>(boost::any_cast<string>(m["SourceDatasetId"]));
+    }
+    if (m.find("SourceDatasetVersion") != m.end() && !m["SourceDatasetVersion"].empty()) {
+      sourceDatasetVersion = make_shared<string>(boost::any_cast<string>(m["SourceDatasetVersion"]));
+    }
     if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
       sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("TagTemplateType") != m.end() && !m["TagTemplateType"].empty()) {
+      tagTemplateType = make_shared<string>(boost::any_cast<string>(m["TagTemplateType"]));
     }
     if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
       uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
@@ -2153,6 +2312,8 @@ public:
 class CreateDatasetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessibility{};
+  shared_ptr<long> dataCount{};
+  shared_ptr<long> dataSize{};
   shared_ptr<string> dataSourceType{};
   shared_ptr<string> dataType{};
   shared_ptr<string> description{};
@@ -2162,10 +2323,14 @@ public:
   shared_ptr<string> property{};
   shared_ptr<string> provider{};
   shared_ptr<string> providerType{};
+  shared_ptr<string> sourceDatasetId{};
+  shared_ptr<string> sourceDatasetVersion{};
   shared_ptr<string> sourceId{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> uri{};
   shared_ptr<string> userId{};
+  shared_ptr<string> versionDescription{};
+  shared_ptr<vector<Label>> versionLabels{};
   shared_ptr<string> workspaceId{};
 
   CreateDatasetRequest() {}
@@ -2180,6 +2345,12 @@ public:
     map<string, boost::any> res;
     if (accessibility) {
       res["Accessibility"] = boost::any(*accessibility);
+    }
+    if (dataCount) {
+      res["DataCount"] = boost::any(*dataCount);
+    }
+    if (dataSize) {
+      res["DataSize"] = boost::any(*dataSize);
     }
     if (dataSourceType) {
       res["DataSourceType"] = boost::any(*dataSourceType);
@@ -2212,6 +2383,12 @@ public:
     if (providerType) {
       res["ProviderType"] = boost::any(*providerType);
     }
+    if (sourceDatasetId) {
+      res["SourceDatasetId"] = boost::any(*sourceDatasetId);
+    }
+    if (sourceDatasetVersion) {
+      res["SourceDatasetVersion"] = boost::any(*sourceDatasetVersion);
+    }
     if (sourceId) {
       res["SourceId"] = boost::any(*sourceId);
     }
@@ -2224,6 +2401,16 @@ public:
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
+    if (versionDescription) {
+      res["VersionDescription"] = boost::any(*versionDescription);
+    }
+    if (versionLabels) {
+      vector<boost::any> temp1;
+      for(auto item1:*versionLabels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VersionLabels"] = boost::any(temp1);
+    }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
     }
@@ -2233,6 +2420,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
       accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
+    if (m.find("DataCount") != m.end() && !m["DataCount"].empty()) {
+      dataCount = make_shared<long>(boost::any_cast<long>(m["DataCount"]));
+    }
+    if (m.find("DataSize") != m.end() && !m["DataSize"].empty()) {
+      dataSize = make_shared<long>(boost::any_cast<long>(m["DataSize"]));
     }
     if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
       dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
@@ -2271,6 +2464,12 @@ public:
     if (m.find("ProviderType") != m.end() && !m["ProviderType"].empty()) {
       providerType = make_shared<string>(boost::any_cast<string>(m["ProviderType"]));
     }
+    if (m.find("SourceDatasetId") != m.end() && !m["SourceDatasetId"].empty()) {
+      sourceDatasetId = make_shared<string>(boost::any_cast<string>(m["SourceDatasetId"]));
+    }
+    if (m.find("SourceDatasetVersion") != m.end() && !m["SourceDatasetVersion"].empty()) {
+      sourceDatasetVersion = make_shared<string>(boost::any_cast<string>(m["SourceDatasetVersion"]));
+    }
     if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
       sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
     }
@@ -2282,6 +2481,22 @@ public:
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("VersionDescription") != m.end() && !m["VersionDescription"].empty()) {
+      versionDescription = make_shared<string>(boost::any_cast<string>(m["VersionDescription"]));
+    }
+    if (m.find("VersionLabels") != m.end() && !m["VersionLabels"].empty()) {
+      if (typeid(vector<boost::any>) == m["VersionLabels"].type()) {
+        vector<Label> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VersionLabels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Label model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        versionLabels = make_shared<vector<Label>>(expect1);
+      }
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
@@ -6155,6 +6370,7 @@ public:
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<vector<Label>> labels{};
+  shared_ptr<DatasetVersion> latestVersion{};
   shared_ptr<string> name{};
   shared_ptr<string> options{};
   shared_ptr<string> ownerId{};
@@ -6162,8 +6378,11 @@ public:
   shared_ptr<string> provider{};
   shared_ptr<string> providerType{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> sourceDatasetId{};
+  shared_ptr<string> sourceDatasetVersion{};
   shared_ptr<string> sourceId{};
   shared_ptr<string> sourceType{};
+  shared_ptr<string> tagTemplateType{};
   shared_ptr<string> uri{};
   shared_ptr<string> userId{};
   shared_ptr<string> workspaceId{};
@@ -6206,6 +6425,9 @@ public:
       }
       res["Labels"] = boost::any(temp1);
     }
+    if (latestVersion) {
+      res["LatestVersion"] = latestVersion ? boost::any(latestVersion->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -6227,11 +6449,20 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (sourceDatasetId) {
+      res["SourceDatasetId"] = boost::any(*sourceDatasetId);
+    }
+    if (sourceDatasetVersion) {
+      res["SourceDatasetVersion"] = boost::any(*sourceDatasetVersion);
+    }
     if (sourceId) {
       res["SourceId"] = boost::any(*sourceId);
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
+    }
+    if (tagTemplateType) {
+      res["TagTemplateType"] = boost::any(*tagTemplateType);
     }
     if (uri) {
       res["Uri"] = boost::any(*uri);
@@ -6280,6 +6511,13 @@ public:
         labels = make_shared<vector<Label>>(expect1);
       }
     }
+    if (m.find("LatestVersion") != m.end() && !m["LatestVersion"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LatestVersion"].type()) {
+        DatasetVersion model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LatestVersion"]));
+        latestVersion = make_shared<DatasetVersion>(model1);
+      }
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -6301,11 +6539,20 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
+    if (m.find("SourceDatasetId") != m.end() && !m["SourceDatasetId"].empty()) {
+      sourceDatasetId = make_shared<string>(boost::any_cast<string>(m["SourceDatasetId"]));
+    }
+    if (m.find("SourceDatasetVersion") != m.end() && !m["SourceDatasetVersion"].empty()) {
+      sourceDatasetVersion = make_shared<string>(boost::any_cast<string>(m["SourceDatasetVersion"]));
+    }
     if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
       sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("TagTemplateType") != m.end() && !m["TagTemplateType"].empty()) {
+      tagTemplateType = make_shared<string>(boost::any_cast<string>(m["TagTemplateType"]));
     }
     if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
       uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
@@ -8391,6 +8638,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> properties{};
   shared_ptr<string> provider{};
+  shared_ptr<string> sourceDatasetId{};
   shared_ptr<string> sourceId{};
   shared_ptr<string> sourceTypes{};
   shared_ptr<string> workspaceId{};
@@ -8432,6 +8680,9 @@ public:
     if (provider) {
       res["Provider"] = boost::any(*provider);
     }
+    if (sourceDatasetId) {
+      res["SourceDatasetId"] = boost::any(*sourceDatasetId);
+    }
     if (sourceId) {
       res["SourceId"] = boost::any(*sourceId);
     }
@@ -8471,6 +8722,9 @@ public:
     }
     if (m.find("Provider") != m.end() && !m["Provider"].empty()) {
       provider = make_shared<string>(boost::any_cast<string>(m["Provider"]));
+    }
+    if (m.find("SourceDatasetId") != m.end() && !m["SourceDatasetId"].empty()) {
+      sourceDatasetId = make_shared<string>(boost::any_cast<string>(m["SourceDatasetId"]));
     }
     if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
       sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
