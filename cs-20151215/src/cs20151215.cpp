@@ -282,39 +282,6 @@ CancelTaskResponse Alibabacloud_CS20151215::Client::cancelTask(shared_ptr<string
   return cancelTaskWithOptions(taskId, headers, runtime);
 }
 
-CancelWorkflowResponse Alibabacloud_CS20151215::Client::cancelWorkflowWithOptions(shared_ptr<string> workflowName,
-                                                                                  shared_ptr<CancelWorkflowRequest> request,
-                                                                                  shared_ptr<map<string, string>> headers,
-                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
-    body->insert(pair<string, string>("action", *request->action));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CancelWorkflow"))},
-    {"version", boost::any(string("2015-12-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/gs/workflow/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workflowName)))},
-    {"method", boost::any(string("PUT"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return CancelWorkflowResponse(callApi(params, req, runtime));
-}
-
-CancelWorkflowResponse Alibabacloud_CS20151215::Client::cancelWorkflow(shared_ptr<string> workflowName, shared_ptr<CancelWorkflowRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return cancelWorkflowWithOptions(workflowName, request, headers, runtime);
-}
-
 CheckControlPlaneLogEnableResponse Alibabacloud_CS20151215::Client::checkControlPlaneLogEnableWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -1465,30 +1432,6 @@ DeployPolicyInstanceResponse Alibabacloud_CS20151215::Client::deployPolicyInstan
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return deployPolicyInstanceWithOptions(clusterId, policyName, request, headers, runtime);
-}
-
-DescirbeWorkflowResponse Alibabacloud_CS20151215::Client::descirbeWorkflowWithOptions(shared_ptr<string> workflowName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescirbeWorkflow"))},
-    {"version", boost::any(string("2015-12-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/gs/workflow/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workflowName)))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescirbeWorkflowResponse(callApi(params, req, runtime));
-}
-
-DescirbeWorkflowResponse Alibabacloud_CS20151215::Client::descirbeWorkflow(shared_ptr<string> workflowName) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return descirbeWorkflowWithOptions(workflowName, headers, runtime);
 }
 
 DescribeAddonResponse Alibabacloud_CS20151215::Client::describeAddonWithOptions(shared_ptr<string> addonName,
@@ -2910,30 +2853,6 @@ DescribeUserQuotaResponse Alibabacloud_CS20151215::Client::describeUserQuota() {
   return describeUserQuotaWithOptions(headers, runtime);
 }
 
-DescribeWorkflowsResponse Alibabacloud_CS20151215::Client::describeWorkflowsWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeWorkflows"))},
-    {"version", boost::any(string("2015-12-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/gs/workflows"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeWorkflowsResponse(callApi(params, req, runtime));
-}
-
-DescribeWorkflowsResponse Alibabacloud_CS20151215::Client::describeWorkflows() {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeWorkflowsWithOptions(headers, runtime);
-}
-
 EdgeClusterAddEdgeMachineResponse Alibabacloud_CS20151215::Client::edgeClusterAddEdgeMachineWithOptions(shared_ptr<string> clusterid,
                                                                                                         shared_ptr<string> edgeMachineid,
                                                                                                         shared_ptr<EdgeClusterAddEdgeMachineRequest> request,
@@ -3617,6 +3536,9 @@ ModifyClusterResponse Alibabacloud_CS20151215::Client::modifyClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<ModifyClusterRequestSystemEventsLogging>(request->systemEventsLogging)) {
     body->insert(pair<string, ModifyClusterRequestSystemEventsLogging>("system_events_logging", *request->systemEventsLogging));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vswitchIds)) {
+    body->insert(pair<string, vector<string>>("vswitch_ids", *request->vswitchIds));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -4073,30 +3995,6 @@ RemoveNodePoolNodesResponse Alibabacloud_CS20151215::Client::removeNodePoolNodes
   return removeNodePoolNodesWithOptions(ClusterId, NodepoolId, request, headers, runtime);
 }
 
-RemoveWorkflowResponse Alibabacloud_CS20151215::Client::removeWorkflowWithOptions(shared_ptr<string> workflowName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("RemoveWorkflow"))},
-    {"version", boost::any(string("2015-12-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/gs/workflow/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workflowName)))},
-    {"method", boost::any(string("DELETE"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return RemoveWorkflowResponse(callApi(params, req, runtime));
-}
-
-RemoveWorkflowResponse Alibabacloud_CS20151215::Client::removeWorkflow(shared_ptr<string> workflowName) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return removeWorkflowWithOptions(workflowName, headers, runtime);
-}
-
 RepairClusterNodePoolResponse Alibabacloud_CS20151215::Client::repairClusterNodePoolWithOptions(shared_ptr<string> clusterId,
                                                                                                 shared_ptr<string> nodepoolId,
                                                                                                 shared_ptr<RepairClusterNodePoolRequest> request,
@@ -4547,90 +4445,6 @@ StartAlertResponse Alibabacloud_CS20151215::Client::startAlert(shared_ptr<string
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return startAlertWithOptions(ClusterId, request, headers, runtime);
-}
-
-StartWorkflowResponse Alibabacloud_CS20151215::Client::startWorkflowWithOptions(shared_ptr<StartWorkflowRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->mappingBamOutFilename)) {
-    body->insert(pair<string, string>("mapping_bam_out_filename", *request->mappingBamOutFilename));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mappingBamOutPath)) {
-    body->insert(pair<string, string>("mapping_bam_out_path", *request->mappingBamOutPath));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mappingBucketName)) {
-    body->insert(pair<string, string>("mapping_bucket_name", *request->mappingBucketName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mappingFastqFirstFilename)) {
-    body->insert(pair<string, string>("mapping_fastq_first_filename", *request->mappingFastqFirstFilename));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mappingFastqPath)) {
-    body->insert(pair<string, string>("mapping_fastq_path", *request->mappingFastqPath));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mappingFastqSecondFilename)) {
-    body->insert(pair<string, string>("mapping_fastq_second_filename", *request->mappingFastqSecondFilename));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mappingIsMarkDup)) {
-    body->insert(pair<string, string>("mapping_is_mark_dup", *request->mappingIsMarkDup));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mappingOssRegion)) {
-    body->insert(pair<string, string>("mapping_oss_region", *request->mappingOssRegion));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mappingReferencePath)) {
-    body->insert(pair<string, string>("mapping_reference_path", *request->mappingReferencePath));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->service)) {
-    body->insert(pair<string, string>("service", *request->service));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->wgsBucketName)) {
-    body->insert(pair<string, string>("wgs_bucket_name", *request->wgsBucketName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->wgsFastqFirstFilename)) {
-    body->insert(pair<string, string>("wgs_fastq_first_filename", *request->wgsFastqFirstFilename));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->wgsFastqPath)) {
-    body->insert(pair<string, string>("wgs_fastq_path", *request->wgsFastqPath));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->wgsFastqSecondFilename)) {
-    body->insert(pair<string, string>("wgs_fastq_second_filename", *request->wgsFastqSecondFilename));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->wgsOssRegion)) {
-    body->insert(pair<string, string>("wgs_oss_region", *request->wgsOssRegion));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->wgsReferencePath)) {
-    body->insert(pair<string, string>("wgs_reference_path", *request->wgsReferencePath));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->wgsVcfOutFilename)) {
-    body->insert(pair<string, string>("wgs_vcf_out_filename", *request->wgsVcfOutFilename));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->wgsVcfOutPath)) {
-    body->insert(pair<string, string>("wgs_vcf_out_path", *request->wgsVcfOutPath));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->workflowType)) {
-    body->insert(pair<string, string>("workflow_type", *request->workflowType));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("StartWorkflow"))},
-    {"version", boost::any(string("2015-12-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/gs/workflow"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return StartWorkflowResponse(callApi(params, req, runtime));
-}
-
-StartWorkflowResponse Alibabacloud_CS20151215::Client::startWorkflow(shared_ptr<StartWorkflowRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return startWorkflowWithOptions(request, headers, runtime);
 }
 
 StopAlertResponse Alibabacloud_CS20151215::Client::stopAlertWithOptions(shared_ptr<string> ClusterId,
