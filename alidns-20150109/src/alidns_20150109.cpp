@@ -1043,6 +1043,9 @@ CreatePdnsAppKeyResponse Alibabacloud_Alidns20150109::Client::createPdnsAppKeyWi
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4374,6 +4377,9 @@ DescribePdnsRequestStatisticResponse Alibabacloud_Alidns20150109::Client::descri
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subDomain)) {
     query->insert(pair<string, string>("SubDomain", *request->subDomain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

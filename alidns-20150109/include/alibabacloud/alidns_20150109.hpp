@@ -4382,6 +4382,7 @@ public:
 class CreatePdnsAppKeyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> lang{};
+  shared_ptr<string> remark{};
 
   CreatePdnsAppKeyRequest() {}
 
@@ -4396,12 +4397,18 @@ public:
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
     }
   }
 
@@ -29834,6 +29841,7 @@ public:
   shared_ptr<string> appKeySecret{};
   shared_ptr<string> createDate{};
   shared_ptr<long> createTimestamp{};
+  shared_ptr<string> remark{};
   shared_ptr<string> state{};
 
   DescribePdnsAppKeyResponseBodyAppKey() {}
@@ -29858,6 +29866,9 @@ public:
     if (createTimestamp) {
       res["CreateTimestamp"] = boost::any(*createTimestamp);
     }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
     if (state) {
       res["State"] = boost::any(*state);
     }
@@ -29876,6 +29887,9 @@ public:
     }
     if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
       createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -30011,6 +30025,7 @@ public:
   shared_ptr<string> appKeyId{};
   shared_ptr<string> createDate{};
   shared_ptr<long> createTimestamp{};
+  shared_ptr<string> remark{};
   shared_ptr<string> state{};
 
   DescribePdnsAppKeysResponseBodyAppKeys() {}
@@ -30032,6 +30047,9 @@ public:
     if (createTimestamp) {
       res["CreateTimestamp"] = boost::any(*createTimestamp);
     }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
     if (state) {
       res["State"] = boost::any(*state);
     }
@@ -30047,6 +30065,9 @@ public:
     }
     if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
       createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -30409,6 +30430,7 @@ public:
   shared_ptr<string> lang{};
   shared_ptr<string> startDate{};
   shared_ptr<string> subDomain{};
+  shared_ptr<string> type{};
 
   DescribePdnsRequestStatisticRequest() {}
 
@@ -30435,6 +30457,9 @@ public:
     if (subDomain) {
       res["SubDomain"] = boost::any(*subDomain);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -30453,6 +30478,9 @@ public:
     }
     if (m.find("SubDomain") != m.end() && !m["SubDomain"].empty()) {
       subDomain = make_shared<string>(boost::any_cast<string>(m["SubDomain"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
