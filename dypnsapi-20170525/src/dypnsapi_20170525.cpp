@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -172,6 +171,15 @@ CreateVerifySchemeResponse Alibabacloud_Dypnsapi20170525::Client::createVerifySc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->email)) {
     query->insert(pair<string, string>("Email", *request->email));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hmAppIdentifier)) {
+    query->insert(pair<string, string>("HmAppIdentifier", *request->hmAppIdentifier));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hmPackageName)) {
+    query->insert(pair<string, string>("HmPackageName", *request->hmPackageName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hmSignName)) {
+    query->insert(pair<string, string>("HmSignName", *request->hmSignName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipWhiteList)) {
     query->insert(pair<string, string>("IpWhiteList", *request->ipWhiteList));
