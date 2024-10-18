@@ -2882,6 +2882,151 @@ public:
 
   virtual ~ExportKeywordResponse() = default;
 };
+class ExportOssCheckStatRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> byMonth{};
+  shared_ptr<string> endDate{};
+  shared_ptr<string> parentTaskId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> startDate{};
+
+  ExportOssCheckStatRequest() {}
+
+  explicit ExportOssCheckStatRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (byMonth) {
+      res["ByMonth"] = boost::any(*byMonth);
+    }
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (parentTaskId) {
+      res["ParentTaskId"] = boost::any(*parentTaskId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ByMonth") != m.end() && !m["ByMonth"].empty()) {
+      byMonth = make_shared<bool>(boost::any_cast<bool>(m["ByMonth"]));
+    }
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
+    }
+    if (m.find("ParentTaskId") != m.end() && !m["ParentTaskId"].empty()) {
+      parentTaskId = make_shared<string>(boost::any_cast<string>(m["ParentTaskId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~ExportOssCheckStatRequest() = default;
+};
+class ExportOssCheckStatResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> data{};
+  shared_ptr<string> requestId{};
+
+  ExportOssCheckStatResponseBody() {}
+
+  explicit ExportOssCheckStatResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ExportOssCheckStatResponseBody() = default;
+};
+class ExportOssCheckStatResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExportOssCheckStatResponseBody> body{};
+
+  ExportOssCheckStatResponse() {}
+
+  explicit ExportOssCheckStatResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExportOssCheckStatResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExportOssCheckStatResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExportOssCheckStatResponse() = default;
+};
 class ExportResultRequest : public Darabonba::Model {
 public:
   shared_ptr<long> currentPage{};
@@ -3849,9 +3994,12 @@ public:
   shared_ptr<long> backupMode{};
   shared_ptr<string> bucket{};
   shared_ptr<bool> enable{};
+  shared_ptr<bool> enableBackup{};
+  shared_ptr<bool> enableBackupVoice{};
   shared_ptr<long> expireSeconds{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> path{};
+  shared_ptr<string> pathVoice{};
   shared_ptr<string> region{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceType{};
@@ -3877,6 +4025,12 @@ public:
     if (enable) {
       res["Enable"] = boost::any(*enable);
     }
+    if (enableBackup) {
+      res["EnableBackup"] = boost::any(*enableBackup);
+    }
+    if (enableBackupVoice) {
+      res["EnableBackupVoice"] = boost::any(*enableBackupVoice);
+    }
     if (expireSeconds) {
       res["ExpireSeconds"] = boost::any(*expireSeconds);
     }
@@ -3885,6 +4039,9 @@ public:
     }
     if (path) {
       res["Path"] = boost::any(*path);
+    }
+    if (pathVoice) {
+      res["PathVoice"] = boost::any(*pathVoice);
     }
     if (region) {
       res["Region"] = boost::any(*region);
@@ -3914,6 +4071,12 @@ public:
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
     }
+    if (m.find("EnableBackup") != m.end() && !m["EnableBackup"].empty()) {
+      enableBackup = make_shared<bool>(boost::any_cast<bool>(m["EnableBackup"]));
+    }
+    if (m.find("EnableBackupVoice") != m.end() && !m["EnableBackupVoice"].empty()) {
+      enableBackupVoice = make_shared<bool>(boost::any_cast<bool>(m["EnableBackupVoice"]));
+    }
     if (m.find("ExpireSeconds") != m.end() && !m["ExpireSeconds"].empty()) {
       expireSeconds = make_shared<long>(boost::any_cast<long>(m["ExpireSeconds"]));
     }
@@ -3922,6 +4085,9 @@ public:
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+    if (m.find("PathVoice") != m.end() && !m["PathVoice"].empty()) {
+      pathVoice = make_shared<string>(boost::any_cast<string>(m["PathVoice"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -5627,6 +5793,255 @@ public:
 
 
   virtual ~GetKeywordImportResultResponse() = default;
+};
+class GetOssCheckStatRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> byMonth{};
+  shared_ptr<string> endDate{};
+  shared_ptr<string> parentTaskId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> startDate{};
+
+  GetOssCheckStatRequest() {}
+
+  explicit GetOssCheckStatRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (byMonth) {
+      res["ByMonth"] = boost::any(*byMonth);
+    }
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (parentTaskId) {
+      res["ParentTaskId"] = boost::any(*parentTaskId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ByMonth") != m.end() && !m["ByMonth"].empty()) {
+      byMonth = make_shared<bool>(boost::any_cast<bool>(m["ByMonth"]));
+    }
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
+    }
+    if (m.find("ParentTaskId") != m.end() && !m["ParentTaskId"].empty()) {
+      parentTaskId = make_shared<string>(boost::any_cast<string>(m["ParentTaskId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~GetOssCheckStatRequest() = default;
+};
+class GetOssCheckStatResponseBodyBarChartY : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> data{};
+  shared_ptr<string> name{};
+
+  GetOssCheckStatResponseBodyBarChartY() {}
+
+  explicit GetOssCheckStatResponseBodyBarChartY(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Data"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      data = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~GetOssCheckStatResponseBodyBarChartY() = default;
+};
+class GetOssCheckStatResponseBodyBarChart : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> x{};
+  shared_ptr<vector<GetOssCheckStatResponseBodyBarChartY>> y{};
+
+  GetOssCheckStatResponseBodyBarChart() {}
+
+  explicit GetOssCheckStatResponseBodyBarChart(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      vector<boost::any> temp1;
+      for(auto item1:*y){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Y"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["X"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["X"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      x = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      if (typeid(vector<boost::any>) == m["Y"].type()) {
+        vector<GetOssCheckStatResponseBodyBarChartY> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Y"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetOssCheckStatResponseBodyBarChartY model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        y = make_shared<vector<GetOssCheckStatResponseBodyBarChartY>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetOssCheckStatResponseBodyBarChart() = default;
+};
+class GetOssCheckStatResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetOssCheckStatResponseBodyBarChart> barChart{};
+  shared_ptr<string> requestId{};
+
+  GetOssCheckStatResponseBody() {}
+
+  explicit GetOssCheckStatResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (barChart) {
+      res["BarChart"] = barChart ? boost::any(barChart->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BarChart") != m.end() && !m["BarChart"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BarChart"].type()) {
+        GetOssCheckStatResponseBodyBarChart model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BarChart"]));
+        barChart = make_shared<GetOssCheckStatResponseBodyBarChart>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetOssCheckStatResponseBody() = default;
+};
+class GetOssCheckStatResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetOssCheckStatResponseBody> body{};
+
+  GetOssCheckStatResponse() {}
+
+  explicit GetOssCheckStatResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetOssCheckStatResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetOssCheckStatResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetOssCheckStatResponse() = default;
 };
 class GetOssCheckStatusRequest : public Darabonba::Model {
 public:
@@ -12180,6 +12595,8 @@ public:
   ExportCipStatsResponse exportCipStats(shared_ptr<ExportCipStatsRequest> request);
   ExportKeywordResponse exportKeywordWithOptions(shared_ptr<ExportKeywordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExportKeywordResponse exportKeyword(shared_ptr<ExportKeywordRequest> request);
+  ExportOssCheckStatResponse exportOssCheckStatWithOptions(shared_ptr<ExportOssCheckStatRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExportOssCheckStatResponse exportOssCheckStat(shared_ptr<ExportOssCheckStatRequest> request);
   ExportResultResponse exportResultWithOptions(shared_ptr<ExportResultRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExportResultResponse exportResult(shared_ptr<ExportResultRequest> request);
   ExportScanResultResponse exportScanResultWithOptions(shared_ptr<ExportScanResultRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -12204,6 +12621,8 @@ public:
   GetJobNameListResponse getJobNameList(shared_ptr<GetJobNameListRequest> request);
   GetKeywordImportResultResponse getKeywordImportResultWithOptions(shared_ptr<GetKeywordImportResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetKeywordImportResultResponse getKeywordImportResult(shared_ptr<GetKeywordImportResultRequest> request);
+  GetOssCheckStatResponse getOssCheckStatWithOptions(shared_ptr<GetOssCheckStatRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetOssCheckStatResponse getOssCheckStat(shared_ptr<GetOssCheckStatRequest> request);
   GetOssCheckStatusResponse getOssCheckStatusWithOptions(shared_ptr<GetOssCheckStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetOssCheckStatusResponse getOssCheckStatus(shared_ptr<GetOssCheckStatusRequest> request);
   GetScanNumResponse getScanNumWithOptions(shared_ptr<GetScanNumRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

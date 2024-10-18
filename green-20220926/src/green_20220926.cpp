@@ -678,6 +678,48 @@ ExportKeywordResponse Alibabacloud_Green20220926::Client::exportKeyword(shared_p
   return exportKeywordWithOptions(request, runtime);
 }
 
+ExportOssCheckStatResponse Alibabacloud_Green20220926::Client::exportOssCheckStatWithOptions(shared_ptr<ExportOssCheckStatRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->byMonth)) {
+    body->insert(pair<string, bool>("ByMonth", *request->byMonth));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endDate)) {
+    body->insert(pair<string, string>("EndDate", *request->endDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentTaskId)) {
+    body->insert(pair<string, string>("ParentTaskId", *request->parentTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    body->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExportOssCheckStat"))},
+    {"version", boost::any(string("2022-09-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExportOssCheckStatResponse(callApi(params, req, runtime));
+}
+
+ExportOssCheckStatResponse Alibabacloud_Green20220926::Client::exportOssCheckStat(shared_ptr<ExportOssCheckStatRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return exportOssCheckStatWithOptions(request, runtime);
+}
+
 ExportResultResponse Alibabacloud_Green20220926::Client::exportResultWithOptions(shared_ptr<ExportResultRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ExportResultShrinkRequest> request = make_shared<ExportResultShrinkRequest>();
@@ -1135,6 +1177,48 @@ GetKeywordImportResultResponse Alibabacloud_Green20220926::Client::getKeywordImp
 GetKeywordImportResultResponse Alibabacloud_Green20220926::Client::getKeywordImportResult(shared_ptr<GetKeywordImportResultRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getKeywordImportResultWithOptions(request, runtime);
+}
+
+GetOssCheckStatResponse Alibabacloud_Green20220926::Client::getOssCheckStatWithOptions(shared_ptr<GetOssCheckStatRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->byMonth)) {
+    body->insert(pair<string, bool>("ByMonth", *request->byMonth));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endDate)) {
+    body->insert(pair<string, string>("EndDate", *request->endDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentTaskId)) {
+    body->insert(pair<string, string>("ParentTaskId", *request->parentTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    body->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetOssCheckStat"))},
+    {"version", boost::any(string("2022-09-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetOssCheckStatResponse(callApi(params, req, runtime));
+}
+
+GetOssCheckStatResponse Alibabacloud_Green20220926::Client::getOssCheckStat(shared_ptr<GetOssCheckStatRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getOssCheckStatWithOptions(request, runtime);
 }
 
 GetOssCheckStatusResponse Alibabacloud_Green20220926::Client::getOssCheckStatusWithOptions(shared_ptr<GetOssCheckStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
