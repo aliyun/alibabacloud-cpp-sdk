@@ -545,6 +545,180 @@ public:
 
   virtual ~AddTrafficSpecialControlResponse() = default;
 };
+class AssociateInstanceWithPrivateDNSRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<vector<string>> intranetDomains{};
+  shared_ptr<string> securityToken{};
+
+  AssociateInstanceWithPrivateDNSRequest() {}
+
+  explicit AssociateInstanceWithPrivateDNSRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intranetDomains) {
+      res["IntranetDomains"] = boost::any(*intranetDomains);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntranetDomains") != m.end() && !m["IntranetDomains"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IntranetDomains"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IntranetDomains"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      intranetDomains = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~AssociateInstanceWithPrivateDNSRequest() = default;
+};
+class AssociateInstanceWithPrivateDNSShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> intranetDomainsShrink{};
+  shared_ptr<string> securityToken{};
+
+  AssociateInstanceWithPrivateDNSShrinkRequest() {}
+
+  explicit AssociateInstanceWithPrivateDNSShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intranetDomainsShrink) {
+      res["IntranetDomains"] = boost::any(*intranetDomainsShrink);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntranetDomains") != m.end() && !m["IntranetDomains"].empty()) {
+      intranetDomainsShrink = make_shared<string>(boost::any_cast<string>(m["IntranetDomains"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~AssociateInstanceWithPrivateDNSShrinkRequest() = default;
+};
+class AssociateInstanceWithPrivateDNSResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  AssociateInstanceWithPrivateDNSResponseBody() {}
+
+  explicit AssociateInstanceWithPrivateDNSResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AssociateInstanceWithPrivateDNSResponseBody() = default;
+};
+class AssociateInstanceWithPrivateDNSResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AssociateInstanceWithPrivateDNSResponseBody> body{};
+
+  AssociateInstanceWithPrivateDNSResponse() {}
+
+  explicit AssociateInstanceWithPrivateDNSResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AssociateInstanceWithPrivateDNSResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AssociateInstanceWithPrivateDNSResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AssociateInstanceWithPrivateDNSResponse() = default;
+};
 class AttachApiProductRequestApis : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
@@ -4665,6 +4839,237 @@ public:
 
   virtual ~CreatePluginResponse() = default;
 };
+class CreatePrivateDNSRequestRecords : public Darabonba::Model {
+public:
+  shared_ptr<string> record{};
+  shared_ptr<long> weight{};
+
+  CreatePrivateDNSRequestRecords() {}
+
+  explicit CreatePrivateDNSRequestRecords(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (record) {
+      res["Record"] = boost::any(*record);
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Record") != m.end() && !m["Record"].empty()) {
+      record = make_shared<string>(boost::any_cast<string>(m["Record"]));
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~CreatePrivateDNSRequestRecords() = default;
+};
+class CreatePrivateDNSRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> intranetDomain{};
+  shared_ptr<vector<CreatePrivateDNSRequestRecords>> records{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> type{};
+
+  CreatePrivateDNSRequest() {}
+
+  explicit CreatePrivateDNSRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (intranetDomain) {
+      res["IntranetDomain"] = boost::any(*intranetDomain);
+    }
+    if (records) {
+      vector<boost::any> temp1;
+      for(auto item1:*records){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Records"] = boost::any(temp1);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IntranetDomain") != m.end() && !m["IntranetDomain"].empty()) {
+      intranetDomain = make_shared<string>(boost::any_cast<string>(m["IntranetDomain"]));
+    }
+    if (m.find("Records") != m.end() && !m["Records"].empty()) {
+      if (typeid(vector<boost::any>) == m["Records"].type()) {
+        vector<CreatePrivateDNSRequestRecords> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Records"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePrivateDNSRequestRecords model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        records = make_shared<vector<CreatePrivateDNSRequestRecords>>(expect1);
+      }
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreatePrivateDNSRequest() = default;
+};
+class CreatePrivateDNSShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> intranetDomain{};
+  shared_ptr<string> recordsShrink{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> type{};
+
+  CreatePrivateDNSShrinkRequest() {}
+
+  explicit CreatePrivateDNSShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (intranetDomain) {
+      res["IntranetDomain"] = boost::any(*intranetDomain);
+    }
+    if (recordsShrink) {
+      res["Records"] = boost::any(*recordsShrink);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IntranetDomain") != m.end() && !m["IntranetDomain"].empty()) {
+      intranetDomain = make_shared<string>(boost::any_cast<string>(m["IntranetDomain"]));
+    }
+    if (m.find("Records") != m.end() && !m["Records"].empty()) {
+      recordsShrink = make_shared<string>(boost::any_cast<string>(m["Records"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreatePrivateDNSShrinkRequest() = default;
+};
+class CreatePrivateDNSResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreatePrivateDNSResponseBody() {}
+
+  explicit CreatePrivateDNSResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreatePrivateDNSResponseBody() = default;
+};
+class CreatePrivateDNSResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreatePrivateDNSResponseBody> body{};
+
+  CreatePrivateDNSResponse() {}
+
+  explicit CreatePrivateDNSResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreatePrivateDNSResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreatePrivateDNSResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePrivateDNSResponse() = default;
+};
 class CreateSignatureRequest : public Darabonba::Model {
 public:
   shared_ptr<string> securityToken{};
@@ -7723,6 +8128,137 @@ public:
 
 
   virtual ~DeletePluginResponse() = default;
+};
+class DeletePrivateDNSRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> force{};
+  shared_ptr<string> intranetDomain{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> type{};
+
+  DeletePrivateDNSRequest() {}
+
+  explicit DeletePrivateDNSRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
+    if (intranetDomain) {
+      res["IntranetDomain"] = boost::any(*intranetDomain);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
+    }
+    if (m.find("IntranetDomain") != m.end() && !m["IntranetDomain"].empty()) {
+      intranetDomain = make_shared<string>(boost::any_cast<string>(m["IntranetDomain"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DeletePrivateDNSRequest() = default;
+};
+class DeletePrivateDNSResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeletePrivateDNSResponseBody() {}
+
+  explicit DeletePrivateDNSResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeletePrivateDNSResponseBody() = default;
+};
+class DeletePrivateDNSResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeletePrivateDNSResponseBody> body{};
+
+  DeletePrivateDNSResponse() {}
+
+  explicit DeletePrivateDNSResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeletePrivateDNSResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeletePrivateDNSResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeletePrivateDNSResponse() = default;
 };
 class DeleteSignatureRequest : public Darabonba::Model {
 public:
@@ -39853,6 +40389,180 @@ public:
 
   virtual ~DisableInstanceAccessControlResponse() = default;
 };
+class DissociateInstanceWithPrivateDNSRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<vector<string>> intranetDomains{};
+  shared_ptr<string> securityToken{};
+
+  DissociateInstanceWithPrivateDNSRequest() {}
+
+  explicit DissociateInstanceWithPrivateDNSRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intranetDomains) {
+      res["IntranetDomains"] = boost::any(*intranetDomains);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntranetDomains") != m.end() && !m["IntranetDomains"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IntranetDomains"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IntranetDomains"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      intranetDomains = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~DissociateInstanceWithPrivateDNSRequest() = default;
+};
+class DissociateInstanceWithPrivateDNSShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> intranetDomainsShrink{};
+  shared_ptr<string> securityToken{};
+
+  DissociateInstanceWithPrivateDNSShrinkRequest() {}
+
+  explicit DissociateInstanceWithPrivateDNSShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (intranetDomainsShrink) {
+      res["IntranetDomains"] = boost::any(*intranetDomainsShrink);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IntranetDomains") != m.end() && !m["IntranetDomains"].empty()) {
+      intranetDomainsShrink = make_shared<string>(boost::any_cast<string>(m["IntranetDomains"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~DissociateInstanceWithPrivateDNSShrinkRequest() = default;
+};
+class DissociateInstanceWithPrivateDNSResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DissociateInstanceWithPrivateDNSResponseBody() {}
+
+  explicit DissociateInstanceWithPrivateDNSResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DissociateInstanceWithPrivateDNSResponseBody() = default;
+};
+class DissociateInstanceWithPrivateDNSResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DissociateInstanceWithPrivateDNSResponseBody> body{};
+
+  DissociateInstanceWithPrivateDNSResponse() {}
+
+  explicit DissociateInstanceWithPrivateDNSResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DissociateInstanceWithPrivateDNSResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DissociateInstanceWithPrivateDNSResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DissociateInstanceWithPrivateDNSResponse() = default;
+};
 class DryRunSwaggerRequest : public Darabonba::Model {
 public:
   shared_ptr<string> data{};
@@ -42177,6 +42887,286 @@ public:
 
 
   virtual ~ImportSwaggerResponse() = default;
+};
+class ListPrivateDNSRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> intranetDomain{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> type{};
+
+  ListPrivateDNSRequest() {}
+
+  explicit ListPrivateDNSRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (intranetDomain) {
+      res["IntranetDomain"] = boost::any(*intranetDomain);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IntranetDomain") != m.end() && !m["IntranetDomain"].empty()) {
+      intranetDomain = make_shared<string>(boost::any_cast<string>(m["IntranetDomain"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListPrivateDNSRequest() = default;
+};
+class ListPrivateDNSResponseBodyPrivateDNSListRecords : public Darabonba::Model {
+public:
+  shared_ptr<string> record{};
+  shared_ptr<long> weight{};
+
+  ListPrivateDNSResponseBodyPrivateDNSListRecords() {}
+
+  explicit ListPrivateDNSResponseBodyPrivateDNSListRecords(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (record) {
+      res["Record"] = boost::any(*record);
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Record") != m.end() && !m["Record"].empty()) {
+      record = make_shared<string>(boost::any_cast<string>(m["Record"]));
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~ListPrivateDNSResponseBodyPrivateDNSListRecords() = default;
+};
+class ListPrivateDNSResponseBodyPrivateDNSList : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> bindInstances{};
+  shared_ptr<string> createdTime{};
+  shared_ptr<string> intranetDomain{};
+  shared_ptr<vector<ListPrivateDNSResponseBodyPrivateDNSListRecords>> records{};
+  shared_ptr<string> type{};
+
+  ListPrivateDNSResponseBodyPrivateDNSList() {}
+
+  explicit ListPrivateDNSResponseBodyPrivateDNSList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bindInstances) {
+      res["BindInstances"] = boost::any(*bindInstances);
+    }
+    if (createdTime) {
+      res["CreatedTime"] = boost::any(*createdTime);
+    }
+    if (intranetDomain) {
+      res["IntranetDomain"] = boost::any(*intranetDomain);
+    }
+    if (records) {
+      vector<boost::any> temp1;
+      for(auto item1:*records){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Records"] = boost::any(temp1);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BindInstances") != m.end() && !m["BindInstances"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["BindInstances"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BindInstances"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      bindInstances = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
+      createdTime = make_shared<string>(boost::any_cast<string>(m["CreatedTime"]));
+    }
+    if (m.find("IntranetDomain") != m.end() && !m["IntranetDomain"].empty()) {
+      intranetDomain = make_shared<string>(boost::any_cast<string>(m["IntranetDomain"]));
+    }
+    if (m.find("Records") != m.end() && !m["Records"].empty()) {
+      if (typeid(vector<boost::any>) == m["Records"].type()) {
+        vector<ListPrivateDNSResponseBodyPrivateDNSListRecords> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Records"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPrivateDNSResponseBodyPrivateDNSListRecords model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        records = make_shared<vector<ListPrivateDNSResponseBodyPrivateDNSListRecords>>(expect1);
+      }
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListPrivateDNSResponseBodyPrivateDNSList() = default;
+};
+class ListPrivateDNSResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<ListPrivateDNSResponseBodyPrivateDNSList>> privateDNSList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListPrivateDNSResponseBody() {}
+
+  explicit ListPrivateDNSResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (privateDNSList) {
+      vector<boost::any> temp1;
+      for(auto item1:*privateDNSList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PrivateDNSList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PrivateDNSList") != m.end() && !m["PrivateDNSList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PrivateDNSList"].type()) {
+        vector<ListPrivateDNSResponseBodyPrivateDNSList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PrivateDNSList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPrivateDNSResponseBodyPrivateDNSList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        privateDNSList = make_shared<vector<ListPrivateDNSResponseBodyPrivateDNSList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListPrivateDNSResponseBody() = default;
+};
+class ListPrivateDNSResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListPrivateDNSResponseBody> body{};
+
+  ListPrivateDNSResponse() {}
+
+  explicit ListPrivateDNSResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListPrivateDNSResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListPrivateDNSResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListPrivateDNSResponse() = default;
 };
 class ListTagResourcesRequestTag : public Darabonba::Model {
 public:
@@ -51978,6 +52968,237 @@ public:
 
   virtual ~UntagResourcesResponse() = default;
 };
+class UpdatePrivateDNSRequestRecords : public Darabonba::Model {
+public:
+  shared_ptr<string> record{};
+  shared_ptr<long> weight{};
+
+  UpdatePrivateDNSRequestRecords() {}
+
+  explicit UpdatePrivateDNSRequestRecords(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (record) {
+      res["Record"] = boost::any(*record);
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Record") != m.end() && !m["Record"].empty()) {
+      record = make_shared<string>(boost::any_cast<string>(m["Record"]));
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~UpdatePrivateDNSRequestRecords() = default;
+};
+class UpdatePrivateDNSRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> intranetDomain{};
+  shared_ptr<vector<UpdatePrivateDNSRequestRecords>> records{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> type{};
+
+  UpdatePrivateDNSRequest() {}
+
+  explicit UpdatePrivateDNSRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (intranetDomain) {
+      res["IntranetDomain"] = boost::any(*intranetDomain);
+    }
+    if (records) {
+      vector<boost::any> temp1;
+      for(auto item1:*records){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Records"] = boost::any(temp1);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IntranetDomain") != m.end() && !m["IntranetDomain"].empty()) {
+      intranetDomain = make_shared<string>(boost::any_cast<string>(m["IntranetDomain"]));
+    }
+    if (m.find("Records") != m.end() && !m["Records"].empty()) {
+      if (typeid(vector<boost::any>) == m["Records"].type()) {
+        vector<UpdatePrivateDNSRequestRecords> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Records"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdatePrivateDNSRequestRecords model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        records = make_shared<vector<UpdatePrivateDNSRequestRecords>>(expect1);
+      }
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~UpdatePrivateDNSRequest() = default;
+};
+class UpdatePrivateDNSShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> intranetDomain{};
+  shared_ptr<string> recordsShrink{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> type{};
+
+  UpdatePrivateDNSShrinkRequest() {}
+
+  explicit UpdatePrivateDNSShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (intranetDomain) {
+      res["IntranetDomain"] = boost::any(*intranetDomain);
+    }
+    if (recordsShrink) {
+      res["Records"] = boost::any(*recordsShrink);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IntranetDomain") != m.end() && !m["IntranetDomain"].empty()) {
+      intranetDomain = make_shared<string>(boost::any_cast<string>(m["IntranetDomain"]));
+    }
+    if (m.find("Records") != m.end() && !m["Records"].empty()) {
+      recordsShrink = make_shared<string>(boost::any_cast<string>(m["Records"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~UpdatePrivateDNSShrinkRequest() = default;
+};
+class UpdatePrivateDNSResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdatePrivateDNSResponseBody() {}
+
+  explicit UpdatePrivateDNSResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdatePrivateDNSResponseBody() = default;
+};
+class UpdatePrivateDNSResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdatePrivateDNSResponseBody> body{};
+
+  UpdatePrivateDNSResponse() {}
+
+  explicit UpdatePrivateDNSResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdatePrivateDNSResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdatePrivateDNSResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdatePrivateDNSResponse() = default;
+};
 class ValidateVpcConnectivityRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -52134,6 +53355,8 @@ public:
   AddIpControlPolicyItemResponse addIpControlPolicyItem(shared_ptr<AddIpControlPolicyItemRequest> request);
   AddTrafficSpecialControlResponse addTrafficSpecialControlWithOptions(shared_ptr<AddTrafficSpecialControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddTrafficSpecialControlResponse addTrafficSpecialControl(shared_ptr<AddTrafficSpecialControlRequest> request);
+  AssociateInstanceWithPrivateDNSResponse associateInstanceWithPrivateDNSWithOptions(shared_ptr<AssociateInstanceWithPrivateDNSRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AssociateInstanceWithPrivateDNSResponse associateInstanceWithPrivateDNS(shared_ptr<AssociateInstanceWithPrivateDNSRequest> request);
   AttachApiProductResponse attachApiProductWithOptions(shared_ptr<AttachApiProductRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachApiProductResponse attachApiProduct(shared_ptr<AttachApiProductRequest> request);
   AttachPluginResponse attachPluginWithOptions(shared_ptr<AttachPluginRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -52178,6 +53401,8 @@ public:
   CreateMonitorGroupResponse createMonitorGroup(shared_ptr<CreateMonitorGroupRequest> request);
   CreatePluginResponse createPluginWithOptions(shared_ptr<CreatePluginRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePluginResponse createPlugin(shared_ptr<CreatePluginRequest> request);
+  CreatePrivateDNSResponse createPrivateDNSWithOptions(shared_ptr<CreatePrivateDNSRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePrivateDNSResponse createPrivateDNS(shared_ptr<CreatePrivateDNSRequest> request);
   CreateSignatureResponse createSignatureWithOptions(shared_ptr<CreateSignatureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSignatureResponse createSignature(shared_ptr<CreateSignatureRequest> request);
   CreateTrafficControlResponse createTrafficControlWithOptions(shared_ptr<CreateTrafficControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -52224,6 +53449,8 @@ public:
   DeleteMonitorGroupResponse deleteMonitorGroup(shared_ptr<DeleteMonitorGroupRequest> request);
   DeletePluginResponse deletePluginWithOptions(shared_ptr<DeletePluginRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeletePluginResponse deletePlugin(shared_ptr<DeletePluginRequest> request);
+  DeletePrivateDNSResponse deletePrivateDNSWithOptions(shared_ptr<DeletePrivateDNSRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeletePrivateDNSResponse deletePrivateDNS(shared_ptr<DeletePrivateDNSRequest> request);
   DeleteSignatureResponse deleteSignatureWithOptions(shared_ptr<DeleteSignatureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSignatureResponse deleteSignature(shared_ptr<DeleteSignatureRequest> request);
   DeleteTrafficControlResponse deleteTrafficControlWithOptions(shared_ptr<DeleteTrafficControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -52410,6 +53637,8 @@ public:
   DetachPluginResponse detachPlugin(shared_ptr<DetachPluginRequest> request);
   DisableInstanceAccessControlResponse disableInstanceAccessControlWithOptions(shared_ptr<DisableInstanceAccessControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableInstanceAccessControlResponse disableInstanceAccessControl(shared_ptr<DisableInstanceAccessControlRequest> request);
+  DissociateInstanceWithPrivateDNSResponse dissociateInstanceWithPrivateDNSWithOptions(shared_ptr<DissociateInstanceWithPrivateDNSRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DissociateInstanceWithPrivateDNSResponse dissociateInstanceWithPrivateDNS(shared_ptr<DissociateInstanceWithPrivateDNSRequest> request);
   DryRunSwaggerResponse dryRunSwaggerWithOptions(shared_ptr<DryRunSwaggerRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DryRunSwaggerResponse dryRunSwagger(shared_ptr<DryRunSwaggerRequest> request);
   EnableInstanceAccessControlResponse enableInstanceAccessControlWithOptions(shared_ptr<EnableInstanceAccessControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -52420,6 +53649,8 @@ public:
   ImportOASResponse importOAS(shared_ptr<ImportOASRequest> request);
   ImportSwaggerResponse importSwaggerWithOptions(shared_ptr<ImportSwaggerRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportSwaggerResponse importSwagger(shared_ptr<ImportSwaggerRequest> request);
+  ListPrivateDNSResponse listPrivateDNSWithOptions(shared_ptr<ListPrivateDNSRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListPrivateDNSResponse listPrivateDNS(shared_ptr<ListPrivateDNSRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   ModifyApiResponse modifyApiWithOptions(shared_ptr<ModifyApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -52536,6 +53767,8 @@ public:
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
+  UpdatePrivateDNSResponse updatePrivateDNSWithOptions(shared_ptr<UpdatePrivateDNSRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdatePrivateDNSResponse updatePrivateDNS(shared_ptr<UpdatePrivateDNSRequest> request);
   ValidateVpcConnectivityResponse validateVpcConnectivityWithOptions(shared_ptr<ValidateVpcConnectivityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ValidateVpcConnectivityResponse validateVpcConnectivity(shared_ptr<ValidateVpcConnectivityRequest> request);
 
