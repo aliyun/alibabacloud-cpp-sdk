@@ -819,6 +819,9 @@ CreateCenRouteMapResponse Alibabacloud_Cbn20170912::Client::createCenRouteMapWit
   if (!Darabonba_Util::Client::isUnset<bool>(request->destinationInstanceIdsReverseMatch)) {
     query->insert(pair<string, bool>("DestinationInstanceIdsReverseMatch", *request->destinationInstanceIdsReverseMatch));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->destinationRegionIds)) {
+    query->insert(pair<string, vector<string>>("DestinationRegionIds", *request->destinationRegionIds));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->destinationRouteTableIds)) {
     query->insert(pair<string, vector<string>>("DestinationRouteTableIds", *request->destinationRouteTableIds));
   }
@@ -6387,6 +6390,9 @@ ModifyCenRouteMapResponse Alibabacloud_Cbn20170912::Client::modifyCenRouteMapWit
   if (!Darabonba_Util::Client::isUnset<bool>(request->destinationInstanceIdsReverseMatch)) {
     query->insert(pair<string, bool>("DestinationInstanceIdsReverseMatch", *request->destinationInstanceIdsReverseMatch));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->destinationRegionIds)) {
+    query->insert(pair<string, vector<string>>("DestinationRegionIds", *request->destinationRegionIds));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->destinationRouteTableIds)) {
     query->insert(pair<string, vector<string>>("DestinationRouteTableIds", *request->destinationRouteTableIds));
   }
@@ -6525,6 +6531,61 @@ ModifyFlowLogAttributeResponse Alibabacloud_Cbn20170912::Client::modifyFlowLogAt
 ModifyFlowLogAttributeResponse Alibabacloud_Cbn20170912::Client::modifyFlowLogAttribute(shared_ptr<ModifyFlowLogAttributeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyFlowLogAttributeWithOptions(request, runtime);
+}
+
+ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse Alibabacloud_Cbn20170912::Client::modifyTrafficMatchRuleToTrafficMarkingPolicyWithOptions(shared_ptr<ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trafficMarkingPolicyId)) {
+    query->insert(pair<string, string>("TrafficMarkingPolicyId", *request->trafficMarkingPolicyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trafficMatchRuleDescription)) {
+    query->insert(pair<string, string>("TrafficMatchRuleDescription", *request->trafficMatchRuleDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trafficMatchRuleId)) {
+    query->insert(pair<string, string>("TrafficMatchRuleId", *request->trafficMatchRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trafficMatchRuleName)) {
+    query->insert(pair<string, string>("TrafficMatchRuleName", *request->trafficMatchRuleName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyTrafficMatchRuleToTrafficMarkingPolicy"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse(callApi(params, req, runtime));
+}
+
+ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse Alibabacloud_Cbn20170912::Client::modifyTrafficMatchRuleToTrafficMarkingPolicy(shared_ptr<ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyTrafficMatchRuleToTrafficMarkingPolicyWithOptions(request, runtime);
 }
 
 ModifyTransitRouterCidrResponse Alibabacloud_Cbn20170912::Client::modifyTransitRouterCidrWithOptions(shared_ptr<ModifyTransitRouterCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

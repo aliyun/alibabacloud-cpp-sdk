@@ -2852,6 +2852,7 @@ public:
   shared_ptr<vector<string>> destinationCidrBlocks{};
   shared_ptr<vector<string>> destinationInstanceIds{};
   shared_ptr<bool> destinationInstanceIdsReverseMatch{};
+  shared_ptr<vector<string>> destinationRegionIds{};
   shared_ptr<vector<string>> destinationRouteTableIds{};
   shared_ptr<string> mapResult{};
   shared_ptr<string> matchAddressType{};
@@ -2917,6 +2918,9 @@ public:
     }
     if (destinationInstanceIdsReverseMatch) {
       res["DestinationInstanceIdsReverseMatch"] = boost::any(*destinationInstanceIdsReverseMatch);
+    }
+    if (destinationRegionIds) {
+      res["DestinationRegionIds"] = boost::any(*destinationRegionIds);
     }
     if (destinationRouteTableIds) {
       res["DestinationRouteTableIds"] = boost::any(*destinationRouteTableIds);
@@ -3041,6 +3045,16 @@ public:
     }
     if (m.find("DestinationInstanceIdsReverseMatch") != m.end() && !m["DestinationInstanceIdsReverseMatch"].empty()) {
       destinationInstanceIdsReverseMatch = make_shared<bool>(boost::any_cast<bool>(m["DestinationInstanceIdsReverseMatch"]));
+    }
+    if (m.find("DestinationRegionIds") != m.end() && !m["DestinationRegionIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DestinationRegionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DestinationRegionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      destinationRegionIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("DestinationRouteTableIds") != m.end() && !m["DestinationRouteTableIds"].empty()) {
       vector<string> toVec1;
@@ -15319,6 +15333,42 @@ public:
 
   virtual ~DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationInstanceIds() = default;
 };
+class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRegionIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> destinationRegionId{};
+
+  DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRegionIds() {}
+
+  explicit DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRegionIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationRegionId) {
+      res["DestinationRegionId"] = boost::any(*destinationRegionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DestinationRegionId") != m.end() && !m["DestinationRegionId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DestinationRegionId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DestinationRegionId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      destinationRegionId = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRegionIds() = default;
+};
 class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRouteTableIds : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> destinationRouteTableId{};
@@ -15692,6 +15742,7 @@ public:
   shared_ptr<DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationCidrBlocks> destinationCidrBlocks{};
   shared_ptr<DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationInstanceIds> destinationInstanceIds{};
   shared_ptr<bool> destinationInstanceIdsReverseMatch{};
+  shared_ptr<DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRegionIds> destinationRegionIds{};
   shared_ptr<DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRouteTableIds> destinationRouteTableIds{};
   shared_ptr<string> mapResult{};
   shared_ptr<string> matchAddressType{};
@@ -15755,6 +15806,9 @@ public:
     }
     if (destinationInstanceIdsReverseMatch) {
       res["DestinationInstanceIdsReverseMatch"] = boost::any(*destinationInstanceIdsReverseMatch);
+    }
+    if (destinationRegionIds) {
+      res["DestinationRegionIds"] = destinationRegionIds ? boost::any(destinationRegionIds->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (destinationRouteTableIds) {
       res["DestinationRouteTableIds"] = destinationRouteTableIds ? boost::any(destinationRouteTableIds->toMap()) : boost::any(map<string,boost::any>({}));
@@ -15864,6 +15918,13 @@ public:
     }
     if (m.find("DestinationInstanceIdsReverseMatch") != m.end() && !m["DestinationInstanceIdsReverseMatch"].empty()) {
       destinationInstanceIdsReverseMatch = make_shared<bool>(boost::any_cast<bool>(m["DestinationInstanceIdsReverseMatch"]));
+    }
+    if (m.find("DestinationRegionIds") != m.end() && !m["DestinationRegionIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DestinationRegionIds"].type()) {
+        DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRegionIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DestinationRegionIds"]));
+        destinationRegionIds = make_shared<DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRegionIds>(model1);
+      }
     }
     if (m.find("DestinationRouteTableIds") != m.end() && !m["DestinationRouteTableIds"].empty()) {
       if (typeid(map<string, boost::any>) == m["DestinationRouteTableIds"].type()) {
@@ -31602,6 +31663,7 @@ public:
   shared_ptr<vector<string>> destinationCidrBlocks{};
   shared_ptr<vector<string>> destinationInstanceIds{};
   shared_ptr<bool> destinationInstanceIdsReverseMatch{};
+  shared_ptr<vector<string>> destinationRegionIds{};
   shared_ptr<vector<string>> destinationRouteTableIds{};
   shared_ptr<string> mapResult{};
   shared_ptr<string> matchAddressType{};
@@ -31666,6 +31728,9 @@ public:
     }
     if (destinationInstanceIdsReverseMatch) {
       res["DestinationInstanceIdsReverseMatch"] = boost::any(*destinationInstanceIdsReverseMatch);
+    }
+    if (destinationRegionIds) {
+      res["DestinationRegionIds"] = boost::any(*destinationRegionIds);
     }
     if (destinationRouteTableIds) {
       res["DestinationRouteTableIds"] = boost::any(*destinationRouteTableIds);
@@ -31787,6 +31852,16 @@ public:
     }
     if (m.find("DestinationInstanceIdsReverseMatch") != m.end() && !m["DestinationInstanceIdsReverseMatch"].empty()) {
       destinationInstanceIdsReverseMatch = make_shared<bool>(boost::any_cast<bool>(m["DestinationInstanceIdsReverseMatch"]));
+    }
+    if (m.find("DestinationRegionIds") != m.end() && !m["DestinationRegionIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DestinationRegionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DestinationRegionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      destinationRegionIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("DestinationRouteTableIds") != m.end() && !m["DestinationRouteTableIds"].empty()) {
       vector<string> toVec1;
@@ -32186,6 +32261,179 @@ public:
 
 
   virtual ~ModifyFlowLogAttributeResponse() = default;
+};
+class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> trafficMarkingPolicyId{};
+  shared_ptr<string> trafficMatchRuleDescription{};
+  shared_ptr<string> trafficMatchRuleId{};
+  shared_ptr<string> trafficMatchRuleName{};
+
+  ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest() {}
+
+  explicit ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (trafficMarkingPolicyId) {
+      res["TrafficMarkingPolicyId"] = boost::any(*trafficMarkingPolicyId);
+    }
+    if (trafficMatchRuleDescription) {
+      res["TrafficMatchRuleDescription"] = boost::any(*trafficMatchRuleDescription);
+    }
+    if (trafficMatchRuleId) {
+      res["TrafficMatchRuleId"] = boost::any(*trafficMatchRuleId);
+    }
+    if (trafficMatchRuleName) {
+      res["TrafficMatchRuleName"] = boost::any(*trafficMatchRuleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TrafficMarkingPolicyId") != m.end() && !m["TrafficMarkingPolicyId"].empty()) {
+      trafficMarkingPolicyId = make_shared<string>(boost::any_cast<string>(m["TrafficMarkingPolicyId"]));
+    }
+    if (m.find("TrafficMatchRuleDescription") != m.end() && !m["TrafficMatchRuleDescription"].empty()) {
+      trafficMatchRuleDescription = make_shared<string>(boost::any_cast<string>(m["TrafficMatchRuleDescription"]));
+    }
+    if (m.find("TrafficMatchRuleId") != m.end() && !m["TrafficMatchRuleId"].empty()) {
+      trafficMatchRuleId = make_shared<string>(boost::any_cast<string>(m["TrafficMatchRuleId"]));
+    }
+    if (m.find("TrafficMatchRuleName") != m.end() && !m["TrafficMatchRuleName"].empty()) {
+      trafficMatchRuleName = make_shared<string>(boost::any_cast<string>(m["TrafficMatchRuleName"]));
+    }
+  }
+
+
+  virtual ~ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest() = default;
+};
+class ModifyTrafficMatchRuleToTrafficMarkingPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyTrafficMatchRuleToTrafficMarkingPolicyResponseBody() {}
+
+  explicit ModifyTrafficMatchRuleToTrafficMarkingPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyTrafficMatchRuleToTrafficMarkingPolicyResponseBody() = default;
+};
+class ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyTrafficMatchRuleToTrafficMarkingPolicyResponseBody> body{};
+
+  ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse() {}
+
+  explicit ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyTrafficMatchRuleToTrafficMarkingPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyTrafficMatchRuleToTrafficMarkingPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse() = default;
 };
 class ModifyTransitRouterCidrRequest : public Darabonba::Model {
 public:
@@ -38521,6 +38769,8 @@ public:
   ModifyCenRouteMapResponse modifyCenRouteMap(shared_ptr<ModifyCenRouteMapRequest> request);
   ModifyFlowLogAttributeResponse modifyFlowLogAttributeWithOptions(shared_ptr<ModifyFlowLogAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyFlowLogAttributeResponse modifyFlowLogAttribute(shared_ptr<ModifyFlowLogAttributeRequest> request);
+  ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse modifyTrafficMatchRuleToTrafficMarkingPolicyWithOptions(shared_ptr<ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse modifyTrafficMatchRuleToTrafficMarkingPolicy(shared_ptr<ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest> request);
   ModifyTransitRouterCidrResponse modifyTransitRouterCidrWithOptions(shared_ptr<ModifyTransitRouterCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyTransitRouterCidrResponse modifyTransitRouterCidr(shared_ptr<ModifyTransitRouterCidrRequest> request);
   ModifyTransitRouterMulticastDomainResponse modifyTransitRouterMulticastDomainWithOptions(shared_ptr<ModifyTransitRouterMulticastDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
