@@ -2038,6 +2038,31 @@ DescribeEciScalingConfigurationsResponse Alibabacloud_Ess20220222::Client::descr
   return describeEciScalingConfigurationsWithOptions(request, runtime);
 }
 
+DescribeElasticStrengthResponse Alibabacloud_Ess20220222::Client::describeElasticStrengthWithOptions(shared_ptr<DescribeElasticStrengthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeElasticStrength"))},
+    {"version", boost::any(string("2022-02-22"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeElasticStrengthResponse(callApi(params, req, runtime));
+}
+
+DescribeElasticStrengthResponse Alibabacloud_Ess20220222::Client::describeElasticStrength(shared_ptr<DescribeElasticStrengthRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeElasticStrengthWithOptions(request, runtime);
+}
+
 DescribeInstanceRefreshesResponse Alibabacloud_Ess20220222::Client::describeInstanceRefreshesWithOptions(shared_ptr<DescribeInstanceRefreshesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

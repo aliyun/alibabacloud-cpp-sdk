@@ -15950,6 +15950,420 @@ public:
 
   virtual ~DescribeEciScalingConfigurationsResponse() = default;
 };
+class DescribeElasticStrengthRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> instanceTypes{};
+  shared_ptr<string> priorityStrategy{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> scalingGroupId{};
+  shared_ptr<vector<string>> scalingGroupIds{};
+  shared_ptr<vector<string>> systemDiskCategories{};
+
+  DescribeElasticStrengthRequest() {}
+
+  explicit DescribeElasticStrengthRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceTypes) {
+      res["InstanceTypes"] = boost::any(*instanceTypes);
+    }
+    if (priorityStrategy) {
+      res["PriorityStrategy"] = boost::any(*priorityStrategy);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    if (scalingGroupIds) {
+      res["ScalingGroupIds"] = boost::any(*scalingGroupIds);
+    }
+    if (systemDiskCategories) {
+      res["SystemDiskCategories"] = boost::any(*systemDiskCategories);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceTypes") != m.end() && !m["InstanceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PriorityStrategy") != m.end() && !m["PriorityStrategy"].empty()) {
+      priorityStrategy = make_shared<string>(boost::any_cast<string>(m["PriorityStrategy"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("ScalingGroupIds") != m.end() && !m["ScalingGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ScalingGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ScalingGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      scalingGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SystemDiskCategories") != m.end() && !m["SystemDiskCategories"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SystemDiskCategories"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SystemDiskCategories"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      systemDiskCategories = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeElasticStrengthRequest() = default;
+};
+class DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> msg{};
+  shared_ptr<double> strength{};
+  shared_ptr<vector<string>> vSwitchIds{};
+  shared_ptr<string> zoneId{};
+
+  DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools() {}
+
+  explicit DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (strength) {
+      res["Strength"] = boost::any(*strength);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("Strength") != m.end() && !m["Strength"].empty()) {
+      strength = make_shared<double>(boost::any_cast<double>(m["Strength"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools() = default;
+};
+class DescribeElasticStrengthResponseBodyElasticStrengthModels : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools>> resourcePools{};
+  shared_ptr<string> scalingGroupId{};
+  shared_ptr<double> totalStrength{};
+
+  DescribeElasticStrengthResponseBodyElasticStrengthModels() {}
+
+  explicit DescribeElasticStrengthResponseBodyElasticStrengthModels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourcePools) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourcePools){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourcePools"] = boost::any(temp1);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    if (totalStrength) {
+      res["TotalStrength"] = boost::any(*totalStrength);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourcePools") != m.end() && !m["ResourcePools"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourcePools"].type()) {
+        vector<DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourcePools"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourcePools = make_shared<vector<DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools>>(expect1);
+      }
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("TotalStrength") != m.end() && !m["TotalStrength"].empty()) {
+      totalStrength = make_shared<double>(boost::any_cast<double>(m["TotalStrength"]));
+    }
+  }
+
+
+  virtual ~DescribeElasticStrengthResponseBodyElasticStrengthModels() = default;
+};
+class DescribeElasticStrengthResponseBodyResourcePools : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> msg{};
+  shared_ptr<double> strength{};
+  shared_ptr<vector<string>> vSwitchIds{};
+  shared_ptr<string> zoneId{};
+
+  DescribeElasticStrengthResponseBodyResourcePools() {}
+
+  explicit DescribeElasticStrengthResponseBodyResourcePools(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (strength) {
+      res["Strength"] = boost::any(*strength);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("Strength") != m.end() && !m["Strength"].empty()) {
+      strength = make_shared<double>(boost::any_cast<double>(m["Strength"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~DescribeElasticStrengthResponseBodyResourcePools() = default;
+};
+class DescribeElasticStrengthResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeElasticStrengthResponseBodyElasticStrengthModels>> elasticStrengthModels{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeElasticStrengthResponseBodyResourcePools>> resourcePools{};
+  shared_ptr<double> totalStrength{};
+
+  DescribeElasticStrengthResponseBody() {}
+
+  explicit DescribeElasticStrengthResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (elasticStrengthModels) {
+      vector<boost::any> temp1;
+      for(auto item1:*elasticStrengthModels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ElasticStrengthModels"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourcePools) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourcePools){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourcePools"] = boost::any(temp1);
+    }
+    if (totalStrength) {
+      res["TotalStrength"] = boost::any(*totalStrength);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ElasticStrengthModels") != m.end() && !m["ElasticStrengthModels"].empty()) {
+      if (typeid(vector<boost::any>) == m["ElasticStrengthModels"].type()) {
+        vector<DescribeElasticStrengthResponseBodyElasticStrengthModels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ElasticStrengthModels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeElasticStrengthResponseBodyElasticStrengthModels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        elasticStrengthModels = make_shared<vector<DescribeElasticStrengthResponseBodyElasticStrengthModels>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourcePools") != m.end() && !m["ResourcePools"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourcePools"].type()) {
+        vector<DescribeElasticStrengthResponseBodyResourcePools> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourcePools"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeElasticStrengthResponseBodyResourcePools model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourcePools = make_shared<vector<DescribeElasticStrengthResponseBodyResourcePools>>(expect1);
+      }
+    }
+    if (m.find("TotalStrength") != m.end() && !m["TotalStrength"].empty()) {
+      totalStrength = make_shared<double>(boost::any_cast<double>(m["TotalStrength"]));
+    }
+  }
+
+
+  virtual ~DescribeElasticStrengthResponseBody() = default;
+};
+class DescribeElasticStrengthResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeElasticStrengthResponseBody> body{};
+
+  DescribeElasticStrengthResponse() {}
+
+  explicit DescribeElasticStrengthResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeElasticStrengthResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeElasticStrengthResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeElasticStrengthResponse() = default;
+};
 class DescribeInstanceRefreshesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> instanceRefreshTaskIds{};
@@ -37621,6 +38035,8 @@ public:
   DescribeEciScalingConfigurationDetailResponse describeEciScalingConfigurationDetail(shared_ptr<DescribeEciScalingConfigurationDetailRequest> request);
   DescribeEciScalingConfigurationsResponse describeEciScalingConfigurationsWithOptions(shared_ptr<DescribeEciScalingConfigurationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeEciScalingConfigurationsResponse describeEciScalingConfigurations(shared_ptr<DescribeEciScalingConfigurationsRequest> request);
+  DescribeElasticStrengthResponse describeElasticStrengthWithOptions(shared_ptr<DescribeElasticStrengthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeElasticStrengthResponse describeElasticStrength(shared_ptr<DescribeElasticStrengthRequest> request);
   DescribeInstanceRefreshesResponse describeInstanceRefreshesWithOptions(shared_ptr<DescribeInstanceRefreshesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstanceRefreshesResponse describeInstanceRefreshes(shared_ptr<DescribeInstanceRefreshesRequest> request);
   DescribeLifecycleActionsResponse describeLifecycleActionsWithOptions(shared_ptr<DescribeLifecycleActionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
