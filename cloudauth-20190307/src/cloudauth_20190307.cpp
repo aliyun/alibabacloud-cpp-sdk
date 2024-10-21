@@ -591,6 +591,37 @@ DeepfakeDetectResponse Alibabacloud_Cloudauth20190307::Client::deepfakeDetect(sh
   return deepfakeDetectWithOptions(request, runtime);
 }
 
+DeleteFaceVerifyResultResponse Alibabacloud_Cloudauth20190307::Client::deleteFaceVerifyResultWithOptions(shared_ptr<DeleteFaceVerifyResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->certifyId)) {
+    query->insert(pair<string, string>("CertifyId", *request->certifyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deleteAfterQuery)) {
+    query->insert(pair<string, string>("DeleteAfterQuery", *request->deleteAfterQuery));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteFaceVerifyResult"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteFaceVerifyResultResponse(callApi(params, req, runtime));
+}
+
+DeleteFaceVerifyResultResponse Alibabacloud_Cloudauth20190307::Client::deleteFaceVerifyResult(shared_ptr<DeleteFaceVerifyResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteFaceVerifyResultWithOptions(request, runtime);
+}
+
 DescribeDeviceInfoResponse Alibabacloud_Cloudauth20190307::Client::describeDeviceInfoWithOptions(shared_ptr<DescribeDeviceInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

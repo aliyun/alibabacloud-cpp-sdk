@@ -2435,6 +2435,191 @@ public:
 
   virtual ~DeepfakeDetectResponse() = default;
 };
+class DeleteFaceVerifyResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> certifyId{};
+  shared_ptr<string> deleteAfterQuery{};
+
+  DeleteFaceVerifyResultRequest() {}
+
+  explicit DeleteFaceVerifyResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certifyId) {
+      res["CertifyId"] = boost::any(*certifyId);
+    }
+    if (deleteAfterQuery) {
+      res["DeleteAfterQuery"] = boost::any(*deleteAfterQuery);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertifyId") != m.end() && !m["CertifyId"].empty()) {
+      certifyId = make_shared<string>(boost::any_cast<string>(m["CertifyId"]));
+    }
+    if (m.find("DeleteAfterQuery") != m.end() && !m["DeleteAfterQuery"].empty()) {
+      deleteAfterQuery = make_shared<string>(boost::any_cast<string>(m["DeleteAfterQuery"]));
+    }
+  }
+
+
+  virtual ~DeleteFaceVerifyResultRequest() = default;
+};
+class DeleteFaceVerifyResultResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> certifyId{};
+  shared_ptr<string> deleteResult{};
+  shared_ptr<string> failReason{};
+
+  DeleteFaceVerifyResultResponseBodyResultObject() {}
+
+  explicit DeleteFaceVerifyResultResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certifyId) {
+      res["CertifyId"] = boost::any(*certifyId);
+    }
+    if (deleteResult) {
+      res["DeleteResult"] = boost::any(*deleteResult);
+    }
+    if (failReason) {
+      res["FailReason"] = boost::any(*failReason);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertifyId") != m.end() && !m["CertifyId"].empty()) {
+      certifyId = make_shared<string>(boost::any_cast<string>(m["CertifyId"]));
+    }
+    if (m.find("DeleteResult") != m.end() && !m["DeleteResult"].empty()) {
+      deleteResult = make_shared<string>(boost::any_cast<string>(m["DeleteResult"]));
+    }
+    if (m.find("FailReason") != m.end() && !m["FailReason"].empty()) {
+      failReason = make_shared<string>(boost::any_cast<string>(m["FailReason"]));
+    }
+  }
+
+
+  virtual ~DeleteFaceVerifyResultResponseBodyResultObject() = default;
+};
+class DeleteFaceVerifyResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<DeleteFaceVerifyResultResponseBodyResultObject> resultObject{};
+
+  DeleteFaceVerifyResultResponseBody() {}
+
+  explicit DeleteFaceVerifyResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        DeleteFaceVerifyResultResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<DeleteFaceVerifyResultResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteFaceVerifyResultResponseBody() = default;
+};
+class DeleteFaceVerifyResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteFaceVerifyResultResponseBody> body{};
+
+  DeleteFaceVerifyResultResponse() {}
+
+  explicit DeleteFaceVerifyResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteFaceVerifyResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteFaceVerifyResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteFaceVerifyResultResponse() = default;
+};
 class DescribeDeviceInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizType{};
@@ -9019,6 +9204,8 @@ public:
   CredentialVerifyResponse credentialVerify(shared_ptr<CredentialVerifyRequest> request);
   DeepfakeDetectResponse deepfakeDetectWithOptions(shared_ptr<DeepfakeDetectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeepfakeDetectResponse deepfakeDetect(shared_ptr<DeepfakeDetectRequest> request);
+  DeleteFaceVerifyResultResponse deleteFaceVerifyResultWithOptions(shared_ptr<DeleteFaceVerifyResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteFaceVerifyResultResponse deleteFaceVerifyResult(shared_ptr<DeleteFaceVerifyResultRequest> request);
   DescribeDeviceInfoResponse describeDeviceInfoWithOptions(shared_ptr<DescribeDeviceInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDeviceInfoResponse describeDeviceInfo(shared_ptr<DescribeDeviceInfoRequest> request);
   DescribeFaceVerifyResponse describeFaceVerifyWithOptions(shared_ptr<DescribeFaceVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
