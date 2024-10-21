@@ -1512,6 +1512,198 @@ public:
 
   virtual ~CheckDomainSunriseClaimResponse() = default;
 };
+class CheckIntlFixPriceDomainStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+
+  CheckIntlFixPriceDomainStatusRequest() {}
+
+  explicit CheckIntlFixPriceDomainStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+  }
+
+
+  virtual ~CheckIntlFixPriceDomainStatusRequest() = default;
+};
+class CheckIntlFixPriceDomainStatusResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<string> currency{};
+  shared_ptr<long> deadDate{};
+  shared_ptr<string> domain{};
+  shared_ptr<long> endTime{};
+  shared_ptr<bool> premium{};
+  shared_ptr<long> price{};
+  shared_ptr<long> regDate{};
+
+  CheckIntlFixPriceDomainStatusResponseBodyModule() {}
+
+  explicit CheckIntlFixPriceDomainStatusResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currency) {
+      res["Currency"] = boost::any(*currency);
+    }
+    if (deadDate) {
+      res["DeadDate"] = boost::any(*deadDate);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (premium) {
+      res["Premium"] = boost::any(*premium);
+    }
+    if (price) {
+      res["Price"] = boost::any(*price);
+    }
+    if (regDate) {
+      res["RegDate"] = boost::any(*regDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
+      currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
+    }
+    if (m.find("DeadDate") != m.end() && !m["DeadDate"].empty()) {
+      deadDate = make_shared<long>(boost::any_cast<long>(m["DeadDate"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Premium") != m.end() && !m["Premium"].empty()) {
+      premium = make_shared<bool>(boost::any_cast<bool>(m["Premium"]));
+    }
+    if (m.find("Price") != m.end() && !m["Price"].empty()) {
+      price = make_shared<long>(boost::any_cast<long>(m["Price"]));
+    }
+    if (m.find("RegDate") != m.end() && !m["RegDate"].empty()) {
+      regDate = make_shared<long>(boost::any_cast<long>(m["RegDate"]));
+    }
+  }
+
+
+  virtual ~CheckIntlFixPriceDomainStatusResponseBodyModule() = default;
+};
+class CheckIntlFixPriceDomainStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CheckIntlFixPriceDomainStatusResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+
+  CheckIntlFixPriceDomainStatusResponseBody() {}
+
+  explicit CheckIntlFixPriceDomainStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (module) {
+      res["Module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Module") != m.end() && !m["Module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Module"].type()) {
+        CheckIntlFixPriceDomainStatusResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Module"]));
+        module = make_shared<CheckIntlFixPriceDomainStatusResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CheckIntlFixPriceDomainStatusResponseBody() = default;
+};
+class CheckIntlFixPriceDomainStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CheckIntlFixPriceDomainStatusResponseBody> body{};
+
+  CheckIntlFixPriceDomainStatusResponse() {}
+
+  explicit CheckIntlFixPriceDomainStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CheckIntlFixPriceDomainStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CheckIntlFixPriceDomainStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckIntlFixPriceDomainStatusResponse() = default;
+};
 class CheckMaxYearOfServerLockRequest : public Darabonba::Model {
 public:
   shared_ptr<string> checkAction{};
@@ -2178,6 +2370,198 @@ public:
 
 
   virtual ~ConfirmTransferInEmailResponse() = default;
+};
+class CreateIntlFixedPriceDomainOrderRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoPay{};
+  shared_ptr<long> contactId{};
+  shared_ptr<string> domain{};
+  shared_ptr<long> expectedPrice{};
+
+  CreateIntlFixedPriceDomainOrderRequest() {}
+
+  explicit CreateIntlFixedPriceDomainOrderRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (contactId) {
+      res["ContactId"] = boost::any(*contactId);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (expectedPrice) {
+      res["ExpectedPrice"] = boost::any(*expectedPrice);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("ContactId") != m.end() && !m["ContactId"].empty()) {
+      contactId = make_shared<long>(boost::any_cast<long>(m["ContactId"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("ExpectedPrice") != m.end() && !m["ExpectedPrice"].empty()) {
+      expectedPrice = make_shared<long>(boost::any_cast<long>(m["ExpectedPrice"]));
+    }
+  }
+
+
+  virtual ~CreateIntlFixedPriceDomainOrderRequest() = default;
+};
+class CreateIntlFixedPriceDomainOrderResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> orderNo{};
+  shared_ptr<long> payPrice{};
+  shared_ptr<string> payUrl{};
+
+  CreateIntlFixedPriceDomainOrderResponseBodyModule() {}
+
+  explicit CreateIntlFixedPriceDomainOrderResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (orderNo) {
+      res["OrderNo"] = boost::any(*orderNo);
+    }
+    if (payPrice) {
+      res["PayPrice"] = boost::any(*payPrice);
+    }
+    if (payUrl) {
+      res["PayUrl"] = boost::any(*payUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("OrderNo") != m.end() && !m["OrderNo"].empty()) {
+      orderNo = make_shared<string>(boost::any_cast<string>(m["OrderNo"]));
+    }
+    if (m.find("PayPrice") != m.end() && !m["PayPrice"].empty()) {
+      payPrice = make_shared<long>(boost::any_cast<long>(m["PayPrice"]));
+    }
+    if (m.find("PayUrl") != m.end() && !m["PayUrl"].empty()) {
+      payUrl = make_shared<string>(boost::any_cast<string>(m["PayUrl"]));
+    }
+  }
+
+
+  virtual ~CreateIntlFixedPriceDomainOrderResponseBodyModule() = default;
+};
+class CreateIntlFixedPriceDomainOrderResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CreateIntlFixedPriceDomainOrderResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+
+  CreateIntlFixedPriceDomainOrderResponseBody() {}
+
+  explicit CreateIntlFixedPriceDomainOrderResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (module) {
+      res["Module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Module") != m.end() && !m["Module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Module"].type()) {
+        CreateIntlFixedPriceDomainOrderResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Module"]));
+        module = make_shared<CreateIntlFixedPriceDomainOrderResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateIntlFixedPriceDomainOrderResponseBody() = default;
+};
+class CreateIntlFixedPriceDomainOrderResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateIntlFixedPriceDomainOrderResponseBody> body{};
+
+  CreateIntlFixedPriceDomainOrderResponse() {}
+
+  explicit CreateIntlFixedPriceDomainOrderResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateIntlFixedPriceDomainOrderResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateIntlFixedPriceDomainOrderResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIntlFixedPriceDomainOrderResponse() = default;
 };
 class DeleteContactTemplatesRequest : public Darabonba::Model {
 public:
@@ -3341,6 +3725,156 @@ public:
 
 
   virtual ~FuzzyMatchDomainSensitiveWordResponse() = default;
+};
+class GetIntlFixPriceDomainListUrlRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> listDate{};
+
+  GetIntlFixPriceDomainListUrlRequest() {}
+
+  explicit GetIntlFixPriceDomainListUrlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (listDate) {
+      res["ListDate"] = boost::any(*listDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ListDate") != m.end() && !m["ListDate"].empty()) {
+      listDate = make_shared<string>(boost::any_cast<string>(m["ListDate"]));
+    }
+  }
+
+
+  virtual ~GetIntlFixPriceDomainListUrlRequest() = default;
+};
+class GetIntlFixPriceDomainListUrlResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<string> downloadUrl{};
+
+  GetIntlFixPriceDomainListUrlResponseBodyModule() {}
+
+  explicit GetIntlFixPriceDomainListUrlResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (downloadUrl) {
+      res["DownloadUrl"] = boost::any(*downloadUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DownloadUrl") != m.end() && !m["DownloadUrl"].empty()) {
+      downloadUrl = make_shared<string>(boost::any_cast<string>(m["DownloadUrl"]));
+    }
+  }
+
+
+  virtual ~GetIntlFixPriceDomainListUrlResponseBodyModule() = default;
+};
+class GetIntlFixPriceDomainListUrlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetIntlFixPriceDomainListUrlResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+
+  GetIntlFixPriceDomainListUrlResponseBody() {}
+
+  explicit GetIntlFixPriceDomainListUrlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (module) {
+      res["Module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Module") != m.end() && !m["Module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Module"].type()) {
+        GetIntlFixPriceDomainListUrlResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Module"]));
+        module = make_shared<GetIntlFixPriceDomainListUrlResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetIntlFixPriceDomainListUrlResponseBody() = default;
+};
+class GetIntlFixPriceDomainListUrlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetIntlFixPriceDomainListUrlResponseBody> body{};
+
+  GetIntlFixPriceDomainListUrlResponse() {}
+
+  explicit GetIntlFixPriceDomainListUrlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetIntlFixPriceDomainListUrlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetIntlFixPriceDomainListUrlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetIntlFixPriceDomainListUrlResponse() = default;
 };
 class GetOperationOssUploadPolicyRequest : public Darabonba::Model {
 public:
@@ -12155,6 +12689,297 @@ public:
 
   virtual ~QueryFailingReasonListForQualificationResponse() = default;
 };
+class QueryIntlFixedPriceOrderListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bizId{};
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> status{};
+
+  QueryIntlFixedPriceOrderListRequest() {}
+
+  explicit QueryIntlFixedPriceOrderListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizId) {
+      res["BizId"] = boost::any(*bizId);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizId") != m.end() && !m["BizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["BizId"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~QueryIntlFixedPriceOrderListRequest() = default;
+};
+class QueryIntlFixedPriceOrderListResponseBodyModuleData : public Darabonba::Model {
+public:
+  shared_ptr<string> bizId{};
+  shared_ptr<long> createTime{};
+  shared_ptr<string> domain{};
+  shared_ptr<long> orderType{};
+  shared_ptr<long> price{};
+  shared_ptr<long> status{};
+  shared_ptr<long> updateTime{};
+  shared_ptr<string> userId{};
+
+  QueryIntlFixedPriceOrderListResponseBodyModuleData() {}
+
+  explicit QueryIntlFixedPriceOrderListResponseBodyModuleData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizId) {
+      res["BizId"] = boost::any(*bizId);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (orderType) {
+      res["OrderType"] = boost::any(*orderType);
+    }
+    if (price) {
+      res["Price"] = boost::any(*price);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizId") != m.end() && !m["BizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["BizId"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
+      orderType = make_shared<long>(boost::any_cast<long>(m["OrderType"]));
+    }
+    if (m.find("Price") != m.end() && !m["Price"].empty()) {
+      price = make_shared<long>(boost::any_cast<long>(m["Price"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<long>(boost::any_cast<long>(m["UpdateTime"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~QueryIntlFixedPriceOrderListResponseBodyModuleData() = default;
+};
+class QueryIntlFixedPriceOrderListResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPageNum{};
+  shared_ptr<vector<QueryIntlFixedPriceOrderListResponseBodyModuleData>> data{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalItemNum{};
+  shared_ptr<long> totalPageNum{};
+
+  QueryIntlFixedPriceOrderListResponseBodyModule() {}
+
+  explicit QueryIntlFixedPriceOrderListResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPageNum) {
+      res["CurrentPageNum"] = boost::any(*currentPageNum);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalItemNum) {
+      res["TotalItemNum"] = boost::any(*totalItemNum);
+    }
+    if (totalPageNum) {
+      res["TotalPageNum"] = boost::any(*totalPageNum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPageNum") != m.end() && !m["CurrentPageNum"].empty()) {
+      currentPageNum = make_shared<long>(boost::any_cast<long>(m["CurrentPageNum"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<QueryIntlFixedPriceOrderListResponseBodyModuleData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryIntlFixedPriceOrderListResponseBodyModuleData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<QueryIntlFixedPriceOrderListResponseBodyModuleData>>(expect1);
+      }
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalItemNum") != m.end() && !m["TotalItemNum"].empty()) {
+      totalItemNum = make_shared<long>(boost::any_cast<long>(m["TotalItemNum"]));
+    }
+    if (m.find("TotalPageNum") != m.end() && !m["TotalPageNum"].empty()) {
+      totalPageNum = make_shared<long>(boost::any_cast<long>(m["TotalPageNum"]));
+    }
+  }
+
+
+  virtual ~QueryIntlFixedPriceOrderListResponseBodyModule() = default;
+};
+class QueryIntlFixedPriceOrderListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<QueryIntlFixedPriceOrderListResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+
+  QueryIntlFixedPriceOrderListResponseBody() {}
+
+  explicit QueryIntlFixedPriceOrderListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (module) {
+      res["Module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Module") != m.end() && !m["Module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Module"].type()) {
+        QueryIntlFixedPriceOrderListResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Module"]));
+        module = make_shared<QueryIntlFixedPriceOrderListResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~QueryIntlFixedPriceOrderListResponseBody() = default;
+};
+class QueryIntlFixedPriceOrderListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryIntlFixedPriceOrderListResponseBody> body{};
+
+  QueryIntlFixedPriceOrderListResponse() {}
+
+  explicit QueryIntlFixedPriceOrderListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryIntlFixedPriceOrderListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryIntlFixedPriceOrderListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryIntlFixedPriceOrderListResponse() = default;
+};
 class QueryLocalEnsAssociationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
@@ -19137,6 +19962,187 @@ public:
 
   virtual ~SaveBatchTaskForReserveDropListDomainResponse() = default;
 };
+class SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationCode{};
+  shared_ptr<string> domainName{};
+
+  SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList() {}
+
+  explicit SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationCode) {
+      res["AuthorizationCode"] = boost::any(*authorizationCode);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationCode") != m.end() && !m["AuthorizationCode"].empty()) {
+      authorizationCode = make_shared<string>(boost::any_cast<string>(m["AuthorizationCode"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+  }
+
+
+  virtual ~SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList() = default;
+};
+class SaveBatchTaskForTransferOutByAuthorizationCodeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> long_{};
+  shared_ptr<vector<SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList>> transferOutParamList{};
+  shared_ptr<string> userClientIp{};
+
+  SaveBatchTaskForTransferOutByAuthorizationCodeRequest() {}
+
+  explicit SaveBatchTaskForTransferOutByAuthorizationCodeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (long_) {
+      res["Long"] = boost::any(*long_);
+    }
+    if (transferOutParamList) {
+      vector<boost::any> temp1;
+      for(auto item1:*transferOutParamList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TransferOutParamList"] = boost::any(temp1);
+    }
+    if (userClientIp) {
+      res["UserClientIp"] = boost::any(*userClientIp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Long") != m.end() && !m["Long"].empty()) {
+      long_ = make_shared<string>(boost::any_cast<string>(m["Long"]));
+    }
+    if (m.find("TransferOutParamList") != m.end() && !m["TransferOutParamList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TransferOutParamList"].type()) {
+        vector<SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TransferOutParamList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        transferOutParamList = make_shared<vector<SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList>>(expect1);
+      }
+    }
+    if (m.find("UserClientIp") != m.end() && !m["UserClientIp"].empty()) {
+      userClientIp = make_shared<string>(boost::any_cast<string>(m["UserClientIp"]));
+    }
+  }
+
+
+  virtual ~SaveBatchTaskForTransferOutByAuthorizationCodeRequest() = default;
+};
+class SaveBatchTaskForTransferOutByAuthorizationCodeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskNo{};
+
+  SaveBatchTaskForTransferOutByAuthorizationCodeResponseBody() {}
+
+  explicit SaveBatchTaskForTransferOutByAuthorizationCodeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskNo) {
+      res["TaskNo"] = boost::any(*taskNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskNo") != m.end() && !m["TaskNo"].empty()) {
+      taskNo = make_shared<string>(boost::any_cast<string>(m["TaskNo"]));
+    }
+  }
+
+
+  virtual ~SaveBatchTaskForTransferOutByAuthorizationCodeResponseBody() = default;
+};
+class SaveBatchTaskForTransferOutByAuthorizationCodeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SaveBatchTaskForTransferOutByAuthorizationCodeResponseBody> body{};
+
+  SaveBatchTaskForTransferOutByAuthorizationCodeResponse() {}
+
+  explicit SaveBatchTaskForTransferOutByAuthorizationCodeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SaveBatchTaskForTransferOutByAuthorizationCodeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SaveBatchTaskForTransferOutByAuthorizationCodeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SaveBatchTaskForTransferOutByAuthorizationCodeResponse() = default;
+};
 class SaveBatchTaskForTransferProhibitionLockRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> domainName{};
@@ -24124,6 +25130,144 @@ public:
 
   virtual ~SaveSingleTaskForSynchronizingDnsHostResponse() = default;
 };
+class SaveSingleTaskForTransferOutByAuthorizationCodeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationCode{};
+  shared_ptr<string> domainName{};
+  shared_ptr<string> lang{};
+  shared_ptr<string> userClientIp{};
+
+  SaveSingleTaskForTransferOutByAuthorizationCodeRequest() {}
+
+  explicit SaveSingleTaskForTransferOutByAuthorizationCodeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationCode) {
+      res["AuthorizationCode"] = boost::any(*authorizationCode);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (userClientIp) {
+      res["UserClientIp"] = boost::any(*userClientIp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationCode") != m.end() && !m["AuthorizationCode"].empty()) {
+      authorizationCode = make_shared<string>(boost::any_cast<string>(m["AuthorizationCode"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("UserClientIp") != m.end() && !m["UserClientIp"].empty()) {
+      userClientIp = make_shared<string>(boost::any_cast<string>(m["UserClientIp"]));
+    }
+  }
+
+
+  virtual ~SaveSingleTaskForTransferOutByAuthorizationCodeRequest() = default;
+};
+class SaveSingleTaskForTransferOutByAuthorizationCodeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskNo{};
+
+  SaveSingleTaskForTransferOutByAuthorizationCodeResponseBody() {}
+
+  explicit SaveSingleTaskForTransferOutByAuthorizationCodeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskNo) {
+      res["TaskNo"] = boost::any(*taskNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskNo") != m.end() && !m["TaskNo"].empty()) {
+      taskNo = make_shared<string>(boost::any_cast<string>(m["TaskNo"]));
+    }
+  }
+
+
+  virtual ~SaveSingleTaskForTransferOutByAuthorizationCodeResponseBody() = default;
+};
+class SaveSingleTaskForTransferOutByAuthorizationCodeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SaveSingleTaskForTransferOutByAuthorizationCodeResponseBody> body{};
+
+  SaveSingleTaskForTransferOutByAuthorizationCodeResponse() {}
+
+  explicit SaveSingleTaskForTransferOutByAuthorizationCodeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SaveSingleTaskForTransferOutByAuthorizationCodeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SaveSingleTaskForTransferOutByAuthorizationCodeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SaveSingleTaskForTransferOutByAuthorizationCodeResponse() = default;
+};
 class SaveSingleTaskForTransferProhibitionLockRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
@@ -28289,6 +29433,8 @@ public:
   CheckDomainResponse checkDomain(shared_ptr<CheckDomainRequest> request);
   CheckDomainSunriseClaimResponse checkDomainSunriseClaimWithOptions(shared_ptr<CheckDomainSunriseClaimRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckDomainSunriseClaimResponse checkDomainSunriseClaim(shared_ptr<CheckDomainSunriseClaimRequest> request);
+  CheckIntlFixPriceDomainStatusResponse checkIntlFixPriceDomainStatusWithOptions(shared_ptr<CheckIntlFixPriceDomainStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CheckIntlFixPriceDomainStatusResponse checkIntlFixPriceDomainStatus(shared_ptr<CheckIntlFixPriceDomainStatusRequest> request);
   CheckMaxYearOfServerLockResponse checkMaxYearOfServerLockWithOptions(shared_ptr<CheckMaxYearOfServerLockRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckMaxYearOfServerLockResponse checkMaxYearOfServerLock(shared_ptr<CheckMaxYearOfServerLockRequest> request);
   CheckProcessingServerLockApplyResponse checkProcessingServerLockApplyWithOptions(shared_ptr<CheckProcessingServerLockApplyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28297,6 +29443,8 @@ public:
   CheckTransferInFeasibilityResponse checkTransferInFeasibility(shared_ptr<CheckTransferInFeasibilityRequest> request);
   ConfirmTransferInEmailResponse confirmTransferInEmailWithOptions(shared_ptr<ConfirmTransferInEmailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ConfirmTransferInEmailResponse confirmTransferInEmail(shared_ptr<ConfirmTransferInEmailRequest> request);
+  CreateIntlFixedPriceDomainOrderResponse createIntlFixedPriceDomainOrderWithOptions(shared_ptr<CreateIntlFixedPriceDomainOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateIntlFixedPriceDomainOrderResponse createIntlFixedPriceDomainOrder(shared_ptr<CreateIntlFixedPriceDomainOrderRequest> request);
   DeleteContactTemplatesResponse deleteContactTemplatesWithOptions(shared_ptr<DeleteContactTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteContactTemplatesResponse deleteContactTemplates(shared_ptr<DeleteContactTemplatesRequest> request);
   DeleteDomainGroupResponse deleteDomainGroupWithOptions(shared_ptr<DeleteDomainGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28311,6 +29459,8 @@ public:
   EmailVerifiedResponse emailVerified(shared_ptr<EmailVerifiedRequest> request);
   FuzzyMatchDomainSensitiveWordResponse fuzzyMatchDomainSensitiveWordWithOptions(shared_ptr<FuzzyMatchDomainSensitiveWordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FuzzyMatchDomainSensitiveWordResponse fuzzyMatchDomainSensitiveWord(shared_ptr<FuzzyMatchDomainSensitiveWordRequest> request);
+  GetIntlFixPriceDomainListUrlResponse getIntlFixPriceDomainListUrlWithOptions(shared_ptr<GetIntlFixPriceDomainListUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetIntlFixPriceDomainListUrlResponse getIntlFixPriceDomainListUrl(shared_ptr<GetIntlFixPriceDomainListUrlRequest> request);
   GetOperationOssUploadPolicyResponse getOperationOssUploadPolicyWithOptions(shared_ptr<GetOperationOssUploadPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetOperationOssUploadPolicyResponse getOperationOssUploadPolicy(shared_ptr<GetOperationOssUploadPolicyRequest> request);
   GetQualificationUploadPolicyResponse getQualificationUploadPolicyWithOptions(shared_ptr<GetQualificationUploadPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28363,6 +29513,8 @@ public:
   QueryFailReasonForRegistrantProfileRealNameVerificationResponse queryFailReasonForRegistrantProfileRealNameVerification(shared_ptr<QueryFailReasonForRegistrantProfileRealNameVerificationRequest> request);
   QueryFailingReasonListForQualificationResponse queryFailingReasonListForQualificationWithOptions(shared_ptr<QueryFailingReasonListForQualificationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryFailingReasonListForQualificationResponse queryFailingReasonListForQualification(shared_ptr<QueryFailingReasonListForQualificationRequest> request);
+  QueryIntlFixedPriceOrderListResponse queryIntlFixedPriceOrderListWithOptions(shared_ptr<QueryIntlFixedPriceOrderListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryIntlFixedPriceOrderListResponse queryIntlFixedPriceOrderList(shared_ptr<QueryIntlFixedPriceOrderListRequest> request);
   QueryLocalEnsAssociationResponse queryLocalEnsAssociationWithOptions(shared_ptr<QueryLocalEnsAssociationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryLocalEnsAssociationResponse queryLocalEnsAssociation(shared_ptr<QueryLocalEnsAssociationRequest> request);
   QueryOperationAuditInfoDetailResponse queryOperationAuditInfoDetailWithOptions(shared_ptr<QueryOperationAuditInfoDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28417,6 +29569,8 @@ public:
   SaveBatchTaskForModifyingDomainDnsResponse saveBatchTaskForModifyingDomainDns(shared_ptr<SaveBatchTaskForModifyingDomainDnsRequest> request);
   SaveBatchTaskForReserveDropListDomainResponse saveBatchTaskForReserveDropListDomainWithOptions(shared_ptr<SaveBatchTaskForReserveDropListDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SaveBatchTaskForReserveDropListDomainResponse saveBatchTaskForReserveDropListDomain(shared_ptr<SaveBatchTaskForReserveDropListDomainRequest> request);
+  SaveBatchTaskForTransferOutByAuthorizationCodeResponse saveBatchTaskForTransferOutByAuthorizationCodeWithOptions(shared_ptr<SaveBatchTaskForTransferOutByAuthorizationCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SaveBatchTaskForTransferOutByAuthorizationCodeResponse saveBatchTaskForTransferOutByAuthorizationCode(shared_ptr<SaveBatchTaskForTransferOutByAuthorizationCodeRequest> request);
   SaveBatchTaskForTransferProhibitionLockResponse saveBatchTaskForTransferProhibitionLockWithOptions(shared_ptr<SaveBatchTaskForTransferProhibitionLockRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SaveBatchTaskForTransferProhibitionLockResponse saveBatchTaskForTransferProhibitionLock(shared_ptr<SaveBatchTaskForTransferProhibitionLockRequest> request);
   SaveBatchTaskForUpdateProhibitionLockResponse saveBatchTaskForUpdateProhibitionLockWithOptions(shared_ptr<SaveBatchTaskForUpdateProhibitionLockRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28477,6 +29631,8 @@ public:
   SaveSingleTaskForSynchronizingDSRecordResponse saveSingleTaskForSynchronizingDSRecord(shared_ptr<SaveSingleTaskForSynchronizingDSRecordRequest> request);
   SaveSingleTaskForSynchronizingDnsHostResponse saveSingleTaskForSynchronizingDnsHostWithOptions(shared_ptr<SaveSingleTaskForSynchronizingDnsHostRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SaveSingleTaskForSynchronizingDnsHostResponse saveSingleTaskForSynchronizingDnsHost(shared_ptr<SaveSingleTaskForSynchronizingDnsHostRequest> request);
+  SaveSingleTaskForTransferOutByAuthorizationCodeResponse saveSingleTaskForTransferOutByAuthorizationCodeWithOptions(shared_ptr<SaveSingleTaskForTransferOutByAuthorizationCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SaveSingleTaskForTransferOutByAuthorizationCodeResponse saveSingleTaskForTransferOutByAuthorizationCode(shared_ptr<SaveSingleTaskForTransferOutByAuthorizationCodeRequest> request);
   SaveSingleTaskForTransferProhibitionLockResponse saveSingleTaskForTransferProhibitionLockWithOptions(shared_ptr<SaveSingleTaskForTransferProhibitionLockRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SaveSingleTaskForTransferProhibitionLockResponse saveSingleTaskForTransferProhibitionLock(shared_ptr<SaveSingleTaskForTransferProhibitionLockRequest> request);
   SaveSingleTaskForUpdateProhibitionLockResponse saveSingleTaskForUpdateProhibitionLockWithOptions(shared_ptr<SaveSingleTaskForUpdateProhibitionLockRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
