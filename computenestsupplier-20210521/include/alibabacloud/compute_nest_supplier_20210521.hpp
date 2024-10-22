@@ -1141,6 +1141,42 @@ public:
 
   virtual ~CreateServiceRequestServiceInfoAgreements() = default;
 };
+class CreateServiceRequestServiceInfoSoftwares : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> version{};
+
+  CreateServiceRequestServiceInfoSoftwares() {}
+
+  explicit CreateServiceRequestServiceInfoSoftwares(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~CreateServiceRequestServiceInfoSoftwares() = default;
+};
 class CreateServiceRequestServiceInfo : public Darabonba::Model {
 public:
   shared_ptr<vector<CreateServiceRequestServiceInfoAgreements>> agreements{};
@@ -1149,6 +1185,7 @@ public:
   shared_ptr<string> longDescriptionUrl{};
   shared_ptr<string> name{};
   shared_ptr<string> shortDescription{};
+  shared_ptr<vector<CreateServiceRequestServiceInfoSoftwares>> softwares{};
 
   CreateServiceRequestServiceInfo() {}
 
@@ -1182,6 +1219,13 @@ public:
     if (shortDescription) {
       res["ShortDescription"] = boost::any(*shortDescription);
     }
+    if (softwares) {
+      vector<boost::any> temp1;
+      for(auto item1:*softwares){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Softwares"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1213,6 +1257,19 @@ public:
     }
     if (m.find("ShortDescription") != m.end() && !m["ShortDescription"].empty()) {
       shortDescription = make_shared<string>(boost::any_cast<string>(m["ShortDescription"]));
+    }
+    if (m.find("Softwares") != m.end() && !m["Softwares"].empty()) {
+      if (typeid(vector<boost::any>) == m["Softwares"].type()) {
+        vector<CreateServiceRequestServiceInfoSoftwares> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Softwares"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateServiceRequestServiceInfoSoftwares model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        softwares = make_shared<vector<CreateServiceRequestServiceInfoSoftwares>>(expect1);
+      }
     }
   }
 
@@ -4089,6 +4146,42 @@ public:
 
   virtual ~GetServiceResponseBodyServiceInfosAgreements() = default;
 };
+class GetServiceResponseBodyServiceInfosSoftwares : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> version{};
+
+  GetServiceResponseBodyServiceInfosSoftwares() {}
+
+  explicit GetServiceResponseBodyServiceInfosSoftwares(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~GetServiceResponseBodyServiceInfosSoftwares() = default;
+};
 class GetServiceResponseBodyServiceInfos : public Darabonba::Model {
 public:
   shared_ptr<vector<GetServiceResponseBodyServiceInfosAgreements>> agreements{};
@@ -4097,6 +4190,7 @@ public:
   shared_ptr<string> longDescriptionUrl{};
   shared_ptr<string> name{};
   shared_ptr<string> shortDescription{};
+  shared_ptr<vector<GetServiceResponseBodyServiceInfosSoftwares>> softwares{};
 
   GetServiceResponseBodyServiceInfos() {}
 
@@ -4130,6 +4224,13 @@ public:
     if (shortDescription) {
       res["ShortDescription"] = boost::any(*shortDescription);
     }
+    if (softwares) {
+      vector<boost::any> temp1;
+      for(auto item1:*softwares){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Softwares"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -4161,6 +4262,19 @@ public:
     }
     if (m.find("ShortDescription") != m.end() && !m["ShortDescription"].empty()) {
       shortDescription = make_shared<string>(boost::any_cast<string>(m["ShortDescription"]));
+    }
+    if (m.find("Softwares") != m.end() && !m["Softwares"].empty()) {
+      if (typeid(vector<boost::any>) == m["Softwares"].type()) {
+        vector<GetServiceResponseBodyServiceInfosSoftwares> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Softwares"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetServiceResponseBodyServiceInfosSoftwares model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        softwares = make_shared<vector<GetServiceResponseBodyServiceInfosSoftwares>>(expect1);
+      }
     }
   }
 
@@ -12119,6 +12233,42 @@ public:
 
   virtual ~UpdateServiceRequestServiceInfoAgreements() = default;
 };
+class UpdateServiceRequestServiceInfoSoftwares : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> version{};
+
+  UpdateServiceRequestServiceInfoSoftwares() {}
+
+  explicit UpdateServiceRequestServiceInfoSoftwares(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceRequestServiceInfoSoftwares() = default;
+};
 class UpdateServiceRequestServiceInfo : public Darabonba::Model {
 public:
   shared_ptr<vector<UpdateServiceRequestServiceInfoAgreements>> agreements{};
@@ -12127,6 +12277,7 @@ public:
   shared_ptr<string> longDescriptionUrl{};
   shared_ptr<string> name{};
   shared_ptr<string> shortDescription{};
+  shared_ptr<vector<UpdateServiceRequestServiceInfoSoftwares>> softwares{};
 
   UpdateServiceRequestServiceInfo() {}
 
@@ -12160,6 +12311,13 @@ public:
     if (shortDescription) {
       res["ShortDescription"] = boost::any(*shortDescription);
     }
+    if (softwares) {
+      vector<boost::any> temp1;
+      for(auto item1:*softwares){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Softwares"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -12191,6 +12349,19 @@ public:
     }
     if (m.find("ShortDescription") != m.end() && !m["ShortDescription"].empty()) {
       shortDescription = make_shared<string>(boost::any_cast<string>(m["ShortDescription"]));
+    }
+    if (m.find("Softwares") != m.end() && !m["Softwares"].empty()) {
+      if (typeid(vector<boost::any>) == m["Softwares"].type()) {
+        vector<UpdateServiceRequestServiceInfoSoftwares> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Softwares"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateServiceRequestServiceInfoSoftwares model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        softwares = make_shared<vector<UpdateServiceRequestServiceInfoSoftwares>>(expect1);
+      }
     }
   }
 
@@ -12488,6 +12659,42 @@ public:
 
   virtual ~UpdateServiceShrinkRequestServiceInfoAgreements() = default;
 };
+class UpdateServiceShrinkRequestServiceInfoSoftwares : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> version{};
+
+  UpdateServiceShrinkRequestServiceInfoSoftwares() {}
+
+  explicit UpdateServiceShrinkRequestServiceInfoSoftwares(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceShrinkRequestServiceInfoSoftwares() = default;
+};
 class UpdateServiceShrinkRequestServiceInfo : public Darabonba::Model {
 public:
   shared_ptr<vector<UpdateServiceShrinkRequestServiceInfoAgreements>> agreements{};
@@ -12496,6 +12703,7 @@ public:
   shared_ptr<string> longDescriptionUrl{};
   shared_ptr<string> name{};
   shared_ptr<string> shortDescription{};
+  shared_ptr<vector<UpdateServiceShrinkRequestServiceInfoSoftwares>> softwares{};
 
   UpdateServiceShrinkRequestServiceInfo() {}
 
@@ -12529,6 +12737,13 @@ public:
     if (shortDescription) {
       res["ShortDescription"] = boost::any(*shortDescription);
     }
+    if (softwares) {
+      vector<boost::any> temp1;
+      for(auto item1:*softwares){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Softwares"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -12560,6 +12775,19 @@ public:
     }
     if (m.find("ShortDescription") != m.end() && !m["ShortDescription"].empty()) {
       shortDescription = make_shared<string>(boost::any_cast<string>(m["ShortDescription"]));
+    }
+    if (m.find("Softwares") != m.end() && !m["Softwares"].empty()) {
+      if (typeid(vector<boost::any>) == m["Softwares"].type()) {
+        vector<UpdateServiceShrinkRequestServiceInfoSoftwares> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Softwares"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateServiceShrinkRequestServiceInfoSoftwares model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        softwares = make_shared<vector<UpdateServiceShrinkRequestServiceInfoSoftwares>>(expect1);
+      }
     }
   }
 
