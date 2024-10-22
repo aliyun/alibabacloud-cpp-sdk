@@ -2255,6 +2255,7 @@ public:
 };
 class DeleteKeywordRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> keywordIdList{};
   shared_ptr<string> keywordIds{};
   shared_ptr<string> libId{};
   shared_ptr<string> regionId{};
@@ -2269,6 +2270,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (keywordIdList) {
+      res["KeywordIdList"] = boost::any(*keywordIdList);
+    }
     if (keywordIds) {
       res["KeywordIds"] = boost::any(*keywordIds);
     }
@@ -2282,6 +2286,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("KeywordIdList") != m.end() && !m["KeywordIdList"].empty()) {
+      keywordIdList = make_shared<string>(boost::any_cast<string>(m["KeywordIdList"]));
+    }
     if (m.find("KeywordIds") != m.end() && !m["KeywordIds"].empty()) {
       keywordIds = make_shared<string>(boost::any_cast<string>(m["KeywordIds"]));
     }

@@ -535,6 +535,9 @@ DeleteKeywordResponse Alibabacloud_Green20220926::Client::deleteKeywordWithOptio
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->keywordIdList)) {
+    body->insert(pair<string, string>("KeywordIdList", *request->keywordIdList));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->keywordIds)) {
     body->insert(pair<string, string>("KeywordIds", *request->keywordIds));
   }
