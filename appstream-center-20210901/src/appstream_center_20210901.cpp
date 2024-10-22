@@ -229,8 +229,13 @@ AskSessionPackageRenewPriceResponse Alibabacloud_Appstream-center20210901::Clien
   return askSessionPackageRenewPriceWithOptions(request, runtime);
 }
 
-AuthorizeInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::authorizeInstanceGroupWithOptions(shared_ptr<AuthorizeInstanceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+AuthorizeInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::authorizeInstanceGroupWithOptions(shared_ptr<AuthorizeInstanceGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AuthorizeInstanceGroupShrinkRequest> request = make_shared<AuthorizeInstanceGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<AuthorizeInstanceGroupRequestUserMeta>(tmpReq->userMeta)) {
+    request->userMetaShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->userMeta, make_shared<string>("UserMeta"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appInstanceGroupId)) {
     body->insert(pair<string, string>("AppInstanceGroupId", *request->appInstanceGroupId));
@@ -244,6 +249,9 @@ AuthorizeInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::au
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->unAuthorizeUserIds)) {
     bodyFlat->insert(pair<string, vector<string>>("UnAuthorizeUserIds", *request->unAuthorizeUserIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userMetaShrink)) {
+    body->insert(pair<string, string>("UserMeta", *request->userMetaShrink));
   }
   body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -1092,6 +1100,9 @@ ListAppInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::list
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeInstanceType)) {
     query->insert(pair<string, string>("NodeInstanceType", *request->nodeInstanceType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->officeSiteId)) {
+    query->insert(pair<string, string>("OfficeSiteId", *request->officeSiteId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
@@ -1185,11 +1196,29 @@ ListNodeInstanceTypeResponse Alibabacloud_Appstream-center20210901::Client::list
   if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
     query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
   }
+  if (!Darabonba_Util::Client::isUnset<double>(request->cpu)) {
+    query->insert(pair<string, double>("Cpu", *request->cpu));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->gpu)) {
+    query->insert(pair<string, double>("Gpu", *request->gpu));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->gpuMemory)) {
+    query->insert(pair<string, long>("GpuMemory", *request->gpuMemory));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     query->insert(pair<string, string>("Language", *request->language));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->memory)) {
+    query->insert(pair<string, long>("Memory", *request->memory));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeInstanceType)) {
     query->insert(pair<string, string>("NodeInstanceType", *request->nodeInstanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeInstanceTypeFamily)) {
+    query->insert(pair<string, string>("NodeInstanceTypeFamily", *request->nodeInstanceTypeFamily));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
+    query->insert(pair<string, string>("OrderBy", *request->orderBy));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->osType)) {
     query->insert(pair<string, string>("OsType", *request->osType));
@@ -1202,6 +1231,9 @@ ListNodeInstanceTypeResponse Alibabacloud_Appstream-center20210901::Client::list
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->productType)) {
     query->insert(pair<string, string>("ProductType", *request->productType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortType)) {
+    query->insert(pair<string, string>("SortType", *request->sortType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

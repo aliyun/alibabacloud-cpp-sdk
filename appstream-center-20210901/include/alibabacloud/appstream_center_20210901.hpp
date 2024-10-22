@@ -1024,12 +1024,49 @@ public:
 
   virtual ~AskSessionPackageRenewPriceResponse() = default;
 };
+class AuthorizeInstanceGroupRequestUserMeta : public Darabonba::Model {
+public:
+  shared_ptr<string> adDomain{};
+  shared_ptr<string> type{};
+
+  AuthorizeInstanceGroupRequestUserMeta() {}
+
+  explicit AuthorizeInstanceGroupRequestUserMeta(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adDomain) {
+      res["AdDomain"] = boost::any(*adDomain);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdDomain") != m.end() && !m["AdDomain"].empty()) {
+      adDomain = make_shared<string>(boost::any_cast<string>(m["AdDomain"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~AuthorizeInstanceGroupRequestUserMeta() = default;
+};
 class AuthorizeInstanceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appInstanceGroupId{};
   shared_ptr<vector<string>> authorizeUserIds{};
   shared_ptr<string> productType{};
   shared_ptr<vector<string>> unAuthorizeUserIds{};
+  shared_ptr<AuthorizeInstanceGroupRequestUserMeta> userMeta{};
 
   AuthorizeInstanceGroupRequest() {}
 
@@ -1052,6 +1089,9 @@ public:
     }
     if (unAuthorizeUserIds) {
       res["UnAuthorizeUserIds"] = boost::any(*unAuthorizeUserIds);
+    }
+    if (userMeta) {
+      res["UserMeta"] = userMeta ? boost::any(userMeta->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -1083,10 +1123,88 @@ public:
       }
       unAuthorizeUserIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("UserMeta") != m.end() && !m["UserMeta"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserMeta"].type()) {
+        AuthorizeInstanceGroupRequestUserMeta model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserMeta"]));
+        userMeta = make_shared<AuthorizeInstanceGroupRequestUserMeta>(model1);
+      }
+    }
   }
 
 
   virtual ~AuthorizeInstanceGroupRequest() = default;
+};
+class AuthorizeInstanceGroupShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appInstanceGroupId{};
+  shared_ptr<vector<string>> authorizeUserIds{};
+  shared_ptr<string> productType{};
+  shared_ptr<vector<string>> unAuthorizeUserIds{};
+  shared_ptr<string> userMetaShrink{};
+
+  AuthorizeInstanceGroupShrinkRequest() {}
+
+  explicit AuthorizeInstanceGroupShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appInstanceGroupId) {
+      res["AppInstanceGroupId"] = boost::any(*appInstanceGroupId);
+    }
+    if (authorizeUserIds) {
+      res["AuthorizeUserIds"] = boost::any(*authorizeUserIds);
+    }
+    if (productType) {
+      res["ProductType"] = boost::any(*productType);
+    }
+    if (unAuthorizeUserIds) {
+      res["UnAuthorizeUserIds"] = boost::any(*unAuthorizeUserIds);
+    }
+    if (userMetaShrink) {
+      res["UserMeta"] = boost::any(*userMetaShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppInstanceGroupId") != m.end() && !m["AppInstanceGroupId"].empty()) {
+      appInstanceGroupId = make_shared<string>(boost::any_cast<string>(m["AppInstanceGroupId"]));
+    }
+    if (m.find("AuthorizeUserIds") != m.end() && !m["AuthorizeUserIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AuthorizeUserIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AuthorizeUserIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      authorizeUserIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
+      productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
+    }
+    if (m.find("UnAuthorizeUserIds") != m.end() && !m["UnAuthorizeUserIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UnAuthorizeUserIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UnAuthorizeUserIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      unAuthorizeUserIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("UserMeta") != m.end() && !m["UserMeta"].empty()) {
+      userMetaShrink = make_shared<string>(boost::any_cast<string>(m["UserMeta"]));
+    }
+  }
+
+
+  virtual ~AuthorizeInstanceGroupShrinkRequest() = default;
 };
 class AuthorizeInstanceGroupResponseBody : public Darabonba::Model {
 public:
@@ -1757,8 +1875,10 @@ class CreateAppInstanceGroupRequestNetwork : public Darabonba::Model {
 public:
   shared_ptr<vector<CreateAppInstanceGroupRequestNetworkDomainRules>> domainRules{};
   shared_ptr<long> ipExpireMinutes{};
+  shared_ptr<string> officeSiteId{};
   shared_ptr<vector<CreateAppInstanceGroupRequestNetworkRoutes>> routes{};
   shared_ptr<string> strategyType{};
+  shared_ptr<vector<string>> vSwitchIds{};
 
   CreateAppInstanceGroupRequestNetwork() {}
 
@@ -1780,6 +1900,9 @@ public:
     if (ipExpireMinutes) {
       res["IpExpireMinutes"] = boost::any(*ipExpireMinutes);
     }
+    if (officeSiteId) {
+      res["OfficeSiteId"] = boost::any(*officeSiteId);
+    }
     if (routes) {
       vector<boost::any> temp1;
       for(auto item1:*routes){
@@ -1789,6 +1912,9 @@ public:
     }
     if (strategyType) {
       res["StrategyType"] = boost::any(*strategyType);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
     }
     return res;
   }
@@ -1810,6 +1936,9 @@ public:
     if (m.find("IpExpireMinutes") != m.end() && !m["IpExpireMinutes"].empty()) {
       ipExpireMinutes = make_shared<long>(boost::any_cast<long>(m["IpExpireMinutes"]));
     }
+    if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
+      officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
+    }
     if (m.find("Routes") != m.end() && !m["Routes"].empty()) {
       if (typeid(vector<boost::any>) == m["Routes"].type()) {
         vector<CreateAppInstanceGroupRequestNetworkRoutes> expect1;
@@ -1825,6 +1954,16 @@ public:
     }
     if (m.find("StrategyType") != m.end() && !m["StrategyType"].empty()) {
       strategyType = make_shared<string>(boost::any_cast<string>(m["StrategyType"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vSwitchIds = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -4405,6 +4544,7 @@ public:
   shared_ptr<long> maxAmount{};
   shared_ptr<long> minAmount{};
   shared_ptr<vector<GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool>> nodePool{};
+  shared_ptr<string> officeSiteId{};
   shared_ptr<string> osType{};
   shared_ptr<GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo> otaInfo{};
   shared_ptr<string> productType{};
@@ -4486,6 +4626,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["NodePool"] = boost::any(temp1);
+    }
+    if (officeSiteId) {
+      res["OfficeSiteId"] = boost::any(*officeSiteId);
     }
     if (osType) {
       res["OsType"] = boost::any(*osType);
@@ -4603,6 +4746,9 @@ public:
         }
         nodePool = make_shared<vector<GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool>>(expect1);
       }
+    }
+    if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
+      officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
     }
     if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
       osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
@@ -6881,6 +7027,7 @@ public:
   shared_ptr<string> appInstanceGroupName{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> nodeInstanceType{};
+  shared_ptr<string> officeSiteId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> productType{};
@@ -6911,6 +7058,9 @@ public:
     }
     if (nodeInstanceType) {
       res["NodeInstanceType"] = boost::any(*nodeInstanceType);
+    }
+    if (officeSiteId) {
+      res["OfficeSiteId"] = boost::any(*officeSiteId);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -6945,6 +7095,9 @@ public:
     }
     if (m.find("NodeInstanceType") != m.end() && !m["NodeInstanceType"].empty()) {
       nodeInstanceType = make_shared<string>(boost::any_cast<string>(m["NodeInstanceType"]));
+    }
+    if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
+      officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -7365,6 +7518,7 @@ public:
   shared_ptr<long> maxAmount{};
   shared_ptr<long> minAmount{};
   shared_ptr<vector<ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool>> nodePool{};
+  shared_ptr<string> officeSiteId{};
   shared_ptr<string> osType{};
   shared_ptr<ListAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo> otaInfo{};
   shared_ptr<string> productType{};
@@ -7440,6 +7594,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["NodePool"] = boost::any(temp1);
+    }
+    if (officeSiteId) {
+      res["OfficeSiteId"] = boost::any(*officeSiteId);
     }
     if (osType) {
       res["OsType"] = boost::any(*osType);
@@ -7551,6 +7708,9 @@ public:
         }
         nodePool = make_shared<vector<ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool>>(expect1);
       }
+    }
+    if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
+      officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
     }
     if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
       osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
@@ -8058,12 +8218,19 @@ public:
 class ListNodeInstanceTypeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizRegionId{};
+  shared_ptr<double> cpu{};
+  shared_ptr<double> gpu{};
+  shared_ptr<long> gpuMemory{};
   shared_ptr<string> language{};
+  shared_ptr<long> memory{};
   shared_ptr<string> nodeInstanceType{};
+  shared_ptr<string> nodeInstanceTypeFamily{};
+  shared_ptr<string> orderBy{};
   shared_ptr<string> osType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> productType{};
+  shared_ptr<string> sortType{};
 
   ListNodeInstanceTypeRequest() {}
 
@@ -8078,11 +8245,29 @@ public:
     if (bizRegionId) {
       res["BizRegionId"] = boost::any(*bizRegionId);
     }
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (gpu) {
+      res["Gpu"] = boost::any(*gpu);
+    }
+    if (gpuMemory) {
+      res["GpuMemory"] = boost::any(*gpuMemory);
+    }
     if (language) {
       res["Language"] = boost::any(*language);
     }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
     if (nodeInstanceType) {
       res["NodeInstanceType"] = boost::any(*nodeInstanceType);
+    }
+    if (nodeInstanceTypeFamily) {
+      res["NodeInstanceTypeFamily"] = boost::any(*nodeInstanceTypeFamily);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
     }
     if (osType) {
       res["OsType"] = boost::any(*osType);
@@ -8096,6 +8281,9 @@ public:
     if (productType) {
       res["ProductType"] = boost::any(*productType);
     }
+    if (sortType) {
+      res["SortType"] = boost::any(*sortType);
+    }
     return res;
   }
 
@@ -8103,11 +8291,29 @@ public:
     if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
       bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
     }
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["Cpu"]));
+    }
+    if (m.find("Gpu") != m.end() && !m["Gpu"].empty()) {
+      gpu = make_shared<double>(boost::any_cast<double>(m["Gpu"]));
+    }
+    if (m.find("GpuMemory") != m.end() && !m["GpuMemory"].empty()) {
+      gpuMemory = make_shared<long>(boost::any_cast<long>(m["GpuMemory"]));
+    }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
     if (m.find("NodeInstanceType") != m.end() && !m["NodeInstanceType"].empty()) {
       nodeInstanceType = make_shared<string>(boost::any_cast<string>(m["NodeInstanceType"]));
+    }
+    if (m.find("NodeInstanceTypeFamily") != m.end() && !m["NodeInstanceTypeFamily"].empty()) {
+      nodeInstanceTypeFamily = make_shared<string>(boost::any_cast<string>(m["NodeInstanceTypeFamily"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
     }
     if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
       osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
@@ -8120,6 +8326,9 @@ public:
     }
     if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
       productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
+    }
+    if (m.find("SortType") != m.end() && !m["SortType"].empty()) {
+      sortType = make_shared<string>(boost::any_cast<string>(m["SortType"]));
     }
   }
 
@@ -12383,7 +12592,7 @@ public:
   AskSessionPackagePriceResponse askSessionPackagePrice(shared_ptr<AskSessionPackagePriceRequest> request);
   AskSessionPackageRenewPriceResponse askSessionPackageRenewPriceWithOptions(shared_ptr<AskSessionPackageRenewPriceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AskSessionPackageRenewPriceResponse askSessionPackageRenewPrice(shared_ptr<AskSessionPackageRenewPriceRequest> request);
-  AuthorizeInstanceGroupResponse authorizeInstanceGroupWithOptions(shared_ptr<AuthorizeInstanceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AuthorizeInstanceGroupResponse authorizeInstanceGroupWithOptions(shared_ptr<AuthorizeInstanceGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AuthorizeInstanceGroupResponse authorizeInstanceGroup(shared_ptr<AuthorizeInstanceGroupRequest> request);
   BuySessionPackageResponse buySessionPackageWithOptions(shared_ptr<BuySessionPackageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BuySessionPackageResponse buySessionPackage(shared_ptr<BuySessionPackageRequest> request);
