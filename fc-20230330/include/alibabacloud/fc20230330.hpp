@@ -2185,6 +2185,7 @@ public:
 };
 class VPCConfig : public Darabonba::Model {
 public:
+  shared_ptr<string> role{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<vector<string>> vSwitchIds{};
   shared_ptr<string> vpcId{};
@@ -2199,6 +2200,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
     if (securityGroupId) {
       res["securityGroupId"] = boost::any(*securityGroupId);
     }
@@ -2212,6 +2216,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
     if (m.find("securityGroupId") != m.end() && !m["securityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["securityGroupId"]));
     }
