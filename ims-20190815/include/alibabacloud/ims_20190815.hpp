@@ -10329,6 +10329,7 @@ class ListUserBasicInfosRequest : public Darabonba::Model {
 public:
   shared_ptr<string> marker{};
   shared_ptr<long> maxItems{};
+  shared_ptr<string> status{};
   shared_ptr<vector<ListUserBasicInfosRequestTag>> tag{};
 
   ListUserBasicInfosRequest() {}
@@ -10347,6 +10348,9 @@ public:
     if (maxItems) {
       res["MaxItems"] = boost::any(*maxItems);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (tag) {
       vector<boost::any> temp1;
       for(auto item1:*tag){
@@ -10363,6 +10367,9 @@ public:
     }
     if (m.find("MaxItems") != m.end() && !m["MaxItems"].empty()) {
       maxItems = make_shared<long>(boost::any_cast<long>(m["MaxItems"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -10385,6 +10392,7 @@ public:
 class ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfo : public Darabonba::Model {
 public:
   shared_ptr<string> displayName{};
+  shared_ptr<string> status{};
   shared_ptr<string> userId{};
   shared_ptr<string> userPrincipalName{};
 
@@ -10401,6 +10409,9 @@ public:
     if (displayName) {
       res["DisplayName"] = boost::any(*displayName);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -10413,6 +10424,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
       displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -10614,6 +10628,7 @@ class ListUsersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> marker{};
   shared_ptr<long> maxItems{};
+  shared_ptr<string> status{};
   shared_ptr<vector<ListUsersRequestTag>> tag{};
 
   ListUsersRequest() {}
@@ -10632,6 +10647,9 @@ public:
     if (maxItems) {
       res["MaxItems"] = boost::any(*maxItems);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (tag) {
       vector<boost::any> temp1;
       for(auto item1:*tag){
@@ -10648,6 +10666,9 @@ public:
     }
     if (m.find("MaxItems") != m.end() && !m["MaxItems"].empty()) {
       maxItems = make_shared<long>(boost::any_cast<long>(m["MaxItems"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -10755,6 +10776,7 @@ public:
   shared_ptr<string> lastLoginDate{};
   shared_ptr<string> mobilePhone{};
   shared_ptr<string> provisionType{};
+  shared_ptr<string> status{};
   shared_ptr<ListUsersResponseBodyUsersUserTags> tags{};
   shared_ptr<string> updateDate{};
   shared_ptr<string> userId{};
@@ -10790,6 +10812,9 @@ public:
     }
     if (provisionType) {
       res["ProvisionType"] = boost::any(*provisionType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
     }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
@@ -10827,6 +10852,9 @@ public:
     }
     if (m.find("ProvisionType") != m.end() && !m["ProvisionType"].empty()) {
       provisionType = make_shared<string>(boost::any_cast<string>(m["ProvisionType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(map<string, boost::any>) == m["Tags"].type()) {

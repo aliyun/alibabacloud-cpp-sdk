@@ -1589,6 +1589,9 @@ ListUserBasicInfosResponse Alibabacloud_Ims20190815::Client::listUserBasicInfosW
   if (!Darabonba_Util::Client::isUnset<long>(request->maxItems)) {
     query->insert(pair<string, long>("MaxItems", *request->maxItems));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ListUserBasicInfosRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<ListUserBasicInfosRequestTag>>("Tag", *request->tag));
   }
@@ -1622,6 +1625,9 @@ ListUsersResponse Alibabacloud_Ims20190815::Client::listUsersWithOptions(shared_
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxItems)) {
     query->insert(pair<string, long>("MaxItems", *request->maxItems));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
   }
   if (!Darabonba_Util::Client::isUnset<vector<ListUsersRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<ListUsersRequestTag>>("Tag", *request->tag));
