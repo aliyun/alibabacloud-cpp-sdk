@@ -8710,14 +8710,13 @@ QueryGroupLiveInfoResponse Alibabacloud_Aliding20230426::Client::queryGroupLiveI
   if (!Darabonba_Util::Client::isUnset<QueryGroupLiveInfoRequestTenantContext>(tmpReq->tenantContext)) {
     request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
   }
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->anchorUnionId)) {
-    query->insert(pair<string, string>("AnchorUnionId", *request->anchorUnionId));
+    body->insert(pair<string, string>("AnchorUnionId", *request->anchorUnionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->liveUuid)) {
-    query->insert(pair<string, string>("LiveUuid", *request->liveUuid));
+    body->insert(pair<string, string>("LiveUuid", *request->liveUuid));
   }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
     body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
   }
@@ -8730,7 +8729,6 @@ QueryGroupLiveInfoResponse Alibabacloud_Aliding20230426::Client::queryGroupLiveI
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -8738,7 +8736,7 @@ QueryGroupLiveInfoResponse Alibabacloud_Aliding20230426::Client::queryGroupLiveI
     {"version", boost::any(string("2023-04-26"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/dingtalk/v1/ysp/queryGroupLiveInfo"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("formData"))},
