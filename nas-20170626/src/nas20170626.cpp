@@ -1007,6 +1007,9 @@ CreateFilesetResponse Alibabacloud_NAS20170626::Client::createFilesetWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemPath)) {
     query->insert(pair<string, string>("FileSystemPath", *request->fileSystemPath));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateFilesetRequestQuota>(request->quota)) {
+    query->insert(pair<string, CreateFilesetRequestQuota>("Quota", *request->quota));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

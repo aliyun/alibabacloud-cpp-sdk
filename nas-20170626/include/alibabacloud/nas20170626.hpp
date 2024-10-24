@@ -3482,6 +3482,42 @@ public:
 
   virtual ~CreateFileSystemResponse() = default;
 };
+class CreateFilesetRequestQuota : public Darabonba::Model {
+public:
+  shared_ptr<long> fileCountLimit{};
+  shared_ptr<long> sizeLimit{};
+
+  CreateFilesetRequestQuota() {}
+
+  explicit CreateFilesetRequestQuota(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileCountLimit) {
+      res["FileCountLimit"] = boost::any(*fileCountLimit);
+    }
+    if (sizeLimit) {
+      res["SizeLimit"] = boost::any(*sizeLimit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileCountLimit") != m.end() && !m["FileCountLimit"].empty()) {
+      fileCountLimit = make_shared<long>(boost::any_cast<long>(m["FileCountLimit"]));
+    }
+    if (m.find("SizeLimit") != m.end() && !m["SizeLimit"].empty()) {
+      sizeLimit = make_shared<long>(boost::any_cast<long>(m["SizeLimit"]));
+    }
+  }
+
+
+  virtual ~CreateFilesetRequestQuota() = default;
+};
 class CreateFilesetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -3490,6 +3526,7 @@ public:
   shared_ptr<bool> dryRun{};
   shared_ptr<string> fileSystemId{};
   shared_ptr<string> fileSystemPath{};
+  shared_ptr<CreateFilesetRequestQuota> quota{};
 
   CreateFilesetRequest() {}
 
@@ -3519,6 +3556,9 @@ public:
     if (fileSystemPath) {
       res["FileSystemPath"] = boost::any(*fileSystemPath);
     }
+    if (quota) {
+      res["Quota"] = quota ? boost::any(quota->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -3540,6 +3580,13 @@ public:
     }
     if (m.find("FileSystemPath") != m.end() && !m["FileSystemPath"].empty()) {
       fileSystemPath = make_shared<string>(boost::any_cast<string>(m["FileSystemPath"]));
+    }
+    if (m.find("Quota") != m.end() && !m["Quota"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Quota"].type()) {
+        CreateFilesetRequestQuota model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Quota"]));
+        quota = make_shared<CreateFilesetRequestQuota>(model1);
+      }
     }
   }
 
@@ -12478,13 +12525,53 @@ public:
 
   virtual ~DescribeFilesetsRequest() = default;
 };
+class DescribeFilesetsResponseBodyEntriesEntrieQuota : public Darabonba::Model {
+public:
+  shared_ptr<long> fileCountLimit{};
+  shared_ptr<long> sizeLimit{};
+
+  DescribeFilesetsResponseBodyEntriesEntrieQuota() {}
+
+  explicit DescribeFilesetsResponseBodyEntriesEntrieQuota(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileCountLimit) {
+      res["FileCountLimit"] = boost::any(*fileCountLimit);
+    }
+    if (sizeLimit) {
+      res["SizeLimit"] = boost::any(*sizeLimit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileCountLimit") != m.end() && !m["FileCountLimit"].empty()) {
+      fileCountLimit = make_shared<long>(boost::any_cast<long>(m["FileCountLimit"]));
+    }
+    if (m.find("SizeLimit") != m.end() && !m["SizeLimit"].empty()) {
+      sizeLimit = make_shared<long>(boost::any_cast<long>(m["SizeLimit"]));
+    }
+  }
+
+
+  virtual ~DescribeFilesetsResponseBodyEntriesEntrieQuota() = default;
+};
 class DescribeFilesetsResponseBodyEntriesEntrie : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<string> description{};
+  shared_ptr<long> fileCountUsage{};
+  shared_ptr<string> fileSystemId{};
   shared_ptr<string> fileSystemPath{};
   shared_ptr<string> fsetId{};
+  shared_ptr<DescribeFilesetsResponseBodyEntriesEntrieQuota> quota{};
+  shared_ptr<long> spaceUsage{};
   shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
 
@@ -12507,11 +12594,23 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (fileCountUsage) {
+      res["FileCountUsage"] = boost::any(*fileCountUsage);
+    }
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
     if (fileSystemPath) {
       res["FileSystemPath"] = boost::any(*fileSystemPath);
     }
     if (fsetId) {
       res["FsetId"] = boost::any(*fsetId);
+    }
+    if (quota) {
+      res["Quota"] = quota ? boost::any(quota->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (spaceUsage) {
+      res["SpaceUsage"] = boost::any(*spaceUsage);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -12532,11 +12631,27 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("FileCountUsage") != m.end() && !m["FileCountUsage"].empty()) {
+      fileCountUsage = make_shared<long>(boost::any_cast<long>(m["FileCountUsage"]));
+    }
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
     if (m.find("FileSystemPath") != m.end() && !m["FileSystemPath"].empty()) {
       fileSystemPath = make_shared<string>(boost::any_cast<string>(m["FileSystemPath"]));
     }
     if (m.find("FsetId") != m.end() && !m["FsetId"].empty()) {
       fsetId = make_shared<string>(boost::any_cast<string>(m["FsetId"]));
+    }
+    if (m.find("Quota") != m.end() && !m["Quota"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Quota"].type()) {
+        DescribeFilesetsResponseBodyEntriesEntrieQuota model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Quota"]));
+        quota = make_shared<DescribeFilesetsResponseBodyEntriesEntrieQuota>(model1);
+      }
+    }
+    if (m.find("SpaceUsage") != m.end() && !m["SpaceUsage"].empty()) {
+      spaceUsage = make_shared<long>(boost::any_cast<long>(m["SpaceUsage"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
