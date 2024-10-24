@@ -322,6 +322,18 @@ DescribeVerifySchemeResponse Alibabacloud_Dypnsapi20170525::Client::describeVeri
 GetAuthTokenResponse Alibabacloud_Dypnsapi20170525::Client::getAuthTokenWithOptions(shared_ptr<GetAuthTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->bizType)) {
+    query->insert(pair<string, long>("BizType", *request->bizType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cmApiCode)) {
+    query->insert(pair<string, long>("CmApiCode", *request->cmApiCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ctApiCode)) {
+    query->insert(pair<string, long>("CtApiCode", *request->ctApiCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cuApiCode)) {
+    query->insert(pair<string, long>("CuApiCode", *request->cuApiCode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->origin)) {
     query->insert(pair<string, string>("Origin", *request->origin));
   }
@@ -339,6 +351,9 @@ GetAuthTokenResponse Alibabacloud_Dypnsapi20170525::Client::getAuthTokenWithOpti
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
     query->insert(pair<string, string>("Url", *request->url));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
+    query->insert(pair<string, string>("Version", *request->version));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

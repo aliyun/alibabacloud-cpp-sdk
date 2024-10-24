@@ -1166,12 +1166,17 @@ public:
 };
 class GetAuthTokenRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> bizType{};
+  shared_ptr<long> cmApiCode{};
+  shared_ptr<long> ctApiCode{};
+  shared_ptr<long> cuApiCode{};
   shared_ptr<string> origin{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> sceneCode{};
   shared_ptr<string> url{};
+  shared_ptr<string> version{};
 
   GetAuthTokenRequest() {}
 
@@ -1183,6 +1188,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bizType) {
+      res["BizType"] = boost::any(*bizType);
+    }
+    if (cmApiCode) {
+      res["CmApiCode"] = boost::any(*cmApiCode);
+    }
+    if (ctApiCode) {
+      res["CtApiCode"] = boost::any(*ctApiCode);
+    }
+    if (cuApiCode) {
+      res["CuApiCode"] = boost::any(*cuApiCode);
+    }
     if (origin) {
       res["Origin"] = boost::any(*origin);
     }
@@ -1201,10 +1218,25 @@ public:
     if (url) {
       res["Url"] = boost::any(*url);
     }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
+      bizType = make_shared<long>(boost::any_cast<long>(m["BizType"]));
+    }
+    if (m.find("CmApiCode") != m.end() && !m["CmApiCode"].empty()) {
+      cmApiCode = make_shared<long>(boost::any_cast<long>(m["CmApiCode"]));
+    }
+    if (m.find("CtApiCode") != m.end() && !m["CtApiCode"].empty()) {
+      ctApiCode = make_shared<long>(boost::any_cast<long>(m["CtApiCode"]));
+    }
+    if (m.find("CuApiCode") != m.end() && !m["CuApiCode"].empty()) {
+      cuApiCode = make_shared<long>(boost::any_cast<long>(m["CuApiCode"]));
+    }
     if (m.find("Origin") != m.end() && !m["Origin"].empty()) {
       origin = make_shared<string>(boost::any_cast<string>(m["Origin"]));
     }
@@ -1222,6 +1254,9 @@ public:
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
     }
   }
 
