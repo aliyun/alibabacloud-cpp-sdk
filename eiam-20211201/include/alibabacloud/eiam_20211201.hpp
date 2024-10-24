@@ -3121,6 +3121,123 @@ public:
 
   virtual ~DeleteOrganizationalUnitResponse() = default;
 };
+class DeleteOrganizationalUnitChildrenRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> organizationalUnitId{};
+
+  DeleteOrganizationalUnitChildrenRequest() {}
+
+  explicit DeleteOrganizationalUnitChildrenRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (organizationalUnitId) {
+      res["OrganizationalUnitId"] = boost::any(*organizationalUnitId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OrganizationalUnitId") != m.end() && !m["OrganizationalUnitId"].empty()) {
+      organizationalUnitId = make_shared<string>(boost::any_cast<string>(m["OrganizationalUnitId"]));
+    }
+  }
+
+
+  virtual ~DeleteOrganizationalUnitChildrenRequest() = default;
+};
+class DeleteOrganizationalUnitChildrenResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteOrganizationalUnitChildrenResponseBody() {}
+
+  explicit DeleteOrganizationalUnitChildrenResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteOrganizationalUnitChildrenResponseBody() = default;
+};
+class DeleteOrganizationalUnitChildrenResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteOrganizationalUnitChildrenResponseBody> body{};
+
+  DeleteOrganizationalUnitChildrenResponse() {}
+
+  explicit DeleteOrganizationalUnitChildrenResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteOrganizationalUnitChildrenResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteOrganizationalUnitChildrenResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteOrganizationalUnitChildrenResponse() = default;
+};
 class DeleteUserRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -5167,6 +5284,7 @@ public:
   shared_ptr<string> applicationName{};
   shared_ptr<string> applicationSourceType{};
   shared_ptr<string> applicationTemplateId{};
+  shared_ptr<vector<string>> applicationVisibility{};
   shared_ptr<string> authorizationType{};
   shared_ptr<string> clientId{};
   shared_ptr<long> createTime{};
@@ -5204,6 +5322,9 @@ public:
     }
     if (applicationTemplateId) {
       res["ApplicationTemplateId"] = boost::any(*applicationTemplateId);
+    }
+    if (applicationVisibility) {
+      res["ApplicationVisibility"] = boost::any(*applicationVisibility);
     }
     if (authorizationType) {
       res["AuthorizationType"] = boost::any(*authorizationType);
@@ -5259,6 +5380,16 @@ public:
     }
     if (m.find("ApplicationTemplateId") != m.end() && !m["ApplicationTemplateId"].empty()) {
       applicationTemplateId = make_shared<string>(boost::any_cast<string>(m["ApplicationTemplateId"]));
+    }
+    if (m.find("ApplicationVisibility") != m.end() && !m["ApplicationVisibility"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApplicationVisibility"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApplicationVisibility"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      applicationVisibility = make_shared<vector<string>>(toVec1);
     }
     if (m.find("AuthorizationType") != m.end() && !m["AuthorizationType"].empty()) {
       authorizationType = make_shared<string>(boost::any_cast<string>(m["AuthorizationType"]));
@@ -6587,6 +6718,7 @@ public:
   shared_ptr<bool> assertionSigned{};
   shared_ptr<vector<GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigAttributeStatements>> attributeStatements{};
   shared_ptr<string> defaultRelayState{};
+  shared_ptr<string> idPEntityId{};
   shared_ptr<string> nameIdFormat{};
   shared_ptr<string> nameIdValueExpression{};
   shared_ptr<bool> responseSigned{};
@@ -6616,6 +6748,9 @@ public:
     }
     if (defaultRelayState) {
       res["DefaultRelayState"] = boost::any(*defaultRelayState);
+    }
+    if (idPEntityId) {
+      res["IdPEntityId"] = boost::any(*idPEntityId);
     }
     if (nameIdFormat) {
       res["NameIdFormat"] = boost::any(*nameIdFormat);
@@ -6657,6 +6792,9 @@ public:
     }
     if (m.find("DefaultRelayState") != m.end() && !m["DefaultRelayState"].empty()) {
       defaultRelayState = make_shared<string>(boost::any_cast<string>(m["DefaultRelayState"]));
+    }
+    if (m.find("IdPEntityId") != m.end() && !m["IdPEntityId"].empty()) {
+      idPEntityId = make_shared<string>(boost::any_cast<string>(m["IdPEntityId"]));
     }
     if (m.find("NameIdFormat") != m.end() && !m["NameIdFormat"].empty()) {
       nameIdFormat = make_shared<string>(boost::any_cast<string>(m["NameIdFormat"]));
@@ -20954,6 +21092,7 @@ public:
   shared_ptr<bool> assertionSigned{};
   shared_ptr<vector<SetApplicationSsoConfigRequestSamlSsoConfigAttributeStatements>> attributeStatements{};
   shared_ptr<string> defaultRelayState{};
+  shared_ptr<string> idPEntityId{};
   shared_ptr<string> nameIdFormat{};
   shared_ptr<string> nameIdValueExpression{};
   shared_ptr<bool> responseSigned{};
@@ -20983,6 +21122,9 @@ public:
     }
     if (defaultRelayState) {
       res["DefaultRelayState"] = boost::any(*defaultRelayState);
+    }
+    if (idPEntityId) {
+      res["IdPEntityId"] = boost::any(*idPEntityId);
     }
     if (nameIdFormat) {
       res["NameIdFormat"] = boost::any(*nameIdFormat);
@@ -21024,6 +21166,9 @@ public:
     }
     if (m.find("DefaultRelayState") != m.end() && !m["DefaultRelayState"].empty()) {
       defaultRelayState = make_shared<string>(boost::any_cast<string>(m["DefaultRelayState"]));
+    }
+    if (m.find("IdPEntityId") != m.end() && !m["IdPEntityId"].empty()) {
+      idPEntityId = make_shared<string>(boost::any_cast<string>(m["IdPEntityId"]));
     }
     if (m.find("NameIdFormat") != m.end() && !m["NameIdFormat"].empty()) {
       nameIdFormat = make_shared<string>(boost::any_cast<string>(m["NameIdFormat"]));
@@ -23961,6 +24106,8 @@ public:
   DeleteNetworkAccessEndpointResponse deleteNetworkAccessEndpoint(shared_ptr<DeleteNetworkAccessEndpointRequest> request);
   DeleteOrganizationalUnitResponse deleteOrganizationalUnitWithOptions(shared_ptr<DeleteOrganizationalUnitRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteOrganizationalUnitResponse deleteOrganizationalUnit(shared_ptr<DeleteOrganizationalUnitRequest> request);
+  DeleteOrganizationalUnitChildrenResponse deleteOrganizationalUnitChildrenWithOptions(shared_ptr<DeleteOrganizationalUnitChildrenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteOrganizationalUnitChildrenResponse deleteOrganizationalUnitChildren(shared_ptr<DeleteOrganizationalUnitChildrenRequest> request);
   DeleteUserResponse deleteUserWithOptions(shared_ptr<DeleteUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteUserResponse deleteUser(shared_ptr<DeleteUserRequest> request);
   DisableApplicationResponse disableApplicationWithOptions(shared_ptr<DisableApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
