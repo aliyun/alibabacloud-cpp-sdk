@@ -370,6 +370,49 @@ CalculateDBInstanceWeightResponse Alibabacloud_Rds20140815::Client::calculateDBI
   return calculateDBInstanceWeightWithOptions(request, runtime);
 }
 
+CancelActiveOperationTasksResponse Alibabacloud_Rds20140815::Client::cancelActiveOperationTasksWithOptions(shared_ptr<CancelActiveOperationTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ids)) {
+    query->insert(pair<string, string>("Ids", *request->ids));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelActiveOperationTasks"))},
+    {"version", boost::any(string("2014-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelActiveOperationTasksResponse(callApi(params, req, runtime));
+}
+
+CancelActiveOperationTasksResponse Alibabacloud_Rds20140815::Client::cancelActiveOperationTasks(shared_ptr<CancelActiveOperationTasksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return cancelActiveOperationTasksWithOptions(request, runtime);
+}
+
 CheckAccountNameAvailableResponse Alibabacloud_Rds20140815::Client::checkAccountNameAvailableWithOptions(shared_ptr<CheckAccountNameAvailableRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -8672,6 +8715,9 @@ DescribeRCInstancesResponse Alibabacloud_Rds20140815::Client::describeRCInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tag)) {
+    query->insert(pair<string, string>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
     query->insert(pair<string, string>("VpcId", *request->vpcId));
   }
@@ -12285,6 +12331,9 @@ ModifyDBInstanceSpecResponse Alibabacloud_Rds20140815::Client::modifyDBInstanceS
   if (!Darabonba_Util::Client::isUnset<string>(request->payType)) {
     query->insert(pair<string, string>("PayType", *request->payType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->readOnlyDBInstanceClass)) {
+    query->insert(pair<string, string>("ReadOnlyDBInstanceClass", *request->readOnlyDBInstanceClass));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -15005,6 +15054,9 @@ RunRCInstancesResponse Alibabacloud_Rds20140815::Client::runRCInstancesWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->createMode)) {
+    query->insert(pair<string, string>("CreateMode", *request->createMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dataDiskShrink)) {
     query->insert(pair<string, string>("DataDisk", *request->dataDiskShrink));
   }
@@ -15016,6 +15068,9 @@ RunRCInstancesResponse Alibabacloud_Rds20140815::Client::runRCInstancesWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hostName)) {
+    query->insert(pair<string, string>("HostName", *request->hostName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     query->insert(pair<string, string>("ImageId", *request->imageId));
@@ -15053,6 +15108,9 @@ RunRCInstancesResponse Alibabacloud_Rds20140815::Client::runRCInstancesWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityEnhancementStrategy)) {
     query->insert(pair<string, string>("SecurityEnhancementStrategy", *request->securityEnhancementStrategy));
   }
@@ -15061,6 +15119,9 @@ RunRCInstancesResponse Alibabacloud_Rds20140815::Client::runRCInstancesWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->systemDiskShrink)) {
     query->insert(pair<string, string>("SystemDisk", *request->systemDiskShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<RunRCInstancesShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<RunRCInstancesShrinkRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
