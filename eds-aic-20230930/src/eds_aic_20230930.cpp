@@ -219,6 +219,9 @@ CreateAndroidInstanceGroupResponse Alibabacloud_Eds-aic20230930::Client::createA
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceGroupSpec)) {
     query->insert(pair<string, string>("InstanceGroupSpec", *request->instanceGroupSpec));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyPairId)) {
+    query->insert(pair<string, string>("KeyPairId", *request->keyPairId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->numberOfInstances)) {
     query->insert(pair<string, long>("NumberOfInstances", *request->numberOfInstances));
   }

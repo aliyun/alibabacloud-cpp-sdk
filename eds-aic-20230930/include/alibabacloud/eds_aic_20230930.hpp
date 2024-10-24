@@ -823,6 +823,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceGroupName{};
   shared_ptr<string> instanceGroupSpec{};
+  shared_ptr<string> keyPairId{};
   shared_ptr<long> numberOfInstances{};
   shared_ptr<string> officeSiteId{};
   shared_ptr<long> period{};
@@ -869,6 +870,9 @@ public:
     }
     if (instanceGroupSpec) {
       res["InstanceGroupSpec"] = boost::any(*instanceGroupSpec);
+    }
+    if (keyPairId) {
+      res["KeyPairId"] = boost::any(*keyPairId);
     }
     if (numberOfInstances) {
       res["NumberOfInstances"] = boost::any(*numberOfInstances);
@@ -921,6 +925,9 @@ public:
     }
     if (m.find("InstanceGroupSpec") != m.end() && !m["InstanceGroupSpec"].empty()) {
       instanceGroupSpec = make_shared<string>(boost::any_cast<string>(m["InstanceGroupSpec"]));
+    }
+    if (m.find("KeyPairId") != m.end() && !m["KeyPairId"].empty()) {
+      keyPairId = make_shared<string>(boost::any_cast<string>(m["KeyPairId"]));
     }
     if (m.find("NumberOfInstances") != m.end() && !m["NumberOfInstances"].empty()) {
       numberOfInstances = make_shared<long>(boost::any_cast<long>(m["NumberOfInstances"]));
