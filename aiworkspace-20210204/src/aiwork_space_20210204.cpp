@@ -326,6 +326,100 @@ CreateDatasetLabelsResponse Alibabacloud_AIWorkSpace20210204::Client::createData
   return createDatasetLabelsWithOptions(DatasetId, request, headers, runtime);
 }
 
+CreateDatasetVersionResponse Alibabacloud_AIWorkSpace20210204::Client::createDatasetVersionWithOptions(shared_ptr<string> DatasetId,
+                                                                                                       shared_ptr<CreateDatasetVersionRequest> request,
+                                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->dataCount)) {
+    body->insert(pair<string, long>("DataCount", *request->dataCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dataSize)) {
+    body->insert(pair<string, long>("DataSize", *request->dataSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceType)) {
+    body->insert(pair<string, string>("DataSourceType", *request->dataSourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<Label>>(request->labels)) {
+    body->insert(pair<string, vector<Label>>("Labels", *request->labels));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->options)) {
+    body->insert(pair<string, string>("Options", *request->options));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->property)) {
+    body->insert(pair<string, string>("Property", *request->property));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceId)) {
+    body->insert(pair<string, string>("SourceId", *request->sourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
+    body->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uri)) {
+    body->insert(pair<string, string>("Uri", *request->uri));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDatasetVersion"))},
+    {"version", boost::any(string("2021-02-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/datasets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(DatasetId)) + string("/versions"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDatasetVersionResponse(callApi(params, req, runtime));
+}
+
+CreateDatasetVersionResponse Alibabacloud_AIWorkSpace20210204::Client::createDatasetVersion(shared_ptr<string> DatasetId, shared_ptr<CreateDatasetVersionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createDatasetVersionWithOptions(DatasetId, request, headers, runtime);
+}
+
+CreateDatasetVersionLabelsResponse Alibabacloud_AIWorkSpace20210204::Client::createDatasetVersionLabelsWithOptions(shared_ptr<string> DatasetId,
+                                                                                                                   shared_ptr<string> VersionName,
+                                                                                                                   shared_ptr<CreateDatasetVersionLabelsRequest> request,
+                                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<Label>>(request->labels)) {
+    body->insert(pair<string, vector<Label>>("Labels", *request->labels));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDatasetVersionLabels"))},
+    {"version", boost::any(string("2021-02-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/datasets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(DatasetId)) + string("/versions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(VersionName)) + string("/labels"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDatasetVersionLabelsResponse(callApi(params, req, runtime));
+}
+
+CreateDatasetVersionLabelsResponse Alibabacloud_AIWorkSpace20210204::Client::createDatasetVersionLabels(shared_ptr<string> DatasetId, shared_ptr<string> VersionName, shared_ptr<CreateDatasetVersionLabelsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createDatasetVersionLabelsWithOptions(DatasetId, VersionName, request, headers, runtime);
+}
+
 CreateExperimentResponse Alibabacloud_AIWorkSpace20210204::Client::createExperimentWithOptions(shared_ptr<CreateExperimentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -843,6 +937,67 @@ DeleteDatasetLabelsResponse Alibabacloud_AIWorkSpace20210204::Client::deleteData
   return deleteDatasetLabelsWithOptions(DatasetId, request, headers, runtime);
 }
 
+DeleteDatasetVersionResponse Alibabacloud_AIWorkSpace20210204::Client::deleteDatasetVersionWithOptions(shared_ptr<string> DatasetId,
+                                                                                                       shared_ptr<string> VersionName,
+                                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDatasetVersion"))},
+    {"version", boost::any(string("2021-02-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/datasets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(DatasetId)) + string("/versions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(VersionName)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteDatasetVersionResponse(callApi(params, req, runtime));
+}
+
+DeleteDatasetVersionResponse Alibabacloud_AIWorkSpace20210204::Client::deleteDatasetVersion(shared_ptr<string> DatasetId, shared_ptr<string> VersionName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteDatasetVersionWithOptions(DatasetId, VersionName, headers, runtime);
+}
+
+DeleteDatasetVersionLabelsResponse Alibabacloud_AIWorkSpace20210204::Client::deleteDatasetVersionLabelsWithOptions(shared_ptr<string> DatasetId,
+                                                                                                                   shared_ptr<string> VersionName,
+                                                                                                                   shared_ptr<DeleteDatasetVersionLabelsRequest> request,
+                                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->keys)) {
+    query->insert(pair<string, string>("Keys", *request->keys));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDatasetVersionLabels"))},
+    {"version", boost::any(string("2021-02-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/datasets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(DatasetId)) + string("/versions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(VersionName)) + string("/labels"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteDatasetVersionLabelsResponse(callApi(params, req, runtime));
+}
+
+DeleteDatasetVersionLabelsResponse Alibabacloud_AIWorkSpace20210204::Client::deleteDatasetVersionLabels(shared_ptr<string> DatasetId, shared_ptr<string> VersionName, shared_ptr<DeleteDatasetVersionLabelsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteDatasetVersionLabelsWithOptions(DatasetId, VersionName, request, headers, runtime);
+}
+
 DeleteExperimentResponse Alibabacloud_AIWorkSpace20210204::Client::deleteExperimentWithOptions(shared_ptr<string> ExperimentId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -1216,6 +1371,33 @@ GetDatasetResponse Alibabacloud_AIWorkSpace20210204::Client::getDataset(shared_p
   return getDatasetWithOptions(DatasetId, headers, runtime);
 }
 
+GetDatasetVersionResponse Alibabacloud_AIWorkSpace20210204::Client::getDatasetVersionWithOptions(shared_ptr<string> DatasetId,
+                                                                                                 shared_ptr<string> VersionName,
+                                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDatasetVersion"))},
+    {"version", boost::any(string("2021-02-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/datasets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(DatasetId)) + string("/versions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(VersionName)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetDatasetVersionResponse(callApi(params, req, runtime));
+}
+
+GetDatasetVersionResponse Alibabacloud_AIWorkSpace20210204::Client::getDatasetVersion(shared_ptr<string> DatasetId, shared_ptr<string> VersionName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getDatasetVersionWithOptions(DatasetId, VersionName, headers, runtime);
+}
+
 GetDefaultWorkspaceResponse Alibabacloud_AIWorkSpace20210204::Client::getDefaultWorkspaceWithOptions(shared_ptr<GetDefaultWorkspaceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1551,6 +1733,66 @@ ListCodeSourcesResponse Alibabacloud_AIWorkSpace20210204::Client::listCodeSource
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listCodeSourcesWithOptions(request, headers, runtime);
+}
+
+ListDatasetVersionsResponse Alibabacloud_AIWorkSpace20210204::Client::listDatasetVersionsWithOptions(shared_ptr<string> DatasetId,
+                                                                                                     shared_ptr<ListDatasetVersionsRequest> request,
+                                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourcesTypes)) {
+    query->insert(pair<string, string>("DataSourcesTypes", *request->dataSourcesTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labelKeys)) {
+    query->insert(pair<string, string>("LabelKeys", *request->labelKeys));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lableValues)) {
+    query->insert(pair<string, string>("LableValues", *request->lableValues));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    query->insert(pair<string, string>("Order", *request->order));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->properties)) {
+    query->insert(pair<string, string>("Properties", *request->properties));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
+    query->insert(pair<string, string>("SortBy", *request->sortBy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceId)) {
+    query->insert(pair<string, string>("SourceId", *request->sourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceTypes)) {
+    query->insert(pair<string, string>("SourceTypes", *request->sourceTypes));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDatasetVersions"))},
+    {"version", boost::any(string("2021-02-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/datasets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(DatasetId)) + string("/versions"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDatasetVersionsResponse(callApi(params, req, runtime));
+}
+
+ListDatasetVersionsResponse Alibabacloud_AIWorkSpace20210204::Client::listDatasetVersions(shared_ptr<string> DatasetId, shared_ptr<ListDatasetVersionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listDatasetVersionsWithOptions(DatasetId, request, headers, runtime);
 }
 
 ListDatasetsResponse Alibabacloud_AIWorkSpace20210204::Client::listDatasetsWithOptions(shared_ptr<ListDatasetsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2580,6 +2822,49 @@ UpdateDatasetResponse Alibabacloud_AIWorkSpace20210204::Client::updateDataset(sh
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateDatasetWithOptions(DatasetId, request, headers, runtime);
+}
+
+UpdateDatasetVersionResponse Alibabacloud_AIWorkSpace20210204::Client::updateDatasetVersionWithOptions(shared_ptr<string> DatasetId,
+                                                                                                       shared_ptr<string> VersionName,
+                                                                                                       shared_ptr<UpdateDatasetVersionRequest> request,
+                                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->dataCount)) {
+    body->insert(pair<string, long>("DataCount", *request->dataCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dataSize)) {
+    body->insert(pair<string, long>("DataSize", *request->dataSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->options)) {
+    body->insert(pair<string, string>("Options", *request->options));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateDatasetVersion"))},
+    {"version", boost::any(string("2021-02-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/datasets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(DatasetId)) + string("/versions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(VersionName)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateDatasetVersionResponse(callApi(params, req, runtime));
+}
+
+UpdateDatasetVersionResponse Alibabacloud_AIWorkSpace20210204::Client::updateDatasetVersion(shared_ptr<string> DatasetId, shared_ptr<string> VersionName, shared_ptr<UpdateDatasetVersionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateDatasetVersionWithOptions(DatasetId, VersionName, request, headers, runtime);
 }
 
 UpdateDefaultWorkspaceResponse Alibabacloud_AIWorkSpace20210204::Client::updateDefaultWorkspaceWithOptions(shared_ptr<UpdateDefaultWorkspaceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

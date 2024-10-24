@@ -2718,6 +2718,324 @@ public:
 
   virtual ~CreateDatasetLabelsResponse() = default;
 };
+class CreateDatasetVersionRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> dataCount{};
+  shared_ptr<long> dataSize{};
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<string> description{};
+  shared_ptr<vector<Label>> labels{};
+  shared_ptr<string> options{};
+  shared_ptr<string> property{};
+  shared_ptr<string> sourceId{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> uri{};
+
+  CreateDatasetVersionRequest() {}
+
+  explicit CreateDatasetVersionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataCount) {
+      res["DataCount"] = boost::any(*dataCount);
+    }
+    if (dataSize) {
+      res["DataSize"] = boost::any(*dataSize);
+    }
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (labels) {
+      vector<boost::any> temp1;
+      for(auto item1:*labels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Labels"] = boost::any(temp1);
+    }
+    if (options) {
+      res["Options"] = boost::any(*options);
+    }
+    if (property) {
+      res["Property"] = boost::any(*property);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataCount") != m.end() && !m["DataCount"].empty()) {
+      dataCount = make_shared<long>(boost::any_cast<long>(m["DataCount"]));
+    }
+    if (m.find("DataSize") != m.end() && !m["DataSize"].empty()) {
+      dataSize = make_shared<long>(boost::any_cast<long>(m["DataSize"]));
+    }
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<Label> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Labels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Label model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        labels = make_shared<vector<Label>>(expect1);
+      }
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
+    }
+    if (m.find("Property") != m.end() && !m["Property"].empty()) {
+      property = make_shared<string>(boost::any_cast<string>(m["Property"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~CreateDatasetVersionRequest() = default;
+};
+class CreateDatasetVersionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> versionName{};
+  shared_ptr<string> requestId{};
+
+  CreateDatasetVersionResponseBody() {}
+
+  explicit CreateDatasetVersionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~CreateDatasetVersionResponseBody() = default;
+};
+class CreateDatasetVersionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDatasetVersionResponseBody> body{};
+
+  CreateDatasetVersionResponse() {}
+
+  explicit CreateDatasetVersionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDatasetVersionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDatasetVersionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDatasetVersionResponse() = default;
+};
+class CreateDatasetVersionLabelsRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<Label>> labels{};
+
+  CreateDatasetVersionLabelsRequest() {}
+
+  explicit CreateDatasetVersionLabelsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (labels) {
+      vector<boost::any> temp1;
+      for(auto item1:*labels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Labels"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<Label> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Labels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Label model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        labels = make_shared<vector<Label>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDatasetVersionLabelsRequest() = default;
+};
+class CreateDatasetVersionLabelsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateDatasetVersionLabelsResponseBody() {}
+
+  explicit CreateDatasetVersionLabelsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~CreateDatasetVersionLabelsResponseBody() = default;
+};
+class CreateDatasetVersionLabelsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDatasetVersionLabelsResponseBody> body{};
+
+  CreateDatasetVersionLabelsResponse() {}
+
+  explicit CreateDatasetVersionLabelsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDatasetVersionLabelsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDatasetVersionLabelsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDatasetVersionLabelsResponse() = default;
+};
 class CreateExperimentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessibility{};
@@ -5111,6 +5429,197 @@ public:
 
   virtual ~DeleteDatasetLabelsResponse() = default;
 };
+class DeleteDatasetVersionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteDatasetVersionResponseBody() {}
+
+  explicit DeleteDatasetVersionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~DeleteDatasetVersionResponseBody() = default;
+};
+class DeleteDatasetVersionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteDatasetVersionResponseBody> body{};
+
+  DeleteDatasetVersionResponse() {}
+
+  explicit DeleteDatasetVersionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDatasetVersionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDatasetVersionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDatasetVersionResponse() = default;
+};
+class DeleteDatasetVersionLabelsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> keys{};
+
+  DeleteDatasetVersionLabelsRequest() {}
+
+  explicit DeleteDatasetVersionLabelsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keys) {
+      res["Keys"] = boost::any(*keys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Keys") != m.end() && !m["Keys"].empty()) {
+      keys = make_shared<string>(boost::any_cast<string>(m["Keys"]));
+    }
+  }
+
+
+  virtual ~DeleteDatasetVersionLabelsRequest() = default;
+};
+class DeleteDatasetVersionLabelsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteDatasetVersionLabelsResponseBody() {}
+
+  explicit DeleteDatasetVersionLabelsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~DeleteDatasetVersionLabelsResponseBody() = default;
+};
+class DeleteDatasetVersionLabelsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteDatasetVersionLabelsResponseBody> body{};
+
+  DeleteDatasetVersionLabelsResponse() {}
+
+  explicit DeleteDatasetVersionLabelsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDatasetVersionLabelsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDatasetVersionLabelsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDatasetVersionLabelsResponse() = default;
+};
 class DeleteExperimentResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
@@ -6619,6 +7128,98 @@ public:
 
 
   virtual ~GetDatasetResponse() = default;
+};
+class GetDatasetVersionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DatasetVersion> datasetVersion{};
+  shared_ptr<string> requestId{};
+
+  GetDatasetVersionResponseBody() {}
+
+  explicit GetDatasetVersionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasetVersion) {
+      res["DatasetVersion"] = datasetVersion ? boost::any(datasetVersion->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasetVersion") != m.end() && !m["DatasetVersion"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DatasetVersion"].type()) {
+        DatasetVersion model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DatasetVersion"]));
+        datasetVersion = make_shared<DatasetVersion>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~GetDatasetVersionResponseBody() = default;
+};
+class GetDatasetVersionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDatasetVersionResponseBody> body{};
+
+  GetDatasetVersionResponse() {}
+
+  explicit GetDatasetVersionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDatasetVersionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDatasetVersionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDatasetVersionResponse() = default;
 };
 class GetDefaultWorkspaceRequest : public Darabonba::Model {
 public:
@@ -8626,6 +9227,221 @@ public:
 
 
   virtual ~ListCodeSourcesResponse() = default;
+};
+class ListDatasetVersionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataSourcesTypes{};
+  shared_ptr<string> labelKeys{};
+  shared_ptr<string> lableValues{};
+  shared_ptr<string> order{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> properties{};
+  shared_ptr<string> sortBy{};
+  shared_ptr<string> sourceId{};
+  shared_ptr<string> sourceTypes{};
+
+  ListDatasetVersionsRequest() {}
+
+  explicit ListDatasetVersionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourcesTypes) {
+      res["DataSourcesTypes"] = boost::any(*dataSourcesTypes);
+    }
+    if (labelKeys) {
+      res["LabelKeys"] = boost::any(*labelKeys);
+    }
+    if (lableValues) {
+      res["LableValues"] = boost::any(*lableValues);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (properties) {
+      res["Properties"] = boost::any(*properties);
+    }
+    if (sortBy) {
+      res["SortBy"] = boost::any(*sortBy);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
+    if (sourceTypes) {
+      res["SourceTypes"] = boost::any(*sourceTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataSourcesTypes") != m.end() && !m["DataSourcesTypes"].empty()) {
+      dataSourcesTypes = make_shared<string>(boost::any_cast<string>(m["DataSourcesTypes"]));
+    }
+    if (m.find("LabelKeys") != m.end() && !m["LabelKeys"].empty()) {
+      labelKeys = make_shared<string>(boost::any_cast<string>(m["LabelKeys"]));
+    }
+    if (m.find("LableValues") != m.end() && !m["LableValues"].empty()) {
+      lableValues = make_shared<string>(boost::any_cast<string>(m["LableValues"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
+      properties = make_shared<string>(boost::any_cast<string>(m["Properties"]));
+    }
+    if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
+      sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
+    }
+    if (m.find("SourceTypes") != m.end() && !m["SourceTypes"].empty()) {
+      sourceTypes = make_shared<string>(boost::any_cast<string>(m["SourceTypes"]));
+    }
+  }
+
+
+  virtual ~ListDatasetVersionsRequest() = default;
+};
+class ListDatasetVersionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DatasetVersion>> datasetVersions{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<string> requestId{};
+
+  ListDatasetVersionsResponseBody() {}
+
+  explicit ListDatasetVersionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasetVersions) {
+      vector<boost::any> temp1;
+      for(auto item1:*datasetVersions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DatasetVersions"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasetVersions") != m.end() && !m["DatasetVersions"].empty()) {
+      if (typeid(vector<boost::any>) == m["DatasetVersions"].type()) {
+        vector<DatasetVersion> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DatasetVersions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DatasetVersion model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        datasetVersions = make_shared<vector<DatasetVersion>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~ListDatasetVersionsResponseBody() = default;
+};
+class ListDatasetVersionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListDatasetVersionsResponseBody> body{};
+
+  ListDatasetVersionsResponse() {}
+
+  explicit ListDatasetVersionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDatasetVersionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDatasetVersionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDatasetVersionsResponse() = default;
 };
 class ListDatasetsRequest : public Darabonba::Model {
 public:
@@ -13575,6 +14391,137 @@ public:
 
   virtual ~UpdateDatasetResponse() = default;
 };
+class UpdateDatasetVersionRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> dataCount{};
+  shared_ptr<long> dataSize{};
+  shared_ptr<string> description{};
+  shared_ptr<string> options{};
+
+  UpdateDatasetVersionRequest() {}
+
+  explicit UpdateDatasetVersionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataCount) {
+      res["DataCount"] = boost::any(*dataCount);
+    }
+    if (dataSize) {
+      res["DataSize"] = boost::any(*dataSize);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (options) {
+      res["Options"] = boost::any(*options);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataCount") != m.end() && !m["DataCount"].empty()) {
+      dataCount = make_shared<long>(boost::any_cast<long>(m["DataCount"]));
+    }
+    if (m.find("DataSize") != m.end() && !m["DataSize"].empty()) {
+      dataSize = make_shared<long>(boost::any_cast<long>(m["DataSize"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
+    }
+  }
+
+
+  virtual ~UpdateDatasetVersionRequest() = default;
+};
+class UpdateDatasetVersionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateDatasetVersionResponseBody() {}
+
+  explicit UpdateDatasetVersionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~UpdateDatasetVersionResponseBody() = default;
+};
+class UpdateDatasetVersionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateDatasetVersionResponseBody> body{};
+
+  UpdateDatasetVersionResponse() {}
+
+  explicit UpdateDatasetVersionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateDatasetVersionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateDatasetVersionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateDatasetVersionResponse() = default;
+};
 class UpdateDefaultWorkspaceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> workspaceId{};
@@ -14719,6 +15666,17 @@ public:
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDatasetLabelsResponse createDatasetLabels(shared_ptr<string> DatasetId, shared_ptr<CreateDatasetLabelsRequest> request);
+  CreateDatasetVersionResponse createDatasetVersionWithOptions(shared_ptr<string> DatasetId,
+                                                               shared_ptr<CreateDatasetVersionRequest> request,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDatasetVersionResponse createDatasetVersion(shared_ptr<string> DatasetId, shared_ptr<CreateDatasetVersionRequest> request);
+  CreateDatasetVersionLabelsResponse createDatasetVersionLabelsWithOptions(shared_ptr<string> DatasetId,
+                                                                           shared_ptr<string> VersionName,
+                                                                           shared_ptr<CreateDatasetVersionLabelsRequest> request,
+                                                                           shared_ptr<map<string, string>> headers,
+                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDatasetVersionLabelsResponse createDatasetVersionLabels(shared_ptr<string> DatasetId, shared_ptr<string> VersionName, shared_ptr<CreateDatasetVersionLabelsRequest> request);
   CreateExperimentResponse createExperimentWithOptions(shared_ptr<CreateExperimentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateExperimentResponse createExperiment(shared_ptr<CreateExperimentRequest> request);
   CreateMemberResponse createMemberWithOptions(shared_ptr<string> WorkspaceId,
@@ -14764,6 +15722,17 @@ public:
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDatasetLabelsResponse deleteDatasetLabels(shared_ptr<string> DatasetId, shared_ptr<DeleteDatasetLabelsRequest> request);
+  DeleteDatasetVersionResponse deleteDatasetVersionWithOptions(shared_ptr<string> DatasetId,
+                                                               shared_ptr<string> VersionName,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDatasetVersionResponse deleteDatasetVersion(shared_ptr<string> DatasetId, shared_ptr<string> VersionName);
+  DeleteDatasetVersionLabelsResponse deleteDatasetVersionLabelsWithOptions(shared_ptr<string> DatasetId,
+                                                                           shared_ptr<string> VersionName,
+                                                                           shared_ptr<DeleteDatasetVersionLabelsRequest> request,
+                                                                           shared_ptr<map<string, string>> headers,
+                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDatasetVersionLabelsResponse deleteDatasetVersionLabels(shared_ptr<string> DatasetId, shared_ptr<string> VersionName, shared_ptr<DeleteDatasetVersionLabelsRequest> request);
   DeleteExperimentResponse deleteExperimentWithOptions(shared_ptr<string> ExperimentId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteExperimentResponse deleteExperiment(shared_ptr<string> ExperimentId);
   DeleteExperimentLabelResponse deleteExperimentLabelWithOptions(shared_ptr<string> ExperimentId,
@@ -14812,6 +15781,11 @@ public:
   GetCodeSourceResponse getCodeSource(shared_ptr<string> CodeSourceId);
   GetDatasetResponse getDatasetWithOptions(shared_ptr<string> DatasetId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDatasetResponse getDataset(shared_ptr<string> DatasetId);
+  GetDatasetVersionResponse getDatasetVersionWithOptions(shared_ptr<string> DatasetId,
+                                                         shared_ptr<string> VersionName,
+                                                         shared_ptr<map<string, string>> headers,
+                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDatasetVersionResponse getDatasetVersion(shared_ptr<string> DatasetId, shared_ptr<string> VersionName);
   GetDefaultWorkspaceResponse getDefaultWorkspaceWithOptions(shared_ptr<GetDefaultWorkspaceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDefaultWorkspaceResponse getDefaultWorkspace(shared_ptr<GetDefaultWorkspaceRequest> request);
   GetExperimentResponse getExperimentWithOptions(shared_ptr<string> ExperimentId,
@@ -14854,6 +15828,11 @@ public:
   GetWorkspaceResponse getWorkspace(shared_ptr<string> WorkspaceId, shared_ptr<GetWorkspaceRequest> request);
   ListCodeSourcesResponse listCodeSourcesWithOptions(shared_ptr<ListCodeSourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCodeSourcesResponse listCodeSources(shared_ptr<ListCodeSourcesRequest> request);
+  ListDatasetVersionsResponse listDatasetVersionsWithOptions(shared_ptr<string> DatasetId,
+                                                             shared_ptr<ListDatasetVersionsRequest> request,
+                                                             shared_ptr<map<string, string>> headers,
+                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDatasetVersionsResponse listDatasetVersions(shared_ptr<string> DatasetId, shared_ptr<ListDatasetVersionsRequest> request);
   ListDatasetsResponse listDatasetsWithOptions(shared_ptr<ListDatasetsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDatasetsResponse listDatasets(shared_ptr<ListDatasetsRequest> request);
   ListExperimentResponse listExperimentWithOptions(shared_ptr<ListExperimentRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -14930,6 +15909,12 @@ public:
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateDatasetResponse updateDataset(shared_ptr<string> DatasetId, shared_ptr<UpdateDatasetRequest> request);
+  UpdateDatasetVersionResponse updateDatasetVersionWithOptions(shared_ptr<string> DatasetId,
+                                                               shared_ptr<string> VersionName,
+                                                               shared_ptr<UpdateDatasetVersionRequest> request,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateDatasetVersionResponse updateDatasetVersion(shared_ptr<string> DatasetId, shared_ptr<string> VersionName, shared_ptr<UpdateDatasetVersionRequest> request);
   UpdateDefaultWorkspaceResponse updateDefaultWorkspaceWithOptions(shared_ptr<UpdateDefaultWorkspaceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateDefaultWorkspaceResponse updateDefaultWorkspace(shared_ptr<UpdateDefaultWorkspaceRequest> request);
   UpdateExperimentResponse updateExperimentWithOptions(shared_ptr<string> ExperimentId,
