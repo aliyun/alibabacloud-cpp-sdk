@@ -545,6 +545,9 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   if (!Darabonba_Util::Client::isUnset<long>(request->androidNotificationNotifyId)) {
     query->insert(pair<string, long>("AndroidNotificationNotifyId", *request->androidNotificationNotifyId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidNotificationThreadId)) {
+    query->insert(pair<string, string>("AndroidNotificationThreadId", *request->androidNotificationThreadId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->androidNotificationVivoChannel)) {
     query->insert(pair<string, string>("AndroidNotificationVivoChannel", *request->androidNotificationVivoChannel));
   }

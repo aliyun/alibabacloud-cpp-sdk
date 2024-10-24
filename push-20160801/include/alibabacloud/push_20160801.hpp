@@ -1710,6 +1710,7 @@ public:
   shared_ptr<string> androidNotificationHonorChannel{};
   shared_ptr<string> androidNotificationHuaweiChannel{};
   shared_ptr<long> androidNotificationNotifyId{};
+  shared_ptr<string> androidNotificationThreadId{};
   shared_ptr<string> androidNotificationVivoChannel{};
   shared_ptr<string> androidNotificationXiaomiChannel{};
   shared_ptr<string> androidNotifyType{};
@@ -1857,6 +1858,9 @@ public:
     }
     if (androidNotificationNotifyId) {
       res["AndroidNotificationNotifyId"] = boost::any(*androidNotificationNotifyId);
+    }
+    if (androidNotificationThreadId) {
+      res["AndroidNotificationThreadId"] = boost::any(*androidNotificationThreadId);
     }
     if (androidNotificationVivoChannel) {
       res["AndroidNotificationVivoChannel"] = boost::any(*androidNotificationVivoChannel);
@@ -2128,6 +2132,9 @@ public:
     }
     if (m.find("AndroidNotificationNotifyId") != m.end() && !m["AndroidNotificationNotifyId"].empty()) {
       androidNotificationNotifyId = make_shared<long>(boost::any_cast<long>(m["AndroidNotificationNotifyId"]));
+    }
+    if (m.find("AndroidNotificationThreadId") != m.end() && !m["AndroidNotificationThreadId"].empty()) {
+      androidNotificationThreadId = make_shared<string>(boost::any_cast<string>(m["AndroidNotificationThreadId"]));
     }
     if (m.find("AndroidNotificationVivoChannel") != m.end() && !m["AndroidNotificationVivoChannel"].empty()) {
       androidNotificationVivoChannel = make_shared<string>(boost::any_cast<string>(m["AndroidNotificationVivoChannel"]));
@@ -2533,6 +2540,7 @@ public:
   shared_ptr<string> androidNotificationHonorChannel{};
   shared_ptr<string> androidNotificationHuaweiChannel{};
   shared_ptr<long> androidNotificationNotifyId{};
+  shared_ptr<string> androidNotificationThreadId{};
   shared_ptr<string> androidNotificationVivoChannel{};
   shared_ptr<string> androidNotificationXiaomiChannel{};
   shared_ptr<string> androidNotifyType{};
@@ -2686,6 +2694,9 @@ public:
     }
     if (androidNotificationNotifyId) {
       res["AndroidNotificationNotifyId"] = boost::any(*androidNotificationNotifyId);
+    }
+    if (androidNotificationThreadId) {
+      res["AndroidNotificationThreadId"] = boost::any(*androidNotificationThreadId);
     }
     if (androidNotificationVivoChannel) {
       res["AndroidNotificationVivoChannel"] = boost::any(*androidNotificationVivoChannel);
@@ -2975,6 +2986,9 @@ public:
     }
     if (m.find("AndroidNotificationNotifyId") != m.end() && !m["AndroidNotificationNotifyId"].empty()) {
       androidNotificationNotifyId = make_shared<long>(boost::any_cast<long>(m["AndroidNotificationNotifyId"]));
+    }
+    if (m.find("AndroidNotificationThreadId") != m.end() && !m["AndroidNotificationThreadId"].empty()) {
+      androidNotificationThreadId = make_shared<string>(boost::any_cast<string>(m["AndroidNotificationThreadId"]));
     }
     if (m.find("AndroidNotificationVivoChannel") != m.end() && !m["AndroidNotificationVivoChannel"].empty()) {
       androidNotificationVivoChannel = make_shared<string>(boost::any_cast<string>(m["AndroidNotificationVivoChannel"]));
