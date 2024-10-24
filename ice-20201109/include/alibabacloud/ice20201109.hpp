@@ -12712,9 +12712,72 @@ public:
 
   virtual ~GetCustomTemplateRequest() = default;
 };
+class GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTemplateHint : public Darabonba::Model {
+public:
+  shared_ptr<string> bitrateControlType{};
+
+  GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTemplateHint() {}
+
+  explicit GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTemplateHint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bitrateControlType) {
+      res["BitrateControlType"] = boost::any(*bitrateControlType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BitrateControlType") != m.end() && !m["BitrateControlType"].empty()) {
+      bitrateControlType = make_shared<string>(boost::any_cast<string>(m["BitrateControlType"]));
+    }
+  }
+
+
+  virtual ~GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTemplateHint() = default;
+};
+class GetCustomTemplateResponseBodyCustomTemplateFrontendHint : public Darabonba::Model {
+public:
+  shared_ptr<GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTemplateHint> transcodeTemplateHint{};
+
+  GetCustomTemplateResponseBodyCustomTemplateFrontendHint() {}
+
+  explicit GetCustomTemplateResponseBodyCustomTemplateFrontendHint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (transcodeTemplateHint) {
+      res["TranscodeTemplateHint"] = transcodeTemplateHint ? boost::any(transcodeTemplateHint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TranscodeTemplateHint") != m.end() && !m["TranscodeTemplateHint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TranscodeTemplateHint"].type()) {
+        GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTemplateHint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TranscodeTemplateHint"]));
+        transcodeTemplateHint = make_shared<GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTemplateHint>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetCustomTemplateResponseBodyCustomTemplateFrontendHint() = default;
+};
 class GetCustomTemplateResponseBodyCustomTemplate : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<GetCustomTemplateResponseBodyCustomTemplateFrontendHint> frontendHint{};
   shared_ptr<bool> isDefault{};
   shared_ptr<string> modifiedTime{};
   shared_ptr<string> status{};
@@ -12738,6 +12801,9 @@ public:
     map<string, boost::any> res;
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (frontendHint) {
+      res["FrontendHint"] = frontendHint ? boost::any(frontendHint->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (isDefault) {
       res["IsDefault"] = boost::any(*isDefault);
@@ -12775,6 +12841,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("FrontendHint") != m.end() && !m["FrontendHint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FrontendHint"].type()) {
+        GetCustomTemplateResponseBodyCustomTemplateFrontendHint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FrontendHint"]));
+        frontendHint = make_shared<GetCustomTemplateResponseBodyCustomTemplateFrontendHint>(model1);
+      }
     }
     if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
       isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
@@ -29843,9 +29916,72 @@ public:
 
   virtual ~ListCustomTemplatesRequest() = default;
 };
+class ListCustomTemplatesResponseBodyCustomTemplateListFrontendHintTranscodeTemplateHint : public Darabonba::Model {
+public:
+  shared_ptr<string> bitrateControlType{};
+
+  ListCustomTemplatesResponseBodyCustomTemplateListFrontendHintTranscodeTemplateHint() {}
+
+  explicit ListCustomTemplatesResponseBodyCustomTemplateListFrontendHintTranscodeTemplateHint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bitrateControlType) {
+      res["BitrateControlType"] = boost::any(*bitrateControlType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BitrateControlType") != m.end() && !m["BitrateControlType"].empty()) {
+      bitrateControlType = make_shared<string>(boost::any_cast<string>(m["BitrateControlType"]));
+    }
+  }
+
+
+  virtual ~ListCustomTemplatesResponseBodyCustomTemplateListFrontendHintTranscodeTemplateHint() = default;
+};
+class ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint : public Darabonba::Model {
+public:
+  shared_ptr<ListCustomTemplatesResponseBodyCustomTemplateListFrontendHintTranscodeTemplateHint> transcodeTemplateHint{};
+
+  ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint() {}
+
+  explicit ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (transcodeTemplateHint) {
+      res["TranscodeTemplateHint"] = transcodeTemplateHint ? boost::any(transcodeTemplateHint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TranscodeTemplateHint") != m.end() && !m["TranscodeTemplateHint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TranscodeTemplateHint"].type()) {
+        ListCustomTemplatesResponseBodyCustomTemplateListFrontendHintTranscodeTemplateHint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TranscodeTemplateHint"]));
+        transcodeTemplateHint = make_shared<ListCustomTemplatesResponseBodyCustomTemplateListFrontendHintTranscodeTemplateHint>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint() = default;
+};
 class ListCustomTemplatesResponseBodyCustomTemplateList : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint> frontendHint{};
   shared_ptr<bool> isDefault{};
   shared_ptr<string> modifiedTime{};
   shared_ptr<string> status{};
@@ -29869,6 +30005,9 @@ public:
     map<string, boost::any> res;
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (frontendHint) {
+      res["FrontendHint"] = frontendHint ? boost::any(frontendHint->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (isDefault) {
       res["IsDefault"] = boost::any(*isDefault);
@@ -29906,6 +30045,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("FrontendHint") != m.end() && !m["FrontendHint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FrontendHint"].type()) {
+        ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FrontendHint"]));
+        frontendHint = make_shared<ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint>(model1);
+      }
     }
     if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
       isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
