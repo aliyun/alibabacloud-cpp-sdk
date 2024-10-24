@@ -12615,6 +12615,42 @@ public:
 
   virtual ~CreateIpv6GatewayResponse() = default;
 };
+class CreateNatGatewayRequestAccessMode : public Darabonba::Model {
+public:
+  shared_ptr<string> modeValue{};
+  shared_ptr<string> tunnelType{};
+
+  CreateNatGatewayRequestAccessMode() {}
+
+  explicit CreateNatGatewayRequestAccessMode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (modeValue) {
+      res["ModeValue"] = boost::any(*modeValue);
+    }
+    if (tunnelType) {
+      res["TunnelType"] = boost::any(*tunnelType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ModeValue") != m.end() && !m["ModeValue"].empty()) {
+      modeValue = make_shared<string>(boost::any_cast<string>(m["ModeValue"]));
+    }
+    if (m.find("TunnelType") != m.end() && !m["TunnelType"].empty()) {
+      tunnelType = make_shared<string>(boost::any_cast<string>(m["TunnelType"]));
+    }
+  }
+
+
+  virtual ~CreateNatGatewayRequestAccessMode() = default;
+};
 class CreateNatGatewayRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -12653,6 +12689,7 @@ public:
 };
 class CreateNatGatewayRequest : public Darabonba::Model {
 public:
+  shared_ptr<CreateNatGatewayRequestAccessMode> accessMode{};
   shared_ptr<bool> autoPay{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
@@ -12667,6 +12704,7 @@ public:
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> pricingCycle{};
+  shared_ptr<bool> privateLinkEnabled{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -12686,6 +12724,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessMode) {
+      res["AccessMode"] = accessMode ? boost::any(accessMode->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
     }
@@ -12728,6 +12769,9 @@ public:
     if (pricingCycle) {
       res["PricingCycle"] = boost::any(*pricingCycle);
     }
+    if (privateLinkEnabled) {
+      res["PrivateLinkEnabled"] = boost::any(*privateLinkEnabled);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -12760,6 +12804,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessMode") != m.end() && !m["AccessMode"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccessMode"].type()) {
+        CreateNatGatewayRequestAccessMode model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessMode"]));
+        accessMode = make_shared<CreateNatGatewayRequestAccessMode>(model1);
+      }
+    }
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
     }
@@ -12802,6 +12853,9 @@ public:
     if (m.find("PricingCycle") != m.end() && !m["PricingCycle"].empty()) {
       pricingCycle = make_shared<string>(boost::any_cast<string>(m["PricingCycle"]));
     }
+    if (m.find("PrivateLinkEnabled") != m.end() && !m["PrivateLinkEnabled"].empty()) {
+      privateLinkEnabled = make_shared<bool>(boost::any_cast<bool>(m["PrivateLinkEnabled"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -12840,6 +12894,246 @@ public:
 
 
   virtual ~CreateNatGatewayRequest() = default;
+};
+class CreateNatGatewayShrinkRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateNatGatewayShrinkRequestTag() {}
+
+  explicit CreateNatGatewayShrinkRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateNatGatewayShrinkRequestTag() = default;
+};
+class CreateNatGatewayShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessModeShrink{};
+  shared_ptr<bool> autoPay{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> duration{};
+  shared_ptr<string> eipBindMode{};
+  shared_ptr<bool> icmpReplyEnabled{};
+  shared_ptr<string> instanceChargeType{};
+  shared_ptr<string> internetChargeType{};
+  shared_ptr<string> name{};
+  shared_ptr<string> natType{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> pricingCycle{};
+  shared_ptr<bool> privateLinkEnabled{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<bool> securityProtectionEnabled{};
+  shared_ptr<string> spec{};
+  shared_ptr<vector<CreateNatGatewayShrinkRequestTag>> tag{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+
+  CreateNatGatewayShrinkRequest() {}
+
+  explicit CreateNatGatewayShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessModeShrink) {
+      res["AccessMode"] = boost::any(*accessModeShrink);
+    }
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (eipBindMode) {
+      res["EipBindMode"] = boost::any(*eipBindMode);
+    }
+    if (icmpReplyEnabled) {
+      res["IcmpReplyEnabled"] = boost::any(*icmpReplyEnabled);
+    }
+    if (instanceChargeType) {
+      res["InstanceChargeType"] = boost::any(*instanceChargeType);
+    }
+    if (internetChargeType) {
+      res["InternetChargeType"] = boost::any(*internetChargeType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (natType) {
+      res["NatType"] = boost::any(*natType);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (pricingCycle) {
+      res["PricingCycle"] = boost::any(*pricingCycle);
+    }
+    if (privateLinkEnabled) {
+      res["PrivateLinkEnabled"] = boost::any(*privateLinkEnabled);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityProtectionEnabled) {
+      res["SecurityProtectionEnabled"] = boost::any(*securityProtectionEnabled);
+    }
+    if (spec) {
+      res["Spec"] = boost::any(*spec);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessMode") != m.end() && !m["AccessMode"].empty()) {
+      accessModeShrink = make_shared<string>(boost::any_cast<string>(m["AccessMode"]));
+    }
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<string>(boost::any_cast<string>(m["Duration"]));
+    }
+    if (m.find("EipBindMode") != m.end() && !m["EipBindMode"].empty()) {
+      eipBindMode = make_shared<string>(boost::any_cast<string>(m["EipBindMode"]));
+    }
+    if (m.find("IcmpReplyEnabled") != m.end() && !m["IcmpReplyEnabled"].empty()) {
+      icmpReplyEnabled = make_shared<bool>(boost::any_cast<bool>(m["IcmpReplyEnabled"]));
+    }
+    if (m.find("InstanceChargeType") != m.end() && !m["InstanceChargeType"].empty()) {
+      instanceChargeType = make_shared<string>(boost::any_cast<string>(m["InstanceChargeType"]));
+    }
+    if (m.find("InternetChargeType") != m.end() && !m["InternetChargeType"].empty()) {
+      internetChargeType = make_shared<string>(boost::any_cast<string>(m["InternetChargeType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NatType") != m.end() && !m["NatType"].empty()) {
+      natType = make_shared<string>(boost::any_cast<string>(m["NatType"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PricingCycle") != m.end() && !m["PricingCycle"].empty()) {
+      pricingCycle = make_shared<string>(boost::any_cast<string>(m["PricingCycle"]));
+    }
+    if (m.find("PrivateLinkEnabled") != m.end() && !m["PrivateLinkEnabled"].empty()) {
+      privateLinkEnabled = make_shared<bool>(boost::any_cast<bool>(m["PrivateLinkEnabled"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityProtectionEnabled") != m.end() && !m["SecurityProtectionEnabled"].empty()) {
+      securityProtectionEnabled = make_shared<bool>(boost::any_cast<bool>(m["SecurityProtectionEnabled"]));
+    }
+    if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
+      spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateNatGatewayShrinkRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateNatGatewayShrinkRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateNatGatewayShrinkRequestTag>>(expect1);
+      }
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~CreateNatGatewayShrinkRequest() = default;
 };
 class CreateNatGatewayResponseBodyForwardTableIds : public Darabonba::Model {
 public:
@@ -45036,6 +45330,7 @@ public:
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceOwnerId{};
   shared_ptr<string> resourceType{};
+  shared_ptr<string> tunnelIndex{};
 
   DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface() {}
 
@@ -45062,6 +45357,9 @@ public:
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
+    if (tunnelIndex) {
+      res["TunnelIndex"] = boost::any(*tunnelIndex);
+    }
     return res;
   }
 
@@ -45084,6 +45382,9 @@ public:
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("TunnelIndex") != m.end() && !m["TunnelIndex"].empty()) {
+      tunnelIndex = make_shared<string>(boost::any_cast<string>(m["TunnelIndex"]));
     }
   }
 
@@ -45458,6 +45759,42 @@ public:
 
   virtual ~DescribeNatGatewaysRequest() = default;
 };
+class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode : public Darabonba::Model {
+public:
+  shared_ptr<string> modeValue{};
+  shared_ptr<string> tunnelType{};
+
+  DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode() {}
+
+  explicit DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (modeValue) {
+      res["ModeValue"] = boost::any(*modeValue);
+    }
+    if (tunnelType) {
+      res["TunnelType"] = boost::any(*tunnelType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ModeValue") != m.end() && !m["ModeValue"].empty()) {
+      modeValue = make_shared<string>(boost::any_cast<string>(m["ModeValue"]));
+    }
+    if (m.find("TunnelType") != m.end() && !m["TunnelType"].empty()) {
+      tunnelType = make_shared<string>(boost::any_cast<string>(m["TunnelType"]));
+    }
+  }
+
+
+  virtual ~DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode() = default;
+};
 class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayForwardTableIds : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> forwardTableId{};
@@ -45825,6 +46162,7 @@ public:
 };
 class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway : public Darabonba::Model {
 public:
+  shared_ptr<DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode> accessMode{};
   shared_ptr<bool> autoPay{};
   shared_ptr<string> businessStatus{};
   shared_ptr<string> creationTime{};
@@ -45866,6 +46204,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessMode) {
+      res["AccessMode"] = accessMode ? boost::any(accessMode->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
     }
@@ -45960,6 +46301,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessMode") != m.end() && !m["AccessMode"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccessMode"].type()) {
+        DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessMode"]));
+        accessMode = make_shared<DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode>(model1);
+      }
+    }
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
     }
@@ -69772,6 +70120,42 @@ public:
 
   virtual ~GetNatGatewayAttributeRequest() = default;
 };
+class GetNatGatewayAttributeResponseBodyAccessMode : public Darabonba::Model {
+public:
+  shared_ptr<string> modeValue{};
+  shared_ptr<string> tunnelType{};
+
+  GetNatGatewayAttributeResponseBodyAccessMode() {}
+
+  explicit GetNatGatewayAttributeResponseBodyAccessMode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (modeValue) {
+      res["ModeValue"] = boost::any(*modeValue);
+    }
+    if (tunnelType) {
+      res["TunnelType"] = boost::any(*tunnelType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ModeValue") != m.end() && !m["ModeValue"].empty()) {
+      modeValue = make_shared<string>(boost::any_cast<string>(m["ModeValue"]));
+    }
+    if (m.find("TunnelType") != m.end() && !m["TunnelType"].empty()) {
+      tunnelType = make_shared<string>(boost::any_cast<string>(m["TunnelType"]));
+    }
+  }
+
+
+  virtual ~GetNatGatewayAttributeResponseBodyAccessMode() = default;
+};
 class GetNatGatewayAttributeResponseBodyBillingConfig : public Darabonba::Model {
 public:
   shared_ptr<string> autoPay{};
@@ -70111,6 +70495,7 @@ public:
 };
 class GetNatGatewayAttributeResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<GetNatGatewayAttributeResponseBodyAccessMode> accessMode{};
   shared_ptr<GetNatGatewayAttributeResponseBodyBillingConfig> billingConfig{};
   shared_ptr<string> businessStatus{};
   shared_ptr<string> creationTime{};
@@ -70147,6 +70532,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessMode) {
+      res["AccessMode"] = accessMode ? boost::any(accessMode->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (billingConfig) {
       res["BillingConfig"] = billingConfig ? boost::any(billingConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -70230,6 +70618,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessMode") != m.end() && !m["AccessMode"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccessMode"].type()) {
+        GetNatGatewayAttributeResponseBodyAccessMode model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessMode"]));
+        accessMode = make_shared<GetNatGatewayAttributeResponseBodyAccessMode>(model1);
+      }
+    }
     if (m.find("BillingConfig") != m.end() && !m["BillingConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["BillingConfig"].type()) {
         GetNatGatewayAttributeResponseBodyBillingConfig model1;
@@ -104193,7 +104588,7 @@ public:
   CreateIpv6EgressOnlyRuleResponse createIpv6EgressOnlyRule(shared_ptr<CreateIpv6EgressOnlyRuleRequest> request);
   CreateIpv6GatewayResponse createIpv6GatewayWithOptions(shared_ptr<CreateIpv6GatewayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateIpv6GatewayResponse createIpv6Gateway(shared_ptr<CreateIpv6GatewayRequest> request);
-  CreateNatGatewayResponse createNatGatewayWithOptions(shared_ptr<CreateNatGatewayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateNatGatewayResponse createNatGatewayWithOptions(shared_ptr<CreateNatGatewayRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateNatGatewayResponse createNatGateway(shared_ptr<CreateNatGatewayRequest> request);
   CreateNatIpResponse createNatIpWithOptions(shared_ptr<CreateNatIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateNatIpResponse createNatIp(shared_ptr<CreateNatIpRequest> request);

@@ -3745,9 +3745,17 @@ CreateIpv6GatewayResponse Alibabacloud_Vpc20160428::Client::createIpv6Gateway(sh
   return createIpv6GatewayWithOptions(request, runtime);
 }
 
-CreateNatGatewayResponse Alibabacloud_Vpc20160428::Client::createNatGatewayWithOptions(shared_ptr<CreateNatGatewayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateNatGatewayResponse Alibabacloud_Vpc20160428::Client::createNatGatewayWithOptions(shared_ptr<CreateNatGatewayRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateNatGatewayShrinkRequest> request = make_shared<CreateNatGatewayShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateNatGatewayRequestAccessMode>(tmpReq->accessMode)) {
+    request->accessModeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->accessMode, make_shared<string>("AccessMode"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessModeShrink)) {
+    query->insert(pair<string, string>("AccessMode", *request->accessModeShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
     query->insert(pair<string, bool>("AutoPay", *request->autoPay));
   }
@@ -3790,6 +3798,9 @@ CreateNatGatewayResponse Alibabacloud_Vpc20160428::Client::createNatGatewayWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->pricingCycle)) {
     query->insert(pair<string, string>("PricingCycle", *request->pricingCycle));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->privateLinkEnabled)) {
+    query->insert(pair<string, bool>("PrivateLinkEnabled", *request->privateLinkEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -3805,8 +3816,8 @@ CreateNatGatewayResponse Alibabacloud_Vpc20160428::Client::createNatGatewayWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
     query->insert(pair<string, string>("Spec", *request->spec));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateNatGatewayRequestTag>>(request->tag)) {
-    query->insert(pair<string, vector<CreateNatGatewayRequestTag>>("Tag", *request->tag));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateNatGatewayShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateNatGatewayShrinkRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
