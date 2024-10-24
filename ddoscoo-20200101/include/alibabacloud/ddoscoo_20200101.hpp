@@ -9351,6 +9351,403 @@ public:
 
   virtual ~DescribeDomainAttackEventsResponse() = default;
 };
+class DescribeDomainBpsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> interval{};
+  shared_ptr<string> region{};
+  shared_ptr<long> startTime{};
+
+  DescribeDomainBpsRequest() {}
+
+  explicit DescribeDomainBpsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainBpsRequest() = default;
+};
+class DescribeDomainBpsResponseBodyDomainBps : public Darabonba::Model {
+public:
+  shared_ptr<long> inBps{};
+  shared_ptr<long> index{};
+  shared_ptr<long> outBps{};
+
+  DescribeDomainBpsResponseBodyDomainBps() {}
+
+  explicit DescribeDomainBpsResponseBodyDomainBps(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inBps) {
+      res["InBps"] = boost::any(*inBps);
+    }
+    if (index) {
+      res["Index"] = boost::any(*index);
+    }
+    if (outBps) {
+      res["OutBps"] = boost::any(*outBps);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InBps") != m.end() && !m["InBps"].empty()) {
+      inBps = make_shared<long>(boost::any_cast<long>(m["InBps"]));
+    }
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["Index"]));
+    }
+    if (m.find("OutBps") != m.end() && !m["OutBps"].empty()) {
+      outBps = make_shared<long>(boost::any_cast<long>(m["OutBps"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainBpsResponseBodyDomainBps() = default;
+};
+class DescribeDomainBpsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDomainBpsResponseBodyDomainBps>> domainBps{};
+  shared_ptr<string> requestId{};
+
+  DescribeDomainBpsResponseBody() {}
+
+  explicit DescribeDomainBpsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainBps) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainBps){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainBps"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainBps") != m.end() && !m["DomainBps"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainBps"].type()) {
+        vector<DescribeDomainBpsResponseBodyDomainBps> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainBps"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDomainBpsResponseBodyDomainBps model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainBps = make_shared<vector<DescribeDomainBpsResponseBodyDomainBps>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainBpsResponseBody() = default;
+};
+class DescribeDomainBpsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDomainBpsResponseBody> body{};
+
+  DescribeDomainBpsResponse() {}
+
+  explicit DescribeDomainBpsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDomainBpsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDomainBpsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDomainBpsResponse() = default;
+};
+class DescribeDomainH2FingerprintRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> limit{};
+  shared_ptr<long> startTime{};
+
+  DescribeDomainH2FingerprintRequest() {}
+
+  explicit DescribeDomainH2FingerprintRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainH2FingerprintRequest() = default;
+};
+class DescribeDomainH2FingerprintResponseBodyDomainH2Fp : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> h2Fingerprint{};
+  shared_ptr<long> pv{};
+
+  DescribeDomainH2FingerprintResponseBodyDomainH2Fp() {}
+
+  explicit DescribeDomainH2FingerprintResponseBodyDomainH2Fp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (h2Fingerprint) {
+      res["H2Fingerprint"] = boost::any(*h2Fingerprint);
+    }
+    if (pv) {
+      res["Pv"] = boost::any(*pv);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("H2Fingerprint") != m.end() && !m["H2Fingerprint"].empty()) {
+      h2Fingerprint = make_shared<string>(boost::any_cast<string>(m["H2Fingerprint"]));
+    }
+    if (m.find("Pv") != m.end() && !m["Pv"].empty()) {
+      pv = make_shared<long>(boost::any_cast<long>(m["Pv"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainH2FingerprintResponseBodyDomainH2Fp() = default;
+};
+class DescribeDomainH2FingerprintResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDomainH2FingerprintResponseBodyDomainH2Fp>> domainH2Fp{};
+  shared_ptr<string> requestId{};
+
+  DescribeDomainH2FingerprintResponseBody() {}
+
+  explicit DescribeDomainH2FingerprintResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainH2Fp) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainH2Fp){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainH2Fp"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainH2Fp") != m.end() && !m["DomainH2Fp"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainH2Fp"].type()) {
+        vector<DescribeDomainH2FingerprintResponseBodyDomainH2Fp> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainH2Fp"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDomainH2FingerprintResponseBodyDomainH2Fp model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainH2Fp = make_shared<vector<DescribeDomainH2FingerprintResponseBodyDomainH2Fp>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainH2FingerprintResponseBody() = default;
+};
+class DescribeDomainH2FingerprintResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDomainH2FingerprintResponseBody> body{};
+
+  DescribeDomainH2FingerprintResponse() {}
+
+  explicit DescribeDomainH2FingerprintResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDomainH2FingerprintResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDomainH2FingerprintResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDomainH2FingerprintResponse() = default;
+};
 class DescribeDomainOverviewRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domain{};
@@ -11057,6 +11454,821 @@ public:
 
 
   virtual ~DescribeDomainTopAttackListResponse() = default;
+};
+class DescribeDomainTopFingerprintRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> interval{};
+  shared_ptr<long> limit{};
+  shared_ptr<string> region{};
+  shared_ptr<long> startTime{};
+
+  DescribeDomainTopFingerprintRequest() {}
+
+  explicit DescribeDomainTopFingerprintRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainTopFingerprintRequest() = default;
+};
+class DescribeDomainTopFingerprintResponseBodyDomainTopFp : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> fingerprinting{};
+  shared_ptr<long> pv{};
+
+  DescribeDomainTopFingerprintResponseBodyDomainTopFp() {}
+
+  explicit DescribeDomainTopFingerprintResponseBodyDomainTopFp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (fingerprinting) {
+      res["Fingerprinting"] = boost::any(*fingerprinting);
+    }
+    if (pv) {
+      res["Pv"] = boost::any(*pv);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Fingerprinting") != m.end() && !m["Fingerprinting"].empty()) {
+      fingerprinting = make_shared<string>(boost::any_cast<string>(m["Fingerprinting"]));
+    }
+    if (m.find("Pv") != m.end() && !m["Pv"].empty()) {
+      pv = make_shared<long>(boost::any_cast<long>(m["Pv"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainTopFingerprintResponseBodyDomainTopFp() = default;
+};
+class DescribeDomainTopFingerprintResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDomainTopFingerprintResponseBodyDomainTopFp>> domainTopFp{};
+  shared_ptr<string> requestId{};
+
+  DescribeDomainTopFingerprintResponseBody() {}
+
+  explicit DescribeDomainTopFingerprintResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainTopFp) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainTopFp){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainTopFp"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainTopFp") != m.end() && !m["DomainTopFp"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainTopFp"].type()) {
+        vector<DescribeDomainTopFingerprintResponseBodyDomainTopFp> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainTopFp"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDomainTopFingerprintResponseBodyDomainTopFp model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainTopFp = make_shared<vector<DescribeDomainTopFingerprintResponseBodyDomainTopFp>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainTopFingerprintResponseBody() = default;
+};
+class DescribeDomainTopFingerprintResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDomainTopFingerprintResponseBody> body{};
+
+  DescribeDomainTopFingerprintResponse() {}
+
+  explicit DescribeDomainTopFingerprintResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDomainTopFingerprintResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDomainTopFingerprintResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDomainTopFingerprintResponse() = default;
+};
+class DescribeDomainTopHttpMethodRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> limit{};
+  shared_ptr<string> region{};
+  shared_ptr<long> startTime{};
+
+  DescribeDomainTopHttpMethodRequest() {}
+
+  explicit DescribeDomainTopHttpMethodRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainTopHttpMethodRequest() = default;
+};
+class DescribeDomainTopHttpMethodResponseBodyDomainTopMethod : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> httpMethod{};
+  shared_ptr<long> pv{};
+
+  DescribeDomainTopHttpMethodResponseBodyDomainTopMethod() {}
+
+  explicit DescribeDomainTopHttpMethodResponseBodyDomainTopMethod(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (httpMethod) {
+      res["HttpMethod"] = boost::any(*httpMethod);
+    }
+    if (pv) {
+      res["Pv"] = boost::any(*pv);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("HttpMethod") != m.end() && !m["HttpMethod"].empty()) {
+      httpMethod = make_shared<string>(boost::any_cast<string>(m["HttpMethod"]));
+    }
+    if (m.find("Pv") != m.end() && !m["Pv"].empty()) {
+      pv = make_shared<long>(boost::any_cast<long>(m["Pv"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainTopHttpMethodResponseBodyDomainTopMethod() = default;
+};
+class DescribeDomainTopHttpMethodResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDomainTopHttpMethodResponseBodyDomainTopMethod>> domainTopMethod{};
+  shared_ptr<string> requestId{};
+
+  DescribeDomainTopHttpMethodResponseBody() {}
+
+  explicit DescribeDomainTopHttpMethodResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainTopMethod) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainTopMethod){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainTopMethod"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainTopMethod") != m.end() && !m["DomainTopMethod"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainTopMethod"].type()) {
+        vector<DescribeDomainTopHttpMethodResponseBodyDomainTopMethod> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainTopMethod"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDomainTopHttpMethodResponseBodyDomainTopMethod model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainTopMethod = make_shared<vector<DescribeDomainTopHttpMethodResponseBodyDomainTopMethod>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainTopHttpMethodResponseBody() = default;
+};
+class DescribeDomainTopHttpMethodResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDomainTopHttpMethodResponseBody> body{};
+
+  DescribeDomainTopHttpMethodResponse() {}
+
+  explicit DescribeDomainTopHttpMethodResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDomainTopHttpMethodResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDomainTopHttpMethodResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDomainTopHttpMethodResponse() = default;
+};
+class DescribeDomainTopRefererRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> limit{};
+  shared_ptr<string> region{};
+  shared_ptr<long> startTime{};
+
+  DescribeDomainTopRefererRequest() {}
+
+  explicit DescribeDomainTopRefererRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainTopRefererRequest() = default;
+};
+class DescribeDomainTopRefererResponseBodyDomainTopReferer : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<long> pv{};
+  shared_ptr<string> referer{};
+
+  DescribeDomainTopRefererResponseBodyDomainTopReferer() {}
+
+  explicit DescribeDomainTopRefererResponseBodyDomainTopReferer(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (pv) {
+      res["Pv"] = boost::any(*pv);
+    }
+    if (referer) {
+      res["Referer"] = boost::any(*referer);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Pv") != m.end() && !m["Pv"].empty()) {
+      pv = make_shared<long>(boost::any_cast<long>(m["Pv"]));
+    }
+    if (m.find("Referer") != m.end() && !m["Referer"].empty()) {
+      referer = make_shared<string>(boost::any_cast<string>(m["Referer"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainTopRefererResponseBodyDomainTopReferer() = default;
+};
+class DescribeDomainTopRefererResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDomainTopRefererResponseBodyDomainTopReferer>> domainTopReferer{};
+  shared_ptr<string> requestId{};
+
+  DescribeDomainTopRefererResponseBody() {}
+
+  explicit DescribeDomainTopRefererResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainTopReferer) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainTopReferer){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainTopReferer"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainTopReferer") != m.end() && !m["DomainTopReferer"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainTopReferer"].type()) {
+        vector<DescribeDomainTopRefererResponseBodyDomainTopReferer> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainTopReferer"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDomainTopRefererResponseBodyDomainTopReferer model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainTopReferer = make_shared<vector<DescribeDomainTopRefererResponseBodyDomainTopReferer>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainTopRefererResponseBody() = default;
+};
+class DescribeDomainTopRefererResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDomainTopRefererResponseBody> body{};
+
+  DescribeDomainTopRefererResponse() {}
+
+  explicit DescribeDomainTopRefererResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDomainTopRefererResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDomainTopRefererResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDomainTopRefererResponse() = default;
+};
+class DescribeDomainTopUserAgentRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> limit{};
+  shared_ptr<string> region{};
+  shared_ptr<long> startTime{};
+
+  DescribeDomainTopUserAgentRequest() {}
+
+  explicit DescribeDomainTopUserAgentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainTopUserAgentRequest() = default;
+};
+class DescribeDomainTopUserAgentResponseBodyDomainTopUa : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<long> pv{};
+  shared_ptr<string> userAgent{};
+
+  DescribeDomainTopUserAgentResponseBodyDomainTopUa() {}
+
+  explicit DescribeDomainTopUserAgentResponseBodyDomainTopUa(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (pv) {
+      res["Pv"] = boost::any(*pv);
+    }
+    if (userAgent) {
+      res["UserAgent"] = boost::any(*userAgent);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Pv") != m.end() && !m["Pv"].empty()) {
+      pv = make_shared<long>(boost::any_cast<long>(m["Pv"]));
+    }
+    if (m.find("UserAgent") != m.end() && !m["UserAgent"].empty()) {
+      userAgent = make_shared<string>(boost::any_cast<string>(m["UserAgent"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainTopUserAgentResponseBodyDomainTopUa() = default;
+};
+class DescribeDomainTopUserAgentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDomainTopUserAgentResponseBodyDomainTopUa>> domainTopUa{};
+  shared_ptr<string> requestId{};
+
+  DescribeDomainTopUserAgentResponseBody() {}
+
+  explicit DescribeDomainTopUserAgentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainTopUa) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainTopUa){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainTopUa"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainTopUa") != m.end() && !m["DomainTopUa"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainTopUa"].type()) {
+        vector<DescribeDomainTopUserAgentResponseBodyDomainTopUa> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainTopUa"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDomainTopUserAgentResponseBodyDomainTopUa model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainTopUa = make_shared<vector<DescribeDomainTopUserAgentResponseBodyDomainTopUa>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainTopUserAgentResponseBody() = default;
+};
+class DescribeDomainTopUserAgentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDomainTopUserAgentResponseBody> body{};
+
+  DescribeDomainTopUserAgentResponse() {}
+
+  explicit DescribeDomainTopUserAgentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDomainTopUserAgentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDomainTopUserAgentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDomainTopUserAgentResponse() = default;
 };
 class DescribeDomainViewSourceCountriesRequest : public Darabonba::Model {
 public:
@@ -32245,6 +33457,10 @@ public:
   DescribeDestinationPortEventResponse describeDestinationPortEvent(shared_ptr<DescribeDestinationPortEventRequest> request);
   DescribeDomainAttackEventsResponse describeDomainAttackEventsWithOptions(shared_ptr<DescribeDomainAttackEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDomainAttackEventsResponse describeDomainAttackEvents(shared_ptr<DescribeDomainAttackEventsRequest> request);
+  DescribeDomainBpsResponse describeDomainBpsWithOptions(shared_ptr<DescribeDomainBpsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDomainBpsResponse describeDomainBps(shared_ptr<DescribeDomainBpsRequest> request);
+  DescribeDomainH2FingerprintResponse describeDomainH2FingerprintWithOptions(shared_ptr<DescribeDomainH2FingerprintRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDomainH2FingerprintResponse describeDomainH2Fingerprint(shared_ptr<DescribeDomainH2FingerprintRequest> request);
   DescribeDomainOverviewResponse describeDomainOverviewWithOptions(shared_ptr<DescribeDomainOverviewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDomainOverviewResponse describeDomainOverview(shared_ptr<DescribeDomainOverviewRequest> request);
   DescribeDomainQPSListResponse describeDomainQPSListWithOptions(shared_ptr<DescribeDomainQPSListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -32259,6 +33475,14 @@ public:
   DescribeDomainStatusCodeListResponse describeDomainStatusCodeList(shared_ptr<DescribeDomainStatusCodeListRequest> request);
   DescribeDomainTopAttackListResponse describeDomainTopAttackListWithOptions(shared_ptr<DescribeDomainTopAttackListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDomainTopAttackListResponse describeDomainTopAttackList(shared_ptr<DescribeDomainTopAttackListRequest> request);
+  DescribeDomainTopFingerprintResponse describeDomainTopFingerprintWithOptions(shared_ptr<DescribeDomainTopFingerprintRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDomainTopFingerprintResponse describeDomainTopFingerprint(shared_ptr<DescribeDomainTopFingerprintRequest> request);
+  DescribeDomainTopHttpMethodResponse describeDomainTopHttpMethodWithOptions(shared_ptr<DescribeDomainTopHttpMethodRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDomainTopHttpMethodResponse describeDomainTopHttpMethod(shared_ptr<DescribeDomainTopHttpMethodRequest> request);
+  DescribeDomainTopRefererResponse describeDomainTopRefererWithOptions(shared_ptr<DescribeDomainTopRefererRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDomainTopRefererResponse describeDomainTopReferer(shared_ptr<DescribeDomainTopRefererRequest> request);
+  DescribeDomainTopUserAgentResponse describeDomainTopUserAgentWithOptions(shared_ptr<DescribeDomainTopUserAgentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDomainTopUserAgentResponse describeDomainTopUserAgent(shared_ptr<DescribeDomainTopUserAgentRequest> request);
   DescribeDomainViewSourceCountriesResponse describeDomainViewSourceCountriesWithOptions(shared_ptr<DescribeDomainViewSourceCountriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDomainViewSourceCountriesResponse describeDomainViewSourceCountries(shared_ptr<DescribeDomainViewSourceCountriesRequest> request);
   DescribeDomainViewSourceProvincesResponse describeDomainViewSourceProvincesWithOptions(shared_ptr<DescribeDomainViewSourceProvincesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
