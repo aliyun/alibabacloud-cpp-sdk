@@ -636,6 +636,9 @@ ListServiceInstanceResourcesResponse Alibabacloud_ComputeNest20210601::Client::l
   if (!Darabonba_Util::Client::isUnset<string>(request->expireTimeStart)) {
     query->insert(pair<string, string>("ExpireTimeStart", *request->expireTimeStart));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListServiceInstanceResourcesRequestFilters>>(request->filters)) {
+    query->insert(pair<string, vector<ListServiceInstanceResourcesRequestFilters>>("Filters", *request->filters));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }

@@ -4703,6 +4703,8 @@ public:
 };
 class ListServiceInstanceLogsResponseBodyServiceInstancesLogs : public Darabonba::Model {
 public:
+  shared_ptr<string> compliancePackType{};
+  shared_ptr<string> complianceRuleName{};
   shared_ptr<string> content{};
   shared_ptr<string> logType{};
   shared_ptr<string> resourceId{};
@@ -4721,6 +4723,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (compliancePackType) {
+      res["CompliancePackType"] = boost::any(*compliancePackType);
+    }
+    if (complianceRuleName) {
+      res["ComplianceRuleName"] = boost::any(*complianceRuleName);
+    }
     if (content) {
       res["Content"] = boost::any(*content);
     }
@@ -4746,6 +4754,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompliancePackType") != m.end() && !m["CompliancePackType"].empty()) {
+      compliancePackType = make_shared<string>(boost::any_cast<string>(m["CompliancePackType"]));
+    }
+    if (m.find("ComplianceRuleName") != m.end() && !m["ComplianceRuleName"].empty()) {
+      complianceRuleName = make_shared<string>(boost::any_cast<string>(m["ComplianceRuleName"]));
+    }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
     }
@@ -4888,6 +4902,49 @@ public:
 
   virtual ~ListServiceInstanceLogsResponse() = default;
 };
+class ListServiceInstanceResourcesRequestFilters : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> values{};
+
+  ListServiceInstanceResourcesRequestFilters() {}
+
+  explicit ListServiceInstanceResourcesRequestFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListServiceInstanceResourcesRequestFilters() = default;
+};
 class ListServiceInstanceResourcesRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -4928,6 +4985,7 @@ class ListServiceInstanceResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> expireTimeEnd{};
   shared_ptr<string> expireTimeStart{};
+  shared_ptr<vector<ListServiceInstanceResourcesRequestFilters>> filters{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> payType{};
@@ -4952,6 +5010,13 @@ public:
     }
     if (expireTimeStart) {
       res["ExpireTimeStart"] = boost::any(*expireTimeStart);
+    }
+    if (filters) {
+      vector<boost::any> temp1;
+      for(auto item1:*filters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filters"] = boost::any(temp1);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -4990,6 +5055,19 @@ public:
     }
     if (m.find("ExpireTimeStart") != m.end() && !m["ExpireTimeStart"].empty()) {
       expireTimeStart = make_shared<string>(boost::any_cast<string>(m["ExpireTimeStart"]));
+    }
+    if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filters"].type()) {
+        vector<ListServiceInstanceResourcesRequestFilters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListServiceInstanceResourcesRequestFilters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filters = make_shared<vector<ListServiceInstanceResourcesRequestFilters>>(expect1);
+      }
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
