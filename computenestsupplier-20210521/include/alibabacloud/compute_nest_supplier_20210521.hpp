@@ -1105,6 +1105,42 @@ public:
 
   virtual ~CreateArtifactResponse() = default;
 };
+class CreateServiceRequestComplianceMetadata : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> compliancePacks{};
+
+  CreateServiceRequestComplianceMetadata() {}
+
+  explicit CreateServiceRequestComplianceMetadata(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (compliancePacks) {
+      res["CompliancePacks"] = boost::any(*compliancePacks);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompliancePacks") != m.end() && !m["CompliancePacks"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CompliancePacks"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CompliancePacks"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      compliancePacks = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateServiceRequestComplianceMetadata() = default;
+};
 class CreateServiceRequestServiceInfoAgreements : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -1318,6 +1354,7 @@ public:
   shared_ptr<string> approvalType{};
   shared_ptr<string> buildParameters{};
   shared_ptr<string> clientToken{};
+  shared_ptr<CreateServiceRequestComplianceMetadata> complianceMetadata{};
   shared_ptr<string> deployMetadata{};
   shared_ptr<string> deployType{};
   shared_ptr<bool> dryRun{};
@@ -1363,6 +1400,9 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (complianceMetadata) {
+      res["ComplianceMetadata"] = complianceMetadata ? boost::any(complianceMetadata->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (deployMetadata) {
       res["DeployMetadata"] = boost::any(*deployMetadata);
@@ -1457,6 +1497,13 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("ComplianceMetadata") != m.end() && !m["ComplianceMetadata"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ComplianceMetadata"].type()) {
+        CreateServiceRequestComplianceMetadata model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ComplianceMetadata"]));
+        complianceMetadata = make_shared<CreateServiceRequestComplianceMetadata>(model1);
+      }
+    }
     if (m.find("DeployMetadata") != m.end() && !m["DeployMetadata"].empty()) {
       deployMetadata = make_shared<string>(boost::any_cast<string>(m["DeployMetadata"]));
     }
@@ -1550,6 +1597,459 @@ public:
 
 
   virtual ~CreateServiceRequest() = default;
+};
+class CreateServiceShrinkRequestServiceInfoAgreements : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> url{};
+
+  CreateServiceShrinkRequestServiceInfoAgreements() {}
+
+  explicit CreateServiceShrinkRequestServiceInfoAgreements(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~CreateServiceShrinkRequestServiceInfoAgreements() = default;
+};
+class CreateServiceShrinkRequestServiceInfoSoftwares : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> version{};
+
+  CreateServiceShrinkRequestServiceInfoSoftwares() {}
+
+  explicit CreateServiceShrinkRequestServiceInfoSoftwares(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~CreateServiceShrinkRequestServiceInfoSoftwares() = default;
+};
+class CreateServiceShrinkRequestServiceInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateServiceShrinkRequestServiceInfoAgreements>> agreements{};
+  shared_ptr<string> image{};
+  shared_ptr<string> locale{};
+  shared_ptr<string> longDescriptionUrl{};
+  shared_ptr<string> name{};
+  shared_ptr<string> shortDescription{};
+  shared_ptr<vector<CreateServiceShrinkRequestServiceInfoSoftwares>> softwares{};
+
+  CreateServiceShrinkRequestServiceInfo() {}
+
+  explicit CreateServiceShrinkRequestServiceInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agreements) {
+      vector<boost::any> temp1;
+      for(auto item1:*agreements){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Agreements"] = boost::any(temp1);
+    }
+    if (image) {
+      res["Image"] = boost::any(*image);
+    }
+    if (locale) {
+      res["Locale"] = boost::any(*locale);
+    }
+    if (longDescriptionUrl) {
+      res["LongDescriptionUrl"] = boost::any(*longDescriptionUrl);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (shortDescription) {
+      res["ShortDescription"] = boost::any(*shortDescription);
+    }
+    if (softwares) {
+      vector<boost::any> temp1;
+      for(auto item1:*softwares){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Softwares"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Agreements") != m.end() && !m["Agreements"].empty()) {
+      if (typeid(vector<boost::any>) == m["Agreements"].type()) {
+        vector<CreateServiceShrinkRequestServiceInfoAgreements> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Agreements"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateServiceShrinkRequestServiceInfoAgreements model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        agreements = make_shared<vector<CreateServiceShrinkRequestServiceInfoAgreements>>(expect1);
+      }
+    }
+    if (m.find("Image") != m.end() && !m["Image"].empty()) {
+      image = make_shared<string>(boost::any_cast<string>(m["Image"]));
+    }
+    if (m.find("Locale") != m.end() && !m["Locale"].empty()) {
+      locale = make_shared<string>(boost::any_cast<string>(m["Locale"]));
+    }
+    if (m.find("LongDescriptionUrl") != m.end() && !m["LongDescriptionUrl"].empty()) {
+      longDescriptionUrl = make_shared<string>(boost::any_cast<string>(m["LongDescriptionUrl"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ShortDescription") != m.end() && !m["ShortDescription"].empty()) {
+      shortDescription = make_shared<string>(boost::any_cast<string>(m["ShortDescription"]));
+    }
+    if (m.find("Softwares") != m.end() && !m["Softwares"].empty()) {
+      if (typeid(vector<boost::any>) == m["Softwares"].type()) {
+        vector<CreateServiceShrinkRequestServiceInfoSoftwares> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Softwares"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateServiceShrinkRequestServiceInfoSoftwares model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        softwares = make_shared<vector<CreateServiceShrinkRequestServiceInfoSoftwares>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateServiceShrinkRequestServiceInfo() = default;
+};
+class CreateServiceShrinkRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateServiceShrinkRequestTag() {}
+
+  explicit CreateServiceShrinkRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateServiceShrinkRequestTag() = default;
+};
+class CreateServiceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> alarmMetadata{};
+  shared_ptr<string> approvalType{};
+  shared_ptr<string> buildParameters{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> complianceMetadataShrink{};
+  shared_ptr<string> deployMetadata{};
+  shared_ptr<string> deployType{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<long> duration{};
+  shared_ptr<bool> isSupportOperated{};
+  shared_ptr<string> licenseMetadata{};
+  shared_ptr<string> logMetadata{};
+  shared_ptr<string> operationMetadata{};
+  shared_ptr<string> policyNames{};
+  shared_ptr<string> regionId{};
+  shared_ptr<bool> resellable{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<vector<CreateServiceShrinkRequestServiceInfo>> serviceInfo{};
+  shared_ptr<string> serviceType{};
+  shared_ptr<string> shareType{};
+  shared_ptr<string> sourceServiceId{};
+  shared_ptr<string> sourceServiceVersion{};
+  shared_ptr<vector<CreateServiceShrinkRequestTag>> tag{};
+  shared_ptr<string> tenantType{};
+  shared_ptr<long> trialDuration{};
+  shared_ptr<string> upgradeMetadata{};
+  shared_ptr<string> versionName{};
+
+  CreateServiceShrinkRequest() {}
+
+  explicit CreateServiceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alarmMetadata) {
+      res["AlarmMetadata"] = boost::any(*alarmMetadata);
+    }
+    if (approvalType) {
+      res["ApprovalType"] = boost::any(*approvalType);
+    }
+    if (buildParameters) {
+      res["BuildParameters"] = boost::any(*buildParameters);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (complianceMetadataShrink) {
+      res["ComplianceMetadata"] = boost::any(*complianceMetadataShrink);
+    }
+    if (deployMetadata) {
+      res["DeployMetadata"] = boost::any(*deployMetadata);
+    }
+    if (deployType) {
+      res["DeployType"] = boost::any(*deployType);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (isSupportOperated) {
+      res["IsSupportOperated"] = boost::any(*isSupportOperated);
+    }
+    if (licenseMetadata) {
+      res["LicenseMetadata"] = boost::any(*licenseMetadata);
+    }
+    if (logMetadata) {
+      res["LogMetadata"] = boost::any(*logMetadata);
+    }
+    if (operationMetadata) {
+      res["OperationMetadata"] = boost::any(*operationMetadata);
+    }
+    if (policyNames) {
+      res["PolicyNames"] = boost::any(*policyNames);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resellable) {
+      res["Resellable"] = boost::any(*resellable);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceInfo"] = boost::any(temp1);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (shareType) {
+      res["ShareType"] = boost::any(*shareType);
+    }
+    if (sourceServiceId) {
+      res["SourceServiceId"] = boost::any(*sourceServiceId);
+    }
+    if (sourceServiceVersion) {
+      res["SourceServiceVersion"] = boost::any(*sourceServiceVersion);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    if (tenantType) {
+      res["TenantType"] = boost::any(*tenantType);
+    }
+    if (trialDuration) {
+      res["TrialDuration"] = boost::any(*trialDuration);
+    }
+    if (upgradeMetadata) {
+      res["UpgradeMetadata"] = boost::any(*upgradeMetadata);
+    }
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlarmMetadata") != m.end() && !m["AlarmMetadata"].empty()) {
+      alarmMetadata = make_shared<string>(boost::any_cast<string>(m["AlarmMetadata"]));
+    }
+    if (m.find("ApprovalType") != m.end() && !m["ApprovalType"].empty()) {
+      approvalType = make_shared<string>(boost::any_cast<string>(m["ApprovalType"]));
+    }
+    if (m.find("BuildParameters") != m.end() && !m["BuildParameters"].empty()) {
+      buildParameters = make_shared<string>(boost::any_cast<string>(m["BuildParameters"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ComplianceMetadata") != m.end() && !m["ComplianceMetadata"].empty()) {
+      complianceMetadataShrink = make_shared<string>(boost::any_cast<string>(m["ComplianceMetadata"]));
+    }
+    if (m.find("DeployMetadata") != m.end() && !m["DeployMetadata"].empty()) {
+      deployMetadata = make_shared<string>(boost::any_cast<string>(m["DeployMetadata"]));
+    }
+    if (m.find("DeployType") != m.end() && !m["DeployType"].empty()) {
+      deployType = make_shared<string>(boost::any_cast<string>(m["DeployType"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("IsSupportOperated") != m.end() && !m["IsSupportOperated"].empty()) {
+      isSupportOperated = make_shared<bool>(boost::any_cast<bool>(m["IsSupportOperated"]));
+    }
+    if (m.find("LicenseMetadata") != m.end() && !m["LicenseMetadata"].empty()) {
+      licenseMetadata = make_shared<string>(boost::any_cast<string>(m["LicenseMetadata"]));
+    }
+    if (m.find("LogMetadata") != m.end() && !m["LogMetadata"].empty()) {
+      logMetadata = make_shared<string>(boost::any_cast<string>(m["LogMetadata"]));
+    }
+    if (m.find("OperationMetadata") != m.end() && !m["OperationMetadata"].empty()) {
+      operationMetadata = make_shared<string>(boost::any_cast<string>(m["OperationMetadata"]));
+    }
+    if (m.find("PolicyNames") != m.end() && !m["PolicyNames"].empty()) {
+      policyNames = make_shared<string>(boost::any_cast<string>(m["PolicyNames"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Resellable") != m.end() && !m["Resellable"].empty()) {
+      resellable = make_shared<bool>(boost::any_cast<bool>(m["Resellable"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceInfo") != m.end() && !m["ServiceInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceInfo"].type()) {
+        vector<CreateServiceShrinkRequestServiceInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateServiceShrinkRequestServiceInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceInfo = make_shared<vector<CreateServiceShrinkRequestServiceInfo>>(expect1);
+      }
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
+      shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
+    }
+    if (m.find("SourceServiceId") != m.end() && !m["SourceServiceId"].empty()) {
+      sourceServiceId = make_shared<string>(boost::any_cast<string>(m["SourceServiceId"]));
+    }
+    if (m.find("SourceServiceVersion") != m.end() && !m["SourceServiceVersion"].empty()) {
+      sourceServiceVersion = make_shared<string>(boost::any_cast<string>(m["SourceServiceVersion"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateServiceShrinkRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateServiceShrinkRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateServiceShrinkRequestTag>>(expect1);
+      }
+    }
+    if (m.find("TenantType") != m.end() && !m["TenantType"].empty()) {
+      tenantType = make_shared<string>(boost::any_cast<string>(m["TenantType"]));
+    }
+    if (m.find("TrialDuration") != m.end() && !m["TrialDuration"].empty()) {
+      trialDuration = make_shared<long>(boost::any_cast<long>(m["TrialDuration"]));
+    }
+    if (m.find("UpgradeMetadata") != m.end() && !m["UpgradeMetadata"].empty()) {
+      upgradeMetadata = make_shared<string>(boost::any_cast<string>(m["UpgradeMetadata"]));
+    }
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
+    }
+  }
+
+
+  virtual ~CreateServiceShrinkRequest() = default;
 };
 class CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy : public Darabonba::Model {
 public:
@@ -3383,6 +3883,8 @@ public:
   shared_ptr<bool> filterAliUid{};
   shared_ptr<string> regionId{};
   shared_ptr<string> serviceId{};
+  shared_ptr<string> serviceInstanceId{};
+  shared_ptr<string> serviceName{};
   shared_ptr<string> serviceVersion{};
   shared_ptr<string> sharedAccountType{};
   shared_ptr<vector<string>> showDetail{};
@@ -3406,6 +3908,12 @@ public:
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
+    if (serviceInstanceId) {
+      res["ServiceInstanceId"] = boost::any(*serviceInstanceId);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
     if (serviceVersion) {
       res["ServiceVersion"] = boost::any(*serviceVersion);
     }
@@ -3427,6 +3935,12 @@ public:
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceInstanceId") != m.end() && !m["ServiceInstanceId"].empty()) {
+      serviceInstanceId = make_shared<string>(boost::any_cast<string>(m["ServiceInstanceId"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
     }
     if (m.find("ServiceVersion") != m.end() && !m["ServiceVersion"].empty()) {
       serviceVersion = make_shared<string>(boost::any_cast<string>(m["ServiceVersion"]));
@@ -4110,6 +4624,42 @@ public:
 
   virtual ~GetServiceResponseBodyCommodity() = default;
 };
+class GetServiceResponseBodyComplianceMetadata : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> compliancePacks{};
+
+  GetServiceResponseBodyComplianceMetadata() {}
+
+  explicit GetServiceResponseBodyComplianceMetadata(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (compliancePacks) {
+      res["CompliancePacks"] = boost::any(*compliancePacks);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompliancePacks") != m.end() && !m["CompliancePacks"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CompliancePacks"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CompliancePacks"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      compliancePacks = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetServiceResponseBodyComplianceMetadata() = default;
+};
 class GetServiceResponseBodyServiceInfosAgreements : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -4410,6 +4960,7 @@ public:
   shared_ptr<string> categories{};
   shared_ptr<GetServiceResponseBodyCommodity> commodity{};
   shared_ptr<string> commodityCode{};
+  shared_ptr<GetServiceResponseBodyComplianceMetadata> complianceMetadata{};
   shared_ptr<string> createTime{};
   shared_ptr<string> crossRegionConnectionStatus{};
   shared_ptr<long> defaultLicenseDays{};
@@ -4487,6 +5038,9 @@ public:
     }
     if (commodityCode) {
       res["CommodityCode"] = boost::any(*commodityCode);
+    }
+    if (complianceMetadata) {
+      res["ComplianceMetadata"] = complianceMetadata ? boost::any(complianceMetadata->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
@@ -4668,6 +5222,13 @@ public:
     }
     if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
       commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
+    }
+    if (m.find("ComplianceMetadata") != m.end() && !m["ComplianceMetadata"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ComplianceMetadata"].type()) {
+        GetServiceResponseBodyComplianceMetadata model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ComplianceMetadata"]));
+        complianceMetadata = make_shared<GetServiceResponseBodyComplianceMetadata>(model1);
+      }
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
@@ -12197,6 +12758,42 @@ public:
 
   virtual ~UpdateServiceRequestCommodity() = default;
 };
+class UpdateServiceRequestComplianceMetadata : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> compliancePacks{};
+
+  UpdateServiceRequestComplianceMetadata() {}
+
+  explicit UpdateServiceRequestComplianceMetadata(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (compliancePacks) {
+      res["CompliancePacks"] = boost::any(*compliancePacks);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompliancePacks") != m.end() && !m["CompliancePacks"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CompliancePacks"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CompliancePacks"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      compliancePacks = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateServiceRequestComplianceMetadata() = default;
+};
 class UpdateServiceRequestServiceInfoAgreements : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -12410,6 +13007,7 @@ public:
   shared_ptr<string> approvalType{};
   shared_ptr<string> clientToken{};
   shared_ptr<UpdateServiceRequestCommodity> commodity{};
+  shared_ptr<UpdateServiceRequestComplianceMetadata> complianceMetadata{};
   shared_ptr<string> deployMetadata{};
   shared_ptr<string> deployType{};
   shared_ptr<bool> dryRun{};
@@ -12453,6 +13051,9 @@ public:
     }
     if (commodity) {
       res["Commodity"] = commodity ? boost::any(commodity->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (complianceMetadata) {
+      res["ComplianceMetadata"] = complianceMetadata ? boost::any(complianceMetadata->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (deployMetadata) {
       res["DeployMetadata"] = boost::any(*deployMetadata);
@@ -12539,6 +13140,13 @@ public:
         UpdateServiceRequestCommodity model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Commodity"]));
         commodity = make_shared<UpdateServiceRequestCommodity>(model1);
+      }
+    }
+    if (m.find("ComplianceMetadata") != m.end() && !m["ComplianceMetadata"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ComplianceMetadata"].type()) {
+        UpdateServiceRequestComplianceMetadata model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ComplianceMetadata"]));
+        complianceMetadata = make_shared<UpdateServiceRequestComplianceMetadata>(model1);
       }
     }
     if (m.find("DeployMetadata") != m.end() && !m["DeployMetadata"].empty()) {
@@ -12800,6 +13408,7 @@ public:
   shared_ptr<string> approvalType{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> commodityShrink{};
+  shared_ptr<string> complianceMetadataShrink{};
   shared_ptr<string> deployMetadata{};
   shared_ptr<string> deployType{};
   shared_ptr<bool> dryRun{};
@@ -12843,6 +13452,9 @@ public:
     }
     if (commodityShrink) {
       res["Commodity"] = boost::any(*commodityShrink);
+    }
+    if (complianceMetadataShrink) {
+      res["ComplianceMetadata"] = boost::any(*complianceMetadataShrink);
     }
     if (deployMetadata) {
       res["DeployMetadata"] = boost::any(*deployMetadata);
@@ -12926,6 +13538,9 @@ public:
     }
     if (m.find("Commodity") != m.end() && !m["Commodity"].empty()) {
       commodityShrink = make_shared<string>(boost::any_cast<string>(m["Commodity"]));
+    }
+    if (m.find("ComplianceMetadata") != m.end() && !m["ComplianceMetadata"].empty()) {
+      complianceMetadataShrink = make_shared<string>(boost::any_cast<string>(m["ComplianceMetadata"]));
     }
     if (m.find("DeployMetadata") != m.end() && !m["DeployMetadata"].empty()) {
       deployMetadata = make_shared<string>(boost::any_cast<string>(m["DeployMetadata"]));
@@ -13939,7 +14554,7 @@ public:
   ContinueDeployServiceInstanceResponse continueDeployServiceInstance(shared_ptr<ContinueDeployServiceInstanceRequest> request);
   CreateArtifactResponse createArtifactWithOptions(shared_ptr<CreateArtifactRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateArtifactResponse createArtifact(shared_ptr<CreateArtifactRequest> request);
-  CreateServiceResponse createServiceWithOptions(shared_ptr<CreateServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateServiceResponse createServiceWithOptions(shared_ptr<CreateServiceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateServiceResponse createService(shared_ptr<CreateServiceRequest> request);
   CreateServiceInstanceResponse createServiceInstanceWithOptions(shared_ptr<CreateServiceInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateServiceInstanceResponse createServiceInstance(shared_ptr<CreateServiceInstanceRequest> request);

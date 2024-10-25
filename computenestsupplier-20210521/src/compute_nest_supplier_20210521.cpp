@@ -217,8 +217,13 @@ CreateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::createA
   return createArtifactWithOptions(request, runtime);
 }
 
-CreateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::createServiceWithOptions(shared_ptr<CreateServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::createServiceWithOptions(shared_ptr<CreateServiceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateServiceShrinkRequest> request = make_shared<CreateServiceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateServiceRequestComplianceMetadata>(tmpReq->complianceMetadata)) {
+    request->complianceMetadataShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->complianceMetadata, make_shared<string>("ComplianceMetadata"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->alarmMetadata)) {
     query->insert(pair<string, string>("AlarmMetadata", *request->alarmMetadata));
@@ -231,6 +236,9 @@ CreateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::createSe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->complianceMetadataShrink)) {
+    query->insert(pair<string, string>("ComplianceMetadata", *request->complianceMetadataShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deployMetadata)) {
     query->insert(pair<string, string>("DeployMetadata", *request->deployMetadata));
@@ -271,8 +279,8 @@ CreateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::createSe
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
     query->insert(pair<string, string>("ServiceId", *request->serviceId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateServiceRequestServiceInfo>>(request->serviceInfo)) {
-    query->insert(pair<string, vector<CreateServiceRequestServiceInfo>>("ServiceInfo", *request->serviceInfo));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateServiceShrinkRequestServiceInfo>>(request->serviceInfo)) {
+    query->insert(pair<string, vector<CreateServiceShrinkRequestServiceInfo>>("ServiceInfo", *request->serviceInfo));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
     query->insert(pair<string, string>("ServiceType", *request->serviceType));
@@ -286,8 +294,8 @@ CreateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::createSe
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceServiceVersion)) {
     query->insert(pair<string, string>("SourceServiceVersion", *request->sourceServiceVersion));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateServiceRequestTag>>(request->tag)) {
-    query->insert(pair<string, vector<CreateServiceRequestTag>>("Tag", *request->tag));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateServiceShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateServiceShrinkRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tenantType)) {
     query->insert(pair<string, string>("TenantType", *request->tenantType));
@@ -638,6 +646,12 @@ GetServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::getServiceW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
     query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceInstanceId)) {
+    query->insert(pair<string, string>("ServiceInstanceId", *request->serviceInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
+    query->insert(pair<string, string>("ServiceName", *request->serviceName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceVersion)) {
     query->insert(pair<string, string>("ServiceVersion", *request->serviceVersion));
@@ -1623,6 +1637,9 @@ UpdateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateSe
   if (!Darabonba_Util::Client::isUnset<UpdateServiceRequestCommodity>(tmpReq->commodity)) {
     request->commodityShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->commodity, make_shared<string>("Commodity"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<UpdateServiceRequestComplianceMetadata>(tmpReq->complianceMetadata)) {
+    request->complianceMetadataShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->complianceMetadata, make_shared<string>("ComplianceMetadata"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<UpdateServiceRequestUpdateOption>(tmpReq->updateOption)) {
     request->updateOptionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->updateOption, make_shared<string>("UpdateOption"), make_shared<string>("json")));
   }
@@ -1638,6 +1655,9 @@ UpdateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateSe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->commodityShrink)) {
     query->insert(pair<string, string>("Commodity", *request->commodityShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->complianceMetadataShrink)) {
+    query->insert(pair<string, string>("ComplianceMetadata", *request->complianceMetadataShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deployMetadata)) {
     query->insert(pair<string, string>("DeployMetadata", *request->deployMetadata));
