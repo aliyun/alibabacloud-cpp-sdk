@@ -887,11 +887,135 @@ public:
 
   virtual ~HTTPTriggerConfig() = default;
 };
+class RegistryAuthConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> password{};
+  shared_ptr<string> role{};
+  shared_ptr<string> userName{};
+
+  RegistryAuthConfig() {}
+
+  explicit RegistryAuthConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (password) {
+      res["password"] = boost::any(*password);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    if (userName) {
+      res["userName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("password") != m.end() && !m["password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["password"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+    if (m.find("userName") != m.end() && !m["userName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["userName"]));
+    }
+  }
+
+
+  virtual ~RegistryAuthConfig() = default;
+};
+class RegistryCertConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> insecure{};
+  shared_ptr<string> rootCaCertBase64{};
+
+  RegistryCertConfig() {}
+
+  explicit RegistryCertConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (insecure) {
+      res["insecure"] = boost::any(*insecure);
+    }
+    if (rootCaCertBase64) {
+      res["rootCaCertBase64"] = boost::any(*rootCaCertBase64);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("insecure") != m.end() && !m["insecure"].empty()) {
+      insecure = make_shared<bool>(boost::any_cast<bool>(m["insecure"]));
+    }
+    if (m.find("rootCaCertBase64") != m.end() && !m["rootCaCertBase64"].empty()) {
+      rootCaCertBase64 = make_shared<string>(boost::any_cast<string>(m["rootCaCertBase64"]));
+    }
+  }
+
+
+  virtual ~RegistryCertConfig() = default;
+};
+class RegistryConfig : public Darabonba::Model {
+public:
+  shared_ptr<RegistryAuthConfig> authConfig{};
+  shared_ptr<RegistryCertConfig> certConfig{};
+
+  RegistryConfig() {}
+
+  explicit RegistryConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authConfig) {
+      res["authConfig"] = authConfig ? boost::any(authConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (certConfig) {
+      res["certConfig"] = certConfig ? boost::any(certConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("authConfig") != m.end() && !m["authConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["authConfig"].type()) {
+        RegistryAuthConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["authConfig"]));
+        authConfig = make_shared<RegistryAuthConfig>(model1);
+      }
+    }
+    if (m.find("certConfig") != m.end() && !m["certConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["certConfig"].type()) {
+        RegistryCertConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["certConfig"]));
+        certConfig = make_shared<RegistryCertConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RegistryConfig() = default;
+};
 class ImageConfig : public Darabonba::Model {
 public:
   shared_ptr<string> accelerationType{};
   shared_ptr<string> image{};
   shared_ptr<string> instanceID{};
+  shared_ptr<RegistryConfig> registryConfig{};
 
   ImageConfig() {}
 
@@ -912,6 +1036,9 @@ public:
     if (instanceID) {
       res["instanceID"] = boost::any(*instanceID);
     }
+    if (registryConfig) {
+      res["registryConfig"] = registryConfig ? boost::any(registryConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -924,6 +1051,13 @@ public:
     }
     if (m.find("instanceID") != m.end() && !m["instanceID"].empty()) {
       instanceID = make_shared<string>(boost::any_cast<string>(m["instanceID"]));
+    }
+    if (m.find("registryConfig") != m.end() && !m["registryConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["registryConfig"].type()) {
+        RegistryConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["registryConfig"]));
+        registryConfig = make_shared<RegistryConfig>(model1);
+      }
     }
   }
 
@@ -23656,6 +23790,7 @@ public:
 class DescribeConfigurationPriceResponseBodyDataBagUsage : public Darabonba::Model {
 public:
   shared_ptr<double> cpu{};
+  shared_ptr<double> cu{};
   shared_ptr<double> mem{};
 
   DescribeConfigurationPriceResponseBodyDataBagUsage() {}
@@ -23671,6 +23806,9 @@ public:
     if (cpu) {
       res["Cpu"] = boost::any(*cpu);
     }
+    if (cu) {
+      res["Cu"] = boost::any(*cu);
+    }
     if (mem) {
       res["Mem"] = boost::any(*mem);
     }
@@ -23680,6 +23818,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
       cpu = make_shared<double>(boost::any_cast<double>(m["Cpu"]));
+    }
+    if (m.find("Cu") != m.end() && !m["Cu"].empty()) {
+      cu = make_shared<double>(boost::any_cast<double>(m["Cu"]));
     }
     if (m.find("Mem") != m.end() && !m["Mem"].empty()) {
       mem = make_shared<double>(boost::any_cast<double>(m["Mem"]));
@@ -38820,7 +38961,9 @@ public:
 };
 class QueryResourceStaticsResponseBodyDataSummary : public Darabonba::Model {
 public:
+  shared_ptr<double> activeCpu{};
   shared_ptr<double> cpu{};
+  shared_ptr<double> idleCpu{};
   shared_ptr<double> memory{};
 
   QueryResourceStaticsResponseBodyDataSummary() {}
@@ -38833,8 +38976,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activeCpu) {
+      res["ActiveCpu"] = boost::any(*activeCpu);
+    }
     if (cpu) {
       res["Cpu"] = boost::any(*cpu);
+    }
+    if (idleCpu) {
+      res["IdleCpu"] = boost::any(*idleCpu);
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
@@ -38843,8 +38992,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActiveCpu") != m.end() && !m["ActiveCpu"].empty()) {
+      activeCpu = make_shared<double>(boost::any_cast<double>(m["ActiveCpu"]));
+    }
     if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
       cpu = make_shared<double>(boost::any_cast<double>(m["Cpu"]));
+    }
+    if (m.find("IdleCpu") != m.end() && !m["IdleCpu"].empty()) {
+      idleCpu = make_shared<double>(boost::any_cast<double>(m["IdleCpu"]));
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
