@@ -4178,6 +4178,7 @@ public:
   shared_ptr<long> queuingOverflowThreshold{};
   shared_ptr<long> queuingTimeoutSeconds{};
   shared_ptr<string> routingType{};
+  shared_ptr<string> skillGroupId{};
   shared_ptr<string> strategyName{};
   shared_ptr<string> strategyParams{};
   shared_ptr<string> tags{};
@@ -4220,6 +4221,9 @@ public:
     }
     if (routingType) {
       res["RoutingType"] = boost::any(*routingType);
+    }
+    if (skillGroupId) {
+      res["SkillGroupId"] = boost::any(*skillGroupId);
     }
     if (strategyName) {
       res["StrategyName"] = boost::any(*strategyName);
@@ -4272,6 +4276,9 @@ public:
     }
     if (m.find("RoutingType") != m.end() && !m["RoutingType"].empty()) {
       routingType = make_shared<string>(boost::any_cast<string>(m["RoutingType"]));
+    }
+    if (m.find("SkillGroupId") != m.end() && !m["SkillGroupId"].empty()) {
+      skillGroupId = make_shared<string>(boost::any_cast<string>(m["SkillGroupId"]));
     }
     if (m.find("StrategyName") != m.end() && !m["StrategyName"].empty()) {
       strategyName = make_shared<string>(boost::any_cast<string>(m["StrategyName"]));
@@ -20278,6 +20285,151 @@ public:
 
 
   virtual ~GetInstanceTrendingReportResponse() = default;
+};
+class GetIvrTrackingSummaryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> contactId{};
+  shared_ptr<string> instanceId{};
+
+  GetIvrTrackingSummaryRequest() {}
+
+  explicit GetIvrTrackingSummaryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contactId) {
+      res["ContactId"] = boost::any(*contactId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContactId") != m.end() && !m["ContactId"].empty()) {
+      contactId = make_shared<string>(boost::any_cast<string>(m["ContactId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GetIvrTrackingSummaryRequest() = default;
+};
+class GetIvrTrackingSummaryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  GetIvrTrackingSummaryResponseBody() {}
+
+  explicit GetIvrTrackingSummaryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetIvrTrackingSummaryResponseBody() = default;
+};
+class GetIvrTrackingSummaryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetIvrTrackingSummaryResponseBody> body{};
+
+  GetIvrTrackingSummaryResponse() {}
+
+  explicit GetIvrTrackingSummaryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetIvrTrackingSummaryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetIvrTrackingSummaryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetIvrTrackingSummaryResponse() = default;
 };
 class GetLoginDetailsRequest : public Darabonba::Model {
 public:
@@ -75269,6 +75421,8 @@ public:
   GetInstanceResponse getInstance(shared_ptr<GetInstanceRequest> request);
   GetInstanceTrendingReportResponse getInstanceTrendingReportWithOptions(shared_ptr<GetInstanceTrendingReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetInstanceTrendingReportResponse getInstanceTrendingReport(shared_ptr<GetInstanceTrendingReportRequest> request);
+  GetIvrTrackingSummaryResponse getIvrTrackingSummaryWithOptions(shared_ptr<GetIvrTrackingSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetIvrTrackingSummaryResponse getIvrTrackingSummary(shared_ptr<GetIvrTrackingSummaryRequest> request);
   GetLoginDetailsResponse getLoginDetailsWithOptions(shared_ptr<GetLoginDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetLoginDetailsResponse getLoginDetails(shared_ptr<GetLoginDetailsRequest> request);
   GetMonoRecordingResponse getMonoRecordingWithOptions(shared_ptr<GetMonoRecordingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

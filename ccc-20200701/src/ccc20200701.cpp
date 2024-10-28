@@ -720,6 +720,9 @@ BlindTransferResponse Alibabacloud_CCC20200701::Client::blindTransferWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->routingType)) {
     query->insert(pair<string, string>("RoutingType", *request->routingType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->skillGroupId)) {
+    query->insert(pair<string, string>("SkillGroupId", *request->skillGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->strategyName)) {
     query->insert(pair<string, string>("StrategyName", *request->strategyName));
   }
@@ -2838,6 +2841,37 @@ GetInstanceTrendingReportResponse Alibabacloud_CCC20200701::Client::getInstanceT
 GetInstanceTrendingReportResponse Alibabacloud_CCC20200701::Client::getInstanceTrendingReport(shared_ptr<GetInstanceTrendingReportRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getInstanceTrendingReportWithOptions(request, runtime);
+}
+
+GetIvrTrackingSummaryResponse Alibabacloud_CCC20200701::Client::getIvrTrackingSummaryWithOptions(shared_ptr<GetIvrTrackingSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->contactId)) {
+    query->insert(pair<string, string>("ContactId", *request->contactId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetIvrTrackingSummary"))},
+    {"version", boost::any(string("2020-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetIvrTrackingSummaryResponse(callApi(params, req, runtime));
+}
+
+GetIvrTrackingSummaryResponse Alibabacloud_CCC20200701::Client::getIvrTrackingSummary(shared_ptr<GetIvrTrackingSummaryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getIvrTrackingSummaryWithOptions(request, runtime);
 }
 
 GetLoginDetailsResponse Alibabacloud_CCC20200701::Client::getLoginDetailsWithOptions(shared_ptr<GetLoginDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
