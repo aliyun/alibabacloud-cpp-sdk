@@ -8494,9 +8494,11 @@ public:
 class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesNews : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
+  shared_ptr<string> createTime{};
   shared_ptr<string> docId{};
   shared_ptr<string> docUuid{};
   shared_ptr<vector<string>> imageUrls{};
+  shared_ptr<string> pubTime{};
   shared_ptr<string> source{};
   shared_ptr<string> summary{};
   shared_ptr<vector<string>> tags{};
@@ -8517,6 +8519,9 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
     if (docId) {
       res["DocId"] = boost::any(*docId);
     }
@@ -8525,6 +8530,9 @@ public:
     }
     if (imageUrls) {
       res["ImageUrls"] = boost::any(*imageUrls);
+    }
+    if (pubTime) {
+      res["PubTime"] = boost::any(*pubTime);
     }
     if (source) {
       res["Source"] = boost::any(*source);
@@ -8551,6 +8559,9 @@ public:
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
     }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
     if (m.find("DocId") != m.end() && !m["DocId"].empty()) {
       docId = make_shared<string>(boost::any_cast<string>(m["DocId"]));
     }
@@ -8566,6 +8577,9 @@ public:
         }
       }
       imageUrls = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PubTime") != m.end() && !m["PubTime"].empty()) {
+      pubTime = make_shared<string>(boost::any_cast<string>(m["PubTime"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
