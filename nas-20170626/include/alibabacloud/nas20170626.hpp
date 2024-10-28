@@ -1292,6 +1292,137 @@ public:
 
   virtual ~CancelDirQuotaResponse() = default;
 };
+class CancelFilesetQuotaRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> fileSystemId{};
+  shared_ptr<string> fsetId{};
+
+  CancelFilesetQuotaRequest() {}
+
+  explicit CancelFilesetQuotaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    if (fsetId) {
+      res["FsetId"] = boost::any(*fsetId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("FsetId") != m.end() && !m["FsetId"].empty()) {
+      fsetId = make_shared<string>(boost::any_cast<string>(m["FsetId"]));
+    }
+  }
+
+
+  virtual ~CancelFilesetQuotaRequest() = default;
+};
+class CancelFilesetQuotaResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CancelFilesetQuotaResponseBody() {}
+
+  explicit CancelFilesetQuotaResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CancelFilesetQuotaResponseBody() = default;
+};
+class CancelFilesetQuotaResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CancelFilesetQuotaResponseBody> body{};
+
+  CancelFilesetQuotaResponse() {}
+
+  explicit CancelFilesetQuotaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CancelFilesetQuotaResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CancelFilesetQuotaResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CancelFilesetQuotaResponse() = default;
+};
 class CancelLifecycleRetrieveJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> jobId{};
@@ -21708,6 +21839,151 @@ public:
 
   virtual ~SetDirQuotaResponse() = default;
 };
+class SetFilesetQuotaRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<long> fileCountLimit{};
+  shared_ptr<string> fileSystemId{};
+  shared_ptr<string> fsetId{};
+  shared_ptr<long> sizeLimit{};
+
+  SetFilesetQuotaRequest() {}
+
+  explicit SetFilesetQuotaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (fileCountLimit) {
+      res["FileCountLimit"] = boost::any(*fileCountLimit);
+    }
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    if (fsetId) {
+      res["FsetId"] = boost::any(*fsetId);
+    }
+    if (sizeLimit) {
+      res["SizeLimit"] = boost::any(*sizeLimit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("FileCountLimit") != m.end() && !m["FileCountLimit"].empty()) {
+      fileCountLimit = make_shared<long>(boost::any_cast<long>(m["FileCountLimit"]));
+    }
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("FsetId") != m.end() && !m["FsetId"].empty()) {
+      fsetId = make_shared<string>(boost::any_cast<string>(m["FsetId"]));
+    }
+    if (m.find("SizeLimit") != m.end() && !m["SizeLimit"].empty()) {
+      sizeLimit = make_shared<long>(boost::any_cast<long>(m["SizeLimit"]));
+    }
+  }
+
+
+  virtual ~SetFilesetQuotaRequest() = default;
+};
+class SetFilesetQuotaResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SetFilesetQuotaResponseBody() {}
+
+  explicit SetFilesetQuotaResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetFilesetQuotaResponseBody() = default;
+};
+class SetFilesetQuotaResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetFilesetQuotaResponseBody> body{};
+
+  SetFilesetQuotaResponse() {}
+
+  explicit SetFilesetQuotaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetFilesetQuotaResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetFilesetQuotaResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetFilesetQuotaResponse() = default;
+};
 class StartDataFlowRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -22572,6 +22848,8 @@ public:
   CancelDataFlowTaskResponse cancelDataFlowTask(shared_ptr<CancelDataFlowTaskRequest> request);
   CancelDirQuotaResponse cancelDirQuotaWithOptions(shared_ptr<CancelDirQuotaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelDirQuotaResponse cancelDirQuota(shared_ptr<CancelDirQuotaRequest> request);
+  CancelFilesetQuotaResponse cancelFilesetQuotaWithOptions(shared_ptr<CancelFilesetQuotaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CancelFilesetQuotaResponse cancelFilesetQuota(shared_ptr<CancelFilesetQuotaRequest> request);
   CancelLifecycleRetrieveJobResponse cancelLifecycleRetrieveJobWithOptions(shared_ptr<CancelLifecycleRetrieveJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelLifecycleRetrieveJobResponse cancelLifecycleRetrieveJob(shared_ptr<CancelLifecycleRetrieveJobRequest> request);
   CancelRecycleBinJobResponse cancelRecycleBinJobWithOptions(shared_ptr<CancelRecycleBinJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -22768,6 +23046,8 @@ public:
   RetryLifecycleRetrieveJobResponse retryLifecycleRetrieveJob(shared_ptr<RetryLifecycleRetrieveJobRequest> request);
   SetDirQuotaResponse setDirQuotaWithOptions(shared_ptr<SetDirQuotaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetDirQuotaResponse setDirQuota(shared_ptr<SetDirQuotaRequest> request);
+  SetFilesetQuotaResponse setFilesetQuotaWithOptions(shared_ptr<SetFilesetQuotaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetFilesetQuotaResponse setFilesetQuota(shared_ptr<SetFilesetQuotaRequest> request);
   StartDataFlowResponse startDataFlowWithOptions(shared_ptr<StartDataFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartDataFlowResponse startDataFlow(shared_ptr<StartDataFlowRequest> request);
   StopDataFlowResponse stopDataFlowWithOptions(shared_ptr<StopDataFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

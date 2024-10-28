@@ -376,6 +376,43 @@ CancelDirQuotaResponse Alibabacloud_NAS20170626::Client::cancelDirQuota(shared_p
   return cancelDirQuotaWithOptions(request, runtime);
 }
 
+CancelFilesetQuotaResponse Alibabacloud_NAS20170626::Client::cancelFilesetQuotaWithOptions(shared_ptr<CancelFilesetQuotaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
+    query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fsetId)) {
+    query->insert(pair<string, string>("FsetId", *request->fsetId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelFilesetQuota"))},
+    {"version", boost::any(string("2017-06-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelFilesetQuotaResponse(callApi(params, req, runtime));
+}
+
+CancelFilesetQuotaResponse Alibabacloud_NAS20170626::Client::cancelFilesetQuota(shared_ptr<CancelFilesetQuotaRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return cancelFilesetQuotaWithOptions(request, runtime);
+}
+
 CancelLifecycleRetrieveJobResponse Alibabacloud_NAS20170626::Client::cancelLifecycleRetrieveJobWithOptions(shared_ptr<CancelLifecycleRetrieveJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4028,6 +4065,49 @@ SetDirQuotaResponse Alibabacloud_NAS20170626::Client::setDirQuotaWithOptions(sha
 SetDirQuotaResponse Alibabacloud_NAS20170626::Client::setDirQuota(shared_ptr<SetDirQuotaRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return setDirQuotaWithOptions(request, runtime);
+}
+
+SetFilesetQuotaResponse Alibabacloud_NAS20170626::Client::setFilesetQuotaWithOptions(shared_ptr<SetFilesetQuotaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->fileCountLimit)) {
+    query->insert(pair<string, long>("FileCountLimit", *request->fileCountLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
+    query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fsetId)) {
+    query->insert(pair<string, string>("FsetId", *request->fsetId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sizeLimit)) {
+    query->insert(pair<string, long>("SizeLimit", *request->sizeLimit));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetFilesetQuota"))},
+    {"version", boost::any(string("2017-06-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetFilesetQuotaResponse(callApi(params, req, runtime));
+}
+
+SetFilesetQuotaResponse Alibabacloud_NAS20170626::Client::setFilesetQuota(shared_ptr<SetFilesetQuotaRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setFilesetQuotaWithOptions(request, runtime);
 }
 
 StartDataFlowResponse Alibabacloud_NAS20170626::Client::startDataFlowWithOptions(shared_ptr<StartDataFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
