@@ -696,7 +696,10 @@ public:
 class CreatePrivateAccessApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> addresses{};
+  shared_ptr<string> browserAccessStatus{};
   shared_ptr<string> description{};
+  shared_ptr<string> l7ProxyDomainAutomaticPrefix{};
+  shared_ptr<string> l7ProxyDomainCustom{};
   shared_ptr<string> name{};
   shared_ptr<vector<CreatePrivateAccessApplicationRequestPortRanges>> portRanges{};
   shared_ptr<string> protocol{};
@@ -716,8 +719,17 @@ public:
     if (addresses) {
       res["Addresses"] = boost::any(*addresses);
     }
+    if (browserAccessStatus) {
+      res["BrowserAccessStatus"] = boost::any(*browserAccessStatus);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (l7ProxyDomainAutomaticPrefix) {
+      res["L7ProxyDomainAutomaticPrefix"] = boost::any(*l7ProxyDomainAutomaticPrefix);
+    }
+    if (l7ProxyDomainCustom) {
+      res["L7ProxyDomainCustom"] = boost::any(*l7ProxyDomainCustom);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -752,8 +764,17 @@ public:
       }
       addresses = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("BrowserAccessStatus") != m.end() && !m["BrowserAccessStatus"].empty()) {
+      browserAccessStatus = make_shared<string>(boost::any_cast<string>(m["BrowserAccessStatus"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("L7ProxyDomainAutomaticPrefix") != m.end() && !m["L7ProxyDomainAutomaticPrefix"].empty()) {
+      l7ProxyDomainAutomaticPrefix = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainAutomaticPrefix"]));
+    }
+    if (m.find("L7ProxyDomainCustom") != m.end() && !m["L7ProxyDomainCustom"].empty()) {
+      l7ProxyDomainCustom = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainCustom"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -2320,6 +2341,49 @@ public:
 
   virtual ~CreateWmBaseImageResponse() = default;
 };
+class CreateWmEmbedTaskRequestCsvControl : public Darabonba::Model {
+public:
+  shared_ptr<long> embedColumn{};
+  shared_ptr<long> embedPrecision{};
+  shared_ptr<string> method{};
+
+  CreateWmEmbedTaskRequestCsvControl() {}
+
+  explicit CreateWmEmbedTaskRequestCsvControl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (embedColumn) {
+      res["EmbedColumn"] = boost::any(*embedColumn);
+    }
+    if (embedPrecision) {
+      res["EmbedPrecision"] = boost::any(*embedPrecision);
+    }
+    if (method) {
+      res["Method"] = boost::any(*method);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EmbedColumn") != m.end() && !m["EmbedColumn"].empty()) {
+      embedColumn = make_shared<long>(boost::any_cast<long>(m["EmbedColumn"]));
+    }
+    if (m.find("EmbedPrecision") != m.end() && !m["EmbedPrecision"].empty()) {
+      embedPrecision = make_shared<long>(boost::any_cast<long>(m["EmbedPrecision"]));
+    }
+    if (m.find("Method") != m.end() && !m["Method"].empty()) {
+      method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+  }
+
+
+  virtual ~CreateWmEmbedTaskRequestCsvControl() = default;
+};
 class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl : public Darabonba::Model {
 public:
   shared_ptr<long> opacity{};
@@ -2548,6 +2612,7 @@ public:
 };
 class CreateWmEmbedTaskRequest : public Darabonba::Model {
 public:
+  shared_ptr<CreateWmEmbedTaskRequestCsvControl> csvControl{};
   shared_ptr<CreateWmEmbedTaskRequestDocumentControl> documentControl{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> filename{};
@@ -2570,6 +2635,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (csvControl) {
+      res["CsvControl"] = csvControl ? boost::any(csvControl->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (documentControl) {
       res["DocumentControl"] = documentControl ? boost::any(documentControl->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -2607,6 +2675,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CsvControl") != m.end() && !m["CsvControl"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CsvControl"].type()) {
+        CreateWmEmbedTaskRequestCsvControl model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CsvControl"]));
+        csvControl = make_shared<CreateWmEmbedTaskRequestCsvControl>(model1);
+      }
+    }
     if (m.find("DocumentControl") != m.end() && !m["DocumentControl"].empty()) {
       if (typeid(map<string, boost::any>) == m["DocumentControl"].type()) {
         CreateWmEmbedTaskRequestDocumentControl model1;
@@ -2651,6 +2726,7 @@ public:
 };
 class CreateWmEmbedTaskShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> csvControlShrink{};
   shared_ptr<string> documentControlShrink{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> filename{};
@@ -2673,6 +2749,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (csvControlShrink) {
+      res["CsvControl"] = boost::any(*csvControlShrink);
+    }
     if (documentControlShrink) {
       res["DocumentControl"] = boost::any(*documentControlShrink);
     }
@@ -2710,6 +2789,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CsvControl") != m.end() && !m["CsvControl"].empty()) {
+      csvControlShrink = make_shared<string>(boost::any_cast<string>(m["CsvControl"]));
+    }
     if (m.find("DocumentControl") != m.end() && !m["DocumentControl"].empty()) {
       documentControlShrink = make_shared<string>(boost::any_cast<string>(m["DocumentControl"]));
     }
@@ -2869,8 +2951,52 @@ public:
 
   virtual ~CreateWmEmbedTaskResponse() = default;
 };
+class CreateWmExtractTaskRequestCsvControl : public Darabonba::Model {
+public:
+  shared_ptr<long> embedColumn{};
+  shared_ptr<long> embedPrecision{};
+  shared_ptr<string> method{};
+
+  CreateWmExtractTaskRequestCsvControl() {}
+
+  explicit CreateWmExtractTaskRequestCsvControl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (embedColumn) {
+      res["EmbedColumn"] = boost::any(*embedColumn);
+    }
+    if (embedPrecision) {
+      res["EmbedPrecision"] = boost::any(*embedPrecision);
+    }
+    if (method) {
+      res["Method"] = boost::any(*method);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EmbedColumn") != m.end() && !m["EmbedColumn"].empty()) {
+      embedColumn = make_shared<long>(boost::any_cast<long>(m["EmbedColumn"]));
+    }
+    if (m.find("EmbedPrecision") != m.end() && !m["EmbedPrecision"].empty()) {
+      embedPrecision = make_shared<long>(boost::any_cast<long>(m["EmbedPrecision"]));
+    }
+    if (m.find("Method") != m.end() && !m["Method"].empty()) {
+      method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+  }
+
+
+  virtual ~CreateWmExtractTaskRequestCsvControl() = default;
+};
 class CreateWmExtractTaskRequest : public Darabonba::Model {
 public:
+  shared_ptr<CreateWmExtractTaskRequestCsvControl> csvControl{};
   shared_ptr<bool> documentIsCapture{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> filename{};
@@ -2889,6 +3015,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (csvControl) {
+      res["CsvControl"] = csvControl ? boost::any(csvControl->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (documentIsCapture) {
       res["DocumentIsCapture"] = boost::any(*documentIsCapture);
     }
@@ -2914,6 +3043,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CsvControl") != m.end() && !m["CsvControl"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CsvControl"].type()) {
+        CreateWmExtractTaskRequestCsvControl model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CsvControl"]));
+        csvControl = make_shared<CreateWmExtractTaskRequestCsvControl>(model1);
+      }
+    }
     if (m.find("DocumentIsCapture") != m.end() && !m["DocumentIsCapture"].empty()) {
       documentIsCapture = make_shared<bool>(boost::any_cast<bool>(m["DocumentIsCapture"]));
     }
@@ -2939,6 +3075,84 @@ public:
 
 
   virtual ~CreateWmExtractTaskRequest() = default;
+};
+class CreateWmExtractTaskShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> csvControlShrink{};
+  shared_ptr<bool> documentIsCapture{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<string> filename{};
+  shared_ptr<bool> videoIsLong{};
+  shared_ptr<string> videoSpeed{};
+  shared_ptr<long> wmInfoSize{};
+  shared_ptr<string> wmType{};
+
+  CreateWmExtractTaskShrinkRequest() {}
+
+  explicit CreateWmExtractTaskShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (csvControlShrink) {
+      res["CsvControl"] = boost::any(*csvControlShrink);
+    }
+    if (documentIsCapture) {
+      res["DocumentIsCapture"] = boost::any(*documentIsCapture);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (filename) {
+      res["Filename"] = boost::any(*filename);
+    }
+    if (videoIsLong) {
+      res["VideoIsLong"] = boost::any(*videoIsLong);
+    }
+    if (videoSpeed) {
+      res["VideoSpeed"] = boost::any(*videoSpeed);
+    }
+    if (wmInfoSize) {
+      res["WmInfoSize"] = boost::any(*wmInfoSize);
+    }
+    if (wmType) {
+      res["WmType"] = boost::any(*wmType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CsvControl") != m.end() && !m["CsvControl"].empty()) {
+      csvControlShrink = make_shared<string>(boost::any_cast<string>(m["CsvControl"]));
+    }
+    if (m.find("DocumentIsCapture") != m.end() && !m["DocumentIsCapture"].empty()) {
+      documentIsCapture = make_shared<bool>(boost::any_cast<bool>(m["DocumentIsCapture"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
+      filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
+    }
+    if (m.find("VideoIsLong") != m.end() && !m["VideoIsLong"].empty()) {
+      videoIsLong = make_shared<bool>(boost::any_cast<bool>(m["VideoIsLong"]));
+    }
+    if (m.find("VideoSpeed") != m.end() && !m["VideoSpeed"].empty()) {
+      videoSpeed = make_shared<string>(boost::any_cast<string>(m["VideoSpeed"]));
+    }
+    if (m.find("WmInfoSize") != m.end() && !m["WmInfoSize"].empty()) {
+      wmInfoSize = make_shared<long>(boost::any_cast<long>(m["WmInfoSize"]));
+    }
+    if (m.find("WmType") != m.end() && !m["WmType"].empty()) {
+      wmType = make_shared<string>(boost::any_cast<string>(m["WmType"]));
+    }
+  }
+
+
+  virtual ~CreateWmExtractTaskShrinkRequest() = default;
 };
 class CreateWmExtractTaskResponseBodyData : public Darabonba::Model {
 public:
@@ -5655,9 +5869,12 @@ class GetPrivateAccessApplicationResponseBodyApplication : public Darabonba::Mod
 public:
   shared_ptr<vector<string>> addresses{};
   shared_ptr<string> applicationId{};
+  shared_ptr<string> browserAccessStatus{};
   shared_ptr<vector<string>> connectorIds{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
+  shared_ptr<string> l7ProxyDomainAutomatic{};
+  shared_ptr<string> l7ProxyDomainCustom{};
   shared_ptr<string> name{};
   shared_ptr<vector<string>> policyIds{};
   shared_ptr<vector<GetPrivateAccessApplicationResponseBodyApplicationPortRanges>> portRanges{};
@@ -5681,6 +5898,9 @@ public:
     if (applicationId) {
       res["ApplicationId"] = boost::any(*applicationId);
     }
+    if (browserAccessStatus) {
+      res["BrowserAccessStatus"] = boost::any(*browserAccessStatus);
+    }
     if (connectorIds) {
       res["ConnectorIds"] = boost::any(*connectorIds);
     }
@@ -5689,6 +5909,12 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (l7ProxyDomainAutomatic) {
+      res["L7ProxyDomainAutomatic"] = boost::any(*l7ProxyDomainAutomatic);
+    }
+    if (l7ProxyDomainCustom) {
+      res["L7ProxyDomainCustom"] = boost::any(*l7ProxyDomainCustom);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -5729,6 +5955,9 @@ public:
     if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
       applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
     }
+    if (m.find("BrowserAccessStatus") != m.end() && !m["BrowserAccessStatus"].empty()) {
+      browserAccessStatus = make_shared<string>(boost::any_cast<string>(m["BrowserAccessStatus"]));
+    }
     if (m.find("ConnectorIds") != m.end() && !m["ConnectorIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ConnectorIds"].type()) {
@@ -5744,6 +5973,12 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("L7ProxyDomainAutomatic") != m.end() && !m["L7ProxyDomainAutomatic"].empty()) {
+      l7ProxyDomainAutomatic = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainAutomatic"]));
+    }
+    if (m.find("L7ProxyDomainCustom") != m.end() && !m["L7ProxyDomainCustom"].empty()) {
+      l7ProxyDomainCustom = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainCustom"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -11655,6 +11890,7 @@ public:
 };
 class ListPrivateAccessApplicationsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accessModes{};
   shared_ptr<string> address{};
   shared_ptr<vector<string>> applicationIds{};
   shared_ptr<string> connectorId{};
@@ -11675,6 +11911,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessModes) {
+      res["AccessModes"] = boost::any(*accessModes);
+    }
     if (address) {
       res["Address"] = boost::any(*address);
     }
@@ -11706,6 +11945,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessModes") != m.end() && !m["AccessModes"].empty()) {
+      accessModes = make_shared<string>(boost::any_cast<string>(m["AccessModes"]));
+    }
     if (m.find("Address") != m.end() && !m["Address"].empty()) {
       address = make_shared<string>(boost::any_cast<string>(m["Address"]));
     }
@@ -11785,9 +12027,12 @@ class ListPrivateAccessApplicationsResponseBodyApplications : public Darabonba::
 public:
   shared_ptr<vector<string>> addresses{};
   shared_ptr<string> applicationId{};
+  shared_ptr<string> browserAccessStatus{};
   shared_ptr<vector<string>> connectorIds{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
+  shared_ptr<string> l7ProxyDomainAutomatic{};
+  shared_ptr<string> l7ProxyDomainCustom{};
   shared_ptr<string> name{};
   shared_ptr<vector<string>> policyIds{};
   shared_ptr<vector<ListPrivateAccessApplicationsResponseBodyApplicationsPortRanges>> portRanges{};
@@ -11811,6 +12056,9 @@ public:
     if (applicationId) {
       res["ApplicationId"] = boost::any(*applicationId);
     }
+    if (browserAccessStatus) {
+      res["BrowserAccessStatus"] = boost::any(*browserAccessStatus);
+    }
     if (connectorIds) {
       res["ConnectorIds"] = boost::any(*connectorIds);
     }
@@ -11819,6 +12067,12 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (l7ProxyDomainAutomatic) {
+      res["L7ProxyDomainAutomatic"] = boost::any(*l7ProxyDomainAutomatic);
+    }
+    if (l7ProxyDomainCustom) {
+      res["L7ProxyDomainCustom"] = boost::any(*l7ProxyDomainCustom);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -11859,6 +12113,9 @@ public:
     if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
       applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
     }
+    if (m.find("BrowserAccessStatus") != m.end() && !m["BrowserAccessStatus"].empty()) {
+      browserAccessStatus = make_shared<string>(boost::any_cast<string>(m["BrowserAccessStatus"]));
+    }
     if (m.find("ConnectorIds") != m.end() && !m["ConnectorIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ConnectorIds"].type()) {
@@ -11874,6 +12131,12 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("L7ProxyDomainAutomatic") != m.end() && !m["L7ProxyDomainAutomatic"].empty()) {
+      l7ProxyDomainAutomatic = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainAutomatic"]));
+    }
+    if (m.find("L7ProxyDomainCustom") != m.end() && !m["L7ProxyDomainCustom"].empty()) {
+      l7ProxyDomainCustom = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainCustom"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -17951,6 +18214,9 @@ public:
   shared_ptr<vector<string>> addresses{};
   shared_ptr<string> applicationId{};
   shared_ptr<string> description{};
+  shared_ptr<string> l7ProxyDomainAutomaticPrefix{};
+  shared_ptr<string> l7ProxyDomainCustom{};
+  shared_ptr<string> l7ProxyDomainPrivate{};
   shared_ptr<string> modifyType{};
   shared_ptr<vector<UpdatePrivateAccessApplicationRequestPortRanges>> portRanges{};
   shared_ptr<string> protocol{};
@@ -17975,6 +18241,15 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (l7ProxyDomainAutomaticPrefix) {
+      res["L7ProxyDomainAutomaticPrefix"] = boost::any(*l7ProxyDomainAutomaticPrefix);
+    }
+    if (l7ProxyDomainCustom) {
+      res["L7ProxyDomainCustom"] = boost::any(*l7ProxyDomainCustom);
+    }
+    if (l7ProxyDomainPrivate) {
+      res["L7ProxyDomainPrivate"] = boost::any(*l7ProxyDomainPrivate);
     }
     if (modifyType) {
       res["ModifyType"] = boost::any(*modifyType);
@@ -18014,6 +18289,15 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("L7ProxyDomainAutomaticPrefix") != m.end() && !m["L7ProxyDomainAutomaticPrefix"].empty()) {
+      l7ProxyDomainAutomaticPrefix = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainAutomaticPrefix"]));
+    }
+    if (m.find("L7ProxyDomainCustom") != m.end() && !m["L7ProxyDomainCustom"].empty()) {
+      l7ProxyDomainCustom = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainCustom"]));
+    }
+    if (m.find("L7ProxyDomainPrivate") != m.end() && !m["L7ProxyDomainPrivate"].empty()) {
+      l7ProxyDomainPrivate = make_shared<string>(boost::any_cast<string>(m["L7ProxyDomainPrivate"]));
     }
     if (m.find("ModifyType") != m.end() && !m["ModifyType"].empty()) {
       modifyType = make_shared<string>(boost::any_cast<string>(m["ModifyType"]));
@@ -20090,7 +20374,7 @@ public:
   CreateWmBaseImageResponse createWmBaseImage(shared_ptr<CreateWmBaseImageRequest> request);
   CreateWmEmbedTaskResponse createWmEmbedTaskWithOptions(shared_ptr<CreateWmEmbedTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateWmEmbedTaskResponse createWmEmbedTask(shared_ptr<CreateWmEmbedTaskRequest> request);
-  CreateWmExtractTaskResponse createWmExtractTaskWithOptions(shared_ptr<CreateWmExtractTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateWmExtractTaskResponse createWmExtractTaskWithOptions(shared_ptr<CreateWmExtractTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateWmExtractTaskResponse createWmExtractTask(shared_ptr<CreateWmExtractTaskRequest> request);
   CreateWmInfoMappingResponse createWmInfoMappingWithOptions(shared_ptr<CreateWmInfoMappingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateWmInfoMappingResponse createWmInfoMapping(shared_ptr<CreateWmInfoMappingRequest> request);

@@ -214,8 +214,17 @@ CreatePrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::create
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->addresses)) {
     bodyFlat->insert(pair<string, vector<string>>("Addresses", *request->addresses));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->browserAccessStatus)) {
+    body->insert(pair<string, string>("BrowserAccessStatus", *request->browserAccessStatus));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->l7ProxyDomainAutomaticPrefix)) {
+    body->insert(pair<string, string>("L7ProxyDomainAutomaticPrefix", *request->l7ProxyDomainAutomaticPrefix));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->l7ProxyDomainCustom)) {
+    body->insert(pair<string, string>("L7ProxyDomainCustom", *request->l7ProxyDomainCustom));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
@@ -509,8 +518,15 @@ CreateWmEmbedTaskResponse Alibabacloud_Csas20230120::Client::createWmEmbedTaskWi
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateWmEmbedTaskShrinkRequest> request = make_shared<CreateWmEmbedTaskShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateWmEmbedTaskRequestCsvControl>(tmpReq->csvControl)) {
+    request->csvControlShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->csvControl, make_shared<string>("CsvControl"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<CreateWmEmbedTaskRequestDocumentControl>(tmpReq->documentControl)) {
     request->documentControlShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->documentControl, make_shared<string>("DocumentControl"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->csvControlShrink)) {
+    query->insert(pair<string, string>("CsvControl", *request->csvControlShrink));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->documentControlShrink)) {
@@ -547,6 +563,7 @@ CreateWmEmbedTaskResponse Alibabacloud_Csas20230120::Client::createWmEmbedTaskWi
     body->insert(pair<string, string>("WmType", *request->wmType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -568,8 +585,17 @@ CreateWmEmbedTaskResponse Alibabacloud_Csas20230120::Client::createWmEmbedTask(s
   return createWmEmbedTaskWithOptions(request, runtime);
 }
 
-CreateWmExtractTaskResponse Alibabacloud_Csas20230120::Client::createWmExtractTaskWithOptions(shared_ptr<CreateWmExtractTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateWmExtractTaskResponse Alibabacloud_Csas20230120::Client::createWmExtractTaskWithOptions(shared_ptr<CreateWmExtractTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateWmExtractTaskShrinkRequest> request = make_shared<CreateWmExtractTaskShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateWmExtractTaskRequestCsvControl>(tmpReq->csvControl)) {
+    request->csvControlShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->csvControl, make_shared<string>("CsvControl"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->csvControlShrink)) {
+    query->insert(pair<string, string>("CsvControl", *request->csvControlShrink));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->documentIsCapture)) {
     body->insert(pair<string, bool>("DocumentIsCapture", *request->documentIsCapture));
@@ -593,6 +619,7 @@ CreateWmExtractTaskResponse Alibabacloud_Csas20230120::Client::createWmExtractTa
     body->insert(pair<string, string>("WmType", *request->wmType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -2367,6 +2394,15 @@ UpdatePrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::update
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->l7ProxyDomainAutomaticPrefix)) {
+    body->insert(pair<string, string>("L7ProxyDomainAutomaticPrefix", *request->l7ProxyDomainAutomaticPrefix));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->l7ProxyDomainCustom)) {
+    body->insert(pair<string, string>("L7ProxyDomainCustom", *request->l7ProxyDomainCustom));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->l7ProxyDomainPrivate)) {
+    body->insert(pair<string, string>("L7ProxyDomainPrivate", *request->l7ProxyDomainPrivate));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->modifyType)) {
     body->insert(pair<string, string>("ModifyType", *request->modifyType));
