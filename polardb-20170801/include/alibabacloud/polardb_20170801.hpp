@@ -6613,6 +6613,7 @@ public:
 };
 class DescribeAITaskStatusResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accountName{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
@@ -6628,6 +6629,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountName) {
+      res["AccountName"] = boost::any(*accountName);
+    }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
     }
@@ -6644,6 +6648,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
+      accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
