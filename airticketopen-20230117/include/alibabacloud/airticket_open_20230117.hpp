@@ -3482,12 +3482,14 @@ public:
   shared_ptr<string> arrivalCity{};
   shared_ptr<string> arriveTerminal{};
   shared_ptr<long> arriveTime{};
+  shared_ptr<string> arriveTimeStr{};
   shared_ptr<bool> codeShare{};
   shared_ptr<string> departureAirport{};
   shared_ptr<string> departureCity{};
   shared_ptr<string> departureDate{};
   shared_ptr<string> departureTerminal{};
   shared_ptr<long> departureTime{};
+  shared_ptr<string> departureTimeStr{};
   shared_ptr<string> marketingFlightNo{};
   shared_ptr<string> operatingFlightNo{};
 
@@ -3513,6 +3515,9 @@ public:
     if (arriveTime) {
       res["arrive_time"] = boost::any(*arriveTime);
     }
+    if (arriveTimeStr) {
+      res["arrive_time_str"] = boost::any(*arriveTimeStr);
+    }
     if (codeShare) {
       res["code_share"] = boost::any(*codeShare);
     }
@@ -3530,6 +3535,9 @@ public:
     }
     if (departureTime) {
       res["departure_time"] = boost::any(*departureTime);
+    }
+    if (departureTimeStr) {
+      res["departure_time_str"] = boost::any(*departureTimeStr);
     }
     if (marketingFlightNo) {
       res["marketing_flight_no"] = boost::any(*marketingFlightNo);
@@ -3553,6 +3561,9 @@ public:
     if (m.find("arrive_time") != m.end() && !m["arrive_time"].empty()) {
       arriveTime = make_shared<long>(boost::any_cast<long>(m["arrive_time"]));
     }
+    if (m.find("arrive_time_str") != m.end() && !m["arrive_time_str"].empty()) {
+      arriveTimeStr = make_shared<string>(boost::any_cast<string>(m["arrive_time_str"]));
+    }
     if (m.find("code_share") != m.end() && !m["code_share"].empty()) {
       codeShare = make_shared<bool>(boost::any_cast<bool>(m["code_share"]));
     }
@@ -3570,6 +3581,9 @@ public:
     }
     if (m.find("departure_time") != m.end() && !m["departure_time"].empty()) {
       departureTime = make_shared<long>(boost::any_cast<long>(m["departure_time"]));
+    }
+    if (m.find("departure_time_str") != m.end() && !m["departure_time_str"].empty()) {
+      departureTimeStr = make_shared<string>(boost::any_cast<string>(m["departure_time_str"]));
     }
     if (m.find("marketing_flight_no") != m.end() && !m["marketing_flight_no"].empty()) {
       marketingFlightNo = make_shared<string>(boost::any_cast<string>(m["marketing_flight_no"]));
