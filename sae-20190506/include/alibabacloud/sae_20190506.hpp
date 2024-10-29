@@ -3851,6 +3851,122 @@ public:
 
   virtual ~CertConfig() = default;
 };
+class RegistryAuthenticationConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> password{};
+  shared_ptr<string> userName{};
+
+  RegistryAuthenticationConfig() {}
+
+  explicit RegistryAuthenticationConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~RegistryAuthenticationConfig() = default;
+};
+class RegistryCertificateConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> certBase64{};
+  shared_ptr<bool> insecure{};
+
+  RegistryCertificateConfig() {}
+
+  explicit RegistryCertificateConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certBase64) {
+      res["CertBase64"] = boost::any(*certBase64);
+    }
+    if (insecure) {
+      res["Insecure"] = boost::any(*insecure);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertBase64") != m.end() && !m["CertBase64"].empty()) {
+      certBase64 = make_shared<string>(boost::any_cast<string>(m["CertBase64"]));
+    }
+    if (m.find("Insecure") != m.end() && !m["Insecure"].empty()) {
+      insecure = make_shared<bool>(boost::any_cast<bool>(m["Insecure"]));
+    }
+  }
+
+
+  virtual ~RegistryCertificateConfig() = default;
+};
+class ImageRegistryConfig : public Darabonba::Model {
+public:
+  shared_ptr<RegistryAuthenticationConfig> authConfig{};
+  shared_ptr<RegistryCertificateConfig> certConfig{};
+
+  ImageRegistryConfig() {}
+
+  explicit ImageRegistryConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authConfig) {
+      res["AuthConfig"] = authConfig ? boost::any(authConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (certConfig) {
+      res["CertConfig"] = certConfig ? boost::any(certConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthConfig") != m.end() && !m["AuthConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AuthConfig"].type()) {
+        RegistryAuthenticationConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AuthConfig"]));
+        authConfig = make_shared<RegistryAuthenticationConfig>(model1);
+      }
+    }
+    if (m.find("CertConfig") != m.end() && !m["CertConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CertConfig"].type()) {
+        RegistryCertificateConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CertConfig"]));
+        certConfig = make_shared<RegistryCertificateConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ImageRegistryConfig() = default;
+};
 class MetricsCollectConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> enablePushToUserSLS{};
@@ -4470,6 +4586,7 @@ public:
   shared_ptr<string> command{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> image{};
+  shared_ptr<ImageRegistryConfig> imageRegistryConfig{};
   shared_ptr<MetricsCollectConfig> metricsCollectConfig{};
   shared_ptr<long> port{};
   shared_ptr<long> requestConcurrency{};
@@ -4501,6 +4618,9 @@ public:
     }
     if (image) {
       res["Image"] = boost::any(*image);
+    }
+    if (imageRegistryConfig) {
+      res["ImageRegistryConfig"] = imageRegistryConfig ? boost::any(imageRegistryConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (metricsCollectConfig) {
       res["MetricsCollectConfig"] = metricsCollectConfig ? boost::any(metricsCollectConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -4549,6 +4669,13 @@ public:
     }
     if (m.find("Image") != m.end() && !m["Image"].empty()) {
       image = make_shared<string>(boost::any_cast<string>(m["Image"]));
+    }
+    if (m.find("ImageRegistryConfig") != m.end() && !m["ImageRegistryConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ImageRegistryConfig"].type()) {
+        ImageRegistryConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ImageRegistryConfig"]));
+        imageRegistryConfig = make_shared<ImageRegistryConfig>(model1);
+      }
     }
     if (m.find("MetricsCollectConfig") != m.end() && !m["MetricsCollectConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["MetricsCollectConfig"].type()) {
@@ -14159,6 +14286,11 @@ public:
   shared_ptr<string> certIds{};
   shared_ptr<string> defaultRule{};
   shared_ptr<string> description{};
+  shared_ptr<bool> enableXForwardedFor{};
+  shared_ptr<bool> enableXForwardedForClientSrcPort{};
+  shared_ptr<bool> enableXForwardedForProto{};
+  shared_ptr<bool> enableXForwardedForSlbId{};
+  shared_ptr<bool> enableXForwardedForSlbPort{};
   shared_ptr<long> idleTimeout{};
   shared_ptr<long> listenerPort{};
   shared_ptr<string> listenerProtocol{};
@@ -14190,6 +14322,21 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (enableXForwardedFor) {
+      res["EnableXForwardedFor"] = boost::any(*enableXForwardedFor);
+    }
+    if (enableXForwardedForClientSrcPort) {
+      res["EnableXForwardedForClientSrcPort"] = boost::any(*enableXForwardedForClientSrcPort);
+    }
+    if (enableXForwardedForProto) {
+      res["EnableXForwardedForProto"] = boost::any(*enableXForwardedForProto);
+    }
+    if (enableXForwardedForSlbId) {
+      res["EnableXForwardedForSlbId"] = boost::any(*enableXForwardedForSlbId);
+    }
+    if (enableXForwardedForSlbPort) {
+      res["EnableXForwardedForSlbPort"] = boost::any(*enableXForwardedForSlbPort);
     }
     if (idleTimeout) {
       res["IdleTimeout"] = boost::any(*idleTimeout);
@@ -14233,6 +14380,21 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EnableXForwardedFor") != m.end() && !m["EnableXForwardedFor"].empty()) {
+      enableXForwardedFor = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedFor"]));
+    }
+    if (m.find("EnableXForwardedForClientSrcPort") != m.end() && !m["EnableXForwardedForClientSrcPort"].empty()) {
+      enableXForwardedForClientSrcPort = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedForClientSrcPort"]));
+    }
+    if (m.find("EnableXForwardedForProto") != m.end() && !m["EnableXForwardedForProto"].empty()) {
+      enableXForwardedForProto = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedForProto"]));
+    }
+    if (m.find("EnableXForwardedForSlbId") != m.end() && !m["EnableXForwardedForSlbId"].empty()) {
+      enableXForwardedForSlbId = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedForSlbId"]));
+    }
+    if (m.find("EnableXForwardedForSlbPort") != m.end() && !m["EnableXForwardedForSlbPort"].empty()) {
+      enableXForwardedForSlbPort = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedForSlbPort"]));
     }
     if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
       idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
@@ -25613,6 +25775,11 @@ public:
   shared_ptr<string> certIds{};
   shared_ptr<DescribeIngressResponseBodyDataDefaultRule> defaultRule{};
   shared_ptr<string> description{};
+  shared_ptr<bool> enableXForwardedFor{};
+  shared_ptr<bool> enableXForwardedForClientSrcPort{};
+  shared_ptr<bool> enableXForwardedForProto{};
+  shared_ptr<bool> enableXForwardedForSlbId{};
+  shared_ptr<bool> enableXForwardedForSlbPort{};
   shared_ptr<long> id{};
   shared_ptr<long> idleTimeout{};
   shared_ptr<long> listenerPort{};
@@ -25647,6 +25814,21 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (enableXForwardedFor) {
+      res["EnableXForwardedFor"] = boost::any(*enableXForwardedFor);
+    }
+    if (enableXForwardedForClientSrcPort) {
+      res["EnableXForwardedForClientSrcPort"] = boost::any(*enableXForwardedForClientSrcPort);
+    }
+    if (enableXForwardedForProto) {
+      res["EnableXForwardedForProto"] = boost::any(*enableXForwardedForProto);
+    }
+    if (enableXForwardedForSlbId) {
+      res["EnableXForwardedForSlbId"] = boost::any(*enableXForwardedForSlbId);
+    }
+    if (enableXForwardedForSlbPort) {
+      res["EnableXForwardedForSlbPort"] = boost::any(*enableXForwardedForSlbPort);
     }
     if (id) {
       res["Id"] = boost::any(*id);
@@ -25707,6 +25889,21 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EnableXForwardedFor") != m.end() && !m["EnableXForwardedFor"].empty()) {
+      enableXForwardedFor = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedFor"]));
+    }
+    if (m.find("EnableXForwardedForClientSrcPort") != m.end() && !m["EnableXForwardedForClientSrcPort"].empty()) {
+      enableXForwardedForClientSrcPort = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedForClientSrcPort"]));
+    }
+    if (m.find("EnableXForwardedForProto") != m.end() && !m["EnableXForwardedForProto"].empty()) {
+      enableXForwardedForProto = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedForProto"]));
+    }
+    if (m.find("EnableXForwardedForSlbId") != m.end() && !m["EnableXForwardedForSlbId"].empty()) {
+      enableXForwardedForSlbId = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedForSlbId"]));
+    }
+    if (m.find("EnableXForwardedForSlbPort") != m.end() && !m["EnableXForwardedForSlbPort"].empty()) {
+      enableXForwardedForSlbPort = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedForSlbPort"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
@@ -43080,6 +43277,11 @@ public:
   shared_ptr<string> certIds{};
   shared_ptr<string> defaultRule{};
   shared_ptr<string> description{};
+  shared_ptr<bool> enableXForwardedFor{};
+  shared_ptr<bool> enableXForwardedForClientSrcPort{};
+  shared_ptr<bool> enableXForwardedForProto{};
+  shared_ptr<bool> enableXForwardedForSlbId{};
+  shared_ptr<bool> enableXForwardedForSlbPort{};
   shared_ptr<long> idleTimeout{};
   shared_ptr<long> ingressId{};
   shared_ptr<string> listenerPort{};
@@ -43110,6 +43312,21 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (enableXForwardedFor) {
+      res["EnableXForwardedFor"] = boost::any(*enableXForwardedFor);
+    }
+    if (enableXForwardedForClientSrcPort) {
+      res["EnableXForwardedForClientSrcPort"] = boost::any(*enableXForwardedForClientSrcPort);
+    }
+    if (enableXForwardedForProto) {
+      res["EnableXForwardedForProto"] = boost::any(*enableXForwardedForProto);
+    }
+    if (enableXForwardedForSlbId) {
+      res["EnableXForwardedForSlbId"] = boost::any(*enableXForwardedForSlbId);
+    }
+    if (enableXForwardedForSlbPort) {
+      res["EnableXForwardedForSlbPort"] = boost::any(*enableXForwardedForSlbPort);
     }
     if (idleTimeout) {
       res["IdleTimeout"] = boost::any(*idleTimeout);
@@ -43150,6 +43367,21 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EnableXForwardedFor") != m.end() && !m["EnableXForwardedFor"].empty()) {
+      enableXForwardedFor = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedFor"]));
+    }
+    if (m.find("EnableXForwardedForClientSrcPort") != m.end() && !m["EnableXForwardedForClientSrcPort"].empty()) {
+      enableXForwardedForClientSrcPort = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedForClientSrcPort"]));
+    }
+    if (m.find("EnableXForwardedForProto") != m.end() && !m["EnableXForwardedForProto"].empty()) {
+      enableXForwardedForProto = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedForProto"]));
+    }
+    if (m.find("EnableXForwardedForSlbId") != m.end() && !m["EnableXForwardedForSlbId"].empty()) {
+      enableXForwardedForSlbId = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedForSlbId"]));
+    }
+    if (m.find("EnableXForwardedForSlbPort") != m.end() && !m["EnableXForwardedForSlbPort"].empty()) {
+      enableXForwardedForSlbPort = make_shared<bool>(boost::any_cast<bool>(m["EnableXForwardedForSlbPort"]));
     }
     if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
       idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));

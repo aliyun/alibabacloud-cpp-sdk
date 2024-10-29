@@ -626,6 +626,21 @@ CreateIngressResponse Alibabacloud_Sae20190506::Client::createIngressWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableXForwardedFor)) {
+    query->insert(pair<string, bool>("EnableXForwardedFor", *request->enableXForwardedFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableXForwardedForClientSrcPort)) {
+    query->insert(pair<string, bool>("EnableXForwardedForClientSrcPort", *request->enableXForwardedForClientSrcPort));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableXForwardedForProto)) {
+    query->insert(pair<string, bool>("EnableXForwardedForProto", *request->enableXForwardedForProto));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableXForwardedForSlbId)) {
+    query->insert(pair<string, bool>("EnableXForwardedForSlbId", *request->enableXForwardedForSlbId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableXForwardedForSlbPort)) {
+    query->insert(pair<string, bool>("EnableXForwardedForSlbPort", *request->enableXForwardedForSlbPort));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->idleTimeout)) {
     query->insert(pair<string, long>("IdleTimeout", *request->idleTimeout));
   }
@@ -4783,6 +4798,21 @@ UpdateIngressResponse Alibabacloud_Sae20190506::Client::updateIngressWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableXForwardedFor)) {
+    query->insert(pair<string, bool>("EnableXForwardedFor", *request->enableXForwardedFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableXForwardedForClientSrcPort)) {
+    query->insert(pair<string, bool>("EnableXForwardedForClientSrcPort", *request->enableXForwardedForClientSrcPort));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableXForwardedForProto)) {
+    query->insert(pair<string, bool>("EnableXForwardedForProto", *request->enableXForwardedForProto));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableXForwardedForSlbId)) {
+    query->insert(pair<string, bool>("EnableXForwardedForSlbId", *request->enableXForwardedForSlbId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableXForwardedForSlbPort)) {
+    query->insert(pair<string, bool>("EnableXForwardedForSlbPort", *request->enableXForwardedForSlbPort));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->idleTimeout)) {
     query->insert(pair<string, long>("IdleTimeout", *request->idleTimeout));
