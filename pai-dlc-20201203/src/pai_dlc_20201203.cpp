@@ -1076,6 +1076,9 @@ UpdateJobResponse Alibabacloud_Pai-dlc20201203::Client::updateJobWithOptions(sha
                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
+    body->insert(pair<string, string>("Accessibility", *request->accessibility));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->priority)) {
     body->insert(pair<string, long>("Priority", *request->priority));
   }
@@ -1109,6 +1112,9 @@ UpdateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::updateTensorboar
                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
+    query->insert(pair<string, string>("Accessibility", *request->accessibility));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxRunningTimeMinutes)) {
     query->insert(pair<string, long>("MaxRunningTimeMinutes", *request->maxRunningTimeMinutes));
   }

@@ -2415,11 +2415,111 @@ public:
 
   virtual ~JobSpec() = default;
 };
+class PodItem : public Darabonba::Model {
+public:
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtFinishTime{};
+  shared_ptr<string> gmtStartTime{};
+  shared_ptr<vector<PodItem>> historyPods{};
+  shared_ptr<string> ip{};
+  shared_ptr<string> podId{};
+  shared_ptr<string> podUid{};
+  shared_ptr<string> status{};
+  shared_ptr<string> type{};
+
+  PodItem() {}
+
+  explicit PodItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtFinishTime) {
+      res["GmtFinishTime"] = boost::any(*gmtFinishTime);
+    }
+    if (gmtStartTime) {
+      res["GmtStartTime"] = boost::any(*gmtStartTime);
+    }
+    if (historyPods) {
+      vector<boost::any> temp1;
+      for(auto item1:*historyPods){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HistoryPods"] = boost::any(temp1);
+    }
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    if (podId) {
+      res["PodId"] = boost::any(*podId);
+    }
+    if (podUid) {
+      res["PodUid"] = boost::any(*podUid);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtFinishTime") != m.end() && !m["GmtFinishTime"].empty()) {
+      gmtFinishTime = make_shared<string>(boost::any_cast<string>(m["GmtFinishTime"]));
+    }
+    if (m.find("GmtStartTime") != m.end() && !m["GmtStartTime"].empty()) {
+      gmtStartTime = make_shared<string>(boost::any_cast<string>(m["GmtStartTime"]));
+    }
+    if (m.find("HistoryPods") != m.end() && !m["HistoryPods"].empty()) {
+      if (typeid(vector<boost::any>) == m["HistoryPods"].type()) {
+        vector<PodItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HistoryPods"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PodItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        historyPods = make_shared<vector<PodItem>>(expect1);
+      }
+    }
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("PodId") != m.end() && !m["PodId"].empty()) {
+      podId = make_shared<string>(boost::any_cast<string>(m["PodId"]));
+    }
+    if (m.find("PodUid") != m.end() && !m["PodUid"].empty()) {
+      podUid = make_shared<string>(boost::any_cast<string>(m["PodUid"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~PodItem() = default;
+};
 class JobSettings : public Darabonba::Model {
 public:
   shared_ptr<map<string, boost::any>> advancedSettings{};
   shared_ptr<string> businessUserId{};
   shared_ptr<string> caller{};
+  shared_ptr<bool> disableEcsStockCheck{};
   shared_ptr<string> driver{};
   shared_ptr<bool> enableErrorMonitoringInAIMaster{};
   shared_ptr<bool> enableOssAppend{};
@@ -2452,6 +2552,9 @@ public:
     }
     if (caller) {
       res["Caller"] = boost::any(*caller);
+    }
+    if (disableEcsStockCheck) {
+      res["DisableEcsStockCheck"] = boost::any(*disableEcsStockCheck);
     }
     if (driver) {
       res["Driver"] = boost::any(*driver);
@@ -2510,6 +2613,9 @@ public:
     if (m.find("Caller") != m.end() && !m["Caller"].empty()) {
       caller = make_shared<string>(boost::any_cast<string>(m["Caller"]));
     }
+    if (m.find("DisableEcsStockCheck") != m.end() && !m["DisableEcsStockCheck"].empty()) {
+      disableEcsStockCheck = make_shared<bool>(boost::any_cast<bool>(m["DisableEcsStockCheck"]));
+    }
     if (m.find("Driver") != m.end() && !m["Driver"].empty()) {
       driver = make_shared<string>(boost::any_cast<string>(m["Driver"]));
     }
@@ -2559,41 +2665,119 @@ public:
 
   virtual ~JobSettings() = default;
 };
+class StatusTransitionItem : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> reasonCode{};
+  shared_ptr<string> reasonMessage{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
+
+  StatusTransitionItem() {}
+
+  explicit StatusTransitionItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (reasonCode) {
+      res["ReasonCode"] = boost::any(*reasonCode);
+    }
+    if (reasonMessage) {
+      res["ReasonMessage"] = boost::any(*reasonMessage);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
+      reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
+    }
+    if (m.find("ReasonMessage") != m.end() && !m["ReasonMessage"].empty()) {
+      reasonMessage = make_shared<string>(boost::any_cast<string>(m["ReasonMessage"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~StatusTransitionItem() = default;
+};
 class JobItem : public Darabonba::Model {
 public:
+  shared_ptr<string> accessibility{};
+  shared_ptr<string> clusterId{};
   shared_ptr<JobItemCodeSource> codeSource{};
   shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<vector<JobItemDataSources>> dataSources{};
   shared_ptr<string> displayName{};
   shared_ptr<long> duration{};
+  shared_ptr<JobElasticSpec> elasticSpec{};
+  shared_ptr<bool> enablePreemptibleJob{};
   shared_ptr<bool> enabledDebugger{};
   shared_ptr<map<string, string>> envs{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtFailedTime{};
   shared_ptr<string> gmtFinishTime{};
+  shared_ptr<string> gmtModifiedTime{};
   shared_ptr<string> gmtRunningTime{};
   shared_ptr<string> gmtStoppedTime{};
   shared_ptr<string> gmtSubmittedTime{};
   shared_ptr<string> gmtSuccessedTime{};
+  shared_ptr<bool> isDeleted{};
   shared_ptr<string> jobId{};
+  shared_ptr<long> jobMaxRunningTimeMinutes{};
   shared_ptr<vector<JobSpec>> jobSpecs{};
   shared_ptr<string> jobType{};
+  shared_ptr<string> nodeCount{};
+  shared_ptr<vector<string>> nodeNames{};
+  shared_ptr<vector<PodItem>> pods{};
   shared_ptr<long> priority{};
   shared_ptr<string> reasonCode{};
   shared_ptr<string> reasonMessage{};
+  shared_ptr<long> requestCPU{};
+  shared_ptr<string> requestGPU{};
+  shared_ptr<string> requestMemory{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceLevel{};
   shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceQuotaName{};
   shared_ptr<string> resourceType{};
+  shared_ptr<string> restartTimes{};
   shared_ptr<JobSettings> settings{};
   shared_ptr<string> status{};
+  shared_ptr<vector<StatusTransitionItem>> statusHistory{};
   shared_ptr<string> subStatus{};
+  shared_ptr<map<string, string>> systemEnvs{};
+  shared_ptr<string> tenantId{};
   shared_ptr<string> thirdpartyLibDir{};
   shared_ptr<vector<string>> thirdpartyLibs{};
   shared_ptr<bool> useOversoldResource{};
   shared_ptr<string> userCommand{};
   shared_ptr<string> userId{};
+  shared_ptr<string> userScript{};
+  shared_ptr<string> userVpc{};
   shared_ptr<string> username{};
+  shared_ptr<string> workingDir{};
   shared_ptr<string> workspaceId{};
   shared_ptr<string> workspaceName{};
 
@@ -2607,6 +2791,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
     if (codeSource) {
       res["CodeSource"] = codeSource ? boost::any(codeSource->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -2626,6 +2816,12 @@ public:
     if (duration) {
       res["Duration"] = boost::any(*duration);
     }
+    if (elasticSpec) {
+      res["ElasticSpec"] = elasticSpec ? boost::any(elasticSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (enablePreemptibleJob) {
+      res["EnablePreemptibleJob"] = boost::any(*enablePreemptibleJob);
+    }
     if (enabledDebugger) {
       res["EnabledDebugger"] = boost::any(*enabledDebugger);
     }
@@ -2641,6 +2837,9 @@ public:
     if (gmtFinishTime) {
       res["GmtFinishTime"] = boost::any(*gmtFinishTime);
     }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
     if (gmtRunningTime) {
       res["GmtRunningTime"] = boost::any(*gmtRunningTime);
     }
@@ -2653,8 +2852,14 @@ public:
     if (gmtSuccessedTime) {
       res["GmtSuccessedTime"] = boost::any(*gmtSuccessedTime);
     }
+    if (isDeleted) {
+      res["IsDeleted"] = boost::any(*isDeleted);
+    }
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
+    }
+    if (jobMaxRunningTimeMinutes) {
+      res["JobMaxRunningTimeMinutes"] = boost::any(*jobMaxRunningTimeMinutes);
     }
     if (jobSpecs) {
       vector<boost::any> temp1;
@@ -2666,6 +2871,19 @@ public:
     if (jobType) {
       res["JobType"] = boost::any(*jobType);
     }
+    if (nodeCount) {
+      res["NodeCount"] = boost::any(*nodeCount);
+    }
+    if (nodeNames) {
+      res["NodeNames"] = boost::any(*nodeNames);
+    }
+    if (pods) {
+      vector<boost::any> temp1;
+      for(auto item1:*pods){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Pods"] = boost::any(temp1);
+    }
     if (priority) {
       res["Priority"] = boost::any(*priority);
     }
@@ -2674,6 +2892,15 @@ public:
     }
     if (reasonMessage) {
       res["ReasonMessage"] = boost::any(*reasonMessage);
+    }
+    if (requestCPU) {
+      res["RequestCPU"] = boost::any(*requestCPU);
+    }
+    if (requestGPU) {
+      res["RequestGPU"] = boost::any(*requestGPU);
+    }
+    if (requestMemory) {
+      res["RequestMemory"] = boost::any(*requestMemory);
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
@@ -2684,8 +2911,14 @@ public:
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
     }
+    if (resourceQuotaName) {
+      res["ResourceQuotaName"] = boost::any(*resourceQuotaName);
+    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (restartTimes) {
+      res["RestartTimes"] = boost::any(*restartTimes);
     }
     if (settings) {
       res["Settings"] = settings ? boost::any(settings->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2693,8 +2926,21 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (statusHistory) {
+      vector<boost::any> temp1;
+      for(auto item1:*statusHistory){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["StatusHistory"] = boost::any(temp1);
+    }
     if (subStatus) {
       res["SubStatus"] = boost::any(*subStatus);
+    }
+    if (systemEnvs) {
+      res["SystemEnvs"] = boost::any(*systemEnvs);
+    }
+    if (tenantId) {
+      res["TenantId"] = boost::any(*tenantId);
     }
     if (thirdpartyLibDir) {
       res["ThirdpartyLibDir"] = boost::any(*thirdpartyLibDir);
@@ -2711,8 +2957,17 @@ public:
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
+    if (userScript) {
+      res["UserScript"] = boost::any(*userScript);
+    }
+    if (userVpc) {
+      res["UserVpc"] = boost::any(*userVpc);
+    }
     if (username) {
       res["Username"] = boost::any(*username);
+    }
+    if (workingDir) {
+      res["WorkingDir"] = boost::any(*workingDir);
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
@@ -2724,6 +2979,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
     if (m.find("CodeSource") != m.end() && !m["CodeSource"].empty()) {
       if (typeid(map<string, boost::any>) == m["CodeSource"].type()) {
         JobItemCodeSource model1;
@@ -2757,6 +3018,16 @@ public:
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
     }
+    if (m.find("ElasticSpec") != m.end() && !m["ElasticSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ElasticSpec"].type()) {
+        JobElasticSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ElasticSpec"]));
+        elasticSpec = make_shared<JobElasticSpec>(model1);
+      }
+    }
+    if (m.find("EnablePreemptibleJob") != m.end() && !m["EnablePreemptibleJob"].empty()) {
+      enablePreemptibleJob = make_shared<bool>(boost::any_cast<bool>(m["EnablePreemptibleJob"]));
+    }
     if (m.find("EnabledDebugger") != m.end() && !m["EnabledDebugger"].empty()) {
       enabledDebugger = make_shared<bool>(boost::any_cast<bool>(m["EnabledDebugger"]));
     }
@@ -2777,6 +3048,9 @@ public:
     if (m.find("GmtFinishTime") != m.end() && !m["GmtFinishTime"].empty()) {
       gmtFinishTime = make_shared<string>(boost::any_cast<string>(m["GmtFinishTime"]));
     }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
     if (m.find("GmtRunningTime") != m.end() && !m["GmtRunningTime"].empty()) {
       gmtRunningTime = make_shared<string>(boost::any_cast<string>(m["GmtRunningTime"]));
     }
@@ -2789,8 +3063,14 @@ public:
     if (m.find("GmtSuccessedTime") != m.end() && !m["GmtSuccessedTime"].empty()) {
       gmtSuccessedTime = make_shared<string>(boost::any_cast<string>(m["GmtSuccessedTime"]));
     }
+    if (m.find("IsDeleted") != m.end() && !m["IsDeleted"].empty()) {
+      isDeleted = make_shared<bool>(boost::any_cast<bool>(m["IsDeleted"]));
+    }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("JobMaxRunningTimeMinutes") != m.end() && !m["JobMaxRunningTimeMinutes"].empty()) {
+      jobMaxRunningTimeMinutes = make_shared<long>(boost::any_cast<long>(m["JobMaxRunningTimeMinutes"]));
     }
     if (m.find("JobSpecs") != m.end() && !m["JobSpecs"].empty()) {
       if (typeid(vector<boost::any>) == m["JobSpecs"].type()) {
@@ -2808,6 +3088,32 @@ public:
     if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
       jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
     }
+    if (m.find("NodeCount") != m.end() && !m["NodeCount"].empty()) {
+      nodeCount = make_shared<string>(boost::any_cast<string>(m["NodeCount"]));
+    }
+    if (m.find("NodeNames") != m.end() && !m["NodeNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NodeNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NodeNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      nodeNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Pods") != m.end() && !m["Pods"].empty()) {
+      if (typeid(vector<boost::any>) == m["Pods"].type()) {
+        vector<PodItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Pods"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PodItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        pods = make_shared<vector<PodItem>>(expect1);
+      }
+    }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
     }
@@ -2816,6 +3122,15 @@ public:
     }
     if (m.find("ReasonMessage") != m.end() && !m["ReasonMessage"].empty()) {
       reasonMessage = make_shared<string>(boost::any_cast<string>(m["ReasonMessage"]));
+    }
+    if (m.find("RequestCPU") != m.end() && !m["RequestCPU"].empty()) {
+      requestCPU = make_shared<long>(boost::any_cast<long>(m["RequestCPU"]));
+    }
+    if (m.find("RequestGPU") != m.end() && !m["RequestGPU"].empty()) {
+      requestGPU = make_shared<string>(boost::any_cast<string>(m["RequestGPU"]));
+    }
+    if (m.find("RequestMemory") != m.end() && !m["RequestMemory"].empty()) {
+      requestMemory = make_shared<string>(boost::any_cast<string>(m["RequestMemory"]));
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
@@ -2826,8 +3141,14 @@ public:
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
     }
+    if (m.find("ResourceQuotaName") != m.end() && !m["ResourceQuotaName"].empty()) {
+      resourceQuotaName = make_shared<string>(boost::any_cast<string>(m["ResourceQuotaName"]));
+    }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("RestartTimes") != m.end() && !m["RestartTimes"].empty()) {
+      restartTimes = make_shared<string>(boost::any_cast<string>(m["RestartTimes"]));
     }
     if (m.find("Settings") != m.end() && !m["Settings"].empty()) {
       if (typeid(map<string, boost::any>) == m["Settings"].type()) {
@@ -2839,8 +3160,32 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("StatusHistory") != m.end() && !m["StatusHistory"].empty()) {
+      if (typeid(vector<boost::any>) == m["StatusHistory"].type()) {
+        vector<StatusTransitionItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["StatusHistory"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StatusTransitionItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        statusHistory = make_shared<vector<StatusTransitionItem>>(expect1);
+      }
+    }
     if (m.find("SubStatus") != m.end() && !m["SubStatus"].empty()) {
       subStatus = make_shared<string>(boost::any_cast<string>(m["SubStatus"]));
+    }
+    if (m.find("SystemEnvs") != m.end() && !m["SystemEnvs"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["SystemEnvs"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      systemEnvs = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
     }
     if (m.find("ThirdpartyLibDir") != m.end() && !m["ThirdpartyLibDir"].empty()) {
       thirdpartyLibDir = make_shared<string>(boost::any_cast<string>(m["ThirdpartyLibDir"]));
@@ -2864,8 +3209,17 @@ public:
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
     }
+    if (m.find("UserScript") != m.end() && !m["UserScript"].empty()) {
+      userScript = make_shared<string>(boost::any_cast<string>(m["UserScript"]));
+    }
+    if (m.find("UserVpc") != m.end() && !m["UserVpc"].empty()) {
+      userVpc = make_shared<string>(boost::any_cast<string>(m["UserVpc"]));
+    }
     if (m.find("Username") != m.end() && !m["Username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+    if (m.find("WorkingDir") != m.end() && !m["WorkingDir"].empty()) {
+      workingDir = make_shared<string>(boost::any_cast<string>(m["WorkingDir"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
@@ -3063,105 +3417,6 @@ public:
 
 
   virtual ~NodeMetric() = default;
-};
-class PodItem : public Darabonba::Model {
-public:
-  shared_ptr<string> gmtCreateTime{};
-  shared_ptr<string> gmtFinishTime{};
-  shared_ptr<string> gmtStartTime{};
-  shared_ptr<vector<PodItem>> historyPods{};
-  shared_ptr<string> ip{};
-  shared_ptr<string> podId{};
-  shared_ptr<string> podUid{};
-  shared_ptr<string> status{};
-  shared_ptr<string> type{};
-
-  PodItem() {}
-
-  explicit PodItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (gmtCreateTime) {
-      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
-    }
-    if (gmtFinishTime) {
-      res["GmtFinishTime"] = boost::any(*gmtFinishTime);
-    }
-    if (gmtStartTime) {
-      res["GmtStartTime"] = boost::any(*gmtStartTime);
-    }
-    if (historyPods) {
-      vector<boost::any> temp1;
-      for(auto item1:*historyPods){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["HistoryPods"] = boost::any(temp1);
-    }
-    if (ip) {
-      res["Ip"] = boost::any(*ip);
-    }
-    if (podId) {
-      res["PodId"] = boost::any(*podId);
-    }
-    if (podUid) {
-      res["PodUid"] = boost::any(*podUid);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
-    }
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
-      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
-    }
-    if (m.find("GmtFinishTime") != m.end() && !m["GmtFinishTime"].empty()) {
-      gmtFinishTime = make_shared<string>(boost::any_cast<string>(m["GmtFinishTime"]));
-    }
-    if (m.find("GmtStartTime") != m.end() && !m["GmtStartTime"].empty()) {
-      gmtStartTime = make_shared<string>(boost::any_cast<string>(m["GmtStartTime"]));
-    }
-    if (m.find("HistoryPods") != m.end() && !m["HistoryPods"].empty()) {
-      if (typeid(vector<boost::any>) == m["HistoryPods"].type()) {
-        vector<PodItem> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["HistoryPods"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            PodItem model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        historyPods = make_shared<vector<PodItem>>(expect1);
-      }
-    }
-    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
-      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
-    }
-    if (m.find("PodId") != m.end() && !m["PodId"].empty()) {
-      podId = make_shared<string>(boost::any_cast<string>(m["PodId"]));
-    }
-    if (m.find("PodUid") != m.end() && !m["PodUid"].empty()) {
-      podUid = make_shared<string>(boost::any_cast<string>(m["PodUid"]));
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
-    }
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-  }
-
-
-  virtual ~PodItem() = default;
 };
 class PodMetric : public Darabonba::Model {
 public:
@@ -3700,63 +3955,6 @@ public:
 
 
   virtual ~SmartCache() = default;
-};
-class StatusTransitionItem : public Darabonba::Model {
-public:
-  shared_ptr<string> endTime{};
-  shared_ptr<string> reasonCode{};
-  shared_ptr<string> reasonMessage{};
-  shared_ptr<string> startTime{};
-  shared_ptr<string> status{};
-
-  StatusTransitionItem() {}
-
-  explicit StatusTransitionItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (endTime) {
-      res["EndTime"] = boost::any(*endTime);
-    }
-    if (reasonCode) {
-      res["ReasonCode"] = boost::any(*reasonCode);
-    }
-    if (reasonMessage) {
-      res["ReasonMessage"] = boost::any(*reasonMessage);
-    }
-    if (startTime) {
-      res["StartTime"] = boost::any(*startTime);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
-      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
-    }
-    if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
-      reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
-    }
-    if (m.find("ReasonMessage") != m.end() && !m["ReasonMessage"].empty()) {
-      reasonMessage = make_shared<string>(boost::any_cast<string>(m["ReasonMessage"]));
-    }
-    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
-    }
-  }
-
-
-  virtual ~StatusTransitionItem() = default;
 };
 class TensorboardDataSourceSpec : public Darabonba::Model {
 public:
@@ -5522,6 +5720,7 @@ public:
 };
 class GetJobResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessibility{};
   shared_ptr<string> clusterId{};
   shared_ptr<GetJobResponseBodyCodeSource> codeSource{};
   shared_ptr<CredentialConfig> credentialConfig{};
@@ -5572,6 +5771,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -5709,6 +5911,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -8609,6 +8814,7 @@ public:
 };
 class UpdateJobRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accessibility{};
   shared_ptr<long> priority{};
 
   UpdateJobRequest() {}
@@ -8621,6 +8827,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
     if (priority) {
       res["Priority"] = boost::any(*priority);
     }
@@ -8628,6 +8837,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
     }
@@ -8726,6 +8938,7 @@ public:
 };
 class UpdateTensorboardRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accessibility{};
   shared_ptr<long> maxRunningTimeMinutes{};
   shared_ptr<string> workspaceId{};
 
@@ -8739,6 +8952,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
     if (maxRunningTimeMinutes) {
       res["MaxRunningTimeMinutes"] = boost::any(*maxRunningTimeMinutes);
     }
@@ -8749,6 +8965,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
     if (m.find("MaxRunningTimeMinutes") != m.end() && !m["MaxRunningTimeMinutes"].empty()) {
       maxRunningTimeMinutes = make_shared<long>(boost::any_cast<long>(m["MaxRunningTimeMinutes"]));
     }
