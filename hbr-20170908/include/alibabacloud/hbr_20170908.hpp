@@ -17344,6 +17344,7 @@ public:
 class DescribeVaultsResponseBodyVaultsVaultBackupPlanStatistics : public Darabonba::Model {
 public:
   shared_ptr<long> archive{};
+  shared_ptr<long> commonFileSystem{};
   shared_ptr<long> commonNas{};
   shared_ptr<long> csg{};
   shared_ptr<long> ecsFile{};
@@ -17370,6 +17371,9 @@ public:
     map<string, boost::any> res;
     if (archive) {
       res["Archive"] = boost::any(*archive);
+    }
+    if (commonFileSystem) {
+      res["CommonFileSystem"] = boost::any(*commonFileSystem);
     }
     if (commonNas) {
       res["CommonNas"] = boost::any(*commonNas);
@@ -17416,6 +17420,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Archive") != m.end() && !m["Archive"].empty()) {
       archive = make_shared<long>(boost::any_cast<long>(m["Archive"]));
+    }
+    if (m.find("CommonFileSystem") != m.end() && !m["CommonFileSystem"].empty()) {
+      commonFileSystem = make_shared<long>(boost::any_cast<long>(m["CommonFileSystem"]));
     }
     if (m.find("CommonNas") != m.end() && !m["CommonNas"].empty()) {
       commonNas = make_shared<long>(boost::any_cast<long>(m["CommonNas"]));
