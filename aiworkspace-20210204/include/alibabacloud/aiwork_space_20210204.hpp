@@ -2826,8 +2826,8 @@ public:
 };
 class CreateDatasetVersionResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> versionName{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> versionName{};
 
   CreateDatasetVersionResponseBody() {}
 
@@ -2839,21 +2839,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     if (versionName) {
       res["VersionName"] = boost::any(*versionName);
-    }
-    if (requestId) {
-      res["requestId"] = boost::any(*requestId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
     if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
       versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
-    }
-    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
   }
 
@@ -2970,14 +2970,14 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (requestId) {
-      res["requestId"] = boost::any(*requestId);
+      res["RequestId"] = boost::any(*requestId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -5444,14 +5444,14 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (requestId) {
-      res["requestId"] = boost::any(*requestId);
+      res["RequestId"] = boost::any(*requestId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -5554,14 +5554,14 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (requestId) {
-      res["requestId"] = boost::any(*requestId);
+      res["RequestId"] = boost::any(*requestId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -7131,8 +7131,21 @@ public:
 };
 class GetDatasetVersionResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<DatasetVersion> datasetVersion{};
+  shared_ptr<long> dataCount{};
+  shared_ptr<long> dataSize{};
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<string> datasetId{};
+  shared_ptr<string> description{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifiedTime{};
+  shared_ptr<vector<Label>> labels{};
+  shared_ptr<string> options{};
+  shared_ptr<string> property{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> sourceId{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> uri{};
+  shared_ptr<string> versionName{};
 
   GetDatasetVersionResponseBody() {}
 
@@ -7144,25 +7157,113 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (datasetVersion) {
-      res["DatasetVersion"] = datasetVersion ? boost::any(datasetVersion->toMap()) : boost::any(map<string,boost::any>({}));
+    if (dataCount) {
+      res["DataCount"] = boost::any(*dataCount);
+    }
+    if (dataSize) {
+      res["DataSize"] = boost::any(*dataSize);
+    }
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (datasetId) {
+      res["DatasetId"] = boost::any(*datasetId);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
+    if (labels) {
+      vector<boost::any> temp1;
+      for(auto item1:*labels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Labels"] = boost::any(temp1);
+    }
+    if (options) {
+      res["Options"] = boost::any(*options);
+    }
+    if (property) {
+      res["Property"] = boost::any(*property);
     }
     if (requestId) {
-      res["requestId"] = boost::any(*requestId);
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("DatasetVersion") != m.end() && !m["DatasetVersion"].empty()) {
-      if (typeid(map<string, boost::any>) == m["DatasetVersion"].type()) {
-        DatasetVersion model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DatasetVersion"]));
-        datasetVersion = make_shared<DatasetVersion>(model1);
+    if (m.find("DataCount") != m.end() && !m["DataCount"].empty()) {
+      dataCount = make_shared<long>(boost::any_cast<long>(m["DataCount"]));
+    }
+    if (m.find("DataSize") != m.end() && !m["DataSize"].empty()) {
+      dataSize = make_shared<long>(boost::any_cast<long>(m["DataSize"]));
+    }
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+    if (m.find("DatasetId") != m.end() && !m["DatasetId"].empty()) {
+      datasetId = make_shared<string>(boost::any_cast<string>(m["DatasetId"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<Label> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Labels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Label model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        labels = make_shared<vector<Label>>(expect1);
       }
     }
-    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
+    }
+    if (m.find("Property") != m.end() && !m["Property"].empty()) {
+      property = make_shared<string>(boost::any_cast<string>(m["Property"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
     }
   }
 
@@ -9325,8 +9426,8 @@ public:
   shared_ptr<vector<DatasetVersion>> datasetVersions{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
-  shared_ptr<long> totalCount{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
 
   ListDatasetVersionsResponseBody() {}
 
@@ -9351,11 +9452,11 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     if (totalCount) {
       res["TotalCount"] = boost::any(*totalCount);
-    }
-    if (requestId) {
-      res["requestId"] = boost::any(*requestId);
     }
     return res;
   }
@@ -9380,11 +9481,11 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
     if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
       totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
-    }
-    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
   }
 
@@ -14456,14 +14557,14 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (requestId) {
-      res["requestId"] = boost::any(*requestId);
+      res["RequestId"] = boost::any(*requestId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
