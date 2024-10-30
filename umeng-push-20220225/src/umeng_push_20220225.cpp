@@ -146,6 +146,9 @@ SendByAliasResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasWithOpti
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdPartyId)) {
     body->insert(pair<string, string>("ThirdPartyId", *request->thirdPartyId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callbackParams)) {
+    body->insert(pair<string, string>("callbackParams", *request->callbackParams));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -220,6 +223,9 @@ SendByAliasFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasFi
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdPartyId)) {
     body->insert(pair<string, string>("ThirdPartyId", *request->thirdPartyId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callbackParams)) {
+    body->insert(pair<string, string>("callbackParams", *request->callbackParams));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -287,6 +293,9 @@ SendByAppResponse Alibabacloud_Umeng-push20220225::Client::sendByAppWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdPartyId)) {
     body->insert(pair<string, string>("ThirdPartyId", *request->thirdPartyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callbackParams)) {
+    body->insert(pair<string, string>("callbackParams", *request->callbackParams));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -359,6 +368,9 @@ SendByDeviceResponse Alibabacloud_Umeng-push20220225::Client::sendByDeviceWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdPartyId)) {
     body->insert(pair<string, string>("ThirdPartyId", *request->thirdPartyId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callbackParams)) {
+    body->insert(pair<string, string>("callbackParams", *request->callbackParams));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -430,6 +442,9 @@ SendByDeviceFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByDevice
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdPartyId)) {
     body->insert(pair<string, string>("ThirdPartyId", *request->thirdPartyId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callbackParams)) {
+    body->insert(pair<string, string>("callbackParams", *request->callbackParams));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -500,6 +515,9 @@ SendByFilterResponse Alibabacloud_Umeng-push20220225::Client::sendByFilterWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdPartyId)) {
     body->insert(pair<string, string>("ThirdPartyId", *request->thirdPartyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callbackParams)) {
+    body->insert(pair<string, string>("callbackParams", *request->callbackParams));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},

@@ -426,8 +426,10 @@ public:
   shared_ptr<string> channelFcm{};
   shared_ptr<string> huaweiChannelCategory{};
   shared_ptr<string> huaweiChannelImportance{};
+  shared_ptr<string> huaweiMessageUrgency{};
   shared_ptr<string> mainActivity{};
   shared_ptr<string> oppoChannelId{};
+  shared_ptr<string> useHuaweiMessage{};
   shared_ptr<string> vivoAddBadge{};
   shared_ptr<string> vivoCategory{};
   shared_ptr<string> xiaomiChannelId{};
@@ -454,11 +456,17 @@ public:
     if (huaweiChannelImportance) {
       res["huaweiChannelImportance"] = boost::any(*huaweiChannelImportance);
     }
+    if (huaweiMessageUrgency) {
+      res["huaweiMessageUrgency"] = boost::any(*huaweiMessageUrgency);
+    }
     if (mainActivity) {
       res["mainActivity"] = boost::any(*mainActivity);
     }
     if (oppoChannelId) {
       res["oppoChannelId"] = boost::any(*oppoChannelId);
+    }
+    if (useHuaweiMessage) {
+      res["useHuaweiMessage"] = boost::any(*useHuaweiMessage);
     }
     if (vivoAddBadge) {
       res["vivoAddBadge"] = boost::any(*vivoAddBadge);
@@ -485,11 +493,17 @@ public:
     if (m.find("huaweiChannelImportance") != m.end() && !m["huaweiChannelImportance"].empty()) {
       huaweiChannelImportance = make_shared<string>(boost::any_cast<string>(m["huaweiChannelImportance"]));
     }
+    if (m.find("huaweiMessageUrgency") != m.end() && !m["huaweiMessageUrgency"].empty()) {
+      huaweiMessageUrgency = make_shared<string>(boost::any_cast<string>(m["huaweiMessageUrgency"]));
+    }
     if (m.find("mainActivity") != m.end() && !m["mainActivity"].empty()) {
       mainActivity = make_shared<string>(boost::any_cast<string>(m["mainActivity"]));
     }
     if (m.find("oppoChannelId") != m.end() && !m["oppoChannelId"].empty()) {
       oppoChannelId = make_shared<string>(boost::any_cast<string>(m["oppoChannelId"]));
+    }
+    if (m.find("useHuaweiMessage") != m.end() && !m["useHuaweiMessage"].empty()) {
+      useHuaweiMessage = make_shared<string>(boost::any_cast<string>(m["useHuaweiMessage"]));
     }
     if (m.find("vivoAddBadge") != m.end() && !m["vivoAddBadge"].empty()) {
       vivoAddBadge = make_shared<string>(boost::any_cast<string>(m["vivoAddBadge"]));
@@ -1018,6 +1032,7 @@ public:
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
   shared_ptr<string> thirdPartyId{};
+  shared_ptr<string> callbackParams{};
 
   SendByAliasRequest() {}
 
@@ -1061,6 +1076,9 @@ public:
     }
     if (thirdPartyId) {
       res["ThirdPartyId"] = boost::any(*thirdPartyId);
+    }
+    if (callbackParams) {
+      res["callbackParams"] = boost::any(*callbackParams);
     }
     return res;
   }
@@ -1115,6 +1133,9 @@ public:
     if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
       thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
     }
+    if (m.find("callbackParams") != m.end() && !m["callbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["callbackParams"]));
+    }
   }
 
 
@@ -1133,6 +1154,7 @@ public:
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
   shared_ptr<string> thirdPartyId{};
+  shared_ptr<string> callbackParams{};
 
   SendByAliasShrinkRequest() {}
 
@@ -1177,6 +1199,9 @@ public:
     if (thirdPartyId) {
       res["ThirdPartyId"] = boost::any(*thirdPartyId);
     }
+    if (callbackParams) {
+      res["callbackParams"] = boost::any(*callbackParams);
+    }
     return res;
   }
 
@@ -1213,6 +1238,9 @@ public:
     }
     if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
       thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
+    }
+    if (m.find("callbackParams") != m.end() && !m["callbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["callbackParams"]));
     }
   }
 
@@ -1381,6 +1409,7 @@ public:
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
   shared_ptr<string> thirdPartyId{};
+  shared_ptr<string> callbackParams{};
 
   SendByAliasFileIdRequest() {}
 
@@ -1424,6 +1453,9 @@ public:
     }
     if (thirdPartyId) {
       res["ThirdPartyId"] = boost::any(*thirdPartyId);
+    }
+    if (callbackParams) {
+      res["callbackParams"] = boost::any(*callbackParams);
     }
     return res;
   }
@@ -1478,6 +1510,9 @@ public:
     if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
       thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
     }
+    if (m.find("callbackParams") != m.end() && !m["callbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["callbackParams"]));
+    }
   }
 
 
@@ -1496,6 +1531,7 @@ public:
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
   shared_ptr<string> thirdPartyId{};
+  shared_ptr<string> callbackParams{};
 
   SendByAliasFileIdShrinkRequest() {}
 
@@ -1540,6 +1576,9 @@ public:
     if (thirdPartyId) {
       res["ThirdPartyId"] = boost::any(*thirdPartyId);
     }
+    if (callbackParams) {
+      res["callbackParams"] = boost::any(*callbackParams);
+    }
     return res;
   }
 
@@ -1576,6 +1615,9 @@ public:
     }
     if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
       thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
+    }
+    if (m.find("callbackParams") != m.end() && !m["callbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["callbackParams"]));
     }
   }
 
@@ -1742,6 +1784,7 @@ public:
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
   shared_ptr<string> thirdPartyId{};
+  shared_ptr<string> callbackParams{};
 
   SendByAppRequest() {}
 
@@ -1779,6 +1822,9 @@ public:
     }
     if (thirdPartyId) {
       res["ThirdPartyId"] = boost::any(*thirdPartyId);
+    }
+    if (callbackParams) {
+      res["callbackParams"] = boost::any(*callbackParams);
     }
     return res;
   }
@@ -1827,6 +1873,9 @@ public:
     if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
       thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
     }
+    if (m.find("callbackParams") != m.end() && !m["callbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["callbackParams"]));
+    }
   }
 
 
@@ -1843,6 +1892,7 @@ public:
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
   shared_ptr<string> thirdPartyId{};
+  shared_ptr<string> callbackParams{};
 
   SendByAppShrinkRequest() {}
 
@@ -1881,6 +1931,9 @@ public:
     if (thirdPartyId) {
       res["ThirdPartyId"] = boost::any(*thirdPartyId);
     }
+    if (callbackParams) {
+      res["callbackParams"] = boost::any(*callbackParams);
+    }
     return res;
   }
 
@@ -1911,6 +1964,9 @@ public:
     }
     if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
       thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
+    }
+    if (m.find("callbackParams") != m.end() && !m["callbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["callbackParams"]));
     }
   }
 
@@ -2078,6 +2134,7 @@ public:
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
   shared_ptr<string> thirdPartyId{};
+  shared_ptr<string> callbackParams{};
 
   SendByDeviceRequest() {}
 
@@ -2118,6 +2175,9 @@ public:
     }
     if (thirdPartyId) {
       res["ThirdPartyId"] = boost::any(*thirdPartyId);
+    }
+    if (callbackParams) {
+      res["callbackParams"] = boost::any(*callbackParams);
     }
     return res;
   }
@@ -2169,6 +2229,9 @@ public:
     if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
       thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
     }
+    if (m.find("callbackParams") != m.end() && !m["callbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["callbackParams"]));
+    }
   }
 
 
@@ -2186,6 +2249,7 @@ public:
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
   shared_ptr<string> thirdPartyId{};
+  shared_ptr<string> callbackParams{};
 
   SendByDeviceShrinkRequest() {}
 
@@ -2227,6 +2291,9 @@ public:
     if (thirdPartyId) {
       res["ThirdPartyId"] = boost::any(*thirdPartyId);
     }
+    if (callbackParams) {
+      res["callbackParams"] = boost::any(*callbackParams);
+    }
     return res;
   }
 
@@ -2260,6 +2327,9 @@ public:
     }
     if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
       thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
+    }
+    if (m.find("callbackParams") != m.end() && !m["callbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["callbackParams"]));
     }
   }
 
@@ -2427,6 +2497,7 @@ public:
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
   shared_ptr<string> thirdPartyId{};
+  shared_ptr<string> callbackParams{};
 
   SendByDeviceFileIdRequest() {}
 
@@ -2467,6 +2538,9 @@ public:
     }
     if (thirdPartyId) {
       res["ThirdPartyId"] = boost::any(*thirdPartyId);
+    }
+    if (callbackParams) {
+      res["callbackParams"] = boost::any(*callbackParams);
     }
     return res;
   }
@@ -2518,6 +2592,9 @@ public:
     if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
       thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
     }
+    if (m.find("callbackParams") != m.end() && !m["callbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["callbackParams"]));
+    }
   }
 
 
@@ -2535,6 +2612,7 @@ public:
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
   shared_ptr<string> thirdPartyId{};
+  shared_ptr<string> callbackParams{};
 
   SendByDeviceFileIdShrinkRequest() {}
 
@@ -2576,6 +2654,9 @@ public:
     if (thirdPartyId) {
       res["ThirdPartyId"] = boost::any(*thirdPartyId);
     }
+    if (callbackParams) {
+      res["callbackParams"] = boost::any(*callbackParams);
+    }
     return res;
   }
 
@@ -2609,6 +2690,9 @@ public:
     }
     if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
       thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
+    }
+    if (m.find("callbackParams") != m.end() && !m["callbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["callbackParams"]));
     }
   }
 
@@ -2776,6 +2860,7 @@ public:
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
   shared_ptr<string> thirdPartyId{};
+  shared_ptr<string> callbackParams{};
 
   SendByFilterRequest() {}
 
@@ -2816,6 +2901,9 @@ public:
     }
     if (thirdPartyId) {
       res["ThirdPartyId"] = boost::any(*thirdPartyId);
+    }
+    if (callbackParams) {
+      res["callbackParams"] = boost::any(*callbackParams);
     }
     return res;
   }
@@ -2867,6 +2955,9 @@ public:
     if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
       thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
     }
+    if (m.find("callbackParams") != m.end() && !m["callbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["callbackParams"]));
+    }
   }
 
 
@@ -2884,6 +2975,7 @@ public:
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
   shared_ptr<string> thirdPartyId{};
+  shared_ptr<string> callbackParams{};
 
   SendByFilterShrinkRequest() {}
 
@@ -2925,6 +3017,9 @@ public:
     if (thirdPartyId) {
       res["ThirdPartyId"] = boost::any(*thirdPartyId);
     }
+    if (callbackParams) {
+      res["callbackParams"] = boost::any(*callbackParams);
+    }
     return res;
   }
 
@@ -2958,6 +3053,9 @@ public:
     }
     if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
       thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
+    }
+    if (m.find("callbackParams") != m.end() && !m["callbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["callbackParams"]));
     }
   }
 
