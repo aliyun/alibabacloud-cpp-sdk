@@ -4339,6 +4339,7 @@ public:
   shared_ptr<string> ownType{};
   shared_ptr<string> pageNumber{};
   shared_ptr<string> pageSize{};
+  shared_ptr<string> paramTypes{};
   shared_ptr<string> playbookUuid{};
   shared_ptr<string> sort{};
   shared_ptr<long> startMillis{};
@@ -4377,6 +4378,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (paramTypes) {
+      res["ParamTypes"] = boost::any(*paramTypes);
+    }
     if (playbookUuid) {
       res["PlaybookUuid"] = boost::any(*playbookUuid);
     }
@@ -4413,6 +4417,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+    if (m.find("ParamTypes") != m.end() && !m["ParamTypes"].empty()) {
+      paramTypes = make_shared<string>(boost::any_cast<string>(m["ParamTypes"]));
     }
     if (m.find("PlaybookUuid") != m.end() && !m["PlaybookUuid"].empty()) {
       playbookUuid = make_shared<string>(boost::any_cast<string>(m["PlaybookUuid"]));
@@ -4479,6 +4486,7 @@ public:
   shared_ptr<string> gmtModified{};
   shared_ptr<long> lastRuntime{};
   shared_ptr<string> ownType{};
+  shared_ptr<string> paramType{};
   shared_ptr<string> playbookUuid{};
 
   DescribePlaybooksResponseBodyPlaybooks() {}
@@ -4509,6 +4517,9 @@ public:
     if (ownType) {
       res["OwnType"] = boost::any(*ownType);
     }
+    if (paramType) {
+      res["ParamType"] = boost::any(*paramType);
+    }
     if (playbookUuid) {
       res["PlaybookUuid"] = boost::any(*playbookUuid);
     }
@@ -4533,6 +4544,9 @@ public:
     }
     if (m.find("OwnType") != m.end() && !m["OwnType"].empty()) {
       ownType = make_shared<string>(boost::any_cast<string>(m["OwnType"]));
+    }
+    if (m.find("ParamType") != m.end() && !m["ParamType"].empty()) {
+      paramType = make_shared<string>(boost::any_cast<string>(m["ParamType"]));
     }
     if (m.find("PlaybookUuid") != m.end() && !m["PlaybookUuid"].empty()) {
       playbookUuid = make_shared<string>(boost::any_cast<string>(m["PlaybookUuid"]));
@@ -5265,6 +5279,7 @@ public:
   shared_ptr<string> direction{};
   shared_ptr<string> entityName{};
   shared_ptr<string> entityType{};
+  shared_ptr<string> entityUuid{};
   shared_ptr<string> orderField{};
   shared_ptr<string> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -5299,6 +5314,9 @@ public:
     }
     if (entityType) {
       res["EntityType"] = boost::any(*entityType);
+    }
+    if (entityUuid) {
+      res["EntityUuid"] = boost::any(*entityUuid);
     }
     if (orderField) {
       res["OrderField"] = boost::any(*orderField);
@@ -5357,6 +5375,9 @@ public:
     }
     if (m.find("EntityType") != m.end() && !m["EntityType"].empty()) {
       entityType = make_shared<string>(boost::any_cast<string>(m["EntityType"]));
+    }
+    if (m.find("EntityUuid") != m.end() && !m["EntityUuid"].empty()) {
+      entityUuid = make_shared<string>(boost::any_cast<string>(m["EntityUuid"]));
     }
     if (m.find("OrderField") != m.end() && !m["OrderField"].empty()) {
       orderField = make_shared<string>(boost::any_cast<string>(m["OrderField"]));
@@ -5456,6 +5477,7 @@ public:
   shared_ptr<string> creator{};
   shared_ptr<string> entityName{};
   shared_ptr<string> entityType{};
+  shared_ptr<string> entityUuid{};
   shared_ptr<string> errCode{};
   shared_ptr<string> errMsg{};
   shared_ptr<string> errTip{};
@@ -5491,6 +5513,9 @@ public:
     }
     if (entityType) {
       res["EntityType"] = boost::any(*entityType);
+    }
+    if (entityUuid) {
+      res["EntityUuid"] = boost::any(*entityUuid);
     }
     if (errCode) {
       res["ErrCode"] = boost::any(*errCode);
@@ -5552,6 +5577,9 @@ public:
     }
     if (m.find("EntityType") != m.end() && !m["EntityType"].empty()) {
       entityType = make_shared<string>(boost::any_cast<string>(m["EntityType"]));
+    }
+    if (m.find("EntityUuid") != m.end() && !m["EntityUuid"].empty()) {
+      entityUuid = make_shared<string>(boost::any_cast<string>(m["EntityUuid"]));
     }
     if (m.find("ErrCode") != m.end() && !m["ErrCode"].empty()) {
       errCode = make_shared<string>(boost::any_cast<string>(m["ErrCode"]));
