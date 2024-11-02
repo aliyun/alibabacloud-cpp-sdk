@@ -2791,6 +2791,7 @@ public:
 class CreateLoadBalancerRequestZoneMappings : public Darabonba::Model {
 public:
   shared_ptr<string> allocationId{};
+  shared_ptr<string> eipType{};
   shared_ptr<string> intranetAddress{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> zoneId{};
@@ -2808,6 +2809,9 @@ public:
     if (allocationId) {
       res["AllocationId"] = boost::any(*allocationId);
     }
+    if (eipType) {
+      res["EipType"] = boost::any(*eipType);
+    }
     if (intranetAddress) {
       res["IntranetAddress"] = boost::any(*intranetAddress);
     }
@@ -2823,6 +2827,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AllocationId") != m.end() && !m["AllocationId"].empty()) {
       allocationId = make_shared<string>(boost::any_cast<string>(m["AllocationId"]));
+    }
+    if (m.find("EipType") != m.end() && !m["EipType"].empty()) {
+      eipType = make_shared<string>(boost::any_cast<string>(m["EipType"]));
     }
     if (m.find("IntranetAddress") != m.end() && !m["IntranetAddress"].empty()) {
       intranetAddress = make_shared<string>(boost::any_cast<string>(m["IntranetAddress"]));
@@ -9594,6 +9601,7 @@ public:
 };
 class EnableLoadBalancerAccessLogResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> jobId{};
   shared_ptr<string> requestId{};
 
   EnableLoadBalancerAccessLogResponseBody() {}
@@ -9606,6 +9614,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -9613,6 +9624,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -23430,6 +23444,7 @@ public:
 class UpdateLoadBalancerAddressTypeConfigRequestZoneMappings : public Darabonba::Model {
 public:
   shared_ptr<string> allocationId{};
+  shared_ptr<string> eipType{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> zoneId{};
 
@@ -23446,6 +23461,9 @@ public:
     if (allocationId) {
       res["AllocationId"] = boost::any(*allocationId);
     }
+    if (eipType) {
+      res["EipType"] = boost::any(*eipType);
+    }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
@@ -23458,6 +23476,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AllocationId") != m.end() && !m["AllocationId"].empty()) {
       allocationId = make_shared<string>(boost::any_cast<string>(m["AllocationId"]));
+    }
+    if (m.find("EipType") != m.end() && !m["EipType"].empty()) {
+      eipType = make_shared<string>(boost::any_cast<string>(m["EipType"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -23947,6 +23968,7 @@ public:
 };
 class UpdateLoadBalancerZonesRequestZoneMappings : public Darabonba::Model {
 public:
+  shared_ptr<string> eipType{};
   shared_ptr<string> intranetAddress{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> zoneId{};
@@ -23961,6 +23983,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (eipType) {
+      res["EipType"] = boost::any(*eipType);
+    }
     if (intranetAddress) {
       res["IntranetAddress"] = boost::any(*intranetAddress);
     }
@@ -23974,6 +23999,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EipType") != m.end() && !m["EipType"].empty()) {
+      eipType = make_shared<string>(boost::any_cast<string>(m["EipType"]));
+    }
     if (m.find("IntranetAddress") != m.end() && !m["IntranetAddress"].empty()) {
       intranetAddress = make_shared<string>(boost::any_cast<string>(m["IntranetAddress"]));
     }
