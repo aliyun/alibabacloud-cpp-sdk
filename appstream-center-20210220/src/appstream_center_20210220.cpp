@@ -38,8 +38,17 @@ string Alibabacloud_Appstream-center20210220::Client::getEndpoint(shared_ptr<str
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-FindIdpListByLoginIdentifierResponse Alibabacloud_Appstream-center20210220::Client::findIdpListByLoginIdentifierWithOptions(shared_ptr<FindIdpListByLoginIdentifierRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+FindIdpListByLoginIdentifierResponse Alibabacloud_Appstream-center20210220::Client::findIdpListByLoginIdentifierWithOptions(shared_ptr<FindIdpListByLoginIdentifierRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<FindIdpListByLoginIdentifierShrinkRequest> request = make_shared<FindIdpListByLoginIdentifierShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->availableFeatures)) {
+    request->availableFeaturesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->availableFeatures, make_shared<string>("AvailableFeatures"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->availableFeaturesShrink)) {
+    query->insert(pair<string, string>("AvailableFeatures", *request->availableFeaturesShrink));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientChannel)) {
     body->insert(pair<string, string>("ClientChannel", *request->clientChannel));
@@ -66,6 +75,7 @@ FindIdpListByLoginIdentifierResponse Alibabacloud_Appstream-center20210220::Clie
     body->insert(pair<string, string>("Uuid", *request->uuid));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -87,11 +97,19 @@ FindIdpListByLoginIdentifierResponse Alibabacloud_Appstream-center20210220::Clie
   return findIdpListByLoginIdentifierWithOptions(request, runtime);
 }
 
-GetLoginTokenResponse Alibabacloud_Appstream-center20210220::Client::getLoginTokenWithOptions(shared_ptr<GetLoginTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+GetLoginTokenResponse Alibabacloud_Appstream-center20210220::Client::getLoginTokenWithOptions(shared_ptr<GetLoginTokenRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetLoginTokenShrinkRequest> request = make_shared<GetLoginTokenShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->availableFeatures)) {
+    request->availableFeaturesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->availableFeatures, make_shared<string>("AvailableFeatures"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->authenticationCode)) {
     query->insert(pair<string, string>("AuthenticationCode", *request->authenticationCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->availableFeaturesShrink)) {
+    query->insert(pair<string, string>("AvailableFeatures", *request->availableFeaturesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
     query->insert(pair<string, string>("ClientId", *request->clientId));
@@ -143,6 +161,9 @@ GetLoginTokenResponse Alibabacloud_Appstream-center20210220::Client::getLoginTok
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->loginName)) {
     query->insert(pair<string, string>("LoginName", *request->loginName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mfaType)) {
+    query->insert(pair<string, string>("MfaType", *request->mfaType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkType)) {
     query->insert(pair<string, string>("NetworkType", *request->networkType));
