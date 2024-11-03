@@ -33704,6 +33704,7 @@ public:
   shared_ptr<bool> l2Preload{};
   shared_ptr<string> objectPath{};
   shared_ptr<long> ownerId{};
+  shared_ptr<bool> queryHashkey{};
   shared_ptr<string> securityToken{};
   shared_ptr<string> withHeader{};
 
@@ -33729,6 +33730,9 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (queryHashkey) {
+      res["QueryHashkey"] = boost::any(*queryHashkey);
+    }
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
@@ -33750,6 +33754,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QueryHashkey") != m.end() && !m["QueryHashkey"].empty()) {
+      queryHashkey = make_shared<bool>(boost::any_cast<bool>(m["QueryHashkey"]));
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));

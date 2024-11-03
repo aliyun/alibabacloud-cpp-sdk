@@ -5225,6 +5225,9 @@ PushObjectCacheResponse Alibabacloud_Cdn20180510::Client::pushObjectCacheWithOpt
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->queryHashkey)) {
+    query->insert(pair<string, bool>("QueryHashkey", *request->queryHashkey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
