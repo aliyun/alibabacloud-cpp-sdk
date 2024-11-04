@@ -124,6 +124,61 @@ AddSecretBlacklistResponse Alibabacloud_Dyplsapi20170525::Client::addSecretBlack
   return addSecretBlacklistWithOptions(request, runtime);
 }
 
+BindAXBCallResponse Alibabacloud_Dyplsapi20170525::Client::bindAXBCallWithOptions(shared_ptr<BindAXBCallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authId)) {
+    query->insert(pair<string, string>("AuthId", *request->authId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->callerParentId)) {
+    query->insert(pair<string, long>("CallerParentId", *request->callerParentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerPoolKey)) {
+    query->insert(pair<string, string>("CustomerPoolKey", *request->customerPoolKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->expiration)) {
+    query->insert(pair<string, long>("Expiration", *request->expiration));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reqId)) {
+    query->insert(pair<string, string>("ReqId", *request->reqId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->telA)) {
+    query->insert(pair<string, string>("TelA", *request->telA));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BindAXBCall"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BindAXBCallResponse(callApi(params, req, runtime));
+}
+
+BindAXBCallResponse Alibabacloud_Dyplsapi20170525::Client::bindAXBCall(shared_ptr<BindAXBCallRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return bindAXBCallWithOptions(request, runtime);
+}
+
 BindAxbResponse Alibabacloud_Dyplsapi20170525::Client::bindAxbWithOptions(shared_ptr<BindAxbRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -308,6 +363,9 @@ BindAxnResponse Alibabacloud_Dyplsapi20170525::Client::bindAxnWithOptions(shared
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->expiration)) {
     query->insert(pair<string, string>("Expiration", *request->expiration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extend)) {
+    query->insert(pair<string, string>("Extend", *request->extend));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isRecordingEnabled)) {
     query->insert(pair<string, bool>("IsRecordingEnabled", *request->isRecordingEnabled));
@@ -494,6 +552,58 @@ BindBatchAxgResponse Alibabacloud_Dyplsapi20170525::Client::bindBatchAxg(shared_
   return bindBatchAxgWithOptions(request, runtime);
 }
 
+BindXBResponse Alibabacloud_Dyplsapi20170525::Client::bindXBWithOptions(shared_ptr<BindXBRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->callerParentId)) {
+    query->insert(pair<string, long>("CallerParentId", *request->callerParentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerPoolKey)) {
+    query->insert(pair<string, string>("CustomerPoolKey", *request->customerPoolKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reqId)) {
+    query->insert(pair<string, string>("ReqId", *request->reqId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->telB)) {
+    query->insert(pair<string, string>("TelB", *request->telB));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->telX)) {
+    query->insert(pair<string, string>("TelX", *request->telX));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BindXB"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BindXBResponse(callApi(params, req, runtime));
+}
+
+BindXBResponse Alibabacloud_Dyplsapi20170525::Client::bindXB(shared_ptr<BindXBRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return bindXBWithOptions(request, runtime);
+}
+
 BuySecretNoResponse Alibabacloud_Dyplsapi20170525::Client::buySecretNoWithOptions(shared_ptr<BuySecretNoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -581,6 +691,75 @@ CancelPickUpWaybillResponse Alibabacloud_Dyplsapi20170525::Client::cancelPickUpW
 CancelPickUpWaybillResponse Alibabacloud_Dyplsapi20170525::Client::cancelPickUpWaybill(shared_ptr<CancelPickUpWaybillRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return cancelPickUpWaybillWithOptions(request, runtime);
+}
+
+ConfigXResponse Alibabacloud_Dyplsapi20170525::Client::configXWithOptions(shared_ptr<ConfigXRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ConfigXShrinkRequest> request = make_shared<ConfigXShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ConfigXRequestSequenceCalls>>(tmpReq->sequenceCalls)) {
+    request->sequenceCallsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sequenceCalls, make_shared<string>("SequenceCalls"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->callAbility)) {
+    query->insert(pair<string, string>("CallAbility", *request->callAbility));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->callerParentId)) {
+    query->insert(pair<string, long>("CallerParentId", *request->callerParentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerPoolKey)) {
+    query->insert(pair<string, string>("CustomerPoolKey", *request->customerPoolKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->GNFlag)) {
+    query->insert(pair<string, string>("GNFlag", *request->GNFlag));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reqId)) {
+    query->insert(pair<string, string>("ReqId", *request->reqId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sequenceCallsShrink)) {
+    query->insert(pair<string, string>("SequenceCalls", *request->sequenceCallsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sequenceMode)) {
+    query->insert(pair<string, string>("SequenceMode", *request->sequenceMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->smsAbility)) {
+    query->insert(pair<string, string>("SmsAbility", *request->smsAbility));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->smsSignMode)) {
+    query->insert(pair<string, string>("SmsSignMode", *request->smsSignMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->telX)) {
+    query->insert(pair<string, string>("TelX", *request->telX));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ConfigX"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ConfigXResponse(callApi(params, req, runtime));
+}
+
+ConfigXResponse Alibabacloud_Dyplsapi20170525::Client::configX(shared_ptr<ConfigXRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return configXWithOptions(request, runtime);
 }
 
 CreateAxgGroupResponse Alibabacloud_Dyplsapi20170525::Client::createAxgGroupWithOptions(shared_ptr<CreateAxgGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -764,6 +943,55 @@ CreatePickUpWaybillPreQueryResponse Alibabacloud_Dyplsapi20170525::Client::creat
   return createPickUpWaybillPreQueryWithOptions(request, runtime);
 }
 
+CreateSmsSignResponse Alibabacloud_Dyplsapi20170525::Client::createSmsSignWithOptions(shared_ptr<CreateSmsSignRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->calledNo)) {
+    query->insert(pair<string, string>("CalledNo", *request->calledNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->callerParentId)) {
+    query->insert(pair<string, long>("CallerParentId", *request->callerParentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callingNo)) {
+    query->insert(pair<string, string>("CallingNo", *request->callingNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerPoolKey)) {
+    query->insert(pair<string, string>("CustomerPoolKey", *request->customerPoolKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reqId)) {
+    query->insert(pair<string, string>("ReqId", *request->reqId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateSmsSign"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateSmsSignResponse(callApi(params, req, runtime));
+}
+
+CreateSmsSignResponse Alibabacloud_Dyplsapi20170525::Client::createSmsSign(shared_ptr<CreateSmsSignRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createSmsSignWithOptions(request, runtime);
+}
+
 DeleteAxgGroupResponse Alibabacloud_Dyplsapi20170525::Client::deleteAxgGroupWithOptions(shared_ptr<DeleteAxgGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -922,6 +1150,147 @@ GetTotalPublicUrlResponse Alibabacloud_Dyplsapi20170525::Client::getTotalPublicU
 GetTotalPublicUrlResponse Alibabacloud_Dyplsapi20170525::Client::getTotalPublicUrl(shared_ptr<GetTotalPublicUrlRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getTotalPublicUrlWithOptions(request, runtime);
+}
+
+GetXConfigResponse Alibabacloud_Dyplsapi20170525::Client::getXConfigWithOptions(shared_ptr<GetXConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->callerParentId)) {
+    query->insert(pair<string, long>("CallerParentId", *request->callerParentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerPoolKey)) {
+    query->insert(pair<string, string>("CustomerPoolKey", *request->customerPoolKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reqId)) {
+    query->insert(pair<string, string>("ReqId", *request->reqId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->telX)) {
+    query->insert(pair<string, string>("TelX", *request->telX));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetXConfig"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetXConfigResponse(callApi(params, req, runtime));
+}
+
+GetXConfigResponse Alibabacloud_Dyplsapi20170525::Client::getXConfig(shared_ptr<GetXConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getXConfigWithOptions(request, runtime);
+}
+
+GetXDefaultConfigResponse Alibabacloud_Dyplsapi20170525::Client::getXDefaultConfigWithOptions(shared_ptr<GetXDefaultConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->callerParentId)) {
+    query->insert(pair<string, long>("CallerParentId", *request->callerParentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerPoolKey)) {
+    query->insert(pair<string, string>("CustomerPoolKey", *request->customerPoolKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reqId)) {
+    query->insert(pair<string, string>("ReqId", *request->reqId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->telX)) {
+    query->insert(pair<string, string>("TelX", *request->telX));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetXDefaultConfig"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetXDefaultConfigResponse(callApi(params, req, runtime));
+}
+
+GetXDefaultConfigResponse Alibabacloud_Dyplsapi20170525::Client::getXDefaultConfig(shared_ptr<GetXDefaultConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getXDefaultConfigWithOptions(request, runtime);
+}
+
+ListXTelephonesResponse Alibabacloud_Dyplsapi20170525::Client::listXTelephonesWithOptions(shared_ptr<ListXTelephonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->callerParentId)) {
+    query->insert(pair<string, long>("CallerParentId", *request->callerParentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerPoolKey)) {
+    query->insert(pair<string, string>("CustomerPoolKey", *request->customerPoolKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reqId)) {
+    query->insert(pair<string, string>("ReqId", *request->reqId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListXTelephones"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListXTelephonesResponse(callApi(params, req, runtime));
+}
+
+ListXTelephonesResponse Alibabacloud_Dyplsapi20170525::Client::listXTelephones(shared_ptr<ListXTelephonesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listXTelephonesWithOptions(request, runtime);
 }
 
 LockSecretNoResponse Alibabacloud_Dyplsapi20170525::Client::lockSecretNoWithOptions(shared_ptr<LockSecretNoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1228,6 +1597,52 @@ QuerySecretNoRemainResponse Alibabacloud_Dyplsapi20170525::Client::querySecretNo
   return querySecretNoRemainWithOptions(request, runtime);
 }
 
+QuerySoundRecordResponse Alibabacloud_Dyplsapi20170525::Client::querySoundRecordWithOptions(shared_ptr<QuerySoundRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->callId)) {
+    query->insert(pair<string, string>("CallId", *request->callId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->callerParentId)) {
+    query->insert(pair<string, long>("CallerParentId", *request->callerParentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerPoolKey)) {
+    query->insert(pair<string, string>("CustomerPoolKey", *request->customerPoolKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reqId)) {
+    query->insert(pair<string, string>("ReqId", *request->reqId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QuerySoundRecord"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QuerySoundRecordResponse(callApi(params, req, runtime));
+}
+
+QuerySoundRecordResponse Alibabacloud_Dyplsapi20170525::Client::querySoundRecord(shared_ptr<QuerySoundRecordRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return querySoundRecordWithOptions(request, runtime);
+}
+
 QuerySubsIdResponse Alibabacloud_Dyplsapi20170525::Client::querySubsIdWithOptions(shared_ptr<QuerySubsIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1352,6 +1767,101 @@ ReleaseSecretNoResponse Alibabacloud_Dyplsapi20170525::Client::releaseSecretNoWi
 ReleaseSecretNoResponse Alibabacloud_Dyplsapi20170525::Client::releaseSecretNo(shared_ptr<ReleaseSecretNoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return releaseSecretNoWithOptions(request, runtime);
+}
+
+UnBindAXBResponse Alibabacloud_Dyplsapi20170525::Client::unBindAXBWithOptions(shared_ptr<UnBindAXBRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bindId)) {
+    query->insert(pair<string, string>("BindId", *request->bindId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->callerParentId)) {
+    query->insert(pair<string, long>("CallerParentId", *request->callerParentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerPoolKey)) {
+    query->insert(pair<string, string>("CustomerPoolKey", *request->customerPoolKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reqId)) {
+    query->insert(pair<string, string>("ReqId", *request->reqId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UnBindAXB"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UnBindAXBResponse(callApi(params, req, runtime));
+}
+
+UnBindAXBResponse Alibabacloud_Dyplsapi20170525::Client::unBindAXB(shared_ptr<UnBindAXBRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return unBindAXBWithOptions(request, runtime);
+}
+
+UnBindXBResponse Alibabacloud_Dyplsapi20170525::Client::unBindXBWithOptions(shared_ptr<UnBindXBRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authId)) {
+    query->insert(pair<string, string>("AuthId", *request->authId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->callerParentId)) {
+    query->insert(pair<string, long>("CallerParentId", *request->callerParentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerPoolKey)) {
+    query->insert(pair<string, string>("CustomerPoolKey", *request->customerPoolKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reqId)) {
+    query->insert(pair<string, string>("ReqId", *request->reqId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->telX)) {
+    query->insert(pair<string, string>("TelX", *request->telX));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UnBindXB"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UnBindXBResponse(callApi(params, req, runtime));
+}
+
+UnBindXBResponse Alibabacloud_Dyplsapi20170525::Client::unBindXB(shared_ptr<UnBindXBRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return unBindXBWithOptions(request, runtime);
 }
 
 UnbindSubscriptionResponse Alibabacloud_Dyplsapi20170525::Client::unbindSubscriptionWithOptions(shared_ptr<UnbindSubscriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
