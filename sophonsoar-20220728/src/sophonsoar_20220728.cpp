@@ -821,6 +821,31 @@ DescribePopApiVersionListResponse Alibabacloud_Sophonsoar20220728::Client::descr
   return describePopApiVersionListWithOptions(request, runtime);
 }
 
+DescribeProcessTaskCountResponse Alibabacloud_Sophonsoar20220728::Client::describeProcessTaskCountWithOptions(shared_ptr<DescribeProcessTaskCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeProcessTaskCount"))},
+    {"version", boost::any(string("2022-07-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeProcessTaskCountResponse(callApi(params, req, runtime));
+}
+
+DescribeProcessTaskCountResponse Alibabacloud_Sophonsoar20220728::Client::describeProcessTaskCount(shared_ptr<DescribeProcessTaskCountRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeProcessTaskCountWithOptions(request, runtime);
+}
+
 DescribeProcessTasksResponse Alibabacloud_Sophonsoar20220728::Client::describeProcessTasksWithOptions(shared_ptr<DescribeProcessTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));

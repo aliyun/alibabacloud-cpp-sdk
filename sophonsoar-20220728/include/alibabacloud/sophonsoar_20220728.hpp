@@ -5274,6 +5274,201 @@ public:
 
   virtual ~DescribePopApiVersionListResponse() = default;
 };
+class DescribeProcessTaskCountRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> entityUuidList{};
+  shared_ptr<string> lang{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<string> roleType{};
+
+  DescribeProcessTaskCountRequest() {}
+
+  explicit DescribeProcessTaskCountRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entityUuidList) {
+      res["EntityUuidList"] = boost::any(*entityUuidList);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EntityUuidList") != m.end() && !m["EntityUuidList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EntityUuidList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EntityUuidList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      entityUuidList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<string>(boost::any_cast<string>(m["RoleType"]));
+    }
+  }
+
+
+  virtual ~DescribeProcessTaskCountRequest() = default;
+};
+class DescribeProcessTaskCountResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<string> entityUuid{};
+
+  DescribeProcessTaskCountResponseBodyData() {}
+
+  explicit DescribeProcessTaskCountResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (entityUuid) {
+      res["EntityUuid"] = boost::any(*entityUuid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("EntityUuid") != m.end() && !m["EntityUuid"].empty()) {
+      entityUuid = make_shared<string>(boost::any_cast<string>(m["EntityUuid"]));
+    }
+  }
+
+
+  virtual ~DescribeProcessTaskCountResponseBodyData() = default;
+};
+class DescribeProcessTaskCountResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeProcessTaskCountResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+
+  DescribeProcessTaskCountResponseBody() {}
+
+  explicit DescribeProcessTaskCountResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<DescribeProcessTaskCountResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeProcessTaskCountResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<DescribeProcessTaskCountResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeProcessTaskCountResponseBody() = default;
+};
+class DescribeProcessTaskCountResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeProcessTaskCountResponseBody> body{};
+
+  DescribeProcessTaskCountResponse() {}
+
+  explicit DescribeProcessTaskCountResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeProcessTaskCountResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeProcessTaskCountResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeProcessTaskCountResponse() = default;
+};
 class DescribeProcessTasksRequest : public Darabonba::Model {
 public:
   shared_ptr<string> direction{};
@@ -9135,6 +9330,8 @@ public:
   DescribePopApiItemListResponse describePopApiItemList(shared_ptr<DescribePopApiItemListRequest> request);
   DescribePopApiVersionListResponse describePopApiVersionListWithOptions(shared_ptr<DescribePopApiVersionListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePopApiVersionListResponse describePopApiVersionList(shared_ptr<DescribePopApiVersionListRequest> request);
+  DescribeProcessTaskCountResponse describeProcessTaskCountWithOptions(shared_ptr<DescribeProcessTaskCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeProcessTaskCountResponse describeProcessTaskCount(shared_ptr<DescribeProcessTaskCountRequest> request);
   DescribeProcessTasksResponse describeProcessTasksWithOptions(shared_ptr<DescribeProcessTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeProcessTasksResponse describeProcessTasks(shared_ptr<DescribeProcessTasksRequest> request);
   DescribeSoarRecordActionOutputListResponse describeSoarRecordActionOutputListWithOptions(shared_ptr<DescribeSoarRecordActionOutputListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
