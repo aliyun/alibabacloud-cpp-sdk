@@ -8471,6 +8471,7 @@ public:
 class RunCommandRequest : public Darabonba::Model {
 public:
   shared_ptr<string> commandContent{};
+  shared_ptr<string> contentEncoding{};
   shared_ptr<vector<string>> instanceIds{};
   shared_ptr<long> timeout{};
 
@@ -8487,6 +8488,9 @@ public:
     if (commandContent) {
       res["CommandContent"] = boost::any(*commandContent);
     }
+    if (contentEncoding) {
+      res["ContentEncoding"] = boost::any(*contentEncoding);
+    }
     if (instanceIds) {
       res["InstanceIds"] = boost::any(*instanceIds);
     }
@@ -8499,6 +8503,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CommandContent") != m.end() && !m["CommandContent"].empty()) {
       commandContent = make_shared<string>(boost::any_cast<string>(m["CommandContent"]));
+    }
+    if (m.find("ContentEncoding") != m.end() && !m["ContentEncoding"].empty()) {
+      contentEncoding = make_shared<string>(boost::any_cast<string>(m["ContentEncoding"]));
     }
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
       vector<string> toVec1;

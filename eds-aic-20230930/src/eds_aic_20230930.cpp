@@ -1617,6 +1617,9 @@ RunCommandResponse Alibabacloud_Eds-aic20230930::Client::runCommandWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->commandContent)) {
     query->insert(pair<string, string>("CommandContent", *request->commandContent));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->contentEncoding)) {
+    query->insert(pair<string, string>("ContentEncoding", *request->contentEncoding));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
     query->insert(pair<string, vector<string>>("InstanceIds", *request->instanceIds));
   }
