@@ -11832,8 +11832,10 @@ public:
   shared_ptr<string> eipType{};
   shared_ptr<string> intranetAddress{};
   shared_ptr<string> intranetAddressHcStatus{};
+  shared_ptr<vector<string>> ipv4LocalAddresses{};
   shared_ptr<string> ipv6Address{};
   shared_ptr<string> ipv6AddressHcStatus{};
+  shared_ptr<vector<string>> ipv6LocalAddresses{};
 
   GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses() {}
 
@@ -11860,11 +11862,17 @@ public:
     if (intranetAddressHcStatus) {
       res["IntranetAddressHcStatus"] = boost::any(*intranetAddressHcStatus);
     }
+    if (ipv4LocalAddresses) {
+      res["Ipv4LocalAddresses"] = boost::any(*ipv4LocalAddresses);
+    }
     if (ipv6Address) {
       res["Ipv6Address"] = boost::any(*ipv6Address);
     }
     if (ipv6AddressHcStatus) {
       res["Ipv6AddressHcStatus"] = boost::any(*ipv6AddressHcStatus);
+    }
+    if (ipv6LocalAddresses) {
+      res["Ipv6LocalAddresses"] = boost::any(*ipv6LocalAddresses);
     }
     return res;
   }
@@ -11885,11 +11893,31 @@ public:
     if (m.find("IntranetAddressHcStatus") != m.end() && !m["IntranetAddressHcStatus"].empty()) {
       intranetAddressHcStatus = make_shared<string>(boost::any_cast<string>(m["IntranetAddressHcStatus"]));
     }
+    if (m.find("Ipv4LocalAddresses") != m.end() && !m["Ipv4LocalAddresses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ipv4LocalAddresses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ipv4LocalAddresses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipv4LocalAddresses = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("Ipv6Address") != m.end() && !m["Ipv6Address"].empty()) {
       ipv6Address = make_shared<string>(boost::any_cast<string>(m["Ipv6Address"]));
     }
     if (m.find("Ipv6AddressHcStatus") != m.end() && !m["Ipv6AddressHcStatus"].empty()) {
       ipv6AddressHcStatus = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressHcStatus"]));
+    }
+    if (m.find("Ipv6LocalAddresses") != m.end() && !m["Ipv6LocalAddresses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ipv6LocalAddresses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ipv6LocalAddresses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipv6LocalAddresses = make_shared<vector<string>>(toVec1);
     }
   }
 
