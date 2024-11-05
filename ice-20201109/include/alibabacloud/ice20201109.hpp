@@ -202,10 +202,16 @@ class AIAgentTemplateConfigAvatarChat3D : public Darabonba::Model {
 public:
   shared_ptr<long> asrMaxSilence{};
   shared_ptr<string> avatarId{};
+  shared_ptr<string> bailianAppParams{};
+  shared_ptr<bool> enablePushToTalk{};
   shared_ptr<bool> enableVoiceInterrupt{};
   shared_ptr<bool> gracefulShutdown{};
   shared_ptr<string> greeting{};
+  shared_ptr<bool> useVoiceprint{};
+  shared_ptr<long> userOfflineTimeout{};
+  shared_ptr<long> userOnlineTimeout{};
   shared_ptr<string> voiceId{};
+  shared_ptr<string> voiceprintId{};
   shared_ptr<long> volume{};
 
   AIAgentTemplateConfigAvatarChat3D() {}
@@ -224,6 +230,12 @@ public:
     if (avatarId) {
       res["AvatarId"] = boost::any(*avatarId);
     }
+    if (bailianAppParams) {
+      res["BailianAppParams"] = boost::any(*bailianAppParams);
+    }
+    if (enablePushToTalk) {
+      res["EnablePushToTalk"] = boost::any(*enablePushToTalk);
+    }
     if (enableVoiceInterrupt) {
       res["EnableVoiceInterrupt"] = boost::any(*enableVoiceInterrupt);
     }
@@ -233,8 +245,20 @@ public:
     if (greeting) {
       res["Greeting"] = boost::any(*greeting);
     }
+    if (useVoiceprint) {
+      res["UseVoiceprint"] = boost::any(*useVoiceprint);
+    }
+    if (userOfflineTimeout) {
+      res["UserOfflineTimeout"] = boost::any(*userOfflineTimeout);
+    }
+    if (userOnlineTimeout) {
+      res["UserOnlineTimeout"] = boost::any(*userOnlineTimeout);
+    }
     if (voiceId) {
       res["VoiceId"] = boost::any(*voiceId);
+    }
+    if (voiceprintId) {
+      res["VoiceprintId"] = boost::any(*voiceprintId);
     }
     if (volume) {
       res["Volume"] = boost::any(*volume);
@@ -249,6 +273,12 @@ public:
     if (m.find("AvatarId") != m.end() && !m["AvatarId"].empty()) {
       avatarId = make_shared<string>(boost::any_cast<string>(m["AvatarId"]));
     }
+    if (m.find("BailianAppParams") != m.end() && !m["BailianAppParams"].empty()) {
+      bailianAppParams = make_shared<string>(boost::any_cast<string>(m["BailianAppParams"]));
+    }
+    if (m.find("EnablePushToTalk") != m.end() && !m["EnablePushToTalk"].empty()) {
+      enablePushToTalk = make_shared<bool>(boost::any_cast<bool>(m["EnablePushToTalk"]));
+    }
     if (m.find("EnableVoiceInterrupt") != m.end() && !m["EnableVoiceInterrupt"].empty()) {
       enableVoiceInterrupt = make_shared<bool>(boost::any_cast<bool>(m["EnableVoiceInterrupt"]));
     }
@@ -258,8 +288,20 @@ public:
     if (m.find("Greeting") != m.end() && !m["Greeting"].empty()) {
       greeting = make_shared<string>(boost::any_cast<string>(m["Greeting"]));
     }
+    if (m.find("UseVoiceprint") != m.end() && !m["UseVoiceprint"].empty()) {
+      useVoiceprint = make_shared<bool>(boost::any_cast<bool>(m["UseVoiceprint"]));
+    }
+    if (m.find("UserOfflineTimeout") != m.end() && !m["UserOfflineTimeout"].empty()) {
+      userOfflineTimeout = make_shared<long>(boost::any_cast<long>(m["UserOfflineTimeout"]));
+    }
+    if (m.find("UserOnlineTimeout") != m.end() && !m["UserOnlineTimeout"].empty()) {
+      userOnlineTimeout = make_shared<long>(boost::any_cast<long>(m["UserOnlineTimeout"]));
+    }
     if (m.find("VoiceId") != m.end() && !m["VoiceId"].empty()) {
       voiceId = make_shared<string>(boost::any_cast<string>(m["VoiceId"]));
+    }
+    if (m.find("VoiceprintId") != m.end() && !m["VoiceprintId"].empty()) {
+      voiceprintId = make_shared<string>(boost::any_cast<string>(m["VoiceprintId"]));
     }
     if (m.find("Volume") != m.end() && !m["Volume"].empty()) {
       volume = make_shared<long>(boost::any_cast<long>(m["Volume"]));
@@ -272,11 +314,17 @@ public:
 class AIAgentTemplateConfigVisionChat : public Darabonba::Model {
 public:
   shared_ptr<long> asrMaxSilence{};
+  shared_ptr<string> bailianAppParams{};
   shared_ptr<bool> enableIntelligentSegment{};
+  shared_ptr<bool> enablePushToTalk{};
   shared_ptr<bool> enableVoiceInterrupt{};
   shared_ptr<bool> gracefulShutdown{};
   shared_ptr<string> greeting{};
+  shared_ptr<bool> useVoiceprint{};
+  shared_ptr<long> userOfflineTimeout{};
+  shared_ptr<long> userOnlineTimeout{};
   shared_ptr<string> voiceId{};
+  shared_ptr<string> voiceprintId{};
   shared_ptr<long> volume{};
 
   AIAgentTemplateConfigVisionChat() {}
@@ -292,8 +340,14 @@ public:
     if (asrMaxSilence) {
       res["AsrMaxSilence"] = boost::any(*asrMaxSilence);
     }
+    if (bailianAppParams) {
+      res["BailianAppParams"] = boost::any(*bailianAppParams);
+    }
     if (enableIntelligentSegment) {
       res["EnableIntelligentSegment"] = boost::any(*enableIntelligentSegment);
+    }
+    if (enablePushToTalk) {
+      res["EnablePushToTalk"] = boost::any(*enablePushToTalk);
     }
     if (enableVoiceInterrupt) {
       res["EnableVoiceInterrupt"] = boost::any(*enableVoiceInterrupt);
@@ -304,8 +358,20 @@ public:
     if (greeting) {
       res["Greeting"] = boost::any(*greeting);
     }
+    if (useVoiceprint) {
+      res["UseVoiceprint"] = boost::any(*useVoiceprint);
+    }
+    if (userOfflineTimeout) {
+      res["UserOfflineTimeout"] = boost::any(*userOfflineTimeout);
+    }
+    if (userOnlineTimeout) {
+      res["UserOnlineTimeout"] = boost::any(*userOnlineTimeout);
+    }
     if (voiceId) {
       res["VoiceId"] = boost::any(*voiceId);
+    }
+    if (voiceprintId) {
+      res["VoiceprintId"] = boost::any(*voiceprintId);
     }
     if (volume) {
       res["Volume"] = boost::any(*volume);
@@ -317,8 +383,14 @@ public:
     if (m.find("AsrMaxSilence") != m.end() && !m["AsrMaxSilence"].empty()) {
       asrMaxSilence = make_shared<long>(boost::any_cast<long>(m["AsrMaxSilence"]));
     }
+    if (m.find("BailianAppParams") != m.end() && !m["BailianAppParams"].empty()) {
+      bailianAppParams = make_shared<string>(boost::any_cast<string>(m["BailianAppParams"]));
+    }
     if (m.find("EnableIntelligentSegment") != m.end() && !m["EnableIntelligentSegment"].empty()) {
       enableIntelligentSegment = make_shared<bool>(boost::any_cast<bool>(m["EnableIntelligentSegment"]));
+    }
+    if (m.find("EnablePushToTalk") != m.end() && !m["EnablePushToTalk"].empty()) {
+      enablePushToTalk = make_shared<bool>(boost::any_cast<bool>(m["EnablePushToTalk"]));
     }
     if (m.find("EnableVoiceInterrupt") != m.end() && !m["EnableVoiceInterrupt"].empty()) {
       enableVoiceInterrupt = make_shared<bool>(boost::any_cast<bool>(m["EnableVoiceInterrupt"]));
@@ -329,8 +401,20 @@ public:
     if (m.find("Greeting") != m.end() && !m["Greeting"].empty()) {
       greeting = make_shared<string>(boost::any_cast<string>(m["Greeting"]));
     }
+    if (m.find("UseVoiceprint") != m.end() && !m["UseVoiceprint"].empty()) {
+      useVoiceprint = make_shared<bool>(boost::any_cast<bool>(m["UseVoiceprint"]));
+    }
+    if (m.find("UserOfflineTimeout") != m.end() && !m["UserOfflineTimeout"].empty()) {
+      userOfflineTimeout = make_shared<long>(boost::any_cast<long>(m["UserOfflineTimeout"]));
+    }
+    if (m.find("UserOnlineTimeout") != m.end() && !m["UserOnlineTimeout"].empty()) {
+      userOnlineTimeout = make_shared<long>(boost::any_cast<long>(m["UserOnlineTimeout"]));
+    }
     if (m.find("VoiceId") != m.end() && !m["VoiceId"].empty()) {
       voiceId = make_shared<string>(boost::any_cast<string>(m["VoiceId"]));
+    }
+    if (m.find("VoiceprintId") != m.end() && !m["VoiceprintId"].empty()) {
+      voiceprintId = make_shared<string>(boost::any_cast<string>(m["VoiceprintId"]));
     }
     if (m.find("Volume") != m.end() && !m["Volume"].empty()) {
       volume = make_shared<long>(boost::any_cast<long>(m["Volume"]));
@@ -343,10 +427,16 @@ public:
 class AIAgentTemplateConfigVoiceChat : public Darabonba::Model {
 public:
   shared_ptr<long> asrMaxSilence{};
+  shared_ptr<string> bailianAppParams{};
+  shared_ptr<bool> enablePushToTalk{};
   shared_ptr<bool> enableVoiceInterrupt{};
   shared_ptr<bool> gracefulShutdown{};
   shared_ptr<string> greeting{};
+  shared_ptr<bool> useVoiceprint{};
+  shared_ptr<long> userOfflineTimeout{};
+  shared_ptr<long> userOnlineTimeout{};
   shared_ptr<string> voiceId{};
+  shared_ptr<string> voiceprintId{};
   shared_ptr<long> volume{};
 
   AIAgentTemplateConfigVoiceChat() {}
@@ -362,6 +452,12 @@ public:
     if (asrMaxSilence) {
       res["AsrMaxSilence"] = boost::any(*asrMaxSilence);
     }
+    if (bailianAppParams) {
+      res["BailianAppParams"] = boost::any(*bailianAppParams);
+    }
+    if (enablePushToTalk) {
+      res["EnablePushToTalk"] = boost::any(*enablePushToTalk);
+    }
     if (enableVoiceInterrupt) {
       res["EnableVoiceInterrupt"] = boost::any(*enableVoiceInterrupt);
     }
@@ -371,8 +467,20 @@ public:
     if (greeting) {
       res["Greeting"] = boost::any(*greeting);
     }
+    if (useVoiceprint) {
+      res["UseVoiceprint"] = boost::any(*useVoiceprint);
+    }
+    if (userOfflineTimeout) {
+      res["UserOfflineTimeout"] = boost::any(*userOfflineTimeout);
+    }
+    if (userOnlineTimeout) {
+      res["UserOnlineTimeout"] = boost::any(*userOnlineTimeout);
+    }
     if (voiceId) {
       res["VoiceId"] = boost::any(*voiceId);
+    }
+    if (voiceprintId) {
+      res["VoiceprintId"] = boost::any(*voiceprintId);
     }
     if (volume) {
       res["Volume"] = boost::any(*volume);
@@ -384,6 +492,12 @@ public:
     if (m.find("AsrMaxSilence") != m.end() && !m["AsrMaxSilence"].empty()) {
       asrMaxSilence = make_shared<long>(boost::any_cast<long>(m["AsrMaxSilence"]));
     }
+    if (m.find("BailianAppParams") != m.end() && !m["BailianAppParams"].empty()) {
+      bailianAppParams = make_shared<string>(boost::any_cast<string>(m["BailianAppParams"]));
+    }
+    if (m.find("EnablePushToTalk") != m.end() && !m["EnablePushToTalk"].empty()) {
+      enablePushToTalk = make_shared<bool>(boost::any_cast<bool>(m["EnablePushToTalk"]));
+    }
     if (m.find("EnableVoiceInterrupt") != m.end() && !m["EnableVoiceInterrupt"].empty()) {
       enableVoiceInterrupt = make_shared<bool>(boost::any_cast<bool>(m["EnableVoiceInterrupt"]));
     }
@@ -393,8 +507,20 @@ public:
     if (m.find("Greeting") != m.end() && !m["Greeting"].empty()) {
       greeting = make_shared<string>(boost::any_cast<string>(m["Greeting"]));
     }
+    if (m.find("UseVoiceprint") != m.end() && !m["UseVoiceprint"].empty()) {
+      useVoiceprint = make_shared<bool>(boost::any_cast<bool>(m["UseVoiceprint"]));
+    }
+    if (m.find("UserOfflineTimeout") != m.end() && !m["UserOfflineTimeout"].empty()) {
+      userOfflineTimeout = make_shared<long>(boost::any_cast<long>(m["UserOfflineTimeout"]));
+    }
+    if (m.find("UserOnlineTimeout") != m.end() && !m["UserOnlineTimeout"].empty()) {
+      userOnlineTimeout = make_shared<long>(boost::any_cast<long>(m["UserOnlineTimeout"]));
+    }
     if (m.find("VoiceId") != m.end() && !m["VoiceId"].empty()) {
       voiceId = make_shared<string>(boost::any_cast<string>(m["VoiceId"]));
+    }
+    if (m.find("VoiceprintId") != m.end() && !m["VoiceprintId"].empty()) {
+      voiceprintId = make_shared<string>(boost::any_cast<string>(m["VoiceprintId"]));
     }
     if (m.find("Volume") != m.end() && !m["Volume"].empty()) {
       volume = make_shared<long>(boost::any_cast<long>(m["Volume"]));
@@ -50914,9 +51040,14 @@ public:
 };
 class StartRtcRobotInstanceRequestConfig : public Darabonba::Model {
 public:
+  shared_ptr<long> asrMaxSilence{};
   shared_ptr<bool> enableVoiceInterrupt{};
   shared_ptr<string> greeting{};
+  shared_ptr<bool> useVoiceprint{};
+  shared_ptr<long> userOfflineTimeout{};
+  shared_ptr<long> userOnlineTimeout{};
   shared_ptr<string> voiceId{};
+  shared_ptr<string> voiceprintId{};
 
   StartRtcRobotInstanceRequestConfig() {}
 
@@ -50928,27 +51059,57 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (asrMaxSilence) {
+      res["AsrMaxSilence"] = boost::any(*asrMaxSilence);
+    }
     if (enableVoiceInterrupt) {
       res["EnableVoiceInterrupt"] = boost::any(*enableVoiceInterrupt);
     }
     if (greeting) {
       res["Greeting"] = boost::any(*greeting);
     }
+    if (useVoiceprint) {
+      res["UseVoiceprint"] = boost::any(*useVoiceprint);
+    }
+    if (userOfflineTimeout) {
+      res["UserOfflineTimeout"] = boost::any(*userOfflineTimeout);
+    }
+    if (userOnlineTimeout) {
+      res["UserOnlineTimeout"] = boost::any(*userOnlineTimeout);
+    }
     if (voiceId) {
       res["VoiceId"] = boost::any(*voiceId);
+    }
+    if (voiceprintId) {
+      res["VoiceprintId"] = boost::any(*voiceprintId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AsrMaxSilence") != m.end() && !m["AsrMaxSilence"].empty()) {
+      asrMaxSilence = make_shared<long>(boost::any_cast<long>(m["AsrMaxSilence"]));
+    }
     if (m.find("EnableVoiceInterrupt") != m.end() && !m["EnableVoiceInterrupt"].empty()) {
       enableVoiceInterrupt = make_shared<bool>(boost::any_cast<bool>(m["EnableVoiceInterrupt"]));
     }
     if (m.find("Greeting") != m.end() && !m["Greeting"].empty()) {
       greeting = make_shared<string>(boost::any_cast<string>(m["Greeting"]));
     }
+    if (m.find("UseVoiceprint") != m.end() && !m["UseVoiceprint"].empty()) {
+      useVoiceprint = make_shared<bool>(boost::any_cast<bool>(m["UseVoiceprint"]));
+    }
+    if (m.find("UserOfflineTimeout") != m.end() && !m["UserOfflineTimeout"].empty()) {
+      userOfflineTimeout = make_shared<long>(boost::any_cast<long>(m["UserOfflineTimeout"]));
+    }
+    if (m.find("UserOnlineTimeout") != m.end() && !m["UserOnlineTimeout"].empty()) {
+      userOnlineTimeout = make_shared<long>(boost::any_cast<long>(m["UserOnlineTimeout"]));
+    }
     if (m.find("VoiceId") != m.end() && !m["VoiceId"].empty()) {
       voiceId = make_shared<string>(boost::any_cast<string>(m["VoiceId"]));
+    }
+    if (m.find("VoiceprintId") != m.end() && !m["VoiceprintId"].empty()) {
+      voiceprintId = make_shared<string>(boost::any_cast<string>(m["VoiceprintId"]));
     }
   }
 
@@ -53628,6 +53789,7 @@ public:
   shared_ptr<string> functionName{};
   shared_ptr<SubmitIProductionJobRequestInput> input{};
   shared_ptr<string> jobParams{};
+  shared_ptr<string> modelId{};
   shared_ptr<string> name{};
   shared_ptr<SubmitIProductionJobRequestOutput> output{};
   shared_ptr<SubmitIProductionJobRequestScheduleConfig> scheduleConfig{};
@@ -53652,6 +53814,9 @@ public:
     }
     if (jobParams) {
       res["JobParams"] = boost::any(*jobParams);
+    }
+    if (modelId) {
+      res["ModelId"] = boost::any(*modelId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -53684,6 +53849,9 @@ public:
     }
     if (m.find("JobParams") != m.end() && !m["JobParams"].empty()) {
       jobParams = make_shared<string>(boost::any_cast<string>(m["JobParams"]));
+    }
+    if (m.find("ModelId") != m.end() && !m["ModelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["ModelId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -53718,6 +53886,7 @@ public:
   shared_ptr<string> functionName{};
   shared_ptr<string> inputShrink{};
   shared_ptr<string> jobParams{};
+  shared_ptr<string> modelId{};
   shared_ptr<string> name{};
   shared_ptr<string> outputShrink{};
   shared_ptr<string> scheduleConfigShrink{};
@@ -53742,6 +53911,9 @@ public:
     }
     if (jobParams) {
       res["JobParams"] = boost::any(*jobParams);
+    }
+    if (modelId) {
+      res["ModelId"] = boost::any(*modelId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -53770,6 +53942,9 @@ public:
     }
     if (m.find("JobParams") != m.end() && !m["JobParams"].empty()) {
       jobParams = make_shared<string>(boost::any_cast<string>(m["JobParams"]));
+    }
+    if (m.find("ModelId") != m.end() && !m["ModelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["ModelId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));

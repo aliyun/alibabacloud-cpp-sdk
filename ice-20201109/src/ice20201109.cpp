@@ -6451,6 +6451,9 @@ SubmitIProductionJobResponse Alibabacloud_ICE20201109::Client::submitIProduction
   if (!Darabonba_Util::Client::isUnset<string>(request->jobParams)) {
     query->insert(pair<string, string>("JobParams", *request->jobParams));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelId)) {
+    query->insert(pair<string, string>("ModelId", *request->modelId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
