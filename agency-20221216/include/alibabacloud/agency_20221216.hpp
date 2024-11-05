@@ -1905,12 +1905,15 @@ public:
   shared_ptr<string> aliyunId{};
   shared_ptr<string> associationSuccessTime{};
   shared_ptr<long> cid{};
+  shared_ptr<long> customerAccountType{};
   shared_ptr<string> customerBd{};
+  shared_ptr<long> customerEnterpriseCertified{};
   shared_ptr<string> delayAmount{};
   shared_ptr<string> delayStatus{};
   shared_ptr<string> email{};
   shared_ptr<string> mobile{};
   shared_ptr<string> newBuyStatus{};
+  shared_ptr<string> registerCountryCode{};
   shared_ptr<string> remark{};
   shared_ptr<long> subAccountType{};
   shared_ptr<long> uid{};
@@ -1937,8 +1940,14 @@ public:
     if (cid) {
       res["Cid"] = boost::any(*cid);
     }
+    if (customerAccountType) {
+      res["CustomerAccountType"] = boost::any(*customerAccountType);
+    }
     if (customerBd) {
       res["CustomerBd"] = boost::any(*customerBd);
+    }
+    if (customerEnterpriseCertified) {
+      res["CustomerEnterpriseCertified"] = boost::any(*customerEnterpriseCertified);
     }
     if (delayAmount) {
       res["DelayAmount"] = boost::any(*delayAmount);
@@ -1954,6 +1963,9 @@ public:
     }
     if (newBuyStatus) {
       res["NewBuyStatus"] = boost::any(*newBuyStatus);
+    }
+    if (registerCountryCode) {
+      res["RegisterCountryCode"] = boost::any(*registerCountryCode);
     }
     if (remark) {
       res["Remark"] = boost::any(*remark);
@@ -1980,8 +1992,14 @@ public:
     if (m.find("Cid") != m.end() && !m["Cid"].empty()) {
       cid = make_shared<long>(boost::any_cast<long>(m["Cid"]));
     }
+    if (m.find("CustomerAccountType") != m.end() && !m["CustomerAccountType"].empty()) {
+      customerAccountType = make_shared<long>(boost::any_cast<long>(m["CustomerAccountType"]));
+    }
     if (m.find("CustomerBd") != m.end() && !m["CustomerBd"].empty()) {
       customerBd = make_shared<string>(boost::any_cast<string>(m["CustomerBd"]));
+    }
+    if (m.find("CustomerEnterpriseCertified") != m.end() && !m["CustomerEnterpriseCertified"].empty()) {
+      customerEnterpriseCertified = make_shared<long>(boost::any_cast<long>(m["CustomerEnterpriseCertified"]));
     }
     if (m.find("DelayAmount") != m.end() && !m["DelayAmount"].empty()) {
       delayAmount = make_shared<string>(boost::any_cast<string>(m["DelayAmount"]));
@@ -1997,6 +2015,9 @@ public:
     }
     if (m.find("NewBuyStatus") != m.end() && !m["NewBuyStatus"].empty()) {
       newBuyStatus = make_shared<string>(boost::any_cast<string>(m["NewBuyStatus"]));
+    }
+    if (m.find("RegisterCountryCode") != m.end() && !m["RegisterCountryCode"].empty()) {
+      registerCountryCode = make_shared<string>(boost::any_cast<string>(m["RegisterCountryCode"]));
     }
     if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
