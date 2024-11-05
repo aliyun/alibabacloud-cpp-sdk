@@ -10061,6 +10061,7 @@ public:
 };
 class DescribeDBClusterShardNumberResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<vector<long>> availableShardNumbers{};
   shared_ptr<string> requestId{};
   shared_ptr<long> shardNumber{};
 
@@ -10074,6 +10075,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (availableShardNumbers) {
+      res["AvailableShardNumbers"] = boost::any(*availableShardNumbers);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -10084,6 +10088,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AvailableShardNumbers") != m.end() && !m["AvailableShardNumbers"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["AvailableShardNumbers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvailableShardNumbers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      availableShardNumbers = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
