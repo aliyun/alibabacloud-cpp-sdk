@@ -139,6 +139,7 @@ public:
 };
 class AcceptOperationTicketRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> comment{};
   shared_ptr<string> effectCount{};
   shared_ptr<string> effectEndTime{};
   shared_ptr<string> effectStartTime{};
@@ -156,6 +157,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
     if (effectCount) {
       res["EffectCount"] = boost::any(*effectCount);
     }
@@ -178,6 +182,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
     if (m.find("EffectCount") != m.end() && !m["EffectCount"].empty()) {
       effectCount = make_shared<string>(boost::any_cast<string>(m["EffectCount"]));
     }
@@ -10288,8 +10295,12 @@ public:
   shared_ptr<string> assetAccountProtocolName{};
   shared_ptr<string> assetId{};
   shared_ptr<string> assetType{};
+  shared_ptr<string> databaseSchema{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> loginAttribute{};
+  shared_ptr<string> operationMode{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> ssoClient{};
 
   GenerateAssetOperationTokenRequest() {}
 
@@ -10319,11 +10330,23 @@ public:
     if (assetType) {
       res["AssetType"] = boost::any(*assetType);
     }
+    if (databaseSchema) {
+      res["DatabaseSchema"] = boost::any(*databaseSchema);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (loginAttribute) {
+      res["LoginAttribute"] = boost::any(*loginAttribute);
+    }
+    if (operationMode) {
+      res["OperationMode"] = boost::any(*operationMode);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (ssoClient) {
+      res["SsoClient"] = boost::any(*ssoClient);
     }
     return res;
   }
@@ -10347,11 +10370,23 @@ public:
     if (m.find("AssetType") != m.end() && !m["AssetType"].empty()) {
       assetType = make_shared<string>(boost::any_cast<string>(m["AssetType"]));
     }
+    if (m.find("DatabaseSchema") != m.end() && !m["DatabaseSchema"].empty()) {
+      databaseSchema = make_shared<string>(boost::any_cast<string>(m["DatabaseSchema"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("LoginAttribute") != m.end() && !m["LoginAttribute"].empty()) {
+      loginAttribute = make_shared<string>(boost::any_cast<string>(m["LoginAttribute"]));
+    }
+    if (m.find("OperationMode") != m.end() && !m["OperationMode"].empty()) {
+      operationMode = make_shared<string>(boost::any_cast<string>(m["OperationMode"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SsoClient") != m.end() && !m["SsoClient"].empty()) {
+      ssoClient = make_shared<string>(boost::any_cast<string>(m["SsoClient"]));
     }
   }
 
@@ -10365,6 +10400,7 @@ public:
   shared_ptr<bool> hasCountLimit{};
   shared_ptr<long> maxRenewCount{};
   shared_ptr<long> renewCount{};
+  shared_ptr<string> ssoUrl{};
   shared_ptr<string> token{};
   shared_ptr<string> tokenId{};
 
@@ -10393,6 +10429,9 @@ public:
     if (renewCount) {
       res["RenewCount"] = boost::any(*renewCount);
     }
+    if (ssoUrl) {
+      res["SsoUrl"] = boost::any(*ssoUrl);
+    }
     if (token) {
       res["Token"] = boost::any(*token);
     }
@@ -10417,6 +10456,9 @@ public:
     }
     if (m.find("RenewCount") != m.end() && !m["RenewCount"].empty()) {
       renewCount = make_shared<long>(boost::any_cast<long>(m["RenewCount"]));
+    }
+    if (m.find("SsoUrl") != m.end() && !m["SsoUrl"].empty()) {
+      ssoUrl = make_shared<string>(boost::any_cast<string>(m["SsoUrl"]));
     }
     if (m.find("Token") != m.end() && !m["Token"].empty()) {
       token = make_shared<string>(boost::any_cast<string>(m["Token"]));
@@ -21370,6 +21412,7 @@ class ListOperationTicketsResponseBodyOperationTickets : public Darabonba::Model
 public:
   shared_ptr<string> applyUserId{};
   shared_ptr<string> applyUsername{};
+  shared_ptr<string> approveComment{};
   shared_ptr<string> assetAccountId{};
   shared_ptr<string> assetAccountName{};
   shared_ptr<string> assetAddress{};
@@ -21380,6 +21423,9 @@ public:
   shared_ptr<string> assetSource{};
   shared_ptr<string> assetSourceInstanceId{};
   shared_ptr<long> createdTime{};
+  shared_ptr<long> effectCount{};
+  shared_ptr<long> effectEndTime{};
+  shared_ptr<long> effectStartTime{};
   shared_ptr<string> operationTicketId{};
   shared_ptr<string> protocolName{};
   shared_ptr<string> state{};
@@ -21399,6 +21445,9 @@ public:
     }
     if (applyUsername) {
       res["ApplyUsername"] = boost::any(*applyUsername);
+    }
+    if (approveComment) {
+      res["ApproveComment"] = boost::any(*approveComment);
     }
     if (assetAccountId) {
       res["AssetAccountId"] = boost::any(*assetAccountId);
@@ -21430,6 +21479,15 @@ public:
     if (createdTime) {
       res["CreatedTime"] = boost::any(*createdTime);
     }
+    if (effectCount) {
+      res["EffectCount"] = boost::any(*effectCount);
+    }
+    if (effectEndTime) {
+      res["EffectEndTime"] = boost::any(*effectEndTime);
+    }
+    if (effectStartTime) {
+      res["EffectStartTime"] = boost::any(*effectStartTime);
+    }
     if (operationTicketId) {
       res["OperationTicketId"] = boost::any(*operationTicketId);
     }
@@ -21448,6 +21506,9 @@ public:
     }
     if (m.find("ApplyUsername") != m.end() && !m["ApplyUsername"].empty()) {
       applyUsername = make_shared<string>(boost::any_cast<string>(m["ApplyUsername"]));
+    }
+    if (m.find("ApproveComment") != m.end() && !m["ApproveComment"].empty()) {
+      approveComment = make_shared<string>(boost::any_cast<string>(m["ApproveComment"]));
     }
     if (m.find("AssetAccountId") != m.end() && !m["AssetAccountId"].empty()) {
       assetAccountId = make_shared<string>(boost::any_cast<string>(m["AssetAccountId"]));
@@ -21478,6 +21539,15 @@ public:
     }
     if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
       createdTime = make_shared<long>(boost::any_cast<long>(m["CreatedTime"]));
+    }
+    if (m.find("EffectCount") != m.end() && !m["EffectCount"].empty()) {
+      effectCount = make_shared<long>(boost::any_cast<long>(m["EffectCount"]));
+    }
+    if (m.find("EffectEndTime") != m.end() && !m["EffectEndTime"].empty()) {
+      effectEndTime = make_shared<long>(boost::any_cast<long>(m["EffectEndTime"]));
+    }
+    if (m.find("EffectStartTime") != m.end() && !m["EffectStartTime"].empty()) {
+      effectStartTime = make_shared<long>(boost::any_cast<long>(m["EffectStartTime"]));
     }
     if (m.find("OperationTicketId") != m.end() && !m["OperationTicketId"].empty()) {
       operationTicketId = make_shared<string>(boost::any_cast<string>(m["OperationTicketId"]));
@@ -27427,6 +27497,7 @@ public:
 };
 class RejectOperationTicketRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> comment{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> operationTicketId{};
   shared_ptr<string> regionId{};
@@ -27441,6 +27512,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -27454,6 +27528,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }

@@ -74,6 +74,9 @@ AcceptApproveCommandResponse Alibabacloud_Yundun-bastionhost20191209::Client::ac
 AcceptOperationTicketResponse Alibabacloud_Yundun-bastionhost20191209::Client::acceptOperationTicketWithOptions(shared_ptr<AcceptOperationTicketRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->comment)) {
+    query->insert(pair<string, string>("Comment", *request->comment));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->effectCount)) {
     query->insert(pair<string, string>("EffectCount", *request->effectCount));
   }
@@ -2087,11 +2090,23 @@ GenerateAssetOperationTokenResponse Alibabacloud_Yundun-bastionhost20191209::Cli
   if (!Darabonba_Util::Client::isUnset<string>(request->assetType)) {
     query->insert(pair<string, string>("AssetType", *request->assetType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->databaseSchema)) {
+    query->insert(pair<string, string>("DatabaseSchema", *request->databaseSchema));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loginAttribute)) {
+    query->insert(pair<string, string>("LoginAttribute", *request->loginAttribute));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operationMode)) {
+    query->insert(pair<string, string>("OperationMode", *request->operationMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ssoClient)) {
+    query->insert(pair<string, string>("SsoClient", *request->ssoClient));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5193,6 +5208,9 @@ RejectApproveCommandResponse Alibabacloud_Yundun-bastionhost20191209::Client::re
 RejectOperationTicketResponse Alibabacloud_Yundun-bastionhost20191209::Client::rejectOperationTicketWithOptions(shared_ptr<RejectOperationTicketRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->comment)) {
+    query->insert(pair<string, string>("Comment", *request->comment));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
