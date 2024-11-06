@@ -872,6 +872,7 @@ public:
   shared_ptr<string> sparkSubmitClause{};
   shared_ptr<string> sparkVersion{};
   shared_ptr<map<string, string>> tags{};
+  shared_ptr<long> timeout{};
   shared_ptr<string> type{};
 
   Task() {}
@@ -998,6 +999,9 @@ public:
     }
     if (tags) {
       res["tags"] = boost::any(*tags);
+    }
+    if (timeout) {
+      res["timeout"] = boost::any(*timeout);
     }
     if (type) {
       res["type"] = boost::any(*type);
@@ -1166,6 +1170,9 @@ public:
          toMap1[item.first] = item.second;
       }
       tags = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
@@ -3429,12 +3436,234 @@ public:
 
   virtual ~ListJobRunsResponse() = default;
 };
+class ListLogContentsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> fileName{};
+  shared_ptr<long> length{};
+  shared_ptr<long> offset{};
+  shared_ptr<string> regionId{};
+
+  ListLogContentsRequest() {}
+
+  explicit ListLogContentsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileName) {
+      res["fileName"] = boost::any(*fileName);
+    }
+    if (length) {
+      res["length"] = boost::any(*length);
+    }
+    if (offset) {
+      res["offset"] = boost::any(*offset);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("fileName") != m.end() && !m["fileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["fileName"]));
+    }
+    if (m.find("length") != m.end() && !m["length"].empty()) {
+      length = make_shared<long>(boost::any_cast<long>(m["length"]));
+    }
+    if (m.find("offset") != m.end() && !m["offset"].empty()) {
+      offset = make_shared<long>(boost::any_cast<long>(m["offset"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~ListLogContentsRequest() = default;
+};
+class ListLogContentsResponseBodyListLogContentContents : public Darabonba::Model {
+public:
+  shared_ptr<string> lineContent{};
+
+  ListLogContentsResponseBodyListLogContentContents() {}
+
+  explicit ListLogContentsResponseBodyListLogContentContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lineContent) {
+      res["LineContent"] = boost::any(*lineContent);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LineContent") != m.end() && !m["LineContent"].empty()) {
+      lineContent = make_shared<string>(boost::any_cast<string>(m["LineContent"]));
+    }
+  }
+
+
+  virtual ~ListLogContentsResponseBodyListLogContentContents() = default;
+};
+class ListLogContentsResponseBodyListLogContent : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListLogContentsResponseBodyListLogContentContents>> contents{};
+  shared_ptr<long> totalLength{};
+
+  ListLogContentsResponseBodyListLogContent() {}
+
+  explicit ListLogContentsResponseBodyListLogContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contents) {
+      vector<boost::any> temp1;
+      for(auto item1:*contents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["contents"] = boost::any(temp1);
+    }
+    if (totalLength) {
+      res["totalLength"] = boost::any(*totalLength);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("contents") != m.end() && !m["contents"].empty()) {
+      if (typeid(vector<boost::any>) == m["contents"].type()) {
+        vector<ListLogContentsResponseBodyListLogContentContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["contents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListLogContentsResponseBodyListLogContentContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        contents = make_shared<vector<ListLogContentsResponseBodyListLogContentContents>>(expect1);
+      }
+    }
+    if (m.find("totalLength") != m.end() && !m["totalLength"].empty()) {
+      totalLength = make_shared<long>(boost::any_cast<long>(m["totalLength"]));
+    }
+  }
+
+
+  virtual ~ListLogContentsResponseBodyListLogContent() = default;
+};
+class ListLogContentsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListLogContentsResponseBodyListLogContent> listLogContent{};
+  shared_ptr<string> requestId{};
+
+  ListLogContentsResponseBody() {}
+
+  explicit ListLogContentsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (listLogContent) {
+      res["listLogContent"] = listLogContent ? boost::any(listLogContent->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("listLogContent") != m.end() && !m["listLogContent"].empty()) {
+      if (typeid(map<string, boost::any>) == m["listLogContent"].type()) {
+        ListLogContentsResponseBodyListLogContent model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["listLogContent"]));
+        listLogContent = make_shared<ListLogContentsResponseBodyListLogContent>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~ListLogContentsResponseBody() = default;
+};
+class ListLogContentsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListLogContentsResponseBody> body{};
+
+  ListLogContentsResponse() {}
+
+  explicit ListLogContentsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListLogContentsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListLogContentsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListLogContentsResponse() = default;
+};
 class ListReleaseVersionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
   shared_ptr<string> releaseType{};
   shared_ptr<string> releaseVersion{};
   shared_ptr<string> releaseVersionStatus{};
+  shared_ptr<string> workspaceId{};
 
   ListReleaseVersionsRequest() {}
 
@@ -3458,6 +3687,9 @@ public:
     if (releaseVersionStatus) {
       res["releaseVersionStatus"] = boost::any(*releaseVersionStatus);
     }
+    if (workspaceId) {
+      res["workspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -3473,6 +3705,9 @@ public:
     }
     if (m.find("releaseVersionStatus") != m.end() && !m["releaseVersionStatus"].empty()) {
       releaseVersionStatus = make_shared<string>(boost::any_cast<string>(m["releaseVersionStatus"]));
+    }
+    if (m.find("workspaceId") != m.end() && !m["workspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["workspaceId"]));
     }
   }
 
@@ -5254,6 +5489,268 @@ public:
 
   virtual ~StartJobRunResponse() = default;
 };
+class StartSessionClusterRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> queueName{};
+  shared_ptr<string> sessionClusterId{};
+  shared_ptr<string> regionId{};
+
+  StartSessionClusterRequest() {}
+
+  explicit StartSessionClusterRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (queueName) {
+      res["queueName"] = boost::any(*queueName);
+    }
+    if (sessionClusterId) {
+      res["sessionClusterId"] = boost::any(*sessionClusterId);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("queueName") != m.end() && !m["queueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["queueName"]));
+    }
+    if (m.find("sessionClusterId") != m.end() && !m["sessionClusterId"].empty()) {
+      sessionClusterId = make_shared<string>(boost::any_cast<string>(m["sessionClusterId"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~StartSessionClusterRequest() = default;
+};
+class StartSessionClusterResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sessionClusterId{};
+
+  StartSessionClusterResponseBody() {}
+
+  explicit StartSessionClusterResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (sessionClusterId) {
+      res["sessionClusterId"] = boost::any(*sessionClusterId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("sessionClusterId") != m.end() && !m["sessionClusterId"].empty()) {
+      sessionClusterId = make_shared<string>(boost::any_cast<string>(m["sessionClusterId"]));
+    }
+  }
+
+
+  virtual ~StartSessionClusterResponseBody() = default;
+};
+class StartSessionClusterResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartSessionClusterResponseBody> body{};
+
+  StartSessionClusterResponse() {}
+
+  explicit StartSessionClusterResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartSessionClusterResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartSessionClusterResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartSessionClusterResponse() = default;
+};
+class StopSessionClusterRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> queueName{};
+  shared_ptr<string> sessionClusterId{};
+  shared_ptr<string> regionId{};
+
+  StopSessionClusterRequest() {}
+
+  explicit StopSessionClusterRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (queueName) {
+      res["queueName"] = boost::any(*queueName);
+    }
+    if (sessionClusterId) {
+      res["sessionClusterId"] = boost::any(*sessionClusterId);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("queueName") != m.end() && !m["queueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["queueName"]));
+    }
+    if (m.find("sessionClusterId") != m.end() && !m["sessionClusterId"].empty()) {
+      sessionClusterId = make_shared<string>(boost::any_cast<string>(m["sessionClusterId"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~StopSessionClusterRequest() = default;
+};
+class StopSessionClusterResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sessionClusterId{};
+
+  StopSessionClusterResponseBody() {}
+
+  explicit StopSessionClusterResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (sessionClusterId) {
+      res["sessionClusterId"] = boost::any(*sessionClusterId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("sessionClusterId") != m.end() && !m["sessionClusterId"].empty()) {
+      sessionClusterId = make_shared<string>(boost::any_cast<string>(m["sessionClusterId"]));
+    }
+  }
+
+
+  virtual ~StopSessionClusterResponseBody() = default;
+};
+class StopSessionClusterResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StopSessionClusterResponseBody> body{};
+
+  StopSessionClusterResponse() {}
+
+  explicit StopSessionClusterResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopSessionClusterResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopSessionClusterResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopSessionClusterResponse() = default;
+};
 class TerminateSqlStatementRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -5406,6 +5903,11 @@ public:
                                              shared_ptr<map<string, string>> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListJobRunsResponse listJobRuns(shared_ptr<string> workspaceId, shared_ptr<ListJobRunsRequest> request);
+  ListLogContentsResponse listLogContentsWithOptions(shared_ptr<string> workspaceId,
+                                                     shared_ptr<ListLogContentsRequest> request,
+                                                     shared_ptr<map<string, string>> headers,
+                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListLogContentsResponse listLogContents(shared_ptr<string> workspaceId, shared_ptr<ListLogContentsRequest> request);
   ListReleaseVersionsResponse listReleaseVersionsWithOptions(shared_ptr<ListReleaseVersionsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListReleaseVersionsResponse listReleaseVersions(shared_ptr<ListReleaseVersionsRequest> request);
   ListSessionClustersResponse listSessionClustersWithOptions(shared_ptr<string> workspaceId,
@@ -5425,6 +5927,16 @@ public:
                                              shared_ptr<map<string, string>> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartJobRunResponse startJobRun(shared_ptr<string> workspaceId, shared_ptr<StartJobRunRequest> request);
+  StartSessionClusterResponse startSessionClusterWithOptions(shared_ptr<string> workspaceId,
+                                                             shared_ptr<StartSessionClusterRequest> request,
+                                                             shared_ptr<map<string, string>> headers,
+                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartSessionClusterResponse startSessionCluster(shared_ptr<string> workspaceId, shared_ptr<StartSessionClusterRequest> request);
+  StopSessionClusterResponse stopSessionClusterWithOptions(shared_ptr<string> workspaceId,
+                                                           shared_ptr<StopSessionClusterRequest> request,
+                                                           shared_ptr<map<string, string>> headers,
+                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopSessionClusterResponse stopSessionCluster(shared_ptr<string> workspaceId, shared_ptr<StopSessionClusterRequest> request);
   TerminateSqlStatementResponse terminateSqlStatementWithOptions(shared_ptr<string> workspaceId,
                                                                  shared_ptr<string> statementId,
                                                                  shared_ptr<TerminateSqlStatementRequest> request,

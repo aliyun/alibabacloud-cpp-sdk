@@ -345,6 +345,48 @@ ListJobRunsResponse Alibabacloud_Emr-serverless-spark20230808::Client::listJobRu
   return listJobRunsWithOptions(workspaceId, request, headers, runtime);
 }
 
+ListLogContentsResponse Alibabacloud_Emr-serverless-spark20230808::Client::listLogContentsWithOptions(shared_ptr<string> workspaceId,
+                                                                                                      shared_ptr<ListLogContentsRequest> request,
+                                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    query->insert(pair<string, string>("fileName", *request->fileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->length)) {
+    query->insert(pair<string, long>("length", *request->length));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->offset)) {
+    query->insert(pair<string, long>("offset", *request->offset));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListLogContents"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/workspaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/action/listLogContents"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListLogContentsResponse(callApi(params, req, runtime));
+}
+
+ListLogContentsResponse Alibabacloud_Emr-serverless-spark20230808::Client::listLogContents(shared_ptr<string> workspaceId, shared_ptr<ListLogContentsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listLogContentsWithOptions(workspaceId, request, headers, runtime);
+}
+
 ListReleaseVersionsResponse Alibabacloud_Emr-serverless-spark20230808::Client::listReleaseVersionsWithOptions(shared_ptr<ListReleaseVersionsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -359,6 +401,9 @@ ListReleaseVersionsResponse Alibabacloud_Emr-serverless-spark20230808::Client::l
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->releaseVersionStatus)) {
     query->insert(pair<string, string>("releaseVersionStatus", *request->releaseVersionStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    query->insert(pair<string, string>("workspaceId", *request->workspaceId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -579,6 +624,88 @@ StartJobRunResponse Alibabacloud_Emr-serverless-spark20230808::Client::startJobR
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return startJobRunWithOptions(workspaceId, request, headers, runtime);
+}
+
+StartSessionClusterResponse Alibabacloud_Emr-serverless-spark20230808::Client::startSessionClusterWithOptions(shared_ptr<string> workspaceId,
+                                                                                                              shared_ptr<StartSessionClusterRequest> request,
+                                                                                                              shared_ptr<map<string, string>> headers,
+                                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->queueName)) {
+    body->insert(pair<string, string>("queueName", *request->queueName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionClusterId)) {
+    body->insert(pair<string, string>("sessionClusterId", *request->sessionClusterId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartSessionCluster"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/workspaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/sessionClusters/action/startSessionCluster"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartSessionClusterResponse(callApi(params, req, runtime));
+}
+
+StartSessionClusterResponse Alibabacloud_Emr-serverless-spark20230808::Client::startSessionCluster(shared_ptr<string> workspaceId, shared_ptr<StartSessionClusterRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return startSessionClusterWithOptions(workspaceId, request, headers, runtime);
+}
+
+StopSessionClusterResponse Alibabacloud_Emr-serverless-spark20230808::Client::stopSessionClusterWithOptions(shared_ptr<string> workspaceId,
+                                                                                                            shared_ptr<StopSessionClusterRequest> request,
+                                                                                                            shared_ptr<map<string, string>> headers,
+                                                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->queueName)) {
+    body->insert(pair<string, string>("queueName", *request->queueName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionClusterId)) {
+    body->insert(pair<string, string>("sessionClusterId", *request->sessionClusterId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopSessionCluster"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/workspaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/sessionClusters/action/stopSessionCluster"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopSessionClusterResponse(callApi(params, req, runtime));
+}
+
+StopSessionClusterResponse Alibabacloud_Emr-serverless-spark20230808::Client::stopSessionCluster(shared_ptr<string> workspaceId, shared_ptr<StopSessionClusterRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return stopSessionClusterWithOptions(workspaceId, request, headers, runtime);
 }
 
 TerminateSqlStatementResponse Alibabacloud_Emr-serverless-spark20230808::Client::terminateSqlStatementWithOptions(shared_ptr<string> workspaceId,
