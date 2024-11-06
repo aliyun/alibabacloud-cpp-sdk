@@ -40058,6 +40058,137 @@ public:
 
   virtual ~GetDcdnKvResponse() = default;
 };
+class GetDcdnKvDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> namespace_{};
+
+  GetDcdnKvDetailRequest() {}
+
+  explicit GetDcdnKvDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~GetDcdnKvDetailRequest() = default;
+};
+class GetDcdnKvDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> expirationTtl{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> value{};
+
+  GetDcdnKvDetailResponseBody() {}
+
+  explicit GetDcdnKvDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expirationTtl) {
+      res["ExpirationTtl"] = boost::any(*expirationTtl);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExpirationTtl") != m.end() && !m["ExpirationTtl"].empty()) {
+      expirationTtl = make_shared<string>(boost::any_cast<string>(m["ExpirationTtl"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetDcdnKvDetailResponseBody() = default;
+};
+class GetDcdnKvDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDcdnKvDetailResponseBody> body{};
+
+  GetDcdnKvDetailResponse() {}
+
+  explicit GetDcdnKvDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDcdnKvDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDcdnKvDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDcdnKvDetailResponse() = default;
+};
 class GetDcdnKvStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -41446,6 +41577,7 @@ public:
   shared_ptr<bool> l2Preload{};
   shared_ptr<string> objectPath{};
   shared_ptr<long> ownerId{};
+  shared_ptr<bool> queryHashkey{};
   shared_ptr<string> securityToken{};
   shared_ptr<string> withHeader{};
 
@@ -41471,6 +41603,9 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (queryHashkey) {
+      res["QueryHashkey"] = boost::any(*queryHashkey);
+    }
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
@@ -41492,6 +41627,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QueryHashkey") != m.end() && !m["QueryHashkey"].empty()) {
+      queryHashkey = make_shared<bool>(boost::any_cast<bool>(m["QueryHashkey"]));
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
@@ -46550,6 +46688,8 @@ public:
   EditRoutineConfResponse editRoutineConf(shared_ptr<EditRoutineConfRequest> request);
   GetDcdnKvResponse getDcdnKvWithOptions(shared_ptr<GetDcdnKvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDcdnKvResponse getDcdnKv(shared_ptr<GetDcdnKvRequest> request);
+  GetDcdnKvDetailResponse getDcdnKvDetailWithOptions(shared_ptr<GetDcdnKvDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDcdnKvDetailResponse getDcdnKvDetail(shared_ptr<GetDcdnKvDetailRequest> request);
   GetDcdnKvStatusResponse getDcdnKvStatusWithOptions(shared_ptr<GetDcdnKvStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDcdnKvStatusResponse getDcdnKvStatus(shared_ptr<GetDcdnKvStatusRequest> request);
   ListDcdnKvResponse listDcdnKvWithOptions(shared_ptr<ListDcdnKvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
