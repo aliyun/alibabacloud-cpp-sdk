@@ -563,6 +563,7 @@ public:
   shared_ptr<BicyclingDirectionNovaResponseBodyDataPathsStepsCost> cost{};
   shared_ptr<string> instruction{};
   shared_ptr<string> orientation{};
+  shared_ptr<string> polyline{};
   shared_ptr<string> roadName{};
   shared_ptr<string> stepDistanceMeter{};
 
@@ -584,6 +585,9 @@ public:
     }
     if (orientation) {
       res["orientation"] = boost::any(*orientation);
+    }
+    if (polyline) {
+      res["polyline"] = boost::any(*polyline);
     }
     if (roadName) {
       res["roadName"] = boost::any(*roadName);
@@ -607,6 +611,9 @@ public:
     }
     if (m.find("orientation") != m.end() && !m["orientation"].empty()) {
       orientation = make_shared<string>(boost::any_cast<string>(m["orientation"]));
+    }
+    if (m.find("polyline") != m.end() && !m["polyline"].empty()) {
+      polyline = make_shared<string>(boost::any_cast<string>(m["polyline"]));
     }
     if (m.find("roadName") != m.end() && !m["roadName"].empty()) {
       roadName = make_shared<string>(boost::any_cast<string>(m["roadName"]));
@@ -696,6 +703,7 @@ public:
 };
 class BicyclingDirectionNovaResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> count{};
   shared_ptr<string> destinationLatitude{};
   shared_ptr<string> destinationLongitude{};
   shared_ptr<string> originLatitude{};
@@ -713,6 +721,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["count"] = boost::any(*count);
+    }
     if (destinationLatitude) {
       res["destinationLatitude"] = boost::any(*destinationLatitude);
     }
@@ -739,6 +750,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("count") != m.end() && !m["count"].empty()) {
+      count = make_shared<string>(boost::any_cast<string>(m["count"]));
+    }
     if (m.find("destinationLatitude") != m.end() && !m["destinationLatitude"].empty()) {
       destinationLatitude = make_shared<string>(boost::any_cast<string>(m["destinationLatitude"]));
     }
@@ -965,10 +979,12 @@ public:
 };
 class DrivingDirectionNovaRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> carType{};
   shared_ptr<string> destinationLatitude{};
   shared_ptr<string> destinationLongitude{};
   shared_ptr<string> originLatitude{};
   shared_ptr<string> originLongitude{};
+  shared_ptr<string> plate{};
 
   DrivingDirectionNovaRequest() {}
 
@@ -980,6 +996,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (carType) {
+      res["carType"] = boost::any(*carType);
+    }
     if (destinationLatitude) {
       res["destinationLatitude"] = boost::any(*destinationLatitude);
     }
@@ -992,10 +1011,16 @@ public:
     if (originLongitude) {
       res["originLongitude"] = boost::any(*originLongitude);
     }
+    if (plate) {
+      res["plate"] = boost::any(*plate);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("carType") != m.end() && !m["carType"].empty()) {
+      carType = make_shared<string>(boost::any_cast<string>(m["carType"]));
+    }
     if (m.find("destinationLatitude") != m.end() && !m["destinationLatitude"].empty()) {
       destinationLatitude = make_shared<string>(boost::any_cast<string>(m["destinationLatitude"]));
     }
@@ -1007,6 +1032,9 @@ public:
     }
     if (m.find("originLongitude") != m.end() && !m["originLongitude"].empty()) {
       originLongitude = make_shared<string>(boost::any_cast<string>(m["originLongitude"]));
+    }
+    if (m.find("plate") != m.end() && !m["plate"].empty()) {
+      plate = make_shared<string>(boost::any_cast<string>(m["plate"]));
     }
   }
 
@@ -1160,6 +1188,7 @@ public:
   shared_ptr<DrivingDirectionNovaResponseBodyDataPathsStepsCost> cost{};
   shared_ptr<string> instruction{};
   shared_ptr<string> orientation{};
+  shared_ptr<string> polyline{};
   shared_ptr<string> roadName{};
   shared_ptr<string> stepDistanceMeter{};
 
@@ -1181,6 +1210,9 @@ public:
     }
     if (orientation) {
       res["orientation"] = boost::any(*orientation);
+    }
+    if (polyline) {
+      res["polyline"] = boost::any(*polyline);
     }
     if (roadName) {
       res["roadName"] = boost::any(*roadName);
@@ -1204,6 +1236,9 @@ public:
     }
     if (m.find("orientation") != m.end() && !m["orientation"].empty()) {
       orientation = make_shared<string>(boost::any_cast<string>(m["orientation"]));
+    }
+    if (m.find("polyline") != m.end() && !m["polyline"].empty()) {
+      polyline = make_shared<string>(boost::any_cast<string>(m["polyline"]));
     }
     if (m.find("roadName") != m.end() && !m["roadName"].empty()) {
       roadName = make_shared<string>(boost::any_cast<string>(m["roadName"]));
@@ -1293,6 +1328,7 @@ public:
 };
 class DrivingDirectionNovaResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> count{};
   shared_ptr<string> destinationLatitude{};
   shared_ptr<string> destinationLongitude{};
   shared_ptr<string> originLatitude{};
@@ -1310,6 +1346,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["count"] = boost::any(*count);
+    }
     if (destinationLatitude) {
       res["destinationLatitude"] = boost::any(*destinationLatitude);
     }
@@ -1336,6 +1375,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("count") != m.end() && !m["count"].empty()) {
+      count = make_shared<string>(boost::any_cast<string>(m["count"]));
+    }
     if (m.find("destinationLatitude") != m.end() && !m["destinationLatitude"].empty()) {
       destinationLatitude = make_shared<string>(boost::any_cast<string>(m["destinationLatitude"]));
     }
@@ -1672,6 +1714,7 @@ public:
   shared_ptr<ElectrobikeDirectionNovaResponseBodyDataPathsStepsCost> cost{};
   shared_ptr<string> instruction{};
   shared_ptr<string> orientation{};
+  shared_ptr<string> polyline{};
   shared_ptr<string> roadName{};
   shared_ptr<string> stepDistanceMeter{};
 
@@ -1693,6 +1736,9 @@ public:
     }
     if (orientation) {
       res["orientation"] = boost::any(*orientation);
+    }
+    if (polyline) {
+      res["polyline"] = boost::any(*polyline);
     }
     if (roadName) {
       res["roadName"] = boost::any(*roadName);
@@ -1716,6 +1762,9 @@ public:
     }
     if (m.find("orientation") != m.end() && !m["orientation"].empty()) {
       orientation = make_shared<string>(boost::any_cast<string>(m["orientation"]));
+    }
+    if (m.find("polyline") != m.end() && !m["polyline"].empty()) {
+      polyline = make_shared<string>(boost::any_cast<string>(m["polyline"]));
     }
     if (m.find("roadName") != m.end() && !m["roadName"].empty()) {
       roadName = make_shared<string>(boost::any_cast<string>(m["roadName"]));
@@ -1805,6 +1854,7 @@ public:
 };
 class ElectrobikeDirectionNovaResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> count{};
   shared_ptr<string> destinationLatitude{};
   shared_ptr<string> destinationLongitude{};
   shared_ptr<string> originLatitude{};
@@ -1822,6 +1872,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["count"] = boost::any(*count);
+    }
     if (destinationLatitude) {
       res["destinationLatitude"] = boost::any(*destinationLatitude);
     }
@@ -1848,6 +1901,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("count") != m.end() && !m["count"].empty()) {
+      count = make_shared<string>(boost::any_cast<string>(m["count"]));
+    }
     if (m.find("destinationLatitude") != m.end() && !m["destinationLatitude"].empty()) {
       destinationLatitude = make_shared<string>(boost::any_cast<string>(m["destinationLatitude"]));
     }
@@ -4862,6 +4918,1745 @@ public:
 
   virtual ~RgeoCodeResponse() = default;
 };
+class TransitIntegratedDirectionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> destinationCity{};
+  shared_ptr<string> destinationLatitude{};
+  shared_ptr<string> destinationLongitude{};
+  shared_ptr<string> originCity{};
+  shared_ptr<string> originLatitude{};
+  shared_ptr<string> originLongitude{};
+
+  TransitIntegratedDirectionRequest() {}
+
+  explicit TransitIntegratedDirectionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationCity) {
+      res["destinationCity"] = boost::any(*destinationCity);
+    }
+    if (destinationLatitude) {
+      res["destinationLatitude"] = boost::any(*destinationLatitude);
+    }
+    if (destinationLongitude) {
+      res["destinationLongitude"] = boost::any(*destinationLongitude);
+    }
+    if (originCity) {
+      res["originCity"] = boost::any(*originCity);
+    }
+    if (originLatitude) {
+      res["originLatitude"] = boost::any(*originLatitude);
+    }
+    if (originLongitude) {
+      res["originLongitude"] = boost::any(*originLongitude);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("destinationCity") != m.end() && !m["destinationCity"].empty()) {
+      destinationCity = make_shared<string>(boost::any_cast<string>(m["destinationCity"]));
+    }
+    if (m.find("destinationLatitude") != m.end() && !m["destinationLatitude"].empty()) {
+      destinationLatitude = make_shared<string>(boost::any_cast<string>(m["destinationLatitude"]));
+    }
+    if (m.find("destinationLongitude") != m.end() && !m["destinationLongitude"].empty()) {
+      destinationLongitude = make_shared<string>(boost::any_cast<string>(m["destinationLongitude"]));
+    }
+    if (m.find("originCity") != m.end() && !m["originCity"].empty()) {
+      originCity = make_shared<string>(boost::any_cast<string>(m["originCity"]));
+    }
+    if (m.find("originLatitude") != m.end() && !m["originLatitude"].empty()) {
+      originLatitude = make_shared<string>(boost::any_cast<string>(m["originLatitude"]));
+    }
+    if (m.find("originLongitude") != m.end() && !m["originLongitude"].empty()) {
+      originLongitude = make_shared<string>(boost::any_cast<string>(m["originLongitude"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionRequest() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataCost : public Darabonba::Model {
+public:
+  shared_ptr<string> durationSecond{};
+  shared_ptr<string> taxiFee{};
+  shared_ptr<string> tollDistanceMeter{};
+  shared_ptr<string> tollRoads{};
+  shared_ptr<string> tolls{};
+  shared_ptr<string> trafficLights{};
+  shared_ptr<string> transitFee{};
+
+  TransitIntegratedDirectionResponseBodyDataCost() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataCost(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (durationSecond) {
+      res["durationSecond"] = boost::any(*durationSecond);
+    }
+    if (taxiFee) {
+      res["taxiFee"] = boost::any(*taxiFee);
+    }
+    if (tollDistanceMeter) {
+      res["tollDistanceMeter"] = boost::any(*tollDistanceMeter);
+    }
+    if (tollRoads) {
+      res["tollRoads"] = boost::any(*tollRoads);
+    }
+    if (tolls) {
+      res["tolls"] = boost::any(*tolls);
+    }
+    if (trafficLights) {
+      res["trafficLights"] = boost::any(*trafficLights);
+    }
+    if (transitFee) {
+      res["transitFee"] = boost::any(*transitFee);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("durationSecond") != m.end() && !m["durationSecond"].empty()) {
+      durationSecond = make_shared<string>(boost::any_cast<string>(m["durationSecond"]));
+    }
+    if (m.find("taxiFee") != m.end() && !m["taxiFee"].empty()) {
+      taxiFee = make_shared<string>(boost::any_cast<string>(m["taxiFee"]));
+    }
+    if (m.find("tollDistanceMeter") != m.end() && !m["tollDistanceMeter"].empty()) {
+      tollDistanceMeter = make_shared<string>(boost::any_cast<string>(m["tollDistanceMeter"]));
+    }
+    if (m.find("tollRoads") != m.end() && !m["tollRoads"].empty()) {
+      tollRoads = make_shared<string>(boost::any_cast<string>(m["tollRoads"]));
+    }
+    if (m.find("tolls") != m.end() && !m["tolls"].empty()) {
+      tolls = make_shared<string>(boost::any_cast<string>(m["tolls"]));
+    }
+    if (m.find("trafficLights") != m.end() && !m["trafficLights"].empty()) {
+      trafficLights = make_shared<string>(boost::any_cast<string>(m["trafficLights"]));
+    }
+    if (m.find("transitFee") != m.end() && !m["transitFee"].empty()) {
+      transitFee = make_shared<string>(boost::any_cast<string>(m["transitFee"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataCost() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsCost : public Darabonba::Model {
+public:
+  shared_ptr<string> durationSecond{};
+  shared_ptr<string> taxiFee{};
+  shared_ptr<string> tollDistanceMeter{};
+  shared_ptr<string> tollRoads{};
+  shared_ptr<string> tolls{};
+  shared_ptr<string> trafficLights{};
+  shared_ptr<string> transitFee{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsCost() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsCost(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (durationSecond) {
+      res["durationSecond"] = boost::any(*durationSecond);
+    }
+    if (taxiFee) {
+      res["taxiFee"] = boost::any(*taxiFee);
+    }
+    if (tollDistanceMeter) {
+      res["tollDistanceMeter"] = boost::any(*tollDistanceMeter);
+    }
+    if (tollRoads) {
+      res["tollRoads"] = boost::any(*tollRoads);
+    }
+    if (tolls) {
+      res["tolls"] = boost::any(*tolls);
+    }
+    if (trafficLights) {
+      res["trafficLights"] = boost::any(*trafficLights);
+    }
+    if (transitFee) {
+      res["transitFee"] = boost::any(*transitFee);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("durationSecond") != m.end() && !m["durationSecond"].empty()) {
+      durationSecond = make_shared<string>(boost::any_cast<string>(m["durationSecond"]));
+    }
+    if (m.find("taxiFee") != m.end() && !m["taxiFee"].empty()) {
+      taxiFee = make_shared<string>(boost::any_cast<string>(m["taxiFee"]));
+    }
+    if (m.find("tollDistanceMeter") != m.end() && !m["tollDistanceMeter"].empty()) {
+      tollDistanceMeter = make_shared<string>(boost::any_cast<string>(m["tollDistanceMeter"]));
+    }
+    if (m.find("tollRoads") != m.end() && !m["tollRoads"].empty()) {
+      tollRoads = make_shared<string>(boost::any_cast<string>(m["tollRoads"]));
+    }
+    if (m.find("tolls") != m.end() && !m["tolls"].empty()) {
+      tolls = make_shared<string>(boost::any_cast<string>(m["tolls"]));
+    }
+    if (m.find("trafficLights") != m.end() && !m["trafficLights"].empty()) {
+      trafficLights = make_shared<string>(boost::any_cast<string>(m["trafficLights"]));
+    }
+    if (m.find("transitFee") != m.end() && !m["transitFee"].empty()) {
+      transitFee = make_shared<string>(boost::any_cast<string>(m["transitFee"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsCost() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStopExit : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> location{};
+  shared_ptr<string> name{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStopExit() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStopExit(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (location) {
+      res["location"] = boost::any(*location);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("location") != m.end() && !m["location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["location"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStopExit() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStop : public Darabonba::Model {
+public:
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStopExit> exit{};
+  shared_ptr<string> id{};
+  shared_ptr<string> location{};
+  shared_ptr<string> name{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStop() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStop(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (exit) {
+      res["exit"] = exit ? boost::any(exit->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (location) {
+      res["location"] = boost::any(*location);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("exit") != m.end() && !m["exit"].empty()) {
+      if (typeid(map<string, boost::any>) == m["exit"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStopExit model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["exit"]));
+        exit = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStopExit>(model1);
+      }
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("location") != m.end() && !m["location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["location"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStop() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesCost : public Darabonba::Model {
+public:
+  shared_ptr<string> durationSecond{};
+  shared_ptr<string> taxiFee{};
+  shared_ptr<string> tollDistanceMeter{};
+  shared_ptr<string> tollRoads{};
+  shared_ptr<string> tolls{};
+  shared_ptr<string> trafficLights{};
+  shared_ptr<string> transitFee{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesCost() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesCost(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (durationSecond) {
+      res["durationSecond"] = boost::any(*durationSecond);
+    }
+    if (taxiFee) {
+      res["taxiFee"] = boost::any(*taxiFee);
+    }
+    if (tollDistanceMeter) {
+      res["tollDistanceMeter"] = boost::any(*tollDistanceMeter);
+    }
+    if (tollRoads) {
+      res["tollRoads"] = boost::any(*tollRoads);
+    }
+    if (tolls) {
+      res["tolls"] = boost::any(*tolls);
+    }
+    if (trafficLights) {
+      res["trafficLights"] = boost::any(*trafficLights);
+    }
+    if (transitFee) {
+      res["transitFee"] = boost::any(*transitFee);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("durationSecond") != m.end() && !m["durationSecond"].empty()) {
+      durationSecond = make_shared<string>(boost::any_cast<string>(m["durationSecond"]));
+    }
+    if (m.find("taxiFee") != m.end() && !m["taxiFee"].empty()) {
+      taxiFee = make_shared<string>(boost::any_cast<string>(m["taxiFee"]));
+    }
+    if (m.find("tollDistanceMeter") != m.end() && !m["tollDistanceMeter"].empty()) {
+      tollDistanceMeter = make_shared<string>(boost::any_cast<string>(m["tollDistanceMeter"]));
+    }
+    if (m.find("tollRoads") != m.end() && !m["tollRoads"].empty()) {
+      tollRoads = make_shared<string>(boost::any_cast<string>(m["tollRoads"]));
+    }
+    if (m.find("tolls") != m.end() && !m["tolls"].empty()) {
+      tolls = make_shared<string>(boost::any_cast<string>(m["tolls"]));
+    }
+    if (m.find("trafficLights") != m.end() && !m["trafficLights"].empty()) {
+      trafficLights = make_shared<string>(boost::any_cast<string>(m["trafficLights"]));
+    }
+    if (m.find("transitFee") != m.end() && !m["transitFee"].empty()) {
+      transitFee = make_shared<string>(boost::any_cast<string>(m["transitFee"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesCost() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStopEntrance : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> location{};
+  shared_ptr<string> name{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStopEntrance() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStopEntrance(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (location) {
+      res["location"] = boost::any(*location);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("location") != m.end() && !m["location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["location"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStopEntrance() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStop : public Darabonba::Model {
+public:
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStopEntrance> entrance{};
+  shared_ptr<string> id{};
+  shared_ptr<string> location{};
+  shared_ptr<string> name{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStop() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStop(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entrance) {
+      res["entrance"] = entrance ? boost::any(entrance->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (location) {
+      res["location"] = boost::any(*location);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("entrance") != m.end() && !m["entrance"].empty()) {
+      if (typeid(map<string, boost::any>) == m["entrance"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStopEntrance model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["entrance"]));
+        entrance = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStopEntrance>(model1);
+      }
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("location") != m.end() && !m["location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["location"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStop() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesPolyline : public Darabonba::Model {
+public:
+  shared_ptr<string> polyline{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesPolyline() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesPolyline(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (polyline) {
+      res["polyline"] = boost::any(*polyline);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("polyline") != m.end() && !m["polyline"].empty()) {
+      polyline = make_shared<string>(boost::any_cast<string>(m["polyline"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesPolyline() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesViaStops : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> location{};
+  shared_ptr<string> name{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesViaStops() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesViaStops(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (location) {
+      res["location"] = boost::any(*location);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("location") != m.end() && !m["location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["location"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesViaStops() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines : public Darabonba::Model {
+public:
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStop> arrivalStop{};
+  shared_ptr<string> busTimeTips{};
+  shared_ptr<string> bustimetag{};
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesCost> cost{};
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStop> departureStop{};
+  shared_ptr<string> distanceMeter{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesPolyline> polyline{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> type{};
+  shared_ptr<string> viaNum{};
+  shared_ptr<vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesViaStops>> viaStops{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arrivalStop) {
+      res["arrivalStop"] = arrivalStop ? boost::any(arrivalStop->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (busTimeTips) {
+      res["busTimeTips"] = boost::any(*busTimeTips);
+    }
+    if (bustimetag) {
+      res["bustimetag"] = boost::any(*bustimetag);
+    }
+    if (cost) {
+      res["cost"] = cost ? boost::any(cost->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (departureStop) {
+      res["departureStop"] = departureStop ? boost::any(departureStop->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (distanceMeter) {
+      res["distanceMeter"] = boost::any(*distanceMeter);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (polyline) {
+      res["polyline"] = polyline ? boost::any(polyline->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (viaNum) {
+      res["viaNum"] = boost::any(*viaNum);
+    }
+    if (viaStops) {
+      vector<boost::any> temp1;
+      for(auto item1:*viaStops){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["viaStops"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("arrivalStop") != m.end() && !m["arrivalStop"].empty()) {
+      if (typeid(map<string, boost::any>) == m["arrivalStop"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStop model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["arrivalStop"]));
+        arrivalStop = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesArrivalStop>(model1);
+      }
+    }
+    if (m.find("busTimeTips") != m.end() && !m["busTimeTips"].empty()) {
+      busTimeTips = make_shared<string>(boost::any_cast<string>(m["busTimeTips"]));
+    }
+    if (m.find("bustimetag") != m.end() && !m["bustimetag"].empty()) {
+      bustimetag = make_shared<string>(boost::any_cast<string>(m["bustimetag"]));
+    }
+    if (m.find("cost") != m.end() && !m["cost"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cost"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesCost model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cost"]));
+        cost = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesCost>(model1);
+      }
+    }
+    if (m.find("departureStop") != m.end() && !m["departureStop"].empty()) {
+      if (typeid(map<string, boost::any>) == m["departureStop"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStop model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["departureStop"]));
+        departureStop = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesDepartureStop>(model1);
+      }
+    }
+    if (m.find("distanceMeter") != m.end() && !m["distanceMeter"].empty()) {
+      distanceMeter = make_shared<string>(boost::any_cast<string>(m["distanceMeter"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("polyline") != m.end() && !m["polyline"].empty()) {
+      if (typeid(map<string, boost::any>) == m["polyline"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesPolyline model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["polyline"]));
+        polyline = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesPolyline>(model1);
+      }
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("viaNum") != m.end() && !m["viaNum"].empty()) {
+      viaNum = make_shared<string>(boost::any_cast<string>(m["viaNum"]));
+    }
+    if (m.find("viaStops") != m.end() && !m["viaStops"].empty()) {
+      if (typeid(vector<boost::any>) == m["viaStops"].type()) {
+        vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesViaStops> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["viaStops"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesViaStops model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        viaStops = make_shared<vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslinesViaStops>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus : public Darabonba::Model {
+public:
+  shared_ptr<vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines>> buslines{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (buslines) {
+      vector<boost::any> temp1;
+      for(auto item1:*buslines){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["buslines"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("buslines") != m.end() && !m["buslines"].empty()) {
+      if (typeid(vector<boost::any>) == m["buslines"].type()) {
+        vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["buslines"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        buslines = make_shared<vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArrivalStop : public Darabonba::Model {
+public:
+  shared_ptr<string> adcode{};
+  shared_ptr<string> end{};
+  shared_ptr<string> id{};
+  shared_ptr<string> location{};
+  shared_ptr<string> name{};
+  shared_ptr<string> time{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArrivalStop() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArrivalStop(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adcode) {
+      res["adcode"] = boost::any(*adcode);
+    }
+    if (end) {
+      res["end"] = boost::any(*end);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (location) {
+      res["location"] = boost::any(*location);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("adcode") != m.end() && !m["adcode"].empty()) {
+      adcode = make_shared<string>(boost::any_cast<string>(m["adcode"]));
+    }
+    if (m.find("end") != m.end() && !m["end"].empty()) {
+      end = make_shared<string>(boost::any_cast<string>(m["end"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("location") != m.end() && !m["location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["location"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["time"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArrivalStop() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop : public Darabonba::Model {
+public:
+  shared_ptr<string> adcode{};
+  shared_ptr<string> id{};
+  shared_ptr<string> location{};
+  shared_ptr<string> name{};
+  shared_ptr<string> start{};
+  shared_ptr<string> time{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adcode) {
+      res["adcode"] = boost::any(*adcode);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (location) {
+      res["location"] = boost::any(*location);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (start) {
+      res["start"] = boost::any(*start);
+    }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("adcode") != m.end() && !m["adcode"].empty()) {
+      adcode = make_shared<string>(boost::any_cast<string>(m["adcode"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("location") != m.end() && !m["location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["location"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("start") != m.end() && !m["start"].empty()) {
+      start = make_shared<string>(boost::any_cast<string>(m["start"]));
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["time"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> cost{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (cost) {
+      res["cost"] = boost::any(*cost);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("cost") != m.end() && !m["cost"].empty()) {
+      cost = make_shared<string>(boost::any_cast<string>(m["cost"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway : public Darabonba::Model {
+public:
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArrivalStop> arrivalStop{};
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop> departureStop{};
+  shared_ptr<string> distanceMeter{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces>> spaces{};
+  shared_ptr<string> time{};
+  shared_ptr<string> trip{};
+  shared_ptr<string> type{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arrivalStop) {
+      res["arrivalStop"] = arrivalStop ? boost::any(arrivalStop->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (departureStop) {
+      res["departureStop"] = departureStop ? boost::any(departureStop->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (distanceMeter) {
+      res["distanceMeter"] = boost::any(*distanceMeter);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (spaces) {
+      vector<boost::any> temp1;
+      for(auto item1:*spaces){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["spaces"] = boost::any(temp1);
+    }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
+    if (trip) {
+      res["trip"] = boost::any(*trip);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("arrivalStop") != m.end() && !m["arrivalStop"].empty()) {
+      if (typeid(map<string, boost::any>) == m["arrivalStop"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArrivalStop model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["arrivalStop"]));
+        arrivalStop = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayArrivalStop>(model1);
+      }
+    }
+    if (m.find("departureStop") != m.end() && !m["departureStop"].empty()) {
+      if (typeid(map<string, boost::any>) == m["departureStop"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["departureStop"]));
+        departureStop = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop>(model1);
+      }
+    }
+    if (m.find("distanceMeter") != m.end() && !m["distanceMeter"].empty()) {
+      distanceMeter = make_shared<string>(boost::any_cast<string>(m["distanceMeter"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("spaces") != m.end() && !m["spaces"].empty()) {
+      if (typeid(vector<boost::any>) == m["spaces"].type()) {
+        vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["spaces"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        spaces = make_shared<vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces>>(expect1);
+      }
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["time"]));
+    }
+    if (m.find("trip") != m.end() && !m["trip"].empty()) {
+      trip = make_shared<string>(boost::any_cast<string>(m["trip"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi : public Darabonba::Model {
+public:
+  shared_ptr<string> destinationName{};
+  shared_ptr<string> destinationPoint{};
+  shared_ptr<string> distanceMeter{};
+  shared_ptr<string> driveTimeSecond{};
+  shared_ptr<string> originName{};
+  shared_ptr<string> originPoint{};
+  shared_ptr<string> price{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationName) {
+      res["destinationName"] = boost::any(*destinationName);
+    }
+    if (destinationPoint) {
+      res["destinationPoint"] = boost::any(*destinationPoint);
+    }
+    if (distanceMeter) {
+      res["distanceMeter"] = boost::any(*distanceMeter);
+    }
+    if (driveTimeSecond) {
+      res["driveTimeSecond"] = boost::any(*driveTimeSecond);
+    }
+    if (originName) {
+      res["originName"] = boost::any(*originName);
+    }
+    if (originPoint) {
+      res["originPoint"] = boost::any(*originPoint);
+    }
+    if (price) {
+      res["price"] = boost::any(*price);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("destinationName") != m.end() && !m["destinationName"].empty()) {
+      destinationName = make_shared<string>(boost::any_cast<string>(m["destinationName"]));
+    }
+    if (m.find("destinationPoint") != m.end() && !m["destinationPoint"].empty()) {
+      destinationPoint = make_shared<string>(boost::any_cast<string>(m["destinationPoint"]));
+    }
+    if (m.find("distanceMeter") != m.end() && !m["distanceMeter"].empty()) {
+      distanceMeter = make_shared<string>(boost::any_cast<string>(m["distanceMeter"]));
+    }
+    if (m.find("driveTimeSecond") != m.end() && !m["driveTimeSecond"].empty()) {
+      driveTimeSecond = make_shared<string>(boost::any_cast<string>(m["driveTimeSecond"]));
+    }
+    if (m.find("originName") != m.end() && !m["originName"].empty()) {
+      originName = make_shared<string>(boost::any_cast<string>(m["originName"]));
+    }
+    if (m.find("originPoint") != m.end() && !m["originPoint"].empty()) {
+      originPoint = make_shared<string>(boost::any_cast<string>(m["originPoint"]));
+    }
+    if (m.find("price") != m.end() && !m["price"].empty()) {
+      price = make_shared<string>(boost::any_cast<string>(m["price"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost : public Darabonba::Model {
+public:
+  shared_ptr<string> durationSecond{};
+  shared_ptr<string> taxiFee{};
+  shared_ptr<string> tollDistanceMeter{};
+  shared_ptr<string> tollRoads{};
+  shared_ptr<string> tolls{};
+  shared_ptr<string> trafficLights{};
+  shared_ptr<string> transitFee{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (durationSecond) {
+      res["durationSecond"] = boost::any(*durationSecond);
+    }
+    if (taxiFee) {
+      res["taxiFee"] = boost::any(*taxiFee);
+    }
+    if (tollDistanceMeter) {
+      res["tollDistanceMeter"] = boost::any(*tollDistanceMeter);
+    }
+    if (tollRoads) {
+      res["tollRoads"] = boost::any(*tollRoads);
+    }
+    if (tolls) {
+      res["tolls"] = boost::any(*tolls);
+    }
+    if (trafficLights) {
+      res["trafficLights"] = boost::any(*trafficLights);
+    }
+    if (transitFee) {
+      res["transitFee"] = boost::any(*transitFee);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("durationSecond") != m.end() && !m["durationSecond"].empty()) {
+      durationSecond = make_shared<string>(boost::any_cast<string>(m["durationSecond"]));
+    }
+    if (m.find("taxiFee") != m.end() && !m["taxiFee"].empty()) {
+      taxiFee = make_shared<string>(boost::any_cast<string>(m["taxiFee"]));
+    }
+    if (m.find("tollDistanceMeter") != m.end() && !m["tollDistanceMeter"].empty()) {
+      tollDistanceMeter = make_shared<string>(boost::any_cast<string>(m["tollDistanceMeter"]));
+    }
+    if (m.find("tollRoads") != m.end() && !m["tollRoads"].empty()) {
+      tollRoads = make_shared<string>(boost::any_cast<string>(m["tollRoads"]));
+    }
+    if (m.find("tolls") != m.end() && !m["tolls"].empty()) {
+      tolls = make_shared<string>(boost::any_cast<string>(m["tolls"]));
+    }
+    if (m.find("trafficLights") != m.end() && !m["trafficLights"].empty()) {
+      trafficLights = make_shared<string>(boost::any_cast<string>(m["trafficLights"]));
+    }
+    if (m.find("transitFee") != m.end() && !m["transitFee"].empty()) {
+      transitFee = make_shared<string>(boost::any_cast<string>(m["transitFee"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsCost : public Darabonba::Model {
+public:
+  shared_ptr<string> durationSecond{};
+  shared_ptr<string> taxiFee{};
+  shared_ptr<string> tollDistanceMeter{};
+  shared_ptr<string> tollRoads{};
+  shared_ptr<string> tolls{};
+  shared_ptr<string> trafficLights{};
+  shared_ptr<string> transitFee{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsCost() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsCost(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (durationSecond) {
+      res["durationSecond"] = boost::any(*durationSecond);
+    }
+    if (taxiFee) {
+      res["taxiFee"] = boost::any(*taxiFee);
+    }
+    if (tollDistanceMeter) {
+      res["tollDistanceMeter"] = boost::any(*tollDistanceMeter);
+    }
+    if (tollRoads) {
+      res["tollRoads"] = boost::any(*tollRoads);
+    }
+    if (tolls) {
+      res["tolls"] = boost::any(*tolls);
+    }
+    if (trafficLights) {
+      res["trafficLights"] = boost::any(*trafficLights);
+    }
+    if (transitFee) {
+      res["transitFee"] = boost::any(*transitFee);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("durationSecond") != m.end() && !m["durationSecond"].empty()) {
+      durationSecond = make_shared<string>(boost::any_cast<string>(m["durationSecond"]));
+    }
+    if (m.find("taxiFee") != m.end() && !m["taxiFee"].empty()) {
+      taxiFee = make_shared<string>(boost::any_cast<string>(m["taxiFee"]));
+    }
+    if (m.find("tollDistanceMeter") != m.end() && !m["tollDistanceMeter"].empty()) {
+      tollDistanceMeter = make_shared<string>(boost::any_cast<string>(m["tollDistanceMeter"]));
+    }
+    if (m.find("tollRoads") != m.end() && !m["tollRoads"].empty()) {
+      tollRoads = make_shared<string>(boost::any_cast<string>(m["tollRoads"]));
+    }
+    if (m.find("tolls") != m.end() && !m["tolls"].empty()) {
+      tolls = make_shared<string>(boost::any_cast<string>(m["tolls"]));
+    }
+    if (m.find("trafficLights") != m.end() && !m["trafficLights"].empty()) {
+      trafficLights = make_shared<string>(boost::any_cast<string>(m["trafficLights"]));
+    }
+    if (m.find("transitFee") != m.end() && !m["transitFee"].empty()) {
+      transitFee = make_shared<string>(boost::any_cast<string>(m["transitFee"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsCost() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsPolyline : public Darabonba::Model {
+public:
+  shared_ptr<string> polyline{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsPolyline() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsPolyline(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (polyline) {
+      res["polyline"] = boost::any(*polyline);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("polyline") != m.end() && !m["polyline"].empty()) {
+      polyline = make_shared<string>(boost::any_cast<string>(m["polyline"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsPolyline() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps : public Darabonba::Model {
+public:
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsCost> cost{};
+  shared_ptr<string> instruction{};
+  shared_ptr<string> orientation{};
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsPolyline> polyline{};
+  shared_ptr<string> roadName{};
+  shared_ptr<string> stepDistanceMeter{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cost) {
+      res["cost"] = cost ? boost::any(cost->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instruction) {
+      res["instruction"] = boost::any(*instruction);
+    }
+    if (orientation) {
+      res["orientation"] = boost::any(*orientation);
+    }
+    if (polyline) {
+      res["polyline"] = polyline ? boost::any(polyline->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (roadName) {
+      res["roadName"] = boost::any(*roadName);
+    }
+    if (stepDistanceMeter) {
+      res["stepDistanceMeter"] = boost::any(*stepDistanceMeter);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cost") != m.end() && !m["cost"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cost"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsCost model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cost"]));
+        cost = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsCost>(model1);
+      }
+    }
+    if (m.find("instruction") != m.end() && !m["instruction"].empty()) {
+      instruction = make_shared<string>(boost::any_cast<string>(m["instruction"]));
+    }
+    if (m.find("orientation") != m.end() && !m["orientation"].empty()) {
+      orientation = make_shared<string>(boost::any_cast<string>(m["orientation"]));
+    }
+    if (m.find("polyline") != m.end() && !m["polyline"].empty()) {
+      if (typeid(map<string, boost::any>) == m["polyline"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsPolyline model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["polyline"]));
+        polyline = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingStepsPolyline>(model1);
+      }
+    }
+    if (m.find("roadName") != m.end() && !m["roadName"].empty()) {
+      roadName = make_shared<string>(boost::any_cast<string>(m["roadName"]));
+    }
+    if (m.find("stepDistanceMeter") != m.end() && !m["stepDistanceMeter"].empty()) {
+      stepDistanceMeter = make_shared<string>(boost::any_cast<string>(m["stepDistanceMeter"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking : public Darabonba::Model {
+public:
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost> cost{};
+  shared_ptr<string> destination{};
+  shared_ptr<string> distanceMeter{};
+  shared_ptr<string> origin{};
+  shared_ptr<vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps>> steps{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cost) {
+      res["cost"] = cost ? boost::any(cost->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (destination) {
+      res["destination"] = boost::any(*destination);
+    }
+    if (distanceMeter) {
+      res["distanceMeter"] = boost::any(*distanceMeter);
+    }
+    if (origin) {
+      res["origin"] = boost::any(*origin);
+    }
+    if (steps) {
+      vector<boost::any> temp1;
+      for(auto item1:*steps){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["steps"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cost") != m.end() && !m["cost"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cost"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cost"]));
+        cost = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost>(model1);
+      }
+    }
+    if (m.find("destination") != m.end() && !m["destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["destination"]));
+    }
+    if (m.find("distanceMeter") != m.end() && !m["distanceMeter"].empty()) {
+      distanceMeter = make_shared<string>(boost::any_cast<string>(m["distanceMeter"]));
+    }
+    if (m.find("origin") != m.end() && !m["origin"].empty()) {
+      origin = make_shared<string>(boost::any_cast<string>(m["origin"]));
+    }
+    if (m.find("steps") != m.end() && !m["steps"].empty()) {
+      if (typeid(vector<boost::any>) == m["steps"].type()) {
+        vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["steps"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        steps = make_shared<vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPathsSegments : public Darabonba::Model {
+public:
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus> bus{};
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway> railway{};
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi> taxi{};
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking> walking{};
+
+  TransitIntegratedDirectionResponseBodyDataPathsSegments() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPathsSegments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bus) {
+      res["bus"] = bus ? boost::any(bus->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (railway) {
+      res["railway"] = railway ? boost::any(railway->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (taxi) {
+      res["taxi"] = taxi ? boost::any(taxi->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (walking) {
+      res["walking"] = walking ? boost::any(walking->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("bus") != m.end() && !m["bus"].empty()) {
+      if (typeid(map<string, boost::any>) == m["bus"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["bus"]));
+        bus = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus>(model1);
+      }
+    }
+    if (m.find("railway") != m.end() && !m["railway"].empty()) {
+      if (typeid(map<string, boost::any>) == m["railway"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["railway"]));
+        railway = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway>(model1);
+      }
+    }
+    if (m.find("taxi") != m.end() && !m["taxi"].empty()) {
+      if (typeid(map<string, boost::any>) == m["taxi"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["taxi"]));
+        taxi = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi>(model1);
+      }
+    }
+    if (m.find("walking") != m.end() && !m["walking"].empty()) {
+      if (typeid(map<string, boost::any>) == m["walking"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["walking"]));
+        walking = make_shared<TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking>(model1);
+      }
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPathsSegments() = default;
+};
+class TransitIntegratedDirectionResponseBodyDataPaths : public Darabonba::Model {
+public:
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsCost> cost{};
+  shared_ptr<string> distanceMeter{};
+  shared_ptr<string> nightflag{};
+  shared_ptr<vector<TransitIntegratedDirectionResponseBodyDataPathsSegments>> segments{};
+  shared_ptr<string> walkingDistanceMeter{};
+
+  TransitIntegratedDirectionResponseBodyDataPaths() {}
+
+  explicit TransitIntegratedDirectionResponseBodyDataPaths(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cost) {
+      res["cost"] = cost ? boost::any(cost->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (distanceMeter) {
+      res["distanceMeter"] = boost::any(*distanceMeter);
+    }
+    if (nightflag) {
+      res["nightflag"] = boost::any(*nightflag);
+    }
+    if (segments) {
+      vector<boost::any> temp1;
+      for(auto item1:*segments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["segments"] = boost::any(temp1);
+    }
+    if (walkingDistanceMeter) {
+      res["walkingDistanceMeter"] = boost::any(*walkingDistanceMeter);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cost") != m.end() && !m["cost"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cost"].type()) {
+        TransitIntegratedDirectionResponseBodyDataPathsCost model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cost"]));
+        cost = make_shared<TransitIntegratedDirectionResponseBodyDataPathsCost>(model1);
+      }
+    }
+    if (m.find("distanceMeter") != m.end() && !m["distanceMeter"].empty()) {
+      distanceMeter = make_shared<string>(boost::any_cast<string>(m["distanceMeter"]));
+    }
+    if (m.find("nightflag") != m.end() && !m["nightflag"].empty()) {
+      nightflag = make_shared<string>(boost::any_cast<string>(m["nightflag"]));
+    }
+    if (m.find("segments") != m.end() && !m["segments"].empty()) {
+      if (typeid(vector<boost::any>) == m["segments"].type()) {
+        vector<TransitIntegratedDirectionResponseBodyDataPathsSegments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["segments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TransitIntegratedDirectionResponseBodyDataPathsSegments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        segments = make_shared<vector<TransitIntegratedDirectionResponseBodyDataPathsSegments>>(expect1);
+      }
+    }
+    if (m.find("walkingDistanceMeter") != m.end() && !m["walkingDistanceMeter"].empty()) {
+      walkingDistanceMeter = make_shared<string>(boost::any_cast<string>(m["walkingDistanceMeter"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyDataPaths() = default;
+};
+class TransitIntegratedDirectionResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<TransitIntegratedDirectionResponseBodyDataCost> cost{};
+  shared_ptr<string> count{};
+  shared_ptr<string> destinationLatitude{};
+  shared_ptr<string> destinationLongitude{};
+  shared_ptr<string> distanceMeter{};
+  shared_ptr<string> originLatitude{};
+  shared_ptr<string> originLongitude{};
+  shared_ptr<vector<TransitIntegratedDirectionResponseBodyDataPaths>> paths{};
+
+  TransitIntegratedDirectionResponseBodyData() {}
+
+  explicit TransitIntegratedDirectionResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cost) {
+      res["cost"] = cost ? boost::any(cost->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (count) {
+      res["count"] = boost::any(*count);
+    }
+    if (destinationLatitude) {
+      res["destinationLatitude"] = boost::any(*destinationLatitude);
+    }
+    if (destinationLongitude) {
+      res["destinationLongitude"] = boost::any(*destinationLongitude);
+    }
+    if (distanceMeter) {
+      res["distanceMeter"] = boost::any(*distanceMeter);
+    }
+    if (originLatitude) {
+      res["originLatitude"] = boost::any(*originLatitude);
+    }
+    if (originLongitude) {
+      res["originLongitude"] = boost::any(*originLongitude);
+    }
+    if (paths) {
+      vector<boost::any> temp1;
+      for(auto item1:*paths){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["paths"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cost") != m.end() && !m["cost"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cost"].type()) {
+        TransitIntegratedDirectionResponseBodyDataCost model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cost"]));
+        cost = make_shared<TransitIntegratedDirectionResponseBodyDataCost>(model1);
+      }
+    }
+    if (m.find("count") != m.end() && !m["count"].empty()) {
+      count = make_shared<string>(boost::any_cast<string>(m["count"]));
+    }
+    if (m.find("destinationLatitude") != m.end() && !m["destinationLatitude"].empty()) {
+      destinationLatitude = make_shared<string>(boost::any_cast<string>(m["destinationLatitude"]));
+    }
+    if (m.find("destinationLongitude") != m.end() && !m["destinationLongitude"].empty()) {
+      destinationLongitude = make_shared<string>(boost::any_cast<string>(m["destinationLongitude"]));
+    }
+    if (m.find("distanceMeter") != m.end() && !m["distanceMeter"].empty()) {
+      distanceMeter = make_shared<string>(boost::any_cast<string>(m["distanceMeter"]));
+    }
+    if (m.find("originLatitude") != m.end() && !m["originLatitude"].empty()) {
+      originLatitude = make_shared<string>(boost::any_cast<string>(m["originLatitude"]));
+    }
+    if (m.find("originLongitude") != m.end() && !m["originLongitude"].empty()) {
+      originLongitude = make_shared<string>(boost::any_cast<string>(m["originLongitude"]));
+    }
+    if (m.find("paths") != m.end() && !m["paths"].empty()) {
+      if (typeid(vector<boost::any>) == m["paths"].type()) {
+        vector<TransitIntegratedDirectionResponseBodyDataPaths> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["paths"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TransitIntegratedDirectionResponseBodyDataPaths model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        paths = make_shared<vector<TransitIntegratedDirectionResponseBodyDataPaths>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBodyData() = default;
+};
+class TransitIntegratedDirectionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<TransitIntegratedDirectionResponseBodyData> data{};
+  shared_ptr<long> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<bool> success{};
+
+  TransitIntegratedDirectionResponseBody() {}
+
+  explicit TransitIntegratedDirectionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        TransitIntegratedDirectionResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<TransitIntegratedDirectionResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<long>(boost::any_cast<long>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponseBody() = default;
+};
+class TransitIntegratedDirectionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<TransitIntegratedDirectionResponseBody> body{};
+
+  TransitIntegratedDirectionResponse() {}
+
+  explicit TransitIntegratedDirectionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        TransitIntegratedDirectionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<TransitIntegratedDirectionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~TransitIntegratedDirectionResponse() = default;
+};
 class WalkingDirectionNovaRequest : public Darabonba::Model {
 public:
   shared_ptr<string> destinationLatitude{};
@@ -5059,6 +6854,7 @@ public:
   shared_ptr<WalkingDirectionNovaResponseBodyDataPathsStepsCost> cost{};
   shared_ptr<string> instruction{};
   shared_ptr<string> orientation{};
+  shared_ptr<string> polyline{};
   shared_ptr<string> roadName{};
   shared_ptr<string> stepDistanceMeter{};
 
@@ -5080,6 +6876,9 @@ public:
     }
     if (orientation) {
       res["orientation"] = boost::any(*orientation);
+    }
+    if (polyline) {
+      res["polyline"] = boost::any(*polyline);
     }
     if (roadName) {
       res["roadName"] = boost::any(*roadName);
@@ -5103,6 +6902,9 @@ public:
     }
     if (m.find("orientation") != m.end() && !m["orientation"].empty()) {
       orientation = make_shared<string>(boost::any_cast<string>(m["orientation"]));
+    }
+    if (m.find("polyline") != m.end() && !m["polyline"].empty()) {
+      polyline = make_shared<string>(boost::any_cast<string>(m["polyline"]));
     }
     if (m.find("roadName") != m.end() && !m["roadName"].empty()) {
       roadName = make_shared<string>(boost::any_cast<string>(m["roadName"]));
@@ -5192,6 +6994,7 @@ public:
 };
 class WalkingDirectionNovaResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> count{};
   shared_ptr<string> destinationLatitude{};
   shared_ptr<string> destinationLongitude{};
   shared_ptr<string> originLatitude{};
@@ -5209,6 +7012,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["count"] = boost::any(*count);
+    }
     if (destinationLatitude) {
       res["destinationLatitude"] = boost::any(*destinationLatitude);
     }
@@ -5235,6 +7041,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("count") != m.end() && !m["count"].empty()) {
+      count = make_shared<string>(boost::any_cast<string>(m["count"]));
+    }
     if (m.find("destinationLatitude") != m.end() && !m["destinationLatitude"].empty()) {
       destinationLatitude = make_shared<string>(boost::any_cast<string>(m["destinationLatitude"]));
     }
@@ -5410,6 +7219,8 @@ public:
   QueryRestaurantsResponse queryRestaurants(shared_ptr<QueryRestaurantsRequest> request);
   RgeoCodeResponse rgeoCodeWithOptions(shared_ptr<RgeoCodeRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RgeoCodeResponse rgeoCode(shared_ptr<RgeoCodeRequest> request);
+  TransitIntegratedDirectionResponse transitIntegratedDirectionWithOptions(shared_ptr<TransitIntegratedDirectionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  TransitIntegratedDirectionResponse transitIntegratedDirection(shared_ptr<TransitIntegratedDirectionRequest> request);
   WalkingDirectionNovaResponse walkingDirectionNovaWithOptions(shared_ptr<WalkingDirectionNovaRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   WalkingDirectionNovaResponse walkingDirectionNova(shared_ptr<WalkingDirectionNovaRequest> request);
 
