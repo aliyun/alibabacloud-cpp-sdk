@@ -69,6 +69,37 @@ BatchSetDesktopManagerResponse Alibabacloud_Eds-user20210308::Client::batchSetDe
   return batchSetDesktopManagerWithOptions(request, runtime);
 }
 
+ChangeUserPasswordResponse Alibabacloud_Eds-user20210308::Client::changeUserPasswordWithOptions(shared_ptr<ChangeUserPasswordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endUserId)) {
+    body->insert(pair<string, string>("EndUserId", *request->endUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->newPassword)) {
+    body->insert(pair<string, string>("NewPassword", *request->newPassword));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ChangeUserPassword"))},
+    {"version", boost::any(string("2021-03-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ChangeUserPasswordResponse(callApi(params, req, runtime));
+}
+
+ChangeUserPasswordResponse Alibabacloud_Eds-user20210308::Client::changeUserPassword(shared_ptr<ChangeUserPasswordRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return changeUserPasswordWithOptions(request, runtime);
+}
+
 CheckUsedPropertyResponse Alibabacloud_Eds-user20210308::Client::checkUsedPropertyWithOptions(shared_ptr<CheckUsedPropertyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -556,11 +587,16 @@ LockMfaDeviceResponse Alibabacloud_Eds-user20210308::Client::lockMfaDevice(share
 
 LockUsersResponse Alibabacloud_Eds-user20210308::Client::lockUsersWithOptions(shared_ptr<LockUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->logoutSession)) {
+    query->insert(pair<string, bool>("LogoutSession", *request->logoutSession));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->users)) {
     body->insert(pair<string, vector<string>>("Users", *request->users));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
