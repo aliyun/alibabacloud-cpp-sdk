@@ -119,6 +119,45 @@ AddRecordTemplateResponse Alibabacloud_Rtc20180111::Client::addRecordTemplate(sh
   return addRecordTemplateWithOptions(request, runtime);
 }
 
+CreateAppLayoutResponse Alibabacloud_Rtc20180111::Client::createAppLayoutWithOptions(shared_ptr<CreateAppLayoutRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateAppLayoutShrinkRequest> request = make_shared<CreateAppLayoutShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateAppLayoutRequestLayout>(tmpReq->layout)) {
+    request->layoutShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->layout, make_shared<string>("Layout"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->layoutShrink)) {
+    query->insert(pair<string, string>("Layout", *request->layoutShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateAppLayout"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateAppLayoutResponse(callApi(params, req, runtime));
+}
+
+CreateAppLayoutResponse Alibabacloud_Rtc20180111::Client::createAppLayout(shared_ptr<CreateAppLayoutRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createAppLayoutWithOptions(request, runtime);
+}
+
 CreateAppRecordTemplateResponse Alibabacloud_Rtc20180111::Client::createAppRecordTemplateWithOptions(shared_ptr<CreateAppRecordTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateAppRecordTemplateShrinkRequest> request = make_shared<CreateAppRecordTemplateShrinkRequest>();
@@ -333,6 +372,45 @@ CreateMPULayoutResponse Alibabacloud_Rtc20180111::Client::createMPULayoutWithOpt
 CreateMPULayoutResponse Alibabacloud_Rtc20180111::Client::createMPULayout(shared_ptr<CreateMPULayoutRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createMPULayoutWithOptions(request, runtime);
+}
+
+DeleteAppLayoutResponse Alibabacloud_Rtc20180111::Client::deleteAppLayoutWithOptions(shared_ptr<DeleteAppLayoutRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteAppLayoutShrinkRequest> request = make_shared<DeleteAppLayoutShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<DeleteAppLayoutRequestLayout>(tmpReq->layout)) {
+    request->layoutShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->layout, make_shared<string>("Layout"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->layoutShrink)) {
+    query->insert(pair<string, string>("Layout", *request->layoutShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteAppLayout"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteAppLayoutResponse(callApi(params, req, runtime));
+}
+
+DeleteAppLayoutResponse Alibabacloud_Rtc20180111::Client::deleteAppLayout(shared_ptr<DeleteAppLayoutRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteAppLayoutWithOptions(request, runtime);
 }
 
 DeleteAppRecordTemplateResponse Alibabacloud_Rtc20180111::Client::deleteAppRecordTemplateWithOptions(shared_ptr<DeleteAppRecordTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2703,6 +2781,45 @@ ModifyAppCallbackStatusResponse Alibabacloud_Rtc20180111::Client::modifyAppCallb
   return modifyAppCallbackStatusWithOptions(request, runtime);
 }
 
+ModifyAppLayoutResponse Alibabacloud_Rtc20180111::Client::modifyAppLayoutWithOptions(shared_ptr<ModifyAppLayoutRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ModifyAppLayoutShrinkRequest> request = make_shared<ModifyAppLayoutShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ModifyAppLayoutRequestLayout>(tmpReq->layout)) {
+    request->layoutShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->layout, make_shared<string>("Layout"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->layoutShrink)) {
+    query->insert(pair<string, string>("Layout", *request->layoutShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyAppLayout"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyAppLayoutResponse(callApi(params, req, runtime));
+}
+
+ModifyAppLayoutResponse Alibabacloud_Rtc20180111::Client::modifyAppLayout(shared_ptr<ModifyAppLayoutRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyAppLayoutWithOptions(request, runtime);
+}
+
 ModifyAppLiveStreamStatusResponse Alibabacloud_Rtc20180111::Client::modifyAppLiveStreamStatusWithOptions(shared_ptr<ModifyAppLiveStreamStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3035,6 +3152,9 @@ StartCloudRecordResponse Alibabacloud_Rtc20180111::Client::startCloudRecordWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<StartCloudRecordRequestBackgrounds>>(request->backgrounds)) {
+    query->insert(pair<string, vector<StartCloudRecordRequestBackgrounds>>("Backgrounds", *request->backgrounds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelId)) {
     query->insert(pair<string, string>("ChannelId", *request->channelId));
   }
@@ -3049,6 +3169,9 @@ StartCloudRecordResponse Alibabacloud_Rtc20180111::Client::startCloudRecordWithO
   }
   if (!Darabonba_Util::Client::isUnset<vector<StartCloudRecordRequestPanes>>(request->panes)) {
     query->insert(pair<string, vector<StartCloudRecordRequestPanes>>("Panes", *request->panes));
+  }
+  if (!Darabonba_Util::Client::isUnset<StartCloudRecordRequestRegionColor>(request->regionColor)) {
+    query->insert(pair<string, StartCloudRecordRequestRegionColor>("RegionColor", *request->regionColor));
   }
   if (!Darabonba_Util::Client::isUnset<StartCloudRecordRequestStorageConfig>(request->storageConfig)) {
     query->insert(pair<string, StartCloudRecordRequestStorageConfig>("StorageConfig", *request->storageConfig));
@@ -3294,6 +3417,9 @@ StartStreamingOutResponse Alibabacloud_Rtc20180111::Client::startStreamingOutWit
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<StartStreamingOutRequestBackgrounds>>(request->backgrounds)) {
+    query->insert(pair<string, vector<StartStreamingOutRequestBackgrounds>>("Backgrounds", *request->backgrounds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelId)) {
     query->insert(pair<string, string>("ChannelId", *request->channelId));
   }
@@ -3308,6 +3434,9 @@ StartStreamingOutResponse Alibabacloud_Rtc20180111::Client::startStreamingOutWit
   }
   if (!Darabonba_Util::Client::isUnset<vector<StartStreamingOutRequestPanes>>(request->panes)) {
     query->insert(pair<string, vector<StartStreamingOutRequestPanes>>("Panes", *request->panes));
+  }
+  if (!Darabonba_Util::Client::isUnset<StartStreamingOutRequestRegionColor>(request->regionColor)) {
+    query->insert(pair<string, StartStreamingOutRequestRegionColor>("RegionColor", *request->regionColor));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("TaskId", *request->taskId));
@@ -3603,6 +3732,9 @@ UpdateCloudRecordResponse Alibabacloud_Rtc20180111::Client::updateCloudRecordWit
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateCloudRecordRequestBackgrounds>>(request->backgrounds)) {
+    query->insert(pair<string, vector<UpdateCloudRecordRequestBackgrounds>>("Backgrounds", *request->backgrounds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelId)) {
     query->insert(pair<string, string>("ChannelId", *request->channelId));
@@ -3901,6 +4033,9 @@ UpdateStreamingOutResponse Alibabacloud_Rtc20180111::Client::updateStreamingOutW
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateStreamingOutRequestBackgrounds>>(request->backgrounds)) {
+    query->insert(pair<string, vector<UpdateStreamingOutRequestBackgrounds>>("Backgrounds", *request->backgrounds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelId)) {
     query->insert(pair<string, string>("ChannelId", *request->channelId));
