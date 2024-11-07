@@ -1583,16 +1583,24 @@ GetModelVersionResponse Alibabacloud_AIWorkSpace20210204::Client::getModelVersio
 
 GetPermissionResponse Alibabacloud_AIWorkSpace20210204::Client::getPermissionWithOptions(shared_ptr<string> WorkspaceId,
                                                                                          shared_ptr<string> PermissionCode,
-                                                                                         shared_ptr<GetPermissionRequest> request,
+                                                                                         shared_ptr<GetPermissionRequest> tmpReq,
                                                                                          shared_ptr<map<string, string>> headers,
                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetPermissionShrinkRequest> request = make_shared<GetPermissionShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->labels)) {
+    request->labelsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->labels, make_shared<string>("Labels"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
     query->insert(pair<string, string>("Accessibility", *request->accessibility));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->creator)) {
     query->insert(pair<string, string>("Creator", *request->creator));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labelsShrink)) {
+    query->insert(pair<string, string>("Labels", *request->labelsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->option)) {
     query->insert(pair<string, string>("Option", *request->option));
@@ -2783,6 +2791,60 @@ SetExperimentLabelsResponse Alibabacloud_AIWorkSpace20210204::Client::setExperim
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return setExperimentLabelsWithOptions(ExperimentId, request, headers, runtime);
+}
+
+UpdateCodeSourceResponse Alibabacloud_AIWorkSpace20210204::Client::updateCodeSourceWithOptions(shared_ptr<string> CodeSourceId,
+                                                                                               shared_ptr<UpdateCodeSourceRequest> request,
+                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->codeBranch)) {
+    body->insert(pair<string, string>("CodeBranch", *request->codeBranch));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->codeCommit)) {
+    body->insert(pair<string, string>("CodeCommit", *request->codeCommit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->codeRepo)) {
+    body->insert(pair<string, string>("CodeRepo", *request->codeRepo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->codeRepoAccessToken)) {
+    body->insert(pair<string, string>("CodeRepoAccessToken", *request->codeRepoAccessToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->codeRepoUserName)) {
+    body->insert(pair<string, string>("CodeRepoUserName", *request->codeRepoUserName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->displayName)) {
+    body->insert(pair<string, string>("DisplayName", *request->displayName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mountPath)) {
+    body->insert(pair<string, string>("MountPath", *request->mountPath));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCodeSource"))},
+    {"version", boost::any(string("2021-02-04"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/codesources/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(CodeSourceId)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCodeSourceResponse(callApi(params, req, runtime));
+}
+
+UpdateCodeSourceResponse Alibabacloud_AIWorkSpace20210204::Client::updateCodeSource(shared_ptr<string> CodeSourceId, shared_ptr<UpdateCodeSourceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateCodeSourceWithOptions(CodeSourceId, request, headers, runtime);
 }
 
 UpdateDatasetResponse Alibabacloud_AIWorkSpace20210204::Client::updateDatasetWithOptions(shared_ptr<string> DatasetId,

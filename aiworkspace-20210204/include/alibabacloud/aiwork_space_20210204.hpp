@@ -8610,6 +8610,7 @@ class GetPermissionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessibility{};
   shared_ptr<string> creator{};
+  shared_ptr<map<string, boost::any>> labels{};
   shared_ptr<string> option{};
   shared_ptr<string> resource{};
 
@@ -8629,6 +8630,9 @@ public:
     if (creator) {
       res["Creator"] = boost::any(*creator);
     }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
     if (option) {
       res["Option"] = boost::any(*option);
     }
@@ -8645,6 +8649,14 @@ public:
     if (m.find("Creator") != m.end() && !m["Creator"].empty()) {
       creator = make_shared<string>(boost::any_cast<string>(m["Creator"]));
     }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Labels"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      labels = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("Option") != m.end() && !m["Option"].empty()) {
       option = make_shared<string>(boost::any_cast<string>(m["Option"]));
     }
@@ -8655,6 +8667,63 @@ public:
 
 
   virtual ~GetPermissionRequest() = default;
+};
+class GetPermissionShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessibility{};
+  shared_ptr<string> creator{};
+  shared_ptr<string> labelsShrink{};
+  shared_ptr<string> option{};
+  shared_ptr<string> resource{};
+
+  GetPermissionShrinkRequest() {}
+
+  explicit GetPermissionShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
+    if (creator) {
+      res["Creator"] = boost::any(*creator);
+    }
+    if (labelsShrink) {
+      res["Labels"] = boost::any(*labelsShrink);
+    }
+    if (option) {
+      res["Option"] = boost::any(*option);
+    }
+    if (resource) {
+      res["Resource"] = boost::any(*resource);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
+    if (m.find("Creator") != m.end() && !m["Creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["Creator"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      labelsShrink = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+    if (m.find("Option") != m.end() && !m["Option"].empty()) {
+      option = make_shared<string>(boost::any_cast<string>(m["Option"]));
+    }
+    if (m.find("Resource") != m.end() && !m["Resource"].empty()) {
+      resource = make_shared<string>(boost::any_cast<string>(m["Resource"]));
+    }
+  }
+
+
+  virtual ~GetPermissionShrinkRequest() = default;
 };
 class GetPermissionResponseBodyPermissionRules : public Darabonba::Model {
 public:
@@ -14368,6 +14437,172 @@ public:
 
   virtual ~SetExperimentLabelsResponse() = default;
 };
+class UpdateCodeSourceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> codeBranch{};
+  shared_ptr<string> codeCommit{};
+  shared_ptr<string> codeRepo{};
+  shared_ptr<string> codeRepoAccessToken{};
+  shared_ptr<string> codeRepoUserName{};
+  shared_ptr<string> description{};
+  shared_ptr<string> displayName{};
+  shared_ptr<string> mountPath{};
+
+  UpdateCodeSourceRequest() {}
+
+  explicit UpdateCodeSourceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (codeBranch) {
+      res["CodeBranch"] = boost::any(*codeBranch);
+    }
+    if (codeCommit) {
+      res["CodeCommit"] = boost::any(*codeCommit);
+    }
+    if (codeRepo) {
+      res["CodeRepo"] = boost::any(*codeRepo);
+    }
+    if (codeRepoAccessToken) {
+      res["CodeRepoAccessToken"] = boost::any(*codeRepoAccessToken);
+    }
+    if (codeRepoUserName) {
+      res["CodeRepoUserName"] = boost::any(*codeRepoUserName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (displayName) {
+      res["DisplayName"] = boost::any(*displayName);
+    }
+    if (mountPath) {
+      res["MountPath"] = boost::any(*mountPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CodeBranch") != m.end() && !m["CodeBranch"].empty()) {
+      codeBranch = make_shared<string>(boost::any_cast<string>(m["CodeBranch"]));
+    }
+    if (m.find("CodeCommit") != m.end() && !m["CodeCommit"].empty()) {
+      codeCommit = make_shared<string>(boost::any_cast<string>(m["CodeCommit"]));
+    }
+    if (m.find("CodeRepo") != m.end() && !m["CodeRepo"].empty()) {
+      codeRepo = make_shared<string>(boost::any_cast<string>(m["CodeRepo"]));
+    }
+    if (m.find("CodeRepoAccessToken") != m.end() && !m["CodeRepoAccessToken"].empty()) {
+      codeRepoAccessToken = make_shared<string>(boost::any_cast<string>(m["CodeRepoAccessToken"]));
+    }
+    if (m.find("CodeRepoUserName") != m.end() && !m["CodeRepoUserName"].empty()) {
+      codeRepoUserName = make_shared<string>(boost::any_cast<string>(m["CodeRepoUserName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
+      displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
+    }
+    if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
+      mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
+    }
+  }
+
+
+  virtual ~UpdateCodeSourceRequest() = default;
+};
+class UpdateCodeSourceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> codeSourceId{};
+  shared_ptr<string> requestId{};
+
+  UpdateCodeSourceResponseBody() {}
+
+  explicit UpdateCodeSourceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (codeSourceId) {
+      res["CodeSourceId"] = boost::any(*codeSourceId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CodeSourceId") != m.end() && !m["CodeSourceId"].empty()) {
+      codeSourceId = make_shared<string>(boost::any_cast<string>(m["CodeSourceId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateCodeSourceResponseBody() = default;
+};
+class UpdateCodeSourceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateCodeSourceResponseBody> body{};
+
+  UpdateCodeSourceResponse() {}
+
+  explicit UpdateCodeSourceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateCodeSourceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateCodeSourceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateCodeSourceResponse() = default;
+};
 class UpdateDatasetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -15913,7 +16148,7 @@ public:
   GetModelVersionResponse getModelVersion(shared_ptr<string> ModelId, shared_ptr<string> VersionName);
   GetPermissionResponse getPermissionWithOptions(shared_ptr<string> WorkspaceId,
                                                  shared_ptr<string> PermissionCode,
-                                                 shared_ptr<GetPermissionRequest> request,
+                                                 shared_ptr<GetPermissionRequest> tmpReq,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPermissionResponse getPermission(shared_ptr<string> WorkspaceId, shared_ptr<string> PermissionCode, shared_ptr<GetPermissionRequest> request);
@@ -16005,6 +16240,11 @@ public:
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetExperimentLabelsResponse setExperimentLabels(shared_ptr<string> ExperimentId, shared_ptr<SetExperimentLabelsRequest> request);
+  UpdateCodeSourceResponse updateCodeSourceWithOptions(shared_ptr<string> CodeSourceId,
+                                                       shared_ptr<UpdateCodeSourceRequest> request,
+                                                       shared_ptr<map<string, string>> headers,
+                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateCodeSourceResponse updateCodeSource(shared_ptr<string> CodeSourceId, shared_ptr<UpdateCodeSourceRequest> request);
   UpdateDatasetResponse updateDatasetWithOptions(shared_ptr<string> DatasetId,
                                                  shared_ptr<UpdateDatasetRequest> request,
                                                  shared_ptr<map<string, string>> headers,
