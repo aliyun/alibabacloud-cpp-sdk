@@ -164,10 +164,16 @@ CreateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::createA
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateArtifactShrinkRequest> request = make_shared<CreateArtifactShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateArtifactRequestArtifactBuildProperty>(tmpReq->artifactBuildProperty)) {
+    request->artifactBuildPropertyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->artifactBuildProperty, make_shared<string>("ArtifactBuildProperty"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<CreateArtifactRequestArtifactProperty>(tmpReq->artifactProperty)) {
     request->artifactPropertyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->artifactProperty, make_shared<string>("ArtifactProperty"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactBuildPropertyShrink)) {
+    query->insert(pair<string, string>("ArtifactBuildProperty", *request->artifactBuildPropertyShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->artifactId)) {
     query->insert(pair<string, string>("ArtifactId", *request->artifactId));
   }
@@ -975,11 +981,19 @@ ListAcrImageTagsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listA
   return listAcrImageTagsWithOptions(request, runtime);
 }
 
-ListArtifactVersionsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listArtifactVersionsWithOptions(shared_ptr<ListArtifactVersionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListArtifactVersionsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listArtifactVersionsWithOptions(shared_ptr<ListArtifactVersionsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListArtifactVersionsShrinkRequest> request = make_shared<ListArtifactVersionsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ListArtifactVersionsRequestFilters>>(tmpReq->filters)) {
+    request->filtersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filters, make_shared<string>("Filters"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->artifactId)) {
     query->insert(pair<string, string>("ArtifactId", *request->artifactId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filtersShrink)) {
+    query->insert(pair<string, string>("Filters", *request->filtersShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
@@ -1047,27 +1061,6 @@ ListArtifactsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listArti
 ListArtifactsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listArtifacts(shared_ptr<ListArtifactsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listArtifactsWithOptions(request, runtime);
-}
-
-ListServiceCategoriesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceCategoriesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListServiceCategories"))},
-    {"version", boost::any(string("2021-05-21"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListServiceCategoriesResponse(callApi(params, req, runtime));
-}
-
-ListServiceCategoriesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceCategories() {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listServiceCategoriesWithOptions(runtime);
 }
 
 ListServiceInstancesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceInstancesWithOptions(shared_ptr<ListServiceInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1589,10 +1582,16 @@ UpdateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateA
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateArtifactShrinkRequest> request = make_shared<UpdateArtifactShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateArtifactRequestArtifactBuildProperty>(tmpReq->artifactBuildProperty)) {
+    request->artifactBuildPropertyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->artifactBuildProperty, make_shared<string>("ArtifactBuildProperty"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<UpdateArtifactRequestArtifactProperty>(tmpReq->artifactProperty)) {
     request->artifactPropertyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->artifactProperty, make_shared<string>("ArtifactProperty"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactBuildPropertyShrink)) {
+    query->insert(pair<string, string>("ArtifactBuildProperty", *request->artifactBuildPropertyShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->artifactId)) {
     query->insert(pair<string, string>("ArtifactId", *request->artifactId));
   }
