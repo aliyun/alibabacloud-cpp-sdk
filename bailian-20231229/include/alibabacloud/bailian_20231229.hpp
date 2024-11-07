@@ -1490,6 +1490,70 @@ public:
 
   virtual ~CreateIndexRequestDataSource() = default;
 };
+class CreateIndexRequestMetaExtractColumns : public Darabonba::Model {
+public:
+  shared_ptr<string> desc{};
+  shared_ptr<bool> enableLlm{};
+  shared_ptr<bool> enableSearch{};
+  shared_ptr<string> key{};
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+
+  CreateIndexRequestMetaExtractColumns() {}
+
+  explicit CreateIndexRequestMetaExtractColumns(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desc) {
+      res["Desc"] = boost::any(*desc);
+    }
+    if (enableLlm) {
+      res["EnableLlm"] = boost::any(*enableLlm);
+    }
+    if (enableSearch) {
+      res["EnableSearch"] = boost::any(*enableSearch);
+    }
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Desc") != m.end() && !m["Desc"].empty()) {
+      desc = make_shared<string>(boost::any_cast<string>(m["Desc"]));
+    }
+    if (m.find("EnableLlm") != m.end() && !m["EnableLlm"].empty()) {
+      enableLlm = make_shared<bool>(boost::any_cast<bool>(m["EnableLlm"]));
+    }
+    if (m.find("EnableSearch") != m.end() && !m["EnableSearch"].empty()) {
+      enableSearch = make_shared<bool>(boost::any_cast<bool>(m["EnableSearch"]));
+    }
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateIndexRequestMetaExtractColumns() = default;
+};
 class CreateIndexRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> categoryIds{};
@@ -1509,6 +1573,7 @@ public:
   shared_ptr<string> sinkType{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> structureType{};
+  shared_ptr<vector<CreateIndexRequestMetaExtractColumns>> metaExtractColumns{};
 
   CreateIndexRequest() {}
 
@@ -1574,6 +1639,13 @@ public:
     }
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
+    }
+    if (metaExtractColumns) {
+      vector<boost::any> temp1;
+      for(auto item1:*metaExtractColumns){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["metaExtractColumns"] = boost::any(temp1);
     }
     return res;
   }
@@ -1658,6 +1730,19 @@ public:
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
     }
+    if (m.find("metaExtractColumns") != m.end() && !m["metaExtractColumns"].empty()) {
+      if (typeid(vector<boost::any>) == m["metaExtractColumns"].type()) {
+        vector<CreateIndexRequestMetaExtractColumns> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["metaExtractColumns"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateIndexRequestMetaExtractColumns model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        metaExtractColumns = make_shared<vector<CreateIndexRequestMetaExtractColumns>>(expect1);
+      }
+    }
   }
 
 
@@ -1682,6 +1767,7 @@ public:
   shared_ptr<string> sinkType{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> structureType{};
+  shared_ptr<string> metaExtractColumnsShrink{};
 
   CreateIndexShrinkRequest() {}
 
@@ -1744,6 +1830,9 @@ public:
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
     }
+    if (metaExtractColumnsShrink) {
+      res["metaExtractColumns"] = boost::any(*metaExtractColumnsShrink);
+    }
     return res;
   }
 
@@ -1798,6 +1887,9 @@ public:
     }
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
+    }
+    if (m.find("metaExtractColumns") != m.end() && !m["metaExtractColumns"].empty()) {
+      metaExtractColumnsShrink = make_shared<string>(boost::any_cast<string>(m["metaExtractColumns"]));
     }
   }
 

@@ -229,6 +229,9 @@ CreateIndexResponse Alibabacloud_Bailian20231229::Client::createIndexWithOptions
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->documentIds)) {
     request->documentIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->documentIds, make_shared<string>("DocumentIds"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateIndexRequestMetaExtractColumns>>(tmpReq->metaExtractColumns)) {
+    request->metaExtractColumnsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->metaExtractColumns, make_shared<string>("metaExtractColumns"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->categoryIdsShrink)) {
     query->insert(pair<string, string>("CategoryIds", *request->categoryIdsShrink));
@@ -280,6 +283,9 @@ CreateIndexResponse Alibabacloud_Bailian20231229::Client::createIndexWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->structureType)) {
     query->insert(pair<string, string>("StructureType", *request->structureType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metaExtractColumnsShrink)) {
+    query->insert(pair<string, string>("metaExtractColumns", *request->metaExtractColumnsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
