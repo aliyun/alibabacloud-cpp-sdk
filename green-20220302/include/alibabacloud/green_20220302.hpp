@@ -3397,6 +3397,35 @@ public:
 
   virtual ~ImageModerationResponseBodyDataExtTextInImage() = default;
 };
+class ImageModerationResponseBodyDataExtVlContent : public Darabonba::Model {
+public:
+  shared_ptr<string> outputText{};
+
+  ImageModerationResponseBodyDataExtVlContent() {}
+
+  explicit ImageModerationResponseBodyDataExtVlContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (outputText) {
+      res["OutputText"] = boost::any(*outputText);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OutputText") != m.end() && !m["OutputText"].empty()) {
+      outputText = make_shared<string>(boost::any_cast<string>(m["OutputText"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtVlContent() = default;
+};
 class ImageModerationResponseBodyDataExt : public Darabonba::Model {
 public:
   shared_ptr<vector<ImageModerationResponseBodyDataExtCustomImage>> customImage{};
@@ -3406,6 +3435,7 @@ public:
   shared_ptr<vector<ImageModerationResponseBodyDataExtPublicFigure>> publicFigure{};
   shared_ptr<vector<ImageModerationResponseBodyDataExtRecognition>> recognition{};
   shared_ptr<ImageModerationResponseBodyDataExtTextInImage> textInImage{};
+  shared_ptr<ImageModerationResponseBodyDataExtVlContent> vlContent{};
 
   ImageModerationResponseBodyDataExt() {}
 
@@ -3461,6 +3491,9 @@ public:
     }
     if (textInImage) {
       res["TextInImage"] = textInImage ? boost::any(textInImage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vlContent) {
+      res["VlContent"] = vlContent ? boost::any(vlContent->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -3549,6 +3582,13 @@ public:
         ImageModerationResponseBodyDataExtTextInImage model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TextInImage"]));
         textInImage = make_shared<ImageModerationResponseBodyDataExtTextInImage>(model1);
+      }
+    }
+    if (m.find("VlContent") != m.end() && !m["VlContent"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VlContent"].type()) {
+        ImageModerationResponseBodyDataExtVlContent model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VlContent"]));
+        vlContent = make_shared<ImageModerationResponseBodyDataExtVlContent>(model1);
       }
     }
   }
