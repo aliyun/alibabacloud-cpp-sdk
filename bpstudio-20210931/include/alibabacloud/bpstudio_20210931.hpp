@@ -3603,6 +3603,7 @@ public:
   shared_ptr<string> attribute{};
   shared_ptr<string> dataType{};
   shared_ptr<string> defaultValue{};
+  shared_ptr<string> options{};
   shared_ptr<string> variable{};
 
   GetTemplateResponseBodyDataVariables() {}
@@ -3624,6 +3625,9 @@ public:
     if (defaultValue) {
       res["DefaultValue"] = boost::any(*defaultValue);
     }
+    if (options) {
+      res["Options"] = boost::any(*options);
+    }
     if (variable) {
       res["Variable"] = boost::any(*variable);
     }
@@ -3639,6 +3643,9 @@ public:
     }
     if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
       defaultValue = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
     }
     if (m.find("Variable") != m.end() && !m["Variable"].empty()) {
       variable = make_shared<string>(boost::any_cast<string>(m["Variable"]));
