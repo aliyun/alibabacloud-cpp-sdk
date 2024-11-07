@@ -69233,6 +69233,7 @@ public:
   shared_ptr<string> livePlayUrl{};
   shared_ptr<long> liveStatus{};
   shared_ptr<long> playbackDuration{};
+  shared_ptr<string> replayUrl{};
   shared_ptr<string> requestId{};
   shared_ptr<string> staffId{};
   shared_ptr<long> startTime{};
@@ -69275,6 +69276,9 @@ public:
     }
     if (playbackDuration) {
       res["playbackDuration"] = boost::any(*playbackDuration);
+    }
+    if (replayUrl) {
+      res["replayUrl"] = boost::any(*replayUrl);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -69327,6 +69331,9 @@ public:
     }
     if (m.find("playbackDuration") != m.end() && !m["playbackDuration"].empty()) {
       playbackDuration = make_shared<long>(boost::any_cast<long>(m["playbackDuration"]));
+    }
+    if (m.find("replayUrl") != m.end() && !m["replayUrl"].empty()) {
+      replayUrl = make_shared<string>(boost::any_cast<string>(m["replayUrl"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
