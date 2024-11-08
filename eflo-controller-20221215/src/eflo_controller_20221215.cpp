@@ -150,6 +150,9 @@ CreateClusterResponse Alibabacloud_Eflo-controller20221215::Client::createCluste
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeGroupsShrink)) {
     body->insert(pair<string, string>("NodeGroups", *request->nodeGroupsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->openEniJumboFrame)) {
+    body->insert(pair<string, bool>("OpenEniJumboFrame", *request->openEniJumboFrame));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }

@@ -1138,6 +1138,7 @@ public:
   shared_ptr<CreateClusterRequestNetworks> networks{};
   shared_ptr<vector<string>> nimizVSwitches{};
   shared_ptr<vector<CreateClusterRequestNodeGroups>> nodeGroups{};
+  shared_ptr<bool> openEniJumboFrame{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<CreateClusterRequestTag>> tag{};
 
@@ -1185,6 +1186,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["NodeGroups"] = boost::any(temp1);
+    }
+    if (openEniJumboFrame) {
+      res["OpenEniJumboFrame"] = boost::any(*openEniJumboFrame);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -1258,6 +1262,9 @@ public:
         nodeGroups = make_shared<vector<CreateClusterRequestNodeGroups>>(expect1);
       }
     }
+    if (m.find("OpenEniJumboFrame") != m.end() && !m["OpenEniJumboFrame"].empty()) {
+      openEniJumboFrame = make_shared<bool>(boost::any_cast<bool>(m["OpenEniJumboFrame"]));
+    }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
@@ -1326,6 +1333,7 @@ public:
   shared_ptr<string> networksShrink{};
   shared_ptr<string> nimizVSwitchesShrink{};
   shared_ptr<string> nodeGroupsShrink{};
+  shared_ptr<bool> openEniJumboFrame{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<CreateClusterShrinkRequestTag>> tag{};
 
@@ -1365,6 +1373,9 @@ public:
     }
     if (nodeGroupsShrink) {
       res["NodeGroups"] = boost::any(*nodeGroupsShrink);
+    }
+    if (openEniJumboFrame) {
+      res["OpenEniJumboFrame"] = boost::any(*openEniJumboFrame);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -1406,6 +1417,9 @@ public:
     }
     if (m.find("NodeGroups") != m.end() && !m["NodeGroups"].empty()) {
       nodeGroupsShrink = make_shared<string>(boost::any_cast<string>(m["NodeGroups"]));
+    }
+    if (m.find("OpenEniJumboFrame") != m.end() && !m["OpenEniJumboFrame"].empty()) {
+      openEniJumboFrame = make_shared<bool>(boost::any_cast<bool>(m["OpenEniJumboFrame"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -1740,6 +1754,7 @@ public:
   shared_ptr<vector<DescribeClusterResponseBodyNetworks>> networks{};
   shared_ptr<long> nodeCount{};
   shared_ptr<long> nodeGroupCount{};
+  shared_ptr<string> openEniJumboFrame{};
   shared_ptr<string> operatingState{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
@@ -1797,6 +1812,9 @@ public:
     }
     if (nodeGroupCount) {
       res["NodeGroupCount"] = boost::any(*nodeGroupCount);
+    }
+    if (openEniJumboFrame) {
+      res["OpenEniJumboFrame"] = boost::any(*openEniJumboFrame);
     }
     if (operatingState) {
       res["OperatingState"] = boost::any(*operatingState);
@@ -1872,6 +1890,9 @@ public:
     }
     if (m.find("NodeGroupCount") != m.end() && !m["NodeGroupCount"].empty()) {
       nodeGroupCount = make_shared<long>(boost::any_cast<long>(m["NodeGroupCount"]));
+    }
+    if (m.find("OpenEniJumboFrame") != m.end() && !m["OpenEniJumboFrame"].empty()) {
+      openEniJumboFrame = make_shared<string>(boost::any_cast<string>(m["OpenEniJumboFrame"]));
     }
     if (m.find("OperatingState") != m.end() && !m["OperatingState"].empty()) {
       operatingState = make_shared<string>(boost::any_cast<string>(m["OperatingState"]));
