@@ -11600,6 +11600,7 @@ public:
 class ListGitRepositoriesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<string> orgId{};
   shared_ptr<string> orgName{};
   shared_ptr<string> owner{};
   shared_ptr<long> pageNumber{};
@@ -11619,6 +11620,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
     }
     if (orgName) {
       res["OrgName"] = boost::any(*orgName);
@@ -11644,6 +11648,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
     }
     if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
       orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
@@ -11674,6 +11681,7 @@ public:
   shared_ptr<string> fullName{};
   shared_ptr<string> htmlUrl{};
   shared_ptr<bool> isPrivate{};
+  shared_ptr<long> repoId{};
 
   ListGitRepositoriesResponseBodyGitRepos() {}
 
@@ -11697,6 +11705,9 @@ public:
     if (isPrivate) {
       res["IsPrivate"] = boost::any(*isPrivate);
     }
+    if (repoId) {
+      res["RepoId"] = boost::any(*repoId);
+    }
     return res;
   }
 
@@ -11712,6 +11723,9 @@ public:
     }
     if (m.find("IsPrivate") != m.end() && !m["IsPrivate"].empty()) {
       isPrivate = make_shared<bool>(boost::any_cast<bool>(m["IsPrivate"]));
+    }
+    if (m.find("RepoId") != m.end() && !m["RepoId"].empty()) {
+      repoId = make_shared<long>(boost::any_cast<long>(m["RepoId"]));
     }
   }
 
@@ -17600,6 +17614,7 @@ public:
   shared_ptr<long> totalExecutionCount{};
   shared_ptr<string> updatedBy{};
   shared_ptr<string> updatedDate{};
+  shared_ptr<string> versionName{};
 
   ListTemplatesResponseBodyTemplates() {}
 
@@ -17674,6 +17689,9 @@ public:
     if (updatedDate) {
       res["UpdatedDate"] = boost::any(*updatedDate);
     }
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
+    }
     return res;
   }
 
@@ -17745,6 +17763,9 @@ public:
     }
     if (m.find("UpdatedDate") != m.end() && !m["UpdatedDate"].empty()) {
       updatedDate = make_shared<string>(boost::any_cast<string>(m["UpdatedDate"]));
+    }
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
     }
   }
 

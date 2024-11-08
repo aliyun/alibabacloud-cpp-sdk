@@ -1893,6 +1893,9 @@ ListGitRepositoriesResponse Alibabacloud_Oos20190601::Client::listGitRepositorie
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    query->insert(pair<string, string>("OrgId", *request->orgId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
     query->insert(pair<string, string>("OrgName", *request->orgName));
   }
