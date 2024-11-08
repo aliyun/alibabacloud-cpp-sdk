@@ -6027,6 +6027,8 @@ public:
   shared_ptr<string> deploymentSetId{};
   shared_ptr<string> hostName{};
   shared_ptr<string> hpcClusterId{};
+  shared_ptr<string> httpEndpoint{};
+  shared_ptr<string> httpTokens{};
   shared_ptr<string> imageFamily{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageName{};
@@ -6133,6 +6135,12 @@ public:
     }
     if (hpcClusterId) {
       res["HpcClusterId"] = boost::any(*hpcClusterId);
+    }
+    if (httpEndpoint) {
+      res["HttpEndpoint"] = boost::any(*httpEndpoint);
+    }
+    if (httpTokens) {
+      res["HttpTokens"] = boost::any(*httpTokens);
     }
     if (imageFamily) {
       res["ImageFamily"] = boost::any(*imageFamily);
@@ -6359,6 +6367,12 @@ public:
     }
     if (m.find("HpcClusterId") != m.end() && !m["HpcClusterId"].empty()) {
       hpcClusterId = make_shared<string>(boost::any_cast<string>(m["HpcClusterId"]));
+    }
+    if (m.find("HttpEndpoint") != m.end() && !m["HttpEndpoint"].empty()) {
+      httpEndpoint = make_shared<string>(boost::any_cast<string>(m["HttpEndpoint"]));
+    }
+    if (m.find("HttpTokens") != m.end() && !m["HttpTokens"].empty()) {
+      httpTokens = make_shared<string>(boost::any_cast<string>(m["HttpTokens"]));
     }
     if (m.find("ImageFamily") != m.end() && !m["ImageFamily"].empty()) {
       imageFamily = make_shared<string>(boost::any_cast<string>(m["ImageFamily"]));
@@ -7298,6 +7312,8 @@ public:
   shared_ptr<string> deploymentSetId{};
   shared_ptr<string> hostName{};
   shared_ptr<string> hpcClusterId{};
+  shared_ptr<string> httpEndpoint{};
+  shared_ptr<string> httpTokens{};
   shared_ptr<string> imageFamily{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageName{};
@@ -7404,6 +7420,12 @@ public:
     }
     if (hpcClusterId) {
       res["HpcClusterId"] = boost::any(*hpcClusterId);
+    }
+    if (httpEndpoint) {
+      res["HttpEndpoint"] = boost::any(*httpEndpoint);
+    }
+    if (httpTokens) {
+      res["HttpTokens"] = boost::any(*httpTokens);
     }
     if (imageFamily) {
       res["ImageFamily"] = boost::any(*imageFamily);
@@ -7630,6 +7652,12 @@ public:
     }
     if (m.find("HpcClusterId") != m.end() && !m["HpcClusterId"].empty()) {
       hpcClusterId = make_shared<string>(boost::any_cast<string>(m["HpcClusterId"]));
+    }
+    if (m.find("HttpEndpoint") != m.end() && !m["HttpEndpoint"].empty()) {
+      httpEndpoint = make_shared<string>(boost::any_cast<string>(m["HttpEndpoint"]));
+    }
+    if (m.find("HttpTokens") != m.end() && !m["HttpTokens"].empty()) {
+      httpTokens = make_shared<string>(boost::any_cast<string>(m["HttpTokens"]));
     }
     if (m.find("ImageFamily") != m.end() && !m["ImageFamily"].empty()) {
       imageFamily = make_shared<string>(boost::any_cast<string>(m["ImageFamily"]));
@@ -19877,6 +19905,8 @@ public:
   shared_ptr<string> deploymentSetId{};
   shared_ptr<string> hostName{};
   shared_ptr<string> hpcClusterId{};
+  shared_ptr<string> httpEndpoint{};
+  shared_ptr<string> httpTokens{};
   shared_ptr<string> imageFamily{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageName{};
@@ -19989,6 +20019,12 @@ public:
     }
     if (hpcClusterId) {
       res["HpcClusterId"] = boost::any(*hpcClusterId);
+    }
+    if (httpEndpoint) {
+      res["HttpEndpoint"] = boost::any(*httpEndpoint);
+    }
+    if (httpTokens) {
+      res["HttpTokens"] = boost::any(*httpTokens);
     }
     if (imageFamily) {
       res["ImageFamily"] = boost::any(*imageFamily);
@@ -20239,6 +20275,12 @@ public:
     }
     if (m.find("HpcClusterId") != m.end() && !m["HpcClusterId"].empty()) {
       hpcClusterId = make_shared<string>(boost::any_cast<string>(m["HpcClusterId"]));
+    }
+    if (m.find("HttpEndpoint") != m.end() && !m["HttpEndpoint"].empty()) {
+      httpEndpoint = make_shared<string>(boost::any_cast<string>(m["HttpEndpoint"]));
+    }
+    if (m.find("HttpTokens") != m.end() && !m["HttpTokens"].empty()) {
+      httpTokens = make_shared<string>(boost::any_cast<string>(m["HttpTokens"]));
     }
     if (m.find("ImageFamily") != m.end() && !m["ImageFamily"].empty()) {
       imageFamily = make_shared<string>(boost::any_cast<string>(m["ImageFamily"]));
@@ -31948,6 +31990,8 @@ public:
   shared_ptr<string> deploymentSetId{};
   shared_ptr<string> hostName{};
   shared_ptr<string> hpcClusterId{};
+  shared_ptr<string> httpEndpoint{};
+  shared_ptr<string> httpTokens{};
   shared_ptr<string> imageFamily{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageName{};
@@ -31957,6 +32001,7 @@ public:
   shared_ptr<vector<ModifyScalingConfigurationRequestInstanceTypeOverrides>> instanceTypeOverrides{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> internetChargeType{};
+  shared_ptr<long> internetMaxBandwidthIn{};
   shared_ptr<long> internetMaxBandwidthOut{};
   shared_ptr<string> ioOptimized{};
   shared_ptr<long> ipv6AddressCount{};
@@ -32050,6 +32095,12 @@ public:
     if (hpcClusterId) {
       res["HpcClusterId"] = boost::any(*hpcClusterId);
     }
+    if (httpEndpoint) {
+      res["HttpEndpoint"] = boost::any(*httpEndpoint);
+    }
+    if (httpTokens) {
+      res["HttpTokens"] = boost::any(*httpTokens);
+    }
     if (imageFamily) {
       res["ImageFamily"] = boost::any(*imageFamily);
     }
@@ -32084,6 +32135,9 @@ public:
     }
     if (internetChargeType) {
       res["InternetChargeType"] = boost::any(*internetChargeType);
+    }
+    if (internetMaxBandwidthIn) {
+      res["InternetMaxBandwidthIn"] = boost::any(*internetMaxBandwidthIn);
     }
     if (internetMaxBandwidthOut) {
       res["InternetMaxBandwidthOut"] = boost::any(*internetMaxBandwidthOut);
@@ -32267,6 +32321,12 @@ public:
     if (m.find("HpcClusterId") != m.end() && !m["HpcClusterId"].empty()) {
       hpcClusterId = make_shared<string>(boost::any_cast<string>(m["HpcClusterId"]));
     }
+    if (m.find("HttpEndpoint") != m.end() && !m["HttpEndpoint"].empty()) {
+      httpEndpoint = make_shared<string>(boost::any_cast<string>(m["HttpEndpoint"]));
+    }
+    if (m.find("HttpTokens") != m.end() && !m["HttpTokens"].empty()) {
+      httpTokens = make_shared<string>(boost::any_cast<string>(m["HttpTokens"]));
+    }
     if (m.find("ImageFamily") != m.end() && !m["ImageFamily"].empty()) {
       imageFamily = make_shared<string>(boost::any_cast<string>(m["ImageFamily"]));
     }
@@ -32320,6 +32380,9 @@ public:
     }
     if (m.find("InternetChargeType") != m.end() && !m["InternetChargeType"].empty()) {
       internetChargeType = make_shared<string>(boost::any_cast<string>(m["InternetChargeType"]));
+    }
+    if (m.find("InternetMaxBandwidthIn") != m.end() && !m["InternetMaxBandwidthIn"].empty()) {
+      internetMaxBandwidthIn = make_shared<long>(boost::any_cast<long>(m["InternetMaxBandwidthIn"]));
     }
     if (m.find("InternetMaxBandwidthOut") != m.end() && !m["InternetMaxBandwidthOut"].empty()) {
       internetMaxBandwidthOut = make_shared<long>(boost::any_cast<long>(m["InternetMaxBandwidthOut"]));
@@ -33198,6 +33261,8 @@ public:
   shared_ptr<string> deploymentSetId{};
   shared_ptr<string> hostName{};
   shared_ptr<string> hpcClusterId{};
+  shared_ptr<string> httpEndpoint{};
+  shared_ptr<string> httpTokens{};
   shared_ptr<string> imageFamily{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageName{};
@@ -33207,6 +33272,7 @@ public:
   shared_ptr<vector<ModifyScalingConfigurationShrinkRequestInstanceTypeOverrides>> instanceTypeOverrides{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> internetChargeType{};
+  shared_ptr<long> internetMaxBandwidthIn{};
   shared_ptr<long> internetMaxBandwidthOut{};
   shared_ptr<string> ioOptimized{};
   shared_ptr<long> ipv6AddressCount{};
@@ -33300,6 +33366,12 @@ public:
     if (hpcClusterId) {
       res["HpcClusterId"] = boost::any(*hpcClusterId);
     }
+    if (httpEndpoint) {
+      res["HttpEndpoint"] = boost::any(*httpEndpoint);
+    }
+    if (httpTokens) {
+      res["HttpTokens"] = boost::any(*httpTokens);
+    }
     if (imageFamily) {
       res["ImageFamily"] = boost::any(*imageFamily);
     }
@@ -33334,6 +33406,9 @@ public:
     }
     if (internetChargeType) {
       res["InternetChargeType"] = boost::any(*internetChargeType);
+    }
+    if (internetMaxBandwidthIn) {
+      res["InternetMaxBandwidthIn"] = boost::any(*internetMaxBandwidthIn);
     }
     if (internetMaxBandwidthOut) {
       res["InternetMaxBandwidthOut"] = boost::any(*internetMaxBandwidthOut);
@@ -33517,6 +33592,12 @@ public:
     if (m.find("HpcClusterId") != m.end() && !m["HpcClusterId"].empty()) {
       hpcClusterId = make_shared<string>(boost::any_cast<string>(m["HpcClusterId"]));
     }
+    if (m.find("HttpEndpoint") != m.end() && !m["HttpEndpoint"].empty()) {
+      httpEndpoint = make_shared<string>(boost::any_cast<string>(m["HttpEndpoint"]));
+    }
+    if (m.find("HttpTokens") != m.end() && !m["HttpTokens"].empty()) {
+      httpTokens = make_shared<string>(boost::any_cast<string>(m["HttpTokens"]));
+    }
     if (m.find("ImageFamily") != m.end() && !m["ImageFamily"].empty()) {
       imageFamily = make_shared<string>(boost::any_cast<string>(m["ImageFamily"]));
     }
@@ -33570,6 +33651,9 @@ public:
     }
     if (m.find("InternetChargeType") != m.end() && !m["InternetChargeType"].empty()) {
       internetChargeType = make_shared<string>(boost::any_cast<string>(m["InternetChargeType"]));
+    }
+    if (m.find("InternetMaxBandwidthIn") != m.end() && !m["InternetMaxBandwidthIn"].empty()) {
+      internetMaxBandwidthIn = make_shared<long>(boost::any_cast<long>(m["InternetMaxBandwidthIn"]));
     }
     if (m.find("InternetMaxBandwidthOut") != m.end() && !m["InternetMaxBandwidthOut"].empty()) {
       internetMaxBandwidthOut = make_shared<long>(boost::any_cast<long>(m["InternetMaxBandwidthOut"]));

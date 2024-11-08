@@ -986,6 +986,12 @@ CreateScalingConfigurationResponse Alibabacloud_Ess20220222::Client::createScali
   if (!Darabonba_Util::Client::isUnset<string>(request->hpcClusterId)) {
     query->insert(pair<string, string>("HpcClusterId", *request->hpcClusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpEndpoint)) {
+    query->insert(pair<string, string>("HttpEndpoint", *request->httpEndpoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpTokens)) {
+    query->insert(pair<string, string>("HttpTokens", *request->httpTokens));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageFamily)) {
     query->insert(pair<string, string>("ImageFamily", *request->imageFamily));
   }
@@ -4068,6 +4074,12 @@ ModifyScalingConfigurationResponse Alibabacloud_Ess20220222::Client::modifyScali
   if (!Darabonba_Util::Client::isUnset<string>(request->hpcClusterId)) {
     query->insert(pair<string, string>("HpcClusterId", *request->hpcClusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpEndpoint)) {
+    query->insert(pair<string, string>("HttpEndpoint", *request->httpEndpoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpTokens)) {
+    query->insert(pair<string, string>("HttpTokens", *request->httpTokens));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageFamily)) {
     query->insert(pair<string, string>("ImageFamily", *request->imageFamily));
   }
@@ -4094,6 +4106,9 @@ ModifyScalingConfigurationResponse Alibabacloud_Ess20220222::Client::modifyScali
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->internetChargeType)) {
     query->insert(pair<string, string>("InternetChargeType", *request->internetChargeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->internetMaxBandwidthIn)) {
+    query->insert(pair<string, long>("InternetMaxBandwidthIn", *request->internetMaxBandwidthIn));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->internetMaxBandwidthOut)) {
     query->insert(pair<string, long>("InternetMaxBandwidthOut", *request->internetMaxBandwidthOut));
