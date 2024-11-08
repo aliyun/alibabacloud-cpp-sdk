@@ -12711,6 +12711,7 @@ public:
   shared_ptr<string> namespaceId{};
   shared_ptr<string> nasConfigs{};
   shared_ptr<string> nasId{};
+  shared_ptr<string> oidcRoleName{};
   shared_ptr<string> ossAkId{};
   shared_ptr<string> ossAkSecret{};
   shared_ptr<string> ossMountDescs{};
@@ -12855,6 +12856,9 @@ public:
     }
     if (nasId) {
       res["NasId"] = boost::any(*nasId);
+    }
+    if (oidcRoleName) {
+      res["OidcRoleName"] = boost::any(*oidcRoleName);
     }
     if (ossAkId) {
       res["OssAkId"] = boost::any(*ossAkId);
@@ -13051,6 +13055,9 @@ public:
     }
     if (m.find("NasId") != m.end() && !m["NasId"].empty()) {
       nasId = make_shared<string>(boost::any_cast<string>(m["NasId"]));
+    }
+    if (m.find("OidcRoleName") != m.end() && !m["OidcRoleName"].empty()) {
+      oidcRoleName = make_shared<string>(boost::any_cast<string>(m["OidcRoleName"]));
     }
     if (m.find("OssAkId") != m.end() && !m["OssAkId"].empty()) {
       ossAkId = make_shared<string>(boost::any_cast<string>(m["OssAkId"]));
@@ -17696,6 +17703,7 @@ public:
   shared_ptr<string> mountHost{};
   shared_ptr<string> nasConfigs{};
   shared_ptr<string> nasId{};
+  shared_ptr<string> oidcRoleName{};
   shared_ptr<string> ossAkId{};
   shared_ptr<string> ossAkSecret{};
   shared_ptr<string> ossMountDescs{};
@@ -17841,6 +17849,9 @@ public:
     }
     if (nasId) {
       res["NasId"] = boost::any(*nasId);
+    }
+    if (oidcRoleName) {
+      res["OidcRoleName"] = boost::any(*oidcRoleName);
     }
     if (ossAkId) {
       res["OssAkId"] = boost::any(*ossAkId);
@@ -18034,6 +18045,9 @@ public:
     }
     if (m.find("NasId") != m.end() && !m["NasId"].empty()) {
       nasId = make_shared<string>(boost::any_cast<string>(m["NasId"]));
+    }
+    if (m.find("OidcRoleName") != m.end() && !m["OidcRoleName"].empty()) {
+      oidcRoleName = make_shared<string>(boost::any_cast<string>(m["OidcRoleName"]));
     }
     if (m.find("OssAkId") != m.end() && !m["OssAkId"].empty()) {
       ossAkId = make_shared<string>(boost::any_cast<string>(m["OssAkId"]));
@@ -19055,6 +19069,7 @@ public:
   shared_ptr<string> namespaceId{};
   shared_ptr<string> nasConfigs{};
   shared_ptr<string> nasId{};
+  shared_ptr<string> oidcRoleName{};
   shared_ptr<string> ossAkId{};
   shared_ptr<string> ossAkSecret{};
   shared_ptr<vector<DescribeApplicationConfigResponseBodyDataOssMountDescs>> ossMountDescs{};
@@ -19224,6 +19239,9 @@ public:
     }
     if (nasId) {
       res["NasId"] = boost::any(*nasId);
+    }
+    if (oidcRoleName) {
+      res["OidcRoleName"] = boost::any(*oidcRoleName);
     }
     if (ossAkId) {
       res["OssAkId"] = boost::any(*ossAkId);
@@ -19469,6 +19487,9 @@ public:
     }
     if (m.find("NasId") != m.end() && !m["NasId"].empty()) {
       nasId = make_shared<string>(boost::any_cast<string>(m["NasId"]));
+    }
+    if (m.find("OidcRoleName") != m.end() && !m["OidcRoleName"].empty()) {
+      oidcRoleName = make_shared<string>(boost::any_cast<string>(m["OidcRoleName"]));
     }
     if (m.find("OssAkId") != m.end() && !m["OssAkId"].empty()) {
       ossAkId = make_shared<string>(boost::any_cast<string>(m["OssAkId"]));
@@ -25698,6 +25719,42 @@ public:
 
   virtual ~DescribeIngressResponseBodyDataDefaultRule() = default;
 };
+class DescribeIngressResponseBodyDataRulesRuleActions : public Darabonba::Model {
+public:
+  shared_ptr<string> actionConfig{};
+  shared_ptr<string> actionType{};
+
+  DescribeIngressResponseBodyDataRulesRuleActions() {}
+
+  explicit DescribeIngressResponseBodyDataRulesRuleActions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (actionConfig) {
+      res["ActionConfig"] = boost::any(*actionConfig);
+    }
+    if (actionType) {
+      res["ActionType"] = boost::any(*actionType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActionConfig") != m.end() && !m["ActionConfig"].empty()) {
+      actionConfig = make_shared<string>(boost::any_cast<string>(m["ActionConfig"]));
+    }
+    if (m.find("ActionType") != m.end() && !m["ActionType"].empty()) {
+      actionType = make_shared<string>(boost::any_cast<string>(m["ActionType"]));
+    }
+  }
+
+
+  virtual ~DescribeIngressResponseBodyDataRulesRuleActions() = default;
+};
 class DescribeIngressResponseBodyDataRules : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -25707,6 +25764,7 @@ public:
   shared_ptr<string> domain{};
   shared_ptr<string> path{};
   shared_ptr<string> rewritePath{};
+  shared_ptr<vector<DescribeIngressResponseBodyDataRulesRuleActions>> ruleActions{};
 
   DescribeIngressResponseBodyDataRules() {}
 
@@ -25739,6 +25797,13 @@ public:
     if (rewritePath) {
       res["RewritePath"] = boost::any(*rewritePath);
     }
+    if (ruleActions) {
+      vector<boost::any> temp1;
+      for(auto item1:*ruleActions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RuleActions"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -25763,6 +25828,19 @@ public:
     }
     if (m.find("RewritePath") != m.end() && !m["RewritePath"].empty()) {
       rewritePath = make_shared<string>(boost::any_cast<string>(m["RewritePath"]));
+    }
+    if (m.find("RuleActions") != m.end() && !m["RuleActions"].empty()) {
+      if (typeid(vector<boost::any>) == m["RuleActions"].type()) {
+        vector<DescribeIngressResponseBodyDataRulesRuleActions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RuleActions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeIngressResponseBodyDataRulesRuleActions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ruleActions = make_shared<vector<DescribeIngressResponseBodyDataRulesRuleActions>>(expect1);
+      }
     }
   }
 

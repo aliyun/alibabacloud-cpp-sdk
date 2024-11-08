@@ -343,6 +343,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->nasId)) {
     query->insert(pair<string, string>("NasId", *request->nasId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->oidcRoleName)) {
+    query->insert(pair<string, string>("OidcRoleName", *request->oidcRoleName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->packageType)) {
     query->insert(pair<string, string>("PackageType", *request->packageType));
   }
@@ -1513,6 +1516,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nasId)) {
     query->insert(pair<string, string>("NasId", *request->nasId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->oidcRoleName)) {
+    query->insert(pair<string, string>("OidcRoleName", *request->oidcRoleName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->packageType)) {
     query->insert(pair<string, string>("PackageType", *request->packageType));
