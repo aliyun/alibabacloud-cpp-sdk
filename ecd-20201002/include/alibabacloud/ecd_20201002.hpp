@@ -981,6 +981,7 @@ public:
   shared_ptr<string> desktopStatus{};
   shared_ptr<string> directoryId{};
   shared_ptr<string> keyword{};
+  shared_ptr<string> language{};
   shared_ptr<string> loginRegionId{};
   shared_ptr<string> loginToken{};
   shared_ptr<long> maxResults{};
@@ -1024,6 +1025,9 @@ public:
     }
     if (keyword) {
       res["Keyword"] = boost::any(*keyword);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
     }
     if (loginRegionId) {
       res["LoginRegionId"] = boost::any(*loginRegionId);
@@ -1092,6 +1096,9 @@ public:
     }
     if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
       keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
     if (m.find("LoginRegionId") != m.end() && !m["LoginRegionId"].empty()) {
       loginRegionId = make_shared<string>(boost::any_cast<string>(m["LoginRegionId"]));
@@ -1297,6 +1304,7 @@ public:
   shared_ptr<string> currentAppVersion{};
   shared_ptr<bool> force{};
   shared_ptr<string> newAppVersion{};
+  shared_ptr<string> newDcdVersion{};
   shared_ptr<string> project{};
   shared_ptr<string> releaseNote{};
   shared_ptr<string> releaseNoteEn{};
@@ -1324,6 +1332,9 @@ public:
     }
     if (newAppVersion) {
       res["NewAppVersion"] = boost::any(*newAppVersion);
+    }
+    if (newDcdVersion) {
+      res["NewDcdVersion"] = boost::any(*newDcdVersion);
     }
     if (project) {
       res["Project"] = boost::any(*project);
@@ -1355,6 +1366,9 @@ public:
     }
     if (m.find("NewAppVersion") != m.end() && !m["NewAppVersion"].empty()) {
       newAppVersion = make_shared<string>(boost::any_cast<string>(m["NewAppVersion"]));
+    }
+    if (m.find("NewDcdVersion") != m.end() && !m["NewDcdVersion"].empty()) {
+      newDcdVersion = make_shared<string>(boost::any_cast<string>(m["NewDcdVersion"]));
     }
     if (m.find("Project") != m.end() && !m["Project"].empty()) {
       project = make_shared<string>(boost::any_cast<string>(m["Project"]));
@@ -1442,6 +1456,7 @@ public:
   shared_ptr<string> networkInterfaceIp{};
   shared_ptr<string> officeSiteId{};
   shared_ptr<string> os{};
+  shared_ptr<string> osDescription{};
   shared_ptr<string> osType{};
   shared_ptr<string> platform{};
   shared_ptr<string> policyGroupId{};
@@ -1559,6 +1574,9 @@ public:
     }
     if (os) {
       res["Os"] = boost::any(*os);
+    }
+    if (osDescription) {
+      res["OsDescription"] = boost::any(*osDescription);
     }
     if (osType) {
       res["OsType"] = boost::any(*osType);
@@ -1732,6 +1750,9 @@ public:
     }
     if (m.find("Os") != m.end() && !m["Os"].empty()) {
       os = make_shared<string>(boost::any_cast<string>(m["Os"]));
+    }
+    if (m.find("OsDescription") != m.end() && !m["OsDescription"].empty()) {
+      osDescription = make_shared<string>(boost::any_cast<string>(m["OsDescription"]));
     }
     if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
       osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
@@ -4707,6 +4728,7 @@ public:
 class ResetSnapshotRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientId{};
+  shared_ptr<string> desktopId{};
   shared_ptr<string> loginToken{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sessionId{};
@@ -4724,6 +4746,9 @@ public:
     map<string, boost::any> res;
     if (clientId) {
       res["ClientId"] = boost::any(*clientId);
+    }
+    if (desktopId) {
+      res["DesktopId"] = boost::any(*desktopId);
     }
     if (loginToken) {
       res["LoginToken"] = boost::any(*loginToken);
@@ -4743,6 +4768,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
       clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("DesktopId") != m.end() && !m["DesktopId"].empty()) {
+      desktopId = make_shared<string>(boost::any_cast<string>(m["DesktopId"]));
     }
     if (m.find("LoginToken") != m.end() && !m["LoginToken"].empty()) {
       loginToken = make_shared<string>(boost::any_cast<string>(m["LoginToken"]));

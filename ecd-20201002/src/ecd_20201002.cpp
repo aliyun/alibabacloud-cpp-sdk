@@ -271,6 +271,9 @@ DescribeGlobalDesktopsResponse Alibabacloud_Ecd20201002::Client::describeGlobalD
   if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
     query->insert(pair<string, string>("Keyword", *request->keyword));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("Language", *request->language));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->loginRegionId)) {
     query->insert(pair<string, string>("LoginRegionId", *request->loginRegionId));
   }
@@ -975,6 +978,9 @@ ResetSnapshotResponse Alibabacloud_Ecd20201002::Client::resetSnapshotWithOptions
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
     query->insert(pair<string, string>("ClientId", *request->clientId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->desktopId)) {
+    query->insert(pair<string, string>("DesktopId", *request->desktopId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->loginToken)) {
     query->insert(pair<string, string>("LoginToken", *request->loginToken));
