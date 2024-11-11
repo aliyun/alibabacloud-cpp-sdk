@@ -4763,6 +4763,49 @@ public:
 
   virtual ~GetServiceResponseBodyComplianceMetadata() = default;
 };
+class GetServiceResponseBodyServiceDocumentInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> documentUrl{};
+  shared_ptr<string> locale{};
+  shared_ptr<string> templateName{};
+
+  GetServiceResponseBodyServiceDocumentInfos() {}
+
+  explicit GetServiceResponseBodyServiceDocumentInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (documentUrl) {
+      res["DocumentUrl"] = boost::any(*documentUrl);
+    }
+    if (locale) {
+      res["Locale"] = boost::any(*locale);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DocumentUrl") != m.end() && !m["DocumentUrl"].empty()) {
+      documentUrl = make_shared<string>(boost::any_cast<string>(m["DocumentUrl"]));
+    }
+    if (m.find("Locale") != m.end() && !m["Locale"].empty()) {
+      locale = make_shared<string>(boost::any_cast<string>(m["Locale"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~GetServiceResponseBodyServiceDocumentInfos() = default;
+};
 class GetServiceResponseBodyServiceInfosAgreements : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -5088,6 +5131,7 @@ public:
   shared_ptr<string> serviceAuditDocumentUrl{};
   shared_ptr<string> serviceDiscoverable{};
   shared_ptr<string> serviceDocUrl{};
+  shared_ptr<vector<GetServiceResponseBodyServiceDocumentInfos>> serviceDocumentInfos{};
   shared_ptr<string> serviceId{};
   shared_ptr<vector<GetServiceResponseBodyServiceInfos>> serviceInfos{};
   shared_ptr<string> serviceProductUrl{};
@@ -5216,6 +5260,13 @@ public:
     }
     if (serviceDocUrl) {
       res["ServiceDocUrl"] = boost::any(*serviceDocUrl);
+    }
+    if (serviceDocumentInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceDocumentInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceDocumentInfos"] = boost::any(temp1);
     }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
@@ -5409,6 +5460,19 @@ public:
     }
     if (m.find("ServiceDocUrl") != m.end() && !m["ServiceDocUrl"].empty()) {
       serviceDocUrl = make_shared<string>(boost::any_cast<string>(m["ServiceDocUrl"]));
+    }
+    if (m.find("ServiceDocumentInfos") != m.end() && !m["ServiceDocumentInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceDocumentInfos"].type()) {
+        vector<GetServiceResponseBodyServiceDocumentInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceDocumentInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetServiceResponseBodyServiceDocumentInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceDocumentInfos = make_shared<vector<GetServiceResponseBodyServiceDocumentInfos>>(expect1);
+      }
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
