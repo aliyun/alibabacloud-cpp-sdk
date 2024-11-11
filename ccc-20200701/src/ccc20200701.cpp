@@ -2115,6 +2115,40 @@ EndConferenceResponse Alibabacloud_CCC20200701::Client::endConference(shared_ptr
   return endConferenceWithOptions(request, runtime);
 }
 
+ExportContactFlowResponse Alibabacloud_CCC20200701::Client::exportContactFlowWithOptions(shared_ptr<ExportContactFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowId)) {
+    body->insert(pair<string, string>("FlowId", *request->flowId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
+    body->insert(pair<string, string>("RequestId", *request->requestId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExportContactFlow"))},
+    {"version", boost::any(string("2020-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExportContactFlowResponse(callApi(params, req, runtime));
+}
+
+ExportContactFlowResponse Alibabacloud_CCC20200701::Client::exportContactFlow(shared_ptr<ExportContactFlowRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return exportContactFlowWithOptions(request, runtime);
+}
+
 ExportCustomCallTaggingResponse Alibabacloud_CCC20200701::Client::exportCustomCallTaggingWithOptions(shared_ptr<ExportCustomCallTaggingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3531,6 +3565,40 @@ ImportAdminsResponse Alibabacloud_CCC20200701::Client::importAdminsWithOptions(s
 ImportAdminsResponse Alibabacloud_CCC20200701::Client::importAdmins(shared_ptr<ImportAdminsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return importAdminsWithOptions(request, runtime);
+}
+
+ImportContactFlowResponse Alibabacloud_CCC20200701::Client::importContactFlowWithOptions(shared_ptr<ImportContactFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowPackageData)) {
+    body->insert(pair<string, string>("FlowPackageData", *request->flowPackageData));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
+    body->insert(pair<string, string>("RequestId", *request->requestId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ImportContactFlow"))},
+    {"version", boost::any(string("2020-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ImportContactFlowResponse(callApi(params, req, runtime));
+}
+
+ImportContactFlowResponse Alibabacloud_CCC20200701::Client::importContactFlow(shared_ptr<ImportContactFlowRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return importContactFlowWithOptions(request, runtime);
 }
 
 ImportCorpNumbersResponse Alibabacloud_CCC20200701::Client::importCorpNumbersWithOptions(shared_ptr<ImportCorpNumbersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
