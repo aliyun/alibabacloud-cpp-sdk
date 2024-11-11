@@ -669,6 +669,31 @@ CreateAlarmResponse Alibabacloud_Ess20220222::Client::createAlarm(shared_ptr<Cre
   return createAlarmWithOptions(request, runtime);
 }
 
+CreateDiagnoseReportResponse Alibabacloud_Ess20220222::Client::createDiagnoseReportWithOptions(shared_ptr<CreateDiagnoseReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDiagnoseReport"))},
+    {"version", boost::any(string("2022-02-22"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDiagnoseReportResponse(callApi(params, req, runtime));
+}
+
+CreateDiagnoseReportResponse Alibabacloud_Ess20220222::Client::createDiagnoseReport(shared_ptr<CreateDiagnoseReportRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDiagnoseReportWithOptions(request, runtime);
+}
+
 CreateEciScalingConfigurationResponse Alibabacloud_Ess20220222::Client::createEciScalingConfigurationWithOptions(shared_ptr<CreateEciScalingConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1952,6 +1977,31 @@ DescribeAlertConfigurationResponse Alibabacloud_Ess20220222::Client::describeAle
   return describeAlertConfigurationWithOptions(request, runtime);
 }
 
+DescribeDiagnoseReportsResponse Alibabacloud_Ess20220222::Client::describeDiagnoseReportsWithOptions(shared_ptr<DescribeDiagnoseReportsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDiagnoseReports"))},
+    {"version", boost::any(string("2022-02-22"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDiagnoseReportsResponse(callApi(params, req, runtime));
+}
+
+DescribeDiagnoseReportsResponse Alibabacloud_Ess20220222::Client::describeDiagnoseReports(shared_ptr<DescribeDiagnoseReportsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDiagnoseReportsWithOptions(request, runtime);
+}
+
 DescribeEciScalingConfigurationDetailResponse Alibabacloud_Ess20220222::Client::describeEciScalingConfigurationDetailWithOptions(shared_ptr<DescribeEciScalingConfigurationDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2565,6 +2615,31 @@ DescribeScalingGroupDetailResponse Alibabacloud_Ess20220222::Client::describeSca
 DescribeScalingGroupDetailResponse Alibabacloud_Ess20220222::Client::describeScalingGroupDetail(shared_ptr<DescribeScalingGroupDetailRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeScalingGroupDetailWithOptions(request, runtime);
+}
+
+DescribeScalingGroupDiagnoseDetailsResponse Alibabacloud_Ess20220222::Client::describeScalingGroupDiagnoseDetailsWithOptions(shared_ptr<DescribeScalingGroupDiagnoseDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeScalingGroupDiagnoseDetails"))},
+    {"version", boost::any(string("2022-02-22"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeScalingGroupDiagnoseDetailsResponse(callApi(params, req, runtime));
+}
+
+DescribeScalingGroupDiagnoseDetailsResponse Alibabacloud_Ess20220222::Client::describeScalingGroupDiagnoseDetails(shared_ptr<DescribeScalingGroupDiagnoseDetailsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeScalingGroupDiagnoseDetailsWithOptions(request, runtime);
 }
 
 DescribeScalingGroupsResponse Alibabacloud_Ess20220222::Client::describeScalingGroupsWithOptions(shared_ptr<DescribeScalingGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

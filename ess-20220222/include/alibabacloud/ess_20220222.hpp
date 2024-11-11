@@ -2398,6 +2398,130 @@ public:
 
   virtual ~CreateAlarmResponse() = default;
 };
+class CreateDiagnoseReportRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<string> scalingGroupId{};
+
+  CreateDiagnoseReportRequest() {}
+
+  explicit CreateDiagnoseReportRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~CreateDiagnoseReportRequest() = default;
+};
+class CreateDiagnoseReportResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> reportId{};
+  shared_ptr<string> requestId{};
+
+  CreateDiagnoseReportResponseBody() {}
+
+  explicit CreateDiagnoseReportResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateDiagnoseReportResponseBody() = default;
+};
+class CreateDiagnoseReportResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDiagnoseReportResponseBody> body{};
+
+  CreateDiagnoseReportResponse() {}
+
+  explicit CreateDiagnoseReportResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDiagnoseReportResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDiagnoseReportResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDiagnoseReportResponse() = default;
+};
 class CreateEciScalingConfigurationRequestAcrRegistryInfos : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> domains{};
@@ -11722,6 +11846,335 @@ public:
 
 
   virtual ~DescribeAlertConfigurationResponse() = default;
+};
+class DescribeDiagnoseReportsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> reportIds{};
+  shared_ptr<string> scalingGroupId{};
+
+  DescribeDiagnoseReportsRequest() {}
+
+  explicit DescribeDiagnoseReportsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (reportIds) {
+      res["ReportIds"] = boost::any(*reportIds);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ReportIds") != m.end() && !m["ReportIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ReportIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ReportIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      reportIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeDiagnoseReportsRequest() = default;
+};
+class DescribeDiagnoseReportsResponseBodyReportsDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> diagnoseType{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> status{};
+
+  DescribeDiagnoseReportsResponseBodyReportsDetails() {}
+
+  explicit DescribeDiagnoseReportsResponseBodyReportsDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diagnoseType) {
+      res["DiagnoseType"] = boost::any(*diagnoseType);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiagnoseType") != m.end() && !m["DiagnoseType"].empty()) {
+      diagnoseType = make_shared<string>(boost::any_cast<string>(m["DiagnoseType"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeDiagnoseReportsResponseBodyReportsDetails() = default;
+};
+class DescribeDiagnoseReportsResponseBodyReports : public Darabonba::Model {
+public:
+  shared_ptr<string> creationTime{};
+  shared_ptr<vector<DescribeDiagnoseReportsResponseBodyReportsDetails>> details{};
+  shared_ptr<string> diagnoseStatus{};
+  shared_ptr<string> processStatus{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> reportId{};
+  shared_ptr<string> scalingGroupId{};
+  shared_ptr<string> userId{};
+
+  DescribeDiagnoseReportsResponseBodyReports() {}
+
+  explicit DescribeDiagnoseReportsResponseBodyReports(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (details) {
+      vector<boost::any> temp1;
+      for(auto item1:*details){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Details"] = boost::any(temp1);
+    }
+    if (diagnoseStatus) {
+      res["DiagnoseStatus"] = boost::any(*diagnoseStatus);
+    }
+    if (processStatus) {
+      res["ProcessStatus"] = boost::any(*processStatus);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("Details") != m.end() && !m["Details"].empty()) {
+      if (typeid(vector<boost::any>) == m["Details"].type()) {
+        vector<DescribeDiagnoseReportsResponseBodyReportsDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Details"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDiagnoseReportsResponseBodyReportsDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        details = make_shared<vector<DescribeDiagnoseReportsResponseBodyReportsDetails>>(expect1);
+      }
+    }
+    if (m.find("DiagnoseStatus") != m.end() && !m["DiagnoseStatus"].empty()) {
+      diagnoseStatus = make_shared<string>(boost::any_cast<string>(m["DiagnoseStatus"]));
+    }
+    if (m.find("ProcessStatus") != m.end() && !m["ProcessStatus"].empty()) {
+      processStatus = make_shared<string>(boost::any_cast<string>(m["ProcessStatus"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~DescribeDiagnoseReportsResponseBodyReports() = default;
+};
+class DescribeDiagnoseReportsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<DescribeDiagnoseReportsResponseBodyReports>> reports{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeDiagnoseReportsResponseBody() {}
+
+  explicit DescribeDiagnoseReportsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (reports) {
+      vector<boost::any> temp1;
+      for(auto item1:*reports){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Reports"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Reports") != m.end() && !m["Reports"].empty()) {
+      if (typeid(vector<boost::any>) == m["Reports"].type()) {
+        vector<DescribeDiagnoseReportsResponseBodyReports> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Reports"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDiagnoseReportsResponseBodyReports model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        reports = make_shared<vector<DescribeDiagnoseReportsResponseBodyReports>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeDiagnoseReportsResponseBody() = default;
+};
+class DescribeDiagnoseReportsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDiagnoseReportsResponseBody> body{};
+
+  DescribeDiagnoseReportsResponse() {}
+
+  explicit DescribeDiagnoseReportsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDiagnoseReportsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDiagnoseReportsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDiagnoseReportsResponse() = default;
 };
 class DescribeEciScalingConfigurationDetailRequest : public Darabonba::Model {
 public:
@@ -21677,6 +22130,194 @@ public:
 
 
   virtual ~DescribeScalingGroupDetailResponse() = default;
+};
+class DescribeScalingGroupDiagnoseDetailsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<string> scalingGroupId{};
+
+  DescribeScalingGroupDiagnoseDetailsRequest() {}
+
+  explicit DescribeScalingGroupDiagnoseDetailsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDiagnoseDetailsRequest() = default;
+};
+class DescribeScalingGroupDiagnoseDetailsResponseBodyDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> diagnoseType{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> status{};
+
+  DescribeScalingGroupDiagnoseDetailsResponseBodyDetails() {}
+
+  explicit DescribeScalingGroupDiagnoseDetailsResponseBodyDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diagnoseType) {
+      res["DiagnoseType"] = boost::any(*diagnoseType);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiagnoseType") != m.end() && !m["DiagnoseType"].empty()) {
+      diagnoseType = make_shared<string>(boost::any_cast<string>(m["DiagnoseType"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDiagnoseDetailsResponseBodyDetails() = default;
+};
+class DescribeScalingGroupDiagnoseDetailsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeScalingGroupDiagnoseDetailsResponseBodyDetails>> details{};
+  shared_ptr<string> requestId{};
+
+  DescribeScalingGroupDiagnoseDetailsResponseBody() {}
+
+  explicit DescribeScalingGroupDiagnoseDetailsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (details) {
+      vector<boost::any> temp1;
+      for(auto item1:*details){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Details"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Details") != m.end() && !m["Details"].empty()) {
+      if (typeid(vector<boost::any>) == m["Details"].type()) {
+        vector<DescribeScalingGroupDiagnoseDetailsResponseBodyDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Details"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingGroupDiagnoseDetailsResponseBodyDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        details = make_shared<vector<DescribeScalingGroupDiagnoseDetailsResponseBodyDetails>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDiagnoseDetailsResponseBody() = default;
+};
+class DescribeScalingGroupDiagnoseDetailsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeScalingGroupDiagnoseDetailsResponseBody> body{};
+
+  DescribeScalingGroupDiagnoseDetailsResponse() {}
+
+  explicit DescribeScalingGroupDiagnoseDetailsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeScalingGroupDiagnoseDetailsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeScalingGroupDiagnoseDetailsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDiagnoseDetailsResponse() = default;
 };
 class DescribeScalingGroupsRequestTags : public Darabonba::Model {
 public:
@@ -38079,6 +38720,8 @@ public:
   CompleteLifecycleActionResponse completeLifecycleAction(shared_ptr<CompleteLifecycleActionRequest> request);
   CreateAlarmResponse createAlarmWithOptions(shared_ptr<CreateAlarmRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAlarmResponse createAlarm(shared_ptr<CreateAlarmRequest> request);
+  CreateDiagnoseReportResponse createDiagnoseReportWithOptions(shared_ptr<CreateDiagnoseReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDiagnoseReportResponse createDiagnoseReport(shared_ptr<CreateDiagnoseReportRequest> request);
   CreateEciScalingConfigurationResponse createEciScalingConfigurationWithOptions(shared_ptr<CreateEciScalingConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateEciScalingConfigurationResponse createEciScalingConfiguration(shared_ptr<CreateEciScalingConfigurationRequest> request);
   CreateLifecycleHookResponse createLifecycleHookWithOptions(shared_ptr<CreateLifecycleHookRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -38115,6 +38758,8 @@ public:
   DescribeAlarmsResponse describeAlarms(shared_ptr<DescribeAlarmsRequest> request);
   DescribeAlertConfigurationResponse describeAlertConfigurationWithOptions(shared_ptr<DescribeAlertConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAlertConfigurationResponse describeAlertConfiguration(shared_ptr<DescribeAlertConfigurationRequest> request);
+  DescribeDiagnoseReportsResponse describeDiagnoseReportsWithOptions(shared_ptr<DescribeDiagnoseReportsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDiagnoseReportsResponse describeDiagnoseReports(shared_ptr<DescribeDiagnoseReportsRequest> request);
   DescribeEciScalingConfigurationDetailResponse describeEciScalingConfigurationDetailWithOptions(shared_ptr<DescribeEciScalingConfigurationDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeEciScalingConfigurationDetailResponse describeEciScalingConfigurationDetail(shared_ptr<DescribeEciScalingConfigurationDetailRequest> request);
   DescribeEciScalingConfigurationsResponse describeEciScalingConfigurationsWithOptions(shared_ptr<DescribeEciScalingConfigurationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -38145,6 +38790,8 @@ public:
   DescribeScalingConfigurationsResponse describeScalingConfigurations(shared_ptr<DescribeScalingConfigurationsRequest> request);
   DescribeScalingGroupDetailResponse describeScalingGroupDetailWithOptions(shared_ptr<DescribeScalingGroupDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeScalingGroupDetailResponse describeScalingGroupDetail(shared_ptr<DescribeScalingGroupDetailRequest> request);
+  DescribeScalingGroupDiagnoseDetailsResponse describeScalingGroupDiagnoseDetailsWithOptions(shared_ptr<DescribeScalingGroupDiagnoseDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeScalingGroupDiagnoseDetailsResponse describeScalingGroupDiagnoseDetails(shared_ptr<DescribeScalingGroupDiagnoseDetailsRequest> request);
   DescribeScalingGroupsResponse describeScalingGroupsWithOptions(shared_ptr<DescribeScalingGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeScalingGroupsResponse describeScalingGroups(shared_ptr<DescribeScalingGroupsRequest> request);
   DescribeScalingInstancesResponse describeScalingInstancesWithOptions(shared_ptr<DescribeScalingInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
