@@ -2489,6 +2489,86 @@ CreateSubscribedCalendarResponse Alibabacloud_Aliding20230426::Client::createSub
   return createSubscribedCalendarWithOptions(request, headers, runtime);
 }
 
+CreateTicketResponse Alibabacloud_Aliding20230426::Client::createTicketWithOptions(shared_ptr<CreateTicketRequest> tmpReq, shared_ptr<CreateTicketHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateTicketShrinkRequest> request = make_shared<CreateTicketShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<CreateTicketShrinkHeaders> headers = make_shared<CreateTicketShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<CreateTicketHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateTicketRequestNotify>(tmpReq->notify)) {
+    request->notifyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->notify, make_shared<string>("Notify"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->processorUserIds)) {
+    request->processorUserIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->processorUserIds, make_shared<string>("ProcessorUserIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateTicketRequestSceneContext>(tmpReq->sceneContext)) {
+    request->sceneContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sceneContext, make_shared<string>("SceneContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateTicketRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->customFields)) {
+    body->insert(pair<string, string>("CustomFields", *request->customFields));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->notifyShrink)) {
+    body->insert(pair<string, string>("Notify", *request->notifyShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->openTeamId)) {
+    body->insert(pair<string, string>("OpenTeamId", *request->openTeamId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->openTemplateBizId)) {
+    body->insert(pair<string, string>("OpenTemplateBizId", *request->openTemplateBizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processorUserIdsShrink)) {
+    body->insert(pair<string, string>("ProcessorUserIds", *request->processorUserIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scene)) {
+    body->insert(pair<string, string>("Scene", *request->scene));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneContextShrink)) {
+    body->insert(pair<string, string>("SceneContext", *request->sceneContextShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
+    body->insert(pair<string, string>("Title", *request->title));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateTicket"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/ticket/createTicket"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateTicketResponse(callApi(params, req, runtime));
+}
+
+CreateTicketResponse Alibabacloud_Aliding20230426::Client::createTicket(shared_ptr<CreateTicketRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<CreateTicketHeaders> headers = make_shared<CreateTicketHeaders>();
+  return createTicketWithOptions(request, headers, runtime);
+}
+
 CreateTodoTaskResponse Alibabacloud_Aliding20230426::Client::createTodoTaskWithOptions(shared_ptr<CreateTodoTaskRequest> tmpReq, shared_ptr<CreateTodoTaskHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateTodoTaskShrinkRequest> request = make_shared<CreateTodoTaskShrinkRequest>();
