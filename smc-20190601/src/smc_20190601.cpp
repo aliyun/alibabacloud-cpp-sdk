@@ -320,6 +320,9 @@ CreateWorkgroupResponse Alibabacloud_Smc20190601::Client::createWorkgroupWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateWorkgroupRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateWorkgroupRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -666,6 +669,9 @@ DescribeWorkgroupsResponse Alibabacloud_Smc20190601::Client::describeWorkgroupsW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeWorkgroupsRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<DescribeWorkgroupsRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->workgroupId)) {
     query->insert(pair<string, vector<string>>("WorkgroupId", *request->workgroupId));
