@@ -103,6 +103,9 @@ SendByAliasResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasWithOpti
   if (!Darabonba_Util::Client::isUnset<AndroidPayload>(tmpReq->androidPayload)) {
     request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidPayload, make_shared<string>("AndroidPayload"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<AndroidShortPayload>(tmpReq->androidShortPayload)) {
+    request->androidShortPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidShortPayload, make_shared<string>("AndroidShortPayload"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
     request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
@@ -121,6 +124,9 @@ SendByAliasResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasWithOpti
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->androidPayloadShrink)) {
     body->insert(pair<string, string>("AndroidPayload", *request->androidPayloadShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidShortPayloadShrink)) {
+    body->insert(pair<string, string>("AndroidShortPayload", *request->androidShortPayloadShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelPropertiesShrink)) {
     body->insert(pair<string, string>("ChannelProperties", *request->channelPropertiesShrink));
@@ -180,6 +186,9 @@ SendByAliasFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasFi
   if (!Darabonba_Util::Client::isUnset<AndroidPayload>(tmpReq->androidPayload)) {
     request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidPayload, make_shared<string>("AndroidPayload"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<AndroidShortPayload>(tmpReq->androidShortPayload)) {
+    request->androidShortPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidShortPayload, make_shared<string>("AndroidShortPayload"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
     request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
@@ -195,6 +204,9 @@ SendByAliasFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasFi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->androidPayloadShrink)) {
     body->insert(pair<string, string>("AndroidPayload", *request->androidPayloadShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidShortPayloadShrink)) {
+    body->insert(pair<string, string>("AndroidShortPayload", *request->androidShortPayloadShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelPropertiesShrink)) {
     body->insert(pair<string, string>("ChannelProperties", *request->channelPropertiesShrink));
@@ -257,6 +269,9 @@ SendByAppResponse Alibabacloud_Umeng-push20220225::Client::sendByAppWithOptions(
   if (!Darabonba_Util::Client::isUnset<AndroidPayload>(tmpReq->androidPayload)) {
     request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidPayload, make_shared<string>("AndroidPayload"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<AndroidShortPayload>(tmpReq->androidShortPayload)) {
+    request->androidShortPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidShortPayload, make_shared<string>("AndroidShortPayload"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
     request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
@@ -269,6 +284,9 @@ SendByAppResponse Alibabacloud_Umeng-push20220225::Client::sendByAppWithOptions(
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->androidPayloadShrink)) {
     body->insert(pair<string, string>("AndroidPayload", *request->androidPayloadShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidShortPayloadShrink)) {
+    body->insert(pair<string, string>("AndroidShortPayload", *request->androidShortPayloadShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelPropertiesShrink)) {
     body->insert(pair<string, string>("ChannelProperties", *request->channelPropertiesShrink));
@@ -328,6 +346,9 @@ SendByDeviceResponse Alibabacloud_Umeng-push20220225::Client::sendByDeviceWithOp
   if (!Darabonba_Util::Client::isUnset<AndroidPayload>(tmpReq->androidPayload)) {
     request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidPayload, make_shared<string>("AndroidPayload"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<AndroidShortPayload>(tmpReq->androidShortPayload)) {
+    request->androidShortPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidShortPayload, make_shared<string>("AndroidShortPayload"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
     request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
@@ -340,6 +361,9 @@ SendByDeviceResponse Alibabacloud_Umeng-push20220225::Client::sendByDeviceWithOp
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->androidPayloadShrink)) {
     body->insert(pair<string, string>("AndroidPayload", *request->androidPayloadShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidShortPayloadShrink)) {
+    body->insert(pair<string, string>("AndroidShortPayload", *request->androidShortPayloadShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelPropertiesShrink)) {
     body->insert(pair<string, string>("ChannelProperties", *request->channelPropertiesShrink));
@@ -402,6 +426,9 @@ SendByDeviceFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByDevice
   if (!Darabonba_Util::Client::isUnset<AndroidPayload>(tmpReq->androidPayload)) {
     request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidPayload, make_shared<string>("AndroidPayload"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<AndroidShortPayload>(tmpReq->androidShortPayload)) {
+    request->androidShortPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidShortPayload, make_shared<string>("AndroidShortPayload"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
     request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
@@ -414,6 +441,9 @@ SendByDeviceFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByDevice
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->androidPayloadShrink)) {
     body->insert(pair<string, string>("AndroidPayload", *request->androidPayloadShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidShortPayloadShrink)) {
+    body->insert(pair<string, string>("AndroidShortPayload", *request->androidShortPayloadShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelPropertiesShrink)) {
     body->insert(pair<string, string>("ChannelProperties", *request->channelPropertiesShrink));
@@ -488,6 +518,9 @@ SendByFilterResponse Alibabacloud_Umeng-push20220225::Client::sendByFilterWithOp
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->androidPayloadShrink)) {
     body->insert(pair<string, string>("AndroidPayload", *request->androidPayloadShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<AndroidShortPayload>(request->androidShortPayload)) {
+    body->insert(pair<string, AndroidShortPayload>("AndroidShortPayload", *request->androidShortPayload));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelPropertiesShrink)) {
     body->insert(pair<string, string>("ChannelProperties", *request->channelPropertiesShrink));

@@ -345,6 +345,80 @@ public:
 
   virtual ~AndroidPayload() = default;
 };
+class AndroidShortPayloadBody : public Darabonba::Model {
+public:
+  shared_ptr<string> custom{};
+
+  AndroidShortPayloadBody() {}
+
+  explicit AndroidShortPayloadBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (custom) {
+      res["custom"] = boost::any(*custom);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("custom") != m.end() && !m["custom"].empty()) {
+      custom = make_shared<string>(boost::any_cast<string>(m["custom"]));
+    }
+  }
+
+
+  virtual ~AndroidShortPayloadBody() = default;
+};
+class AndroidShortPayload : public Darabonba::Model {
+public:
+  shared_ptr<AndroidShortPayloadBody> body{};
+  shared_ptr<map<string, boost::any>> extra{};
+
+  AndroidShortPayload() {}
+
+  explicit AndroidShortPayload(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (extra) {
+      res["extra"] = boost::any(*extra);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AndroidShortPayloadBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AndroidShortPayloadBody>(model1);
+      }
+    }
+    if (m.find("extra") != m.end() && !m["extra"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["extra"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      extra = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~AndroidShortPayload() = default;
+};
 class Aps : public Darabonba::Model {
 public:
   shared_ptr<Alert> alert{};
@@ -432,6 +506,7 @@ public:
   shared_ptr<string> useHuaweiMessage{};
   shared_ptr<string> vivoAddBadge{};
   shared_ptr<string> vivoCategory{};
+  shared_ptr<string> vivoPushMode{};
   shared_ptr<string> xiaomiChannelId{};
 
   ChannelProperties() {}
@@ -474,6 +549,9 @@ public:
     if (vivoCategory) {
       res["vivoCategory"] = boost::any(*vivoCategory);
     }
+    if (vivoPushMode) {
+      res["vivoPushMode"] = boost::any(*vivoPushMode);
+    }
     if (xiaomiChannelId) {
       res["xiaomiChannelId"] = boost::any(*xiaomiChannelId);
     }
@@ -510,6 +588,9 @@ public:
     }
     if (m.find("vivoCategory") != m.end() && !m["vivoCategory"].empty()) {
       vivoCategory = make_shared<string>(boost::any_cast<string>(m["vivoCategory"]));
+    }
+    if (m.find("vivoPushMode") != m.end() && !m["vivoPushMode"].empty()) {
+      vivoPushMode = make_shared<string>(boost::any_cast<string>(m["vivoPushMode"]));
     }
     if (m.find("xiaomiChannelId") != m.end() && !m["xiaomiChannelId"].empty()) {
       xiaomiChannelId = make_shared<string>(boost::any_cast<string>(m["xiaomiChannelId"]));
@@ -1024,6 +1105,7 @@ public:
   shared_ptr<string> alias{};
   shared_ptr<string> aliasType{};
   shared_ptr<AndroidPayload> androidPayload{};
+  shared_ptr<AndroidShortPayload> androidShortPayload{};
   shared_ptr<ChannelProperties> channelProperties{};
   shared_ptr<string> description{};
   shared_ptr<IosPayload> iosPayload{};
@@ -1052,6 +1134,9 @@ public:
     }
     if (androidPayload) {
       res["AndroidPayload"] = androidPayload ? boost::any(androidPayload->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (androidShortPayload) {
+      res["AndroidShortPayload"] = androidShortPayload ? boost::any(androidShortPayload->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (channelProperties) {
       res["ChannelProperties"] = channelProperties ? boost::any(channelProperties->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1095,6 +1180,13 @@ public:
         AndroidPayload model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AndroidPayload"]));
         androidPayload = make_shared<AndroidPayload>(model1);
+      }
+    }
+    if (m.find("AndroidShortPayload") != m.end() && !m["AndroidShortPayload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AndroidShortPayload"].type()) {
+        AndroidShortPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AndroidShortPayload"]));
+        androidShortPayload = make_shared<AndroidShortPayload>(model1);
       }
     }
     if (m.find("ChannelProperties") != m.end() && !m["ChannelProperties"].empty()) {
@@ -1146,6 +1238,7 @@ public:
   shared_ptr<string> alias{};
   shared_ptr<string> aliasType{};
   shared_ptr<string> androidPayloadShrink{};
+  shared_ptr<string> androidShortPayloadShrink{};
   shared_ptr<string> channelPropertiesShrink{};
   shared_ptr<string> description{};
   shared_ptr<string> iosPayloadShrink{};
@@ -1174,6 +1267,9 @@ public:
     }
     if (androidPayloadShrink) {
       res["AndroidPayload"] = boost::any(*androidPayloadShrink);
+    }
+    if (androidShortPayloadShrink) {
+      res["AndroidShortPayload"] = boost::any(*androidShortPayloadShrink);
     }
     if (channelPropertiesShrink) {
       res["ChannelProperties"] = boost::any(*channelPropertiesShrink);
@@ -1214,6 +1310,9 @@ public:
     }
     if (m.find("AndroidPayload") != m.end() && !m["AndroidPayload"].empty()) {
       androidPayloadShrink = make_shared<string>(boost::any_cast<string>(m["AndroidPayload"]));
+    }
+    if (m.find("AndroidShortPayload") != m.end() && !m["AndroidShortPayload"].empty()) {
+      androidShortPayloadShrink = make_shared<string>(boost::any_cast<string>(m["AndroidShortPayload"]));
     }
     if (m.find("ChannelProperties") != m.end() && !m["ChannelProperties"].empty()) {
       channelPropertiesShrink = make_shared<string>(boost::any_cast<string>(m["ChannelProperties"]));
@@ -1400,6 +1499,7 @@ class SendByAliasFileIdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aliasType{};
   shared_ptr<AndroidPayload> androidPayload{};
+  shared_ptr<AndroidShortPayload> androidShortPayload{};
   shared_ptr<ChannelProperties> channelProperties{};
   shared_ptr<string> description{};
   shared_ptr<string> fileId{};
@@ -1426,6 +1526,9 @@ public:
     }
     if (androidPayload) {
       res["AndroidPayload"] = androidPayload ? boost::any(androidPayload->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (androidShortPayload) {
+      res["AndroidShortPayload"] = androidShortPayload ? boost::any(androidShortPayload->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (channelProperties) {
       res["ChannelProperties"] = channelProperties ? boost::any(channelProperties->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1469,6 +1572,13 @@ public:
         AndroidPayload model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AndroidPayload"]));
         androidPayload = make_shared<AndroidPayload>(model1);
+      }
+    }
+    if (m.find("AndroidShortPayload") != m.end() && !m["AndroidShortPayload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AndroidShortPayload"].type()) {
+        AndroidShortPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AndroidShortPayload"]));
+        androidShortPayload = make_shared<AndroidShortPayload>(model1);
       }
     }
     if (m.find("ChannelProperties") != m.end() && !m["ChannelProperties"].empty()) {
@@ -1522,6 +1632,7 @@ class SendByAliasFileIdShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aliasType{};
   shared_ptr<string> androidPayloadShrink{};
+  shared_ptr<string> androidShortPayloadShrink{};
   shared_ptr<string> channelPropertiesShrink{};
   shared_ptr<string> description{};
   shared_ptr<string> fileId{};
@@ -1548,6 +1659,9 @@ public:
     }
     if (androidPayloadShrink) {
       res["AndroidPayload"] = boost::any(*androidPayloadShrink);
+    }
+    if (androidShortPayloadShrink) {
+      res["AndroidShortPayload"] = boost::any(*androidShortPayloadShrink);
     }
     if (channelPropertiesShrink) {
       res["ChannelProperties"] = boost::any(*channelPropertiesShrink);
@@ -1588,6 +1702,9 @@ public:
     }
     if (m.find("AndroidPayload") != m.end() && !m["AndroidPayload"].empty()) {
       androidPayloadShrink = make_shared<string>(boost::any_cast<string>(m["AndroidPayload"]));
+    }
+    if (m.find("AndroidShortPayload") != m.end() && !m["AndroidShortPayload"].empty()) {
+      androidShortPayloadShrink = make_shared<string>(boost::any_cast<string>(m["AndroidShortPayload"]));
     }
     if (m.find("ChannelProperties") != m.end() && !m["ChannelProperties"].empty()) {
       channelPropertiesShrink = make_shared<string>(boost::any_cast<string>(m["ChannelProperties"]));
@@ -1776,6 +1893,7 @@ public:
 class SendByAppRequest : public Darabonba::Model {
 public:
   shared_ptr<AndroidPayload> androidPayload{};
+  shared_ptr<AndroidShortPayload> androidShortPayload{};
   shared_ptr<ChannelProperties> channelProperties{};
   shared_ptr<string> description{};
   shared_ptr<IosPayload> iosPayload{};
@@ -1798,6 +1916,9 @@ public:
     map<string, boost::any> res;
     if (androidPayload) {
       res["AndroidPayload"] = androidPayload ? boost::any(androidPayload->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (androidShortPayload) {
+      res["AndroidShortPayload"] = androidShortPayload ? boost::any(androidShortPayload->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (channelProperties) {
       res["ChannelProperties"] = channelProperties ? boost::any(channelProperties->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1835,6 +1956,13 @@ public:
         AndroidPayload model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AndroidPayload"]));
         androidPayload = make_shared<AndroidPayload>(model1);
+      }
+    }
+    if (m.find("AndroidShortPayload") != m.end() && !m["AndroidShortPayload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AndroidShortPayload"].type()) {
+        AndroidShortPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AndroidShortPayload"]));
+        androidShortPayload = make_shared<AndroidShortPayload>(model1);
       }
     }
     if (m.find("ChannelProperties") != m.end() && !m["ChannelProperties"].empty()) {
@@ -1884,6 +2012,7 @@ public:
 class SendByAppShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> androidPayloadShrink{};
+  shared_ptr<string> androidShortPayloadShrink{};
   shared_ptr<string> channelPropertiesShrink{};
   shared_ptr<string> description{};
   shared_ptr<string> iosPayloadShrink{};
@@ -1906,6 +2035,9 @@ public:
     map<string, boost::any> res;
     if (androidPayloadShrink) {
       res["AndroidPayload"] = boost::any(*androidPayloadShrink);
+    }
+    if (androidShortPayloadShrink) {
+      res["AndroidShortPayload"] = boost::any(*androidShortPayloadShrink);
     }
     if (channelPropertiesShrink) {
       res["ChannelProperties"] = boost::any(*channelPropertiesShrink);
@@ -1940,6 +2072,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AndroidPayload") != m.end() && !m["AndroidPayload"].empty()) {
       androidPayloadShrink = make_shared<string>(boost::any_cast<string>(m["AndroidPayload"]));
+    }
+    if (m.find("AndroidShortPayload") != m.end() && !m["AndroidShortPayload"].empty()) {
+      androidShortPayloadShrink = make_shared<string>(boost::any_cast<string>(m["AndroidShortPayload"]));
     }
     if (m.find("ChannelProperties") != m.end() && !m["ChannelProperties"].empty()) {
       channelPropertiesShrink = make_shared<string>(boost::any_cast<string>(m["ChannelProperties"]));
@@ -2125,6 +2260,7 @@ public:
 class SendByDeviceRequest : public Darabonba::Model {
 public:
   shared_ptr<AndroidPayload> androidPayload{};
+  shared_ptr<AndroidShortPayload> androidShortPayload{};
   shared_ptr<ChannelProperties> channelProperties{};
   shared_ptr<string> description{};
   shared_ptr<string> deviceTokens{};
@@ -2148,6 +2284,9 @@ public:
     map<string, boost::any> res;
     if (androidPayload) {
       res["AndroidPayload"] = androidPayload ? boost::any(androidPayload->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (androidShortPayload) {
+      res["AndroidShortPayload"] = androidShortPayload ? boost::any(androidShortPayload->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (channelProperties) {
       res["ChannelProperties"] = channelProperties ? boost::any(channelProperties->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2188,6 +2327,13 @@ public:
         AndroidPayload model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AndroidPayload"]));
         androidPayload = make_shared<AndroidPayload>(model1);
+      }
+    }
+    if (m.find("AndroidShortPayload") != m.end() && !m["AndroidShortPayload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AndroidShortPayload"].type()) {
+        AndroidShortPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AndroidShortPayload"]));
+        androidShortPayload = make_shared<AndroidShortPayload>(model1);
       }
     }
     if (m.find("ChannelProperties") != m.end() && !m["ChannelProperties"].empty()) {
@@ -2240,6 +2386,7 @@ public:
 class SendByDeviceShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> androidPayloadShrink{};
+  shared_ptr<string> androidShortPayloadShrink{};
   shared_ptr<string> channelPropertiesShrink{};
   shared_ptr<string> description{};
   shared_ptr<string> deviceTokens{};
@@ -2263,6 +2410,9 @@ public:
     map<string, boost::any> res;
     if (androidPayloadShrink) {
       res["AndroidPayload"] = boost::any(*androidPayloadShrink);
+    }
+    if (androidShortPayloadShrink) {
+      res["AndroidShortPayload"] = boost::any(*androidShortPayloadShrink);
     }
     if (channelPropertiesShrink) {
       res["ChannelProperties"] = boost::any(*channelPropertiesShrink);
@@ -2300,6 +2450,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AndroidPayload") != m.end() && !m["AndroidPayload"].empty()) {
       androidPayloadShrink = make_shared<string>(boost::any_cast<string>(m["AndroidPayload"]));
+    }
+    if (m.find("AndroidShortPayload") != m.end() && !m["AndroidShortPayload"].empty()) {
+      androidShortPayloadShrink = make_shared<string>(boost::any_cast<string>(m["AndroidShortPayload"]));
     }
     if (m.find("ChannelProperties") != m.end() && !m["ChannelProperties"].empty()) {
       channelPropertiesShrink = make_shared<string>(boost::any_cast<string>(m["ChannelProperties"]));
@@ -2488,6 +2641,7 @@ public:
 class SendByDeviceFileIdRequest : public Darabonba::Model {
 public:
   shared_ptr<AndroidPayload> androidPayload{};
+  shared_ptr<AndroidShortPayload> androidShortPayload{};
   shared_ptr<ChannelProperties> channelProperties{};
   shared_ptr<string> description{};
   shared_ptr<string> fileId{};
@@ -2511,6 +2665,9 @@ public:
     map<string, boost::any> res;
     if (androidPayload) {
       res["AndroidPayload"] = androidPayload ? boost::any(androidPayload->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (androidShortPayload) {
+      res["AndroidShortPayload"] = androidShortPayload ? boost::any(androidShortPayload->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (channelProperties) {
       res["ChannelProperties"] = channelProperties ? boost::any(channelProperties->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2551,6 +2708,13 @@ public:
         AndroidPayload model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AndroidPayload"]));
         androidPayload = make_shared<AndroidPayload>(model1);
+      }
+    }
+    if (m.find("AndroidShortPayload") != m.end() && !m["AndroidShortPayload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AndroidShortPayload"].type()) {
+        AndroidShortPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AndroidShortPayload"]));
+        androidShortPayload = make_shared<AndroidShortPayload>(model1);
       }
     }
     if (m.find("ChannelProperties") != m.end() && !m["ChannelProperties"].empty()) {
@@ -2603,6 +2767,7 @@ public:
 class SendByDeviceFileIdShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> androidPayloadShrink{};
+  shared_ptr<string> androidShortPayloadShrink{};
   shared_ptr<string> channelPropertiesShrink{};
   shared_ptr<string> description{};
   shared_ptr<string> fileId{};
@@ -2626,6 +2791,9 @@ public:
     map<string, boost::any> res;
     if (androidPayloadShrink) {
       res["AndroidPayload"] = boost::any(*androidPayloadShrink);
+    }
+    if (androidShortPayloadShrink) {
+      res["AndroidShortPayload"] = boost::any(*androidShortPayloadShrink);
     }
     if (channelPropertiesShrink) {
       res["ChannelProperties"] = boost::any(*channelPropertiesShrink);
@@ -2663,6 +2831,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AndroidPayload") != m.end() && !m["AndroidPayload"].empty()) {
       androidPayloadShrink = make_shared<string>(boost::any_cast<string>(m["AndroidPayload"]));
+    }
+    if (m.find("AndroidShortPayload") != m.end() && !m["AndroidShortPayload"].empty()) {
+      androidShortPayloadShrink = make_shared<string>(boost::any_cast<string>(m["AndroidShortPayload"]));
     }
     if (m.find("ChannelProperties") != m.end() && !m["ChannelProperties"].empty()) {
       channelPropertiesShrink = make_shared<string>(boost::any_cast<string>(m["ChannelProperties"]));
@@ -2851,6 +3022,7 @@ public:
 class SendByFilterRequest : public Darabonba::Model {
 public:
   shared_ptr<AndroidPayload> androidPayload{};
+  shared_ptr<AndroidShortPayload> androidShortPayload{};
   shared_ptr<ChannelProperties> channelProperties{};
   shared_ptr<string> description{};
   shared_ptr<string> filter{};
@@ -2874,6 +3046,9 @@ public:
     map<string, boost::any> res;
     if (androidPayload) {
       res["AndroidPayload"] = androidPayload ? boost::any(androidPayload->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (androidShortPayload) {
+      res["AndroidShortPayload"] = androidShortPayload ? boost::any(androidShortPayload->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (channelProperties) {
       res["ChannelProperties"] = channelProperties ? boost::any(channelProperties->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2914,6 +3089,13 @@ public:
         AndroidPayload model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AndroidPayload"]));
         androidPayload = make_shared<AndroidPayload>(model1);
+      }
+    }
+    if (m.find("AndroidShortPayload") != m.end() && !m["AndroidShortPayload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AndroidShortPayload"].type()) {
+        AndroidShortPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AndroidShortPayload"]));
+        androidShortPayload = make_shared<AndroidShortPayload>(model1);
       }
     }
     if (m.find("ChannelProperties") != m.end() && !m["ChannelProperties"].empty()) {
@@ -2966,6 +3148,7 @@ public:
 class SendByFilterShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> androidPayloadShrink{};
+  shared_ptr<AndroidShortPayload> androidShortPayload{};
   shared_ptr<string> channelPropertiesShrink{};
   shared_ptr<string> description{};
   shared_ptr<string> filter{};
@@ -2989,6 +3172,9 @@ public:
     map<string, boost::any> res;
     if (androidPayloadShrink) {
       res["AndroidPayload"] = boost::any(*androidPayloadShrink);
+    }
+    if (androidShortPayload) {
+      res["AndroidShortPayload"] = androidShortPayload ? boost::any(androidShortPayload->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (channelPropertiesShrink) {
       res["ChannelProperties"] = boost::any(*channelPropertiesShrink);
@@ -3026,6 +3212,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AndroidPayload") != m.end() && !m["AndroidPayload"].empty()) {
       androidPayloadShrink = make_shared<string>(boost::any_cast<string>(m["AndroidPayload"]));
+    }
+    if (m.find("AndroidShortPayload") != m.end() && !m["AndroidShortPayload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AndroidShortPayload"].type()) {
+        AndroidShortPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AndroidShortPayload"]));
+        androidShortPayload = make_shared<AndroidShortPayload>(model1);
+      }
     }
     if (m.find("ChannelProperties") != m.end() && !m["ChannelProperties"].empty()) {
       channelPropertiesShrink = make_shared<string>(boost::any_cast<string>(m["ChannelProperties"]));
