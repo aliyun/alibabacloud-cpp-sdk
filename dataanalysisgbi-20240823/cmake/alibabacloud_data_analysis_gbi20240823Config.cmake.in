@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_data_analysis_gbi20240823Targets.cmake")
+check_required_components("alibabacloud_data_analysis_gbi20240823")
