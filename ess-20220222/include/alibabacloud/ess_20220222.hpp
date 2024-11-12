@@ -18350,6 +18350,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> spotStrategy{};
   shared_ptr<vector<string>> vSwitchId{};
+  shared_ptr<vector<string>> zoneId{};
 
   DescribePatternTypesRequest() {}
 
@@ -18447,6 +18448,9 @@ public:
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
     }
     return res;
   }
@@ -18608,6 +18612,16 @@ public:
         }
       }
       vSwitchId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ZoneId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ZoneId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      zoneId = make_shared<vector<string>>(toVec1);
     }
   }
 
