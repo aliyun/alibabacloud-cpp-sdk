@@ -907,6 +907,7 @@ public:
   shared_ptr<string> publisher{};
   shared_ptr<string> regionId{};
   shared_ptr<string> templateName{};
+  shared_ptr<string> versionName{};
 
   CreatePublicTemplateRequest() {}
 
@@ -939,6 +940,9 @@ public:
     if (templateName) {
       res["TemplateName"] = boost::any(*templateName);
     }
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
+    }
     return res;
   }
 
@@ -963,6 +967,9 @@ public:
     }
     if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
       templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
     }
   }
 
@@ -9233,6 +9240,7 @@ public:
   shared_ptr<string> publisher{};
   shared_ptr<string> regionId{};
   shared_ptr<string> templateName{};
+  shared_ptr<string> versionName{};
 
   UpdatePublicTemplateRequest() {}
 
@@ -9262,6 +9270,9 @@ public:
     if (templateName) {
       res["TemplateName"] = boost::any(*templateName);
     }
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
+    }
     return res;
   }
 
@@ -9283,6 +9294,9 @@ public:
     }
     if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
       templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
     }
   }
 

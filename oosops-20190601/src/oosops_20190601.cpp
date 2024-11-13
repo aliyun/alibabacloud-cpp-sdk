@@ -227,6 +227,9 @@ CreatePublicTemplateResponse Alibabacloud_Oosops20190601::Client::createPublicTe
   if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
     query->insert(pair<string, string>("TemplateName", *request->templateName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->versionName)) {
+    query->insert(pair<string, string>("VersionName", *request->versionName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1765,6 +1768,9 @@ UpdatePublicTemplateResponse Alibabacloud_Oosops20190601::Client::updatePublicTe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
     query->insert(pair<string, string>("TemplateName", *request->templateName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->versionName)) {
+    query->insert(pair<string, string>("VersionName", *request->versionName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
