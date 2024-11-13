@@ -3039,6 +3039,91 @@ public:
 
   virtual ~DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList() = default;
 };
+class DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList : public Darabonba::Model {
+public:
+  shared_ptr<long> enableDays{};
+  shared_ptr<long> flowCn{};
+  shared_ptr<long> flowIntl{};
+  shared_ptr<long> ipCountCn{};
+  shared_ptr<long> ipCountIntl{};
+  shared_ptr<string> memberUid{};
+  shared_ptr<long> standardAssetsFlowCn{};
+  shared_ptr<long> standardAssetsFlowIntl{};
+  shared_ptr<string> uid{};
+
+  DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList() {}
+
+  explicit DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableDays) {
+      res["EnableDays"] = boost::any(*enableDays);
+    }
+    if (flowCn) {
+      res["FlowCn"] = boost::any(*flowCn);
+    }
+    if (flowIntl) {
+      res["FlowIntl"] = boost::any(*flowIntl);
+    }
+    if (ipCountCn) {
+      res["IpCountCn"] = boost::any(*ipCountCn);
+    }
+    if (ipCountIntl) {
+      res["IpCountIntl"] = boost::any(*ipCountIntl);
+    }
+    if (memberUid) {
+      res["MemberUid"] = boost::any(*memberUid);
+    }
+    if (standardAssetsFlowCn) {
+      res["StandardAssetsFlowCn"] = boost::any(*standardAssetsFlowCn);
+    }
+    if (standardAssetsFlowIntl) {
+      res["StandardAssetsFlowIntl"] = boost::any(*standardAssetsFlowIntl);
+    }
+    if (uid) {
+      res["Uid"] = boost::any(*uid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableDays") != m.end() && !m["EnableDays"].empty()) {
+      enableDays = make_shared<long>(boost::any_cast<long>(m["EnableDays"]));
+    }
+    if (m.find("FlowCn") != m.end() && !m["FlowCn"].empty()) {
+      flowCn = make_shared<long>(boost::any_cast<long>(m["FlowCn"]));
+    }
+    if (m.find("FlowIntl") != m.end() && !m["FlowIntl"].empty()) {
+      flowIntl = make_shared<long>(boost::any_cast<long>(m["FlowIntl"]));
+    }
+    if (m.find("IpCountCn") != m.end() && !m["IpCountCn"].empty()) {
+      ipCountCn = make_shared<long>(boost::any_cast<long>(m["IpCountCn"]));
+    }
+    if (m.find("IpCountIntl") != m.end() && !m["IpCountIntl"].empty()) {
+      ipCountIntl = make_shared<long>(boost::any_cast<long>(m["IpCountIntl"]));
+    }
+    if (m.find("MemberUid") != m.end() && !m["MemberUid"].empty()) {
+      memberUid = make_shared<string>(boost::any_cast<string>(m["MemberUid"]));
+    }
+    if (m.find("StandardAssetsFlowCn") != m.end() && !m["StandardAssetsFlowCn"].empty()) {
+      standardAssetsFlowCn = make_shared<long>(boost::any_cast<long>(m["StandardAssetsFlowCn"]));
+    }
+    if (m.find("StandardAssetsFlowIntl") != m.end() && !m["StandardAssetsFlowIntl"].empty()) {
+      standardAssetsFlowIntl = make_shared<long>(boost::any_cast<long>(m["StandardAssetsFlowIntl"]));
+    }
+    if (m.find("Uid") != m.end() && !m["Uid"].empty()) {
+      uid = make_shared<string>(boost::any_cast<string>(m["Uid"]));
+    }
+  }
+
+
+  virtual ~DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList() = default;
+};
 class DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList : public Darabonba::Model {
 public:
   shared_ptr<string> memberFlow{};
@@ -3099,6 +3184,7 @@ public:
   shared_ptr<long> ipCount{};
   shared_ptr<vector<DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList>> ipCountOrFunctionList{};
   shared_ptr<string> ipInfo{};
+  shared_ptr<vector<DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList>> monthlySummaryList{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList>> standardAssetsFlowList{};
   shared_ptr<map<string, boost::any>> standardAssetsFlowRegion{};
@@ -3149,6 +3235,13 @@ public:
     }
     if (ipInfo) {
       res["IpInfo"] = boost::any(*ipInfo);
+    }
+    if (monthlySummaryList) {
+      vector<boost::any> temp1;
+      for(auto item1:*monthlySummaryList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MonthlySummaryList"] = boost::any(temp1);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -3230,6 +3323,19 @@ public:
     }
     if (m.find("IpInfo") != m.end() && !m["IpInfo"].empty()) {
       ipInfo = make_shared<string>(boost::any_cast<string>(m["IpInfo"]));
+    }
+    if (m.find("MonthlySummaryList") != m.end() && !m["MonthlySummaryList"].empty()) {
+      if (typeid(vector<boost::any>) == m["MonthlySummaryList"].type()) {
+        vector<DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MonthlySummaryList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        monthlySummaryList = make_shared<vector<DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList>>(expect1);
+      }
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -3937,6 +4043,8 @@ class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig : public Darabonb
 public:
   shared_ptr<long> bandwidth{};
   shared_ptr<long> bindIpCount{};
+  shared_ptr<long> elasticBwMbps{};
+  shared_ptr<string> elasticBwMode{};
   shared_ptr<long> ipAdvanceThre{};
   shared_ptr<long> ipBasicThre{};
   shared_ptr<long> ipSpec{};
@@ -3959,6 +4067,12 @@ public:
     }
     if (bindIpCount) {
       res["BindIpCount"] = boost::any(*bindIpCount);
+    }
+    if (elasticBwMbps) {
+      res["ElasticBwMbps"] = boost::any(*elasticBwMbps);
+    }
+    if (elasticBwMode) {
+      res["ElasticBwMode"] = boost::any(*elasticBwMode);
     }
     if (ipAdvanceThre) {
       res["IpAdvanceThre"] = boost::any(*ipAdvanceThre);
@@ -3988,6 +4102,12 @@ public:
     if (m.find("BindIpCount") != m.end() && !m["BindIpCount"].empty()) {
       bindIpCount = make_shared<long>(boost::any_cast<long>(m["BindIpCount"]));
     }
+    if (m.find("ElasticBwMbps") != m.end() && !m["ElasticBwMbps"].empty()) {
+      elasticBwMbps = make_shared<long>(boost::any_cast<long>(m["ElasticBwMbps"]));
+    }
+    if (m.find("ElasticBwMode") != m.end() && !m["ElasticBwMode"].empty()) {
+      elasticBwMode = make_shared<string>(boost::any_cast<string>(m["ElasticBwMode"]));
+    }
     if (m.find("IpAdvanceThre") != m.end() && !m["IpAdvanceThre"].empty()) {
       ipAdvanceThre = make_shared<long>(boost::any_cast<long>(m["IpAdvanceThre"]));
     }
@@ -4016,6 +4136,7 @@ public:
   shared_ptr<long> availableDefenseTimes{};
   shared_ptr<string> availableDeleteBlackholeCount{};
   shared_ptr<long> defenseTimesPercent{};
+  shared_ptr<long> downgradeStatus{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> isFullDefenseMode{};
   shared_ptr<DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig> packConfig{};
@@ -4040,6 +4161,9 @@ public:
     }
     if (defenseTimesPercent) {
       res["DefenseTimesPercent"] = boost::any(*defenseTimesPercent);
+    }
+    if (downgradeStatus) {
+      res["DowngradeStatus"] = boost::any(*downgradeStatus);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -4068,6 +4192,9 @@ public:
     }
     if (m.find("DefenseTimesPercent") != m.end() && !m["DefenseTimesPercent"].empty()) {
       defenseTimesPercent = make_shared<long>(boost::any_cast<long>(m["DefenseTimesPercent"]));
+    }
+    if (m.find("DowngradeStatus") != m.end() && !m["DowngradeStatus"].empty()) {
+      downgradeStatus = make_shared<long>(boost::any_cast<long>(m["DowngradeStatus"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
