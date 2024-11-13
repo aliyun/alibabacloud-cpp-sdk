@@ -502,7 +502,9 @@ public:
   shared_ptr<string> huaweiChannelImportance{};
   shared_ptr<string> huaweiMessageUrgency{};
   shared_ptr<string> mainActivity{};
+  shared_ptr<string> oppoCategory{};
   shared_ptr<string> oppoChannelId{};
+  shared_ptr<string> oppoNotifyLevel{};
   shared_ptr<string> useHuaweiMessage{};
   shared_ptr<string> vivoAddBadge{};
   shared_ptr<string> vivoCategory{};
@@ -537,8 +539,14 @@ public:
     if (mainActivity) {
       res["mainActivity"] = boost::any(*mainActivity);
     }
+    if (oppoCategory) {
+      res["oppoCategory"] = boost::any(*oppoCategory);
+    }
     if (oppoChannelId) {
       res["oppoChannelId"] = boost::any(*oppoChannelId);
+    }
+    if (oppoNotifyLevel) {
+      res["oppoNotifyLevel"] = boost::any(*oppoNotifyLevel);
     }
     if (useHuaweiMessage) {
       res["useHuaweiMessage"] = boost::any(*useHuaweiMessage);
@@ -577,8 +585,14 @@ public:
     if (m.find("mainActivity") != m.end() && !m["mainActivity"].empty()) {
       mainActivity = make_shared<string>(boost::any_cast<string>(m["mainActivity"]));
     }
+    if (m.find("oppoCategory") != m.end() && !m["oppoCategory"].empty()) {
+      oppoCategory = make_shared<string>(boost::any_cast<string>(m["oppoCategory"]));
+    }
     if (m.find("oppoChannelId") != m.end() && !m["oppoChannelId"].empty()) {
       oppoChannelId = make_shared<string>(boost::any_cast<string>(m["oppoChannelId"]));
+    }
+    if (m.find("oppoNotifyLevel") != m.end() && !m["oppoNotifyLevel"].empty()) {
+      oppoNotifyLevel = make_shared<string>(boost::any_cast<string>(m["oppoNotifyLevel"]));
     }
     if (m.find("useHuaweiMessage") != m.end() && !m["useHuaweiMessage"].empty()) {
       useHuaweiMessage = make_shared<string>(boost::any_cast<string>(m["useHuaweiMessage"]));
