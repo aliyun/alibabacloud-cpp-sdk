@@ -510,6 +510,51 @@ ChangeDetailListOfOrderNumResponse Alibabacloud_AirticketOpen20230117::Client::c
   return changeDetailListOfOrderNumWithOptions(request, headers, runtime);
 }
 
+CollectFlightLowestPriceResponse Alibabacloud_AirticketOpen20230117::Client::collectFlightLowestPriceWithOptions(shared_ptr<CollectFlightLowestPriceRequest> tmpReq, shared_ptr<CollectFlightLowestPriceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CollectFlightLowestPriceShrinkRequest> request = make_shared<CollectFlightLowestPriceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CollectFlightLowestPriceRequestLowestPriceFlightList>>(tmpReq->lowestPriceFlightList)) {
+    request->lowestPriceFlightListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->lowestPriceFlightList, make_shared<string>("lowestPriceFlightList"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->lowestPriceFlightListShrink)) {
+    body->insert(pair<string, string>("lowestPriceFlightList", *request->lowestPriceFlightListShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAirticketAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-airticket-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAirticketAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAirticketLanguage)) {
+    realHeaders->insert(pair<string, string>("x-acs-airticket-language", Darabonba_Util::Client::toJSONString(headers->xAcsAirticketLanguage)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CollectFlightLowestPrice"))},
+    {"version", boost::any(string("2023-01-17"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/airticket/v1/data-collect/flight-lowest-price"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CollectFlightLowestPriceResponse(callApi(params, req, runtime));
+}
+
+CollectFlightLowestPriceResponse Alibabacloud_AirticketOpen20230117::Client::collectFlightLowestPrice(shared_ptr<CollectFlightLowestPriceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<CollectFlightLowestPriceHeaders> headers = make_shared<CollectFlightLowestPriceHeaders>();
+  return collectFlightLowestPriceWithOptions(request, headers, runtime);
+}
+
 EnrichResponse Alibabacloud_AirticketOpen20230117::Client::enrichWithOptions(shared_ptr<EnrichRequest> tmpReq, shared_ptr<EnrichHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<EnrichShrinkRequest> request = make_shared<EnrichShrinkRequest>();
