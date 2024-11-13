@@ -518,6 +518,12 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   if (!Darabonba_Util::Client::isUnset<string>(request->androidMessageHuaweiUrgency)) {
     query->insert(pair<string, string>("AndroidMessageHuaweiUrgency", *request->androidMessageHuaweiUrgency));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidMessageOppoCategory)) {
+    query->insert(pair<string, string>("AndroidMessageOppoCategory", *request->androidMessageOppoCategory));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->androidMessageOppoNotifyLevel)) {
+    query->insert(pair<string, long>("AndroidMessageOppoNotifyLevel", *request->androidMessageOppoNotifyLevel));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->androidMessageVivoCategory)) {
     query->insert(pair<string, string>("AndroidMessageVivoCategory", *request->androidMessageVivoCategory));
   }

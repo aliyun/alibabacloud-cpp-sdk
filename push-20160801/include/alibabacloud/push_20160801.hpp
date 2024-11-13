@@ -1701,6 +1701,8 @@ public:
   shared_ptr<string> androidInboxBody{};
   shared_ptr<string> androidMessageHuaweiCategory{};
   shared_ptr<string> androidMessageHuaweiUrgency{};
+  shared_ptr<string> androidMessageOppoCategory{};
+  shared_ptr<long> androidMessageOppoNotifyLevel{};
   shared_ptr<string> androidMessageVivoCategory{};
   shared_ptr<string> androidMusic{};
   shared_ptr<long> androidNotificationBarPriority{};
@@ -1831,6 +1833,12 @@ public:
     }
     if (androidMessageHuaweiUrgency) {
       res["AndroidMessageHuaweiUrgency"] = boost::any(*androidMessageHuaweiUrgency);
+    }
+    if (androidMessageOppoCategory) {
+      res["AndroidMessageOppoCategory"] = boost::any(*androidMessageOppoCategory);
+    }
+    if (androidMessageOppoNotifyLevel) {
+      res["AndroidMessageOppoNotifyLevel"] = boost::any(*androidMessageOppoNotifyLevel);
     }
     if (androidMessageVivoCategory) {
       res["AndroidMessageVivoCategory"] = boost::any(*androidMessageVivoCategory);
@@ -2105,6 +2113,12 @@ public:
     }
     if (m.find("AndroidMessageHuaweiUrgency") != m.end() && !m["AndroidMessageHuaweiUrgency"].empty()) {
       androidMessageHuaweiUrgency = make_shared<string>(boost::any_cast<string>(m["AndroidMessageHuaweiUrgency"]));
+    }
+    if (m.find("AndroidMessageOppoCategory") != m.end() && !m["AndroidMessageOppoCategory"].empty()) {
+      androidMessageOppoCategory = make_shared<string>(boost::any_cast<string>(m["AndroidMessageOppoCategory"]));
+    }
+    if (m.find("AndroidMessageOppoNotifyLevel") != m.end() && !m["AndroidMessageOppoNotifyLevel"].empty()) {
+      androidMessageOppoNotifyLevel = make_shared<long>(boost::any_cast<long>(m["AndroidMessageOppoNotifyLevel"]));
     }
     if (m.find("AndroidMessageVivoCategory") != m.end() && !m["AndroidMessageVivoCategory"].empty()) {
       androidMessageVivoCategory = make_shared<string>(boost::any_cast<string>(m["AndroidMessageVivoCategory"]));
@@ -2531,6 +2545,8 @@ public:
   shared_ptr<string> androidInboxBody{};
   shared_ptr<string> androidMessageHuaweiCategory{};
   shared_ptr<string> androidMessageHuaweiUrgency{};
+  shared_ptr<string> androidMessageOppoCategory{};
+  shared_ptr<long> androidMessageOppoNotifyLevel{};
   shared_ptr<string> androidMessageVivoCategory{};
   shared_ptr<string> androidMusic{};
   shared_ptr<long> androidNotificationBarPriority{};
@@ -2667,6 +2683,12 @@ public:
     }
     if (androidMessageHuaweiUrgency) {
       res["AndroidMessageHuaweiUrgency"] = boost::any(*androidMessageHuaweiUrgency);
+    }
+    if (androidMessageOppoCategory) {
+      res["AndroidMessageOppoCategory"] = boost::any(*androidMessageOppoCategory);
+    }
+    if (androidMessageOppoNotifyLevel) {
+      res["AndroidMessageOppoNotifyLevel"] = boost::any(*androidMessageOppoNotifyLevel);
     }
     if (androidMessageVivoCategory) {
       res["AndroidMessageVivoCategory"] = boost::any(*androidMessageVivoCategory);
@@ -2959,6 +2981,12 @@ public:
     }
     if (m.find("AndroidMessageHuaweiUrgency") != m.end() && !m["AndroidMessageHuaweiUrgency"].empty()) {
       androidMessageHuaweiUrgency = make_shared<string>(boost::any_cast<string>(m["AndroidMessageHuaweiUrgency"]));
+    }
+    if (m.find("AndroidMessageOppoCategory") != m.end() && !m["AndroidMessageOppoCategory"].empty()) {
+      androidMessageOppoCategory = make_shared<string>(boost::any_cast<string>(m["AndroidMessageOppoCategory"]));
+    }
+    if (m.find("AndroidMessageOppoNotifyLevel") != m.end() && !m["AndroidMessageOppoNotifyLevel"].empty()) {
+      androidMessageOppoNotifyLevel = make_shared<long>(boost::any_cast<long>(m["AndroidMessageOppoNotifyLevel"]));
     }
     if (m.find("AndroidMessageVivoCategory") != m.end() && !m["AndroidMessageVivoCategory"].empty()) {
       androidMessageVivoCategory = make_shared<string>(boost::any_cast<string>(m["AndroidMessageVivoCategory"]));
