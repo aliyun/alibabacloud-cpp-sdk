@@ -3257,6 +3257,7 @@ public:
 };
 class CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsOssDetail : public Darabonba::Model {
 public:
+  shared_ptr<bool> ignoreArchiveObject{};
   shared_ptr<string> inventoryCleanupPolicy{};
   shared_ptr<string> inventoryId{};
 
@@ -3270,6 +3271,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ignoreArchiveObject) {
+      res["IgnoreArchiveObject"] = boost::any(*ignoreArchiveObject);
+    }
     if (inventoryCleanupPolicy) {
       res["InventoryCleanupPolicy"] = boost::any(*inventoryCleanupPolicy);
     }
@@ -3280,6 +3284,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("IgnoreArchiveObject") != m.end() && !m["IgnoreArchiveObject"].empty()) {
+      ignoreArchiveObject = make_shared<bool>(boost::any_cast<bool>(m["IgnoreArchiveObject"]));
+    }
     if (m.find("InventoryCleanupPolicy") != m.end() && !m["InventoryCleanupPolicy"].empty()) {
       inventoryCleanupPolicy = make_shared<string>(boost::any_cast<string>(m["InventoryCleanupPolicy"]));
     }
@@ -3905,6 +3912,7 @@ class CreatePolicyV2RequestRules : public Darabonba::Model {
 public:
   shared_ptr<string> backupType{};
   shared_ptr<vector<CreatePolicyV2RequestRulesDataSourceFilters>> dataSourceFilters{};
+  shared_ptr<bool> immutable{};
   shared_ptr<long> keepLatestSnapshots{};
   shared_ptr<string> replicationRegionId{};
   shared_ptr<long> retention{};
@@ -3933,6 +3941,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["DataSourceFilters"] = boost::any(temp1);
+    }
+    if (immutable) {
+      res["Immutable"] = boost::any(*immutable);
     }
     if (keepLatestSnapshots) {
       res["KeepLatestSnapshots"] = boost::any(*keepLatestSnapshots);
@@ -3985,6 +3996,9 @@ public:
         }
         dataSourceFilters = make_shared<vector<CreatePolicyV2RequestRulesDataSourceFilters>>(expect1);
       }
+    }
+    if (m.find("Immutable") != m.end() && !m["Immutable"].empty()) {
+      immutable = make_shared<bool>(boost::any_cast<bool>(m["Immutable"]));
     }
     if (m.find("KeepLatestSnapshots") != m.end() && !m["KeepLatestSnapshots"].empty()) {
       keepLatestSnapshots = make_shared<long>(boost::any_cast<long>(m["KeepLatestSnapshots"]));
@@ -13655,6 +13669,7 @@ public:
   shared_ptr<long> archiveDays{};
   shared_ptr<string> backupType{};
   shared_ptr<vector<DescribePoliciesV2ResponseBodyPoliciesRulesDataSourceFilters>> dataSourceFilters{};
+  shared_ptr<bool> immutable{};
   shared_ptr<long> keepLatestSnapshots{};
   shared_ptr<string> replicationRegionId{};
   shared_ptr<long> retention{};
@@ -13687,6 +13702,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["DataSourceFilters"] = boost::any(temp1);
+    }
+    if (immutable) {
+      res["Immutable"] = boost::any(*immutable);
     }
     if (keepLatestSnapshots) {
       res["KeepLatestSnapshots"] = boost::any(*keepLatestSnapshots);
@@ -13745,6 +13763,9 @@ public:
         }
         dataSourceFilters = make_shared<vector<DescribePoliciesV2ResponseBodyPoliciesRulesDataSourceFilters>>(expect1);
       }
+    }
+    if (m.find("Immutable") != m.end() && !m["Immutable"].empty()) {
+      immutable = make_shared<bool>(boost::any_cast<bool>(m["Immutable"]));
     }
     if (m.find("KeepLatestSnapshots") != m.end() && !m["KeepLatestSnapshots"].empty()) {
       keepLatestSnapshots = make_shared<long>(boost::any_cast<long>(m["KeepLatestSnapshots"]));
@@ -14421,6 +14442,7 @@ public:
 };
 class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsOssDetail : public Darabonba::Model {
 public:
+  shared_ptr<bool> ignoreArchiveObject{};
   shared_ptr<string> inventoryCleanupPolicy{};
   shared_ptr<string> inventoryId{};
 
@@ -14434,6 +14456,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ignoreArchiveObject) {
+      res["IgnoreArchiveObject"] = boost::any(*ignoreArchiveObject);
+    }
     if (inventoryCleanupPolicy) {
       res["InventoryCleanupPolicy"] = boost::any(*inventoryCleanupPolicy);
     }
@@ -14444,6 +14469,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("IgnoreArchiveObject") != m.end() && !m["IgnoreArchiveObject"].empty()) {
+      ignoreArchiveObject = make_shared<bool>(boost::any_cast<bool>(m["IgnoreArchiveObject"]));
+    }
     if (m.find("InventoryCleanupPolicy") != m.end() && !m["InventoryCleanupPolicy"].empty()) {
       inventoryCleanupPolicy = make_shared<string>(boost::any_cast<string>(m["InventoryCleanupPolicy"]));
     }
@@ -23095,6 +23123,7 @@ public:
 };
 class UpdatePolicyBindingRequestAdvancedOptionsOssDetail : public Darabonba::Model {
 public:
+  shared_ptr<bool> ignoreArchiveObject{};
   shared_ptr<string> inventoryCleanupPolicy{};
   shared_ptr<string> inventoryId{};
 
@@ -23108,6 +23137,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ignoreArchiveObject) {
+      res["IgnoreArchiveObject"] = boost::any(*ignoreArchiveObject);
+    }
     if (inventoryCleanupPolicy) {
       res["InventoryCleanupPolicy"] = boost::any(*inventoryCleanupPolicy);
     }
@@ -23118,6 +23150,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("IgnoreArchiveObject") != m.end() && !m["IgnoreArchiveObject"].empty()) {
+      ignoreArchiveObject = make_shared<bool>(boost::any_cast<bool>(m["IgnoreArchiveObject"]));
+    }
     if (m.find("InventoryCleanupPolicy") != m.end() && !m["InventoryCleanupPolicy"].empty()) {
       inventoryCleanupPolicy = make_shared<string>(boost::any_cast<string>(m["InventoryCleanupPolicy"]));
     }
@@ -23715,6 +23750,7 @@ public:
   shared_ptr<string> backupType{};
   shared_ptr<long> coldArchiveDays{};
   shared_ptr<vector<UpdatePolicyV2RequestRulesDataSourceFilters>> dataSourceFilters{};
+  shared_ptr<bool> immutable{};
   shared_ptr<long> keepLatestSnapshots{};
   shared_ptr<string> replicationRegionId{};
   shared_ptr<long> retention{};
@@ -23749,6 +23785,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["DataSourceFilters"] = boost::any(temp1);
+    }
+    if (immutable) {
+      res["Immutable"] = boost::any(*immutable);
     }
     if (keepLatestSnapshots) {
       res["KeepLatestSnapshots"] = boost::any(*keepLatestSnapshots);
@@ -23807,6 +23846,9 @@ public:
         }
         dataSourceFilters = make_shared<vector<UpdatePolicyV2RequestRulesDataSourceFilters>>(expect1);
       }
+    }
+    if (m.find("Immutable") != m.end() && !m["Immutable"].empty()) {
+      immutable = make_shared<bool>(boost::any_cast<bool>(m["Immutable"]));
     }
     if (m.find("KeepLatestSnapshots") != m.end() && !m["KeepLatestSnapshots"].empty()) {
       keepLatestSnapshots = make_shared<long>(boost::any_cast<long>(m["KeepLatestSnapshots"]));

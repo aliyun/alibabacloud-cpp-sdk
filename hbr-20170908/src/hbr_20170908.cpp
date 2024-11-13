@@ -20,7 +20,6 @@ Alibabacloud_Hbr20170908::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"ap-northeast-2-pop", "hbr.aliyuncs.com"},
-    {"cn-beijing-finance-1", "hbr.aliyuncs.com"},
     {"cn-beijing-finance-pop", "hbr.aliyuncs.com"},
     {"cn-beijing-gov-1", "hbr.aliyuncs.com"},
     {"cn-beijing-nu16-b01", "hbr.aliyuncs.com"},
@@ -44,7 +43,6 @@ Alibabacloud_Hbr20170908::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"cn-shenzhen-st4-d01", "hbr.aliyuncs.com"},
     {"cn-shenzhen-su18-b01", "hbr.aliyuncs.com"},
     {"cn-wuhan", "hbr.aliyuncs.com"},
-    {"cn-wulanchabu", "hbr.aliyuncs.com"},
     {"cn-yushanfang", "hbr.aliyuncs.com"},
     {"cn-zhangbei", "hbr.aliyuncs.com"},
     {"cn-zhangbei-na61-b01", "hbr.aliyuncs.com"},
