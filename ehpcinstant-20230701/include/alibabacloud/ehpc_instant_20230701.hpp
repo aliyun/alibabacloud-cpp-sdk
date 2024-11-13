@@ -2536,10 +2536,47 @@ public:
 
   virtual ~GetJobResponseBodyJobInfoDeploymentPolicyNetwork() = default;
 };
+class GetJobResponseBodyJobInfoDeploymentPolicyTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetJobResponseBodyJobInfoDeploymentPolicyTags() {}
+
+  explicit GetJobResponseBodyJobInfoDeploymentPolicyTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetJobResponseBodyJobInfoDeploymentPolicyTags() = default;
+};
 class GetJobResponseBodyJobInfoDeploymentPolicy : public Darabonba::Model {
 public:
   shared_ptr<string> allocationSpec{};
   shared_ptr<GetJobResponseBodyJobInfoDeploymentPolicyNetwork> network{};
+  shared_ptr<vector<GetJobResponseBodyJobInfoDeploymentPolicyTags>> tags{};
 
   GetJobResponseBodyJobInfoDeploymentPolicy() {}
 
@@ -2557,6 +2594,13 @@ public:
     if (network) {
       res["Network"] = network ? boost::any(network->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -2569,6 +2613,19 @@ public:
         GetJobResponseBodyJobInfoDeploymentPolicyNetwork model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Network"]));
         network = make_shared<GetJobResponseBodyJobInfoDeploymentPolicyNetwork>(model1);
+      }
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetJobResponseBodyJobInfoDeploymentPolicyTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetJobResponseBodyJobInfoDeploymentPolicyTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetJobResponseBodyJobInfoDeploymentPolicyTags>>(expect1);
       }
     }
   }
