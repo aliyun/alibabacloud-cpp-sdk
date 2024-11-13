@@ -4480,6 +4480,9 @@ ListWafManagedRulesResponse Alibabacloud_ESA20240910::Client::listWafManagedRule
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->protectionLevel)) {
+    query->insert(pair<string, long>("ProtectionLevel", *request->protectionLevel));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->queryArgsShrink)) {
     query->insert(pair<string, string>("QueryArgs", *request->queryArgsShrink));
   }
@@ -4648,6 +4651,9 @@ ListWafTemplateRulesResponse Alibabacloud_ESA20240910::Client::listWafTemplateRu
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->queryArgsShrink)) {
     query->insert(pair<string, string>("QueryArgs", *request->queryArgsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5390,83 +5396,6 @@ StopScheduledPreloadExecutionResponse Alibabacloud_ESA20240910::Client::stopSche
 StopScheduledPreloadExecutionResponse Alibabacloud_ESA20240910::Client::stopScheduledPreloadExecution(shared_ptr<StopScheduledPreloadExecutionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return stopScheduledPreloadExecutionWithOptions(request, runtime);
-}
-
-TransformExpressionToMatchResponse Alibabacloud_ESA20240910::Client::transformExpressionToMatchWithOptions(shared_ptr<TransformExpressionToMatchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
-    query->insert(pair<string, long>("SiteId", *request->siteId));
-  }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->expression)) {
-    body->insert(pair<string, string>("Expression", *request->expression));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->phase)) {
-    body->insert(pair<string, string>("Phase", *request->phase));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("TransformExpressionToMatch"))},
-    {"version", boost::any(string("2024-09-10"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return TransformExpressionToMatchResponse(callApi(params, req, runtime));
-}
-
-TransformExpressionToMatchResponse Alibabacloud_ESA20240910::Client::transformExpressionToMatch(shared_ptr<TransformExpressionToMatchRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return transformExpressionToMatchWithOptions(request, runtime);
-}
-
-TransformMatchToExpressionResponse Alibabacloud_ESA20240910::Client::transformMatchToExpressionWithOptions(shared_ptr<TransformMatchToExpressionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<TransformMatchToExpressionShrinkRequest> request = make_shared<TransformMatchToExpressionShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<WafRuleMatch>(tmpReq->match)) {
-    request->matchShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->match, make_shared<string>("Match"), make_shared<string>("json")));
-  }
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
-    query->insert(pair<string, long>("SiteId", *request->siteId));
-  }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->matchShrink)) {
-    body->insert(pair<string, string>("Match", *request->matchShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->phase)) {
-    body->insert(pair<string, string>("Phase", *request->phase));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("TransformMatchToExpression"))},
-    {"version", boost::any(string("2024-09-10"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return TransformMatchToExpressionResponse(callApi(params, req, runtime));
-}
-
-TransformMatchToExpressionResponse Alibabacloud_ESA20240910::Client::transformMatchToExpression(shared_ptr<TransformMatchToExpressionRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return transformMatchToExpressionWithOptions(request, runtime);
 }
 
 UntagResourcesResponse Alibabacloud_ESA20240910::Client::untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
