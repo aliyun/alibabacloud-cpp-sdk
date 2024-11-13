@@ -158,6 +158,9 @@ CreateCodeSourceResponse Alibabacloud_AIWorkSpace20210204::Client::createCodeSou
   if (!Darabonba_Util::Client::isUnset<string>(request->codeBranch)) {
     body->insert(pair<string, string>("CodeBranch", *request->codeBranch));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->codeCommit)) {
+    body->insert(pair<string, string>("CodeCommit", *request->codeCommit));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->codeRepo)) {
     body->insert(pair<string, string>("CodeRepo", *request->codeRepo));
   }

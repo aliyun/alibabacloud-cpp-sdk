@@ -2140,6 +2140,7 @@ class CreateCodeSourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessibility{};
   shared_ptr<string> codeBranch{};
+  shared_ptr<string> codeCommit{};
   shared_ptr<string> codeRepo{};
   shared_ptr<string> codeRepoAccessToken{};
   shared_ptr<string> codeRepoUserName{};
@@ -2163,6 +2164,9 @@ public:
     }
     if (codeBranch) {
       res["CodeBranch"] = boost::any(*codeBranch);
+    }
+    if (codeCommit) {
+      res["CodeCommit"] = boost::any(*codeCommit);
     }
     if (codeRepo) {
       res["CodeRepo"] = boost::any(*codeRepo);
@@ -2194,6 +2198,9 @@ public:
     }
     if (m.find("CodeBranch") != m.end() && !m["CodeBranch"].empty()) {
       codeBranch = make_shared<string>(boost::any_cast<string>(m["CodeBranch"]));
+    }
+    if (m.find("CodeCommit") != m.end() && !m["CodeCommit"].empty()) {
+      codeCommit = make_shared<string>(boost::any_cast<string>(m["CodeCommit"]));
     }
     if (m.find("CodeRepo") != m.end() && !m["CodeRepo"].empty()) {
       codeRepo = make_shared<string>(boost::any_cast<string>(m["CodeRepo"]));
