@@ -1933,6 +1933,31 @@ ListTagsForPrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::listTa
   return listTagsForPrivateAccessPolicyWithOptions(request, runtime);
 }
 
+ListUserApplicationsResponse Alibabacloud_Csas20230120::Client::listUserApplicationsWithOptions(shared_ptr<ListUserApplicationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListUserApplications"))},
+    {"version", boost::any(string("2023-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListUserApplicationsResponse(callApi(params, req, runtime));
+}
+
+ListUserApplicationsResponse Alibabacloud_Csas20230120::Client::listUserApplications(shared_ptr<ListUserApplicationsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listUserApplicationsWithOptions(request, runtime);
+}
+
 ListUserDevicesResponse Alibabacloud_Csas20230120::Client::listUserDevicesWithOptions(shared_ptr<ListUserDevicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -2031,6 +2056,31 @@ ListUserGroupsForRegistrationPolicyResponse Alibabacloud_Csas20230120::Client::l
 ListUserGroupsForRegistrationPolicyResponse Alibabacloud_Csas20230120::Client::listUserGroupsForRegistrationPolicy(shared_ptr<ListUserGroupsForRegistrationPolicyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listUserGroupsForRegistrationPolicyWithOptions(request, runtime);
+}
+
+ListUserPrivateAccessPoliciesResponse Alibabacloud_Csas20230120::Client::listUserPrivateAccessPoliciesWithOptions(shared_ptr<ListUserPrivateAccessPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListUserPrivateAccessPolicies"))},
+    {"version", boost::any(string("2023-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListUserPrivateAccessPoliciesResponse(callApi(params, req, runtime));
+}
+
+ListUserPrivateAccessPoliciesResponse Alibabacloud_Csas20230120::Client::listUserPrivateAccessPolicies(shared_ptr<ListUserPrivateAccessPoliciesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listUserPrivateAccessPoliciesWithOptions(request, runtime);
 }
 
 ListUsersResponse Alibabacloud_Csas20230120::Client::listUsersWithOptions(shared_ptr<ListUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
