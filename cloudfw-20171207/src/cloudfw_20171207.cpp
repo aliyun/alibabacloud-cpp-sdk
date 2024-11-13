@@ -1384,6 +1384,9 @@ DescribeAssetListResponse Alibabacloud_Cloudfw20171207::Client::describeAssetLis
   if (!Darabonba_Util::Client::isUnset<string>(request->newResourceTag)) {
     query->insert(pair<string, string>("NewResourceTag", *request->newResourceTag));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outStatistic)) {
+    query->insert(pair<string, string>("OutStatistic", *request->outStatistic));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
     query->insert(pair<string, string>("PageSize", *request->pageSize));
   }
@@ -1395,6 +1398,9 @@ DescribeAssetListResponse Alibabacloud_Cloudfw20171207::Client::describeAssetLis
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->searchItem)) {
     query->insert(pair<string, string>("SearchItem", *request->searchItem));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sensitiveStatus)) {
+    query->insert(pair<string, string>("SensitiveStatus", *request->sensitiveStatus));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sgStatus)) {
     query->insert(pair<string, string>("SgStatus", *request->sgStatus));
@@ -1465,6 +1471,40 @@ DescribeAssetRiskListResponse Alibabacloud_Cloudfw20171207::Client::describeAsse
 DescribeAssetRiskListResponse Alibabacloud_Cloudfw20171207::Client::describeAssetRiskList(shared_ptr<DescribeAssetRiskListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeAssetRiskListWithOptions(request, runtime);
+}
+
+DescribeAssetStatisticResponse Alibabacloud_Cloudfw20171207::Client::describeAssetStatisticWithOptions(shared_ptr<DescribeAssetStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceIp)) {
+    query->insert(pair<string, string>("SourceIp", *request->sourceIp));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeAssetStatistic"))},
+    {"version", boost::any(string("2017-12-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeAssetStatisticResponse(callApi(params, req, runtime));
+}
+
+DescribeAssetStatisticResponse Alibabacloud_Cloudfw20171207::Client::describeAssetStatistic(shared_ptr<DescribeAssetStatisticRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeAssetStatisticWithOptions(request, runtime);
 }
 
 DescribeCfwRiskLevelSummaryResponse Alibabacloud_Cloudfw20171207::Client::describeCfwRiskLevelSummaryWithOptions(shared_ptr<DescribeCfwRiskLevelSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
