@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_intelligent_creation_20241107Targets.cmake")
+check_required_components("alibabacloud_intelligent_creation_20241107")
