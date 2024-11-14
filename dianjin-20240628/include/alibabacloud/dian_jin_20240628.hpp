@@ -6227,6 +6227,7 @@ class GetParseResultRequest : public Darabonba::Model {
 public:
   shared_ptr<string> docId{};
   shared_ptr<string> libraryId{};
+  shared_ptr<bool> useUrlResult{};
 
   GetParseResultRequest() {}
 
@@ -6244,6 +6245,9 @@ public:
     if (libraryId) {
       res["libraryId"] = boost::any(*libraryId);
     }
+    if (useUrlResult) {
+      res["useUrlResult"] = boost::any(*useUrlResult);
+    }
     return res;
   }
 
@@ -6253,6 +6257,9 @@ public:
     }
     if (m.find("libraryId") != m.end() && !m["libraryId"].empty()) {
       libraryId = make_shared<string>(boost::any_cast<string>(m["libraryId"]));
+    }
+    if (m.find("useUrlResult") != m.end() && !m["useUrlResult"].empty()) {
+      useUrlResult = make_shared<bool>(boost::any_cast<bool>(m["useUrlResult"]));
     }
   }
 
@@ -6265,6 +6272,7 @@ public:
   shared_ptr<string> providerType{};
   shared_ptr<string> requestId{};
   shared_ptr<map<string, boost::any>> result{};
+  shared_ptr<string> resultUrl{};
   shared_ptr<string> status{};
 
   GetParseResultResponseBodyData() {}
@@ -6289,6 +6297,9 @@ public:
     if (result) {
       res["result"] = boost::any(*result);
     }
+    if (resultUrl) {
+      res["resultUrl"] = boost::any(*resultUrl);
+    }
     if (status) {
       res["status"] = boost::any(*status);
     }
@@ -6312,6 +6323,9 @@ public:
          toMap1[item.first] = item.second;
       }
       result = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("resultUrl") != m.end() && !m["resultUrl"].empty()) {
+      resultUrl = make_shared<string>(boost::any_cast<string>(m["resultUrl"]));
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["status"]));
@@ -9994,6 +10008,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> intention{};
   shared_ptr<string> intentionCode{};
+  shared_ptr<string> intentionScript{};
 
   RecognizeIntentionRequestGlobalIntentionList() {}
 
@@ -10014,6 +10029,9 @@ public:
     if (intentionCode) {
       res["intentionCode"] = boost::any(*intentionCode);
     }
+    if (intentionScript) {
+      res["intentionScript"] = boost::any(*intentionScript);
+    }
     return res;
   }
 
@@ -10027,6 +10045,9 @@ public:
     if (m.find("intentionCode") != m.end() && !m["intentionCode"].empty()) {
       intentionCode = make_shared<string>(boost::any_cast<string>(m["intentionCode"]));
     }
+    if (m.find("intentionScript") != m.end() && !m["intentionScript"].empty()) {
+      intentionScript = make_shared<string>(boost::any_cast<string>(m["intentionScript"]));
+    }
   }
 
 
@@ -10037,6 +10058,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> intention{};
   shared_ptr<string> intentionCode{};
+  shared_ptr<string> intentionScript{};
 
   RecognizeIntentionRequestHierarchicalIntentionList() {}
 
@@ -10057,6 +10079,9 @@ public:
     if (intentionCode) {
       res["intentionCode"] = boost::any(*intentionCode);
     }
+    if (intentionScript) {
+      res["intentionScript"] = boost::any(*intentionScript);
+    }
     return res;
   }
 
@@ -10070,6 +10095,9 @@ public:
     if (m.find("intentionCode") != m.end() && !m["intentionCode"].empty()) {
       intentionCode = make_shared<string>(boost::any_cast<string>(m["intentionCode"]));
     }
+    if (m.find("intentionScript") != m.end() && !m["intentionScript"].empty()) {
+      intentionScript = make_shared<string>(boost::any_cast<string>(m["intentionScript"]));
+    }
   }
 
 
@@ -10080,6 +10108,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> intention{};
   shared_ptr<string> intentionCode{};
+  shared_ptr<string> intentionScript{};
 
   RecognizeIntentionRequestIntentionList() {}
 
@@ -10100,6 +10129,9 @@ public:
     if (intentionCode) {
       res["intentionCode"] = boost::any(*intentionCode);
     }
+    if (intentionScript) {
+      res["intentionScript"] = boost::any(*intentionScript);
+    }
     return res;
   }
 
@@ -10113,6 +10145,9 @@ public:
     if (m.find("intentionCode") != m.end() && !m["intentionCode"].empty()) {
       intentionCode = make_shared<string>(boost::any_cast<string>(m["intentionCode"]));
     }
+    if (m.find("intentionScript") != m.end() && !m["intentionScript"].empty()) {
+      intentionScript = make_shared<string>(boost::any_cast<string>(m["intentionScript"]));
+    }
   }
 
 
@@ -10125,6 +10160,7 @@ public:
   shared_ptr<string> conversation{};
   shared_ptr<vector<RecognizeIntentionRequestGlobalIntentionList>> globalIntentionList{};
   shared_ptr<vector<RecognizeIntentionRequestHierarchicalIntentionList>> hierarchicalIntentionList{};
+  shared_ptr<string> intentionDomainCode{};
   shared_ptr<vector<RecognizeIntentionRequestIntentionList>> intentionList{};
   shared_ptr<string> opType{};
   shared_ptr<bool> recommend{};
@@ -10161,6 +10197,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["hierarchicalIntentionList"] = boost::any(temp1);
+    }
+    if (intentionDomainCode) {
+      res["intentionDomainCode"] = boost::any(*intentionDomainCode);
     }
     if (intentionList) {
       vector<boost::any> temp1;
@@ -10214,6 +10253,9 @@ public:
         hierarchicalIntentionList = make_shared<vector<RecognizeIntentionRequestHierarchicalIntentionList>>(expect1);
       }
     }
+    if (m.find("intentionDomainCode") != m.end() && !m["intentionDomainCode"].empty()) {
+      intentionDomainCode = make_shared<string>(boost::any_cast<string>(m["intentionDomainCode"]));
+    }
     if (m.find("intentionList") != m.end() && !m["intentionList"].empty()) {
       if (typeid(vector<boost::any>) == m["intentionList"].type()) {
         vector<RecognizeIntentionRequestIntentionList> expect1;
@@ -10243,6 +10285,7 @@ public:
   shared_ptr<string> analysisProcess{};
   shared_ptr<string> intentionCode{};
   shared_ptr<string> intentionName{};
+  shared_ptr<string> intentionScript{};
   shared_ptr<string> recommendIntention{};
   shared_ptr<string> recommendScript{};
 
@@ -10265,6 +10308,9 @@ public:
     if (intentionName) {
       res["intentionName"] = boost::any(*intentionName);
     }
+    if (intentionScript) {
+      res["intentionScript"] = boost::any(*intentionScript);
+    }
     if (recommendIntention) {
       res["recommendIntention"] = boost::any(*recommendIntention);
     }
@@ -10283,6 +10329,9 @@ public:
     }
     if (m.find("intentionName") != m.end() && !m["intentionName"].empty()) {
       intentionName = make_shared<string>(boost::any_cast<string>(m["intentionName"]));
+    }
+    if (m.find("intentionScript") != m.end() && !m["intentionScript"].empty()) {
+      intentionScript = make_shared<string>(boost::any_cast<string>(m["intentionScript"]));
     }
     if (m.find("recommendIntention") != m.end() && !m["recommendIntention"].empty()) {
       recommendIntention = make_shared<string>(boost::any_cast<string>(m["recommendIntention"]));

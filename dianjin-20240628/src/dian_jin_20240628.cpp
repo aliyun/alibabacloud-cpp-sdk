@@ -788,6 +788,9 @@ GetParseResultResponse Alibabacloud_DianJin20240628::Client::getParseResultWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->libraryId)) {
     body->insert(pair<string, string>("libraryId", *request->libraryId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->useUrlResult)) {
+    body->insert(pair<string, bool>("useUrlResult", *request->useUrlResult));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1141,6 +1144,9 @@ RecognizeIntentionResponse Alibabacloud_DianJin20240628::Client::recognizeIntent
   }
   if (!Darabonba_Util::Client::isUnset<vector<RecognizeIntentionRequestHierarchicalIntentionList>>(request->hierarchicalIntentionList)) {
     body->insert(pair<string, vector<RecognizeIntentionRequestHierarchicalIntentionList>>("hierarchicalIntentionList", *request->hierarchicalIntentionList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->intentionDomainCode)) {
+    body->insert(pair<string, string>("intentionDomainCode", *request->intentionDomainCode));
   }
   if (!Darabonba_Util::Client::isUnset<vector<RecognizeIntentionRequestIntentionList>>(request->intentionList)) {
     body->insert(pair<string, vector<RecognizeIntentionRequestIntentionList>>("intentionList", *request->intentionList));
