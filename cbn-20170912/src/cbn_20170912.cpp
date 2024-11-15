@@ -928,6 +928,9 @@ CreateFlowlogResponse Alibabacloud_Cbn20170912::Client::createFlowlogWithOptions
   if (!Darabonba_Util::Client::isUnset<long>(request->interval)) {
     query->insert(pair<string, long>("Interval", *request->interval));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logFormatString)) {
+    query->insert(pair<string, string>("LogFormatString", *request->logFormatString));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->logStoreName)) {
     query->insert(pair<string, string>("LogStoreName", *request->logStoreName));
   }
@@ -954,6 +957,9 @@ CreateFlowlogResponse Alibabacloud_Cbn20170912::Client::createFlowlogWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentId)) {
     query->insert(pair<string, string>("TransitRouterAttachmentId", *request->transitRouterAttachmentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterId)) {
+    query->insert(pair<string, string>("TransitRouterId", *request->transitRouterId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3777,6 +3783,12 @@ DescribeFlowlogsResponse Alibabacloud_Cbn20170912::Client::describeFlowlogsWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->flowLogName)) {
     query->insert(pair<string, string>("FlowLogName", *request->flowLogName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowLogVersion)) {
+    query->insert(pair<string, string>("FlowLogVersion", *request->flowLogVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->interval)) {
+    query->insert(pair<string, long>("Interval", *request->interval));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->logStoreName)) {
     query->insert(pair<string, string>("LogStoreName", *request->logStoreName));
   }
@@ -3812,6 +3824,9 @@ DescribeFlowlogsResponse Alibabacloud_Cbn20170912::Client::describeFlowlogsWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentId)) {
     query->insert(pair<string, string>("TransitRouterAttachmentId", *request->transitRouterAttachmentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterId)) {
+    query->insert(pair<string, string>("TransitRouterId", *request->transitRouterId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -6495,6 +6510,9 @@ ModifyFlowLogAttributeResponse Alibabacloud_Cbn20170912::Client::modifyFlowLogAt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->flowLogName)) {
     query->insert(pair<string, string>("FlowLogName", *request->flowLogName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->interval)) {
+    query->insert(pair<string, long>("Interval", *request->interval));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
