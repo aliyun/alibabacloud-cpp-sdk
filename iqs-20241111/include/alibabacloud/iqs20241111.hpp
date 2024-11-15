@@ -455,9 +455,306 @@ public:
 
   virtual ~GenericSearchResult() = default;
 };
-class GenericSearchRequest : public Darabonba::Model {
+class AiSearchRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> industry{};
+  shared_ptr<long> page{};
+  shared_ptr<string> query{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> timeRange{};
+
+  AiSearchRequest() {}
+
+  explicit AiSearchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (industry) {
+      res["industry"] = boost::any(*industry);
+    }
+    if (page) {
+      res["page"] = boost::any(*page);
+    }
+    if (query) {
+      res["query"] = boost::any(*query);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    if (timeRange) {
+      res["timeRange"] = boost::any(*timeRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("industry") != m.end() && !m["industry"].empty()) {
+      industry = make_shared<string>(boost::any_cast<string>(m["industry"]));
+    }
+    if (m.find("page") != m.end() && !m["page"].empty()) {
+      page = make_shared<long>(boost::any_cast<long>(m["page"]));
+    }
+    if (m.find("query") != m.end() && !m["query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["query"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("timeRange") != m.end() && !m["timeRange"].empty()) {
+      timeRange = make_shared<string>(boost::any_cast<string>(m["timeRange"]));
+    }
+  }
+
+
+  virtual ~AiSearchRequest() = default;
+};
+class AiSearchResponseBodyHeader : public Darabonba::Model {
+public:
+  shared_ptr<string> event{};
+  shared_ptr<string> eventId{};
+  shared_ptr<long> responseTime{};
+
+  AiSearchResponseBodyHeader() {}
+
+  explicit AiSearchResponseBodyHeader(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (event) {
+      res["event"] = boost::any(*event);
+    }
+    if (eventId) {
+      res["eventId"] = boost::any(*eventId);
+    }
+    if (responseTime) {
+      res["responseTime"] = boost::any(*responseTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("event") != m.end() && !m["event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["event"]));
+    }
+    if (m.find("eventId") != m.end() && !m["eventId"].empty()) {
+      eventId = make_shared<string>(boost::any_cast<string>(m["eventId"]));
+    }
+    if (m.find("responseTime") != m.end() && !m["responseTime"].empty()) {
+      responseTime = make_shared<long>(boost::any_cast<long>(m["responseTime"]));
+    }
+  }
+
+
+  virtual ~AiSearchResponseBodyHeader() = default;
+};
+class AiSearchResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<AiSearchResponseBodyHeader> header{};
+  shared_ptr<string> payload{};
+  shared_ptr<string> requestId{};
+
+  AiSearchResponseBody() {}
+
+  explicit AiSearchResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (header) {
+      res["header"] = header ? boost::any(header->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (payload) {
+      res["payload"] = boost::any(*payload);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("header") != m.end() && !m["header"].empty()) {
+      if (typeid(map<string, boost::any>) == m["header"].type()) {
+        AiSearchResponseBodyHeader model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["header"]));
+        header = make_shared<AiSearchResponseBodyHeader>(model1);
+      }
+    }
+    if (m.find("payload") != m.end() && !m["payload"].empty()) {
+      payload = make_shared<string>(boost::any_cast<string>(m["payload"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~AiSearchResponseBody() = default;
+};
+class AiSearchResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AiSearchResponseBody> body{};
+
+  AiSearchResponse() {}
+
+  explicit AiSearchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AiSearchResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AiSearchResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AiSearchResponse() = default;
+};
+class GenericAdvancedSearchRequest : public Darabonba::Model {
 public:
   shared_ptr<string> query{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> timeRange{};
+
+  GenericAdvancedSearchRequest() {}
+
+  explicit GenericAdvancedSearchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (query) {
+      res["query"] = boost::any(*query);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    if (timeRange) {
+      res["timeRange"] = boost::any(*timeRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("query") != m.end() && !m["query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["query"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("timeRange") != m.end() && !m["timeRange"].empty()) {
+      timeRange = make_shared<string>(boost::any_cast<string>(m["timeRange"]));
+    }
+  }
+
+
+  virtual ~GenericAdvancedSearchRequest() = default;
+};
+class GenericAdvancedSearchResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GenericSearchResult> body{};
+
+  GenericAdvancedSearchResponse() {}
+
+  explicit GenericAdvancedSearchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GenericSearchResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GenericSearchResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenericAdvancedSearchResponse() = default;
+};
+class GenericSearchRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> industry{};
+  shared_ptr<long> page{};
+  shared_ptr<string> query{};
+  shared_ptr<string> sessionId{};
   shared_ptr<string> timeRange{};
 
   GenericSearchRequest() {}
@@ -470,8 +767,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (industry) {
+      res["industry"] = boost::any(*industry);
+    }
+    if (page) {
+      res["page"] = boost::any(*page);
+    }
     if (query) {
       res["query"] = boost::any(*query);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
     }
     if (timeRange) {
       res["timeRange"] = boost::any(*timeRange);
@@ -480,8 +786,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("industry") != m.end() && !m["industry"].empty()) {
+      industry = make_shared<string>(boost::any_cast<string>(m["industry"]));
+    }
+    if (m.find("page") != m.end() && !m["page"].empty()) {
+      page = make_shared<long>(boost::any_cast<long>(m["page"]));
+    }
     if (m.find("query") != m.end() && !m["query"].empty()) {
       query = make_shared<string>(boost::any_cast<string>(m["query"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
     }
     if (m.find("timeRange") != m.end() && !m["timeRange"].empty()) {
       timeRange = make_shared<string>(boost::any_cast<string>(m["timeRange"]));
@@ -553,6 +868,10 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AiSearchResponse aiSearchWithOptions(shared_ptr<AiSearchRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AiSearchResponse aiSearch(shared_ptr<AiSearchRequest> request);
+  GenericAdvancedSearchResponse genericAdvancedSearchWithOptions(shared_ptr<GenericAdvancedSearchRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenericAdvancedSearchResponse genericAdvancedSearch(shared_ptr<GenericAdvancedSearchRequest> request);
   GenericSearchResponse genericSearchWithOptions(shared_ptr<GenericSearchRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenericSearchResponse genericSearch(shared_ptr<GenericSearchRequest> request);
 
