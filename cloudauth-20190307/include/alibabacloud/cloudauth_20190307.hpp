@@ -2904,6 +2904,198 @@ public:
 
   virtual ~DescribeDeviceInfoResponse() = default;
 };
+class DescribeFaceGuardRiskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bizId{};
+  shared_ptr<string> deviceToken{};
+  shared_ptr<string> outerOrderNo{};
+  shared_ptr<string> productCode{};
+
+  DescribeFaceGuardRiskRequest() {}
+
+  explicit DescribeFaceGuardRiskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizId) {
+      res["BizId"] = boost::any(*bizId);
+    }
+    if (deviceToken) {
+      res["DeviceToken"] = boost::any(*deviceToken);
+    }
+    if (outerOrderNo) {
+      res["OuterOrderNo"] = boost::any(*outerOrderNo);
+    }
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizId") != m.end() && !m["BizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["BizId"]));
+    }
+    if (m.find("DeviceToken") != m.end() && !m["DeviceToken"].empty()) {
+      deviceToken = make_shared<string>(boost::any_cast<string>(m["DeviceToken"]));
+    }
+    if (m.find("OuterOrderNo") != m.end() && !m["OuterOrderNo"].empty()) {
+      outerOrderNo = make_shared<string>(boost::any_cast<string>(m["OuterOrderNo"]));
+    }
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+  }
+
+
+  virtual ~DescribeFaceGuardRiskRequest() = default;
+};
+class DescribeFaceGuardRiskResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> riakTags{};
+  shared_ptr<string> riskExtends{};
+
+  DescribeFaceGuardRiskResponseBodyResultObject() {}
+
+  explicit DescribeFaceGuardRiskResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (riakTags) {
+      res["RiakTags"] = boost::any(*riakTags);
+    }
+    if (riskExtends) {
+      res["RiskExtends"] = boost::any(*riskExtends);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RiakTags") != m.end() && !m["RiakTags"].empty()) {
+      riakTags = make_shared<string>(boost::any_cast<string>(m["RiakTags"]));
+    }
+    if (m.find("RiskExtends") != m.end() && !m["RiskExtends"].empty()) {
+      riskExtends = make_shared<string>(boost::any_cast<string>(m["RiskExtends"]));
+    }
+  }
+
+
+  virtual ~DescribeFaceGuardRiskResponseBodyResultObject() = default;
+};
+class DescribeFaceGuardRiskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<DescribeFaceGuardRiskResponseBodyResultObject> resultObject{};
+
+  DescribeFaceGuardRiskResponseBody() {}
+
+  explicit DescribeFaceGuardRiskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        DescribeFaceGuardRiskResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<DescribeFaceGuardRiskResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeFaceGuardRiskResponseBody() = default;
+};
+class DescribeFaceGuardRiskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeFaceGuardRiskResponseBody> body{};
+
+  DescribeFaceGuardRiskResponse() {}
+
+  explicit DescribeFaceGuardRiskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeFaceGuardRiskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeFaceGuardRiskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeFaceGuardRiskResponse() = default;
+};
 class DescribeFaceVerifyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> certifyId{};
@@ -9208,6 +9400,8 @@ public:
   DeleteFaceVerifyResultResponse deleteFaceVerifyResult(shared_ptr<DeleteFaceVerifyResultRequest> request);
   DescribeDeviceInfoResponse describeDeviceInfoWithOptions(shared_ptr<DescribeDeviceInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDeviceInfoResponse describeDeviceInfo(shared_ptr<DescribeDeviceInfoRequest> request);
+  DescribeFaceGuardRiskResponse describeFaceGuardRiskWithOptions(shared_ptr<DescribeFaceGuardRiskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeFaceGuardRiskResponse describeFaceGuardRisk(shared_ptr<DescribeFaceGuardRiskRequest> request);
   DescribeFaceVerifyResponse describeFaceVerifyWithOptions(shared_ptr<DescribeFaceVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeFaceVerifyResponse describeFaceVerify(shared_ptr<DescribeFaceVerifyRequest> request);
   DescribeOssUploadTokenResponse describeOssUploadTokenWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

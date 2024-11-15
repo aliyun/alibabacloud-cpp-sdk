@@ -668,6 +668,43 @@ DescribeDeviceInfoResponse Alibabacloud_Cloudauth20190307::Client::describeDevic
   return describeDeviceInfoWithOptions(request, runtime);
 }
 
+DescribeFaceGuardRiskResponse Alibabacloud_Cloudauth20190307::Client::describeFaceGuardRiskWithOptions(shared_ptr<DescribeFaceGuardRiskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizId)) {
+    query->insert(pair<string, string>("BizId", *request->bizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceToken)) {
+    query->insert(pair<string, string>("DeviceToken", *request->deviceToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outerOrderNo)) {
+    query->insert(pair<string, string>("OuterOrderNo", *request->outerOrderNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    query->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeFaceGuardRisk"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeFaceGuardRiskResponse(callApi(params, req, runtime));
+}
+
+DescribeFaceGuardRiskResponse Alibabacloud_Cloudauth20190307::Client::describeFaceGuardRisk(shared_ptr<DescribeFaceGuardRiskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeFaceGuardRiskWithOptions(request, runtime);
+}
+
 DescribeFaceVerifyResponse Alibabacloud_Cloudauth20190307::Client::describeFaceVerifyWithOptions(shared_ptr<DescribeFaceVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
