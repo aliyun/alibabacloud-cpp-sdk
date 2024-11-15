@@ -506,6 +506,7 @@ public:
   shared_ptr<string> oppoChannelId{};
   shared_ptr<string> oppoNotifyLevel{};
   shared_ptr<string> useHuaweiMessage{};
+  shared_ptr<string> useHuaweiPlainMessage{};
   shared_ptr<string> vivoAddBadge{};
   shared_ptr<string> vivoCategory{};
   shared_ptr<string> vivoPushMode{};
@@ -550,6 +551,9 @@ public:
     }
     if (useHuaweiMessage) {
       res["useHuaweiMessage"] = boost::any(*useHuaweiMessage);
+    }
+    if (useHuaweiPlainMessage) {
+      res["useHuaweiPlainMessage"] = boost::any(*useHuaweiPlainMessage);
     }
     if (vivoAddBadge) {
       res["vivoAddBadge"] = boost::any(*vivoAddBadge);
@@ -596,6 +600,9 @@ public:
     }
     if (m.find("useHuaweiMessage") != m.end() && !m["useHuaweiMessage"].empty()) {
       useHuaweiMessage = make_shared<string>(boost::any_cast<string>(m["useHuaweiMessage"]));
+    }
+    if (m.find("useHuaweiPlainMessage") != m.end() && !m["useHuaweiPlainMessage"].empty()) {
+      useHuaweiPlainMessage = make_shared<string>(boost::any_cast<string>(m["useHuaweiPlainMessage"]));
     }
     if (m.find("vivoAddBadge") != m.end() && !m["vivoAddBadge"].empty()) {
       vivoAddBadge = make_shared<string>(boost::any_cast<string>(m["vivoAddBadge"]));

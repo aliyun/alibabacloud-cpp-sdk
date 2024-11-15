@@ -1,3 +1,6 @@
+2024-11-15 Version: 1.0.10
+- Generated cpp 2022-02-25 for umeng-push.
+
 2024-11-13 Version: 1.0.9
 - Generated cpp 2022-02-25 for umeng-push.
 
