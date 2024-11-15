@@ -14035,6 +14035,9 @@ ImportImageResponse Alibabacloud_Ecs20140526::Client::importImageWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->bootMode)) {
     query->insert(pair<string, string>("BootMode", *request->bootMode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
