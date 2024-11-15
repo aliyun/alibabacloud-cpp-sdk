@@ -3777,6 +3777,7 @@ public:
   shared_ptr<string> blackholdingCount{};
   shared_ptr<string> commodityType{};
   shared_ptr<long> coverageType{};
+  shared_ptr<long> debtStatus{};
   shared_ptr<long> expireTime{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<string> instanceId{};
@@ -3810,6 +3811,9 @@ public:
     }
     if (coverageType) {
       res["CoverageType"] = boost::any(*coverageType);
+    }
+    if (debtStatus) {
+      res["DebtStatus"] = boost::any(*debtStatus);
     }
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
@@ -3857,6 +3861,9 @@ public:
     }
     if (m.find("CoverageType") != m.end() && !m["CoverageType"].empty()) {
       coverageType = make_shared<long>(boost::any_cast<long>(m["CoverageType"]));
+    }
+    if (m.find("DebtStatus") != m.end() && !m["DebtStatus"].empty()) {
+      debtStatus = make_shared<long>(boost::any_cast<long>(m["DebtStatus"]));
     }
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<long>(boost::any_cast<long>(m["ExpireTime"]));
@@ -4794,6 +4801,7 @@ public:
   shared_ptr<long> currentPage{};
   shared_ptr<long> endTime{};
   shared_ptr<string> instanceId{};
+  shared_ptr<long> opAction{};
   shared_ptr<string> orderBy{};
   shared_ptr<string> orderDir{};
   shared_ptr<long> pageSize{};
@@ -4819,6 +4827,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (opAction) {
+      res["OpAction"] = boost::any(*opAction);
     }
     if (orderBy) {
       res["OrderBy"] = boost::any(*orderBy);
@@ -4850,6 +4861,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OpAction") != m.end() && !m["OpAction"].empty()) {
+      opAction = make_shared<long>(boost::any_cast<long>(m["OpAction"]));
     }
     if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
       orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));

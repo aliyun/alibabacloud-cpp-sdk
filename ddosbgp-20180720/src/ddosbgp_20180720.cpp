@@ -970,6 +970,9 @@ DescribeOpEntitiesResponse Alibabacloud_Ddosbgp20180720::Client::describeOpEntit
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->opAction)) {
+    query->insert(pair<string, long>("OpAction", *request->opAction));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
     query->insert(pair<string, string>("OrderBy", *request->orderBy));
   }
