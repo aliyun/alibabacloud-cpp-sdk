@@ -2334,6 +2334,452 @@ public:
 
   virtual ~GetJobRunResponse() = default;
 };
+class GetSessionClusterRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  GetSessionClusterRequest() {}
+
+  explicit GetSessionClusterRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~GetSessionClusterRequest() = default;
+};
+class GetSessionClusterResponseBodySessionClusterApplicationConfigs : public Darabonba::Model {
+public:
+  shared_ptr<string> configFileName{};
+  shared_ptr<string> configItemKey{};
+  shared_ptr<string> configItemValue{};
+
+  GetSessionClusterResponseBodySessionClusterApplicationConfigs() {}
+
+  explicit GetSessionClusterResponseBodySessionClusterApplicationConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configFileName) {
+      res["configFileName"] = boost::any(*configFileName);
+    }
+    if (configItemKey) {
+      res["configItemKey"] = boost::any(*configItemKey);
+    }
+    if (configItemValue) {
+      res["configItemValue"] = boost::any(*configItemValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("configFileName") != m.end() && !m["configFileName"].empty()) {
+      configFileName = make_shared<string>(boost::any_cast<string>(m["configFileName"]));
+    }
+    if (m.find("configItemKey") != m.end() && !m["configItemKey"].empty()) {
+      configItemKey = make_shared<string>(boost::any_cast<string>(m["configItemKey"]));
+    }
+    if (m.find("configItemValue") != m.end() && !m["configItemValue"].empty()) {
+      configItemValue = make_shared<string>(boost::any_cast<string>(m["configItemValue"]));
+    }
+  }
+
+
+  virtual ~GetSessionClusterResponseBodySessionClusterApplicationConfigs() = default;
+};
+class GetSessionClusterResponseBodySessionClusterAutoStartConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  GetSessionClusterResponseBodySessionClusterAutoStartConfiguration() {}
+
+  explicit GetSessionClusterResponseBodySessionClusterAutoStartConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+  }
+
+
+  virtual ~GetSessionClusterResponseBodySessionClusterAutoStartConfiguration() = default;
+};
+class GetSessionClusterResponseBodySessionClusterAutoStopConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<long> idleTimeoutMinutes{};
+
+  GetSessionClusterResponseBodySessionClusterAutoStopConfiguration() {}
+
+  explicit GetSessionClusterResponseBodySessionClusterAutoStopConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    if (idleTimeoutMinutes) {
+      res["idleTimeoutMinutes"] = boost::any(*idleTimeoutMinutes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+    if (m.find("idleTimeoutMinutes") != m.end() && !m["idleTimeoutMinutes"].empty()) {
+      idleTimeoutMinutes = make_shared<long>(boost::any_cast<long>(m["idleTimeoutMinutes"]));
+    }
+  }
+
+
+  virtual ~GetSessionClusterResponseBodySessionClusterAutoStopConfiguration() = default;
+};
+class GetSessionClusterResponseBodySessionClusterStateChangeReason : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+
+  GetSessionClusterResponseBodySessionClusterStateChangeReason() {}
+
+  explicit GetSessionClusterResponseBodySessionClusterStateChangeReason(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+  }
+
+
+  virtual ~GetSessionClusterResponseBodySessionClusterStateChangeReason() = default;
+};
+class GetSessionClusterResponseBodySessionCluster : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetSessionClusterResponseBodySessionClusterApplicationConfigs>> applicationConfigs{};
+  shared_ptr<GetSessionClusterResponseBodySessionClusterAutoStartConfiguration> autoStartConfiguration{};
+  shared_ptr<GetSessionClusterResponseBodySessionClusterAutoStopConfiguration> autoStopConfiguration{};
+  shared_ptr<string> displayReleaseVersion{};
+  shared_ptr<string> domain{};
+  shared_ptr<string> draftId{};
+  shared_ptr<string> envId{};
+  shared_ptr<bool> fusion{};
+  shared_ptr<string> kind{};
+  shared_ptr<string> name{};
+  shared_ptr<string> queueName{};
+  shared_ptr<string> releaseVersion{};
+  shared_ptr<string> sessionClusterId{};
+  shared_ptr<string> state{};
+  shared_ptr<GetSessionClusterResponseBodySessionClusterStateChangeReason> stateChangeReason{};
+  shared_ptr<string> userId{};
+  shared_ptr<string> userName{};
+  shared_ptr<string> webUI{};
+  shared_ptr<string> workspaceId{};
+
+  GetSessionClusterResponseBodySessionCluster() {}
+
+  explicit GetSessionClusterResponseBodySessionCluster(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationConfigs) {
+      vector<boost::any> temp1;
+      for(auto item1:*applicationConfigs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["applicationConfigs"] = boost::any(temp1);
+    }
+    if (autoStartConfiguration) {
+      res["autoStartConfiguration"] = autoStartConfiguration ? boost::any(autoStartConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoStopConfiguration) {
+      res["autoStopConfiguration"] = autoStopConfiguration ? boost::any(autoStopConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (displayReleaseVersion) {
+      res["displayReleaseVersion"] = boost::any(*displayReleaseVersion);
+    }
+    if (domain) {
+      res["domain"] = boost::any(*domain);
+    }
+    if (draftId) {
+      res["draftId"] = boost::any(*draftId);
+    }
+    if (envId) {
+      res["envId"] = boost::any(*envId);
+    }
+    if (fusion) {
+      res["fusion"] = boost::any(*fusion);
+    }
+    if (kind) {
+      res["kind"] = boost::any(*kind);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (queueName) {
+      res["queueName"] = boost::any(*queueName);
+    }
+    if (releaseVersion) {
+      res["releaseVersion"] = boost::any(*releaseVersion);
+    }
+    if (sessionClusterId) {
+      res["sessionClusterId"] = boost::any(*sessionClusterId);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    if (stateChangeReason) {
+      res["stateChangeReason"] = stateChangeReason ? boost::any(stateChangeReason->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    if (userName) {
+      res["userName"] = boost::any(*userName);
+    }
+    if (webUI) {
+      res["webUI"] = boost::any(*webUI);
+    }
+    if (workspaceId) {
+      res["workspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("applicationConfigs") != m.end() && !m["applicationConfigs"].empty()) {
+      if (typeid(vector<boost::any>) == m["applicationConfigs"].type()) {
+        vector<GetSessionClusterResponseBodySessionClusterApplicationConfigs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["applicationConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetSessionClusterResponseBodySessionClusterApplicationConfigs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        applicationConfigs = make_shared<vector<GetSessionClusterResponseBodySessionClusterApplicationConfigs>>(expect1);
+      }
+    }
+    if (m.find("autoStartConfiguration") != m.end() && !m["autoStartConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["autoStartConfiguration"].type()) {
+        GetSessionClusterResponseBodySessionClusterAutoStartConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["autoStartConfiguration"]));
+        autoStartConfiguration = make_shared<GetSessionClusterResponseBodySessionClusterAutoStartConfiguration>(model1);
+      }
+    }
+    if (m.find("autoStopConfiguration") != m.end() && !m["autoStopConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["autoStopConfiguration"].type()) {
+        GetSessionClusterResponseBodySessionClusterAutoStopConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["autoStopConfiguration"]));
+        autoStopConfiguration = make_shared<GetSessionClusterResponseBodySessionClusterAutoStopConfiguration>(model1);
+      }
+    }
+    if (m.find("displayReleaseVersion") != m.end() && !m["displayReleaseVersion"].empty()) {
+      displayReleaseVersion = make_shared<string>(boost::any_cast<string>(m["displayReleaseVersion"]));
+    }
+    if (m.find("domain") != m.end() && !m["domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["domain"]));
+    }
+    if (m.find("draftId") != m.end() && !m["draftId"].empty()) {
+      draftId = make_shared<string>(boost::any_cast<string>(m["draftId"]));
+    }
+    if (m.find("envId") != m.end() && !m["envId"].empty()) {
+      envId = make_shared<string>(boost::any_cast<string>(m["envId"]));
+    }
+    if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
+      fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
+    }
+    if (m.find("kind") != m.end() && !m["kind"].empty()) {
+      kind = make_shared<string>(boost::any_cast<string>(m["kind"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("queueName") != m.end() && !m["queueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["queueName"]));
+    }
+    if (m.find("releaseVersion") != m.end() && !m["releaseVersion"].empty()) {
+      releaseVersion = make_shared<string>(boost::any_cast<string>(m["releaseVersion"]));
+    }
+    if (m.find("sessionClusterId") != m.end() && !m["sessionClusterId"].empty()) {
+      sessionClusterId = make_shared<string>(boost::any_cast<string>(m["sessionClusterId"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("stateChangeReason") != m.end() && !m["stateChangeReason"].empty()) {
+      if (typeid(map<string, boost::any>) == m["stateChangeReason"].type()) {
+        GetSessionClusterResponseBodySessionClusterStateChangeReason model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["stateChangeReason"]));
+        stateChangeReason = make_shared<GetSessionClusterResponseBodySessionClusterStateChangeReason>(model1);
+      }
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+    if (m.find("userName") != m.end() && !m["userName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["userName"]));
+    }
+    if (m.find("webUI") != m.end() && !m["webUI"].empty()) {
+      webUI = make_shared<string>(boost::any_cast<string>(m["webUI"]));
+    }
+    if (m.find("workspaceId") != m.end() && !m["workspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["workspaceId"]));
+    }
+  }
+
+
+  virtual ~GetSessionClusterResponseBodySessionCluster() = default;
+};
+class GetSessionClusterResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<GetSessionClusterResponseBodySessionCluster> sessionCluster{};
+
+  GetSessionClusterResponseBody() {}
+
+  explicit GetSessionClusterResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (sessionCluster) {
+      res["sessionCluster"] = sessionCluster ? boost::any(sessionCluster->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("sessionCluster") != m.end() && !m["sessionCluster"].empty()) {
+      if (typeid(map<string, boost::any>) == m["sessionCluster"].type()) {
+        GetSessionClusterResponseBodySessionCluster model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["sessionCluster"]));
+        sessionCluster = make_shared<GetSessionClusterResponseBodySessionCluster>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSessionClusterResponseBody() = default;
+};
+class GetSessionClusterResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetSessionClusterResponseBody> body{};
+
+  GetSessionClusterResponse() {}
+
+  explicit GetSessionClusterResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSessionClusterResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSessionClusterResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSessionClusterResponse() = default;
+};
 class GetSqlStatementRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -5890,6 +6336,12 @@ public:
                                          shared_ptr<map<string, string>> headers,
                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetJobRunResponse getJobRun(shared_ptr<string> workspaceId, shared_ptr<string> jobRunId, shared_ptr<GetJobRunRequest> request);
+  GetSessionClusterResponse getSessionClusterWithOptions(shared_ptr<string> workspaceId,
+                                                         shared_ptr<string> sessionClusterId,
+                                                         shared_ptr<GetSessionClusterRequest> request,
+                                                         shared_ptr<map<string, string>> headers,
+                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSessionClusterResponse getSessionCluster(shared_ptr<string> workspaceId, shared_ptr<string> sessionClusterId, shared_ptr<GetSessionClusterRequest> request);
   GetSqlStatementResponse getSqlStatementWithOptions(shared_ptr<string> workspaceId,
                                                      shared_ptr<string> statementId,
                                                      shared_ptr<GetSqlStatementRequest> request,
