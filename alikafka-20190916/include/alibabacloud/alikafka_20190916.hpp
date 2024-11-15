@@ -6467,11 +6467,50 @@ public:
 
   virtual ~GetInstanceListResponseBodyInstanceListInstanceVOUpgradeServiceDetailInfo() = default;
 };
+class GetInstanceListResponseBodyInstanceListInstanceVOVSwitchIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> vSwitchIds{};
+
+  GetInstanceListResponseBodyInstanceListInstanceVOVSwitchIds() {}
+
+  explicit GetInstanceListResponseBodyInstanceListInstanceVOVSwitchIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetInstanceListResponseBodyInstanceListInstanceVOVSwitchIds() = default;
+};
 class GetInstanceListResponseBodyInstanceListInstanceVO : public Darabonba::Model {
 public:
   shared_ptr<string> allConfig{};
+  shared_ptr<bool> autoCreateGroupEnable{};
+  shared_ptr<bool> autoCreateTopicEnable{};
   shared_ptr<GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig> confluentConfig{};
   shared_ptr<long> createTime{};
+  shared_ptr<long> defaultPartitionNum{};
   shared_ptr<long> deployType{};
   shared_ptr<long> diskSize{};
   shared_ptr<long> diskType{};
@@ -6507,6 +6546,7 @@ public:
   shared_ptr<long> usedPartitionCount{};
   shared_ptr<long> usedTopicCount{};
   shared_ptr<string> vSwitchId{};
+  shared_ptr<GetInstanceListResponseBodyInstanceListInstanceVOVSwitchIds> vSwitchIds{};
   shared_ptr<long> viewInstanceStatusCode{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
@@ -6524,11 +6564,20 @@ public:
     if (allConfig) {
       res["AllConfig"] = boost::any(*allConfig);
     }
+    if (autoCreateGroupEnable) {
+      res["AutoCreateGroupEnable"] = boost::any(*autoCreateGroupEnable);
+    }
+    if (autoCreateTopicEnable) {
+      res["AutoCreateTopicEnable"] = boost::any(*autoCreateTopicEnable);
+    }
     if (confluentConfig) {
       res["ConfluentConfig"] = confluentConfig ? boost::any(confluentConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (defaultPartitionNum) {
+      res["DefaultPartitionNum"] = boost::any(*defaultPartitionNum);
     }
     if (deployType) {
       res["DeployType"] = boost::any(*deployType);
@@ -6635,6 +6684,9 @@ public:
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = vSwitchIds ? boost::any(vSwitchIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (viewInstanceStatusCode) {
       res["ViewInstanceStatusCode"] = boost::any(*viewInstanceStatusCode);
     }
@@ -6651,6 +6703,12 @@ public:
     if (m.find("AllConfig") != m.end() && !m["AllConfig"].empty()) {
       allConfig = make_shared<string>(boost::any_cast<string>(m["AllConfig"]));
     }
+    if (m.find("AutoCreateGroupEnable") != m.end() && !m["AutoCreateGroupEnable"].empty()) {
+      autoCreateGroupEnable = make_shared<bool>(boost::any_cast<bool>(m["AutoCreateGroupEnable"]));
+    }
+    if (m.find("AutoCreateTopicEnable") != m.end() && !m["AutoCreateTopicEnable"].empty()) {
+      autoCreateTopicEnable = make_shared<bool>(boost::any_cast<bool>(m["AutoCreateTopicEnable"]));
+    }
     if (m.find("ConfluentConfig") != m.end() && !m["ConfluentConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["ConfluentConfig"].type()) {
         GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig model1;
@@ -6660,6 +6718,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("DefaultPartitionNum") != m.end() && !m["DefaultPartitionNum"].empty()) {
+      defaultPartitionNum = make_shared<long>(boost::any_cast<long>(m["DefaultPartitionNum"]));
     }
     if (m.find("DeployType") != m.end() && !m["DeployType"].empty()) {
       deployType = make_shared<long>(boost::any_cast<long>(m["DeployType"]));
@@ -6773,6 +6834,13 @@ public:
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VSwitchIds"].type()) {
+        GetInstanceListResponseBodyInstanceListInstanceVOVSwitchIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VSwitchIds"]));
+        vSwitchIds = make_shared<GetInstanceListResponseBodyInstanceListInstanceVOVSwitchIds>(model1);
+      }
     }
     if (m.find("ViewInstanceStatusCode") != m.end() && !m["ViewInstanceStatusCode"].empty()) {
       viewInstanceStatusCode = make_shared<long>(boost::any_cast<long>(m["ViewInstanceStatusCode"]));
@@ -6943,6 +7011,420 @@ public:
 
 
   virtual ~GetInstanceListResponse() = default;
+};
+class GetKafkaClientIpRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<string> group{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> topic{};
+  shared_ptr<string> type{};
+
+  GetKafkaClientIpRequest() {}
+
+  explicit GetKafkaClientIpRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (group) {
+      res["Group"] = boost::any(*group);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Group") != m.end() && !m["Group"].empty()) {
+      group = make_shared<string>(boost::any_cast<string>(m["Group"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GetKafkaClientIpRequest() = default;
+};
+class GetKafkaClientIpResponseBodyDataDataDataDataData : public Darabonba::Model {
+public:
+  shared_ptr<string> ip{};
+  shared_ptr<long> num{};
+
+  GetKafkaClientIpResponseBodyDataDataDataDataData() {}
+
+  explicit GetKafkaClientIpResponseBodyDataDataDataDataData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    if (num) {
+      res["Num"] = boost::any(*num);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("Num") != m.end() && !m["Num"].empty()) {
+      num = make_shared<long>(boost::any_cast<long>(m["Num"]));
+    }
+  }
+
+
+  virtual ~GetKafkaClientIpResponseBodyDataDataDataDataData() = default;
+};
+class GetKafkaClientIpResponseBodyDataDataDataData : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetKafkaClientIpResponseBodyDataDataDataDataData>> data{};
+
+  GetKafkaClientIpResponseBodyDataDataDataData() {}
+
+  explicit GetKafkaClientIpResponseBodyDataDataDataData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<GetKafkaClientIpResponseBodyDataDataDataDataData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetKafkaClientIpResponseBodyDataDataDataDataData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<GetKafkaClientIpResponseBodyDataDataDataDataData>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetKafkaClientIpResponseBodyDataDataDataData() = default;
+};
+class GetKafkaClientIpResponseBodyDataDataData : public Darabonba::Model {
+public:
+  shared_ptr<GetKafkaClientIpResponseBodyDataDataDataData> data{};
+  shared_ptr<string> name{};
+
+  GetKafkaClientIpResponseBodyDataDataData() {}
+
+  explicit GetKafkaClientIpResponseBodyDataDataData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetKafkaClientIpResponseBodyDataDataDataData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetKafkaClientIpResponseBodyDataDataDataData>(model1);
+      }
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~GetKafkaClientIpResponseBodyDataDataData() = default;
+};
+class GetKafkaClientIpResponseBodyDataData : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetKafkaClientIpResponseBodyDataDataData>> data{};
+
+  GetKafkaClientIpResponseBodyDataData() {}
+
+  explicit GetKafkaClientIpResponseBodyDataData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<GetKafkaClientIpResponseBodyDataDataData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetKafkaClientIpResponseBodyDataDataData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<GetKafkaClientIpResponseBodyDataDataData>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetKafkaClientIpResponseBodyDataData() = default;
+};
+class GetKafkaClientIpResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<bool> alert{};
+  shared_ptr<GetKafkaClientIpResponseBodyDataData> data{};
+  shared_ptr<long> endDate{};
+  shared_ptr<long> searchTimeRange{};
+  shared_ptr<long> startDate{};
+  shared_ptr<long> timeLimitDay{};
+
+  GetKafkaClientIpResponseBodyData() {}
+
+  explicit GetKafkaClientIpResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alert) {
+      res["Alert"] = boost::any(*alert);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (searchTimeRange) {
+      res["SearchTimeRange"] = boost::any(*searchTimeRange);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    if (timeLimitDay) {
+      res["TimeLimitDay"] = boost::any(*timeLimitDay);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alert") != m.end() && !m["Alert"].empty()) {
+      alert = make_shared<bool>(boost::any_cast<bool>(m["Alert"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetKafkaClientIpResponseBodyDataData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetKafkaClientIpResponseBodyDataData>(model1);
+      }
+    }
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<long>(boost::any_cast<long>(m["EndDate"]));
+    }
+    if (m.find("SearchTimeRange") != m.end() && !m["SearchTimeRange"].empty()) {
+      searchTimeRange = make_shared<long>(boost::any_cast<long>(m["SearchTimeRange"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<long>(boost::any_cast<long>(m["StartDate"]));
+    }
+    if (m.find("TimeLimitDay") != m.end() && !m["TimeLimitDay"].empty()) {
+      timeLimitDay = make_shared<long>(boost::any_cast<long>(m["TimeLimitDay"]));
+    }
+  }
+
+
+  virtual ~GetKafkaClientIpResponseBodyData() = default;
+};
+class GetKafkaClientIpResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<GetKafkaClientIpResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetKafkaClientIpResponseBody() {}
+
+  explicit GetKafkaClientIpResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetKafkaClientIpResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetKafkaClientIpResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetKafkaClientIpResponseBody() = default;
+};
+class GetKafkaClientIpResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetKafkaClientIpResponseBody> body{};
+
+  GetKafkaClientIpResponse() {}
+
+  explicit GetKafkaClientIpResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetKafkaClientIpResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetKafkaClientIpResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetKafkaClientIpResponse() = default;
 };
 class GetQuotaTipRequest : public Darabonba::Model {
 public:
@@ -12187,6 +12669,8 @@ public:
   GetConsumerProgressResponse getConsumerProgress(shared_ptr<GetConsumerProgressRequest> request);
   GetInstanceListResponse getInstanceListWithOptions(shared_ptr<GetInstanceListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetInstanceListResponse getInstanceList(shared_ptr<GetInstanceListRequest> request);
+  GetKafkaClientIpResponse getKafkaClientIpWithOptions(shared_ptr<GetKafkaClientIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetKafkaClientIpResponse getKafkaClientIp(shared_ptr<GetKafkaClientIpRequest> request);
   GetQuotaTipResponse getQuotaTipWithOptions(shared_ptr<GetQuotaTipRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetQuotaTipResponse getQuotaTip(shared_ptr<GetQuotaTipRequest> request);
   GetTopicListResponse getTopicListWithOptions(shared_ptr<GetTopicListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
