@@ -515,11 +515,19 @@ ListEvaluationScoreHistoryResponse Alibabacloud_Governance20210120::Client::list
   return listEvaluationScoreHistoryWithOptions(request, runtime);
 }
 
-RunEvaluationResponse Alibabacloud_Governance20210120::Client::runEvaluationWithOptions(shared_ptr<RunEvaluationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+RunEvaluationResponse Alibabacloud_Governance20210120::Client::runEvaluationWithOptions(shared_ptr<RunEvaluationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<RunEvaluationShrinkRequest> request = make_shared<RunEvaluationShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->metricIds)) {
+    request->metricIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->metricIds, make_shared<string>("MetricIds"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->accountId)) {
     query->insert(pair<string, long>("AccountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metricIdsShrink)) {
+    query->insert(pair<string, string>("MetricIds", *request->metricIdsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));

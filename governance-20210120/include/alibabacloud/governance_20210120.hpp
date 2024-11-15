@@ -4004,6 +4004,7 @@ public:
 class RunEvaluationRequest : public Darabonba::Model {
 public:
   shared_ptr<long> accountId{};
+  shared_ptr<vector<string>> metricIds{};
   shared_ptr<string> regionId{};
   shared_ptr<string> scope{};
 
@@ -4020,6 +4021,9 @@ public:
     if (accountId) {
       res["AccountId"] = boost::any(*accountId);
     }
+    if (metricIds) {
+      res["MetricIds"] = boost::any(*metricIds);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -4033,6 +4037,16 @@ public:
     if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
       accountId = make_shared<long>(boost::any_cast<long>(m["AccountId"]));
     }
+    if (m.find("MetricIds") != m.end() && !m["MetricIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MetricIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MetricIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      metricIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -4043,6 +4057,56 @@ public:
 
 
   virtual ~RunEvaluationRequest() = default;
+};
+class RunEvaluationShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> accountId{};
+  shared_ptr<string> metricIdsShrink{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> scope{};
+
+  RunEvaluationShrinkRequest() {}
+
+  explicit RunEvaluationShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    if (metricIdsShrink) {
+      res["MetricIds"] = boost::any(*metricIdsShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<long>(boost::any_cast<long>(m["AccountId"]));
+    }
+    if (m.find("MetricIds") != m.end() && !m["MetricIds"].empty()) {
+      metricIdsShrink = make_shared<string>(boost::any_cast<string>(m["MetricIds"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+  }
+
+
+  virtual ~RunEvaluationShrinkRequest() = default;
 };
 class RunEvaluationResponseBody : public Darabonba::Model {
 public:
@@ -4356,7 +4420,7 @@ public:
   ListEvaluationResultsResponse listEvaluationResults(shared_ptr<ListEvaluationResultsRequest> request);
   ListEvaluationScoreHistoryResponse listEvaluationScoreHistoryWithOptions(shared_ptr<ListEvaluationScoreHistoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListEvaluationScoreHistoryResponse listEvaluationScoreHistory(shared_ptr<ListEvaluationScoreHistoryRequest> request);
-  RunEvaluationResponse runEvaluationWithOptions(shared_ptr<RunEvaluationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RunEvaluationResponse runEvaluationWithOptions(shared_ptr<RunEvaluationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunEvaluationResponse runEvaluation(shared_ptr<RunEvaluationRequest> request);
   UpdateAccountFactoryBaselineResponse updateAccountFactoryBaselineWithOptions(shared_ptr<UpdateAccountFactoryBaselineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAccountFactoryBaselineResponse updateAccountFactoryBaseline(shared_ptr<UpdateAccountFactoryBaselineRequest> request);
