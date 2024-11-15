@@ -6802,6 +6802,7 @@ public:
 class RecognizeEduPaperStructedRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> needRotate{};
+  shared_ptr<bool> outputOricoord{};
   shared_ptr<string> subject{};
   shared_ptr<string> url{};
   shared_ptr<Darabonba::Stream> body{};
@@ -6819,6 +6820,9 @@ public:
     if (needRotate) {
       res["NeedRotate"] = boost::any(*needRotate);
     }
+    if (outputOricoord) {
+      res["OutputOricoord"] = boost::any(*outputOricoord);
+    }
     if (subject) {
       res["Subject"] = boost::any(*subject);
     }
@@ -6834,6 +6838,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("NeedRotate") != m.end() && !m["NeedRotate"].empty()) {
       needRotate = make_shared<bool>(boost::any_cast<bool>(m["NeedRotate"]));
+    }
+    if (m.find("OutputOricoord") != m.end() && !m["OutputOricoord"].empty()) {
+      outputOricoord = make_shared<bool>(boost::any_cast<bool>(m["OutputOricoord"]));
     }
     if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
       subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));

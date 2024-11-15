@@ -909,6 +909,9 @@ RecognizeEduPaperStructedResponse Alibabacloud_Ocr-api20210707::Client::recogniz
   if (!Darabonba_Util::Client::isUnset<bool>(request->needRotate)) {
     query->insert(pair<string, bool>("NeedRotate", *request->needRotate));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->outputOricoord)) {
+    query->insert(pair<string, bool>("OutputOricoord", *request->outputOricoord));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->subject)) {
     query->insert(pair<string, string>("Subject", *request->subject));
   }
