@@ -1041,6 +1041,42 @@ public:
 
   virtual ~CreateResourceShareRequestResources() = default;
 };
+class CreateResourceShareRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateResourceShareRequestTag() {}
+
+  explicit CreateResourceShareRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateResourceShareRequestTag() = default;
+};
 class CreateResourceShareRequestTargetProperties : public Darabonba::Model {
 public:
   shared_ptr<string> property{};
@@ -1081,8 +1117,10 @@ class CreateResourceShareRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> allowExternalTargets{};
   shared_ptr<vector<string>> permissionNames{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceShareName{};
   shared_ptr<vector<CreateResourceShareRequestResources>> resources{};
+  shared_ptr<vector<CreateResourceShareRequestTag>> tag{};
   shared_ptr<vector<CreateResourceShareRequestTargetProperties>> targetProperties{};
   shared_ptr<vector<string>> targets{};
 
@@ -1102,6 +1140,9 @@ public:
     if (permissionNames) {
       res["PermissionNames"] = boost::any(*permissionNames);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceShareName) {
       res["ResourceShareName"] = boost::any(*resourceShareName);
     }
@@ -1111,6 +1152,13 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Resources"] = boost::any(temp1);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (targetProperties) {
       vector<boost::any> temp1;
@@ -1139,6 +1187,9 @@ public:
       }
       permissionNames = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceShareName") != m.end() && !m["ResourceShareName"].empty()) {
       resourceShareName = make_shared<string>(boost::any_cast<string>(m["ResourceShareName"]));
     }
@@ -1153,6 +1204,19 @@ public:
           }
         }
         resources = make_shared<vector<CreateResourceShareRequestResources>>(expect1);
+      }
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateResourceShareRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateResourceShareRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateResourceShareRequestTag>>(expect1);
       }
     }
     if (m.find("TargetProperties") != m.end() && !m["TargetProperties"].empty()) {
@@ -3739,15 +3803,53 @@ public:
 
   virtual ~ListResourceSharePermissionsResponse() = default;
 };
+class ListResourceSharesRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListResourceSharesRequestTag() {}
+
+  explicit ListResourceSharesRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListResourceSharesRequestTag() = default;
+};
 class ListResourceSharesRequest : public Darabonba::Model {
 public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> permissionName{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwner{};
   shared_ptr<vector<string>> resourceShareIds{};
   shared_ptr<string> resourceShareName{};
   shared_ptr<string> resourceShareStatus{};
+  shared_ptr<vector<ListResourceSharesRequestTag>> tag{};
 
   ListResourceSharesRequest() {}
 
@@ -3768,6 +3870,9 @@ public:
     if (permissionName) {
       res["PermissionName"] = boost::any(*permissionName);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceOwner) {
       res["ResourceOwner"] = boost::any(*resourceOwner);
     }
@@ -3779,6 +3884,13 @@ public:
     }
     if (resourceShareStatus) {
       res["ResourceShareStatus"] = boost::any(*resourceShareStatus);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     return res;
   }
@@ -3792,6 +3904,9 @@ public:
     }
     if (m.find("PermissionName") != m.end() && !m["PermissionName"].empty()) {
       permissionName = make_shared<string>(boost::any_cast<string>(m["PermissionName"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceOwner") != m.end() && !m["ResourceOwner"].empty()) {
       resourceOwner = make_shared<string>(boost::any_cast<string>(m["ResourceOwner"]));
@@ -3812,19 +3927,70 @@ public:
     if (m.find("ResourceShareStatus") != m.end() && !m["ResourceShareStatus"].empty()) {
       resourceShareStatus = make_shared<string>(boost::any_cast<string>(m["ResourceShareStatus"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListResourceSharesRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListResourceSharesRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListResourceSharesRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListResourceSharesRequest() = default;
 };
+class ListResourceSharesResponseBodyResourceSharesTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListResourceSharesResponseBodyResourceSharesTags() {}
+
+  explicit ListResourceSharesResponseBodyResourceSharesTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListResourceSharesResponseBodyResourceSharesTags() = default;
+};
 class ListResourceSharesResponseBodyResourceShares : public Darabonba::Model {
 public:
   shared_ptr<bool> allowExternalTargets{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceShareId{};
   shared_ptr<string> resourceShareName{};
   shared_ptr<string> resourceShareOwner{};
   shared_ptr<string> resourceShareStatus{};
+  shared_ptr<vector<ListResourceSharesResponseBodyResourceSharesTags>> tags{};
   shared_ptr<string> updateTime{};
 
   ListResourceSharesResponseBodyResourceShares() {}
@@ -3843,6 +4009,9 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceShareId) {
       res["ResourceShareId"] = boost::any(*resourceShareId);
     }
@@ -3854,6 +4023,13 @@ public:
     }
     if (resourceShareStatus) {
       res["ResourceShareStatus"] = boost::any(*resourceShareStatus);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
@@ -3868,6 +4044,9 @@ public:
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceShareId") != m.end() && !m["ResourceShareId"].empty()) {
       resourceShareId = make_shared<string>(boost::any_cast<string>(m["ResourceShareId"]));
     }
@@ -3879,6 +4058,19 @@ public:
     }
     if (m.find("ResourceShareStatus") != m.end() && !m["ResourceShareStatus"].empty()) {
       resourceShareStatus = make_shared<string>(boost::any_cast<string>(m["ResourceShareStatus"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListResourceSharesResponseBodyResourceSharesTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListResourceSharesResponseBodyResourceSharesTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListResourceSharesResponseBodyResourceSharesTags>>(expect1);
+      }
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));

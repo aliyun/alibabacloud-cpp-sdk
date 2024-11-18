@@ -203,11 +203,17 @@ CreateResourceShareResponse Alibabacloud_ResourceSharing20200110::Client::create
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->permissionNames)) {
     query->insert(pair<string, vector<string>>("PermissionNames", *request->permissionNames));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceShareName)) {
     query->insert(pair<string, string>("ResourceShareName", *request->resourceShareName));
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateResourceShareRequestResources>>(request->resources)) {
     query->insert(pair<string, vector<CreateResourceShareRequestResources>>("Resources", *request->resources));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateResourceShareRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateResourceShareRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateResourceShareRequestTargetProperties>>(request->targetProperties)) {
     query->insert(pair<string, vector<CreateResourceShareRequestTargetProperties>>("TargetProperties", *request->targetProperties));
@@ -613,6 +619,9 @@ ListResourceSharesResponse Alibabacloud_ResourceSharing20200110::Client::listRes
   if (!Darabonba_Util::Client::isUnset<string>(request->permissionName)) {
     query->insert(pair<string, string>("PermissionName", *request->permissionName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwner)) {
     query->insert(pair<string, string>("ResourceOwner", *request->resourceOwner));
   }
@@ -624,6 +633,9 @@ ListResourceSharesResponse Alibabacloud_ResourceSharing20200110::Client::listRes
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceShareStatus)) {
     query->insert(pair<string, string>("ResourceShareStatus", *request->resourceShareStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListResourceSharesRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListResourceSharesRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
