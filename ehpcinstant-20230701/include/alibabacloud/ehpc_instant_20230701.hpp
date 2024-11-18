@@ -4055,6 +4055,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> name{};
+  shared_ptr<string> osTag{};
   shared_ptr<string> version{};
 
   ListImagesResponseBodyImages() {}
@@ -4085,6 +4086,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (osTag) {
+      res["OsTag"] = boost::any(*osTag);
+    }
     if (version) {
       res["Version"] = boost::any(*version);
     }
@@ -4109,6 +4113,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OsTag") != m.end() && !m["OsTag"].empty()) {
+      osTag = make_shared<string>(boost::any_cast<string>(m["OsTag"]));
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["Version"]));
