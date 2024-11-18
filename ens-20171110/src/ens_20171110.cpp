@@ -1904,6 +1904,48 @@ CreateNetworkAclEntryResponse Alibabacloud_Ens20171110::Client::createNetworkAcl
   return createNetworkAclEntryWithOptions(request, runtime);
 }
 
+CreateNetworkInterfaceResponse Alibabacloud_Ens20171110::Client::createNetworkInterfaceWithOptions(shared_ptr<CreateNetworkInterfaceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateNetworkInterfaceShrinkRequest> request = make_shared<CreateNetworkInterfaceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->securityGroupIds)) {
+    request->securityGroupIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->securityGroupIds, make_shared<string>("SecurityGroupIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupIdsShrink)) {
+    query->insert(pair<string, string>("SecurityGroupIds", *request->securityGroupIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
+    query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateNetworkInterface"))},
+    {"version", boost::any(string("2017-11-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateNetworkInterfaceResponse(callApi(params, req, runtime));
+}
+
+CreateNetworkInterfaceResponse Alibabacloud_Ens20171110::Client::createNetworkInterface(shared_ptr<CreateNetworkInterfaceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createNetworkInterfaceWithOptions(request, runtime);
+}
+
 CreateSDGResponse Alibabacloud_Ens20171110::Client::createSDGWithOptions(shared_ptr<CreateSDGRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -2783,6 +2825,39 @@ DeleteNetworkAclEntryResponse Alibabacloud_Ens20171110::Client::deleteNetworkAcl
 DeleteNetworkAclEntryResponse Alibabacloud_Ens20171110::Client::deleteNetworkAclEntry(shared_ptr<DeleteNetworkAclEntryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteNetworkAclEntryWithOptions(request, runtime);
+}
+
+DeleteNetworkInterfacesResponse Alibabacloud_Ens20171110::Client::deleteNetworkInterfacesWithOptions(shared_ptr<DeleteNetworkInterfacesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteNetworkInterfacesShrinkRequest> request = make_shared<DeleteNetworkInterfacesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->networkInterfaceIds)) {
+    request->networkInterfaceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->networkInterfaceIds, make_shared<string>("NetworkInterfaceIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkInterfaceIdsShrink)) {
+    query->insert(pair<string, string>("NetworkInterfaceIds", *request->networkInterfaceIdsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteNetworkInterfaces"))},
+    {"version", boost::any(string("2017-11-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteNetworkInterfacesResponse(callApi(params, req, runtime));
+}
+
+DeleteNetworkInterfacesResponse Alibabacloud_Ens20171110::Client::deleteNetworkInterfaces(shared_ptr<DeleteNetworkInterfacesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteNetworkInterfacesWithOptions(request, runtime);
 }
 
 DeleteObjectResponse Alibabacloud_Ens20171110::Client::deleteObjectWithOptions(shared_ptr<DeleteObjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
