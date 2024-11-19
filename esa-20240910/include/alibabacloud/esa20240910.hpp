@@ -14629,9 +14629,11 @@ public:
 class DescribeDDoSAllEventListResponseBodyDataList : public Darabonba::Model {
 public:
   shared_ptr<long> bps{};
+  shared_ptr<string> coverage{};
   shared_ptr<long> cps{};
   shared_ptr<string> endTime{};
   shared_ptr<string> eventId{};
+  shared_ptr<string> eventResult{};
   shared_ptr<string> eventType{};
   shared_ptr<long> pps{};
   shared_ptr<long> qps{};
@@ -14652,6 +14654,9 @@ public:
     if (bps) {
       res["Bps"] = boost::any(*bps);
     }
+    if (coverage) {
+      res["Coverage"] = boost::any(*coverage);
+    }
     if (cps) {
       res["Cps"] = boost::any(*cps);
     }
@@ -14660,6 +14665,9 @@ public:
     }
     if (eventId) {
       res["EventId"] = boost::any(*eventId);
+    }
+    if (eventResult) {
+      res["EventResult"] = boost::any(*eventResult);
     }
     if (eventType) {
       res["EventType"] = boost::any(*eventType);
@@ -14686,6 +14694,9 @@ public:
     if (m.find("Bps") != m.end() && !m["Bps"].empty()) {
       bps = make_shared<long>(boost::any_cast<long>(m["Bps"]));
     }
+    if (m.find("Coverage") != m.end() && !m["Coverage"].empty()) {
+      coverage = make_shared<string>(boost::any_cast<string>(m["Coverage"]));
+    }
     if (m.find("Cps") != m.end() && !m["Cps"].empty()) {
       cps = make_shared<long>(boost::any_cast<long>(m["Cps"]));
     }
@@ -14694,6 +14705,9 @@ public:
     }
     if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
       eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
+    }
+    if (m.find("EventResult") != m.end() && !m["EventResult"].empty()) {
+      eventResult = make_shared<string>(boost::any_cast<string>(m["EventResult"]));
     }
     if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
       eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
