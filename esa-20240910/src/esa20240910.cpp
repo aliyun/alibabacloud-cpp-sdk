@@ -2589,27 +2589,6 @@ DescribeHttpDDoSAttackProtectionResponse Alibabacloud_ESA20240910::Client::descr
   return describeHttpDDoSAttackProtectionWithOptions(request, runtime);
 }
 
-DescribeIPRangeListResponse Alibabacloud_ESA20240910::Client::describeIPRangeListWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeIPRangeList"))},
-    {"version", boost::any(string("2024-09-10"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeIPRangeListResponse(callApi(params, req, runtime));
-}
-
-DescribeIPRangeListResponse Alibabacloud_ESA20240910::Client::describeIPRangeList() {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeIPRangeListWithOptions(runtime);
-}
-
 DescribeKvAccountStatusResponse Alibabacloud_ESA20240910::Client::describeKvAccountStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({

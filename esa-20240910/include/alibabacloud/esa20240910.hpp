@@ -15103,144 +15103,6 @@ public:
 
   virtual ~DescribeHttpDDoSAttackProtectionResponse() = default;
 };
-class DescribeIPRangeListResponseBodyContent : public Darabonba::Model {
-public:
-  shared_ptr<string> cidr{};
-  shared_ptr<string> ipType{};
-
-  DescribeIPRangeListResponseBodyContent() {}
-
-  explicit DescribeIPRangeListResponseBodyContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (cidr) {
-      res["Cidr"] = boost::any(*cidr);
-    }
-    if (ipType) {
-      res["IpType"] = boost::any(*ipType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Cidr") != m.end() && !m["Cidr"].empty()) {
-      cidr = make_shared<string>(boost::any_cast<string>(m["Cidr"]));
-    }
-    if (m.find("IpType") != m.end() && !m["IpType"].empty()) {
-      ipType = make_shared<string>(boost::any_cast<string>(m["IpType"]));
-    }
-  }
-
-
-  virtual ~DescribeIPRangeListResponseBodyContent() = default;
-};
-class DescribeIPRangeListResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<vector<DescribeIPRangeListResponseBodyContent>> content{};
-  shared_ptr<string> requestId{};
-
-  DescribeIPRangeListResponseBody() {}
-
-  explicit DescribeIPRangeListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (content) {
-      vector<boost::any> temp1;
-      for(auto item1:*content){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Content"] = boost::any(temp1);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Content") != m.end() && !m["Content"].empty()) {
-      if (typeid(vector<boost::any>) == m["Content"].type()) {
-        vector<DescribeIPRangeListResponseBodyContent> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Content"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeIPRangeListResponseBodyContent model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        content = make_shared<vector<DescribeIPRangeListResponseBodyContent>>(expect1);
-      }
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~DescribeIPRangeListResponseBody() = default;
-};
-class DescribeIPRangeListResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<DescribeIPRangeListResponseBody> body{};
-
-  DescribeIPRangeListResponse() {}
-
-  explicit DescribeIPRangeListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        DescribeIPRangeListResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<DescribeIPRangeListResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~DescribeIPRangeListResponse() = default;
-};
 class DescribeKvAccountStatusResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
@@ -28001,7 +27863,7 @@ public:
   shared_ptr<string> bizName{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
-  shared_ptr<string> proxied{};
+  shared_ptr<bool> proxied{};
   shared_ptr<string> recordMatchType{};
   shared_ptr<string> recordName{};
   shared_ptr<long> siteId{};
@@ -28059,7 +27921,7 @@ public:
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("Proxied") != m.end() && !m["Proxied"].empty()) {
-      proxied = make_shared<string>(boost::any_cast<string>(m["Proxied"]));
+      proxied = make_shared<bool>(boost::any_cast<bool>(m["Proxied"]));
     }
     if (m.find("RecordMatchType") != m.end() && !m["RecordMatchType"].empty()) {
       recordMatchType = make_shared<string>(boost::any_cast<string>(m["RecordMatchType"]));
@@ -40736,8 +40598,6 @@ public:
   DescribeHttpDDoSAttackIntelligentProtectionResponse describeHttpDDoSAttackIntelligentProtection(shared_ptr<DescribeHttpDDoSAttackIntelligentProtectionRequest> request);
   DescribeHttpDDoSAttackProtectionResponse describeHttpDDoSAttackProtectionWithOptions(shared_ptr<DescribeHttpDDoSAttackProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeHttpDDoSAttackProtectionResponse describeHttpDDoSAttackProtection(shared_ptr<DescribeHttpDDoSAttackProtectionRequest> request);
-  DescribeIPRangeListResponse describeIPRangeListWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeIPRangeListResponse describeIPRangeList();
   DescribeKvAccountStatusResponse describeKvAccountStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeKvAccountStatusResponse describeKvAccountStatus();
   DescribePreloadTasksResponse describePreloadTasksWithOptions(shared_ptr<DescribePreloadTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
