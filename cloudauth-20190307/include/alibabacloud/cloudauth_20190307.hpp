@@ -2956,8 +2956,9 @@ public:
 };
 class DescribeFaceGuardRiskResponseBodyResultObject : public Darabonba::Model {
 public:
-  shared_ptr<string> riakTags{};
+  shared_ptr<string> certifyId{};
   shared_ptr<string> riskExtends{};
+  shared_ptr<string> riskTags{};
 
   DescribeFaceGuardRiskResponseBodyResultObject() {}
 
@@ -2969,21 +2970,27 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (riakTags) {
-      res["RiakTags"] = boost::any(*riakTags);
+    if (certifyId) {
+      res["CertifyId"] = boost::any(*certifyId);
     }
     if (riskExtends) {
       res["RiskExtends"] = boost::any(*riskExtends);
+    }
+    if (riskTags) {
+      res["RiskTags"] = boost::any(*riskTags);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RiakTags") != m.end() && !m["RiakTags"].empty()) {
-      riakTags = make_shared<string>(boost::any_cast<string>(m["RiakTags"]));
+    if (m.find("CertifyId") != m.end() && !m["CertifyId"].empty()) {
+      certifyId = make_shared<string>(boost::any_cast<string>(m["CertifyId"]));
     }
     if (m.find("RiskExtends") != m.end() && !m["RiskExtends"].empty()) {
       riskExtends = make_shared<string>(boost::any_cast<string>(m["RiskExtends"]));
+    }
+    if (m.find("RiskTags") != m.end() && !m["RiskTags"].empty()) {
+      riskTags = make_shared<string>(boost::any_cast<string>(m["RiskTags"]));
     }
   }
 
