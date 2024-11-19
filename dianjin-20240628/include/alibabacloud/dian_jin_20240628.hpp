@@ -6769,6 +6769,7 @@ public:
 };
 class GetQualityCheckTaskResultResponseBodyDataQualityCheckList : public Darabonba::Model {
 public:
+  shared_ptr<string> bizType{};
   shared_ptr<string> checkExplanation{};
   shared_ptr<string> checkPassed{};
   shared_ptr<string> checkProcess{};
@@ -6780,6 +6781,7 @@ public:
   shared_ptr<string> qualityGroupId{};
   shared_ptr<string> ruleDescription{};
   shared_ptr<string> ruleId{};
+  shared_ptr<string> ruleType{};
 
   GetQualityCheckTaskResultResponseBodyDataQualityCheckList() {}
 
@@ -6791,6 +6793,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bizType) {
+      res["bizType"] = boost::any(*bizType);
+    }
     if (checkExplanation) {
       res["checkExplanation"] = boost::any(*checkExplanation);
     }
@@ -6828,10 +6833,16 @@ public:
     if (ruleId) {
       res["ruleId"] = boost::any(*ruleId);
     }
+    if (ruleType) {
+      res["ruleType"] = boost::any(*ruleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("bizType") != m.end() && !m["bizType"].empty()) {
+      bizType = make_shared<string>(boost::any_cast<string>(m["bizType"]));
+    }
     if (m.find("checkExplanation") != m.end() && !m["checkExplanation"].empty()) {
       checkExplanation = make_shared<string>(boost::any_cast<string>(m["checkExplanation"]));
     }
@@ -6874,6 +6885,9 @@ public:
     }
     if (m.find("ruleId") != m.end() && !m["ruleId"].empty()) {
       ruleId = make_shared<string>(boost::any_cast<string>(m["ruleId"]));
+    }
+    if (m.find("ruleType") != m.end() && !m["ruleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["ruleType"]));
     }
   }
 
