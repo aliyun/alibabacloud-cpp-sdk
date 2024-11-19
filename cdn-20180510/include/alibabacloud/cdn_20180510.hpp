@@ -13215,6 +13215,206 @@ public:
 
   virtual ~DescribeCertificateInfoByIDResponse() = default;
 };
+class DescribeCustomDomainSampleRateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domainName{};
+
+  DescribeCustomDomainSampleRateRequest() {}
+
+  explicit DescribeCustomDomainSampleRateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomDomainSampleRateRequest() = default;
+};
+class DescribeCustomDomainSampleRateResponseBodyContentDomainContent : public Darabonba::Model {
+public:
+  shared_ptr<string> domainName{};
+  shared_ptr<double> sampleRate{};
+
+  DescribeCustomDomainSampleRateResponseBodyContentDomainContent() {}
+
+  explicit DescribeCustomDomainSampleRateResponseBodyContentDomainContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<double>(boost::any_cast<double>(m["SampleRate"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomDomainSampleRateResponseBodyContentDomainContent() = default;
+};
+class DescribeCustomDomainSampleRateResponseBodyContent : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeCustomDomainSampleRateResponseBodyContentDomainContent>> domainContent{};
+
+  DescribeCustomDomainSampleRateResponseBodyContent() {}
+
+  explicit DescribeCustomDomainSampleRateResponseBodyContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainContent) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainContent){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainContent"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainContent") != m.end() && !m["DomainContent"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainContent"].type()) {
+        vector<DescribeCustomDomainSampleRateResponseBodyContentDomainContent> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainContent"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCustomDomainSampleRateResponseBodyContentDomainContent model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainContent = make_shared<vector<DescribeCustomDomainSampleRateResponseBodyContentDomainContent>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCustomDomainSampleRateResponseBodyContent() = default;
+};
+class DescribeCustomDomainSampleRateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeCustomDomainSampleRateResponseBodyContent> content{};
+  shared_ptr<string> requestId{};
+
+  DescribeCustomDomainSampleRateResponseBody() {}
+
+  explicit DescribeCustomDomainSampleRateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = content ? boost::any(content->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Content"].type()) {
+        DescribeCustomDomainSampleRateResponseBodyContent model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Content"]));
+        content = make_shared<DescribeCustomDomainSampleRateResponseBodyContent>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomDomainSampleRateResponseBody() = default;
+};
+class DescribeCustomDomainSampleRateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCustomDomainSampleRateResponseBody> body{};
+
+  DescribeCustomDomainSampleRateResponse() {}
+
+  explicit DescribeCustomDomainSampleRateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCustomDomainSampleRateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCustomDomainSampleRateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCustomDomainSampleRateResponse() = default;
+};
 class DescribeCustomLogConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> configId{};
@@ -32454,6 +32654,205 @@ public:
 
   virtual ~ListFCTriggerResponse() = default;
 };
+class ListRealtimeLogDeliveryResponseBodyContentRealtimeLogDeliveryInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> dmId{};
+  shared_ptr<string> domain{};
+  shared_ptr<string> logstore{};
+  shared_ptr<string> project{};
+  shared_ptr<string> region{};
+  shared_ptr<string> status{};
+
+  ListRealtimeLogDeliveryResponseBodyContentRealtimeLogDeliveryInfo() {}
+
+  explicit ListRealtimeLogDeliveryResponseBodyContentRealtimeLogDeliveryInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dmId) {
+      res["DmId"] = boost::any(*dmId);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (logstore) {
+      res["Logstore"] = boost::any(*logstore);
+    }
+    if (project) {
+      res["Project"] = boost::any(*project);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DmId") != m.end() && !m["DmId"].empty()) {
+      dmId = make_shared<long>(boost::any_cast<long>(m["DmId"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Logstore") != m.end() && !m["Logstore"].empty()) {
+      logstore = make_shared<string>(boost::any_cast<string>(m["Logstore"]));
+    }
+    if (m.find("Project") != m.end() && !m["Project"].empty()) {
+      project = make_shared<string>(boost::any_cast<string>(m["Project"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListRealtimeLogDeliveryResponseBodyContentRealtimeLogDeliveryInfo() = default;
+};
+class ListRealtimeLogDeliveryResponseBodyContent : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListRealtimeLogDeliveryResponseBodyContentRealtimeLogDeliveryInfo>> realtimeLogDeliveryInfo{};
+
+  ListRealtimeLogDeliveryResponseBodyContent() {}
+
+  explicit ListRealtimeLogDeliveryResponseBodyContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (realtimeLogDeliveryInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*realtimeLogDeliveryInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RealtimeLogDeliveryInfo"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RealtimeLogDeliveryInfo") != m.end() && !m["RealtimeLogDeliveryInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["RealtimeLogDeliveryInfo"].type()) {
+        vector<ListRealtimeLogDeliveryResponseBodyContentRealtimeLogDeliveryInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RealtimeLogDeliveryInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListRealtimeLogDeliveryResponseBodyContentRealtimeLogDeliveryInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        realtimeLogDeliveryInfo = make_shared<vector<ListRealtimeLogDeliveryResponseBodyContentRealtimeLogDeliveryInfo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListRealtimeLogDeliveryResponseBodyContent() = default;
+};
+class ListRealtimeLogDeliveryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListRealtimeLogDeliveryResponseBodyContent> content{};
+  shared_ptr<string> requestId{};
+
+  ListRealtimeLogDeliveryResponseBody() {}
+
+  explicit ListRealtimeLogDeliveryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = content ? boost::any(content->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Content"].type()) {
+        ListRealtimeLogDeliveryResponseBodyContent model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Content"]));
+        content = make_shared<ListRealtimeLogDeliveryResponseBodyContent>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListRealtimeLogDeliveryResponseBody() = default;
+};
+class ListRealtimeLogDeliveryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListRealtimeLogDeliveryResponseBody> body{};
+
+  ListRealtimeLogDeliveryResponse() {}
+
+  explicit ListRealtimeLogDeliveryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListRealtimeLogDeliveryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListRealtimeLogDeliveryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListRealtimeLogDeliveryResponse() = default;
+};
 class ListRealtimeLogDeliveryDomainsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> logstore{};
@@ -33815,6 +34214,137 @@ public:
 
 
   virtual ~ModifyCdnServiceResponse() = default;
+};
+class ModifyCustomDomainSampleRateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baseConfigID{};
+  shared_ptr<string> domainName{};
+  shared_ptr<double> sampleRate{};
+  shared_ptr<long> sinkID{};
+
+  ModifyCustomDomainSampleRateRequest() {}
+
+  explicit ModifyCustomDomainSampleRateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseConfigID) {
+      res["BaseConfigID"] = boost::any(*baseConfigID);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
+    if (sinkID) {
+      res["SinkID"] = boost::any(*sinkID);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseConfigID") != m.end() && !m["BaseConfigID"].empty()) {
+      baseConfigID = make_shared<string>(boost::any_cast<string>(m["BaseConfigID"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<double>(boost::any_cast<double>(m["SampleRate"]));
+    }
+    if (m.find("SinkID") != m.end() && !m["SinkID"].empty()) {
+      sinkID = make_shared<long>(boost::any_cast<long>(m["SinkID"]));
+    }
+  }
+
+
+  virtual ~ModifyCustomDomainSampleRateRequest() = default;
+};
+class ModifyCustomDomainSampleRateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyCustomDomainSampleRateResponseBody() {}
+
+  explicit ModifyCustomDomainSampleRateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyCustomDomainSampleRateResponseBody() = default;
+};
+class ModifyCustomDomainSampleRateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyCustomDomainSampleRateResponseBody> body{};
+
+  ModifyCustomDomainSampleRateResponse() {}
+
+  explicit ModifyCustomDomainSampleRateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyCustomDomainSampleRateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyCustomDomainSampleRateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyCustomDomainSampleRateResponse() = default;
 };
 class ModifyRealtimeLogDeliveryRequest : public Darabonba::Model {
 public:
@@ -37201,6 +37731,8 @@ public:
   DescribeCdnWafDomainResponse describeCdnWafDomain(shared_ptr<DescribeCdnWafDomainRequest> request);
   DescribeCertificateInfoByIDResponse describeCertificateInfoByIDWithOptions(shared_ptr<DescribeCertificateInfoByIDRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCertificateInfoByIDResponse describeCertificateInfoByID(shared_ptr<DescribeCertificateInfoByIDRequest> request);
+  DescribeCustomDomainSampleRateResponse describeCustomDomainSampleRateWithOptions(shared_ptr<DescribeCustomDomainSampleRateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCustomDomainSampleRateResponse describeCustomDomainSampleRate(shared_ptr<DescribeCustomDomainSampleRateRequest> request);
   DescribeCustomLogConfigResponse describeCustomLogConfigWithOptions(shared_ptr<DescribeCustomLogConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCustomLogConfigResponse describeCustomLogConfig(shared_ptr<DescribeCustomLogConfigRequest> request);
   DescribeDomainAverageResponseTimeResponse describeDomainAverageResponseTimeWithOptions(shared_ptr<DescribeDomainAverageResponseTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -37351,6 +37883,8 @@ public:
   ListDomainsByLogConfigIdResponse listDomainsByLogConfigId(shared_ptr<ListDomainsByLogConfigIdRequest> request);
   ListFCTriggerResponse listFCTriggerWithOptions(shared_ptr<ListFCTriggerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListFCTriggerResponse listFCTrigger(shared_ptr<ListFCTriggerRequest> request);
+  ListRealtimeLogDeliveryResponse listRealtimeLogDeliveryWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListRealtimeLogDeliveryResponse listRealtimeLogDelivery();
   ListRealtimeLogDeliveryDomainsResponse listRealtimeLogDeliveryDomainsWithOptions(shared_ptr<ListRealtimeLogDeliveryDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRealtimeLogDeliveryDomainsResponse listRealtimeLogDeliveryDomains(shared_ptr<ListRealtimeLogDeliveryDomainsRequest> request);
   ListRealtimeLogDeliveryInfosResponse listRealtimeLogDeliveryInfosWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -37367,6 +37901,8 @@ public:
   ModifyCdnDomainSchdmByPropertyResponse modifyCdnDomainSchdmByProperty(shared_ptr<ModifyCdnDomainSchdmByPropertyRequest> request);
   ModifyCdnServiceResponse modifyCdnServiceWithOptions(shared_ptr<ModifyCdnServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyCdnServiceResponse modifyCdnService(shared_ptr<ModifyCdnServiceRequest> request);
+  ModifyCustomDomainSampleRateResponse modifyCustomDomainSampleRateWithOptions(shared_ptr<ModifyCustomDomainSampleRateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyCustomDomainSampleRateResponse modifyCustomDomainSampleRate(shared_ptr<ModifyCustomDomainSampleRateRequest> request);
   ModifyRealtimeLogDeliveryResponse modifyRealtimeLogDeliveryWithOptions(shared_ptr<ModifyRealtimeLogDeliveryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyRealtimeLogDeliveryResponse modifyRealtimeLogDelivery(shared_ptr<ModifyRealtimeLogDeliveryRequest> request);
   OpenCdnServiceResponse openCdnServiceWithOptions(shared_ptr<OpenCdnServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
