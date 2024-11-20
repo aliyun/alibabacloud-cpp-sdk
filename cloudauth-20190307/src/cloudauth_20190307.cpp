@@ -1008,18 +1008,18 @@ DetectFaceAttributesResponse Alibabacloud_Cloudauth20190307::Client::detectFaceA
 
 Id2MetaVerifyResponse Alibabacloud_Cloudauth20190307::Client::id2MetaVerifyWithOptions(shared_ptr<Id2MetaVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->identifyNum)) {
-    query->insert(pair<string, string>("IdentifyNum", *request->identifyNum));
+    body->insert(pair<string, string>("IdentifyNum", *request->identifyNum));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
-    query->insert(pair<string, string>("ParamType", *request->paramType));
+    body->insert(pair<string, string>("ParamType", *request->paramType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
-    query->insert(pair<string, string>("UserName", *request->userName));
+    body->insert(pair<string, string>("UserName", *request->userName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("Id2MetaVerify"))},
@@ -1289,21 +1289,21 @@ LivenessFaceVerifyResponse Alibabacloud_Cloudauth20190307::Client::livenessFaceV
 
 Mobile3MetaDetailVerifyResponse Alibabacloud_Cloudauth20190307::Client::mobile3MetaDetailVerifyWithOptions(shared_ptr<Mobile3MetaDetailVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->identifyNum)) {
-    query->insert(pair<string, string>("IdentifyNum", *request->identifyNum));
+    body->insert(pair<string, string>("IdentifyNum", *request->identifyNum));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
-    query->insert(pair<string, string>("Mobile", *request->mobile));
+    body->insert(pair<string, string>("Mobile", *request->mobile));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
-    query->insert(pair<string, string>("ParamType", *request->paramType));
+    body->insert(pair<string, string>("ParamType", *request->paramType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
-    query->insert(pair<string, string>("UserName", *request->userName));
+    body->insert(pair<string, string>("UserName", *request->userName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("Mobile3MetaDetailVerify"))},
@@ -1326,21 +1326,21 @@ Mobile3MetaDetailVerifyResponse Alibabacloud_Cloudauth20190307::Client::mobile3M
 
 Mobile3MetaSimpleVerifyResponse Alibabacloud_Cloudauth20190307::Client::mobile3MetaSimpleVerifyWithOptions(shared_ptr<Mobile3MetaSimpleVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->identifyNum)) {
-    query->insert(pair<string, string>("IdentifyNum", *request->identifyNum));
+    body->insert(pair<string, string>("IdentifyNum", *request->identifyNum));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
-    query->insert(pair<string, string>("Mobile", *request->mobile));
+    body->insert(pair<string, string>("Mobile", *request->mobile));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
-    query->insert(pair<string, string>("ParamType", *request->paramType));
+    body->insert(pair<string, string>("ParamType", *request->paramType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
-    query->insert(pair<string, string>("UserName", *request->userName));
+    body->insert(pair<string, string>("UserName", *request->userName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("Mobile3MetaSimpleVerify"))},
@@ -1363,15 +1363,15 @@ Mobile3MetaSimpleVerifyResponse Alibabacloud_Cloudauth20190307::Client::mobile3M
 
 MobileDetectResponse Alibabacloud_Cloudauth20190307::Client::mobileDetectWithOptions(shared_ptr<MobileDetectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->mobiles)) {
-    query->insert(pair<string, string>("Mobiles", *request->mobiles));
+    body->insert(pair<string, string>("Mobiles", *request->mobiles));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
-    query->insert(pair<string, string>("ParamType", *request->paramType));
+    body->insert(pair<string, string>("ParamType", *request->paramType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("MobileDetect"))},
@@ -1394,15 +1394,15 @@ MobileDetectResponse Alibabacloud_Cloudauth20190307::Client::mobileDetect(shared
 
 MobileOnlineStatusResponse Alibabacloud_Cloudauth20190307::Client::mobileOnlineStatusWithOptions(shared_ptr<MobileOnlineStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
-    query->insert(pair<string, string>("Mobile", *request->mobile));
+    body->insert(pair<string, string>("Mobile", *request->mobile));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
-    query->insert(pair<string, string>("ParamType", *request->paramType));
+    body->insert(pair<string, string>("ParamType", *request->paramType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("MobileOnlineStatus"))},
@@ -1425,15 +1425,15 @@ MobileOnlineStatusResponse Alibabacloud_Cloudauth20190307::Client::mobileOnlineS
 
 MobileOnlineTimeResponse Alibabacloud_Cloudauth20190307::Client::mobileOnlineTimeWithOptions(shared_ptr<MobileOnlineTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
-    query->insert(pair<string, string>("Mobile", *request->mobile));
+    body->insert(pair<string, string>("Mobile", *request->mobile));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
-    query->insert(pair<string, string>("ParamType", *request->paramType));
+    body->insert(pair<string, string>("ParamType", *request->paramType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("MobileOnlineTime"))},
