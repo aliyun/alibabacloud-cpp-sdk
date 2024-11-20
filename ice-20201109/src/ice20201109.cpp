@@ -2068,6 +2068,9 @@ GenerateAIAgentCallResponse Alibabacloud_ICE20201109::Client::generateAIAgentCal
   if (!Darabonba_Util::Client::isUnset<string>(request->templateConfigShrink)) {
     query->insert(pair<string, string>("TemplateConfig", *request->templateConfigShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     query->insert(pair<string, string>("UserId", *request->userId));
   }
