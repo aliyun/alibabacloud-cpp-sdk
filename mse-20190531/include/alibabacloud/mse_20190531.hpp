@@ -29326,6 +29326,56 @@ public:
 
   virtual ~GetNacosConfigRequest() = default;
 };
+class GetNacosConfigResponseBodyConfigurationGrayVersions : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> type{};
+
+  GetNacosConfigResponseBodyConfigurationGrayVersions() {}
+
+  explicit GetNacosConfigResponseBodyConfigurationGrayVersions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GetNacosConfigResponseBodyConfigurationGrayVersions() = default;
+};
 class GetNacosConfigResponseBodyConfiguration : public Darabonba::Model {
 public:
   shared_ptr<string> appName{};
@@ -29334,6 +29384,7 @@ public:
   shared_ptr<string> dataId{};
   shared_ptr<string> desc{};
   shared_ptr<string> encryptedDataKey{};
+  shared_ptr<vector<GetNacosConfigResponseBodyConfigurationGrayVersions>> grayVersions{};
   shared_ptr<string> group{};
   shared_ptr<string> md5{};
   shared_ptr<string> tags{};
@@ -29366,6 +29417,13 @@ public:
     }
     if (encryptedDataKey) {
       res["EncryptedDataKey"] = boost::any(*encryptedDataKey);
+    }
+    if (grayVersions) {
+      vector<boost::any> temp1;
+      for(auto item1:*grayVersions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GrayVersions"] = boost::any(temp1);
     }
     if (group) {
       res["Group"] = boost::any(*group);
@@ -29400,6 +29458,19 @@ public:
     }
     if (m.find("EncryptedDataKey") != m.end() && !m["EncryptedDataKey"].empty()) {
       encryptedDataKey = make_shared<string>(boost::any_cast<string>(m["EncryptedDataKey"]));
+    }
+    if (m.find("GrayVersions") != m.end() && !m["GrayVersions"].empty()) {
+      if (typeid(vector<boost::any>) == m["GrayVersions"].type()) {
+        vector<GetNacosConfigResponseBodyConfigurationGrayVersions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GrayVersions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetNacosConfigResponseBodyConfigurationGrayVersions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        grayVersions = make_shared<vector<GetNacosConfigResponseBodyConfigurationGrayVersions>>(expect1);
+      }
     }
     if (m.find("Group") != m.end() && !m["Group"].empty()) {
       group = make_shared<string>(boost::any_cast<string>(m["Group"]));
@@ -48477,10 +48548,61 @@ public:
 
   virtual ~ListIsolationRulesResponse() = default;
 };
+class ListListenersByConfigRequestExtGrayRules : public Darabonba::Model {
+public:
+  shared_ptr<string> grayRule{};
+  shared_ptr<string> grayRuleName{};
+  shared_ptr<long> grayRulePriority{};
+  shared_ptr<string> grayRuleType{};
+
+  ListListenersByConfigRequestExtGrayRules() {}
+
+  explicit ListListenersByConfigRequestExtGrayRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (grayRule) {
+      res["GrayRule"] = boost::any(*grayRule);
+    }
+    if (grayRuleName) {
+      res["GrayRuleName"] = boost::any(*grayRuleName);
+    }
+    if (grayRulePriority) {
+      res["GrayRulePriority"] = boost::any(*grayRulePriority);
+    }
+    if (grayRuleType) {
+      res["GrayRuleType"] = boost::any(*grayRuleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GrayRule") != m.end() && !m["GrayRule"].empty()) {
+      grayRule = make_shared<string>(boost::any_cast<string>(m["GrayRule"]));
+    }
+    if (m.find("GrayRuleName") != m.end() && !m["GrayRuleName"].empty()) {
+      grayRuleName = make_shared<string>(boost::any_cast<string>(m["GrayRuleName"]));
+    }
+    if (m.find("GrayRulePriority") != m.end() && !m["GrayRulePriority"].empty()) {
+      grayRulePriority = make_shared<long>(boost::any_cast<long>(m["GrayRulePriority"]));
+    }
+    if (m.find("GrayRuleType") != m.end() && !m["GrayRuleType"].empty()) {
+      grayRuleType = make_shared<string>(boost::any_cast<string>(m["GrayRuleType"]));
+    }
+  }
+
+
+  virtual ~ListListenersByConfigRequestExtGrayRules() = default;
+};
 class ListListenersByConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> dataId{};
+  shared_ptr<vector<ListListenersByConfigRequestExtGrayRules>> extGrayRules{};
   shared_ptr<string> group{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> namespaceId{};
@@ -48501,6 +48623,13 @@ public:
     }
     if (dataId) {
       res["DataId"] = boost::any(*dataId);
+    }
+    if (extGrayRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*extGrayRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExtGrayRules"] = boost::any(temp1);
     }
     if (group) {
       res["Group"] = boost::any(*group);
@@ -48524,6 +48653,19 @@ public:
     if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
       dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
     }
+    if (m.find("ExtGrayRules") != m.end() && !m["ExtGrayRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExtGrayRules"].type()) {
+        vector<ListListenersByConfigRequestExtGrayRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExtGrayRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListListenersByConfigRequestExtGrayRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        extGrayRules = make_shared<vector<ListListenersByConfigRequestExtGrayRules>>(expect1);
+      }
+    }
     if (m.find("Group") != m.end() && !m["Group"].empty()) {
       group = make_shared<string>(boost::any_cast<string>(m["Group"]));
     }
@@ -48541,10 +48683,83 @@ public:
 
   virtual ~ListListenersByConfigRequest() = default;
 };
+class ListListenersByConfigShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> dataId{};
+  shared_ptr<string> extGrayRulesShrink{};
+  shared_ptr<string> group{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> namespaceId{};
+  shared_ptr<string> requestPars{};
+
+  ListListenersByConfigShrinkRequest() {}
+
+  explicit ListListenersByConfigShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (dataId) {
+      res["DataId"] = boost::any(*dataId);
+    }
+    if (extGrayRulesShrink) {
+      res["ExtGrayRules"] = boost::any(*extGrayRulesShrink);
+    }
+    if (group) {
+      res["Group"] = boost::any(*group);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    if (requestPars) {
+      res["RequestPars"] = boost::any(*requestPars);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
+      dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
+    }
+    if (m.find("ExtGrayRules") != m.end() && !m["ExtGrayRules"].empty()) {
+      extGrayRulesShrink = make_shared<string>(boost::any_cast<string>(m["ExtGrayRules"]));
+    }
+    if (m.find("Group") != m.end() && !m["Group"].empty()) {
+      group = make_shared<string>(boost::any_cast<string>(m["Group"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+    if (m.find("RequestPars") != m.end() && !m["RequestPars"].empty()) {
+      requestPars = make_shared<string>(boost::any_cast<string>(m["RequestPars"]));
+    }
+  }
+
+
+  virtual ~ListListenersByConfigShrinkRequest() = default;
+};
 class ListListenersByConfigResponseBodyListeners : public Darabonba::Model {
 public:
   shared_ptr<string> ip{};
   shared_ptr<map<string, string>> labels{};
+  shared_ptr<string> matchRuleName{};
+  shared_ptr<string> matchRuleType{};
   shared_ptr<string> md5{};
   shared_ptr<string> status{};
   shared_ptr<string> version{};
@@ -48564,6 +48779,12 @@ public:
     }
     if (labels) {
       res["Labels"] = boost::any(*labels);
+    }
+    if (matchRuleName) {
+      res["MatchRuleName"] = boost::any(*matchRuleName);
+    }
+    if (matchRuleType) {
+      res["MatchRuleType"] = boost::any(*matchRuleType);
     }
     if (md5) {
       res["Md5"] = boost::any(*md5);
@@ -48588,6 +48809,12 @@ public:
          toMap1[item.first] = item.second;
       }
       labels = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("MatchRuleName") != m.end() && !m["MatchRuleName"].empty()) {
+      matchRuleName = make_shared<string>(boost::any_cast<string>(m["MatchRuleName"]));
+    }
+    if (m.find("MatchRuleType") != m.end() && !m["MatchRuleType"].empty()) {
+      matchRuleType = make_shared<string>(boost::any_cast<string>(m["MatchRuleType"]));
     }
     if (m.find("Md5") != m.end() && !m["Md5"].empty()) {
       md5 = make_shared<string>(boost::any_cast<string>(m["Md5"]));
@@ -69494,6 +69721,299 @@ public:
 
   virtual ~UpdateGatewayRouteWafStatusResponse() = default;
 };
+class UpdateGatewayServiceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<long> gatewayId{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> id{};
+  shared_ptr<vector<string>> ipList{};
+  shared_ptr<string> name{};
+  shared_ptr<string> servicePort{};
+  shared_ptr<string> serviceProtocol{};
+  shared_ptr<string> tlsSetting{};
+
+  UpdateGatewayServiceRequest() {}
+
+  explicit UpdateGatewayServiceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (ipList) {
+      res["IpList"] = boost::any(*ipList);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (servicePort) {
+      res["ServicePort"] = boost::any(*servicePort);
+    }
+    if (serviceProtocol) {
+      res["ServiceProtocol"] = boost::any(*serviceProtocol);
+    }
+    if (tlsSetting) {
+      res["TlsSetting"] = boost::any(*tlsSetting);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<long>(boost::any_cast<long>(m["GatewayId"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("IpList") != m.end() && !m["IpList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IpList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IpList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ServicePort") != m.end() && !m["ServicePort"].empty()) {
+      servicePort = make_shared<string>(boost::any_cast<string>(m["ServicePort"]));
+    }
+    if (m.find("ServiceProtocol") != m.end() && !m["ServiceProtocol"].empty()) {
+      serviceProtocol = make_shared<string>(boost::any_cast<string>(m["ServiceProtocol"]));
+    }
+    if (m.find("TlsSetting") != m.end() && !m["TlsSetting"].empty()) {
+      tlsSetting = make_shared<string>(boost::any_cast<string>(m["TlsSetting"]));
+    }
+  }
+
+
+  virtual ~UpdateGatewayServiceRequest() = default;
+};
+class UpdateGatewayServiceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<long> gatewayId{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> id{};
+  shared_ptr<string> ipListShrink{};
+  shared_ptr<string> name{};
+  shared_ptr<string> servicePort{};
+  shared_ptr<string> serviceProtocol{};
+  shared_ptr<string> tlsSetting{};
+
+  UpdateGatewayServiceShrinkRequest() {}
+
+  explicit UpdateGatewayServiceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (ipListShrink) {
+      res["IpList"] = boost::any(*ipListShrink);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (servicePort) {
+      res["ServicePort"] = boost::any(*servicePort);
+    }
+    if (serviceProtocol) {
+      res["ServiceProtocol"] = boost::any(*serviceProtocol);
+    }
+    if (tlsSetting) {
+      res["TlsSetting"] = boost::any(*tlsSetting);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<long>(boost::any_cast<long>(m["GatewayId"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("IpList") != m.end() && !m["IpList"].empty()) {
+      ipListShrink = make_shared<string>(boost::any_cast<string>(m["IpList"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ServicePort") != m.end() && !m["ServicePort"].empty()) {
+      servicePort = make_shared<string>(boost::any_cast<string>(m["ServicePort"]));
+    }
+    if (m.find("ServiceProtocol") != m.end() && !m["ServiceProtocol"].empty()) {
+      serviceProtocol = make_shared<string>(boost::any_cast<string>(m["ServiceProtocol"]));
+    }
+    if (m.find("TlsSetting") != m.end() && !m["TlsSetting"].empty()) {
+      tlsSetting = make_shared<string>(boost::any_cast<string>(m["TlsSetting"]));
+    }
+  }
+
+
+  virtual ~UpdateGatewayServiceShrinkRequest() = default;
+};
+class UpdateGatewayServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<long> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateGatewayServiceResponseBody() {}
+
+  explicit UpdateGatewayServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateGatewayServiceResponseBody() = default;
+};
+class UpdateGatewayServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateGatewayServiceResponseBody> body{};
+
+  UpdateGatewayServiceResponse() {}
+
+  explicit UpdateGatewayServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateGatewayServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateGatewayServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateGatewayServiceResponse() = default;
+};
 class UpdateGatewayServiceCheckRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -71847,10 +72367,13 @@ public:
   shared_ptr<string> content{};
   shared_ptr<string> dataId{};
   shared_ptr<string> grayRule{};
+  shared_ptr<string> grayRuleName{};
+  shared_ptr<long> grayRulePriority{};
   shared_ptr<string> grayType{};
   shared_ptr<string> group{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> namespaceId{};
+  shared_ptr<string> opType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestPars{};
   shared_ptr<bool> stopGray{};
@@ -71880,6 +72403,12 @@ public:
     if (grayRule) {
       res["GrayRule"] = boost::any(*grayRule);
     }
+    if (grayRuleName) {
+      res["GrayRuleName"] = boost::any(*grayRuleName);
+    }
+    if (grayRulePriority) {
+      res["GrayRulePriority"] = boost::any(*grayRulePriority);
+    }
     if (grayType) {
       res["GrayType"] = boost::any(*grayType);
     }
@@ -71891,6 +72420,9 @@ public:
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    if (opType) {
+      res["OpType"] = boost::any(*opType);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -71920,6 +72452,12 @@ public:
     if (m.find("GrayRule") != m.end() && !m["GrayRule"].empty()) {
       grayRule = make_shared<string>(boost::any_cast<string>(m["GrayRule"]));
     }
+    if (m.find("GrayRuleName") != m.end() && !m["GrayRuleName"].empty()) {
+      grayRuleName = make_shared<string>(boost::any_cast<string>(m["GrayRuleName"]));
+    }
+    if (m.find("GrayRulePriority") != m.end() && !m["GrayRulePriority"].empty()) {
+      grayRulePriority = make_shared<long>(boost::any_cast<long>(m["GrayRulePriority"]));
+    }
     if (m.find("GrayType") != m.end() && !m["GrayType"].empty()) {
       grayType = make_shared<string>(boost::any_cast<string>(m["GrayType"]));
     }
@@ -71931,6 +72469,9 @@ public:
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+    if (m.find("OpType") != m.end() && !m["OpType"].empty()) {
+      opType = make_shared<string>(boost::any_cast<string>(m["OpType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -73915,7 +74456,7 @@ public:
   ListInstanceCountResponse listInstanceCount(shared_ptr<ListInstanceCountRequest> request);
   ListIsolationRulesResponse listIsolationRulesWithOptions(shared_ptr<ListIsolationRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListIsolationRulesResponse listIsolationRules(shared_ptr<ListIsolationRulesRequest> request);
-  ListListenersByConfigResponse listListenersByConfigWithOptions(shared_ptr<ListListenersByConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListListenersByConfigResponse listListenersByConfigWithOptions(shared_ptr<ListListenersByConfigRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListListenersByConfigResponse listListenersByConfig(shared_ptr<ListListenersByConfigRequest> request);
   ListListenersByIpResponse listListenersByIpWithOptions(shared_ptr<ListListenersByIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListListenersByIpResponse listListenersByIp(shared_ptr<ListListenersByIpRequest> request);
@@ -74059,6 +74600,8 @@ public:
   UpdateGatewayRouteTimeoutResponse updateGatewayRouteTimeout(shared_ptr<UpdateGatewayRouteTimeoutRequest> request);
   UpdateGatewayRouteWafStatusResponse updateGatewayRouteWafStatusWithOptions(shared_ptr<UpdateGatewayRouteWafStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateGatewayRouteWafStatusResponse updateGatewayRouteWafStatus(shared_ptr<UpdateGatewayRouteWafStatusRequest> request);
+  UpdateGatewayServiceResponse updateGatewayServiceWithOptions(shared_ptr<UpdateGatewayServiceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGatewayServiceResponse updateGatewayService(shared_ptr<UpdateGatewayServiceRequest> request);
   UpdateGatewayServiceCheckResponse updateGatewayServiceCheckWithOptions(shared_ptr<UpdateGatewayServiceCheckRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateGatewayServiceCheckResponse updateGatewayServiceCheck(shared_ptr<UpdateGatewayServiceCheckRequest> request);
   UpdateGatewayServiceTrafficPolicyResponse updateGatewayServiceTrafficPolicyWithOptions(shared_ptr<UpdateGatewayServiceTrafficPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

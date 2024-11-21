@@ -1868,9 +1868,6 @@ CreateNacosConfigResponse Alibabacloud_Mse20190531::Client::createNacosConfigWit
   if (!Darabonba_Util::Client::isUnset<string>(request->betaIps)) {
     query->insert(pair<string, string>("BetaIps", *request->betaIps));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
-    query->insert(pair<string, string>("Content", *request->content));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dataId)) {
     query->insert(pair<string, string>("DataId", *request->dataId));
   }
@@ -1892,8 +1889,13 @@ CreateNacosConfigResponse Alibabacloud_Mse20190531::Client::createNacosConfigWit
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("Type", *request->type));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    body->insert(pair<string, string>("Content", *request->content));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateNacosConfig"))},
@@ -6338,14 +6340,22 @@ ListIsolationRulesResponse Alibabacloud_Mse20190531::Client::listIsolationRules(
   return listIsolationRulesWithOptions(request, runtime);
 }
 
-ListListenersByConfigResponse Alibabacloud_Mse20190531::Client::listListenersByConfigWithOptions(shared_ptr<ListListenersByConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListListenersByConfigResponse Alibabacloud_Mse20190531::Client::listListenersByConfigWithOptions(shared_ptr<ListListenersByConfigRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListListenersByConfigShrinkRequest> request = make_shared<ListListenersByConfigShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ListListenersByConfigRequestExtGrayRules>>(tmpReq->extGrayRules)) {
+    request->extGrayRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->extGrayRules, make_shared<string>("ExtGrayRules"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->dataId)) {
     query->insert(pair<string, string>("DataId", *request->dataId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extGrayRulesShrink)) {
+    query->insert(pair<string, string>("ExtGrayRules", *request->extGrayRulesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->group)) {
     query->insert(pair<string, string>("Group", *request->group));
@@ -9441,6 +9451,63 @@ UpdateGatewayRouteWafStatusResponse Alibabacloud_Mse20190531::Client::updateGate
   return updateGatewayRouteWafStatusWithOptions(request, runtime);
 }
 
+UpdateGatewayServiceResponse Alibabacloud_Mse20190531::Client::updateGatewayServiceWithOptions(shared_ptr<UpdateGatewayServiceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateGatewayServiceShrinkRequest> request = make_shared<UpdateGatewayServiceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->ipList)) {
+    request->ipListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ipList, make_shared<string>("IpList"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->gatewayId)) {
+    query->insert(pair<string, long>("GatewayId", *request->gatewayId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
+    query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
+    query->insert(pair<string, string>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipListShrink)) {
+    query->insert(pair<string, string>("IpList", *request->ipListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->servicePort)) {
+    query->insert(pair<string, string>("ServicePort", *request->servicePort));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceProtocol)) {
+    query->insert(pair<string, string>("ServiceProtocol", *request->serviceProtocol));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tlsSetting)) {
+    query->insert(pair<string, string>("TlsSetting", *request->tlsSetting));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateGatewayService"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateGatewayServiceResponse(callApi(params, req, runtime));
+}
+
+UpdateGatewayServiceResponse Alibabacloud_Mse20190531::Client::updateGatewayService(shared_ptr<UpdateGatewayServiceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateGatewayServiceWithOptions(request, runtime);
+}
+
 UpdateGatewayServiceCheckResponse Alibabacloud_Mse20190531::Client::updateGatewayServiceCheckWithOptions(shared_ptr<UpdateGatewayServiceCheckRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateGatewayServiceCheckShrinkRequest> request = make_shared<UpdateGatewayServiceCheckShrinkRequest>();
@@ -9885,9 +9952,6 @@ UpdateNacosConfigResponse Alibabacloud_Mse20190531::Client::updateNacosConfigWit
   if (!Darabonba_Util::Client::isUnset<string>(request->betaIps)) {
     query->insert(pair<string, string>("BetaIps", *request->betaIps));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
-    query->insert(pair<string, string>("Content", *request->content));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dataId)) {
     query->insert(pair<string, string>("DataId", *request->dataId));
   }
@@ -9915,8 +9979,13 @@ UpdateNacosConfigResponse Alibabacloud_Mse20190531::Client::updateNacosConfigWit
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("Type", *request->type));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    body->insert(pair<string, string>("Content", *request->content));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateNacosConfig"))},
@@ -9955,6 +10024,12 @@ UpdateNacosGrayConfigResponse Alibabacloud_Mse20190531::Client::updateNacosGrayC
   if (!Darabonba_Util::Client::isUnset<string>(request->grayRule)) {
     query->insert(pair<string, string>("GrayRule", *request->grayRule));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grayRuleName)) {
+    query->insert(pair<string, string>("GrayRuleName", *request->grayRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->grayRulePriority)) {
+    query->insert(pair<string, long>("GrayRulePriority", *request->grayRulePriority));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->grayType)) {
     query->insert(pair<string, string>("GrayType", *request->grayType));
   }
@@ -9966,6 +10041,9 @@ UpdateNacosGrayConfigResponse Alibabacloud_Mse20190531::Client::updateNacosGrayC
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->opType)) {
+    query->insert(pair<string, string>("OpType", *request->opType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
