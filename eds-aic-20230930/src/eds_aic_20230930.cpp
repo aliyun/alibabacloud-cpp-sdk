@@ -115,6 +115,9 @@ BackupFileResponse Alibabacloud_Eds-aic20230930::Client::backupFileWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->sourceAppList)) {
+    query->insert(pair<string, vector<string>>("SourceAppList", *request->sourceAppList));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->sourceFilePathList)) {
     query->insert(pair<string, vector<string>>("SourceFilePathList", *request->sourceFilePathList));
   }
@@ -773,6 +776,9 @@ DescribeBackupFilesResponse Alibabacloud_Eds-aic20230930::Client::describeBackup
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->statusList)) {
+    query->insert(pair<string, vector<string>>("StatusList", *request->statusList));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -906,8 +912,15 @@ DescribeKeyPairsResponse Alibabacloud_Eds-aic20230930::Client::describeKeyPairs(
   return describeKeyPairsWithOptions(request, runtime);
 }
 
-DescribeRegionsResponse Alibabacloud_Eds-aic20230930::Client::describeRegionsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+DescribeRegionsResponse Alibabacloud_Eds-aic20230930::Client::describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeRegions"))},
     {"version", boost::any(string("2023-09-30"))},
@@ -922,9 +935,9 @@ DescribeRegionsResponse Alibabacloud_Eds-aic20230930::Client::describeRegionsWit
   return DescribeRegionsResponse(callApi(params, req, runtime));
 }
 
-DescribeRegionsResponse Alibabacloud_Eds-aic20230930::Client::describeRegions() {
+DescribeRegionsResponse Alibabacloud_Eds-aic20230930::Client::describeRegions(shared_ptr<DescribeRegionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeRegionsWithOptions(runtime);
+  return describeRegionsWithOptions(request, runtime);
 }
 
 DescribeSpecResponse Alibabacloud_Eds-aic20230930::Client::describeSpecWithOptions(shared_ptr<DescribeSpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1150,34 +1163,6 @@ FetchFileResponse Alibabacloud_Eds-aic20230930::Client::fetchFileWithOptions(sha
 FetchFileResponse Alibabacloud_Eds-aic20230930::Client::fetchFile(shared_ptr<FetchFileRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return fetchFileWithOptions(request, runtime);
-}
-
-GetAdbSecureResponse Alibabacloud_Eds-aic20230930::Client::getAdbSecureWithOptions(shared_ptr<GetAdbSecureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
-    query->insert(pair<string, vector<string>>("InstanceIds", *request->instanceIds));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetAdbSecure"))},
-    {"version", boost::any(string("2023-09-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetAdbSecureResponse(callApi(params, req, runtime));
-}
-
-GetAdbSecureResponse Alibabacloud_Eds-aic20230930::Client::getAdbSecure(shared_ptr<GetAdbSecureRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getAdbSecureWithOptions(request, runtime);
 }
 
 ImportKeyPairResponse Alibabacloud_Eds-aic20230930::Client::importKeyPairWithOptions(shared_ptr<ImportKeyPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1686,37 +1671,6 @@ SendFileResponse Alibabacloud_Eds-aic20230930::Client::sendFileWithOptions(share
 SendFileResponse Alibabacloud_Eds-aic20230930::Client::sendFile(shared_ptr<SendFileRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return sendFileWithOptions(request, runtime);
-}
-
-SetAdbSecureResponse Alibabacloud_Eds-aic20230930::Client::setAdbSecureWithOptions(shared_ptr<SetAdbSecureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
-    query->insert(pair<string, vector<string>>("InstanceIds", *request->instanceIds));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
-    query->insert(pair<string, long>("Status", *request->status));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("SetAdbSecure"))},
-    {"version", boost::any(string("2023-09-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return SetAdbSecureResponse(callApi(params, req, runtime));
-}
-
-SetAdbSecureResponse Alibabacloud_Eds-aic20230930::Client::setAdbSecure(shared_ptr<SetAdbSecureRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return setAdbSecureWithOptions(request, runtime);
 }
 
 StartAndroidInstanceResponse Alibabacloud_Eds-aic20230930::Client::startAndroidInstanceWithOptions(shared_ptr<StartAndroidInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
