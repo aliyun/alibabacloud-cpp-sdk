@@ -9,7 +9,6 @@
 #include <darabonba/util.hpp>
 #include <iostream>
 #include <map>
-#include <vector>
 
 using namespace std;
 
@@ -163,299 +162,6 @@ DeleteVerifyResultResponse Alibabacloud_Cloudauth-intl20220809::Client::deleteVe
 DeleteVerifyResultResponse Alibabacloud_Cloudauth-intl20220809::Client::deleteVerifyResult(shared_ptr<DeleteVerifyResultRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteVerifyResultWithOptions(request, runtime);
-}
-
-DescribeAddressLabelsResponse Alibabacloud_Cloudauth-intl20220809::Client::describeAddressLabelsWithOptions(shared_ptr<DescribeAddressLabelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->address)) {
-    query->insert(pair<string, string>("Address", *request->address));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->coin)) {
-    query->insert(pair<string, string>("Coin", *request->coin));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
-    query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeAddressLabels"))},
-    {"version", boost::any(string("2022-08-09"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeAddressLabelsResponse(callApi(params, req, runtime));
-}
-
-DescribeAddressLabelsResponse Alibabacloud_Cloudauth-intl20220809::Client::describeAddressLabels(shared_ptr<DescribeAddressLabelsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeAddressLabelsWithOptions(request, runtime);
-}
-
-DescribeAddressOverviewResponse Alibabacloud_Cloudauth-intl20220809::Client::describeAddressOverviewWithOptions(shared_ptr<DescribeAddressOverviewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->address)) {
-    query->insert(pair<string, string>("Address", *request->address));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->coin)) {
-    query->insert(pair<string, string>("Coin", *request->coin));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
-    query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeAddressOverview"))},
-    {"version", boost::any(string("2022-08-09"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeAddressOverviewResponse(callApi(params, req, runtime));
-}
-
-DescribeAddressOverviewResponse Alibabacloud_Cloudauth-intl20220809::Client::describeAddressOverview(shared_ptr<DescribeAddressOverviewRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeAddressOverviewWithOptions(request, runtime);
-}
-
-DescribeMaliciousAddressResponse Alibabacloud_Cloudauth-intl20220809::Client::describeMaliciousAddressWithOptions(shared_ptr<DescribeMaliciousAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->coin)) {
-    query->insert(pair<string, string>("Coin", *request->coin));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->end)) {
-    query->insert(pair<string, string>("End", *request->end));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
-    query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->start)) {
-    query->insert(pair<string, string>("Start", *request->start));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeMaliciousAddress"))},
-    {"version", boost::any(string("2022-08-09"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeMaliciousAddressResponse(callApi(params, req, runtime));
-}
-
-DescribeMaliciousAddressResponse Alibabacloud_Cloudauth-intl20220809::Client::describeMaliciousAddress(shared_ptr<DescribeMaliciousAddressRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeMaliciousAddressWithOptions(request, runtime);
-}
-
-DescribeRiskScoreResponse Alibabacloud_Cloudauth-intl20220809::Client::describeRiskScoreWithOptions(shared_ptr<DescribeRiskScoreRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->address)) {
-    query->insert(pair<string, string>("Address", *request->address));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->coin)) {
-    query->insert(pair<string, string>("Coin", *request->coin));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
-    query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeRiskScore"))},
-    {"version", boost::any(string("2022-08-09"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeRiskScoreResponse(callApi(params, req, runtime));
-}
-
-DescribeRiskScoreResponse Alibabacloud_Cloudauth-intl20220809::Client::describeRiskScore(shared_ptr<DescribeRiskScoreRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeRiskScoreWithOptions(request, runtime);
-}
-
-DescribeTransactionsListResponse Alibabacloud_Cloudauth-intl20220809::Client::describeTransactionsListWithOptions(shared_ptr<DescribeTransactionsListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->address)) {
-    query->insert(pair<string, string>("Address", *request->address));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->coin)) {
-    query->insert(pair<string, string>("Coin", *request->coin));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->endTimestamp)) {
-    query->insert(pair<string, long>("EndTimestamp", *request->endTimestamp));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
-    query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->page)) {
-    query->insert(pair<string, long>("Page", *request->page));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->startTimestamp)) {
-    query->insert(pair<string, long>("StartTimestamp", *request->startTimestamp));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    query->insert(pair<string, string>("Type", *request->type));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeTransactionsList"))},
-    {"version", boost::any(string("2022-08-09"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeTransactionsListResponse(callApi(params, req, runtime));
-}
-
-DescribeTransactionsListResponse Alibabacloud_Cloudauth-intl20220809::Client::describeTransactionsList(shared_ptr<DescribeTransactionsListRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeTransactionsListWithOptions(request, runtime);
-}
-
-DescribeWeb3AddressLabelsResponse Alibabacloud_Cloudauth-intl20220809::Client::describeWeb3AddressLabelsWithOptions(shared_ptr<DescribeWeb3AddressLabelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->address)) {
-    query->insert(pair<string, string>("Address", *request->address));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->chainShortName)) {
-    query->insert(pair<string, string>("ChainShortName", *request->chainShortName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
-    query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeWeb3AddressLabels"))},
-    {"version", boost::any(string("2022-08-09"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeWeb3AddressLabelsResponse(callApi(params, req, runtime));
-}
-
-DescribeWeb3AddressLabelsResponse Alibabacloud_Cloudauth-intl20220809::Client::describeWeb3AddressLabels(shared_ptr<DescribeWeb3AddressLabelsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeWeb3AddressLabelsWithOptions(request, runtime);
-}
-
-DescribeWeb3RiskScoreResponse Alibabacloud_Cloudauth-intl20220809::Client::describeWeb3RiskScoreWithOptions(shared_ptr<DescribeWeb3RiskScoreRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->chainShortName)) {
-    query->insert(pair<string, string>("ChainShortName", *request->chainShortName));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->depth)) {
-    query->insert(pair<string, long>("Depth", *request->depth));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
-    query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->objectId)) {
-    query->insert(pair<string, string>("ObjectId", *request->objectId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->objectType)) {
-    query->insert(pair<string, string>("ObjectType", *request->objectType));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeWeb3RiskScore"))},
-    {"version", boost::any(string("2022-08-09"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeWeb3RiskScoreResponse(callApi(params, req, runtime));
-}
-
-DescribeWeb3RiskScoreResponse Alibabacloud_Cloudauth-intl20220809::Client::describeWeb3RiskScore(shared_ptr<DescribeWeb3RiskScoreRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeWeb3RiskScoreWithOptions(request, runtime);
-}
-
-DescribeWeb3TransactionLabelsResponse Alibabacloud_Cloudauth-intl20220809::Client::describeWeb3TransactionLabelsWithOptions(shared_ptr<DescribeWeb3TransactionLabelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->chainShortName)) {
-    query->insert(pair<string, string>("ChainShortName", *request->chainShortName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
-    query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->transaction)) {
-    query->insert(pair<string, string>("Transaction", *request->transaction));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeWeb3TransactionLabels"))},
-    {"version", boost::any(string("2022-08-09"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeWeb3TransactionLabelsResponse(callApi(params, req, runtime));
-}
-
-DescribeWeb3TransactionLabelsResponse Alibabacloud_Cloudauth-intl20220809::Client::describeWeb3TransactionLabels(shared_ptr<DescribeWeb3TransactionLabelsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeWeb3TransactionLabelsWithOptions(request, runtime);
 }
 
 DocOcrResponse Alibabacloud_Cloudauth-intl20220809::Client::docOcrWithOptions(shared_ptr<DocOcrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -621,6 +327,43 @@ FaceCompareResponse Alibabacloud_Cloudauth-intl20220809::Client::faceCompareWith
 FaceCompareResponse Alibabacloud_Cloudauth-intl20220809::Client::faceCompare(shared_ptr<FaceCompareRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return faceCompareWithOptions(request, runtime);
+}
+
+FaceGuardRiskResponse Alibabacloud_Cloudauth-intl20220809::Client::faceGuardRiskWithOptions(shared_ptr<FaceGuardRiskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizId)) {
+    query->insert(pair<string, string>("BizId", *request->bizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceToken)) {
+    query->insert(pair<string, string>("DeviceToken", *request->deviceToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
+    query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    query->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("FaceGuardRisk"))},
+    {"version", boost::any(string("2022-08-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return FaceGuardRiskResponse(callApi(params, req, runtime));
+}
+
+FaceGuardRiskResponse Alibabacloud_Cloudauth-intl20220809::Client::faceGuardRisk(shared_ptr<FaceGuardRiskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return faceGuardRiskWithOptions(request, runtime);
 }
 
 FaceLivenessResponse Alibabacloud_Cloudauth-intl20220809::Client::faceLivenessWithOptions(shared_ptr<FaceLivenessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -805,6 +548,9 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->ocr)) {
     query->insert(pair<string, string>("Ocr", *request->ocr));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->procedurePriority)) {
+    query->insert(pair<string, string>("ProcedurePriority", *request->procedurePriority));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
     query->insert(pair<string, string>("ProductCode", *request->productCode));
   }
@@ -822,6 +568,9 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->showAlbumIcon)) {
     query->insert(pair<string, string>("ShowAlbumIcon", *request->showAlbumIcon));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->showGuidePage)) {
+    query->insert(pair<string, string>("ShowGuidePage", *request->showGuidePage));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->showOcrResult)) {
     query->insert(pair<string, string>("ShowOcrResult", *request->showOcrResult));
