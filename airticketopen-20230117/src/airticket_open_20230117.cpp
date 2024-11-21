@@ -514,12 +514,12 @@ CollectFlightLowestPriceResponse Alibabacloud_AirticketOpen20230117::Client::col
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CollectFlightLowestPriceShrinkRequest> request = make_shared<CollectFlightLowestPriceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<CollectFlightLowestPriceRequestLowestPriceFlightList>>(tmpReq->lowestPriceFlightList)) {
-    request->lowestPriceFlightListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->lowestPriceFlightList, make_shared<string>("lowestPriceFlightList"), make_shared<string>("json")));
+  if (!Darabonba_Util::Client::isUnset<vector<CollectFlightLowestPriceRequestLowestPriceFlightInfoList>>(tmpReq->lowestPriceFlightInfoList)) {
+    request->lowestPriceFlightInfoListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->lowestPriceFlightInfoList, make_shared<string>("lowest_price_flight_info_list"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->lowestPriceFlightListShrink)) {
-    body->insert(pair<string, string>("lowestPriceFlightList", *request->lowestPriceFlightListShrink));
+  if (!Darabonba_Util::Client::isUnset<string>(request->lowestPriceFlightInfoListShrink)) {
+    body->insert(pair<string, string>("lowest_price_flight_info_list", *request->lowestPriceFlightInfoListShrink));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {

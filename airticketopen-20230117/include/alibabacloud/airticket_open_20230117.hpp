@@ -7765,57 +7765,23 @@ public:
 
   virtual ~CollectFlightLowestPriceHeaders() = default;
 };
-class CollectFlightLowestPriceRequestLowestPriceFlightListFlightNumberInfo : public Darabonba::Model {
-public:
-  shared_ptr<string> departureFlightNumber{};
-  shared_ptr<string> returnFlightNumber{};
-
-  CollectFlightLowestPriceRequestLowestPriceFlightListFlightNumberInfo() {}
-
-  explicit CollectFlightLowestPriceRequestLowestPriceFlightListFlightNumberInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (departureFlightNumber) {
-      res["departure_flight_number"] = boost::any(*departureFlightNumber);
-    }
-    if (returnFlightNumber) {
-      res["return_flight_number"] = boost::any(*returnFlightNumber);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("departure_flight_number") != m.end() && !m["departure_flight_number"].empty()) {
-      departureFlightNumber = make_shared<string>(boost::any_cast<string>(m["departure_flight_number"]));
-    }
-    if (m.find("return_flight_number") != m.end() && !m["return_flight_number"].empty()) {
-      returnFlightNumber = make_shared<string>(boost::any_cast<string>(m["return_flight_number"]));
-    }
-  }
-
-
-  virtual ~CollectFlightLowestPriceRequestLowestPriceFlightListFlightNumberInfo() = default;
-};
-class CollectFlightLowestPriceRequestLowestPriceFlightList : public Darabonba::Model {
+class CollectFlightLowestPriceRequestLowestPriceFlightInfoList : public Darabonba::Model {
 public:
   shared_ptr<string> arrivalCity{};
   shared_ptr<string> departureCity{};
   shared_ptr<string> departureDate{};
-  shared_ptr<CollectFlightLowestPriceRequestLowestPriceFlightListFlightNumberInfo> flightNumberInfo{};
+  shared_ptr<string> departureFlightNumber{};
   shared_ptr<double> marketTotalPrice{};
   shared_ptr<string> requestId{};
   shared_ptr<string> returnDate{};
+  shared_ptr<string> returnFlightNumber{};
+  shared_ptr<string> solutionId{};
   shared_ptr<double> suezTotalPrice{};
   shared_ptr<long> tripType{};
 
-  CollectFlightLowestPriceRequestLowestPriceFlightList() {}
+  CollectFlightLowestPriceRequestLowestPriceFlightInfoList() {}
 
-  explicit CollectFlightLowestPriceRequestLowestPriceFlightList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit CollectFlightLowestPriceRequestLowestPriceFlightInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -7832,8 +7798,8 @@ public:
     if (departureDate) {
       res["departure_date"] = boost::any(*departureDate);
     }
-    if (flightNumberInfo) {
-      res["flight_number_info"] = flightNumberInfo ? boost::any(flightNumberInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    if (departureFlightNumber) {
+      res["departure_flight_number"] = boost::any(*departureFlightNumber);
     }
     if (marketTotalPrice) {
       res["market_total_price"] = boost::any(*marketTotalPrice);
@@ -7843,6 +7809,12 @@ public:
     }
     if (returnDate) {
       res["return_date"] = boost::any(*returnDate);
+    }
+    if (returnFlightNumber) {
+      res["return_flight_number"] = boost::any(*returnFlightNumber);
+    }
+    if (solutionId) {
+      res["solution_id"] = boost::any(*solutionId);
     }
     if (suezTotalPrice) {
       res["suez_total_price"] = boost::any(*suezTotalPrice);
@@ -7863,12 +7835,8 @@ public:
     if (m.find("departure_date") != m.end() && !m["departure_date"].empty()) {
       departureDate = make_shared<string>(boost::any_cast<string>(m["departure_date"]));
     }
-    if (m.find("flight_number_info") != m.end() && !m["flight_number_info"].empty()) {
-      if (typeid(map<string, boost::any>) == m["flight_number_info"].type()) {
-        CollectFlightLowestPriceRequestLowestPriceFlightListFlightNumberInfo model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["flight_number_info"]));
-        flightNumberInfo = make_shared<CollectFlightLowestPriceRequestLowestPriceFlightListFlightNumberInfo>(model1);
-      }
+    if (m.find("departure_flight_number") != m.end() && !m["departure_flight_number"].empty()) {
+      departureFlightNumber = make_shared<string>(boost::any_cast<string>(m["departure_flight_number"]));
     }
     if (m.find("market_total_price") != m.end() && !m["market_total_price"].empty()) {
       marketTotalPrice = make_shared<double>(boost::any_cast<double>(m["market_total_price"]));
@@ -7879,6 +7847,12 @@ public:
     if (m.find("return_date") != m.end() && !m["return_date"].empty()) {
       returnDate = make_shared<string>(boost::any_cast<string>(m["return_date"]));
     }
+    if (m.find("return_flight_number") != m.end() && !m["return_flight_number"].empty()) {
+      returnFlightNumber = make_shared<string>(boost::any_cast<string>(m["return_flight_number"]));
+    }
+    if (m.find("solution_id") != m.end() && !m["solution_id"].empty()) {
+      solutionId = make_shared<string>(boost::any_cast<string>(m["solution_id"]));
+    }
     if (m.find("suez_total_price") != m.end() && !m["suez_total_price"].empty()) {
       suezTotalPrice = make_shared<double>(boost::any_cast<double>(m["suez_total_price"]));
     }
@@ -7888,11 +7862,11 @@ public:
   }
 
 
-  virtual ~CollectFlightLowestPriceRequestLowestPriceFlightList() = default;
+  virtual ~CollectFlightLowestPriceRequestLowestPriceFlightInfoList() = default;
 };
 class CollectFlightLowestPriceRequest : public Darabonba::Model {
 public:
-  shared_ptr<vector<CollectFlightLowestPriceRequestLowestPriceFlightList>> lowestPriceFlightList{};
+  shared_ptr<vector<CollectFlightLowestPriceRequestLowestPriceFlightInfoList>> lowestPriceFlightInfoList{};
 
   CollectFlightLowestPriceRequest() {}
 
@@ -7904,28 +7878,28 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (lowestPriceFlightList) {
+    if (lowestPriceFlightInfoList) {
       vector<boost::any> temp1;
-      for(auto item1:*lowestPriceFlightList){
+      for(auto item1:*lowestPriceFlightInfoList){
         temp1.push_back(boost::any(item1.toMap()));
       }
-      res["lowestPriceFlightList"] = boost::any(temp1);
+      res["lowest_price_flight_info_list"] = boost::any(temp1);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("lowestPriceFlightList") != m.end() && !m["lowestPriceFlightList"].empty()) {
-      if (typeid(vector<boost::any>) == m["lowestPriceFlightList"].type()) {
-        vector<CollectFlightLowestPriceRequestLowestPriceFlightList> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["lowestPriceFlightList"])){
+    if (m.find("lowest_price_flight_info_list") != m.end() && !m["lowest_price_flight_info_list"].empty()) {
+      if (typeid(vector<boost::any>) == m["lowest_price_flight_info_list"].type()) {
+        vector<CollectFlightLowestPriceRequestLowestPriceFlightInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["lowest_price_flight_info_list"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            CollectFlightLowestPriceRequestLowestPriceFlightList model2;
+            CollectFlightLowestPriceRequestLowestPriceFlightInfoList model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        lowestPriceFlightList = make_shared<vector<CollectFlightLowestPriceRequestLowestPriceFlightList>>(expect1);
+        lowestPriceFlightInfoList = make_shared<vector<CollectFlightLowestPriceRequestLowestPriceFlightInfoList>>(expect1);
       }
     }
   }
@@ -7935,7 +7909,7 @@ public:
 };
 class CollectFlightLowestPriceShrinkRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> lowestPriceFlightListShrink{};
+  shared_ptr<string> lowestPriceFlightInfoListShrink{};
 
   CollectFlightLowestPriceShrinkRequest() {}
 
@@ -7947,15 +7921,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (lowestPriceFlightListShrink) {
-      res["lowestPriceFlightList"] = boost::any(*lowestPriceFlightListShrink);
+    if (lowestPriceFlightInfoListShrink) {
+      res["lowest_price_flight_info_list"] = boost::any(*lowestPriceFlightInfoListShrink);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("lowestPriceFlightList") != m.end() && !m["lowestPriceFlightList"].empty()) {
-      lowestPriceFlightListShrink = make_shared<string>(boost::any_cast<string>(m["lowestPriceFlightList"]));
+    if (m.find("lowest_price_flight_info_list") != m.end() && !m["lowest_price_flight_info_list"].empty()) {
+      lowestPriceFlightInfoListShrink = make_shared<string>(boost::any_cast<string>(m["lowest_price_flight_info_list"]));
     }
   }
 
