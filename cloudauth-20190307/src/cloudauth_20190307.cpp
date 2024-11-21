@@ -1006,6 +1006,40 @@ DetectFaceAttributesResponse Alibabacloud_Cloudauth20190307::Client::detectFaceA
   return detectFaceAttributesWithOptions(request, runtime);
 }
 
+Id2MetaStandardVerifyResponse Alibabacloud_Cloudauth20190307::Client::id2MetaStandardVerifyWithOptions(shared_ptr<Id2MetaStandardVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->identifyNum)) {
+    body->insert(pair<string, string>("IdentifyNum", *request->identifyNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
+    body->insert(pair<string, string>("ParamType", *request->paramType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
+    body->insert(pair<string, string>("UserName", *request->userName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("Id2MetaStandardVerify"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return Id2MetaStandardVerifyResponse(callApi(params, req, runtime));
+}
+
+Id2MetaStandardVerifyResponse Alibabacloud_Cloudauth20190307::Client::id2MetaStandardVerify(shared_ptr<Id2MetaStandardVerifyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return id2MetaStandardVerifyWithOptions(request, runtime);
+}
+
 Id2MetaVerifyResponse Alibabacloud_Cloudauth20190307::Client::id2MetaVerifyWithOptions(shared_ptr<Id2MetaVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
