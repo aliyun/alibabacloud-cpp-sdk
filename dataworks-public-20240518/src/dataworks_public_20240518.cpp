@@ -157,6 +157,54 @@ CloneDataSourceResponse Alibabacloud_Dataworks-public20240518::Client::cloneData
   return cloneDataSourceWithOptions(request, runtime);
 }
 
+CreateAlertRuleResponse Alibabacloud_Dataworks-public20240518::Client::createAlertRuleWithOptions(shared_ptr<CreateAlertRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateAlertRuleShrinkRequest> request = make_shared<CreateAlertRuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateAlertRuleRequestNotification>(tmpReq->notification)) {
+    request->notificationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->notification, make_shared<string>("Notification"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateAlertRuleRequestTriggerCondition>(tmpReq->triggerCondition)) {
+    request->triggerConditionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->triggerCondition, make_shared<string>("TriggerCondition"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enabled)) {
+    query->insert(pair<string, bool>("Enabled", *request->enabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->notificationShrink)) {
+    query->insert(pair<string, string>("Notification", *request->notificationShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->owner)) {
+    query->insert(pair<string, string>("Owner", *request->owner));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->triggerConditionShrink)) {
+    query->insert(pair<string, string>("TriggerCondition", *request->triggerConditionShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateAlertRule"))},
+    {"version", boost::any(string("2024-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateAlertRuleResponse(callApi(params, req, runtime));
+}
+
+CreateAlertRuleResponse Alibabacloud_Dataworks-public20240518::Client::createAlertRule(shared_ptr<CreateAlertRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createAlertRuleWithOptions(request, runtime);
+}
+
 CreateDIAlarmRuleResponse Alibabacloud_Dataworks-public20240518::Client::createDIAlarmRuleWithOptions(shared_ptr<CreateDIAlarmRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateDIAlarmRuleShrinkRequest> request = make_shared<CreateDIAlarmRuleShrinkRequest>();
@@ -703,6 +751,34 @@ CreateWorkflowDefinitionResponse Alibabacloud_Dataworks-public20240518::Client::
   return createWorkflowDefinitionWithOptions(request, runtime);
 }
 
+DeleteAlertRuleResponse Alibabacloud_Dataworks-public20240518::Client::deleteAlertRuleWithOptions(shared_ptr<DeleteAlertRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteAlertRule"))},
+    {"version", boost::any(string("2024-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteAlertRuleResponse(callApi(params, req, runtime));
+}
+
+DeleteAlertRuleResponse Alibabacloud_Dataworks-public20240518::Client::deleteAlertRule(shared_ptr<DeleteAlertRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteAlertRuleWithOptions(request, runtime);
+}
+
 DeleteDIAlarmRuleResponse Alibabacloud_Dataworks-public20240518::Client::deleteDIAlarmRuleWithOptions(shared_ptr<DeleteDIAlarmRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -1169,6 +1245,31 @@ ExecDeploymentStageResponse Alibabacloud_Dataworks-public20240518::Client::execD
 ExecDeploymentStageResponse Alibabacloud_Dataworks-public20240518::Client::execDeploymentStage(shared_ptr<ExecDeploymentStageRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return execDeploymentStageWithOptions(request, runtime);
+}
+
+GetAlertRuleResponse Alibabacloud_Dataworks-public20240518::Client::getAlertRuleWithOptions(shared_ptr<GetAlertRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAlertRule"))},
+    {"version", boost::any(string("2024-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAlertRuleResponse(callApi(params, req, runtime));
+}
+
+GetAlertRuleResponse Alibabacloud_Dataworks-public20240518::Client::getAlertRule(shared_ptr<GetAlertRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getAlertRuleWithOptions(request, runtime);
 }
 
 GetDIJobResponse Alibabacloud_Dataworks-public20240518::Client::getDIJobWithOptions(shared_ptr<GetDIJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1701,6 +1802,60 @@ ImportWorkflowDefinitionResponse Alibabacloud_Dataworks-public20240518::Client::
 ImportWorkflowDefinitionResponse Alibabacloud_Dataworks-public20240518::Client::importWorkflowDefinition(shared_ptr<ImportWorkflowDefinitionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return importWorkflowDefinitionWithOptions(request, runtime);
+}
+
+ListAlertRulesResponse Alibabacloud_Dataworks-public20240518::Client::listAlertRulesWithOptions(shared_ptr<ListAlertRulesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListAlertRulesShrinkRequest> request = make_shared<ListAlertRulesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->taskIds)) {
+    request->taskIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->taskIds, make_shared<string>("TaskIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->types)) {
+    request->typesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->types, make_shared<string>("Types"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->owner)) {
+    query->insert(pair<string, string>("Owner", *request->owner));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->receiver)) {
+    query->insert(pair<string, string>("Receiver", *request->receiver));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskIdsShrink)) {
+    query->insert(pair<string, string>("TaskIds", *request->taskIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->typesShrink)) {
+    query->insert(pair<string, string>("Types", *request->typesShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListAlertRules"))},
+    {"version", boost::any(string("2024-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListAlertRulesResponse(callApi(params, req, runtime));
+}
+
+ListAlertRulesResponse Alibabacloud_Dataworks-public20240518::Client::listAlertRules(shared_ptr<ListAlertRulesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listAlertRulesWithOptions(request, runtime);
 }
 
 ListDIAlarmRulesResponse Alibabacloud_Dataworks-public20240518::Client::listDIAlarmRulesWithOptions(shared_ptr<ListDIAlarmRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2486,8 +2641,14 @@ ListTaskInstancesResponse Alibabacloud_Dataworks-public20240518::Client::listTas
   if (!Darabonba_Util::Client::isUnset<string>(request->taskName)) {
     body->insert(pair<string, string>("TaskName", *request->taskName));
   }
-  if (!Darabonba_Util::Client::isUnset<long>(request->taskType)) {
-    body->insert(pair<string, long>("TaskType", *request->taskType));
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskType)) {
+    body->insert(pair<string, string>("TaskType", *request->taskType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->triggerRecurrence)) {
+    body->insert(pair<string, string>("TriggerRecurrence", *request->triggerRecurrence));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->triggerType)) {
+    body->insert(pair<string, string>("TriggerType", *request->triggerType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->workflowId)) {
     body->insert(pair<string, long>("WorkflowId", *request->workflowId));
@@ -3297,6 +3458,57 @@ TriggerSchedulerTaskInstanceResponse Alibabacloud_Dataworks-public20240518::Clie
 TriggerSchedulerTaskInstanceResponse Alibabacloud_Dataworks-public20240518::Client::triggerSchedulerTaskInstance(shared_ptr<TriggerSchedulerTaskInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return triggerSchedulerTaskInstanceWithOptions(request, runtime);
+}
+
+UpdateAlertRuleResponse Alibabacloud_Dataworks-public20240518::Client::updateAlertRuleWithOptions(shared_ptr<UpdateAlertRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateAlertRuleShrinkRequest> request = make_shared<UpdateAlertRuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateAlertRuleRequestNotification>(tmpReq->notification)) {
+    request->notificationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->notification, make_shared<string>("Notification"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateAlertRuleRequestTriggerCondition>(tmpReq->triggerCondition)) {
+    request->triggerConditionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->triggerCondition, make_shared<string>("TriggerCondition"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enabled)) {
+    query->insert(pair<string, bool>("Enabled", *request->enabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    query->insert(pair<string, long>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->notificationShrink)) {
+    query->insert(pair<string, string>("Notification", *request->notificationShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->owner)) {
+    query->insert(pair<string, string>("Owner", *request->owner));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->triggerConditionShrink)) {
+    query->insert(pair<string, string>("TriggerCondition", *request->triggerConditionShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateAlertRule"))},
+    {"version", boost::any(string("2024-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateAlertRuleResponse(callApi(params, req, runtime));
+}
+
+UpdateAlertRuleResponse Alibabacloud_Dataworks-public20240518::Client::updateAlertRule(shared_ptr<UpdateAlertRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateAlertRuleWithOptions(request, runtime);
 }
 
 UpdateDIAlarmRuleResponse Alibabacloud_Dataworks-public20240518::Client::updateDIAlarmRuleWithOptions(shared_ptr<UpdateDIAlarmRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

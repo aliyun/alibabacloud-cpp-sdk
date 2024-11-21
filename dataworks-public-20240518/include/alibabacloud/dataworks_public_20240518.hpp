@@ -2485,6 +2485,832 @@ public:
 
   virtual ~CloneDataSourceResponse() = default;
 };
+class CreateAlertRuleRequestNotificationReceivers : public Darabonba::Model {
+public:
+  shared_ptr<string> extension{};
+  shared_ptr<string> receiverType{};
+  shared_ptr<vector<string>> receiverValues{};
+
+  CreateAlertRuleRequestNotificationReceivers() {}
+
+  explicit CreateAlertRuleRequestNotificationReceivers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extension) {
+      res["Extension"] = boost::any(*extension);
+    }
+    if (receiverType) {
+      res["ReceiverType"] = boost::any(*receiverType);
+    }
+    if (receiverValues) {
+      res["ReceiverValues"] = boost::any(*receiverValues);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      extension = make_shared<string>(boost::any_cast<string>(m["Extension"]));
+    }
+    if (m.find("ReceiverType") != m.end() && !m["ReceiverType"].empty()) {
+      receiverType = make_shared<string>(boost::any_cast<string>(m["ReceiverType"]));
+    }
+    if (m.find("ReceiverValues") != m.end() && !m["ReceiverValues"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ReceiverValues"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ReceiverValues"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      receiverValues = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequestNotificationReceivers() = default;
+};
+class CreateAlertRuleRequestNotification : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> channels{};
+  shared_ptr<long> intervalInMinutes{};
+  shared_ptr<long> maximum{};
+  shared_ptr<vector<CreateAlertRuleRequestNotificationReceivers>> receivers{};
+  shared_ptr<string> silenceEndTime{};
+  shared_ptr<string> silenceStartTime{};
+
+  CreateAlertRuleRequestNotification() {}
+
+  explicit CreateAlertRuleRequestNotification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channels) {
+      res["Channels"] = boost::any(*channels);
+    }
+    if (intervalInMinutes) {
+      res["IntervalInMinutes"] = boost::any(*intervalInMinutes);
+    }
+    if (maximum) {
+      res["Maximum"] = boost::any(*maximum);
+    }
+    if (receivers) {
+      vector<boost::any> temp1;
+      for(auto item1:*receivers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Receivers"] = boost::any(temp1);
+    }
+    if (silenceEndTime) {
+      res["SilenceEndTime"] = boost::any(*silenceEndTime);
+    }
+    if (silenceStartTime) {
+      res["SilenceStartTime"] = boost::any(*silenceStartTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Channels") != m.end() && !m["Channels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Channels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Channels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      channels = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IntervalInMinutes") != m.end() && !m["IntervalInMinutes"].empty()) {
+      intervalInMinutes = make_shared<long>(boost::any_cast<long>(m["IntervalInMinutes"]));
+    }
+    if (m.find("Maximum") != m.end() && !m["Maximum"].empty()) {
+      maximum = make_shared<long>(boost::any_cast<long>(m["Maximum"]));
+    }
+    if (m.find("Receivers") != m.end() && !m["Receivers"].empty()) {
+      if (typeid(vector<boost::any>) == m["Receivers"].type()) {
+        vector<CreateAlertRuleRequestNotificationReceivers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Receivers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAlertRuleRequestNotificationReceivers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        receivers = make_shared<vector<CreateAlertRuleRequestNotificationReceivers>>(expect1);
+      }
+    }
+    if (m.find("SilenceEndTime") != m.end() && !m["SilenceEndTime"].empty()) {
+      silenceEndTime = make_shared<string>(boost::any_cast<string>(m["SilenceEndTime"]));
+    }
+    if (m.find("SilenceStartTime") != m.end() && !m["SilenceStartTime"].empty()) {
+      silenceStartTime = make_shared<string>(boost::any_cast<string>(m["SilenceStartTime"]));
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequestNotification() = default;
+};
+class CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime : public Darabonba::Model {
+public:
+  shared_ptr<long> cycleId{};
+  shared_ptr<string> time{};
+
+  CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime() {}
+
+  explicit CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycleId) {
+      res["CycleId"] = boost::any(*cycleId);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CycleId") != m.end() && !m["CycleId"].empty()) {
+      cycleId = make_shared<long>(boost::any_cast<long>(m["CycleId"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["Time"]));
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime() = default;
+};
+class CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime>> cycleAndTime{};
+
+  CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished() {}
+
+  explicit CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycleAndTime) {
+      vector<boost::any> temp1;
+      for(auto item1:*cycleAndTime){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CycleAndTime"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CycleAndTime") != m.end() && !m["CycleAndTime"].empty()) {
+      if (typeid(vector<boost::any>) == m["CycleAndTime"].type()) {
+        vector<CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CycleAndTime"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cycleAndTime = make_shared<vector<CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished() = default;
+};
+class CreateAlertRuleRequestTriggerConditionExtensionError : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoRerunAlert{};
+  shared_ptr<vector<long>> streamTaskIds{};
+
+  CreateAlertRuleRequestTriggerConditionExtensionError() {}
+
+  explicit CreateAlertRuleRequestTriggerConditionExtensionError(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoRerunAlert) {
+      res["AutoRerunAlert"] = boost::any(*autoRerunAlert);
+    }
+    if (streamTaskIds) {
+      res["StreamTaskIds"] = boost::any(*streamTaskIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoRerunAlert") != m.end() && !m["AutoRerunAlert"].empty()) {
+      autoRerunAlert = make_shared<bool>(boost::any_cast<bool>(m["AutoRerunAlert"]));
+    }
+    if (m.find("StreamTaskIds") != m.end() && !m["StreamTaskIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["StreamTaskIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["StreamTaskIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      streamTaskIds = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequestTriggerConditionExtensionError() = default;
+};
+class CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+
+  CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount() {}
+
+  explicit CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount() = default;
+};
+class CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage : public Darabonba::Model {
+public:
+  shared_ptr<long> percentage{};
+
+  CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage() {}
+
+  explicit CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage() = default;
+};
+class CreateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate : public Darabonba::Model {
+public:
+  shared_ptr<long> percentage{};
+  shared_ptr<string> trend{};
+
+  CreateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate() {}
+
+  explicit CreateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (trend) {
+      res["Trend"] = boost::any(*trend);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+    if (m.find("Trend") != m.end() && !m["Trend"].empty()) {
+      trend = make_shared<string>(boost::any_cast<string>(m["Trend"]));
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate() = default;
+};
+class CreateAlertRuleRequestTriggerConditionExtensionTimeout : public Darabonba::Model {
+public:
+  shared_ptr<long> timeoutInMinutes{};
+
+  CreateAlertRuleRequestTriggerConditionExtensionTimeout() {}
+
+  explicit CreateAlertRuleRequestTriggerConditionExtensionTimeout(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (timeoutInMinutes) {
+      res["TimeoutInMinutes"] = boost::any(*timeoutInMinutes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TimeoutInMinutes") != m.end() && !m["TimeoutInMinutes"].empty()) {
+      timeoutInMinutes = make_shared<long>(boost::any_cast<long>(m["TimeoutInMinutes"]));
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequestTriggerConditionExtensionTimeout() = default;
+};
+class CreateAlertRuleRequestTriggerConditionExtensionUnFinished : public Darabonba::Model {
+public:
+  shared_ptr<string> unFinishedTime{};
+
+  CreateAlertRuleRequestTriggerConditionExtensionUnFinished() {}
+
+  explicit CreateAlertRuleRequestTriggerConditionExtensionUnFinished(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (unFinishedTime) {
+      res["UnFinishedTime"] = boost::any(*unFinishedTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UnFinishedTime") != m.end() && !m["UnFinishedTime"].empty()) {
+      unFinishedTime = make_shared<string>(boost::any_cast<string>(m["UnFinishedTime"]));
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequestTriggerConditionExtensionUnFinished() = default;
+};
+class CreateAlertRuleRequestTriggerConditionExtension : public Darabonba::Model {
+public:
+  shared_ptr<CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished> cycleUnfinished{};
+  shared_ptr<CreateAlertRuleRequestTriggerConditionExtensionError> error{};
+  shared_ptr<CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount> instanceErrorCount{};
+  shared_ptr<CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage> instanceErrorPercentage{};
+  shared_ptr<CreateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate> instanceTransferFluctuate{};
+  shared_ptr<CreateAlertRuleRequestTriggerConditionExtensionTimeout> timeout{};
+  shared_ptr<CreateAlertRuleRequestTriggerConditionExtensionUnFinished> unFinished{};
+
+  CreateAlertRuleRequestTriggerConditionExtension() {}
+
+  explicit CreateAlertRuleRequestTriggerConditionExtension(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycleUnfinished) {
+      res["CycleUnfinished"] = cycleUnfinished ? boost::any(cycleUnfinished->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (error) {
+      res["Error"] = error ? boost::any(error->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceErrorCount) {
+      res["InstanceErrorCount"] = instanceErrorCount ? boost::any(instanceErrorCount->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceErrorPercentage) {
+      res["InstanceErrorPercentage"] = instanceErrorPercentage ? boost::any(instanceErrorPercentage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceTransferFluctuate) {
+      res["InstanceTransferFluctuate"] = instanceTransferFluctuate ? boost::any(instanceTransferFluctuate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (timeout) {
+      res["Timeout"] = timeout ? boost::any(timeout->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (unFinished) {
+      res["UnFinished"] = unFinished ? boost::any(unFinished->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CycleUnfinished") != m.end() && !m["CycleUnfinished"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CycleUnfinished"].type()) {
+        CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CycleUnfinished"]));
+        cycleUnfinished = make_shared<CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished>(model1);
+      }
+    }
+    if (m.find("Error") != m.end() && !m["Error"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Error"].type()) {
+        CreateAlertRuleRequestTriggerConditionExtensionError model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Error"]));
+        error = make_shared<CreateAlertRuleRequestTriggerConditionExtensionError>(model1);
+      }
+    }
+    if (m.find("InstanceErrorCount") != m.end() && !m["InstanceErrorCount"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceErrorCount"].type()) {
+        CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceErrorCount"]));
+        instanceErrorCount = make_shared<CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount>(model1);
+      }
+    }
+    if (m.find("InstanceErrorPercentage") != m.end() && !m["InstanceErrorPercentage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceErrorPercentage"].type()) {
+        CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceErrorPercentage"]));
+        instanceErrorPercentage = make_shared<CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage>(model1);
+      }
+    }
+    if (m.find("InstanceTransferFluctuate") != m.end() && !m["InstanceTransferFluctuate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceTransferFluctuate"].type()) {
+        CreateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceTransferFluctuate"]));
+        instanceTransferFluctuate = make_shared<CreateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate>(model1);
+      }
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Timeout"].type()) {
+        CreateAlertRuleRequestTriggerConditionExtensionTimeout model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Timeout"]));
+        timeout = make_shared<CreateAlertRuleRequestTriggerConditionExtensionTimeout>(model1);
+      }
+    }
+    if (m.find("UnFinished") != m.end() && !m["UnFinished"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UnFinished"].type()) {
+        CreateAlertRuleRequestTriggerConditionExtensionUnFinished model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UnFinished"]));
+        unFinished = make_shared<CreateAlertRuleRequestTriggerConditionExtensionUnFinished>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequestTriggerConditionExtension() = default;
+};
+class CreateAlertRuleRequestTriggerConditionTarget : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> allowTasks{};
+  shared_ptr<vector<long>> ids{};
+  shared_ptr<string> type{};
+
+  CreateAlertRuleRequestTriggerConditionTarget() {}
+
+  explicit CreateAlertRuleRequestTriggerConditionTarget(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowTasks) {
+      res["AllowTasks"] = boost::any(*allowTasks);
+    }
+    if (ids) {
+      res["Ids"] = boost::any(*ids);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowTasks") != m.end() && !m["AllowTasks"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowTasks"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowTasks"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      allowTasks = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      ids = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequestTriggerConditionTarget() = default;
+};
+class CreateAlertRuleRequestTriggerCondition : public Darabonba::Model {
+public:
+  shared_ptr<CreateAlertRuleRequestTriggerConditionExtension> extension{};
+  shared_ptr<CreateAlertRuleRequestTriggerConditionTarget> target{};
+  shared_ptr<string> type{};
+
+  CreateAlertRuleRequestTriggerCondition() {}
+
+  explicit CreateAlertRuleRequestTriggerCondition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extension) {
+      res["Extension"] = extension ? boost::any(extension->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (target) {
+      res["Target"] = target ? boost::any(target->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extension"].type()) {
+        CreateAlertRuleRequestTriggerConditionExtension model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extension"]));
+        extension = make_shared<CreateAlertRuleRequestTriggerConditionExtension>(model1);
+      }
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Target"].type()) {
+        CreateAlertRuleRequestTriggerConditionTarget model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Target"]));
+        target = make_shared<CreateAlertRuleRequestTriggerConditionTarget>(model1);
+      }
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequestTriggerCondition() = default;
+};
+class CreateAlertRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> name{};
+  shared_ptr<CreateAlertRuleRequestNotification> notification{};
+  shared_ptr<string> owner{};
+  shared_ptr<CreateAlertRuleRequestTriggerCondition> triggerCondition{};
+
+  CreateAlertRuleRequest() {}
+
+  explicit CreateAlertRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (notification) {
+      res["Notification"] = notification ? boost::any(notification->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (triggerCondition) {
+      res["TriggerCondition"] = triggerCondition ? boost::any(triggerCondition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Notification") != m.end() && !m["Notification"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Notification"].type()) {
+        CreateAlertRuleRequestNotification model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Notification"]));
+        notification = make_shared<CreateAlertRuleRequestNotification>(model1);
+      }
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("TriggerCondition") != m.end() && !m["TriggerCondition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TriggerCondition"].type()) {
+        CreateAlertRuleRequestTriggerCondition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TriggerCondition"]));
+        triggerCondition = make_shared<CreateAlertRuleRequestTriggerCondition>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAlertRuleRequest() = default;
+};
+class CreateAlertRuleShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> name{};
+  shared_ptr<string> notificationShrink{};
+  shared_ptr<string> owner{};
+  shared_ptr<string> triggerConditionShrink{};
+
+  CreateAlertRuleShrinkRequest() {}
+
+  explicit CreateAlertRuleShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (notificationShrink) {
+      res["Notification"] = boost::any(*notificationShrink);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (triggerConditionShrink) {
+      res["TriggerCondition"] = boost::any(*triggerConditionShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Notification") != m.end() && !m["Notification"].empty()) {
+      notificationShrink = make_shared<string>(boost::any_cast<string>(m["Notification"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("TriggerCondition") != m.end() && !m["TriggerCondition"].empty()) {
+      triggerConditionShrink = make_shared<string>(boost::any_cast<string>(m["TriggerCondition"]));
+    }
+  }
+
+
+  virtual ~CreateAlertRuleShrinkRequest() = default;
+};
+class CreateAlertRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+  shared_ptr<string> requestId{};
+
+  CreateAlertRuleResponseBody() {}
+
+  explicit CreateAlertRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateAlertRuleResponseBody() = default;
+};
+class CreateAlertRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateAlertRuleResponseBody> body{};
+
+  CreateAlertRuleResponse() {}
+
+  explicit CreateAlertRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateAlertRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAlertRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAlertRuleResponse() = default;
+};
 class CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> channels{};
@@ -6020,6 +6846,123 @@ public:
 
   virtual ~CreateWorkflowDefinitionResponse() = default;
 };
+class DeleteAlertRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+
+  DeleteAlertRuleRequest() {}
+
+  explicit DeleteAlertRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+  }
+
+
+  virtual ~DeleteAlertRuleRequest() = default;
+};
+class DeleteAlertRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteAlertRuleResponseBody() {}
+
+  explicit DeleteAlertRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteAlertRuleResponseBody() = default;
+};
+class DeleteAlertRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAlertRuleResponseBody> body{};
+
+  DeleteAlertRuleResponse() {}
+
+  explicit DeleteAlertRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAlertRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAlertRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAlertRuleResponse() = default;
+};
 class DeleteDIAlarmRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<long> DIAlarmRuleId{};
@@ -7954,6 +8897,815 @@ public:
 
 
   virtual ~ExecDeploymentStageResponse() = default;
+};
+class GetAlertRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+
+  GetAlertRuleRequest() {}
+
+  explicit GetAlertRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+  }
+
+
+  virtual ~GetAlertRuleRequest() = default;
+};
+class GetAlertRuleResponseBodyAlertRuleNotificationReceivers : public Darabonba::Model {
+public:
+  shared_ptr<string> extension{};
+  shared_ptr<string> receiverType{};
+  shared_ptr<vector<string>> receiverValues{};
+
+  GetAlertRuleResponseBodyAlertRuleNotificationReceivers() {}
+
+  explicit GetAlertRuleResponseBodyAlertRuleNotificationReceivers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extension) {
+      res["Extension"] = boost::any(*extension);
+    }
+    if (receiverType) {
+      res["ReceiverType"] = boost::any(*receiverType);
+    }
+    if (receiverValues) {
+      res["ReceiverValues"] = boost::any(*receiverValues);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      extension = make_shared<string>(boost::any_cast<string>(m["Extension"]));
+    }
+    if (m.find("ReceiverType") != m.end() && !m["ReceiverType"].empty()) {
+      receiverType = make_shared<string>(boost::any_cast<string>(m["ReceiverType"]));
+    }
+    if (m.find("ReceiverValues") != m.end() && !m["ReceiverValues"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ReceiverValues"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ReceiverValues"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      receiverValues = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRuleNotificationReceivers() = default;
+};
+class GetAlertRuleResponseBodyAlertRuleNotification : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> channels{};
+  shared_ptr<long> intervalInMinutes{};
+  shared_ptr<long> maximum{};
+  shared_ptr<vector<GetAlertRuleResponseBodyAlertRuleNotificationReceivers>> receivers{};
+  shared_ptr<string> silenceEndTime{};
+  shared_ptr<string> silenceStartTime{};
+
+  GetAlertRuleResponseBodyAlertRuleNotification() {}
+
+  explicit GetAlertRuleResponseBodyAlertRuleNotification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channels) {
+      res["Channels"] = boost::any(*channels);
+    }
+    if (intervalInMinutes) {
+      res["IntervalInMinutes"] = boost::any(*intervalInMinutes);
+    }
+    if (maximum) {
+      res["Maximum"] = boost::any(*maximum);
+    }
+    if (receivers) {
+      vector<boost::any> temp1;
+      for(auto item1:*receivers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Receivers"] = boost::any(temp1);
+    }
+    if (silenceEndTime) {
+      res["SilenceEndTime"] = boost::any(*silenceEndTime);
+    }
+    if (silenceStartTime) {
+      res["SilenceStartTime"] = boost::any(*silenceStartTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Channels") != m.end() && !m["Channels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Channels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Channels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      channels = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IntervalInMinutes") != m.end() && !m["IntervalInMinutes"].empty()) {
+      intervalInMinutes = make_shared<long>(boost::any_cast<long>(m["IntervalInMinutes"]));
+    }
+    if (m.find("Maximum") != m.end() && !m["Maximum"].empty()) {
+      maximum = make_shared<long>(boost::any_cast<long>(m["Maximum"]));
+    }
+    if (m.find("Receivers") != m.end() && !m["Receivers"].empty()) {
+      if (typeid(vector<boost::any>) == m["Receivers"].type()) {
+        vector<GetAlertRuleResponseBodyAlertRuleNotificationReceivers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Receivers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAlertRuleResponseBodyAlertRuleNotificationReceivers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        receivers = make_shared<vector<GetAlertRuleResponseBodyAlertRuleNotificationReceivers>>(expect1);
+      }
+    }
+    if (m.find("SilenceEndTime") != m.end() && !m["SilenceEndTime"].empty()) {
+      silenceEndTime = make_shared<string>(boost::any_cast<string>(m["SilenceEndTime"]));
+    }
+    if (m.find("SilenceStartTime") != m.end() && !m["SilenceStartTime"].empty()) {
+      silenceStartTime = make_shared<string>(boost::any_cast<string>(m["SilenceStartTime"]));
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRuleNotification() = default;
+};
+class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinishedCycleAndTime : public Darabonba::Model {
+public:
+  shared_ptr<long> cycleId{};
+  shared_ptr<string> time{};
+
+  GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinishedCycleAndTime() {}
+
+  explicit GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinishedCycleAndTime(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycleId) {
+      res["CycleId"] = boost::any(*cycleId);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CycleId") != m.end() && !m["CycleId"].empty()) {
+      cycleId = make_shared<long>(boost::any_cast<long>(m["CycleId"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["Time"]));
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinishedCycleAndTime() = default;
+};
+class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinished : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinishedCycleAndTime>> cycleAndTime{};
+
+  GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinished() {}
+
+  explicit GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinished(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycleAndTime) {
+      vector<boost::any> temp1;
+      for(auto item1:*cycleAndTime){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CycleAndTime"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CycleAndTime") != m.end() && !m["CycleAndTime"].empty()) {
+      if (typeid(vector<boost::any>) == m["CycleAndTime"].type()) {
+        vector<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinishedCycleAndTime> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CycleAndTime"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinishedCycleAndTime model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cycleAndTime = make_shared<vector<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinishedCycleAndTime>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinished() = default;
+};
+class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoRerunAlert{};
+  shared_ptr<vector<long>> streamTaskIds{};
+
+  GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError() {}
+
+  explicit GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoRerunAlert) {
+      res["AutoRerunAlert"] = boost::any(*autoRerunAlert);
+    }
+    if (streamTaskIds) {
+      res["StreamTaskIds"] = boost::any(*streamTaskIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoRerunAlert") != m.end() && !m["AutoRerunAlert"].empty()) {
+      autoRerunAlert = make_shared<bool>(boost::any_cast<bool>(m["AutoRerunAlert"]));
+    }
+    if (m.find("StreamTaskIds") != m.end() && !m["StreamTaskIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["StreamTaskIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["StreamTaskIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      streamTaskIds = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError() = default;
+};
+class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorCount : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+
+  GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorCount() {}
+
+  explicit GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorCount(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorCount() = default;
+};
+class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorPercentage : public Darabonba::Model {
+public:
+  shared_ptr<long> percentage{};
+
+  GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorPercentage() {}
+
+  explicit GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorPercentage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorPercentage() = default;
+};
+class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceTransferFluctuate : public Darabonba::Model {
+public:
+  shared_ptr<long> percentage{};
+  shared_ptr<string> trend{};
+
+  GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceTransferFluctuate() {}
+
+  explicit GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceTransferFluctuate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (trend) {
+      res["Trend"] = boost::any(*trend);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+    if (m.find("Trend") != m.end() && !m["Trend"].empty()) {
+      trend = make_shared<string>(boost::any_cast<string>(m["Trend"]));
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceTransferFluctuate() = default;
+};
+class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionTimeout : public Darabonba::Model {
+public:
+  shared_ptr<long> timeoutInMinutes{};
+
+  GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionTimeout() {}
+
+  explicit GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionTimeout(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (timeoutInMinutes) {
+      res["TimeoutInMinutes"] = boost::any(*timeoutInMinutes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TimeoutInMinutes") != m.end() && !m["TimeoutInMinutes"].empty()) {
+      timeoutInMinutes = make_shared<long>(boost::any_cast<long>(m["TimeoutInMinutes"]));
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionTimeout() = default;
+};
+class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionUnFinished : public Darabonba::Model {
+public:
+  shared_ptr<string> unFinishedTime{};
+
+  GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionUnFinished() {}
+
+  explicit GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionUnFinished(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (unFinishedTime) {
+      res["UnFinishedTime"] = boost::any(*unFinishedTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UnFinishedTime") != m.end() && !m["UnFinishedTime"].empty()) {
+      unFinishedTime = make_shared<string>(boost::any_cast<string>(m["UnFinishedTime"]));
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionUnFinished() = default;
+};
+class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtension : public Darabonba::Model {
+public:
+  shared_ptr<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinished> cycleUnfinished{};
+  shared_ptr<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError> error{};
+  shared_ptr<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorCount> instanceErrorCount{};
+  shared_ptr<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorPercentage> instanceErrorPercentage{};
+  shared_ptr<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceTransferFluctuate> instanceTransferFluctuate{};
+  shared_ptr<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionTimeout> timeout{};
+  shared_ptr<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionUnFinished> unFinished{};
+
+  GetAlertRuleResponseBodyAlertRuleTriggerConditionExtension() {}
+
+  explicit GetAlertRuleResponseBodyAlertRuleTriggerConditionExtension(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycleUnfinished) {
+      res["CycleUnfinished"] = cycleUnfinished ? boost::any(cycleUnfinished->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (error) {
+      res["Error"] = error ? boost::any(error->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceErrorCount) {
+      res["InstanceErrorCount"] = instanceErrorCount ? boost::any(instanceErrorCount->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceErrorPercentage) {
+      res["InstanceErrorPercentage"] = instanceErrorPercentage ? boost::any(instanceErrorPercentage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceTransferFluctuate) {
+      res["InstanceTransferFluctuate"] = instanceTransferFluctuate ? boost::any(instanceTransferFluctuate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (timeout) {
+      res["Timeout"] = timeout ? boost::any(timeout->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (unFinished) {
+      res["UnFinished"] = unFinished ? boost::any(unFinished->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CycleUnfinished") != m.end() && !m["CycleUnfinished"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CycleUnfinished"].type()) {
+        GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinished model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CycleUnfinished"]));
+        cycleUnfinished = make_shared<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinished>(model1);
+      }
+    }
+    if (m.find("Error") != m.end() && !m["Error"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Error"].type()) {
+        GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Error"]));
+        error = make_shared<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError>(model1);
+      }
+    }
+    if (m.find("InstanceErrorCount") != m.end() && !m["InstanceErrorCount"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceErrorCount"].type()) {
+        GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorCount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceErrorCount"]));
+        instanceErrorCount = make_shared<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorCount>(model1);
+      }
+    }
+    if (m.find("InstanceErrorPercentage") != m.end() && !m["InstanceErrorPercentage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceErrorPercentage"].type()) {
+        GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorPercentage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceErrorPercentage"]));
+        instanceErrorPercentage = make_shared<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorPercentage>(model1);
+      }
+    }
+    if (m.find("InstanceTransferFluctuate") != m.end() && !m["InstanceTransferFluctuate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceTransferFluctuate"].type()) {
+        GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceTransferFluctuate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceTransferFluctuate"]));
+        instanceTransferFluctuate = make_shared<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceTransferFluctuate>(model1);
+      }
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Timeout"].type()) {
+        GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionTimeout model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Timeout"]));
+        timeout = make_shared<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionTimeout>(model1);
+      }
+    }
+    if (m.find("UnFinished") != m.end() && !m["UnFinished"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UnFinished"].type()) {
+        GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionUnFinished model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UnFinished"]));
+        unFinished = make_shared<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionUnFinished>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRuleTriggerConditionExtension() = default;
+};
+class GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> allowTasks{};
+  shared_ptr<vector<long>> ids{};
+  shared_ptr<string> type{};
+
+  GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget() {}
+
+  explicit GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowTasks) {
+      res["AllowTasks"] = boost::any(*allowTasks);
+    }
+    if (ids) {
+      res["Ids"] = boost::any(*ids);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowTasks") != m.end() && !m["AllowTasks"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowTasks"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowTasks"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      allowTasks = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      ids = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget() = default;
+};
+class GetAlertRuleResponseBodyAlertRuleTriggerCondition : public Darabonba::Model {
+public:
+  shared_ptr<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtension> extension{};
+  shared_ptr<GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget> target{};
+  shared_ptr<string> type{};
+
+  GetAlertRuleResponseBodyAlertRuleTriggerCondition() {}
+
+  explicit GetAlertRuleResponseBodyAlertRuleTriggerCondition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extension) {
+      res["Extension"] = extension ? boost::any(extension->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (target) {
+      res["Target"] = target ? boost::any(target->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extension"].type()) {
+        GetAlertRuleResponseBodyAlertRuleTriggerConditionExtension model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extension"]));
+        extension = make_shared<GetAlertRuleResponseBodyAlertRuleTriggerConditionExtension>(model1);
+      }
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Target"].type()) {
+        GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Target"]));
+        target = make_shared<GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget>(model1);
+      }
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRuleTriggerCondition() = default;
+};
+class GetAlertRuleResponseBodyAlertRule : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+  shared_ptr<GetAlertRuleResponseBodyAlertRuleNotification> notification{};
+  shared_ptr<string> owner{};
+  shared_ptr<GetAlertRuleResponseBodyAlertRuleTriggerCondition> triggerCondition{};
+
+  GetAlertRuleResponseBodyAlertRule() {}
+
+  explicit GetAlertRuleResponseBodyAlertRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (notification) {
+      res["Notification"] = notification ? boost::any(notification->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (triggerCondition) {
+      res["TriggerCondition"] = triggerCondition ? boost::any(triggerCondition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Notification") != m.end() && !m["Notification"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Notification"].type()) {
+        GetAlertRuleResponseBodyAlertRuleNotification model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Notification"]));
+        notification = make_shared<GetAlertRuleResponseBodyAlertRuleNotification>(model1);
+      }
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("TriggerCondition") != m.end() && !m["TriggerCondition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TriggerCondition"].type()) {
+        GetAlertRuleResponseBodyAlertRuleTriggerCondition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TriggerCondition"]));
+        triggerCondition = make_shared<GetAlertRuleResponseBodyAlertRuleTriggerCondition>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBodyAlertRule() = default;
+};
+class GetAlertRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetAlertRuleResponseBodyAlertRule> alertRule{};
+  shared_ptr<string> requestId{};
+
+  GetAlertRuleResponseBody() {}
+
+  explicit GetAlertRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertRule) {
+      res["AlertRule"] = alertRule ? boost::any(alertRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlertRule") != m.end() && !m["AlertRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AlertRule"].type()) {
+        GetAlertRuleResponseBodyAlertRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AlertRule"]));
+        alertRule = make_shared<GetAlertRuleResponseBodyAlertRule>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponseBody() = default;
+};
+class GetAlertRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAlertRuleResponseBody> body{};
+
+  GetAlertRuleResponse() {}
+
+  explicit GetAlertRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAlertRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAlertRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAlertRuleResponse() = default;
 };
 class GetDIJobRequest : public Darabonba::Model {
 public:
@@ -11862,7 +13614,8 @@ public:
 class GetTaskResponseBodyTaskDependencies : public Darabonba::Model {
 public:
   shared_ptr<string> type{};
-  shared_ptr<string> upstream{};
+  shared_ptr<string> upstreamOutput{};
+  shared_ptr<string> upstreamTaskId{};
 
   GetTaskResponseBodyTaskDependencies() {}
 
@@ -11877,8 +13630,11 @@ public:
     if (type) {
       res["Type"] = boost::any(*type);
     }
-    if (upstream) {
-      res["Upstream"] = boost::any(*upstream);
+    if (upstreamOutput) {
+      res["UpstreamOutput"] = boost::any(*upstreamOutput);
+    }
+    if (upstreamTaskId) {
+      res["UpstreamTaskId"] = boost::any(*upstreamTaskId);
     }
     return res;
   }
@@ -11887,8 +13643,11 @@ public:
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
-    if (m.find("Upstream") != m.end() && !m["Upstream"].empty()) {
-      upstream = make_shared<string>(boost::any_cast<string>(m["Upstream"]));
+    if (m.find("UpstreamOutput") != m.end() && !m["UpstreamOutput"].empty()) {
+      upstreamOutput = make_shared<string>(boost::any_cast<string>(m["UpstreamOutput"]));
+    }
+    if (m.find("UpstreamTaskId") != m.end() && !m["UpstreamTaskId"].empty()) {
+      upstreamTaskId = make_shared<string>(boost::any_cast<string>(m["UpstreamTaskId"]));
     }
   }
 
@@ -11898,7 +13657,6 @@ public:
 class GetTaskResponseBodyTaskInputsVariables : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
-  shared_ptr<string> scope{};
   shared_ptr<string> type{};
   shared_ptr<string> value{};
 
@@ -11915,9 +13673,6 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
-    if (scope) {
-      res["Scope"] = boost::any(*scope);
-    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -11930,9 +13685,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
-      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -12020,7 +13772,6 @@ public:
 class GetTaskResponseBodyTaskOutputsVariables : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
-  shared_ptr<string> scope{};
   shared_ptr<string> type{};
   shared_ptr<string> value{};
 
@@ -12037,9 +13788,6 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
-    if (scope) {
-      res["Scope"] = boost::any(*scope);
-    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -12052,9 +13800,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
-      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -12680,6 +14425,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<long> id{};
   shared_ptr<GetTaskResponseBodyTaskInputs> inputs{};
+  shared_ptr<string> instanceMode{};
   shared_ptr<long> modifyTime{};
   shared_ptr<string> modifyUser{};
   shared_ptr<string> name{};
@@ -12738,6 +14484,9 @@ public:
     }
     if (inputs) {
       res["Inputs"] = inputs ? boost::any(inputs->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceMode) {
+      res["InstanceMode"] = boost::any(*instanceMode);
     }
     if (modifyTime) {
       res["ModifyTime"] = boost::any(*modifyTime);
@@ -12848,6 +14597,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Inputs"]));
         inputs = make_shared<GetTaskResponseBodyTaskInputs>(model1);
       }
+    }
+    if (m.find("InstanceMode") != m.end() && !m["InstanceMode"].empty()) {
+      instanceMode = make_shared<string>(boost::any_cast<string>(m["InstanceMode"]));
     }
     if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
       modifyTime = make_shared<long>(boost::any_cast<long>(m["ModifyTime"]));
@@ -13097,7 +14849,6 @@ public:
 class GetTaskInstanceResponseBodyTaskInstanceInputsVariables : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
-  shared_ptr<string> scope{};
   shared_ptr<string> type{};
   shared_ptr<string> value{};
 
@@ -13114,9 +14865,6 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
-    if (scope) {
-      res["Scope"] = boost::any(*scope);
-    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -13129,9 +14877,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
-      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -13219,7 +14964,6 @@ public:
 class GetTaskInstanceResponseBodyTaskInstanceOutputsVariables : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
-  shared_ptr<string> scope{};
   shared_ptr<string> type{};
   shared_ptr<string> value{};
 
@@ -13236,9 +14980,6 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
-    if (scope) {
-      res["Scope"] = boost::any(*scope);
-    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -13251,9 +14992,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
-      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -13496,6 +15234,7 @@ public:
   shared_ptr<string> modifyUser{};
   shared_ptr<GetTaskInstanceResponseBodyTaskInstanceOutputs> outputs{};
   shared_ptr<string> owner{};
+  shared_ptr<long> periodNumber{};
   shared_ptr<long> priority{};
   shared_ptr<string> projectEnv{};
   shared_ptr<long> projectId{};
@@ -13568,6 +15307,9 @@ public:
     }
     if (owner) {
       res["Owner"] = boost::any(*owner);
+    }
+    if (periodNumber) {
+      res["PeriodNumber"] = boost::any(*periodNumber);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -13696,6 +15438,9 @@ public:
     }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("PeriodNumber") != m.end() && !m["PeriodNumber"].empty()) {
+      periodNumber = make_shared<long>(boost::any_cast<long>(m["PeriodNumber"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
@@ -14587,6 +16332,860 @@ public:
 
 
   virtual ~ImportWorkflowDefinitionResponse() = default;
+};
+class ListAlertRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> owner{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> receiver{};
+  shared_ptr<vector<long>> taskIds{};
+  shared_ptr<vector<string>> types{};
+
+  ListAlertRulesRequest() {}
+
+  explicit ListAlertRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (receiver) {
+      res["Receiver"] = boost::any(*receiver);
+    }
+    if (taskIds) {
+      res["TaskIds"] = boost::any(*taskIds);
+    }
+    if (types) {
+      res["Types"] = boost::any(*types);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Receiver") != m.end() && !m["Receiver"].empty()) {
+      receiver = make_shared<string>(boost::any_cast<string>(m["Receiver"]));
+    }
+    if (m.find("TaskIds") != m.end() && !m["TaskIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["TaskIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TaskIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      taskIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Types") != m.end() && !m["Types"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Types"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Types"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      types = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListAlertRulesRequest() = default;
+};
+class ListAlertRulesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> owner{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> receiver{};
+  shared_ptr<string> taskIdsShrink{};
+  shared_ptr<string> typesShrink{};
+
+  ListAlertRulesShrinkRequest() {}
+
+  explicit ListAlertRulesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (receiver) {
+      res["Receiver"] = boost::any(*receiver);
+    }
+    if (taskIdsShrink) {
+      res["TaskIds"] = boost::any(*taskIdsShrink);
+    }
+    if (typesShrink) {
+      res["Types"] = boost::any(*typesShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Receiver") != m.end() && !m["Receiver"].empty()) {
+      receiver = make_shared<string>(boost::any_cast<string>(m["Receiver"]));
+    }
+    if (m.find("TaskIds") != m.end() && !m["TaskIds"].empty()) {
+      taskIdsShrink = make_shared<string>(boost::any_cast<string>(m["TaskIds"]));
+    }
+    if (m.find("Types") != m.end() && !m["Types"].empty()) {
+      typesShrink = make_shared<string>(boost::any_cast<string>(m["Types"]));
+    }
+  }
+
+
+  virtual ~ListAlertRulesShrinkRequest() = default;
+};
+class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinishedCycleAndTime : public Darabonba::Model {
+public:
+  shared_ptr<long> cycleId{};
+  shared_ptr<string> time{};
+
+  ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinishedCycleAndTime() {}
+
+  explicit ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinishedCycleAndTime(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycleId) {
+      res["CycleId"] = boost::any(*cycleId);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CycleId") != m.end() && !m["CycleId"].empty()) {
+      cycleId = make_shared<long>(boost::any_cast<long>(m["CycleId"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["Time"]));
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinishedCycleAndTime() = default;
+};
+class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinished : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinishedCycleAndTime>> cycleAndTime{};
+
+  ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinished() {}
+
+  explicit ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinished(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycleAndTime) {
+      vector<boost::any> temp1;
+      for(auto item1:*cycleAndTime){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CycleAndTime"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CycleAndTime") != m.end() && !m["CycleAndTime"].empty()) {
+      if (typeid(vector<boost::any>) == m["CycleAndTime"].type()) {
+        vector<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinishedCycleAndTime> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CycleAndTime"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinishedCycleAndTime model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cycleAndTime = make_shared<vector<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinishedCycleAndTime>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinished() = default;
+};
+class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoRerunAlert{};
+  shared_ptr<vector<long>> streamTaskIds{};
+
+  ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError() {}
+
+  explicit ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoRerunAlert) {
+      res["AutoRerunAlert"] = boost::any(*autoRerunAlert);
+    }
+    if (streamTaskIds) {
+      res["StreamTaskIds"] = boost::any(*streamTaskIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoRerunAlert") != m.end() && !m["AutoRerunAlert"].empty()) {
+      autoRerunAlert = make_shared<bool>(boost::any_cast<bool>(m["AutoRerunAlert"]));
+    }
+    if (m.find("StreamTaskIds") != m.end() && !m["StreamTaskIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["StreamTaskIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["StreamTaskIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      streamTaskIds = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError() = default;
+};
+class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorCount : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+
+  ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorCount() {}
+
+  explicit ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorCount(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorCount() = default;
+};
+class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorPercentage : public Darabonba::Model {
+public:
+  shared_ptr<long> percentage{};
+
+  ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorPercentage() {}
+
+  explicit ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorPercentage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorPercentage() = default;
+};
+class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceTransferFluctuate : public Darabonba::Model {
+public:
+  shared_ptr<long> percentage{};
+  shared_ptr<string> trend{};
+
+  ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceTransferFluctuate() {}
+
+  explicit ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceTransferFluctuate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (trend) {
+      res["Trend"] = boost::any(*trend);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+    if (m.find("Trend") != m.end() && !m["Trend"].empty()) {
+      trend = make_shared<string>(boost::any_cast<string>(m["Trend"]));
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceTransferFluctuate() = default;
+};
+class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionTimeout : public Darabonba::Model {
+public:
+  shared_ptr<long> timeoutInMinutes{};
+
+  ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionTimeout() {}
+
+  explicit ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionTimeout(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (timeoutInMinutes) {
+      res["TimeoutInMinutes"] = boost::any(*timeoutInMinutes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TimeoutInMinutes") != m.end() && !m["TimeoutInMinutes"].empty()) {
+      timeoutInMinutes = make_shared<long>(boost::any_cast<long>(m["TimeoutInMinutes"]));
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionTimeout() = default;
+};
+class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionUnFinished : public Darabonba::Model {
+public:
+  shared_ptr<string> unFinishedTime{};
+
+  ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionUnFinished() {}
+
+  explicit ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionUnFinished(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (unFinishedTime) {
+      res["UnFinishedTime"] = boost::any(*unFinishedTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UnFinishedTime") != m.end() && !m["UnFinishedTime"].empty()) {
+      unFinishedTime = make_shared<string>(boost::any_cast<string>(m["UnFinishedTime"]));
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionUnFinished() = default;
+};
+class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtension : public Darabonba::Model {
+public:
+  shared_ptr<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinished> cycleUnfinished{};
+  shared_ptr<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError> error{};
+  shared_ptr<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorCount> instanceErrorCount{};
+  shared_ptr<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorPercentage> instanceErrorPercentage{};
+  shared_ptr<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceTransferFluctuate> instanceTransferFluctuate{};
+  shared_ptr<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionTimeout> timeout{};
+  shared_ptr<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionUnFinished> unFinished{};
+
+  ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtension() {}
+
+  explicit ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtension(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycleUnfinished) {
+      res["CycleUnfinished"] = cycleUnfinished ? boost::any(cycleUnfinished->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (error) {
+      res["Error"] = error ? boost::any(error->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceErrorCount) {
+      res["InstanceErrorCount"] = instanceErrorCount ? boost::any(instanceErrorCount->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceErrorPercentage) {
+      res["InstanceErrorPercentage"] = instanceErrorPercentage ? boost::any(instanceErrorPercentage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceTransferFluctuate) {
+      res["InstanceTransferFluctuate"] = instanceTransferFluctuate ? boost::any(instanceTransferFluctuate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (timeout) {
+      res["Timeout"] = timeout ? boost::any(timeout->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (unFinished) {
+      res["UnFinished"] = unFinished ? boost::any(unFinished->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CycleUnfinished") != m.end() && !m["CycleUnfinished"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CycleUnfinished"].type()) {
+        ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinished model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CycleUnfinished"]));
+        cycleUnfinished = make_shared<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinished>(model1);
+      }
+    }
+    if (m.find("Error") != m.end() && !m["Error"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Error"].type()) {
+        ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Error"]));
+        error = make_shared<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError>(model1);
+      }
+    }
+    if (m.find("InstanceErrorCount") != m.end() && !m["InstanceErrorCount"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceErrorCount"].type()) {
+        ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorCount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceErrorCount"]));
+        instanceErrorCount = make_shared<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorCount>(model1);
+      }
+    }
+    if (m.find("InstanceErrorPercentage") != m.end() && !m["InstanceErrorPercentage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceErrorPercentage"].type()) {
+        ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorPercentage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceErrorPercentage"]));
+        instanceErrorPercentage = make_shared<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorPercentage>(model1);
+      }
+    }
+    if (m.find("InstanceTransferFluctuate") != m.end() && !m["InstanceTransferFluctuate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceTransferFluctuate"].type()) {
+        ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceTransferFluctuate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceTransferFluctuate"]));
+        instanceTransferFluctuate = make_shared<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceTransferFluctuate>(model1);
+      }
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Timeout"].type()) {
+        ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionTimeout model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Timeout"]));
+        timeout = make_shared<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionTimeout>(model1);
+      }
+    }
+    if (m.find("UnFinished") != m.end() && !m["UnFinished"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UnFinished"].type()) {
+        ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionUnFinished model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UnFinished"]));
+        unFinished = make_shared<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionUnFinished>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtension() = default;
+};
+class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarget : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> allowTasks{};
+  shared_ptr<vector<long>> ids{};
+  shared_ptr<string> type{};
+
+  ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarget() {}
+
+  explicit ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarget(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowTasks) {
+      res["AllowTasks"] = boost::any(*allowTasks);
+    }
+    if (ids) {
+      res["Ids"] = boost::any(*ids);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowTasks") != m.end() && !m["AllowTasks"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowTasks"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowTasks"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      allowTasks = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      ids = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarget() = default;
+};
+class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerCondition : public Darabonba::Model {
+public:
+  shared_ptr<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtension> extension{};
+  shared_ptr<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarget> target{};
+  shared_ptr<string> type{};
+
+  ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerCondition() {}
+
+  explicit ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerCondition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extension) {
+      res["Extension"] = extension ? boost::any(extension->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (target) {
+      res["Target"] = target ? boost::any(target->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extension"].type()) {
+        ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtension model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extension"]));
+        extension = make_shared<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtension>(model1);
+      }
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Target"].type()) {
+        ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarget model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Target"]));
+        target = make_shared<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarget>(model1);
+      }
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerCondition() = default;
+};
+class ListAlertRulesResponseBodyPagingInfoAlertRules : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> owner{};
+  shared_ptr<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerCondition> triggerCondition{};
+
+  ListAlertRulesResponseBodyPagingInfoAlertRules() {}
+
+  explicit ListAlertRulesResponseBodyPagingInfoAlertRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (triggerCondition) {
+      res["TriggerCondition"] = triggerCondition ? boost::any(triggerCondition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("TriggerCondition") != m.end() && !m["TriggerCondition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TriggerCondition"].type()) {
+        ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerCondition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TriggerCondition"]));
+        triggerCondition = make_shared<ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerCondition>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBodyPagingInfoAlertRules() = default;
+};
+class ListAlertRulesResponseBodyPagingInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListAlertRulesResponseBodyPagingInfoAlertRules>> alertRules{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  ListAlertRulesResponseBodyPagingInfo() {}
+
+  explicit ListAlertRulesResponseBodyPagingInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*alertRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AlertRules"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlertRules") != m.end() && !m["AlertRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["AlertRules"].type()) {
+        vector<ListAlertRulesResponseBodyPagingInfoAlertRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AlertRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAlertRulesResponseBodyPagingInfoAlertRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        alertRules = make_shared<vector<ListAlertRulesResponseBodyPagingInfoAlertRules>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBodyPagingInfo() = default;
+};
+class ListAlertRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListAlertRulesResponseBodyPagingInfo> pagingInfo{};
+  shared_ptr<string> requestId{};
+
+  ListAlertRulesResponseBody() {}
+
+  explicit ListAlertRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pagingInfo) {
+      res["PagingInfo"] = pagingInfo ? boost::any(pagingInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PagingInfo") != m.end() && !m["PagingInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PagingInfo"].type()) {
+        ListAlertRulesResponseBodyPagingInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PagingInfo"]));
+        pagingInfo = make_shared<ListAlertRulesResponseBodyPagingInfo>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponseBody() = default;
+};
+class ListAlertRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListAlertRulesResponseBody> body{};
+
+  ListAlertRulesResponse() {}
+
+  explicit ListAlertRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListAlertRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListAlertRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAlertRulesResponse() = default;
 };
 class ListDIAlarmRulesRequest : public Darabonba::Model {
 public:
@@ -17139,8 +19738,6 @@ public:
 };
 class ListDataQualityEvaluationTaskInstancesResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
   shared_ptr<ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo> pagingInfo{};
   shared_ptr<string> requestId{};
 
@@ -17154,12 +19751,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
     if (pagingInfo) {
       res["PagingInfo"] = pagingInfo ? boost::any(pagingInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -17170,12 +19761,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
     if (m.find("PagingInfo") != m.end() && !m["PagingInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["PagingInfo"].type()) {
         ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo model1;
@@ -17813,8 +20398,6 @@ public:
 };
 class ListDataQualityEvaluationTasksResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
   shared_ptr<ListDataQualityEvaluationTasksResponseBodyPagingInfo> pagingInfo{};
   shared_ptr<string> requestId{};
 
@@ -17828,12 +20411,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
     if (pagingInfo) {
       res["PagingInfo"] = pagingInfo ? boost::any(pagingInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -17844,12 +20421,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
     if (m.find("PagingInfo") != m.end() && !m["PagingInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["PagingInfo"].type()) {
         ListDataQualityEvaluationTasksResponseBodyPagingInfo model1;
@@ -18685,8 +21256,6 @@ public:
 };
 class ListDataQualityResultsResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
   shared_ptr<ListDataQualityResultsResponseBodyPagingInfo> pagingInfo{};
   shared_ptr<string> requestId{};
 
@@ -18700,12 +21269,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
     if (pagingInfo) {
       res["PagingInfo"] = pagingInfo ? boost::any(pagingInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -18716,12 +21279,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
     if (m.find("PagingInfo") != m.end() && !m["PagingInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["PagingInfo"].type()) {
         ListDataQualityResultsResponseBodyPagingInfo model1;
@@ -19397,8 +21954,6 @@ public:
 };
 class ListDataQualityRulesResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
   shared_ptr<ListDataQualityRulesResponseBodyPagingInfo> pagingInfo{};
   shared_ptr<string> requestId{};
 
@@ -19412,12 +21967,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
     if (pagingInfo) {
       res["PagingInfo"] = pagingInfo ? boost::any(pagingInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -19428,12 +21977,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
     if (m.find("PagingInfo") != m.end() && !m["PagingInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["PagingInfo"].type()) {
         ListDataQualityRulesResponseBodyPagingInfo model1;
@@ -20751,6 +23294,7 @@ public:
   shared_ptr<long> modifyTime{};
   shared_ptr<string> modifyUser{};
   shared_ptr<string> owner{};
+  shared_ptr<long> periodNumber{};
   shared_ptr<long> priority{};
   shared_ptr<string> projectEnv{};
   shared_ptr<long> projectId{};
@@ -20815,6 +23359,9 @@ public:
     }
     if (owner) {
       res["Owner"] = boost::any(*owner);
+    }
+    if (periodNumber) {
+      res["PeriodNumber"] = boost::any(*periodNumber);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -20919,6 +23466,9 @@ public:
     }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("PeriodNumber") != m.end() && !m["PeriodNumber"].empty()) {
+      periodNumber = make_shared<long>(boost::any_cast<long>(m["PeriodNumber"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
@@ -21346,6 +23896,7 @@ public:
   shared_ptr<ListDownstreamTasksResponseBodyPagingInfoTasksDataSource> dataSource{};
   shared_ptr<string> description{};
   shared_ptr<long> id{};
+  shared_ptr<string> instanceMode{};
   shared_ptr<long> modifyTime{};
   shared_ptr<string> modifyUser{};
   shared_ptr<string> name{};
@@ -21357,6 +23908,7 @@ public:
   shared_ptr<string> rerunMode{};
   shared_ptr<long> rerunTimes{};
   shared_ptr<ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource> runtimeResource{};
+  shared_ptr<string> stepType{};
   shared_ptr<long> tenantId{};
   shared_ptr<long> timeout{};
   shared_ptr<ListDownstreamTasksResponseBodyPagingInfoTasksTrigger> trigger{};
@@ -21391,6 +23943,9 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (instanceMode) {
+      res["InstanceMode"] = boost::any(*instanceMode);
+    }
     if (modifyTime) {
       res["ModifyTime"] = boost::any(*modifyTime);
     }
@@ -21423,6 +23978,9 @@ public:
     }
     if (runtimeResource) {
       res["RuntimeResource"] = runtimeResource ? boost::any(runtimeResource->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (stepType) {
+      res["StepType"] = boost::any(*stepType);
     }
     if (tenantId) {
       res["TenantId"] = boost::any(*tenantId);
@@ -21465,6 +24023,9 @@ public:
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
     }
+    if (m.find("InstanceMode") != m.end() && !m["InstanceMode"].empty()) {
+      instanceMode = make_shared<string>(boost::any_cast<string>(m["InstanceMode"]));
+    }
     if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
       modifyTime = make_shared<long>(boost::any_cast<long>(m["ModifyTime"]));
     }
@@ -21501,6 +24062,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RuntimeResource"]));
         runtimeResource = make_shared<ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource>(model1);
       }
+    }
+    if (m.find("StepType") != m.end() && !m["StepType"].empty()) {
+      stepType = make_shared<string>(boost::any_cast<string>(m["StepType"]));
     }
     if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
       tenantId = make_shared<long>(boost::any_cast<long>(m["TenantId"]));
@@ -27424,7 +29988,9 @@ public:
   shared_ptr<long> taskId{};
   shared_ptr<vector<long>> taskIds{};
   shared_ptr<string> taskName{};
-  shared_ptr<long> taskType{};
+  shared_ptr<string> taskType{};
+  shared_ptr<string> triggerRecurrence{};
+  shared_ptr<string> triggerType{};
   shared_ptr<long> workflowId{};
   shared_ptr<long> workflowInstanceId{};
   shared_ptr<string> workflowInstanceType{};
@@ -27480,6 +30046,12 @@ public:
     }
     if (taskType) {
       res["TaskType"] = boost::any(*taskType);
+    }
+    if (triggerRecurrence) {
+      res["TriggerRecurrence"] = boost::any(*triggerRecurrence);
+    }
+    if (triggerType) {
+      res["TriggerType"] = boost::any(*triggerType);
     }
     if (workflowId) {
       res["WorkflowId"] = boost::any(*workflowId);
@@ -27548,7 +30120,13 @@ public:
       taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
     }
     if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
-      taskType = make_shared<long>(boost::any_cast<long>(m["TaskType"]));
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+    if (m.find("TriggerRecurrence") != m.end() && !m["TriggerRecurrence"].empty()) {
+      triggerRecurrence = make_shared<string>(boost::any_cast<string>(m["TriggerRecurrence"]));
+    }
+    if (m.find("TriggerType") != m.end() && !m["TriggerType"].empty()) {
+      triggerType = make_shared<string>(boost::any_cast<string>(m["TriggerType"]));
     }
     if (m.find("WorkflowId") != m.end() && !m["WorkflowId"].empty()) {
       workflowId = make_shared<long>(boost::any_cast<long>(m["WorkflowId"]));
@@ -27579,7 +30157,9 @@ public:
   shared_ptr<long> taskId{};
   shared_ptr<string> taskIdsShrink{};
   shared_ptr<string> taskName{};
-  shared_ptr<long> taskType{};
+  shared_ptr<string> taskType{};
+  shared_ptr<string> triggerRecurrence{};
+  shared_ptr<string> triggerType{};
   shared_ptr<long> workflowId{};
   shared_ptr<long> workflowInstanceId{};
   shared_ptr<string> workflowInstanceType{};
@@ -27636,6 +30216,12 @@ public:
     if (taskType) {
       res["TaskType"] = boost::any(*taskType);
     }
+    if (triggerRecurrence) {
+      res["TriggerRecurrence"] = boost::any(*triggerRecurrence);
+    }
+    if (triggerType) {
+      res["TriggerType"] = boost::any(*triggerType);
+    }
     if (workflowId) {
       res["WorkflowId"] = boost::any(*workflowId);
     }
@@ -27689,7 +30275,13 @@ public:
       taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
     }
     if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
-      taskType = make_shared<long>(boost::any_cast<long>(m["TaskType"]));
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+    if (m.find("TriggerRecurrence") != m.end() && !m["TriggerRecurrence"].empty()) {
+      triggerRecurrence = make_shared<string>(boost::any_cast<string>(m["TriggerRecurrence"]));
+    }
+    if (m.find("TriggerType") != m.end() && !m["TriggerType"].empty()) {
+      triggerType = make_shared<string>(boost::any_cast<string>(m["TriggerType"]));
     }
     if (m.find("WorkflowId") != m.end() && !m["WorkflowId"].empty()) {
       workflowId = make_shared<long>(boost::any_cast<long>(m["WorkflowId"]));
@@ -27826,6 +30418,7 @@ public:
   shared_ptr<long> modifyTime{};
   shared_ptr<string> modifyUser{};
   shared_ptr<string> owner{};
+  shared_ptr<long> periodNumber{};
   shared_ptr<long> priority{};
   shared_ptr<string> projectEnv{};
   shared_ptr<long> projectId{};
@@ -27890,6 +30483,9 @@ public:
     }
     if (owner) {
       res["Owner"] = boost::any(*owner);
+    }
+    if (periodNumber) {
+      res["PeriodNumber"] = boost::any(*periodNumber);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -27994,6 +30590,9 @@ public:
     }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("PeriodNumber") != m.end() && !m["PeriodNumber"].empty()) {
+      periodNumber = make_shared<long>(boost::any_cast<long>(m["PeriodNumber"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
@@ -28740,6 +31339,7 @@ public:
   shared_ptr<ListTasksResponseBodyPagingInfoTasksDataSource> dataSource{};
   shared_ptr<string> description{};
   shared_ptr<long> id{};
+  shared_ptr<string> instanceMode{};
   shared_ptr<long> modifyTime{};
   shared_ptr<string> modifyUser{};
   shared_ptr<string> name{};
@@ -28784,6 +31384,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (instanceMode) {
+      res["InstanceMode"] = boost::any(*instanceMode);
     }
     if (modifyTime) {
       res["ModifyTime"] = boost::any(*modifyTime);
@@ -28858,6 +31461,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("InstanceMode") != m.end() && !m["InstanceMode"].empty()) {
+      instanceMode = make_shared<string>(boost::any_cast<string>(m["InstanceMode"]));
     }
     if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
       modifyTime = make_shared<long>(boost::any_cast<long>(m["ModifyTime"]));
@@ -29240,6 +31846,7 @@ public:
   shared_ptr<long> modifyTime{};
   shared_ptr<string> modifyUser{};
   shared_ptr<string> owner{};
+  shared_ptr<long> periodNumber{};
   shared_ptr<long> priority{};
   shared_ptr<string> projectEnv{};
   shared_ptr<long> projectId{};
@@ -29304,6 +31911,9 @@ public:
     }
     if (owner) {
       res["Owner"] = boost::any(*owner);
+    }
+    if (periodNumber) {
+      res["PeriodNumber"] = boost::any(*periodNumber);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -29408,6 +32018,9 @@ public:
     }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("PeriodNumber") != m.end() && !m["PeriodNumber"].empty()) {
+      periodNumber = make_shared<long>(boost::any_cast<long>(m["PeriodNumber"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
@@ -29835,6 +32448,7 @@ public:
   shared_ptr<ListUpstreamTasksResponseBodyPagingInfoTasksDataSource> dataSource{};
   shared_ptr<string> description{};
   shared_ptr<long> id{};
+  shared_ptr<string> instanceMode{};
   shared_ptr<long> modifyTime{};
   shared_ptr<string> modifyUser{};
   shared_ptr<string> name{};
@@ -29846,6 +32460,7 @@ public:
   shared_ptr<string> rerunMode{};
   shared_ptr<long> rerunTimes{};
   shared_ptr<ListUpstreamTasksResponseBodyPagingInfoTasksRuntimeResource> runtimeResource{};
+  shared_ptr<string> stepType{};
   shared_ptr<long> tenantId{};
   shared_ptr<long> timeout{};
   shared_ptr<ListUpstreamTasksResponseBodyPagingInfoTasksTrigger> trigger{};
@@ -29880,6 +32495,9 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (instanceMode) {
+      res["InstanceMode"] = boost::any(*instanceMode);
+    }
     if (modifyTime) {
       res["ModifyTime"] = boost::any(*modifyTime);
     }
@@ -29912,6 +32530,9 @@ public:
     }
     if (runtimeResource) {
       res["RuntimeResource"] = runtimeResource ? boost::any(runtimeResource->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (stepType) {
+      res["StepType"] = boost::any(*stepType);
     }
     if (tenantId) {
       res["TenantId"] = boost::any(*tenantId);
@@ -29954,6 +32575,9 @@ public:
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
     }
+    if (m.find("InstanceMode") != m.end() && !m["InstanceMode"].empty()) {
+      instanceMode = make_shared<string>(boost::any_cast<string>(m["InstanceMode"]));
+    }
     if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
       modifyTime = make_shared<long>(boost::any_cast<long>(m["ModifyTime"]));
     }
@@ -29990,6 +32614,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RuntimeResource"]));
         runtimeResource = make_shared<ListUpstreamTasksResponseBodyPagingInfoTasksRuntimeResource>(model1);
       }
+    }
+    if (m.find("StepType") != m.end() && !m["StepType"].empty()) {
+      stepType = make_shared<string>(boost::any_cast<string>(m["StepType"]));
     }
     if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
       tenantId = make_shared<long>(boost::any_cast<long>(m["TenantId"]));
@@ -33359,6 +35986,846 @@ public:
 
   virtual ~TriggerSchedulerTaskInstanceResponse() = default;
 };
+class UpdateAlertRuleRequestNotificationReceivers : public Darabonba::Model {
+public:
+  shared_ptr<string> extension{};
+  shared_ptr<string> receiverType{};
+  shared_ptr<vector<string>> receiverValues{};
+
+  UpdateAlertRuleRequestNotificationReceivers() {}
+
+  explicit UpdateAlertRuleRequestNotificationReceivers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extension) {
+      res["Extension"] = boost::any(*extension);
+    }
+    if (receiverType) {
+      res["ReceiverType"] = boost::any(*receiverType);
+    }
+    if (receiverValues) {
+      res["ReceiverValues"] = boost::any(*receiverValues);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      extension = make_shared<string>(boost::any_cast<string>(m["Extension"]));
+    }
+    if (m.find("ReceiverType") != m.end() && !m["ReceiverType"].empty()) {
+      receiverType = make_shared<string>(boost::any_cast<string>(m["ReceiverType"]));
+    }
+    if (m.find("ReceiverValues") != m.end() && !m["ReceiverValues"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ReceiverValues"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ReceiverValues"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      receiverValues = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequestNotificationReceivers() = default;
+};
+class UpdateAlertRuleRequestNotification : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> channels{};
+  shared_ptr<long> intervalInMinutes{};
+  shared_ptr<long> maximum{};
+  shared_ptr<vector<UpdateAlertRuleRequestNotificationReceivers>> receivers{};
+  shared_ptr<string> silenceEndTime{};
+  shared_ptr<string> silenceStartTime{};
+
+  UpdateAlertRuleRequestNotification() {}
+
+  explicit UpdateAlertRuleRequestNotification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channels) {
+      res["Channels"] = boost::any(*channels);
+    }
+    if (intervalInMinutes) {
+      res["IntervalInMinutes"] = boost::any(*intervalInMinutes);
+    }
+    if (maximum) {
+      res["Maximum"] = boost::any(*maximum);
+    }
+    if (receivers) {
+      vector<boost::any> temp1;
+      for(auto item1:*receivers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Receivers"] = boost::any(temp1);
+    }
+    if (silenceEndTime) {
+      res["SilenceEndTime"] = boost::any(*silenceEndTime);
+    }
+    if (silenceStartTime) {
+      res["SilenceStartTime"] = boost::any(*silenceStartTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Channels") != m.end() && !m["Channels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Channels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Channels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      channels = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IntervalInMinutes") != m.end() && !m["IntervalInMinutes"].empty()) {
+      intervalInMinutes = make_shared<long>(boost::any_cast<long>(m["IntervalInMinutes"]));
+    }
+    if (m.find("Maximum") != m.end() && !m["Maximum"].empty()) {
+      maximum = make_shared<long>(boost::any_cast<long>(m["Maximum"]));
+    }
+    if (m.find("Receivers") != m.end() && !m["Receivers"].empty()) {
+      if (typeid(vector<boost::any>) == m["Receivers"].type()) {
+        vector<UpdateAlertRuleRequestNotificationReceivers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Receivers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAlertRuleRequestNotificationReceivers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        receivers = make_shared<vector<UpdateAlertRuleRequestNotificationReceivers>>(expect1);
+      }
+    }
+    if (m.find("SilenceEndTime") != m.end() && !m["SilenceEndTime"].empty()) {
+      silenceEndTime = make_shared<string>(boost::any_cast<string>(m["SilenceEndTime"]));
+    }
+    if (m.find("SilenceStartTime") != m.end() && !m["SilenceStartTime"].empty()) {
+      silenceStartTime = make_shared<string>(boost::any_cast<string>(m["SilenceStartTime"]));
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequestNotification() = default;
+};
+class UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime : public Darabonba::Model {
+public:
+  shared_ptr<long> cycleId{};
+  shared_ptr<string> time{};
+
+  UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime() {}
+
+  explicit UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycleId) {
+      res["CycleId"] = boost::any(*cycleId);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CycleId") != m.end() && !m["CycleId"].empty()) {
+      cycleId = make_shared<long>(boost::any_cast<long>(m["CycleId"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["Time"]));
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime() = default;
+};
+class UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinished : public Darabonba::Model {
+public:
+  shared_ptr<vector<UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime>> cycleAndTime{};
+
+  UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinished() {}
+
+  explicit UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinished(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycleAndTime) {
+      vector<boost::any> temp1;
+      for(auto item1:*cycleAndTime){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CycleAndTime"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CycleAndTime") != m.end() && !m["CycleAndTime"].empty()) {
+      if (typeid(vector<boost::any>) == m["CycleAndTime"].type()) {
+        vector<UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CycleAndTime"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cycleAndTime = make_shared<vector<UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinished() = default;
+};
+class UpdateAlertRuleRequestTriggerConditionExtensionError : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoRerunAlert{};
+  shared_ptr<vector<long>> streamTaskIds{};
+
+  UpdateAlertRuleRequestTriggerConditionExtensionError() {}
+
+  explicit UpdateAlertRuleRequestTriggerConditionExtensionError(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoRerunAlert) {
+      res["AutoRerunAlert"] = boost::any(*autoRerunAlert);
+    }
+    if (streamTaskIds) {
+      res["StreamTaskIds"] = boost::any(*streamTaskIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoRerunAlert") != m.end() && !m["AutoRerunAlert"].empty()) {
+      autoRerunAlert = make_shared<bool>(boost::any_cast<bool>(m["AutoRerunAlert"]));
+    }
+    if (m.find("StreamTaskIds") != m.end() && !m["StreamTaskIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["StreamTaskIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["StreamTaskIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      streamTaskIds = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequestTriggerConditionExtensionError() = default;
+};
+class UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+
+  UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount() {}
+
+  explicit UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount() = default;
+};
+class UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage : public Darabonba::Model {
+public:
+  shared_ptr<long> percentage{};
+
+  UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage() {}
+
+  explicit UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage() = default;
+};
+class UpdateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate : public Darabonba::Model {
+public:
+  shared_ptr<long> percentage{};
+  shared_ptr<string> trend{};
+
+  UpdateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate() {}
+
+  explicit UpdateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (trend) {
+      res["Trend"] = boost::any(*trend);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+    if (m.find("Trend") != m.end() && !m["Trend"].empty()) {
+      trend = make_shared<string>(boost::any_cast<string>(m["Trend"]));
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate() = default;
+};
+class UpdateAlertRuleRequestTriggerConditionExtensionTimeout : public Darabonba::Model {
+public:
+  shared_ptr<long> timeoutInMinutes{};
+
+  UpdateAlertRuleRequestTriggerConditionExtensionTimeout() {}
+
+  explicit UpdateAlertRuleRequestTriggerConditionExtensionTimeout(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (timeoutInMinutes) {
+      res["TimeoutInMinutes"] = boost::any(*timeoutInMinutes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TimeoutInMinutes") != m.end() && !m["TimeoutInMinutes"].empty()) {
+      timeoutInMinutes = make_shared<long>(boost::any_cast<long>(m["TimeoutInMinutes"]));
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequestTriggerConditionExtensionTimeout() = default;
+};
+class UpdateAlertRuleRequestTriggerConditionExtensionUnFinished : public Darabonba::Model {
+public:
+  shared_ptr<string> unFinishedTime{};
+
+  UpdateAlertRuleRequestTriggerConditionExtensionUnFinished() {}
+
+  explicit UpdateAlertRuleRequestTriggerConditionExtensionUnFinished(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (unFinishedTime) {
+      res["UnFinishedTime"] = boost::any(*unFinishedTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UnFinishedTime") != m.end() && !m["UnFinishedTime"].empty()) {
+      unFinishedTime = make_shared<string>(boost::any_cast<string>(m["UnFinishedTime"]));
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequestTriggerConditionExtensionUnFinished() = default;
+};
+class UpdateAlertRuleRequestTriggerConditionExtension : public Darabonba::Model {
+public:
+  shared_ptr<UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinished> cycleUnfinished{};
+  shared_ptr<UpdateAlertRuleRequestTriggerConditionExtensionError> error{};
+  shared_ptr<UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount> instanceErrorCount{};
+  shared_ptr<UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage> instanceErrorPercentage{};
+  shared_ptr<UpdateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate> instanceTransferFluctuate{};
+  shared_ptr<UpdateAlertRuleRequestTriggerConditionExtensionTimeout> timeout{};
+  shared_ptr<UpdateAlertRuleRequestTriggerConditionExtensionUnFinished> unFinished{};
+
+  UpdateAlertRuleRequestTriggerConditionExtension() {}
+
+  explicit UpdateAlertRuleRequestTriggerConditionExtension(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycleUnfinished) {
+      res["CycleUnfinished"] = cycleUnfinished ? boost::any(cycleUnfinished->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (error) {
+      res["Error"] = error ? boost::any(error->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceErrorCount) {
+      res["InstanceErrorCount"] = instanceErrorCount ? boost::any(instanceErrorCount->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceErrorPercentage) {
+      res["InstanceErrorPercentage"] = instanceErrorPercentage ? boost::any(instanceErrorPercentage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceTransferFluctuate) {
+      res["InstanceTransferFluctuate"] = instanceTransferFluctuate ? boost::any(instanceTransferFluctuate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (timeout) {
+      res["Timeout"] = timeout ? boost::any(timeout->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (unFinished) {
+      res["UnFinished"] = unFinished ? boost::any(unFinished->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CycleUnfinished") != m.end() && !m["CycleUnfinished"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CycleUnfinished"].type()) {
+        UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinished model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CycleUnfinished"]));
+        cycleUnfinished = make_shared<UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinished>(model1);
+      }
+    }
+    if (m.find("Error") != m.end() && !m["Error"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Error"].type()) {
+        UpdateAlertRuleRequestTriggerConditionExtensionError model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Error"]));
+        error = make_shared<UpdateAlertRuleRequestTriggerConditionExtensionError>(model1);
+      }
+    }
+    if (m.find("InstanceErrorCount") != m.end() && !m["InstanceErrorCount"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceErrorCount"].type()) {
+        UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceErrorCount"]));
+        instanceErrorCount = make_shared<UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount>(model1);
+      }
+    }
+    if (m.find("InstanceErrorPercentage") != m.end() && !m["InstanceErrorPercentage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceErrorPercentage"].type()) {
+        UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceErrorPercentage"]));
+        instanceErrorPercentage = make_shared<UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage>(model1);
+      }
+    }
+    if (m.find("InstanceTransferFluctuate") != m.end() && !m["InstanceTransferFluctuate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceTransferFluctuate"].type()) {
+        UpdateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceTransferFluctuate"]));
+        instanceTransferFluctuate = make_shared<UpdateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate>(model1);
+      }
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Timeout"].type()) {
+        UpdateAlertRuleRequestTriggerConditionExtensionTimeout model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Timeout"]));
+        timeout = make_shared<UpdateAlertRuleRequestTriggerConditionExtensionTimeout>(model1);
+      }
+    }
+    if (m.find("UnFinished") != m.end() && !m["UnFinished"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UnFinished"].type()) {
+        UpdateAlertRuleRequestTriggerConditionExtensionUnFinished model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UnFinished"]));
+        unFinished = make_shared<UpdateAlertRuleRequestTriggerConditionExtensionUnFinished>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequestTriggerConditionExtension() = default;
+};
+class UpdateAlertRuleRequestTriggerConditionTarget : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> allowTasks{};
+  shared_ptr<vector<long>> ids{};
+  shared_ptr<string> type{};
+
+  UpdateAlertRuleRequestTriggerConditionTarget() {}
+
+  explicit UpdateAlertRuleRequestTriggerConditionTarget(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowTasks) {
+      res["AllowTasks"] = boost::any(*allowTasks);
+    }
+    if (ids) {
+      res["Ids"] = boost::any(*ids);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowTasks") != m.end() && !m["AllowTasks"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowTasks"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowTasks"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      allowTasks = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      ids = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequestTriggerConditionTarget() = default;
+};
+class UpdateAlertRuleRequestTriggerCondition : public Darabonba::Model {
+public:
+  shared_ptr<UpdateAlertRuleRequestTriggerConditionExtension> extension{};
+  shared_ptr<UpdateAlertRuleRequestTriggerConditionTarget> target{};
+  shared_ptr<string> type{};
+
+  UpdateAlertRuleRequestTriggerCondition() {}
+
+  explicit UpdateAlertRuleRequestTriggerCondition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extension) {
+      res["Extension"] = extension ? boost::any(extension->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (target) {
+      res["Target"] = target ? boost::any(target->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extension"].type()) {
+        UpdateAlertRuleRequestTriggerConditionExtension model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extension"]));
+        extension = make_shared<UpdateAlertRuleRequestTriggerConditionExtension>(model1);
+      }
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Target"].type()) {
+        UpdateAlertRuleRequestTriggerConditionTarget model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Target"]));
+        target = make_shared<UpdateAlertRuleRequestTriggerConditionTarget>(model1);
+      }
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequestTriggerCondition() = default;
+};
+class UpdateAlertRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+  shared_ptr<UpdateAlertRuleRequestNotification> notification{};
+  shared_ptr<string> owner{};
+  shared_ptr<UpdateAlertRuleRequestTriggerCondition> triggerCondition{};
+
+  UpdateAlertRuleRequest() {}
+
+  explicit UpdateAlertRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (notification) {
+      res["Notification"] = notification ? boost::any(notification->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (triggerCondition) {
+      res["TriggerCondition"] = triggerCondition ? boost::any(triggerCondition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Notification") != m.end() && !m["Notification"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Notification"].type()) {
+        UpdateAlertRuleRequestNotification model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Notification"]));
+        notification = make_shared<UpdateAlertRuleRequestNotification>(model1);
+      }
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("TriggerCondition") != m.end() && !m["TriggerCondition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TriggerCondition"].type()) {
+        UpdateAlertRuleRequestTriggerCondition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TriggerCondition"]));
+        triggerCondition = make_shared<UpdateAlertRuleRequestTriggerCondition>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleRequest() = default;
+};
+class UpdateAlertRuleShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> notificationShrink{};
+  shared_ptr<string> owner{};
+  shared_ptr<string> triggerConditionShrink{};
+
+  UpdateAlertRuleShrinkRequest() {}
+
+  explicit UpdateAlertRuleShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (notificationShrink) {
+      res["Notification"] = boost::any(*notificationShrink);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (triggerConditionShrink) {
+      res["TriggerCondition"] = boost::any(*triggerConditionShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Notification") != m.end() && !m["Notification"].empty()) {
+      notificationShrink = make_shared<string>(boost::any_cast<string>(m["Notification"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("TriggerCondition") != m.end() && !m["TriggerCondition"].empty()) {
+      triggerConditionShrink = make_shared<string>(boost::any_cast<string>(m["TriggerCondition"]));
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleShrinkRequest() = default;
+};
+class UpdateAlertRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateAlertRuleResponseBody() {}
+
+  explicit UpdateAlertRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleResponseBody() = default;
+};
+class UpdateAlertRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateAlertRuleResponseBody> body{};
+
+  UpdateAlertRuleResponse() {}
+
+  explicit UpdateAlertRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateAlertRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateAlertRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAlertRuleResponse() = default;
+};
 class UpdateDIAlarmRuleRequestNotificationSettingsNotificationChannels : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> channels{};
@@ -36074,6 +39541,8 @@ public:
   AssociateProjectToResourceGroupResponse associateProjectToResourceGroup(shared_ptr<AssociateProjectToResourceGroupRequest> request);
   CloneDataSourceResponse cloneDataSourceWithOptions(shared_ptr<CloneDataSourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CloneDataSourceResponse cloneDataSource(shared_ptr<CloneDataSourceRequest> request);
+  CreateAlertRuleResponse createAlertRuleWithOptions(shared_ptr<CreateAlertRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAlertRuleResponse createAlertRule(shared_ptr<CreateAlertRuleRequest> request);
   CreateDIAlarmRuleResponse createDIAlarmRuleWithOptions(shared_ptr<CreateDIAlarmRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDIAlarmRuleResponse createDIAlarmRule(shared_ptr<CreateDIAlarmRuleRequest> request);
   CreateDIJobResponse createDIJobWithOptions(shared_ptr<CreateDIJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -36102,6 +39571,8 @@ public:
   CreateRouteResponse createRoute(shared_ptr<CreateRouteRequest> request);
   CreateWorkflowDefinitionResponse createWorkflowDefinitionWithOptions(shared_ptr<CreateWorkflowDefinitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateWorkflowDefinitionResponse createWorkflowDefinition(shared_ptr<CreateWorkflowDefinitionRequest> request);
+  DeleteAlertRuleResponse deleteAlertRuleWithOptions(shared_ptr<DeleteAlertRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAlertRuleResponse deleteAlertRule(shared_ptr<DeleteAlertRuleRequest> request);
   DeleteDIAlarmRuleResponse deleteDIAlarmRuleWithOptions(shared_ptr<DeleteDIAlarmRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDIAlarmRuleResponse deleteDIAlarmRule(shared_ptr<DeleteDIAlarmRuleRequest> request);
   DeleteDIJobResponse deleteDIJobWithOptions(shared_ptr<DeleteDIJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -36134,6 +39605,8 @@ public:
   DissociateProjectFromResourceGroupResponse dissociateProjectFromResourceGroup(shared_ptr<DissociateProjectFromResourceGroupRequest> request);
   ExecDeploymentStageResponse execDeploymentStageWithOptions(shared_ptr<ExecDeploymentStageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExecDeploymentStageResponse execDeploymentStage(shared_ptr<ExecDeploymentStageRequest> request);
+  GetAlertRuleResponse getAlertRuleWithOptions(shared_ptr<GetAlertRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAlertRuleResponse getAlertRule(shared_ptr<GetAlertRuleRequest> request);
   GetDIJobResponse getDIJobWithOptions(shared_ptr<GetDIJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDIJobResponse getDIJob(shared_ptr<GetDIJobRequest> request);
   GetDIJobLogResponse getDIJobLogWithOptions(shared_ptr<GetDIJobLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -36174,6 +39647,8 @@ public:
   GrantMemberProjectRolesResponse grantMemberProjectRoles(shared_ptr<GrantMemberProjectRolesRequest> request);
   ImportWorkflowDefinitionResponse importWorkflowDefinitionWithOptions(shared_ptr<ImportWorkflowDefinitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportWorkflowDefinitionResponse importWorkflowDefinition(shared_ptr<ImportWorkflowDefinitionRequest> request);
+  ListAlertRulesResponse listAlertRulesWithOptions(shared_ptr<ListAlertRulesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAlertRulesResponse listAlertRules(shared_ptr<ListAlertRulesRequest> request);
   ListDIAlarmRulesResponse listDIAlarmRulesWithOptions(shared_ptr<ListDIAlarmRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDIAlarmRulesResponse listDIAlarmRules(shared_ptr<ListDIAlarmRulesRequest> request);
   ListDIJobEventsResponse listDIJobEventsWithOptions(shared_ptr<ListDIJobEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -36272,6 +39747,8 @@ public:
   SuspendTaskInstancesResponse suspendTaskInstances(shared_ptr<SuspendTaskInstancesRequest> request);
   TriggerSchedulerTaskInstanceResponse triggerSchedulerTaskInstanceWithOptions(shared_ptr<TriggerSchedulerTaskInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TriggerSchedulerTaskInstanceResponse triggerSchedulerTaskInstance(shared_ptr<TriggerSchedulerTaskInstanceRequest> request);
+  UpdateAlertRuleResponse updateAlertRuleWithOptions(shared_ptr<UpdateAlertRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateAlertRuleResponse updateAlertRule(shared_ptr<UpdateAlertRuleRequest> request);
   UpdateDIAlarmRuleResponse updateDIAlarmRuleWithOptions(shared_ptr<UpdateDIAlarmRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateDIAlarmRuleResponse updateDIAlarmRule(shared_ptr<UpdateDIAlarmRuleRequest> request);
   UpdateDIJobResponse updateDIJobWithOptions(shared_ptr<UpdateDIJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
