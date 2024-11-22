@@ -3298,11 +3298,69 @@ public:
 
   virtual ~GetUserCertificateDetailRequest() = default;
 };
+class GetUserCertificateDetailResponseBodyCertChain : public Darabonba::Model {
+public:
+  shared_ptr<string> commonName{};
+  shared_ptr<string> issuerCommonName{};
+  shared_ptr<long> notAfter{};
+  shared_ptr<long> notBefore{};
+  shared_ptr<long> remainDay{};
+
+  GetUserCertificateDetailResponseBodyCertChain() {}
+
+  explicit GetUserCertificateDetailResponseBodyCertChain(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonName) {
+      res["CommonName"] = boost::any(*commonName);
+    }
+    if (issuerCommonName) {
+      res["IssuerCommonName"] = boost::any(*issuerCommonName);
+    }
+    if (notAfter) {
+      res["NotAfter"] = boost::any(*notAfter);
+    }
+    if (notBefore) {
+      res["NotBefore"] = boost::any(*notBefore);
+    }
+    if (remainDay) {
+      res["RemainDay"] = boost::any(*remainDay);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommonName") != m.end() && !m["CommonName"].empty()) {
+      commonName = make_shared<string>(boost::any_cast<string>(m["CommonName"]));
+    }
+    if (m.find("IssuerCommonName") != m.end() && !m["IssuerCommonName"].empty()) {
+      issuerCommonName = make_shared<string>(boost::any_cast<string>(m["IssuerCommonName"]));
+    }
+    if (m.find("NotAfter") != m.end() && !m["NotAfter"].empty()) {
+      notAfter = make_shared<long>(boost::any_cast<long>(m["NotAfter"]));
+    }
+    if (m.find("NotBefore") != m.end() && !m["NotBefore"].empty()) {
+      notBefore = make_shared<long>(boost::any_cast<long>(m["NotBefore"]));
+    }
+    if (m.find("RemainDay") != m.end() && !m["RemainDay"].empty()) {
+      remainDay = make_shared<long>(boost::any_cast<long>(m["RemainDay"]));
+    }
+  }
+
+
+  virtual ~GetUserCertificateDetailResponseBodyCertChain() = default;
+};
 class GetUserCertificateDetailResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> algorithm{};
   shared_ptr<bool> buyInAliyun{};
   shared_ptr<string> cert{};
+  shared_ptr<vector<GetUserCertificateDetailResponseBodyCertChain>> certChain{};
   shared_ptr<string> certIdentifier{};
   shared_ptr<string> city{};
   shared_ptr<string> common{};
@@ -3347,6 +3405,13 @@ public:
     }
     if (cert) {
       res["Cert"] = boost::any(*cert);
+    }
+    if (certChain) {
+      vector<boost::any> temp1;
+      for(auto item1:*certChain){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CertChain"] = boost::any(temp1);
     }
     if (certIdentifier) {
       res["CertIdentifier"] = boost::any(*certIdentifier);
@@ -3435,6 +3500,19 @@ public:
     }
     if (m.find("Cert") != m.end() && !m["Cert"].empty()) {
       cert = make_shared<string>(boost::any_cast<string>(m["Cert"]));
+    }
+    if (m.find("CertChain") != m.end() && !m["CertChain"].empty()) {
+      if (typeid(vector<boost::any>) == m["CertChain"].type()) {
+        vector<GetUserCertificateDetailResponseBodyCertChain> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CertChain"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetUserCertificateDetailResponseBodyCertChain model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        certChain = make_shared<vector<GetUserCertificateDetailResponseBodyCertChain>>(expect1);
+      }
     }
     if (m.find("CertIdentifier") != m.end() && !m["CertIdentifier"].empty()) {
       certIdentifier = make_shared<string>(boost::any_cast<string>(m["CertIdentifier"]));
