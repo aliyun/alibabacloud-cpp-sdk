@@ -896,6 +896,7 @@ public:
 };
 class DescribeResourcesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> dataRedundancyType{};
   shared_ptr<string> failedRuleTemplate{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -903,6 +904,7 @@ public:
   shared_ptr<string> resourceType{};
   shared_ptr<string> sortBy{};
   shared_ptr<string> sortOrder{};
+  shared_ptr<string> storageClass{};
 
   DescribeResourcesRequest() {}
 
@@ -914,6 +916,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dataRedundancyType) {
+      res["DataRedundancyType"] = boost::any(*dataRedundancyType);
+    }
     if (failedRuleTemplate) {
       res["FailedRuleTemplate"] = boost::any(*failedRuleTemplate);
     }
@@ -935,10 +940,16 @@ public:
     if (sortOrder) {
       res["SortOrder"] = boost::any(*sortOrder);
     }
+    if (storageClass) {
+      res["StorageClass"] = boost::any(*storageClass);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataRedundancyType") != m.end() && !m["DataRedundancyType"].empty()) {
+      dataRedundancyType = make_shared<string>(boost::any_cast<string>(m["DataRedundancyType"]));
+    }
     if (m.find("FailedRuleTemplate") != m.end() && !m["FailedRuleTemplate"].empty()) {
       failedRuleTemplate = make_shared<string>(boost::any_cast<string>(m["FailedRuleTemplate"]));
     }
@@ -960,6 +971,9 @@ public:
     if (m.find("SortOrder") != m.end() && !m["SortOrder"].empty()) {
       sortOrder = make_shared<string>(boost::any_cast<string>(m["SortOrder"]));
     }
+    if (m.find("StorageClass") != m.end() && !m["StorageClass"].empty()) {
+      storageClass = make_shared<string>(boost::any_cast<string>(m["StorageClass"]));
+    }
   }
 
 
@@ -971,6 +985,7 @@ public:
   shared_ptr<long> checkFailedCount{};
   shared_ptr<long> coldArchiveDataSize{};
   shared_ptr<long> createTime{};
+  shared_ptr<string> dataRedundancyType{};
   shared_ptr<bool> enableCheck{};
   shared_ptr<long> iaDataSize{};
   shared_ptr<string> productType{};
@@ -984,6 +999,7 @@ public:
   shared_ptr<long> riskCount{};
   shared_ptr<long> standardDataSize{};
   shared_ptr<string> status{};
+  shared_ptr<string> storageClass{};
   shared_ptr<long> totalDataSize{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -1010,6 +1026,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (dataRedundancyType) {
+      res["DataRedundancyType"] = boost::any(*dataRedundancyType);
     }
     if (enableCheck) {
       res["EnableCheck"] = boost::any(*enableCheck);
@@ -1050,6 +1069,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (storageClass) {
+      res["StorageClass"] = boost::any(*storageClass);
+    }
     if (totalDataSize) {
       res["TotalDataSize"] = boost::any(*totalDataSize);
     }
@@ -1077,6 +1099,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("DataRedundancyType") != m.end() && !m["DataRedundancyType"].empty()) {
+      dataRedundancyType = make_shared<string>(boost::any_cast<string>(m["DataRedundancyType"]));
     }
     if (m.find("EnableCheck") != m.end() && !m["EnableCheck"].empty()) {
       enableCheck = make_shared<bool>(boost::any_cast<bool>(m["EnableCheck"]));
@@ -1116,6 +1141,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageClass") != m.end() && !m["StorageClass"].empty()) {
+      storageClass = make_shared<string>(boost::any_cast<string>(m["StorageClass"]));
     }
     if (m.find("TotalDataSize") != m.end() && !m["TotalDataSize"].empty()) {
       totalDataSize = make_shared<long>(boost::any_cast<long>(m["TotalDataSize"]));
@@ -2140,6 +2168,7 @@ public:
   shared_ptr<long> checkFailedCount{};
   shared_ptr<long> coldArchiveDataSize{};
   shared_ptr<long> createTime{};
+  shared_ptr<string> dataRedundancyType{};
   shared_ptr<bool> enableCheck{};
   shared_ptr<long> iaDataSize{};
   shared_ptr<string> productType{};
@@ -2153,6 +2182,7 @@ public:
   shared_ptr<long> riskCount{};
   shared_ptr<long> standardDataSize{};
   shared_ptr<string> status{};
+  shared_ptr<string> storageClass{};
   shared_ptr<long> totalDataSize{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -2179,6 +2209,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (dataRedundancyType) {
+      res["DataRedundancyType"] = boost::any(*dataRedundancyType);
     }
     if (enableCheck) {
       res["EnableCheck"] = boost::any(*enableCheck);
@@ -2219,6 +2252,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (storageClass) {
+      res["StorageClass"] = boost::any(*storageClass);
+    }
     if (totalDataSize) {
       res["TotalDataSize"] = boost::any(*totalDataSize);
     }
@@ -2246,6 +2282,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("DataRedundancyType") != m.end() && !m["DataRedundancyType"].empty()) {
+      dataRedundancyType = make_shared<string>(boost::any_cast<string>(m["DataRedundancyType"]));
     }
     if (m.find("EnableCheck") != m.end() && !m["EnableCheck"].empty()) {
       enableCheck = make_shared<bool>(boost::any_cast<bool>(m["EnableCheck"]));
@@ -2285,6 +2324,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageClass") != m.end() && !m["StorageClass"].empty()) {
+      storageClass = make_shared<string>(boost::any_cast<string>(m["StorageClass"]));
     }
     if (m.find("TotalDataSize") != m.end() && !m["TotalDataSize"].empty()) {
       totalDataSize = make_shared<long>(boost::any_cast<long>(m["TotalDataSize"]));

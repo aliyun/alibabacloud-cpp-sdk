@@ -160,6 +160,9 @@ DescribeProductsResponse Alibabacloud_BDRC20230808::Client::describeProducts() {
 DescribeResourcesResponse Alibabacloud_BDRC20230808::Client::describeResourcesWithOptions(shared_ptr<DescribeResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataRedundancyType)) {
+    query->insert(pair<string, string>("DataRedundancyType", *request->dataRedundancyType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->failedRuleTemplate)) {
     query->insert(pair<string, string>("FailedRuleTemplate", *request->failedRuleTemplate));
   }
@@ -180,6 +183,9 @@ DescribeResourcesResponse Alibabacloud_BDRC20230808::Client::describeResourcesWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortOrder)) {
     query->insert(pair<string, string>("SortOrder", *request->sortOrder));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageClass)) {
+    query->insert(pair<string, string>("StorageClass", *request->storageClass));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
