@@ -16,6 +16,7 @@ using namespace std;
 namespace Alibabacloud_Tingwu20230930 {
 class CreateTaskRequestInput : public Darabonba::Model {
 public:
+  shared_ptr<string> audioChannelMode{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> format{};
   shared_ptr<vector<string>> languageHints{};
@@ -37,6 +38,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (audioChannelMode) {
+      res["AudioChannelMode"] = boost::any(*audioChannelMode);
+    }
     if (fileUrl) {
       res["FileUrl"] = boost::any(*fileUrl);
     }
@@ -71,6 +75,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AudioChannelMode") != m.end() && !m["AudioChannelMode"].empty()) {
+      audioChannelMode = make_shared<string>(boost::any_cast<string>(m["AudioChannelMode"]));
+    }
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
     }
