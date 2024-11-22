@@ -975,6 +975,34 @@ CreateListResponse Alibabacloud_ESA20240910::Client::createList(shared_ptr<Creat
   return createListWithOptions(request, runtime);
 }
 
+CreateOriginProtectionResponse Alibabacloud_ESA20240910::Client::createOriginProtectionWithOptions(shared_ptr<CreateOriginProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateOriginProtection"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateOriginProtectionResponse(callApi(params, req, runtime));
+}
+
+CreateOriginProtectionResponse Alibabacloud_ESA20240910::Client::createOriginProtection(shared_ptr<CreateOriginProtectionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createOriginProtectionWithOptions(request, runtime);
+}
+
 CreatePageResponse Alibabacloud_ESA20240910::Client::createPageWithOptions(shared_ptr<CreatePageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1422,6 +1450,177 @@ CreateSiteDeliveryTaskResponse Alibabacloud_ESA20240910::Client::createSiteDeliv
 CreateSiteDeliveryTaskResponse Alibabacloud_ESA20240910::Client::createSiteDeliveryTask(shared_ptr<CreateSiteDeliveryTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createSiteDeliveryTaskWithOptions(request, runtime);
+}
+
+CreateSiteFunctionResponse Alibabacloud_ESA20240910::Client::createSiteFunctionWithOptions(shared_ptr<CreateSiteFunctionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateSiteFunctionShrinkRequest> request = make_shared<CreateSiteFunctionShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestCacheReserve>>(tmpReq->cacheReserve)) {
+    request->cacheReserveShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->cacheReserve, make_shared<string>("CacheReserve"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestCacheRules>>(tmpReq->cacheRules)) {
+    request->cacheRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->cacheRules, make_shared<string>("CacheRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestCacheTags>>(tmpReq->cacheTags)) {
+    request->cacheTagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->cacheTags, make_shared<string>("CacheTags"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestCnameFlattening>>(tmpReq->cnameFlattening)) {
+    request->cnameFlatteningShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->cnameFlattening, make_shared<string>("CnameFlattening"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestCompressionRules>>(tmpReq->compressionRules)) {
+    request->compressionRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->compressionRules, make_shared<string>("CompressionRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestCrossBorderOptimization>>(tmpReq->crossBorderOptimization)) {
+    request->crossBorderOptimizationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->crossBorderOptimization, make_shared<string>("CrossBorderOptimization"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestDevelopmentMode>>(tmpReq->developmentMode)) {
+    request->developmentModeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->developmentMode, make_shared<string>("DevelopmentMode"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestHttpRequestHeaderModificationRules>>(tmpReq->httpRequestHeaderModificationRules)) {
+    request->httpRequestHeaderModificationRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->httpRequestHeaderModificationRules, make_shared<string>("HttpRequestHeaderModificationRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestHttpResponseHeaderModificationRules>>(tmpReq->httpResponseHeaderModificationRules)) {
+    request->httpResponseHeaderModificationRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->httpResponseHeaderModificationRules, make_shared<string>("HttpResponseHeaderModificationRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestHttpsApplicationConfiguration>>(tmpReq->httpsApplicationConfiguration)) {
+    request->httpsApplicationConfigurationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->httpsApplicationConfiguration, make_shared<string>("HttpsApplicationConfiguration"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestHttpsBasicConfiguration>>(tmpReq->httpsBasicConfiguration)) {
+    request->httpsBasicConfigurationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->httpsBasicConfiguration, make_shared<string>("HttpsBasicConfiguration"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestImageTransform>>(tmpReq->imageTransform)) {
+    request->imageTransformShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->imageTransform, make_shared<string>("ImageTransform"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestIpv6>>(tmpReq->ipv6)) {
+    request->ipv6Shrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ipv6, make_shared<string>("Ipv6"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestManagedTransforms>>(tmpReq->managedTransforms)) {
+    request->managedTransformsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->managedTransforms, make_shared<string>("ManagedTransforms"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestNetworkOptimization>>(tmpReq->networkOptimization)) {
+    request->networkOptimizationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->networkOptimization, make_shared<string>("NetworkOptimization"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestOriginProtection>>(tmpReq->originProtection)) {
+    request->originProtectionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->originProtection, make_shared<string>("OriginProtection"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestOriginRules>>(tmpReq->originRules)) {
+    request->originRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->originRules, make_shared<string>("OriginRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestRedirectRules>>(tmpReq->redirectRules)) {
+    request->redirectRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->redirectRules, make_shared<string>("RedirectRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestRewriteUrlRules>>(tmpReq->rewriteUrlRules)) {
+    request->rewriteUrlRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->rewriteUrlRules, make_shared<string>("RewriteUrlRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestSeoBypass>>(tmpReq->seoBypass)) {
+    request->seoBypassShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->seoBypass, make_shared<string>("SeoBypass"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestSiteNameExclusive>>(tmpReq->siteNameExclusive)) {
+    request->siteNameExclusiveShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->siteNameExclusive, make_shared<string>("SiteNameExclusive"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestSitePause>>(tmpReq->sitePause)) {
+    request->sitePauseShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sitePause, make_shared<string>("SitePause"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSiteFunctionRequestTieredCache>>(tmpReq->tieredCache)) {
+    request->tieredCacheShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tieredCache, make_shared<string>("TieredCache"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cacheReserveShrink)) {
+    query->insert(pair<string, string>("CacheReserve", *request->cacheReserveShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cacheRulesShrink)) {
+    query->insert(pair<string, string>("CacheRules", *request->cacheRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cacheTagsShrink)) {
+    query->insert(pair<string, string>("CacheTags", *request->cacheTagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cnameFlatteningShrink)) {
+    query->insert(pair<string, string>("CnameFlattening", *request->cnameFlatteningShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->compressionRulesShrink)) {
+    query->insert(pair<string, string>("CompressionRules", *request->compressionRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->crossBorderOptimizationShrink)) {
+    query->insert(pair<string, string>("CrossBorderOptimization", *request->crossBorderOptimizationShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->developmentModeShrink)) {
+    query->insert(pair<string, string>("DevelopmentMode", *request->developmentModeShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpRequestHeaderModificationRulesShrink)) {
+    query->insert(pair<string, string>("HttpRequestHeaderModificationRules", *request->httpRequestHeaderModificationRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpResponseHeaderModificationRulesShrink)) {
+    query->insert(pair<string, string>("HttpResponseHeaderModificationRules", *request->httpResponseHeaderModificationRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpsApplicationConfigurationShrink)) {
+    query->insert(pair<string, string>("HttpsApplicationConfiguration", *request->httpsApplicationConfigurationShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpsBasicConfigurationShrink)) {
+    query->insert(pair<string, string>("HttpsBasicConfiguration", *request->httpsBasicConfigurationShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageTransformShrink)) {
+    query->insert(pair<string, string>("ImageTransform", *request->imageTransformShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipv6Shrink)) {
+    query->insert(pair<string, string>("Ipv6", *request->ipv6Shrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->managedTransformsShrink)) {
+    query->insert(pair<string, string>("ManagedTransforms", *request->managedTransformsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkOptimizationShrink)) {
+    query->insert(pair<string, string>("NetworkOptimization", *request->networkOptimizationShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->originProtectionShrink)) {
+    query->insert(pair<string, string>("OriginProtection", *request->originProtectionShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->originRulesShrink)) {
+    query->insert(pair<string, string>("OriginRules", *request->originRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->redirectRulesShrink)) {
+    query->insert(pair<string, string>("RedirectRules", *request->redirectRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rewriteUrlRulesShrink)) {
+    query->insert(pair<string, string>("RewriteUrlRules", *request->rewriteUrlRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->seoBypassShrink)) {
+    query->insert(pair<string, string>("SeoBypass", *request->seoBypassShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->siteNameExclusiveShrink)) {
+    query->insert(pair<string, string>("SiteNameExclusive", *request->siteNameExclusiveShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sitePauseShrink)) {
+    query->insert(pair<string, string>("SitePause", *request->sitePauseShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteVersion)) {
+    query->insert(pair<string, long>("SiteVersion", *request->siteVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tieredCacheShrink)) {
+    query->insert(pair<string, string>("TieredCache", *request->tieredCacheShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateSiteFunction"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateSiteFunctionResponse(callApi(params, req, runtime));
+}
+
+CreateSiteFunctionResponse Alibabacloud_ESA20240910::Client::createSiteFunction(shared_ptr<CreateSiteFunctionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createSiteFunctionWithOptions(request, runtime);
 }
 
 CreateUserDeliveryTaskResponse Alibabacloud_ESA20240910::Client::createUserDeliveryTaskWithOptions(shared_ptr<CreateUserDeliveryTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1951,6 +2150,34 @@ DeleteListResponse Alibabacloud_ESA20240910::Client::deleteList(shared_ptr<Delet
   return deleteListWithOptions(request, runtime);
 }
 
+DeleteOriginProtectionResponse Alibabacloud_ESA20240910::Client::deleteOriginProtectionWithOptions(shared_ptr<DeleteOriginProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteOriginProtection"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteOriginProtectionResponse(callApi(params, req, runtime));
+}
+
+DeleteOriginProtectionResponse Alibabacloud_ESA20240910::Client::deleteOriginProtection(shared_ptr<DeleteOriginProtectionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteOriginProtectionWithOptions(request, runtime);
+}
+
 DeletePageResponse Alibabacloud_ESA20240910::Client::deletePageWithOptions(shared_ptr<DeletePageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2261,6 +2488,37 @@ DeleteSiteDeliveryTaskResponse Alibabacloud_ESA20240910::Client::deleteSiteDeliv
 DeleteSiteDeliveryTaskResponse Alibabacloud_ESA20240910::Client::deleteSiteDeliveryTask(shared_ptr<DeleteSiteDeliveryTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteSiteDeliveryTaskWithOptions(request, runtime);
+}
+
+DeleteSiteFunctionResponse Alibabacloud_ESA20240910::Client::deleteSiteFunctionWithOptions(shared_ptr<DeleteSiteFunctionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->configIds)) {
+    query->insert(pair<string, string>("ConfigIds", *request->configIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteSiteFunction"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteSiteFunctionResponse(callApi(params, req, runtime));
+}
+
+DeleteSiteFunctionResponse Alibabacloud_ESA20240910::Client::deleteSiteFunction(shared_ptr<DeleteSiteFunctionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteSiteFunctionWithOptions(request, runtime);
 }
 
 DeleteUserDeliveryTaskResponse Alibabacloud_ESA20240910::Client::deleteUserDeliveryTaskWithOptions(shared_ptr<DeleteUserDeliveryTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3112,6 +3370,31 @@ GetListResponse Alibabacloud_ESA20240910::Client::getListWithOptions(shared_ptr<
 GetListResponse Alibabacloud_ESA20240910::Client::getList(shared_ptr<GetListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getListWithOptions(request, runtime);
+}
+
+GetOriginProtectionResponse Alibabacloud_ESA20240910::Client::getOriginProtectionWithOptions(shared_ptr<GetOriginProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetOriginProtection"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetOriginProtectionResponse(callApi(params, req, runtime));
+}
+
+GetOriginProtectionResponse Alibabacloud_ESA20240910::Client::getOriginProtection(shared_ptr<GetOriginProtectionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getOriginProtectionWithOptions(request, runtime);
 }
 
 GetPageResponse Alibabacloud_ESA20240910::Client::getPageWithOptions(shared_ptr<GetPageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4280,6 +4563,31 @@ ListSiteDeliveryTasksResponse Alibabacloud_ESA20240910::Client::listSiteDelivery
 ListSiteDeliveryTasksResponse Alibabacloud_ESA20240910::Client::listSiteDeliveryTasks(shared_ptr<ListSiteDeliveryTasksRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listSiteDeliveryTasksWithOptions(request, runtime);
+}
+
+ListSiteFunctionsResponse Alibabacloud_ESA20240910::Client::listSiteFunctionsWithOptions(shared_ptr<ListSiteFunctionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSiteFunctions"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSiteFunctionsResponse(callApi(params, req, runtime));
+}
+
+ListSiteFunctionsResponse Alibabacloud_ESA20240910::Client::listSiteFunctions(shared_ptr<ListSiteFunctionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listSiteFunctionsWithOptions(request, runtime);
 }
 
 ListSitesResponse Alibabacloud_ESA20240910::Client::listSitesWithOptions(shared_ptr<ListSitesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5539,6 +5847,65 @@ UpdateListResponse Alibabacloud_ESA20240910::Client::updateList(shared_ptr<Updat
   return updateListWithOptions(request, runtime);
 }
 
+UpdateOriginProtectionResponse Alibabacloud_ESA20240910::Client::updateOriginProtectionWithOptions(shared_ptr<UpdateOriginProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->originConverge)) {
+    query->insert(pair<string, string>("OriginConverge", *request->originConverge));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateOriginProtection"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateOriginProtectionResponse(callApi(params, req, runtime));
+}
+
+UpdateOriginProtectionResponse Alibabacloud_ESA20240910::Client::updateOriginProtection(shared_ptr<UpdateOriginProtectionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateOriginProtectionWithOptions(request, runtime);
+}
+
+UpdateOriginProtectionIpWhiteListResponse Alibabacloud_ESA20240910::Client::updateOriginProtectionIpWhiteListWithOptions(shared_ptr<UpdateOriginProtectionIpWhiteListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateOriginProtectionIpWhiteList"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateOriginProtectionIpWhiteListResponse(callApi(params, req, runtime));
+}
+
+UpdateOriginProtectionIpWhiteListResponse Alibabacloud_ESA20240910::Client::updateOriginProtectionIpWhiteList(shared_ptr<UpdateOriginProtectionIpWhiteListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateOriginProtectionIpWhiteListWithOptions(request, runtime);
+}
+
 UpdatePageResponse Alibabacloud_ESA20240910::Client::updatePageWithOptions(shared_ptr<UpdatePageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5854,6 +6221,168 @@ UpdateSiteDeliveryTaskStatusResponse Alibabacloud_ESA20240910::Client::updateSit
 UpdateSiteDeliveryTaskStatusResponse Alibabacloud_ESA20240910::Client::updateSiteDeliveryTaskStatus(shared_ptr<UpdateSiteDeliveryTaskStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateSiteDeliveryTaskStatusWithOptions(request, runtime);
+}
+
+UpdateSiteFunctionResponse Alibabacloud_ESA20240910::Client::updateSiteFunctionWithOptions(shared_ptr<UpdateSiteFunctionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateSiteFunctionShrinkRequest> request = make_shared<UpdateSiteFunctionShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestCacheReserve>>(tmpReq->cacheReserve)) {
+    request->cacheReserveShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->cacheReserve, make_shared<string>("CacheReserve"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestCacheRules>>(tmpReq->cacheRules)) {
+    request->cacheRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->cacheRules, make_shared<string>("CacheRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestCacheTags>>(tmpReq->cacheTags)) {
+    request->cacheTagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->cacheTags, make_shared<string>("CacheTags"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestCnameFlattening>>(tmpReq->cnameFlattening)) {
+    request->cnameFlatteningShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->cnameFlattening, make_shared<string>("CnameFlattening"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestCompressionRules>>(tmpReq->compressionRules)) {
+    request->compressionRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->compressionRules, make_shared<string>("CompressionRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestCrossBorderOptimization>>(tmpReq->crossBorderOptimization)) {
+    request->crossBorderOptimizationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->crossBorderOptimization, make_shared<string>("CrossBorderOptimization"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestDevelopmentMode>>(tmpReq->developmentMode)) {
+    request->developmentModeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->developmentMode, make_shared<string>("DevelopmentMode"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestHttpRequestHeaderModificationRules>>(tmpReq->httpRequestHeaderModificationRules)) {
+    request->httpRequestHeaderModificationRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->httpRequestHeaderModificationRules, make_shared<string>("HttpRequestHeaderModificationRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestHttpResponseHeaderModificationRules>>(tmpReq->httpResponseHeaderModificationRules)) {
+    request->httpResponseHeaderModificationRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->httpResponseHeaderModificationRules, make_shared<string>("HttpResponseHeaderModificationRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestHttpsApplicationConfiguration>>(tmpReq->httpsApplicationConfiguration)) {
+    request->httpsApplicationConfigurationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->httpsApplicationConfiguration, make_shared<string>("HttpsApplicationConfiguration"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestHttpsBasicConfiguration>>(tmpReq->httpsBasicConfiguration)) {
+    request->httpsBasicConfigurationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->httpsBasicConfiguration, make_shared<string>("HttpsBasicConfiguration"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestImageTransform>>(tmpReq->imageTransform)) {
+    request->imageTransformShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->imageTransform, make_shared<string>("ImageTransform"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestIpv6>>(tmpReq->ipv6)) {
+    request->ipv6Shrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ipv6, make_shared<string>("Ipv6"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestManagedTransforms>>(tmpReq->managedTransforms)) {
+    request->managedTransformsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->managedTransforms, make_shared<string>("ManagedTransforms"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestNetworkOptimization>>(tmpReq->networkOptimization)) {
+    request->networkOptimizationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->networkOptimization, make_shared<string>("NetworkOptimization"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestOriginRules>>(tmpReq->originRules)) {
+    request->originRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->originRules, make_shared<string>("OriginRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestRedirectRules>>(tmpReq->redirectRules)) {
+    request->redirectRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->redirectRules, make_shared<string>("RedirectRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestRewriteUrlRules>>(tmpReq->rewriteUrlRules)) {
+    request->rewriteUrlRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->rewriteUrlRules, make_shared<string>("RewriteUrlRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestSeoBypass>>(tmpReq->seoBypass)) {
+    request->seoBypassShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->seoBypass, make_shared<string>("SeoBypass"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestSiteNameExclusive>>(tmpReq->siteNameExclusive)) {
+    request->siteNameExclusiveShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->siteNameExclusive, make_shared<string>("SiteNameExclusive"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestSitePause>>(tmpReq->sitePause)) {
+    request->sitePauseShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sitePause, make_shared<string>("SitePause"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateSiteFunctionRequestTieredCache>>(tmpReq->tieredCache)) {
+    request->tieredCacheShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tieredCache, make_shared<string>("TieredCache"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cacheReserveShrink)) {
+    query->insert(pair<string, string>("CacheReserve", *request->cacheReserveShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cacheRulesShrink)) {
+    query->insert(pair<string, string>("CacheRules", *request->cacheRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cacheTagsShrink)) {
+    query->insert(pair<string, string>("CacheTags", *request->cacheTagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cnameFlatteningShrink)) {
+    query->insert(pair<string, string>("CnameFlattening", *request->cnameFlatteningShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->compressionRulesShrink)) {
+    query->insert(pair<string, string>("CompressionRules", *request->compressionRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->crossBorderOptimizationShrink)) {
+    query->insert(pair<string, string>("CrossBorderOptimization", *request->crossBorderOptimizationShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->developmentModeShrink)) {
+    query->insert(pair<string, string>("DevelopmentMode", *request->developmentModeShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpRequestHeaderModificationRulesShrink)) {
+    query->insert(pair<string, string>("HttpRequestHeaderModificationRules", *request->httpRequestHeaderModificationRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpResponseHeaderModificationRulesShrink)) {
+    query->insert(pair<string, string>("HttpResponseHeaderModificationRules", *request->httpResponseHeaderModificationRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpsApplicationConfigurationShrink)) {
+    query->insert(pair<string, string>("HttpsApplicationConfiguration", *request->httpsApplicationConfigurationShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpsBasicConfigurationShrink)) {
+    query->insert(pair<string, string>("HttpsBasicConfiguration", *request->httpsBasicConfigurationShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageTransformShrink)) {
+    query->insert(pair<string, string>("ImageTransform", *request->imageTransformShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipv6Shrink)) {
+    query->insert(pair<string, string>("Ipv6", *request->ipv6Shrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->managedTransformsShrink)) {
+    query->insert(pair<string, string>("ManagedTransforms", *request->managedTransformsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkOptimizationShrink)) {
+    query->insert(pair<string, string>("NetworkOptimization", *request->networkOptimizationShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->originRulesShrink)) {
+    query->insert(pair<string, string>("OriginRules", *request->originRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->redirectRulesShrink)) {
+    query->insert(pair<string, string>("RedirectRules", *request->redirectRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rewriteUrlRulesShrink)) {
+    query->insert(pair<string, string>("RewriteUrlRules", *request->rewriteUrlRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->seoBypassShrink)) {
+    query->insert(pair<string, string>("SeoBypass", *request->seoBypassShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->siteNameExclusiveShrink)) {
+    query->insert(pair<string, string>("SiteNameExclusive", *request->siteNameExclusiveShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sitePauseShrink)) {
+    query->insert(pair<string, string>("SitePause", *request->sitePauseShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tieredCacheShrink)) {
+    query->insert(pair<string, string>("TieredCache", *request->tieredCacheShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateSiteFunction"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateSiteFunctionResponse(callApi(params, req, runtime));
+}
+
+UpdateSiteFunctionResponse Alibabacloud_ESA20240910::Client::updateSiteFunction(shared_ptr<UpdateSiteFunctionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateSiteFunctionWithOptions(request, runtime);
 }
 
 UpdateSiteVanityNSResponse Alibabacloud_ESA20240910::Client::updateSiteVanityNSWithOptions(shared_ptr<UpdateSiteVanityNSRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

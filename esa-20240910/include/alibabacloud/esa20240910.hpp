@@ -6952,6 +6952,116 @@ public:
 
   virtual ~CreateListResponse() = default;
 };
+class CreateOriginProtectionRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> siteId{};
+
+  CreateOriginProtectionRequest() {}
+
+  explicit CreateOriginProtectionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~CreateOriginProtectionRequest() = default;
+};
+class CreateOriginProtectionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateOriginProtectionResponseBody() {}
+
+  explicit CreateOriginProtectionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateOriginProtectionResponseBody() = default;
+};
+class CreateOriginProtectionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateOriginProtectionResponseBody> body{};
+
+  CreateOriginProtectionResponse() {}
+
+  explicit CreateOriginProtectionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateOriginProtectionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateOriginProtectionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateOriginProtectionResponse() = default;
+};
 class CreatePageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -9772,6 +9882,4343 @@ public:
 
   virtual ~CreateSiteDeliveryTaskResponse() = default;
 };
+class CreateSiteFunctionRequestCacheReserve : public Darabonba::Model {
+public:
+  shared_ptr<string> enable{};
+  shared_ptr<string> instanceId{};
+
+  CreateSiteFunctionRequestCacheReserve() {}
+
+  explicit CreateSiteFunctionRequestCacheReserve(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestCacheReserve() = default;
+};
+class CreateSiteFunctionRequestCacheRules : public Darabonba::Model {
+public:
+  shared_ptr<string> additionalCacheablePorts{};
+  shared_ptr<string> browserCacheMode{};
+  shared_ptr<string> browserCacheTtl{};
+  shared_ptr<string> bypassCache{};
+  shared_ptr<string> cacheDeceptionArmor{};
+  shared_ptr<string> cacheReserveEligibility{};
+  shared_ptr<string> checkPresenceCookie{};
+  shared_ptr<string> checkPresenceHeader{};
+  shared_ptr<string> edgeCacheMode{};
+  shared_ptr<string> edgeCacheTtl{};
+  shared_ptr<string> edgeStatusCodeCacheTtl{};
+  shared_ptr<string> includeCookie{};
+  shared_ptr<string> includeHeader{};
+  shared_ptr<string> queryString{};
+  shared_ptr<string> queryStringMode{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> serveStale{};
+  shared_ptr<string> sortQueryStringForCache{};
+  shared_ptr<string> userDeviceType{};
+  shared_ptr<string> userGeo{};
+  shared_ptr<string> userLanguage{};
+
+  CreateSiteFunctionRequestCacheRules() {}
+
+  explicit CreateSiteFunctionRequestCacheRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (additionalCacheablePorts) {
+      res["AdditionalCacheablePorts"] = boost::any(*additionalCacheablePorts);
+    }
+    if (browserCacheMode) {
+      res["BrowserCacheMode"] = boost::any(*browserCacheMode);
+    }
+    if (browserCacheTtl) {
+      res["BrowserCacheTtl"] = boost::any(*browserCacheTtl);
+    }
+    if (bypassCache) {
+      res["BypassCache"] = boost::any(*bypassCache);
+    }
+    if (cacheDeceptionArmor) {
+      res["CacheDeceptionArmor"] = boost::any(*cacheDeceptionArmor);
+    }
+    if (cacheReserveEligibility) {
+      res["CacheReserveEligibility"] = boost::any(*cacheReserveEligibility);
+    }
+    if (checkPresenceCookie) {
+      res["CheckPresenceCookie"] = boost::any(*checkPresenceCookie);
+    }
+    if (checkPresenceHeader) {
+      res["CheckPresenceHeader"] = boost::any(*checkPresenceHeader);
+    }
+    if (edgeCacheMode) {
+      res["EdgeCacheMode"] = boost::any(*edgeCacheMode);
+    }
+    if (edgeCacheTtl) {
+      res["EdgeCacheTtl"] = boost::any(*edgeCacheTtl);
+    }
+    if (edgeStatusCodeCacheTtl) {
+      res["EdgeStatusCodeCacheTtl"] = boost::any(*edgeStatusCodeCacheTtl);
+    }
+    if (includeCookie) {
+      res["IncludeCookie"] = boost::any(*includeCookie);
+    }
+    if (includeHeader) {
+      res["IncludeHeader"] = boost::any(*includeHeader);
+    }
+    if (queryString) {
+      res["QueryString"] = boost::any(*queryString);
+    }
+    if (queryStringMode) {
+      res["QueryStringMode"] = boost::any(*queryStringMode);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (serveStale) {
+      res["ServeStale"] = boost::any(*serveStale);
+    }
+    if (sortQueryStringForCache) {
+      res["SortQueryStringForCache"] = boost::any(*sortQueryStringForCache);
+    }
+    if (userDeviceType) {
+      res["UserDeviceType"] = boost::any(*userDeviceType);
+    }
+    if (userGeo) {
+      res["UserGeo"] = boost::any(*userGeo);
+    }
+    if (userLanguage) {
+      res["UserLanguage"] = boost::any(*userLanguage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalCacheablePorts") != m.end() && !m["AdditionalCacheablePorts"].empty()) {
+      additionalCacheablePorts = make_shared<string>(boost::any_cast<string>(m["AdditionalCacheablePorts"]));
+    }
+    if (m.find("BrowserCacheMode") != m.end() && !m["BrowserCacheMode"].empty()) {
+      browserCacheMode = make_shared<string>(boost::any_cast<string>(m["BrowserCacheMode"]));
+    }
+    if (m.find("BrowserCacheTtl") != m.end() && !m["BrowserCacheTtl"].empty()) {
+      browserCacheTtl = make_shared<string>(boost::any_cast<string>(m["BrowserCacheTtl"]));
+    }
+    if (m.find("BypassCache") != m.end() && !m["BypassCache"].empty()) {
+      bypassCache = make_shared<string>(boost::any_cast<string>(m["BypassCache"]));
+    }
+    if (m.find("CacheDeceptionArmor") != m.end() && !m["CacheDeceptionArmor"].empty()) {
+      cacheDeceptionArmor = make_shared<string>(boost::any_cast<string>(m["CacheDeceptionArmor"]));
+    }
+    if (m.find("CacheReserveEligibility") != m.end() && !m["CacheReserveEligibility"].empty()) {
+      cacheReserveEligibility = make_shared<string>(boost::any_cast<string>(m["CacheReserveEligibility"]));
+    }
+    if (m.find("CheckPresenceCookie") != m.end() && !m["CheckPresenceCookie"].empty()) {
+      checkPresenceCookie = make_shared<string>(boost::any_cast<string>(m["CheckPresenceCookie"]));
+    }
+    if (m.find("CheckPresenceHeader") != m.end() && !m["CheckPresenceHeader"].empty()) {
+      checkPresenceHeader = make_shared<string>(boost::any_cast<string>(m["CheckPresenceHeader"]));
+    }
+    if (m.find("EdgeCacheMode") != m.end() && !m["EdgeCacheMode"].empty()) {
+      edgeCacheMode = make_shared<string>(boost::any_cast<string>(m["EdgeCacheMode"]));
+    }
+    if (m.find("EdgeCacheTtl") != m.end() && !m["EdgeCacheTtl"].empty()) {
+      edgeCacheTtl = make_shared<string>(boost::any_cast<string>(m["EdgeCacheTtl"]));
+    }
+    if (m.find("EdgeStatusCodeCacheTtl") != m.end() && !m["EdgeStatusCodeCacheTtl"].empty()) {
+      edgeStatusCodeCacheTtl = make_shared<string>(boost::any_cast<string>(m["EdgeStatusCodeCacheTtl"]));
+    }
+    if (m.find("IncludeCookie") != m.end() && !m["IncludeCookie"].empty()) {
+      includeCookie = make_shared<string>(boost::any_cast<string>(m["IncludeCookie"]));
+    }
+    if (m.find("IncludeHeader") != m.end() && !m["IncludeHeader"].empty()) {
+      includeHeader = make_shared<string>(boost::any_cast<string>(m["IncludeHeader"]));
+    }
+    if (m.find("QueryString") != m.end() && !m["QueryString"].empty()) {
+      queryString = make_shared<string>(boost::any_cast<string>(m["QueryString"]));
+    }
+    if (m.find("QueryStringMode") != m.end() && !m["QueryStringMode"].empty()) {
+      queryStringMode = make_shared<string>(boost::any_cast<string>(m["QueryStringMode"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("ServeStale") != m.end() && !m["ServeStale"].empty()) {
+      serveStale = make_shared<string>(boost::any_cast<string>(m["ServeStale"]));
+    }
+    if (m.find("SortQueryStringForCache") != m.end() && !m["SortQueryStringForCache"].empty()) {
+      sortQueryStringForCache = make_shared<string>(boost::any_cast<string>(m["SortQueryStringForCache"]));
+    }
+    if (m.find("UserDeviceType") != m.end() && !m["UserDeviceType"].empty()) {
+      userDeviceType = make_shared<string>(boost::any_cast<string>(m["UserDeviceType"]));
+    }
+    if (m.find("UserGeo") != m.end() && !m["UserGeo"].empty()) {
+      userGeo = make_shared<string>(boost::any_cast<string>(m["UserGeo"]));
+    }
+    if (m.find("UserLanguage") != m.end() && !m["UserLanguage"].empty()) {
+      userLanguage = make_shared<string>(boost::any_cast<string>(m["UserLanguage"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestCacheRules() = default;
+};
+class CreateSiteFunctionRequestCacheTags : public Darabonba::Model {
+public:
+  shared_ptr<string> caseInsensitive{};
+  shared_ptr<string> tagName{};
+
+  CreateSiteFunctionRequestCacheTags() {}
+
+  explicit CreateSiteFunctionRequestCacheTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (caseInsensitive) {
+      res["CaseInsensitive"] = boost::any(*caseInsensitive);
+    }
+    if (tagName) {
+      res["TagName"] = boost::any(*tagName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CaseInsensitive") != m.end() && !m["CaseInsensitive"].empty()) {
+      caseInsensitive = make_shared<string>(boost::any_cast<string>(m["CaseInsensitive"]));
+    }
+    if (m.find("TagName") != m.end() && !m["TagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["TagName"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestCacheTags() = default;
+};
+class CreateSiteFunctionRequestCnameFlattening : public Darabonba::Model {
+public:
+  shared_ptr<string> flattenMode{};
+
+  CreateSiteFunctionRequestCnameFlattening() {}
+
+  explicit CreateSiteFunctionRequestCnameFlattening(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (flattenMode) {
+      res["FlattenMode"] = boost::any(*flattenMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FlattenMode") != m.end() && !m["FlattenMode"].empty()) {
+      flattenMode = make_shared<string>(boost::any_cast<string>(m["FlattenMode"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestCnameFlattening() = default;
+};
+class CreateSiteFunctionRequestCompressionRules : public Darabonba::Model {
+public:
+  shared_ptr<string> brotli{};
+  shared_ptr<string> gzip{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+
+  CreateSiteFunctionRequestCompressionRules() {}
+
+  explicit CreateSiteFunctionRequestCompressionRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (brotli) {
+      res["Brotli"] = boost::any(*brotli);
+    }
+    if (gzip) {
+      res["Gzip"] = boost::any(*gzip);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Brotli") != m.end() && !m["Brotli"].empty()) {
+      brotli = make_shared<string>(boost::any_cast<string>(m["Brotli"]));
+    }
+    if (m.find("Gzip") != m.end() && !m["Gzip"].empty()) {
+      gzip = make_shared<string>(boost::any_cast<string>(m["Gzip"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestCompressionRules() = default;
+};
+class CreateSiteFunctionRequestCrossBorderOptimization : public Darabonba::Model {
+public:
+  shared_ptr<string> enable{};
+
+  CreateSiteFunctionRequestCrossBorderOptimization() {}
+
+  explicit CreateSiteFunctionRequestCrossBorderOptimization(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestCrossBorderOptimization() = default;
+};
+class CreateSiteFunctionRequestDevelopmentMode : public Darabonba::Model {
+public:
+  shared_ptr<string> enable{};
+
+  CreateSiteFunctionRequestDevelopmentMode() {}
+
+  explicit CreateSiteFunctionRequestDevelopmentMode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestDevelopmentMode() = default;
+};
+class CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> operation{};
+  shared_ptr<string> value{};
+
+  CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification() {}
+
+  explicit CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (operation) {
+      res["Operation"] = boost::any(*operation);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Operation") != m.end() && !m["Operation"].empty()) {
+      operation = make_shared<string>(boost::any_cast<string>(m["Operation"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification() = default;
+};
+class CreateSiteFunctionRequestHttpRequestHeaderModificationRules : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification>> requestHeaderModification{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+
+  CreateSiteFunctionRequestHttpRequestHeaderModificationRules() {}
+
+  explicit CreateSiteFunctionRequestHttpRequestHeaderModificationRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestHeaderModification) {
+      vector<boost::any> temp1;
+      for(auto item1:*requestHeaderModification){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RequestHeaderModification"] = boost::any(temp1);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestHeaderModification") != m.end() && !m["RequestHeaderModification"].empty()) {
+      if (typeid(vector<boost::any>) == m["RequestHeaderModification"].type()) {
+        vector<CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RequestHeaderModification"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        requestHeaderModification = make_shared<vector<CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification>>(expect1);
+      }
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestHttpRequestHeaderModificationRules() = default;
+};
+class CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> operation{};
+  shared_ptr<string> value{};
+
+  CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification() {}
+
+  explicit CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (operation) {
+      res["Operation"] = boost::any(*operation);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Operation") != m.end() && !m["Operation"].empty()) {
+      operation = make_shared<string>(boost::any_cast<string>(m["Operation"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification() = default;
+};
+class CreateSiteFunctionRequestHttpResponseHeaderModificationRules : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification>> responseHeaderModification{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+
+  CreateSiteFunctionRequestHttpResponseHeaderModificationRules() {}
+
+  explicit CreateSiteFunctionRequestHttpResponseHeaderModificationRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (responseHeaderModification) {
+      vector<boost::any> temp1;
+      for(auto item1:*responseHeaderModification){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResponseHeaderModification"] = boost::any(temp1);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResponseHeaderModification") != m.end() && !m["ResponseHeaderModification"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResponseHeaderModification"].type()) {
+        vector<CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResponseHeaderModification"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        responseHeaderModification = make_shared<vector<CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification>>(expect1);
+      }
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestHttpResponseHeaderModificationRules() = default;
+};
+class CreateSiteFunctionRequestHttpsApplicationConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<string> altSvc{};
+  shared_ptr<string> altSvcClear{};
+  shared_ptr<string> altSvcMa{};
+  shared_ptr<string> altSvcPersist{};
+  shared_ptr<string> hsts{};
+  shared_ptr<string> hstsIncludeSubdomains{};
+  shared_ptr<string> hstsMaxAge{};
+  shared_ptr<string> hstsPreload{};
+  shared_ptr<string> httpsForce{};
+  shared_ptr<string> httpsForceCode{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+
+  CreateSiteFunctionRequestHttpsApplicationConfiguration() {}
+
+  explicit CreateSiteFunctionRequestHttpsApplicationConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (altSvc) {
+      res["AltSvc"] = boost::any(*altSvc);
+    }
+    if (altSvcClear) {
+      res["AltSvcClear"] = boost::any(*altSvcClear);
+    }
+    if (altSvcMa) {
+      res["AltSvcMa"] = boost::any(*altSvcMa);
+    }
+    if (altSvcPersist) {
+      res["AltSvcPersist"] = boost::any(*altSvcPersist);
+    }
+    if (hsts) {
+      res["Hsts"] = boost::any(*hsts);
+    }
+    if (hstsIncludeSubdomains) {
+      res["HstsIncludeSubdomains"] = boost::any(*hstsIncludeSubdomains);
+    }
+    if (hstsMaxAge) {
+      res["HstsMaxAge"] = boost::any(*hstsMaxAge);
+    }
+    if (hstsPreload) {
+      res["HstsPreload"] = boost::any(*hstsPreload);
+    }
+    if (httpsForce) {
+      res["HttpsForce"] = boost::any(*httpsForce);
+    }
+    if (httpsForceCode) {
+      res["HttpsForceCode"] = boost::any(*httpsForceCode);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AltSvc") != m.end() && !m["AltSvc"].empty()) {
+      altSvc = make_shared<string>(boost::any_cast<string>(m["AltSvc"]));
+    }
+    if (m.find("AltSvcClear") != m.end() && !m["AltSvcClear"].empty()) {
+      altSvcClear = make_shared<string>(boost::any_cast<string>(m["AltSvcClear"]));
+    }
+    if (m.find("AltSvcMa") != m.end() && !m["AltSvcMa"].empty()) {
+      altSvcMa = make_shared<string>(boost::any_cast<string>(m["AltSvcMa"]));
+    }
+    if (m.find("AltSvcPersist") != m.end() && !m["AltSvcPersist"].empty()) {
+      altSvcPersist = make_shared<string>(boost::any_cast<string>(m["AltSvcPersist"]));
+    }
+    if (m.find("Hsts") != m.end() && !m["Hsts"].empty()) {
+      hsts = make_shared<string>(boost::any_cast<string>(m["Hsts"]));
+    }
+    if (m.find("HstsIncludeSubdomains") != m.end() && !m["HstsIncludeSubdomains"].empty()) {
+      hstsIncludeSubdomains = make_shared<string>(boost::any_cast<string>(m["HstsIncludeSubdomains"]));
+    }
+    if (m.find("HstsMaxAge") != m.end() && !m["HstsMaxAge"].empty()) {
+      hstsMaxAge = make_shared<string>(boost::any_cast<string>(m["HstsMaxAge"]));
+    }
+    if (m.find("HstsPreload") != m.end() && !m["HstsPreload"].empty()) {
+      hstsPreload = make_shared<string>(boost::any_cast<string>(m["HstsPreload"]));
+    }
+    if (m.find("HttpsForce") != m.end() && !m["HttpsForce"].empty()) {
+      httpsForce = make_shared<string>(boost::any_cast<string>(m["HttpsForce"]));
+    }
+    if (m.find("HttpsForceCode") != m.end() && !m["HttpsForceCode"].empty()) {
+      httpsForceCode = make_shared<string>(boost::any_cast<string>(m["HttpsForceCode"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestHttpsApplicationConfiguration() = default;
+};
+class CreateSiteFunctionRequestHttpsBasicConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<string> ciphersuite{};
+  shared_ptr<string> ciphersuiteGroup{};
+  shared_ptr<string> http2{};
+  shared_ptr<string> http3{};
+  shared_ptr<string> https{};
+  shared_ptr<string> ocspStapling{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> tls10{};
+  shared_ptr<string> tls11{};
+  shared_ptr<string> tls12{};
+  shared_ptr<string> tls13{};
+
+  CreateSiteFunctionRequestHttpsBasicConfiguration() {}
+
+  explicit CreateSiteFunctionRequestHttpsBasicConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ciphersuite) {
+      res["Ciphersuite"] = boost::any(*ciphersuite);
+    }
+    if (ciphersuiteGroup) {
+      res["CiphersuiteGroup"] = boost::any(*ciphersuiteGroup);
+    }
+    if (http2) {
+      res["Http2"] = boost::any(*http2);
+    }
+    if (http3) {
+      res["Http3"] = boost::any(*http3);
+    }
+    if (https) {
+      res["Https"] = boost::any(*https);
+    }
+    if (ocspStapling) {
+      res["OcspStapling"] = boost::any(*ocspStapling);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (tls10) {
+      res["Tls10"] = boost::any(*tls10);
+    }
+    if (tls11) {
+      res["Tls11"] = boost::any(*tls11);
+    }
+    if (tls12) {
+      res["Tls12"] = boost::any(*tls12);
+    }
+    if (tls13) {
+      res["Tls13"] = boost::any(*tls13);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ciphersuite") != m.end() && !m["Ciphersuite"].empty()) {
+      ciphersuite = make_shared<string>(boost::any_cast<string>(m["Ciphersuite"]));
+    }
+    if (m.find("CiphersuiteGroup") != m.end() && !m["CiphersuiteGroup"].empty()) {
+      ciphersuiteGroup = make_shared<string>(boost::any_cast<string>(m["CiphersuiteGroup"]));
+    }
+    if (m.find("Http2") != m.end() && !m["Http2"].empty()) {
+      http2 = make_shared<string>(boost::any_cast<string>(m["Http2"]));
+    }
+    if (m.find("Http3") != m.end() && !m["Http3"].empty()) {
+      http3 = make_shared<string>(boost::any_cast<string>(m["Http3"]));
+    }
+    if (m.find("Https") != m.end() && !m["Https"].empty()) {
+      https = make_shared<string>(boost::any_cast<string>(m["Https"]));
+    }
+    if (m.find("OcspStapling") != m.end() && !m["OcspStapling"].empty()) {
+      ocspStapling = make_shared<string>(boost::any_cast<string>(m["OcspStapling"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Tls10") != m.end() && !m["Tls10"].empty()) {
+      tls10 = make_shared<string>(boost::any_cast<string>(m["Tls10"]));
+    }
+    if (m.find("Tls11") != m.end() && !m["Tls11"].empty()) {
+      tls11 = make_shared<string>(boost::any_cast<string>(m["Tls11"]));
+    }
+    if (m.find("Tls12") != m.end() && !m["Tls12"].empty()) {
+      tls12 = make_shared<string>(boost::any_cast<string>(m["Tls12"]));
+    }
+    if (m.find("Tls13") != m.end() && !m["Tls13"].empty()) {
+      tls13 = make_shared<string>(boost::any_cast<string>(m["Tls13"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestHttpsBasicConfiguration() = default;
+};
+class CreateSiteFunctionRequestImageTransform : public Darabonba::Model {
+public:
+  shared_ptr<string> enable{};
+
+  CreateSiteFunctionRequestImageTransform() {}
+
+  explicit CreateSiteFunctionRequestImageTransform(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestImageTransform() = default;
+};
+class CreateSiteFunctionRequestIpv6 : public Darabonba::Model {
+public:
+  shared_ptr<string> enable{};
+
+  CreateSiteFunctionRequestIpv6() {}
+
+  explicit CreateSiteFunctionRequestIpv6(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestIpv6() = default;
+};
+class CreateSiteFunctionRequestManagedTransforms : public Darabonba::Model {
+public:
+  shared_ptr<string> addClientGeolocationHeaders{};
+  shared_ptr<string> addRealClientIpHeader{};
+
+  CreateSiteFunctionRequestManagedTransforms() {}
+
+  explicit CreateSiteFunctionRequestManagedTransforms(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addClientGeolocationHeaders) {
+      res["AddClientGeolocationHeaders"] = boost::any(*addClientGeolocationHeaders);
+    }
+    if (addRealClientIpHeader) {
+      res["AddRealClientIpHeader"] = boost::any(*addRealClientIpHeader);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddClientGeolocationHeaders") != m.end() && !m["AddClientGeolocationHeaders"].empty()) {
+      addClientGeolocationHeaders = make_shared<string>(boost::any_cast<string>(m["AddClientGeolocationHeaders"]));
+    }
+    if (m.find("AddRealClientIpHeader") != m.end() && !m["AddRealClientIpHeader"].empty()) {
+      addRealClientIpHeader = make_shared<string>(boost::any_cast<string>(m["AddRealClientIpHeader"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestManagedTransforms() = default;
+};
+class CreateSiteFunctionRequestNetworkOptimization : public Darabonba::Model {
+public:
+  shared_ptr<string> grpc{};
+  shared_ptr<string> http2Origin{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> smartRouting{};
+  shared_ptr<string> uploadMaxFilesize{};
+  shared_ptr<string> websocket{};
+
+  CreateSiteFunctionRequestNetworkOptimization() {}
+
+  explicit CreateSiteFunctionRequestNetworkOptimization(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (grpc) {
+      res["Grpc"] = boost::any(*grpc);
+    }
+    if (http2Origin) {
+      res["Http2Origin"] = boost::any(*http2Origin);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (smartRouting) {
+      res["SmartRouting"] = boost::any(*smartRouting);
+    }
+    if (uploadMaxFilesize) {
+      res["UploadMaxFilesize"] = boost::any(*uploadMaxFilesize);
+    }
+    if (websocket) {
+      res["Websocket"] = boost::any(*websocket);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Grpc") != m.end() && !m["Grpc"].empty()) {
+      grpc = make_shared<string>(boost::any_cast<string>(m["Grpc"]));
+    }
+    if (m.find("Http2Origin") != m.end() && !m["Http2Origin"].empty()) {
+      http2Origin = make_shared<string>(boost::any_cast<string>(m["Http2Origin"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("SmartRouting") != m.end() && !m["SmartRouting"].empty()) {
+      smartRouting = make_shared<string>(boost::any_cast<string>(m["SmartRouting"]));
+    }
+    if (m.find("UploadMaxFilesize") != m.end() && !m["UploadMaxFilesize"].empty()) {
+      uploadMaxFilesize = make_shared<string>(boost::any_cast<string>(m["UploadMaxFilesize"]));
+    }
+    if (m.find("Websocket") != m.end() && !m["Websocket"].empty()) {
+      websocket = make_shared<string>(boost::any_cast<string>(m["Websocket"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestNetworkOptimization() = default;
+};
+class CreateSiteFunctionRequestOriginProtection : public Darabonba::Model {
+public:
+  shared_ptr<string> enable{};
+
+  CreateSiteFunctionRequestOriginProtection() {}
+
+  explicit CreateSiteFunctionRequestOriginProtection(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestOriginProtection() = default;
+};
+class CreateSiteFunctionRequestOriginRules : public Darabonba::Model {
+public:
+  shared_ptr<string> dnsRecord{};
+  shared_ptr<string> originHost{};
+  shared_ptr<string> originHttpPort{};
+  shared_ptr<string> originHttpsPort{};
+  shared_ptr<string> originScheme{};
+  shared_ptr<string> originSni{};
+  shared_ptr<string> range{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+
+  CreateSiteFunctionRequestOriginRules() {}
+
+  explicit CreateSiteFunctionRequestOriginRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dnsRecord) {
+      res["DnsRecord"] = boost::any(*dnsRecord);
+    }
+    if (originHost) {
+      res["OriginHost"] = boost::any(*originHost);
+    }
+    if (originHttpPort) {
+      res["OriginHttpPort"] = boost::any(*originHttpPort);
+    }
+    if (originHttpsPort) {
+      res["OriginHttpsPort"] = boost::any(*originHttpsPort);
+    }
+    if (originScheme) {
+      res["OriginScheme"] = boost::any(*originScheme);
+    }
+    if (originSni) {
+      res["OriginSni"] = boost::any(*originSni);
+    }
+    if (range) {
+      res["Range"] = boost::any(*range);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DnsRecord") != m.end() && !m["DnsRecord"].empty()) {
+      dnsRecord = make_shared<string>(boost::any_cast<string>(m["DnsRecord"]));
+    }
+    if (m.find("OriginHost") != m.end() && !m["OriginHost"].empty()) {
+      originHost = make_shared<string>(boost::any_cast<string>(m["OriginHost"]));
+    }
+    if (m.find("OriginHttpPort") != m.end() && !m["OriginHttpPort"].empty()) {
+      originHttpPort = make_shared<string>(boost::any_cast<string>(m["OriginHttpPort"]));
+    }
+    if (m.find("OriginHttpsPort") != m.end() && !m["OriginHttpsPort"].empty()) {
+      originHttpsPort = make_shared<string>(boost::any_cast<string>(m["OriginHttpsPort"]));
+    }
+    if (m.find("OriginScheme") != m.end() && !m["OriginScheme"].empty()) {
+      originScheme = make_shared<string>(boost::any_cast<string>(m["OriginScheme"]));
+    }
+    if (m.find("OriginSni") != m.end() && !m["OriginSni"].empty()) {
+      originSni = make_shared<string>(boost::any_cast<string>(m["OriginSni"]));
+    }
+    if (m.find("Range") != m.end() && !m["Range"].empty()) {
+      range = make_shared<string>(boost::any_cast<string>(m["Range"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestOriginRules() = default;
+};
+class CreateSiteFunctionRequestRedirectRules : public Darabonba::Model {
+public:
+  shared_ptr<string> reserveQueryString{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> statusCode{};
+  shared_ptr<string> targetUrl{};
+  shared_ptr<string> type{};
+
+  CreateSiteFunctionRequestRedirectRules() {}
+
+  explicit CreateSiteFunctionRequestRedirectRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (reserveQueryString) {
+      res["ReserveQueryString"] = boost::any(*reserveQueryString);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (statusCode) {
+      res["StatusCode"] = boost::any(*statusCode);
+    }
+    if (targetUrl) {
+      res["TargetUrl"] = boost::any(*targetUrl);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReserveQueryString") != m.end() && !m["ReserveQueryString"].empty()) {
+      reserveQueryString = make_shared<string>(boost::any_cast<string>(m["ReserveQueryString"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      statusCode = make_shared<string>(boost::any_cast<string>(m["StatusCode"]));
+    }
+    if (m.find("TargetUrl") != m.end() && !m["TargetUrl"].empty()) {
+      targetUrl = make_shared<string>(boost::any_cast<string>(m["TargetUrl"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestRedirectRules() = default;
+};
+class CreateSiteFunctionRequestRewriteUrlRules : public Darabonba::Model {
+public:
+  shared_ptr<string> queryString{};
+  shared_ptr<string> rewriteQueryStringType{};
+  shared_ptr<string> rewriteUriType{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> uri{};
+
+  CreateSiteFunctionRequestRewriteUrlRules() {}
+
+  explicit CreateSiteFunctionRequestRewriteUrlRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (queryString) {
+      res["QueryString"] = boost::any(*queryString);
+    }
+    if (rewriteQueryStringType) {
+      res["RewriteQueryStringType"] = boost::any(*rewriteQueryStringType);
+    }
+    if (rewriteUriType) {
+      res["RewriteUriType"] = boost::any(*rewriteUriType);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("QueryString") != m.end() && !m["QueryString"].empty()) {
+      queryString = make_shared<string>(boost::any_cast<string>(m["QueryString"]));
+    }
+    if (m.find("RewriteQueryStringType") != m.end() && !m["RewriteQueryStringType"].empty()) {
+      rewriteQueryStringType = make_shared<string>(boost::any_cast<string>(m["RewriteQueryStringType"]));
+    }
+    if (m.find("RewriteUriType") != m.end() && !m["RewriteUriType"].empty()) {
+      rewriteUriType = make_shared<string>(boost::any_cast<string>(m["RewriteUriType"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestRewriteUrlRules() = default;
+};
+class CreateSiteFunctionRequestSeoBypass : public Darabonba::Model {
+public:
+  shared_ptr<string> enable{};
+
+  CreateSiteFunctionRequestSeoBypass() {}
+
+  explicit CreateSiteFunctionRequestSeoBypass(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestSeoBypass() = default;
+};
+class CreateSiteFunctionRequestSiteNameExclusive : public Darabonba::Model {
+public:
+  shared_ptr<string> enable{};
+
+  CreateSiteFunctionRequestSiteNameExclusive() {}
+
+  explicit CreateSiteFunctionRequestSiteNameExclusive(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestSiteNameExclusive() = default;
+};
+class CreateSiteFunctionRequestSitePause : public Darabonba::Model {
+public:
+  shared_ptr<string> paused{};
+
+  CreateSiteFunctionRequestSitePause() {}
+
+  explicit CreateSiteFunctionRequestSitePause(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (paused) {
+      res["Paused"] = boost::any(*paused);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Paused") != m.end() && !m["Paused"].empty()) {
+      paused = make_shared<string>(boost::any_cast<string>(m["Paused"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestSitePause() = default;
+};
+class CreateSiteFunctionRequestTieredCache : public Darabonba::Model {
+public:
+  shared_ptr<string> cacheArchitectureMode{};
+
+  CreateSiteFunctionRequestTieredCache() {}
+
+  explicit CreateSiteFunctionRequestTieredCache(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheArchitectureMode) {
+      res["CacheArchitectureMode"] = boost::any(*cacheArchitectureMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheArchitectureMode") != m.end() && !m["CacheArchitectureMode"].empty()) {
+      cacheArchitectureMode = make_shared<string>(boost::any_cast<string>(m["CacheArchitectureMode"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequestTieredCache() = default;
+};
+class CreateSiteFunctionRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateSiteFunctionRequestCacheReserve>> cacheReserve{};
+  shared_ptr<vector<CreateSiteFunctionRequestCacheRules>> cacheRules{};
+  shared_ptr<vector<CreateSiteFunctionRequestCacheTags>> cacheTags{};
+  shared_ptr<vector<CreateSiteFunctionRequestCnameFlattening>> cnameFlattening{};
+  shared_ptr<vector<CreateSiteFunctionRequestCompressionRules>> compressionRules{};
+  shared_ptr<vector<CreateSiteFunctionRequestCrossBorderOptimization>> crossBorderOptimization{};
+  shared_ptr<vector<CreateSiteFunctionRequestDevelopmentMode>> developmentMode{};
+  shared_ptr<vector<CreateSiteFunctionRequestHttpRequestHeaderModificationRules>> httpRequestHeaderModificationRules{};
+  shared_ptr<vector<CreateSiteFunctionRequestHttpResponseHeaderModificationRules>> httpResponseHeaderModificationRules{};
+  shared_ptr<vector<CreateSiteFunctionRequestHttpsApplicationConfiguration>> httpsApplicationConfiguration{};
+  shared_ptr<vector<CreateSiteFunctionRequestHttpsBasicConfiguration>> httpsBasicConfiguration{};
+  shared_ptr<vector<CreateSiteFunctionRequestImageTransform>> imageTransform{};
+  shared_ptr<vector<CreateSiteFunctionRequestIpv6>> ipv6{};
+  shared_ptr<vector<CreateSiteFunctionRequestManagedTransforms>> managedTransforms{};
+  shared_ptr<vector<CreateSiteFunctionRequestNetworkOptimization>> networkOptimization{};
+  shared_ptr<vector<CreateSiteFunctionRequestOriginProtection>> originProtection{};
+  shared_ptr<vector<CreateSiteFunctionRequestOriginRules>> originRules{};
+  shared_ptr<vector<CreateSiteFunctionRequestRedirectRules>> redirectRules{};
+  shared_ptr<vector<CreateSiteFunctionRequestRewriteUrlRules>> rewriteUrlRules{};
+  shared_ptr<vector<CreateSiteFunctionRequestSeoBypass>> seoBypass{};
+  shared_ptr<long> siteId{};
+  shared_ptr<vector<CreateSiteFunctionRequestSiteNameExclusive>> siteNameExclusive{};
+  shared_ptr<vector<CreateSiteFunctionRequestSitePause>> sitePause{};
+  shared_ptr<long> siteVersion{};
+  shared_ptr<vector<CreateSiteFunctionRequestTieredCache>> tieredCache{};
+
+  CreateSiteFunctionRequest() {}
+
+  explicit CreateSiteFunctionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheReserve) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheReserve){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheReserve"] = boost::any(temp1);
+    }
+    if (cacheRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheRules"] = boost::any(temp1);
+    }
+    if (cacheTags) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheTags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheTags"] = boost::any(temp1);
+    }
+    if (cnameFlattening) {
+      vector<boost::any> temp1;
+      for(auto item1:*cnameFlattening){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CnameFlattening"] = boost::any(temp1);
+    }
+    if (compressionRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*compressionRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CompressionRules"] = boost::any(temp1);
+    }
+    if (crossBorderOptimization) {
+      vector<boost::any> temp1;
+      for(auto item1:*crossBorderOptimization){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CrossBorderOptimization"] = boost::any(temp1);
+    }
+    if (developmentMode) {
+      vector<boost::any> temp1;
+      for(auto item1:*developmentMode){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DevelopmentMode"] = boost::any(temp1);
+    }
+    if (httpRequestHeaderModificationRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpRequestHeaderModificationRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpRequestHeaderModificationRules"] = boost::any(temp1);
+    }
+    if (httpResponseHeaderModificationRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpResponseHeaderModificationRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpResponseHeaderModificationRules"] = boost::any(temp1);
+    }
+    if (httpsApplicationConfiguration) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpsApplicationConfiguration){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpsApplicationConfiguration"] = boost::any(temp1);
+    }
+    if (httpsBasicConfiguration) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpsBasicConfiguration){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpsBasicConfiguration"] = boost::any(temp1);
+    }
+    if (imageTransform) {
+      vector<boost::any> temp1;
+      for(auto item1:*imageTransform){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ImageTransform"] = boost::any(temp1);
+    }
+    if (ipv6) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipv6){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Ipv6"] = boost::any(temp1);
+    }
+    if (managedTransforms) {
+      vector<boost::any> temp1;
+      for(auto item1:*managedTransforms){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ManagedTransforms"] = boost::any(temp1);
+    }
+    if (networkOptimization) {
+      vector<boost::any> temp1;
+      for(auto item1:*networkOptimization){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetworkOptimization"] = boost::any(temp1);
+    }
+    if (originProtection) {
+      vector<boost::any> temp1;
+      for(auto item1:*originProtection){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OriginProtection"] = boost::any(temp1);
+    }
+    if (originRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*originRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OriginRules"] = boost::any(temp1);
+    }
+    if (redirectRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*redirectRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RedirectRules"] = boost::any(temp1);
+    }
+    if (rewriteUrlRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rewriteUrlRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RewriteUrlRules"] = boost::any(temp1);
+    }
+    if (seoBypass) {
+      vector<boost::any> temp1;
+      for(auto item1:*seoBypass){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SeoBypass"] = boost::any(temp1);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    if (siteNameExclusive) {
+      vector<boost::any> temp1;
+      for(auto item1:*siteNameExclusive){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SiteNameExclusive"] = boost::any(temp1);
+    }
+    if (sitePause) {
+      vector<boost::any> temp1;
+      for(auto item1:*sitePause){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SitePause"] = boost::any(temp1);
+    }
+    if (siteVersion) {
+      res["SiteVersion"] = boost::any(*siteVersion);
+    }
+    if (tieredCache) {
+      vector<boost::any> temp1;
+      for(auto item1:*tieredCache){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TieredCache"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheReserve") != m.end() && !m["CacheReserve"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheReserve"].type()) {
+        vector<CreateSiteFunctionRequestCacheReserve> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheReserve"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestCacheReserve model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheReserve = make_shared<vector<CreateSiteFunctionRequestCacheReserve>>(expect1);
+      }
+    }
+    if (m.find("CacheRules") != m.end() && !m["CacheRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheRules"].type()) {
+        vector<CreateSiteFunctionRequestCacheRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestCacheRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheRules = make_shared<vector<CreateSiteFunctionRequestCacheRules>>(expect1);
+      }
+    }
+    if (m.find("CacheTags") != m.end() && !m["CacheTags"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheTags"].type()) {
+        vector<CreateSiteFunctionRequestCacheTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheTags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestCacheTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheTags = make_shared<vector<CreateSiteFunctionRequestCacheTags>>(expect1);
+      }
+    }
+    if (m.find("CnameFlattening") != m.end() && !m["CnameFlattening"].empty()) {
+      if (typeid(vector<boost::any>) == m["CnameFlattening"].type()) {
+        vector<CreateSiteFunctionRequestCnameFlattening> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CnameFlattening"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestCnameFlattening model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cnameFlattening = make_shared<vector<CreateSiteFunctionRequestCnameFlattening>>(expect1);
+      }
+    }
+    if (m.find("CompressionRules") != m.end() && !m["CompressionRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["CompressionRules"].type()) {
+        vector<CreateSiteFunctionRequestCompressionRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CompressionRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestCompressionRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        compressionRules = make_shared<vector<CreateSiteFunctionRequestCompressionRules>>(expect1);
+      }
+    }
+    if (m.find("CrossBorderOptimization") != m.end() && !m["CrossBorderOptimization"].empty()) {
+      if (typeid(vector<boost::any>) == m["CrossBorderOptimization"].type()) {
+        vector<CreateSiteFunctionRequestCrossBorderOptimization> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CrossBorderOptimization"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestCrossBorderOptimization model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        crossBorderOptimization = make_shared<vector<CreateSiteFunctionRequestCrossBorderOptimization>>(expect1);
+      }
+    }
+    if (m.find("DevelopmentMode") != m.end() && !m["DevelopmentMode"].empty()) {
+      if (typeid(vector<boost::any>) == m["DevelopmentMode"].type()) {
+        vector<CreateSiteFunctionRequestDevelopmentMode> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DevelopmentMode"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestDevelopmentMode model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        developmentMode = make_shared<vector<CreateSiteFunctionRequestDevelopmentMode>>(expect1);
+      }
+    }
+    if (m.find("HttpRequestHeaderModificationRules") != m.end() && !m["HttpRequestHeaderModificationRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpRequestHeaderModificationRules"].type()) {
+        vector<CreateSiteFunctionRequestHttpRequestHeaderModificationRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpRequestHeaderModificationRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestHttpRequestHeaderModificationRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpRequestHeaderModificationRules = make_shared<vector<CreateSiteFunctionRequestHttpRequestHeaderModificationRules>>(expect1);
+      }
+    }
+    if (m.find("HttpResponseHeaderModificationRules") != m.end() && !m["HttpResponseHeaderModificationRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpResponseHeaderModificationRules"].type()) {
+        vector<CreateSiteFunctionRequestHttpResponseHeaderModificationRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpResponseHeaderModificationRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestHttpResponseHeaderModificationRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpResponseHeaderModificationRules = make_shared<vector<CreateSiteFunctionRequestHttpResponseHeaderModificationRules>>(expect1);
+      }
+    }
+    if (m.find("HttpsApplicationConfiguration") != m.end() && !m["HttpsApplicationConfiguration"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpsApplicationConfiguration"].type()) {
+        vector<CreateSiteFunctionRequestHttpsApplicationConfiguration> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpsApplicationConfiguration"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestHttpsApplicationConfiguration model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpsApplicationConfiguration = make_shared<vector<CreateSiteFunctionRequestHttpsApplicationConfiguration>>(expect1);
+      }
+    }
+    if (m.find("HttpsBasicConfiguration") != m.end() && !m["HttpsBasicConfiguration"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpsBasicConfiguration"].type()) {
+        vector<CreateSiteFunctionRequestHttpsBasicConfiguration> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpsBasicConfiguration"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestHttpsBasicConfiguration model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpsBasicConfiguration = make_shared<vector<CreateSiteFunctionRequestHttpsBasicConfiguration>>(expect1);
+      }
+    }
+    if (m.find("ImageTransform") != m.end() && !m["ImageTransform"].empty()) {
+      if (typeid(vector<boost::any>) == m["ImageTransform"].type()) {
+        vector<CreateSiteFunctionRequestImageTransform> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ImageTransform"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestImageTransform model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        imageTransform = make_shared<vector<CreateSiteFunctionRequestImageTransform>>(expect1);
+      }
+    }
+    if (m.find("Ipv6") != m.end() && !m["Ipv6"].empty()) {
+      if (typeid(vector<boost::any>) == m["Ipv6"].type()) {
+        vector<CreateSiteFunctionRequestIpv6> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Ipv6"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestIpv6 model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipv6 = make_shared<vector<CreateSiteFunctionRequestIpv6>>(expect1);
+      }
+    }
+    if (m.find("ManagedTransforms") != m.end() && !m["ManagedTransforms"].empty()) {
+      if (typeid(vector<boost::any>) == m["ManagedTransforms"].type()) {
+        vector<CreateSiteFunctionRequestManagedTransforms> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ManagedTransforms"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestManagedTransforms model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        managedTransforms = make_shared<vector<CreateSiteFunctionRequestManagedTransforms>>(expect1);
+      }
+    }
+    if (m.find("NetworkOptimization") != m.end() && !m["NetworkOptimization"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetworkOptimization"].type()) {
+        vector<CreateSiteFunctionRequestNetworkOptimization> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetworkOptimization"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestNetworkOptimization model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networkOptimization = make_shared<vector<CreateSiteFunctionRequestNetworkOptimization>>(expect1);
+      }
+    }
+    if (m.find("OriginProtection") != m.end() && !m["OriginProtection"].empty()) {
+      if (typeid(vector<boost::any>) == m["OriginProtection"].type()) {
+        vector<CreateSiteFunctionRequestOriginProtection> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OriginProtection"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestOriginProtection model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        originProtection = make_shared<vector<CreateSiteFunctionRequestOriginProtection>>(expect1);
+      }
+    }
+    if (m.find("OriginRules") != m.end() && !m["OriginRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["OriginRules"].type()) {
+        vector<CreateSiteFunctionRequestOriginRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OriginRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestOriginRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        originRules = make_shared<vector<CreateSiteFunctionRequestOriginRules>>(expect1);
+      }
+    }
+    if (m.find("RedirectRules") != m.end() && !m["RedirectRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["RedirectRules"].type()) {
+        vector<CreateSiteFunctionRequestRedirectRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RedirectRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestRedirectRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        redirectRules = make_shared<vector<CreateSiteFunctionRequestRedirectRules>>(expect1);
+      }
+    }
+    if (m.find("RewriteUrlRules") != m.end() && !m["RewriteUrlRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["RewriteUrlRules"].type()) {
+        vector<CreateSiteFunctionRequestRewriteUrlRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RewriteUrlRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestRewriteUrlRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rewriteUrlRules = make_shared<vector<CreateSiteFunctionRequestRewriteUrlRules>>(expect1);
+      }
+    }
+    if (m.find("SeoBypass") != m.end() && !m["SeoBypass"].empty()) {
+      if (typeid(vector<boost::any>) == m["SeoBypass"].type()) {
+        vector<CreateSiteFunctionRequestSeoBypass> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SeoBypass"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestSeoBypass model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        seoBypass = make_shared<vector<CreateSiteFunctionRequestSeoBypass>>(expect1);
+      }
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+    if (m.find("SiteNameExclusive") != m.end() && !m["SiteNameExclusive"].empty()) {
+      if (typeid(vector<boost::any>) == m["SiteNameExclusive"].type()) {
+        vector<CreateSiteFunctionRequestSiteNameExclusive> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SiteNameExclusive"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestSiteNameExclusive model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        siteNameExclusive = make_shared<vector<CreateSiteFunctionRequestSiteNameExclusive>>(expect1);
+      }
+    }
+    if (m.find("SitePause") != m.end() && !m["SitePause"].empty()) {
+      if (typeid(vector<boost::any>) == m["SitePause"].type()) {
+        vector<CreateSiteFunctionRequestSitePause> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SitePause"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestSitePause model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sitePause = make_shared<vector<CreateSiteFunctionRequestSitePause>>(expect1);
+      }
+    }
+    if (m.find("SiteVersion") != m.end() && !m["SiteVersion"].empty()) {
+      siteVersion = make_shared<long>(boost::any_cast<long>(m["SiteVersion"]));
+    }
+    if (m.find("TieredCache") != m.end() && !m["TieredCache"].empty()) {
+      if (typeid(vector<boost::any>) == m["TieredCache"].type()) {
+        vector<CreateSiteFunctionRequestTieredCache> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TieredCache"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionRequestTieredCache model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tieredCache = make_shared<vector<CreateSiteFunctionRequestTieredCache>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionRequest() = default;
+};
+class CreateSiteFunctionShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cacheReserveShrink{};
+  shared_ptr<string> cacheRulesShrink{};
+  shared_ptr<string> cacheTagsShrink{};
+  shared_ptr<string> cnameFlatteningShrink{};
+  shared_ptr<string> compressionRulesShrink{};
+  shared_ptr<string> crossBorderOptimizationShrink{};
+  shared_ptr<string> developmentModeShrink{};
+  shared_ptr<string> httpRequestHeaderModificationRulesShrink{};
+  shared_ptr<string> httpResponseHeaderModificationRulesShrink{};
+  shared_ptr<string> httpsApplicationConfigurationShrink{};
+  shared_ptr<string> httpsBasicConfigurationShrink{};
+  shared_ptr<string> imageTransformShrink{};
+  shared_ptr<string> ipv6Shrink{};
+  shared_ptr<string> managedTransformsShrink{};
+  shared_ptr<string> networkOptimizationShrink{};
+  shared_ptr<string> originProtectionShrink{};
+  shared_ptr<string> originRulesShrink{};
+  shared_ptr<string> redirectRulesShrink{};
+  shared_ptr<string> rewriteUrlRulesShrink{};
+  shared_ptr<string> seoBypassShrink{};
+  shared_ptr<long> siteId{};
+  shared_ptr<string> siteNameExclusiveShrink{};
+  shared_ptr<string> sitePauseShrink{};
+  shared_ptr<long> siteVersion{};
+  shared_ptr<string> tieredCacheShrink{};
+
+  CreateSiteFunctionShrinkRequest() {}
+
+  explicit CreateSiteFunctionShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheReserveShrink) {
+      res["CacheReserve"] = boost::any(*cacheReserveShrink);
+    }
+    if (cacheRulesShrink) {
+      res["CacheRules"] = boost::any(*cacheRulesShrink);
+    }
+    if (cacheTagsShrink) {
+      res["CacheTags"] = boost::any(*cacheTagsShrink);
+    }
+    if (cnameFlatteningShrink) {
+      res["CnameFlattening"] = boost::any(*cnameFlatteningShrink);
+    }
+    if (compressionRulesShrink) {
+      res["CompressionRules"] = boost::any(*compressionRulesShrink);
+    }
+    if (crossBorderOptimizationShrink) {
+      res["CrossBorderOptimization"] = boost::any(*crossBorderOptimizationShrink);
+    }
+    if (developmentModeShrink) {
+      res["DevelopmentMode"] = boost::any(*developmentModeShrink);
+    }
+    if (httpRequestHeaderModificationRulesShrink) {
+      res["HttpRequestHeaderModificationRules"] = boost::any(*httpRequestHeaderModificationRulesShrink);
+    }
+    if (httpResponseHeaderModificationRulesShrink) {
+      res["HttpResponseHeaderModificationRules"] = boost::any(*httpResponseHeaderModificationRulesShrink);
+    }
+    if (httpsApplicationConfigurationShrink) {
+      res["HttpsApplicationConfiguration"] = boost::any(*httpsApplicationConfigurationShrink);
+    }
+    if (httpsBasicConfigurationShrink) {
+      res["HttpsBasicConfiguration"] = boost::any(*httpsBasicConfigurationShrink);
+    }
+    if (imageTransformShrink) {
+      res["ImageTransform"] = boost::any(*imageTransformShrink);
+    }
+    if (ipv6Shrink) {
+      res["Ipv6"] = boost::any(*ipv6Shrink);
+    }
+    if (managedTransformsShrink) {
+      res["ManagedTransforms"] = boost::any(*managedTransformsShrink);
+    }
+    if (networkOptimizationShrink) {
+      res["NetworkOptimization"] = boost::any(*networkOptimizationShrink);
+    }
+    if (originProtectionShrink) {
+      res["OriginProtection"] = boost::any(*originProtectionShrink);
+    }
+    if (originRulesShrink) {
+      res["OriginRules"] = boost::any(*originRulesShrink);
+    }
+    if (redirectRulesShrink) {
+      res["RedirectRules"] = boost::any(*redirectRulesShrink);
+    }
+    if (rewriteUrlRulesShrink) {
+      res["RewriteUrlRules"] = boost::any(*rewriteUrlRulesShrink);
+    }
+    if (seoBypassShrink) {
+      res["SeoBypass"] = boost::any(*seoBypassShrink);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    if (siteNameExclusiveShrink) {
+      res["SiteNameExclusive"] = boost::any(*siteNameExclusiveShrink);
+    }
+    if (sitePauseShrink) {
+      res["SitePause"] = boost::any(*sitePauseShrink);
+    }
+    if (siteVersion) {
+      res["SiteVersion"] = boost::any(*siteVersion);
+    }
+    if (tieredCacheShrink) {
+      res["TieredCache"] = boost::any(*tieredCacheShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheReserve") != m.end() && !m["CacheReserve"].empty()) {
+      cacheReserveShrink = make_shared<string>(boost::any_cast<string>(m["CacheReserve"]));
+    }
+    if (m.find("CacheRules") != m.end() && !m["CacheRules"].empty()) {
+      cacheRulesShrink = make_shared<string>(boost::any_cast<string>(m["CacheRules"]));
+    }
+    if (m.find("CacheTags") != m.end() && !m["CacheTags"].empty()) {
+      cacheTagsShrink = make_shared<string>(boost::any_cast<string>(m["CacheTags"]));
+    }
+    if (m.find("CnameFlattening") != m.end() && !m["CnameFlattening"].empty()) {
+      cnameFlatteningShrink = make_shared<string>(boost::any_cast<string>(m["CnameFlattening"]));
+    }
+    if (m.find("CompressionRules") != m.end() && !m["CompressionRules"].empty()) {
+      compressionRulesShrink = make_shared<string>(boost::any_cast<string>(m["CompressionRules"]));
+    }
+    if (m.find("CrossBorderOptimization") != m.end() && !m["CrossBorderOptimization"].empty()) {
+      crossBorderOptimizationShrink = make_shared<string>(boost::any_cast<string>(m["CrossBorderOptimization"]));
+    }
+    if (m.find("DevelopmentMode") != m.end() && !m["DevelopmentMode"].empty()) {
+      developmentModeShrink = make_shared<string>(boost::any_cast<string>(m["DevelopmentMode"]));
+    }
+    if (m.find("HttpRequestHeaderModificationRules") != m.end() && !m["HttpRequestHeaderModificationRules"].empty()) {
+      httpRequestHeaderModificationRulesShrink = make_shared<string>(boost::any_cast<string>(m["HttpRequestHeaderModificationRules"]));
+    }
+    if (m.find("HttpResponseHeaderModificationRules") != m.end() && !m["HttpResponseHeaderModificationRules"].empty()) {
+      httpResponseHeaderModificationRulesShrink = make_shared<string>(boost::any_cast<string>(m["HttpResponseHeaderModificationRules"]));
+    }
+    if (m.find("HttpsApplicationConfiguration") != m.end() && !m["HttpsApplicationConfiguration"].empty()) {
+      httpsApplicationConfigurationShrink = make_shared<string>(boost::any_cast<string>(m["HttpsApplicationConfiguration"]));
+    }
+    if (m.find("HttpsBasicConfiguration") != m.end() && !m["HttpsBasicConfiguration"].empty()) {
+      httpsBasicConfigurationShrink = make_shared<string>(boost::any_cast<string>(m["HttpsBasicConfiguration"]));
+    }
+    if (m.find("ImageTransform") != m.end() && !m["ImageTransform"].empty()) {
+      imageTransformShrink = make_shared<string>(boost::any_cast<string>(m["ImageTransform"]));
+    }
+    if (m.find("Ipv6") != m.end() && !m["Ipv6"].empty()) {
+      ipv6Shrink = make_shared<string>(boost::any_cast<string>(m["Ipv6"]));
+    }
+    if (m.find("ManagedTransforms") != m.end() && !m["ManagedTransforms"].empty()) {
+      managedTransformsShrink = make_shared<string>(boost::any_cast<string>(m["ManagedTransforms"]));
+    }
+    if (m.find("NetworkOptimization") != m.end() && !m["NetworkOptimization"].empty()) {
+      networkOptimizationShrink = make_shared<string>(boost::any_cast<string>(m["NetworkOptimization"]));
+    }
+    if (m.find("OriginProtection") != m.end() && !m["OriginProtection"].empty()) {
+      originProtectionShrink = make_shared<string>(boost::any_cast<string>(m["OriginProtection"]));
+    }
+    if (m.find("OriginRules") != m.end() && !m["OriginRules"].empty()) {
+      originRulesShrink = make_shared<string>(boost::any_cast<string>(m["OriginRules"]));
+    }
+    if (m.find("RedirectRules") != m.end() && !m["RedirectRules"].empty()) {
+      redirectRulesShrink = make_shared<string>(boost::any_cast<string>(m["RedirectRules"]));
+    }
+    if (m.find("RewriteUrlRules") != m.end() && !m["RewriteUrlRules"].empty()) {
+      rewriteUrlRulesShrink = make_shared<string>(boost::any_cast<string>(m["RewriteUrlRules"]));
+    }
+    if (m.find("SeoBypass") != m.end() && !m["SeoBypass"].empty()) {
+      seoBypassShrink = make_shared<string>(boost::any_cast<string>(m["SeoBypass"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+    if (m.find("SiteNameExclusive") != m.end() && !m["SiteNameExclusive"].empty()) {
+      siteNameExclusiveShrink = make_shared<string>(boost::any_cast<string>(m["SiteNameExclusive"]));
+    }
+    if (m.find("SitePause") != m.end() && !m["SitePause"].empty()) {
+      sitePauseShrink = make_shared<string>(boost::any_cast<string>(m["SitePause"]));
+    }
+    if (m.find("SiteVersion") != m.end() && !m["SiteVersion"].empty()) {
+      siteVersion = make_shared<long>(boost::any_cast<long>(m["SiteVersion"]));
+    }
+    if (m.find("TieredCache") != m.end() && !m["TieredCache"].empty()) {
+      tieredCacheShrink = make_shared<string>(boost::any_cast<string>(m["TieredCache"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionShrinkRequest() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsCacheReserve : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> instanceId{};
+
+  CreateSiteFunctionResponseBodyConfigsCacheReserve() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsCacheReserve(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsCacheReserve() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsCacheRules : public Darabonba::Model {
+public:
+  shared_ptr<string> additionalCacheablePorts{};
+  shared_ptr<string> browserCacheMode{};
+  shared_ptr<string> browserCacheTtl{};
+  shared_ptr<string> bypassCache{};
+  shared_ptr<string> cacheDeceptionArmor{};
+  shared_ptr<string> cacheReserveEligibility{};
+  shared_ptr<string> checkPresenceCookie{};
+  shared_ptr<string> checkPresenceHeader{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> edgeCacheMode{};
+  shared_ptr<string> edgeCacheTtl{};
+  shared_ptr<string> edgeStatusCodeCacheTtl{};
+  shared_ptr<string> includeCookie{};
+  shared_ptr<string> includeHeader{};
+  shared_ptr<string> queryString{};
+  shared_ptr<string> queryStringMode{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+  shared_ptr<string> serveStale{};
+  shared_ptr<string> sortQueryStringForCache{};
+  shared_ptr<string> userDeviceType{};
+  shared_ptr<string> userGeo{};
+  shared_ptr<string> userLanguage{};
+
+  CreateSiteFunctionResponseBodyConfigsCacheRules() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsCacheRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (additionalCacheablePorts) {
+      res["AdditionalCacheablePorts"] = boost::any(*additionalCacheablePorts);
+    }
+    if (browserCacheMode) {
+      res["BrowserCacheMode"] = boost::any(*browserCacheMode);
+    }
+    if (browserCacheTtl) {
+      res["BrowserCacheTtl"] = boost::any(*browserCacheTtl);
+    }
+    if (bypassCache) {
+      res["BypassCache"] = boost::any(*bypassCache);
+    }
+    if (cacheDeceptionArmor) {
+      res["CacheDeceptionArmor"] = boost::any(*cacheDeceptionArmor);
+    }
+    if (cacheReserveEligibility) {
+      res["CacheReserveEligibility"] = boost::any(*cacheReserveEligibility);
+    }
+    if (checkPresenceCookie) {
+      res["CheckPresenceCookie"] = boost::any(*checkPresenceCookie);
+    }
+    if (checkPresenceHeader) {
+      res["CheckPresenceHeader"] = boost::any(*checkPresenceHeader);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (edgeCacheMode) {
+      res["EdgeCacheMode"] = boost::any(*edgeCacheMode);
+    }
+    if (edgeCacheTtl) {
+      res["EdgeCacheTtl"] = boost::any(*edgeCacheTtl);
+    }
+    if (edgeStatusCodeCacheTtl) {
+      res["EdgeStatusCodeCacheTtl"] = boost::any(*edgeStatusCodeCacheTtl);
+    }
+    if (includeCookie) {
+      res["IncludeCookie"] = boost::any(*includeCookie);
+    }
+    if (includeHeader) {
+      res["IncludeHeader"] = boost::any(*includeHeader);
+    }
+    if (queryString) {
+      res["QueryString"] = boost::any(*queryString);
+    }
+    if (queryStringMode) {
+      res["QueryStringMode"] = boost::any(*queryStringMode);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (serveStale) {
+      res["ServeStale"] = boost::any(*serveStale);
+    }
+    if (sortQueryStringForCache) {
+      res["SortQueryStringForCache"] = boost::any(*sortQueryStringForCache);
+    }
+    if (userDeviceType) {
+      res["UserDeviceType"] = boost::any(*userDeviceType);
+    }
+    if (userGeo) {
+      res["UserGeo"] = boost::any(*userGeo);
+    }
+    if (userLanguage) {
+      res["UserLanguage"] = boost::any(*userLanguage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalCacheablePorts") != m.end() && !m["AdditionalCacheablePorts"].empty()) {
+      additionalCacheablePorts = make_shared<string>(boost::any_cast<string>(m["AdditionalCacheablePorts"]));
+    }
+    if (m.find("BrowserCacheMode") != m.end() && !m["BrowserCacheMode"].empty()) {
+      browserCacheMode = make_shared<string>(boost::any_cast<string>(m["BrowserCacheMode"]));
+    }
+    if (m.find("BrowserCacheTtl") != m.end() && !m["BrowserCacheTtl"].empty()) {
+      browserCacheTtl = make_shared<string>(boost::any_cast<string>(m["BrowserCacheTtl"]));
+    }
+    if (m.find("BypassCache") != m.end() && !m["BypassCache"].empty()) {
+      bypassCache = make_shared<string>(boost::any_cast<string>(m["BypassCache"]));
+    }
+    if (m.find("CacheDeceptionArmor") != m.end() && !m["CacheDeceptionArmor"].empty()) {
+      cacheDeceptionArmor = make_shared<string>(boost::any_cast<string>(m["CacheDeceptionArmor"]));
+    }
+    if (m.find("CacheReserveEligibility") != m.end() && !m["CacheReserveEligibility"].empty()) {
+      cacheReserveEligibility = make_shared<string>(boost::any_cast<string>(m["CacheReserveEligibility"]));
+    }
+    if (m.find("CheckPresenceCookie") != m.end() && !m["CheckPresenceCookie"].empty()) {
+      checkPresenceCookie = make_shared<string>(boost::any_cast<string>(m["CheckPresenceCookie"]));
+    }
+    if (m.find("CheckPresenceHeader") != m.end() && !m["CheckPresenceHeader"].empty()) {
+      checkPresenceHeader = make_shared<string>(boost::any_cast<string>(m["CheckPresenceHeader"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("EdgeCacheMode") != m.end() && !m["EdgeCacheMode"].empty()) {
+      edgeCacheMode = make_shared<string>(boost::any_cast<string>(m["EdgeCacheMode"]));
+    }
+    if (m.find("EdgeCacheTtl") != m.end() && !m["EdgeCacheTtl"].empty()) {
+      edgeCacheTtl = make_shared<string>(boost::any_cast<string>(m["EdgeCacheTtl"]));
+    }
+    if (m.find("EdgeStatusCodeCacheTtl") != m.end() && !m["EdgeStatusCodeCacheTtl"].empty()) {
+      edgeStatusCodeCacheTtl = make_shared<string>(boost::any_cast<string>(m["EdgeStatusCodeCacheTtl"]));
+    }
+    if (m.find("IncludeCookie") != m.end() && !m["IncludeCookie"].empty()) {
+      includeCookie = make_shared<string>(boost::any_cast<string>(m["IncludeCookie"]));
+    }
+    if (m.find("IncludeHeader") != m.end() && !m["IncludeHeader"].empty()) {
+      includeHeader = make_shared<string>(boost::any_cast<string>(m["IncludeHeader"]));
+    }
+    if (m.find("QueryString") != m.end() && !m["QueryString"].empty()) {
+      queryString = make_shared<string>(boost::any_cast<string>(m["QueryString"]));
+    }
+    if (m.find("QueryStringMode") != m.end() && !m["QueryStringMode"].empty()) {
+      queryStringMode = make_shared<string>(boost::any_cast<string>(m["QueryStringMode"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+    if (m.find("ServeStale") != m.end() && !m["ServeStale"].empty()) {
+      serveStale = make_shared<string>(boost::any_cast<string>(m["ServeStale"]));
+    }
+    if (m.find("SortQueryStringForCache") != m.end() && !m["SortQueryStringForCache"].empty()) {
+      sortQueryStringForCache = make_shared<string>(boost::any_cast<string>(m["SortQueryStringForCache"]));
+    }
+    if (m.find("UserDeviceType") != m.end() && !m["UserDeviceType"].empty()) {
+      userDeviceType = make_shared<string>(boost::any_cast<string>(m["UserDeviceType"]));
+    }
+    if (m.find("UserGeo") != m.end() && !m["UserGeo"].empty()) {
+      userGeo = make_shared<string>(boost::any_cast<string>(m["UserGeo"]));
+    }
+    if (m.find("UserLanguage") != m.end() && !m["UserLanguage"].empty()) {
+      userLanguage = make_shared<string>(boost::any_cast<string>(m["UserLanguage"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsCacheRules() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsCacheTags : public Darabonba::Model {
+public:
+  shared_ptr<string> caseInsensitive{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> sequence{};
+  shared_ptr<string> tagName{};
+
+  CreateSiteFunctionResponseBodyConfigsCacheTags() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsCacheTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (caseInsensitive) {
+      res["CaseInsensitive"] = boost::any(*caseInsensitive);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (tagName) {
+      res["TagName"] = boost::any(*tagName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CaseInsensitive") != m.end() && !m["CaseInsensitive"].empty()) {
+      caseInsensitive = make_shared<string>(boost::any_cast<string>(m["CaseInsensitive"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+    if (m.find("TagName") != m.end() && !m["TagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["TagName"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsCacheTags() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsCnameFlattening : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> flattenMode{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsCnameFlattening() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsCnameFlattening(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (flattenMode) {
+      res["FlattenMode"] = boost::any(*flattenMode);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("FlattenMode") != m.end() && !m["FlattenMode"].empty()) {
+      flattenMode = make_shared<string>(boost::any_cast<string>(m["FlattenMode"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsCnameFlattening() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsCompressionRules : public Darabonba::Model {
+public:
+  shared_ptr<string> brotli{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> gzip{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsCompressionRules() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsCompressionRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (brotli) {
+      res["Brotli"] = boost::any(*brotli);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (gzip) {
+      res["Gzip"] = boost::any(*gzip);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Brotli") != m.end() && !m["Brotli"].empty()) {
+      brotli = make_shared<string>(boost::any_cast<string>(m["Brotli"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Gzip") != m.end() && !m["Gzip"].empty()) {
+      gzip = make_shared<string>(boost::any_cast<string>(m["Gzip"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsCompressionRules() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+
+  CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsDevelopmentMode : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsDevelopmentMode() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsDevelopmentMode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsDevelopmentMode() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> operation{};
+  shared_ptr<string> value{};
+
+  CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (operation) {
+      res["Operation"] = boost::any(*operation);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Operation") != m.end() && !m["Operation"].empty()) {
+      operation = make_shared<string>(boost::any_cast<string>(m["Operation"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification>> requestHeaderModification{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (requestHeaderModification) {
+      vector<boost::any> temp1;
+      for(auto item1:*requestHeaderModification){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RequestHeaderModification"] = boost::any(temp1);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("RequestHeaderModification") != m.end() && !m["RequestHeaderModification"].empty()) {
+      if (typeid(vector<boost::any>) == m["RequestHeaderModification"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RequestHeaderModification"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        requestHeaderModification = make_shared<vector<CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification>>(expect1);
+      }
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> operation{};
+  shared_ptr<string> value{};
+
+  CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (operation) {
+      res["Operation"] = boost::any(*operation);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Operation") != m.end() && !m["Operation"].empty()) {
+      operation = make_shared<string>(boost::any_cast<string>(m["Operation"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification>> responseHeaderModification{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (responseHeaderModification) {
+      vector<boost::any> temp1;
+      for(auto item1:*responseHeaderModification){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResponseHeaderModification"] = boost::any(temp1);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("ResponseHeaderModification") != m.end() && !m["ResponseHeaderModification"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResponseHeaderModification"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResponseHeaderModification"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        responseHeaderModification = make_shared<vector<CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification>>(expect1);
+      }
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<string> altSvc{};
+  shared_ptr<string> altSvcClear{};
+  shared_ptr<string> altSvcMa{};
+  shared_ptr<string> altSvcPersist{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> hsts{};
+  shared_ptr<string> hstsIncludeSubdomains{};
+  shared_ptr<string> hstsMaxAge{};
+  shared_ptr<string> hstsPreload{};
+  shared_ptr<string> httpsForce{};
+  shared_ptr<string> httpsForceCode{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (altSvc) {
+      res["AltSvc"] = boost::any(*altSvc);
+    }
+    if (altSvcClear) {
+      res["AltSvcClear"] = boost::any(*altSvcClear);
+    }
+    if (altSvcMa) {
+      res["AltSvcMa"] = boost::any(*altSvcMa);
+    }
+    if (altSvcPersist) {
+      res["AltSvcPersist"] = boost::any(*altSvcPersist);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (hsts) {
+      res["Hsts"] = boost::any(*hsts);
+    }
+    if (hstsIncludeSubdomains) {
+      res["HstsIncludeSubdomains"] = boost::any(*hstsIncludeSubdomains);
+    }
+    if (hstsMaxAge) {
+      res["HstsMaxAge"] = boost::any(*hstsMaxAge);
+    }
+    if (hstsPreload) {
+      res["HstsPreload"] = boost::any(*hstsPreload);
+    }
+    if (httpsForce) {
+      res["HttpsForce"] = boost::any(*httpsForce);
+    }
+    if (httpsForceCode) {
+      res["HttpsForceCode"] = boost::any(*httpsForceCode);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AltSvc") != m.end() && !m["AltSvc"].empty()) {
+      altSvc = make_shared<string>(boost::any_cast<string>(m["AltSvc"]));
+    }
+    if (m.find("AltSvcClear") != m.end() && !m["AltSvcClear"].empty()) {
+      altSvcClear = make_shared<string>(boost::any_cast<string>(m["AltSvcClear"]));
+    }
+    if (m.find("AltSvcMa") != m.end() && !m["AltSvcMa"].empty()) {
+      altSvcMa = make_shared<string>(boost::any_cast<string>(m["AltSvcMa"]));
+    }
+    if (m.find("AltSvcPersist") != m.end() && !m["AltSvcPersist"].empty()) {
+      altSvcPersist = make_shared<string>(boost::any_cast<string>(m["AltSvcPersist"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Hsts") != m.end() && !m["Hsts"].empty()) {
+      hsts = make_shared<string>(boost::any_cast<string>(m["Hsts"]));
+    }
+    if (m.find("HstsIncludeSubdomains") != m.end() && !m["HstsIncludeSubdomains"].empty()) {
+      hstsIncludeSubdomains = make_shared<string>(boost::any_cast<string>(m["HstsIncludeSubdomains"]));
+    }
+    if (m.find("HstsMaxAge") != m.end() && !m["HstsMaxAge"].empty()) {
+      hstsMaxAge = make_shared<string>(boost::any_cast<string>(m["HstsMaxAge"]));
+    }
+    if (m.find("HstsPreload") != m.end() && !m["HstsPreload"].empty()) {
+      hstsPreload = make_shared<string>(boost::any_cast<string>(m["HstsPreload"]));
+    }
+    if (m.find("HttpsForce") != m.end() && !m["HttpsForce"].empty()) {
+      httpsForce = make_shared<string>(boost::any_cast<string>(m["HttpsForce"]));
+    }
+    if (m.find("HttpsForceCode") != m.end() && !m["HttpsForceCode"].empty()) {
+      httpsForceCode = make_shared<string>(boost::any_cast<string>(m["HttpsForceCode"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<string> ciphersuite{};
+  shared_ptr<string> ciphersuiteGroup{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> http2{};
+  shared_ptr<string> http3{};
+  shared_ptr<string> https{};
+  shared_ptr<string> ocspStapling{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+  shared_ptr<string> tls10{};
+  shared_ptr<string> tls11{};
+  shared_ptr<string> tls12{};
+  shared_ptr<string> tls13{};
+
+  CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ciphersuite) {
+      res["Ciphersuite"] = boost::any(*ciphersuite);
+    }
+    if (ciphersuiteGroup) {
+      res["CiphersuiteGroup"] = boost::any(*ciphersuiteGroup);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (http2) {
+      res["Http2"] = boost::any(*http2);
+    }
+    if (http3) {
+      res["Http3"] = boost::any(*http3);
+    }
+    if (https) {
+      res["Https"] = boost::any(*https);
+    }
+    if (ocspStapling) {
+      res["OcspStapling"] = boost::any(*ocspStapling);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (tls10) {
+      res["Tls10"] = boost::any(*tls10);
+    }
+    if (tls11) {
+      res["Tls11"] = boost::any(*tls11);
+    }
+    if (tls12) {
+      res["Tls12"] = boost::any(*tls12);
+    }
+    if (tls13) {
+      res["Tls13"] = boost::any(*tls13);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ciphersuite") != m.end() && !m["Ciphersuite"].empty()) {
+      ciphersuite = make_shared<string>(boost::any_cast<string>(m["Ciphersuite"]));
+    }
+    if (m.find("CiphersuiteGroup") != m.end() && !m["CiphersuiteGroup"].empty()) {
+      ciphersuiteGroup = make_shared<string>(boost::any_cast<string>(m["CiphersuiteGroup"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Http2") != m.end() && !m["Http2"].empty()) {
+      http2 = make_shared<string>(boost::any_cast<string>(m["Http2"]));
+    }
+    if (m.find("Http3") != m.end() && !m["Http3"].empty()) {
+      http3 = make_shared<string>(boost::any_cast<string>(m["Http3"]));
+    }
+    if (m.find("Https") != m.end() && !m["Https"].empty()) {
+      https = make_shared<string>(boost::any_cast<string>(m["Https"]));
+    }
+    if (m.find("OcspStapling") != m.end() && !m["OcspStapling"].empty()) {
+      ocspStapling = make_shared<string>(boost::any_cast<string>(m["OcspStapling"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+    if (m.find("Tls10") != m.end() && !m["Tls10"].empty()) {
+      tls10 = make_shared<string>(boost::any_cast<string>(m["Tls10"]));
+    }
+    if (m.find("Tls11") != m.end() && !m["Tls11"].empty()) {
+      tls11 = make_shared<string>(boost::any_cast<string>(m["Tls11"]));
+    }
+    if (m.find("Tls12") != m.end() && !m["Tls12"].empty()) {
+      tls12 = make_shared<string>(boost::any_cast<string>(m["Tls12"]));
+    }
+    if (m.find("Tls13") != m.end() && !m["Tls13"].empty()) {
+      tls13 = make_shared<string>(boost::any_cast<string>(m["Tls13"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsImageTransform : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsImageTransform() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsImageTransform(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsImageTransform() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsIpv6 : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsIpv6() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsIpv6(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsIpv6() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsManagedTransforms : public Darabonba::Model {
+public:
+  shared_ptr<string> addClientGeolocationHeaders{};
+  shared_ptr<string> addRealClientIpHeader{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsManagedTransforms() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsManagedTransforms(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addClientGeolocationHeaders) {
+      res["AddClientGeolocationHeaders"] = boost::any(*addClientGeolocationHeaders);
+    }
+    if (addRealClientIpHeader) {
+      res["AddRealClientIpHeader"] = boost::any(*addRealClientIpHeader);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddClientGeolocationHeaders") != m.end() && !m["AddClientGeolocationHeaders"].empty()) {
+      addClientGeolocationHeaders = make_shared<string>(boost::any_cast<string>(m["AddClientGeolocationHeaders"]));
+    }
+    if (m.find("AddRealClientIpHeader") != m.end() && !m["AddRealClientIpHeader"].empty()) {
+      addRealClientIpHeader = make_shared<string>(boost::any_cast<string>(m["AddRealClientIpHeader"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsManagedTransforms() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsNetworkOptimization : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> grpc{};
+  shared_ptr<string> http2Origin{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+  shared_ptr<string> smartRouting{};
+  shared_ptr<string> uploadMaxFilesize{};
+  shared_ptr<string> websocket{};
+
+  CreateSiteFunctionResponseBodyConfigsNetworkOptimization() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsNetworkOptimization(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (grpc) {
+      res["Grpc"] = boost::any(*grpc);
+    }
+    if (http2Origin) {
+      res["Http2Origin"] = boost::any(*http2Origin);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (smartRouting) {
+      res["SmartRouting"] = boost::any(*smartRouting);
+    }
+    if (uploadMaxFilesize) {
+      res["UploadMaxFilesize"] = boost::any(*uploadMaxFilesize);
+    }
+    if (websocket) {
+      res["Websocket"] = boost::any(*websocket);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Grpc") != m.end() && !m["Grpc"].empty()) {
+      grpc = make_shared<string>(boost::any_cast<string>(m["Grpc"]));
+    }
+    if (m.find("Http2Origin") != m.end() && !m["Http2Origin"].empty()) {
+      http2Origin = make_shared<string>(boost::any_cast<string>(m["Http2Origin"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+    if (m.find("SmartRouting") != m.end() && !m["SmartRouting"].empty()) {
+      smartRouting = make_shared<string>(boost::any_cast<string>(m["SmartRouting"]));
+    }
+    if (m.find("UploadMaxFilesize") != m.end() && !m["UploadMaxFilesize"].empty()) {
+      uploadMaxFilesize = make_shared<string>(boost::any_cast<string>(m["UploadMaxFilesize"]));
+    }
+    if (m.find("Websocket") != m.end() && !m["Websocket"].empty()) {
+      websocket = make_shared<string>(boost::any_cast<string>(m["Websocket"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsNetworkOptimization() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsOriginRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> dnsRecord{};
+  shared_ptr<string> originHost{};
+  shared_ptr<string> originHttpPort{};
+  shared_ptr<string> originHttpsPort{};
+  shared_ptr<string> originScheme{};
+  shared_ptr<string> originSni{};
+  shared_ptr<string> range{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsOriginRules() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsOriginRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (dnsRecord) {
+      res["DnsRecord"] = boost::any(*dnsRecord);
+    }
+    if (originHost) {
+      res["OriginHost"] = boost::any(*originHost);
+    }
+    if (originHttpPort) {
+      res["OriginHttpPort"] = boost::any(*originHttpPort);
+    }
+    if (originHttpsPort) {
+      res["OriginHttpsPort"] = boost::any(*originHttpsPort);
+    }
+    if (originScheme) {
+      res["OriginScheme"] = boost::any(*originScheme);
+    }
+    if (originSni) {
+      res["OriginSni"] = boost::any(*originSni);
+    }
+    if (range) {
+      res["Range"] = boost::any(*range);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("DnsRecord") != m.end() && !m["DnsRecord"].empty()) {
+      dnsRecord = make_shared<string>(boost::any_cast<string>(m["DnsRecord"]));
+    }
+    if (m.find("OriginHost") != m.end() && !m["OriginHost"].empty()) {
+      originHost = make_shared<string>(boost::any_cast<string>(m["OriginHost"]));
+    }
+    if (m.find("OriginHttpPort") != m.end() && !m["OriginHttpPort"].empty()) {
+      originHttpPort = make_shared<string>(boost::any_cast<string>(m["OriginHttpPort"]));
+    }
+    if (m.find("OriginHttpsPort") != m.end() && !m["OriginHttpsPort"].empty()) {
+      originHttpsPort = make_shared<string>(boost::any_cast<string>(m["OriginHttpsPort"]));
+    }
+    if (m.find("OriginScheme") != m.end() && !m["OriginScheme"].empty()) {
+      originScheme = make_shared<string>(boost::any_cast<string>(m["OriginScheme"]));
+    }
+    if (m.find("OriginSni") != m.end() && !m["OriginSni"].empty()) {
+      originSni = make_shared<string>(boost::any_cast<string>(m["OriginSni"]));
+    }
+    if (m.find("Range") != m.end() && !m["Range"].empty()) {
+      range = make_shared<string>(boost::any_cast<string>(m["Range"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsOriginRules() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsRedirectRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> reserveQueryString{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+  shared_ptr<string> statusCode{};
+  shared_ptr<string> targetUrl{};
+  shared_ptr<string> type{};
+
+  CreateSiteFunctionResponseBodyConfigsRedirectRules() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsRedirectRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (reserveQueryString) {
+      res["ReserveQueryString"] = boost::any(*reserveQueryString);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (statusCode) {
+      res["StatusCode"] = boost::any(*statusCode);
+    }
+    if (targetUrl) {
+      res["TargetUrl"] = boost::any(*targetUrl);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("ReserveQueryString") != m.end() && !m["ReserveQueryString"].empty()) {
+      reserveQueryString = make_shared<string>(boost::any_cast<string>(m["ReserveQueryString"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      statusCode = make_shared<string>(boost::any_cast<string>(m["StatusCode"]));
+    }
+    if (m.find("TargetUrl") != m.end() && !m["TargetUrl"].empty()) {
+      targetUrl = make_shared<string>(boost::any_cast<string>(m["TargetUrl"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsRedirectRules() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsRewriteUrlRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> queryString{};
+  shared_ptr<string> rewriteQueryStringType{};
+  shared_ptr<string> rewriteUriType{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+  shared_ptr<string> uri{};
+
+  CreateSiteFunctionResponseBodyConfigsRewriteUrlRules() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsRewriteUrlRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (queryString) {
+      res["QueryString"] = boost::any(*queryString);
+    }
+    if (rewriteQueryStringType) {
+      res["RewriteQueryStringType"] = boost::any(*rewriteQueryStringType);
+    }
+    if (rewriteUriType) {
+      res["RewriteUriType"] = boost::any(*rewriteUriType);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("QueryString") != m.end() && !m["QueryString"].empty()) {
+      queryString = make_shared<string>(boost::any_cast<string>(m["QueryString"]));
+    }
+    if (m.find("RewriteQueryStringType") != m.end() && !m["RewriteQueryStringType"].empty()) {
+      rewriteQueryStringType = make_shared<string>(boost::any_cast<string>(m["RewriteQueryStringType"]));
+    }
+    if (m.find("RewriteUriType") != m.end() && !m["RewriteUriType"].empty()) {
+      rewriteUriType = make_shared<string>(boost::any_cast<string>(m["RewriteUriType"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsRewriteUrlRules() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsSeoBypass : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsSeoBypass() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsSeoBypass(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsSeoBypass() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsSiteNameExclusive : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsSiteNameExclusive() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsSiteNameExclusive(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsSiteNameExclusive() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsSitePause : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> paused{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsSitePause() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsSitePause(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (paused) {
+      res["Paused"] = boost::any(*paused);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Paused") != m.end() && !m["Paused"].empty()) {
+      paused = make_shared<string>(boost::any_cast<string>(m["Paused"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsSitePause() = default;
+};
+class CreateSiteFunctionResponseBodyConfigsTieredCache : public Darabonba::Model {
+public:
+  shared_ptr<string> cacheArchitectureMode{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> sequence{};
+
+  CreateSiteFunctionResponseBodyConfigsTieredCache() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigsTieredCache(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheArchitectureMode) {
+      res["CacheArchitectureMode"] = boost::any(*cacheArchitectureMode);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheArchitectureMode") != m.end() && !m["CacheArchitectureMode"].empty()) {
+      cacheArchitectureMode = make_shared<string>(boost::any_cast<string>(m["CacheArchitectureMode"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigsTieredCache() = default;
+};
+class CreateSiteFunctionResponseBodyConfigs : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsCacheReserve>> cacheReserve{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsCacheRules>> cacheRules{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsCacheTags>> cacheTags{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsCnameFlattening>> cnameFlattening{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsCompressionRules>> compressionRules{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization>> crossBorderOptimization{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsDevelopmentMode>> developmentMode{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules>> httpRequestHeaderModificationRules{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules>> httpResponseHeaderModificationRules{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration>> httpsApplicationConfiguration{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration>> httpsBasicConfiguration{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsImageTransform>> imageTransform{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsIpv6>> ipv6{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsManagedTransforms>> managedTransforms{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsNetworkOptimization>> networkOptimization{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsOriginRules>> originRules{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsRedirectRules>> redirectRules{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsRewriteUrlRules>> rewriteUrlRules{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsSeoBypass>> seoBypass{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsSiteNameExclusive>> siteNameExclusive{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsSitePause>> sitePause{};
+  shared_ptr<vector<CreateSiteFunctionResponseBodyConfigsTieredCache>> tieredCache{};
+
+  CreateSiteFunctionResponseBodyConfigs() {}
+
+  explicit CreateSiteFunctionResponseBodyConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheReserve) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheReserve){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheReserve"] = boost::any(temp1);
+    }
+    if (cacheRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheRules"] = boost::any(temp1);
+    }
+    if (cacheTags) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheTags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheTags"] = boost::any(temp1);
+    }
+    if (cnameFlattening) {
+      vector<boost::any> temp1;
+      for(auto item1:*cnameFlattening){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CnameFlattening"] = boost::any(temp1);
+    }
+    if (compressionRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*compressionRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CompressionRules"] = boost::any(temp1);
+    }
+    if (crossBorderOptimization) {
+      vector<boost::any> temp1;
+      for(auto item1:*crossBorderOptimization){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CrossBorderOptimization"] = boost::any(temp1);
+    }
+    if (developmentMode) {
+      vector<boost::any> temp1;
+      for(auto item1:*developmentMode){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DevelopmentMode"] = boost::any(temp1);
+    }
+    if (httpRequestHeaderModificationRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpRequestHeaderModificationRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpRequestHeaderModificationRules"] = boost::any(temp1);
+    }
+    if (httpResponseHeaderModificationRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpResponseHeaderModificationRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpResponseHeaderModificationRules"] = boost::any(temp1);
+    }
+    if (httpsApplicationConfiguration) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpsApplicationConfiguration){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpsApplicationConfiguration"] = boost::any(temp1);
+    }
+    if (httpsBasicConfiguration) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpsBasicConfiguration){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpsBasicConfiguration"] = boost::any(temp1);
+    }
+    if (imageTransform) {
+      vector<boost::any> temp1;
+      for(auto item1:*imageTransform){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ImageTransform"] = boost::any(temp1);
+    }
+    if (ipv6) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipv6){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Ipv6"] = boost::any(temp1);
+    }
+    if (managedTransforms) {
+      vector<boost::any> temp1;
+      for(auto item1:*managedTransforms){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ManagedTransforms"] = boost::any(temp1);
+    }
+    if (networkOptimization) {
+      vector<boost::any> temp1;
+      for(auto item1:*networkOptimization){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetworkOptimization"] = boost::any(temp1);
+    }
+    if (originRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*originRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OriginRules"] = boost::any(temp1);
+    }
+    if (redirectRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*redirectRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RedirectRules"] = boost::any(temp1);
+    }
+    if (rewriteUrlRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rewriteUrlRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RewriteUrlRules"] = boost::any(temp1);
+    }
+    if (seoBypass) {
+      vector<boost::any> temp1;
+      for(auto item1:*seoBypass){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SeoBypass"] = boost::any(temp1);
+    }
+    if (siteNameExclusive) {
+      vector<boost::any> temp1;
+      for(auto item1:*siteNameExclusive){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SiteNameExclusive"] = boost::any(temp1);
+    }
+    if (sitePause) {
+      vector<boost::any> temp1;
+      for(auto item1:*sitePause){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SitePause"] = boost::any(temp1);
+    }
+    if (tieredCache) {
+      vector<boost::any> temp1;
+      for(auto item1:*tieredCache){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TieredCache"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheReserve") != m.end() && !m["CacheReserve"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheReserve"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsCacheReserve> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheReserve"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsCacheReserve model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheReserve = make_shared<vector<CreateSiteFunctionResponseBodyConfigsCacheReserve>>(expect1);
+      }
+    }
+    if (m.find("CacheRules") != m.end() && !m["CacheRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheRules"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsCacheRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsCacheRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheRules = make_shared<vector<CreateSiteFunctionResponseBodyConfigsCacheRules>>(expect1);
+      }
+    }
+    if (m.find("CacheTags") != m.end() && !m["CacheTags"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheTags"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsCacheTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheTags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsCacheTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheTags = make_shared<vector<CreateSiteFunctionResponseBodyConfigsCacheTags>>(expect1);
+      }
+    }
+    if (m.find("CnameFlattening") != m.end() && !m["CnameFlattening"].empty()) {
+      if (typeid(vector<boost::any>) == m["CnameFlattening"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsCnameFlattening> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CnameFlattening"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsCnameFlattening model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cnameFlattening = make_shared<vector<CreateSiteFunctionResponseBodyConfigsCnameFlattening>>(expect1);
+      }
+    }
+    if (m.find("CompressionRules") != m.end() && !m["CompressionRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["CompressionRules"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsCompressionRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CompressionRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsCompressionRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        compressionRules = make_shared<vector<CreateSiteFunctionResponseBodyConfigsCompressionRules>>(expect1);
+      }
+    }
+    if (m.find("CrossBorderOptimization") != m.end() && !m["CrossBorderOptimization"].empty()) {
+      if (typeid(vector<boost::any>) == m["CrossBorderOptimization"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CrossBorderOptimization"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        crossBorderOptimization = make_shared<vector<CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization>>(expect1);
+      }
+    }
+    if (m.find("DevelopmentMode") != m.end() && !m["DevelopmentMode"].empty()) {
+      if (typeid(vector<boost::any>) == m["DevelopmentMode"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsDevelopmentMode> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DevelopmentMode"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsDevelopmentMode model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        developmentMode = make_shared<vector<CreateSiteFunctionResponseBodyConfigsDevelopmentMode>>(expect1);
+      }
+    }
+    if (m.find("HttpRequestHeaderModificationRules") != m.end() && !m["HttpRequestHeaderModificationRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpRequestHeaderModificationRules"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpRequestHeaderModificationRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpRequestHeaderModificationRules = make_shared<vector<CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules>>(expect1);
+      }
+    }
+    if (m.find("HttpResponseHeaderModificationRules") != m.end() && !m["HttpResponseHeaderModificationRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpResponseHeaderModificationRules"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpResponseHeaderModificationRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpResponseHeaderModificationRules = make_shared<vector<CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules>>(expect1);
+      }
+    }
+    if (m.find("HttpsApplicationConfiguration") != m.end() && !m["HttpsApplicationConfiguration"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpsApplicationConfiguration"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpsApplicationConfiguration"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpsApplicationConfiguration = make_shared<vector<CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration>>(expect1);
+      }
+    }
+    if (m.find("HttpsBasicConfiguration") != m.end() && !m["HttpsBasicConfiguration"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpsBasicConfiguration"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpsBasicConfiguration"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpsBasicConfiguration = make_shared<vector<CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration>>(expect1);
+      }
+    }
+    if (m.find("ImageTransform") != m.end() && !m["ImageTransform"].empty()) {
+      if (typeid(vector<boost::any>) == m["ImageTransform"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsImageTransform> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ImageTransform"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsImageTransform model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        imageTransform = make_shared<vector<CreateSiteFunctionResponseBodyConfigsImageTransform>>(expect1);
+      }
+    }
+    if (m.find("Ipv6") != m.end() && !m["Ipv6"].empty()) {
+      if (typeid(vector<boost::any>) == m["Ipv6"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsIpv6> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Ipv6"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsIpv6 model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipv6 = make_shared<vector<CreateSiteFunctionResponseBodyConfigsIpv6>>(expect1);
+      }
+    }
+    if (m.find("ManagedTransforms") != m.end() && !m["ManagedTransforms"].empty()) {
+      if (typeid(vector<boost::any>) == m["ManagedTransforms"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsManagedTransforms> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ManagedTransforms"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsManagedTransforms model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        managedTransforms = make_shared<vector<CreateSiteFunctionResponseBodyConfigsManagedTransforms>>(expect1);
+      }
+    }
+    if (m.find("NetworkOptimization") != m.end() && !m["NetworkOptimization"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetworkOptimization"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsNetworkOptimization> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetworkOptimization"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsNetworkOptimization model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networkOptimization = make_shared<vector<CreateSiteFunctionResponseBodyConfigsNetworkOptimization>>(expect1);
+      }
+    }
+    if (m.find("OriginRules") != m.end() && !m["OriginRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["OriginRules"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsOriginRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OriginRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsOriginRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        originRules = make_shared<vector<CreateSiteFunctionResponseBodyConfigsOriginRules>>(expect1);
+      }
+    }
+    if (m.find("RedirectRules") != m.end() && !m["RedirectRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["RedirectRules"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsRedirectRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RedirectRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsRedirectRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        redirectRules = make_shared<vector<CreateSiteFunctionResponseBodyConfigsRedirectRules>>(expect1);
+      }
+    }
+    if (m.find("RewriteUrlRules") != m.end() && !m["RewriteUrlRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["RewriteUrlRules"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsRewriteUrlRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RewriteUrlRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsRewriteUrlRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rewriteUrlRules = make_shared<vector<CreateSiteFunctionResponseBodyConfigsRewriteUrlRules>>(expect1);
+      }
+    }
+    if (m.find("SeoBypass") != m.end() && !m["SeoBypass"].empty()) {
+      if (typeid(vector<boost::any>) == m["SeoBypass"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsSeoBypass> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SeoBypass"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsSeoBypass model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        seoBypass = make_shared<vector<CreateSiteFunctionResponseBodyConfigsSeoBypass>>(expect1);
+      }
+    }
+    if (m.find("SiteNameExclusive") != m.end() && !m["SiteNameExclusive"].empty()) {
+      if (typeid(vector<boost::any>) == m["SiteNameExclusive"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsSiteNameExclusive> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SiteNameExclusive"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsSiteNameExclusive model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        siteNameExclusive = make_shared<vector<CreateSiteFunctionResponseBodyConfigsSiteNameExclusive>>(expect1);
+      }
+    }
+    if (m.find("SitePause") != m.end() && !m["SitePause"].empty()) {
+      if (typeid(vector<boost::any>) == m["SitePause"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsSitePause> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SitePause"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsSitePause model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sitePause = make_shared<vector<CreateSiteFunctionResponseBodyConfigsSitePause>>(expect1);
+      }
+    }
+    if (m.find("TieredCache") != m.end() && !m["TieredCache"].empty()) {
+      if (typeid(vector<boost::any>) == m["TieredCache"].type()) {
+        vector<CreateSiteFunctionResponseBodyConfigsTieredCache> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TieredCache"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSiteFunctionResponseBodyConfigsTieredCache model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tieredCache = make_shared<vector<CreateSiteFunctionResponseBodyConfigsTieredCache>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBodyConfigs() = default;
+};
+class CreateSiteFunctionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CreateSiteFunctionResponseBodyConfigs> configs{};
+  shared_ptr<string> requestId{};
+
+  CreateSiteFunctionResponseBody() {}
+
+  explicit CreateSiteFunctionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configs) {
+      res["Configs"] = configs ? boost::any(configs->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Configs") != m.end() && !m["Configs"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Configs"].type()) {
+        CreateSiteFunctionResponseBodyConfigs model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Configs"]));
+        configs = make_shared<CreateSiteFunctionResponseBodyConfigs>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponseBody() = default;
+};
+class CreateSiteFunctionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateSiteFunctionResponseBody> body{};
+
+  CreateSiteFunctionResponse() {}
+
+  explicit CreateSiteFunctionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSiteFunctionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSiteFunctionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSiteFunctionResponse() = default;
+};
 class CreateUserDeliveryTaskRequestHttpDeliveryStandardAuthParam : public Darabonba::Model {
 public:
   shared_ptr<long> expiredTime{};
@@ -12397,6 +16844,116 @@ public:
 
   virtual ~DeleteListResponse() = default;
 };
+class DeleteOriginProtectionRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> siteId{};
+
+  DeleteOriginProtectionRequest() {}
+
+  explicit DeleteOriginProtectionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~DeleteOriginProtectionRequest() = default;
+};
+class DeleteOriginProtectionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteOriginProtectionResponseBody() {}
+
+  explicit DeleteOriginProtectionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteOriginProtectionResponseBody() = default;
+};
+class DeleteOriginProtectionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteOriginProtectionResponseBody> body{};
+
+  DeleteOriginProtectionResponse() {}
+
+  explicit DeleteOriginProtectionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteOriginProtectionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteOriginProtectionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteOriginProtectionResponse() = default;
+};
 class DeletePageRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
@@ -13601,6 +18158,123 @@ public:
 
 
   virtual ~DeleteSiteDeliveryTaskResponse() = default;
+};
+class DeleteSiteFunctionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> configIds{};
+  shared_ptr<long> siteId{};
+
+  DeleteSiteFunctionRequest() {}
+
+  explicit DeleteSiteFunctionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configIds) {
+      res["ConfigIds"] = boost::any(*configIds);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigIds") != m.end() && !m["ConfigIds"].empty()) {
+      configIds = make_shared<string>(boost::any_cast<string>(m["ConfigIds"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~DeleteSiteFunctionRequest() = default;
+};
+class DeleteSiteFunctionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteSiteFunctionResponseBody() {}
+
+  explicit DeleteSiteFunctionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteSiteFunctionResponseBody() = default;
+};
+class DeleteSiteFunctionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteSiteFunctionResponseBody> body{};
+
+  DeleteSiteFunctionResponse() {}
+
+  explicit DeleteSiteFunctionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteSiteFunctionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteSiteFunctionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteSiteFunctionResponse() = default;
 };
 class DeleteUserDeliveryTaskRequest : public Darabonba::Model {
 public:
@@ -18965,6 +23639,482 @@ public:
 
 
   virtual ~GetListResponse() = default;
+};
+class GetOriginProtectionRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> siteId{};
+
+  GetOriginProtectionRequest() {}
+
+  explicit GetOriginProtectionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~GetOriginProtectionRequest() = default;
+};
+class GetOriginProtectionResponseBodyCurrentIPWhitelist : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> IPv4{};
+  shared_ptr<vector<string>> IPv6{};
+
+  GetOriginProtectionResponseBodyCurrentIPWhitelist() {}
+
+  explicit GetOriginProtectionResponseBodyCurrentIPWhitelist(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (IPv4) {
+      res["IPv4"] = boost::any(*IPv4);
+    }
+    if (IPv6) {
+      res["IPv6"] = boost::any(*IPv6);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IPv4") != m.end() && !m["IPv4"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IPv4"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IPv4"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      IPv4 = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IPv6") != m.end() && !m["IPv6"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IPv6"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IPv6"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      IPv6 = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetOriginProtectionResponseBodyCurrentIPWhitelist() = default;
+};
+class GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> IPv4{};
+  shared_ptr<vector<string>> IPv6{};
+
+  GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist() {}
+
+  explicit GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (IPv4) {
+      res["IPv4"] = boost::any(*IPv4);
+    }
+    if (IPv6) {
+      res["IPv6"] = boost::any(*IPv6);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IPv4") != m.end() && !m["IPv4"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IPv4"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IPv4"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      IPv4 = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IPv6") != m.end() && !m["IPv6"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IPv6"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IPv6"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      IPv6 = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist() = default;
+};
+class GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> IPv4{};
+  shared_ptr<vector<string>> IPv6{};
+
+  GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist() {}
+
+  explicit GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (IPv4) {
+      res["IPv4"] = boost::any(*IPv4);
+    }
+    if (IPv6) {
+      res["IPv6"] = boost::any(*IPv6);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IPv4") != m.end() && !m["IPv4"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IPv4"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IPv4"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      IPv4 = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IPv6") != m.end() && !m["IPv6"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IPv6"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IPv6"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      IPv6 = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist() = default;
+};
+class GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> IPv4{};
+  shared_ptr<vector<string>> IPv6{};
+
+  GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist() {}
+
+  explicit GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (IPv4) {
+      res["IPv4"] = boost::any(*IPv4);
+    }
+    if (IPv6) {
+      res["IPv6"] = boost::any(*IPv6);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IPv4") != m.end() && !m["IPv4"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IPv4"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IPv4"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      IPv4 = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IPv6") != m.end() && !m["IPv6"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IPv6"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IPv6"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      IPv6 = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist() = default;
+};
+class GetOriginProtectionResponseBodyDiffIPWhitelist : public Darabonba::Model {
+public:
+  shared_ptr<GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist> addedIPWhitelist{};
+  shared_ptr<GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist> noChangeIpWhitelist{};
+  shared_ptr<GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist> removedIPWhitelist{};
+
+  GetOriginProtectionResponseBodyDiffIPWhitelist() {}
+
+  explicit GetOriginProtectionResponseBodyDiffIPWhitelist(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addedIPWhitelist) {
+      res["AddedIPWhitelist"] = addedIPWhitelist ? boost::any(addedIPWhitelist->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (noChangeIpWhitelist) {
+      res["NoChangeIpWhitelist"] = noChangeIpWhitelist ? boost::any(noChangeIpWhitelist->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (removedIPWhitelist) {
+      res["RemovedIPWhitelist"] = removedIPWhitelist ? boost::any(removedIPWhitelist->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddedIPWhitelist") != m.end() && !m["AddedIPWhitelist"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AddedIPWhitelist"].type()) {
+        GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AddedIPWhitelist"]));
+        addedIPWhitelist = make_shared<GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist>(model1);
+      }
+    }
+    if (m.find("NoChangeIpWhitelist") != m.end() && !m["NoChangeIpWhitelist"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NoChangeIpWhitelist"].type()) {
+        GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NoChangeIpWhitelist"]));
+        noChangeIpWhitelist = make_shared<GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist>(model1);
+      }
+    }
+    if (m.find("RemovedIPWhitelist") != m.end() && !m["RemovedIPWhitelist"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RemovedIPWhitelist"].type()) {
+        GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RemovedIPWhitelist"]));
+        removedIPWhitelist = make_shared<GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetOriginProtectionResponseBodyDiffIPWhitelist() = default;
+};
+class GetOriginProtectionResponseBodyLatestIPWhitelist : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> IPv4{};
+  shared_ptr<vector<string>> IPv6{};
+
+  GetOriginProtectionResponseBodyLatestIPWhitelist() {}
+
+  explicit GetOriginProtectionResponseBodyLatestIPWhitelist(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (IPv4) {
+      res["IPv4"] = boost::any(*IPv4);
+    }
+    if (IPv6) {
+      res["IPv6"] = boost::any(*IPv6);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IPv4") != m.end() && !m["IPv4"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IPv4"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IPv4"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      IPv4 = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IPv6") != m.end() && !m["IPv6"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IPv6"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IPv6"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      IPv6 = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetOriginProtectionResponseBodyLatestIPWhitelist() = default;
+};
+class GetOriginProtectionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetOriginProtectionResponseBodyCurrentIPWhitelist> currentIPWhitelist{};
+  shared_ptr<GetOriginProtectionResponseBodyDiffIPWhitelist> diffIPWhitelist{};
+  shared_ptr<GetOriginProtectionResponseBodyLatestIPWhitelist> latestIPWhitelist{};
+  shared_ptr<bool> needUpdate{};
+  shared_ptr<string> originConverge{};
+  shared_ptr<string> originProtection{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> siteId{};
+
+  GetOriginProtectionResponseBody() {}
+
+  explicit GetOriginProtectionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentIPWhitelist) {
+      res["CurrentIPWhitelist"] = currentIPWhitelist ? boost::any(currentIPWhitelist->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (diffIPWhitelist) {
+      res["DiffIPWhitelist"] = diffIPWhitelist ? boost::any(diffIPWhitelist->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (latestIPWhitelist) {
+      res["LatestIPWhitelist"] = latestIPWhitelist ? boost::any(latestIPWhitelist->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (needUpdate) {
+      res["NeedUpdate"] = boost::any(*needUpdate);
+    }
+    if (originConverge) {
+      res["OriginConverge"] = boost::any(*originConverge);
+    }
+    if (originProtection) {
+      res["OriginProtection"] = boost::any(*originProtection);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentIPWhitelist") != m.end() && !m["CurrentIPWhitelist"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CurrentIPWhitelist"].type()) {
+        GetOriginProtectionResponseBodyCurrentIPWhitelist model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CurrentIPWhitelist"]));
+        currentIPWhitelist = make_shared<GetOriginProtectionResponseBodyCurrentIPWhitelist>(model1);
+      }
+    }
+    if (m.find("DiffIPWhitelist") != m.end() && !m["DiffIPWhitelist"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DiffIPWhitelist"].type()) {
+        GetOriginProtectionResponseBodyDiffIPWhitelist model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DiffIPWhitelist"]));
+        diffIPWhitelist = make_shared<GetOriginProtectionResponseBodyDiffIPWhitelist>(model1);
+      }
+    }
+    if (m.find("LatestIPWhitelist") != m.end() && !m["LatestIPWhitelist"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LatestIPWhitelist"].type()) {
+        GetOriginProtectionResponseBodyLatestIPWhitelist model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LatestIPWhitelist"]));
+        latestIPWhitelist = make_shared<GetOriginProtectionResponseBodyLatestIPWhitelist>(model1);
+      }
+    }
+    if (m.find("NeedUpdate") != m.end() && !m["NeedUpdate"].empty()) {
+      needUpdate = make_shared<bool>(boost::any_cast<bool>(m["NeedUpdate"]));
+    }
+    if (m.find("OriginConverge") != m.end() && !m["OriginConverge"].empty()) {
+      originConverge = make_shared<string>(boost::any_cast<string>(m["OriginConverge"]));
+    }
+    if (m.find("OriginProtection") != m.end() && !m["OriginProtection"].empty()) {
+      originProtection = make_shared<string>(boost::any_cast<string>(m["OriginProtection"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~GetOriginProtectionResponseBody() = default;
+};
+class GetOriginProtectionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetOriginProtectionResponseBody> body{};
+
+  GetOriginProtectionResponse() {}
+
+  explicit GetOriginProtectionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetOriginProtectionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetOriginProtectionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetOriginProtectionResponse() = default;
 };
 class GetPageRequest : public Darabonba::Model {
 public:
@@ -29364,6 +34514,2350 @@ public:
 
   virtual ~ListSiteDeliveryTasksResponse() = default;
 };
+class ListSiteFunctionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> configType{};
+  shared_ptr<string> functionName{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<long> siteId{};
+  shared_ptr<long> siteVersion{};
+
+  ListSiteFunctionsRequest() {}
+
+  explicit ListSiteFunctionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (configType) {
+      res["ConfigType"] = boost::any(*configType);
+    }
+    if (functionName) {
+      res["FunctionName"] = boost::any(*functionName);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    if (siteVersion) {
+      res["SiteVersion"] = boost::any(*siteVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
+      configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("FunctionName") != m.end() && !m["FunctionName"].empty()) {
+      functionName = make_shared<string>(boost::any_cast<string>(m["FunctionName"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+    if (m.find("SiteVersion") != m.end() && !m["SiteVersion"].empty()) {
+      siteVersion = make_shared<long>(boost::any_cast<long>(m["SiteVersion"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsRequest() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsCacheReserve : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> instanceId{};
+
+  ListSiteFunctionsResponseBodyConfigsCacheReserve() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsCacheReserve(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsCacheReserve() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsCacheRules : public Darabonba::Model {
+public:
+  shared_ptr<string> additionalCacheablePorts{};
+  shared_ptr<string> browserCacheMode{};
+  shared_ptr<string> browserCacheTtl{};
+  shared_ptr<string> bypassCache{};
+  shared_ptr<string> cacheDeceptionArmor{};
+  shared_ptr<string> cacheReserveEligibility{};
+  shared_ptr<string> checkPresenceCookie{};
+  shared_ptr<string> checkPresenceHeader{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> edgeCacheMode{};
+  shared_ptr<string> edgeCacheTtl{};
+  shared_ptr<string> edgeStatusCodeCacheTtl{};
+  shared_ptr<string> includeCookie{};
+  shared_ptr<string> includeHeader{};
+  shared_ptr<string> queryString{};
+  shared_ptr<string> queryStringMode{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+  shared_ptr<string> serveStale{};
+  shared_ptr<string> sortQueryStringForCache{};
+  shared_ptr<string> userDeviceType{};
+  shared_ptr<string> userGeo{};
+  shared_ptr<string> userLanguage{};
+
+  ListSiteFunctionsResponseBodyConfigsCacheRules() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsCacheRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (additionalCacheablePorts) {
+      res["AdditionalCacheablePorts"] = boost::any(*additionalCacheablePorts);
+    }
+    if (browserCacheMode) {
+      res["BrowserCacheMode"] = boost::any(*browserCacheMode);
+    }
+    if (browserCacheTtl) {
+      res["BrowserCacheTtl"] = boost::any(*browserCacheTtl);
+    }
+    if (bypassCache) {
+      res["BypassCache"] = boost::any(*bypassCache);
+    }
+    if (cacheDeceptionArmor) {
+      res["CacheDeceptionArmor"] = boost::any(*cacheDeceptionArmor);
+    }
+    if (cacheReserveEligibility) {
+      res["CacheReserveEligibility"] = boost::any(*cacheReserveEligibility);
+    }
+    if (checkPresenceCookie) {
+      res["CheckPresenceCookie"] = boost::any(*checkPresenceCookie);
+    }
+    if (checkPresenceHeader) {
+      res["CheckPresenceHeader"] = boost::any(*checkPresenceHeader);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (edgeCacheMode) {
+      res["EdgeCacheMode"] = boost::any(*edgeCacheMode);
+    }
+    if (edgeCacheTtl) {
+      res["EdgeCacheTtl"] = boost::any(*edgeCacheTtl);
+    }
+    if (edgeStatusCodeCacheTtl) {
+      res["EdgeStatusCodeCacheTtl"] = boost::any(*edgeStatusCodeCacheTtl);
+    }
+    if (includeCookie) {
+      res["IncludeCookie"] = boost::any(*includeCookie);
+    }
+    if (includeHeader) {
+      res["IncludeHeader"] = boost::any(*includeHeader);
+    }
+    if (queryString) {
+      res["QueryString"] = boost::any(*queryString);
+    }
+    if (queryStringMode) {
+      res["QueryStringMode"] = boost::any(*queryStringMode);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (serveStale) {
+      res["ServeStale"] = boost::any(*serveStale);
+    }
+    if (sortQueryStringForCache) {
+      res["SortQueryStringForCache"] = boost::any(*sortQueryStringForCache);
+    }
+    if (userDeviceType) {
+      res["UserDeviceType"] = boost::any(*userDeviceType);
+    }
+    if (userGeo) {
+      res["UserGeo"] = boost::any(*userGeo);
+    }
+    if (userLanguage) {
+      res["UserLanguage"] = boost::any(*userLanguage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalCacheablePorts") != m.end() && !m["AdditionalCacheablePorts"].empty()) {
+      additionalCacheablePorts = make_shared<string>(boost::any_cast<string>(m["AdditionalCacheablePorts"]));
+    }
+    if (m.find("BrowserCacheMode") != m.end() && !m["BrowserCacheMode"].empty()) {
+      browserCacheMode = make_shared<string>(boost::any_cast<string>(m["BrowserCacheMode"]));
+    }
+    if (m.find("BrowserCacheTtl") != m.end() && !m["BrowserCacheTtl"].empty()) {
+      browserCacheTtl = make_shared<string>(boost::any_cast<string>(m["BrowserCacheTtl"]));
+    }
+    if (m.find("BypassCache") != m.end() && !m["BypassCache"].empty()) {
+      bypassCache = make_shared<string>(boost::any_cast<string>(m["BypassCache"]));
+    }
+    if (m.find("CacheDeceptionArmor") != m.end() && !m["CacheDeceptionArmor"].empty()) {
+      cacheDeceptionArmor = make_shared<string>(boost::any_cast<string>(m["CacheDeceptionArmor"]));
+    }
+    if (m.find("CacheReserveEligibility") != m.end() && !m["CacheReserveEligibility"].empty()) {
+      cacheReserveEligibility = make_shared<string>(boost::any_cast<string>(m["CacheReserveEligibility"]));
+    }
+    if (m.find("CheckPresenceCookie") != m.end() && !m["CheckPresenceCookie"].empty()) {
+      checkPresenceCookie = make_shared<string>(boost::any_cast<string>(m["CheckPresenceCookie"]));
+    }
+    if (m.find("CheckPresenceHeader") != m.end() && !m["CheckPresenceHeader"].empty()) {
+      checkPresenceHeader = make_shared<string>(boost::any_cast<string>(m["CheckPresenceHeader"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("EdgeCacheMode") != m.end() && !m["EdgeCacheMode"].empty()) {
+      edgeCacheMode = make_shared<string>(boost::any_cast<string>(m["EdgeCacheMode"]));
+    }
+    if (m.find("EdgeCacheTtl") != m.end() && !m["EdgeCacheTtl"].empty()) {
+      edgeCacheTtl = make_shared<string>(boost::any_cast<string>(m["EdgeCacheTtl"]));
+    }
+    if (m.find("EdgeStatusCodeCacheTtl") != m.end() && !m["EdgeStatusCodeCacheTtl"].empty()) {
+      edgeStatusCodeCacheTtl = make_shared<string>(boost::any_cast<string>(m["EdgeStatusCodeCacheTtl"]));
+    }
+    if (m.find("IncludeCookie") != m.end() && !m["IncludeCookie"].empty()) {
+      includeCookie = make_shared<string>(boost::any_cast<string>(m["IncludeCookie"]));
+    }
+    if (m.find("IncludeHeader") != m.end() && !m["IncludeHeader"].empty()) {
+      includeHeader = make_shared<string>(boost::any_cast<string>(m["IncludeHeader"]));
+    }
+    if (m.find("QueryString") != m.end() && !m["QueryString"].empty()) {
+      queryString = make_shared<string>(boost::any_cast<string>(m["QueryString"]));
+    }
+    if (m.find("QueryStringMode") != m.end() && !m["QueryStringMode"].empty()) {
+      queryStringMode = make_shared<string>(boost::any_cast<string>(m["QueryStringMode"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+    if (m.find("ServeStale") != m.end() && !m["ServeStale"].empty()) {
+      serveStale = make_shared<string>(boost::any_cast<string>(m["ServeStale"]));
+    }
+    if (m.find("SortQueryStringForCache") != m.end() && !m["SortQueryStringForCache"].empty()) {
+      sortQueryStringForCache = make_shared<string>(boost::any_cast<string>(m["SortQueryStringForCache"]));
+    }
+    if (m.find("UserDeviceType") != m.end() && !m["UserDeviceType"].empty()) {
+      userDeviceType = make_shared<string>(boost::any_cast<string>(m["UserDeviceType"]));
+    }
+    if (m.find("UserGeo") != m.end() && !m["UserGeo"].empty()) {
+      userGeo = make_shared<string>(boost::any_cast<string>(m["UserGeo"]));
+    }
+    if (m.find("UserLanguage") != m.end() && !m["UserLanguage"].empty()) {
+      userLanguage = make_shared<string>(boost::any_cast<string>(m["UserLanguage"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsCacheRules() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsCacheTags : public Darabonba::Model {
+public:
+  shared_ptr<string> caseInsensitive{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> sequence{};
+  shared_ptr<string> tagName{};
+
+  ListSiteFunctionsResponseBodyConfigsCacheTags() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsCacheTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (caseInsensitive) {
+      res["CaseInsensitive"] = boost::any(*caseInsensitive);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (tagName) {
+      res["TagName"] = boost::any(*tagName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CaseInsensitive") != m.end() && !m["CaseInsensitive"].empty()) {
+      caseInsensitive = make_shared<string>(boost::any_cast<string>(m["CaseInsensitive"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+    if (m.find("TagName") != m.end() && !m["TagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["TagName"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsCacheTags() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsCnameFlattening : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> flattenMode{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsCnameFlattening() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsCnameFlattening(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (flattenMode) {
+      res["FlattenMode"] = boost::any(*flattenMode);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("FlattenMode") != m.end() && !m["FlattenMode"].empty()) {
+      flattenMode = make_shared<string>(boost::any_cast<string>(m["FlattenMode"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsCnameFlattening() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsCompressionRules : public Darabonba::Model {
+public:
+  shared_ptr<string> brotli{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> gzip{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsCompressionRules() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsCompressionRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (brotli) {
+      res["Brotli"] = boost::any(*brotli);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (gzip) {
+      res["Gzip"] = boost::any(*gzip);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Brotli") != m.end() && !m["Brotli"].empty()) {
+      brotli = make_shared<string>(boost::any_cast<string>(m["Brotli"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Gzip") != m.end() && !m["Gzip"].empty()) {
+      gzip = make_shared<string>(boost::any_cast<string>(m["Gzip"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsCompressionRules() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsDevelopmentMode : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsDevelopmentMode() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsDevelopmentMode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsDevelopmentMode() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> operation{};
+  shared_ptr<string> value{};
+
+  ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (operation) {
+      res["Operation"] = boost::any(*operation);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Operation") != m.end() && !m["Operation"].empty()) {
+      operation = make_shared<string>(boost::any_cast<string>(m["Operation"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification>> requestHeaderModification{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (requestHeaderModification) {
+      vector<boost::any> temp1;
+      for(auto item1:*requestHeaderModification){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RequestHeaderModification"] = boost::any(temp1);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("RequestHeaderModification") != m.end() && !m["RequestHeaderModification"].empty()) {
+      if (typeid(vector<boost::any>) == m["RequestHeaderModification"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RequestHeaderModification"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        requestHeaderModification = make_shared<vector<ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification>>(expect1);
+      }
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> operation{};
+  shared_ptr<string> value{};
+
+  ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (operation) {
+      res["Operation"] = boost::any(*operation);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Operation") != m.end() && !m["Operation"].empty()) {
+      operation = make_shared<string>(boost::any_cast<string>(m["Operation"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification>> responseHeaderModification{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (responseHeaderModification) {
+      vector<boost::any> temp1;
+      for(auto item1:*responseHeaderModification){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResponseHeaderModification"] = boost::any(temp1);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("ResponseHeaderModification") != m.end() && !m["ResponseHeaderModification"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResponseHeaderModification"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResponseHeaderModification"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        responseHeaderModification = make_shared<vector<ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification>>(expect1);
+      }
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<string> altSvc{};
+  shared_ptr<string> altSvcClear{};
+  shared_ptr<string> altSvcMa{};
+  shared_ptr<string> altSvcPersist{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> hsts{};
+  shared_ptr<string> hstsIncludeSubdomains{};
+  shared_ptr<string> hstsMaxAge{};
+  shared_ptr<string> hstsPreload{};
+  shared_ptr<string> httpsForce{};
+  shared_ptr<string> httpsForceCode{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (altSvc) {
+      res["AltSvc"] = boost::any(*altSvc);
+    }
+    if (altSvcClear) {
+      res["AltSvcClear"] = boost::any(*altSvcClear);
+    }
+    if (altSvcMa) {
+      res["AltSvcMa"] = boost::any(*altSvcMa);
+    }
+    if (altSvcPersist) {
+      res["AltSvcPersist"] = boost::any(*altSvcPersist);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (hsts) {
+      res["Hsts"] = boost::any(*hsts);
+    }
+    if (hstsIncludeSubdomains) {
+      res["HstsIncludeSubdomains"] = boost::any(*hstsIncludeSubdomains);
+    }
+    if (hstsMaxAge) {
+      res["HstsMaxAge"] = boost::any(*hstsMaxAge);
+    }
+    if (hstsPreload) {
+      res["HstsPreload"] = boost::any(*hstsPreload);
+    }
+    if (httpsForce) {
+      res["HttpsForce"] = boost::any(*httpsForce);
+    }
+    if (httpsForceCode) {
+      res["HttpsForceCode"] = boost::any(*httpsForceCode);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AltSvc") != m.end() && !m["AltSvc"].empty()) {
+      altSvc = make_shared<string>(boost::any_cast<string>(m["AltSvc"]));
+    }
+    if (m.find("AltSvcClear") != m.end() && !m["AltSvcClear"].empty()) {
+      altSvcClear = make_shared<string>(boost::any_cast<string>(m["AltSvcClear"]));
+    }
+    if (m.find("AltSvcMa") != m.end() && !m["AltSvcMa"].empty()) {
+      altSvcMa = make_shared<string>(boost::any_cast<string>(m["AltSvcMa"]));
+    }
+    if (m.find("AltSvcPersist") != m.end() && !m["AltSvcPersist"].empty()) {
+      altSvcPersist = make_shared<string>(boost::any_cast<string>(m["AltSvcPersist"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Hsts") != m.end() && !m["Hsts"].empty()) {
+      hsts = make_shared<string>(boost::any_cast<string>(m["Hsts"]));
+    }
+    if (m.find("HstsIncludeSubdomains") != m.end() && !m["HstsIncludeSubdomains"].empty()) {
+      hstsIncludeSubdomains = make_shared<string>(boost::any_cast<string>(m["HstsIncludeSubdomains"]));
+    }
+    if (m.find("HstsMaxAge") != m.end() && !m["HstsMaxAge"].empty()) {
+      hstsMaxAge = make_shared<string>(boost::any_cast<string>(m["HstsMaxAge"]));
+    }
+    if (m.find("HstsPreload") != m.end() && !m["HstsPreload"].empty()) {
+      hstsPreload = make_shared<string>(boost::any_cast<string>(m["HstsPreload"]));
+    }
+    if (m.find("HttpsForce") != m.end() && !m["HttpsForce"].empty()) {
+      httpsForce = make_shared<string>(boost::any_cast<string>(m["HttpsForce"]));
+    }
+    if (m.find("HttpsForceCode") != m.end() && !m["HttpsForceCode"].empty()) {
+      httpsForceCode = make_shared<string>(boost::any_cast<string>(m["HttpsForceCode"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<string> ciphersuite{};
+  shared_ptr<string> ciphersuiteGroup{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> http2{};
+  shared_ptr<string> http3{};
+  shared_ptr<string> https{};
+  shared_ptr<string> ocspStapling{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+  shared_ptr<string> tls10{};
+  shared_ptr<string> tls11{};
+  shared_ptr<string> tls12{};
+  shared_ptr<string> tls13{};
+
+  ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ciphersuite) {
+      res["Ciphersuite"] = boost::any(*ciphersuite);
+    }
+    if (ciphersuiteGroup) {
+      res["CiphersuiteGroup"] = boost::any(*ciphersuiteGroup);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (http2) {
+      res["Http2"] = boost::any(*http2);
+    }
+    if (http3) {
+      res["Http3"] = boost::any(*http3);
+    }
+    if (https) {
+      res["Https"] = boost::any(*https);
+    }
+    if (ocspStapling) {
+      res["OcspStapling"] = boost::any(*ocspStapling);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (tls10) {
+      res["Tls10"] = boost::any(*tls10);
+    }
+    if (tls11) {
+      res["Tls11"] = boost::any(*tls11);
+    }
+    if (tls12) {
+      res["Tls12"] = boost::any(*tls12);
+    }
+    if (tls13) {
+      res["Tls13"] = boost::any(*tls13);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ciphersuite") != m.end() && !m["Ciphersuite"].empty()) {
+      ciphersuite = make_shared<string>(boost::any_cast<string>(m["Ciphersuite"]));
+    }
+    if (m.find("CiphersuiteGroup") != m.end() && !m["CiphersuiteGroup"].empty()) {
+      ciphersuiteGroup = make_shared<string>(boost::any_cast<string>(m["CiphersuiteGroup"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Http2") != m.end() && !m["Http2"].empty()) {
+      http2 = make_shared<string>(boost::any_cast<string>(m["Http2"]));
+    }
+    if (m.find("Http3") != m.end() && !m["Http3"].empty()) {
+      http3 = make_shared<string>(boost::any_cast<string>(m["Http3"]));
+    }
+    if (m.find("Https") != m.end() && !m["Https"].empty()) {
+      https = make_shared<string>(boost::any_cast<string>(m["Https"]));
+    }
+    if (m.find("OcspStapling") != m.end() && !m["OcspStapling"].empty()) {
+      ocspStapling = make_shared<string>(boost::any_cast<string>(m["OcspStapling"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+    if (m.find("Tls10") != m.end() && !m["Tls10"].empty()) {
+      tls10 = make_shared<string>(boost::any_cast<string>(m["Tls10"]));
+    }
+    if (m.find("Tls11") != m.end() && !m["Tls11"].empty()) {
+      tls11 = make_shared<string>(boost::any_cast<string>(m["Tls11"]));
+    }
+    if (m.find("Tls12") != m.end() && !m["Tls12"].empty()) {
+      tls12 = make_shared<string>(boost::any_cast<string>(m["Tls12"]));
+    }
+    if (m.find("Tls13") != m.end() && !m["Tls13"].empty()) {
+      tls13 = make_shared<string>(boost::any_cast<string>(m["Tls13"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsImageTransform : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsImageTransform() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsImageTransform(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsImageTransform() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsIpv6 : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsIpv6() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsIpv6(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsIpv6() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsManagedTransforms : public Darabonba::Model {
+public:
+  shared_ptr<string> addClientGeolocationHeaders{};
+  shared_ptr<string> addRealClientIpHeader{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsManagedTransforms() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsManagedTransforms(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addClientGeolocationHeaders) {
+      res["AddClientGeolocationHeaders"] = boost::any(*addClientGeolocationHeaders);
+    }
+    if (addRealClientIpHeader) {
+      res["AddRealClientIpHeader"] = boost::any(*addRealClientIpHeader);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddClientGeolocationHeaders") != m.end() && !m["AddClientGeolocationHeaders"].empty()) {
+      addClientGeolocationHeaders = make_shared<string>(boost::any_cast<string>(m["AddClientGeolocationHeaders"]));
+    }
+    if (m.find("AddRealClientIpHeader") != m.end() && !m["AddRealClientIpHeader"].empty()) {
+      addRealClientIpHeader = make_shared<string>(boost::any_cast<string>(m["AddRealClientIpHeader"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsManagedTransforms() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsNetworkOptimization : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> grpc{};
+  shared_ptr<string> http2Origin{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+  shared_ptr<string> smartRouting{};
+  shared_ptr<string> uploadMaxFilesize{};
+  shared_ptr<string> websocket{};
+
+  ListSiteFunctionsResponseBodyConfigsNetworkOptimization() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsNetworkOptimization(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (grpc) {
+      res["Grpc"] = boost::any(*grpc);
+    }
+    if (http2Origin) {
+      res["Http2Origin"] = boost::any(*http2Origin);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (smartRouting) {
+      res["SmartRouting"] = boost::any(*smartRouting);
+    }
+    if (uploadMaxFilesize) {
+      res["UploadMaxFilesize"] = boost::any(*uploadMaxFilesize);
+    }
+    if (websocket) {
+      res["Websocket"] = boost::any(*websocket);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Grpc") != m.end() && !m["Grpc"].empty()) {
+      grpc = make_shared<string>(boost::any_cast<string>(m["Grpc"]));
+    }
+    if (m.find("Http2Origin") != m.end() && !m["Http2Origin"].empty()) {
+      http2Origin = make_shared<string>(boost::any_cast<string>(m["Http2Origin"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+    if (m.find("SmartRouting") != m.end() && !m["SmartRouting"].empty()) {
+      smartRouting = make_shared<string>(boost::any_cast<string>(m["SmartRouting"]));
+    }
+    if (m.find("UploadMaxFilesize") != m.end() && !m["UploadMaxFilesize"].empty()) {
+      uploadMaxFilesize = make_shared<string>(boost::any_cast<string>(m["UploadMaxFilesize"]));
+    }
+    if (m.find("Websocket") != m.end() && !m["Websocket"].empty()) {
+      websocket = make_shared<string>(boost::any_cast<string>(m["Websocket"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsNetworkOptimization() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsOriginRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> dnsRecord{};
+  shared_ptr<string> originHost{};
+  shared_ptr<string> originHttpPort{};
+  shared_ptr<string> originHttpsPort{};
+  shared_ptr<string> originScheme{};
+  shared_ptr<string> originSni{};
+  shared_ptr<string> range{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsOriginRules() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsOriginRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (dnsRecord) {
+      res["DnsRecord"] = boost::any(*dnsRecord);
+    }
+    if (originHost) {
+      res["OriginHost"] = boost::any(*originHost);
+    }
+    if (originHttpPort) {
+      res["OriginHttpPort"] = boost::any(*originHttpPort);
+    }
+    if (originHttpsPort) {
+      res["OriginHttpsPort"] = boost::any(*originHttpsPort);
+    }
+    if (originScheme) {
+      res["OriginScheme"] = boost::any(*originScheme);
+    }
+    if (originSni) {
+      res["OriginSni"] = boost::any(*originSni);
+    }
+    if (range) {
+      res["Range"] = boost::any(*range);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("DnsRecord") != m.end() && !m["DnsRecord"].empty()) {
+      dnsRecord = make_shared<string>(boost::any_cast<string>(m["DnsRecord"]));
+    }
+    if (m.find("OriginHost") != m.end() && !m["OriginHost"].empty()) {
+      originHost = make_shared<string>(boost::any_cast<string>(m["OriginHost"]));
+    }
+    if (m.find("OriginHttpPort") != m.end() && !m["OriginHttpPort"].empty()) {
+      originHttpPort = make_shared<string>(boost::any_cast<string>(m["OriginHttpPort"]));
+    }
+    if (m.find("OriginHttpsPort") != m.end() && !m["OriginHttpsPort"].empty()) {
+      originHttpsPort = make_shared<string>(boost::any_cast<string>(m["OriginHttpsPort"]));
+    }
+    if (m.find("OriginScheme") != m.end() && !m["OriginScheme"].empty()) {
+      originScheme = make_shared<string>(boost::any_cast<string>(m["OriginScheme"]));
+    }
+    if (m.find("OriginSni") != m.end() && !m["OriginSni"].empty()) {
+      originSni = make_shared<string>(boost::any_cast<string>(m["OriginSni"]));
+    }
+    if (m.find("Range") != m.end() && !m["Range"].empty()) {
+      range = make_shared<string>(boost::any_cast<string>(m["Range"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsOriginRules() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsRedirectRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> reserveQueryString{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+  shared_ptr<string> statusCode{};
+  shared_ptr<string> targetUrl{};
+  shared_ptr<string> type{};
+
+  ListSiteFunctionsResponseBodyConfigsRedirectRules() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsRedirectRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (reserveQueryString) {
+      res["ReserveQueryString"] = boost::any(*reserveQueryString);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (statusCode) {
+      res["StatusCode"] = boost::any(*statusCode);
+    }
+    if (targetUrl) {
+      res["TargetUrl"] = boost::any(*targetUrl);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("ReserveQueryString") != m.end() && !m["ReserveQueryString"].empty()) {
+      reserveQueryString = make_shared<string>(boost::any_cast<string>(m["ReserveQueryString"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      statusCode = make_shared<string>(boost::any_cast<string>(m["StatusCode"]));
+    }
+    if (m.find("TargetUrl") != m.end() && !m["TargetUrl"].empty()) {
+      targetUrl = make_shared<string>(boost::any_cast<string>(m["TargetUrl"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsRedirectRules() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsRewriteUrlRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> queryString{};
+  shared_ptr<string> rewriteQueryStringType{};
+  shared_ptr<string> rewriteUriType{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> sequence{};
+  shared_ptr<string> uri{};
+
+  ListSiteFunctionsResponseBodyConfigsRewriteUrlRules() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsRewriteUrlRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (queryString) {
+      res["QueryString"] = boost::any(*queryString);
+    }
+    if (rewriteQueryStringType) {
+      res["RewriteQueryStringType"] = boost::any(*rewriteQueryStringType);
+    }
+    if (rewriteUriType) {
+      res["RewriteUriType"] = boost::any(*rewriteUriType);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("QueryString") != m.end() && !m["QueryString"].empty()) {
+      queryString = make_shared<string>(boost::any_cast<string>(m["QueryString"]));
+    }
+    if (m.find("RewriteQueryStringType") != m.end() && !m["RewriteQueryStringType"].empty()) {
+      rewriteQueryStringType = make_shared<string>(boost::any_cast<string>(m["RewriteQueryStringType"]));
+    }
+    if (m.find("RewriteUriType") != m.end() && !m["RewriteUriType"].empty()) {
+      rewriteUriType = make_shared<string>(boost::any_cast<string>(m["RewriteUriType"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsRewriteUrlRules() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsSeoBypass : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsSeoBypass() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsSeoBypass(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsSeoBypass() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsSiteNameExclusive : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsSiteNameExclusive() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsSiteNameExclusive(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsSiteNameExclusive() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsSitePause : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> paused{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsSitePause() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsSitePause(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (paused) {
+      res["Paused"] = boost::any(*paused);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Paused") != m.end() && !m["Paused"].empty()) {
+      paused = make_shared<string>(boost::any_cast<string>(m["Paused"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsSitePause() = default;
+};
+class ListSiteFunctionsResponseBodyConfigsTieredCache : public Darabonba::Model {
+public:
+  shared_ptr<string> cacheArchitectureMode{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> sequence{};
+
+  ListSiteFunctionsResponseBodyConfigsTieredCache() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigsTieredCache(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheArchitectureMode) {
+      res["CacheArchitectureMode"] = boost::any(*cacheArchitectureMode);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (sequence) {
+      res["Sequence"] = boost::any(*sequence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheArchitectureMode") != m.end() && !m["CacheArchitectureMode"].empty()) {
+      cacheArchitectureMode = make_shared<string>(boost::any_cast<string>(m["CacheArchitectureMode"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Sequence") != m.end() && !m["Sequence"].empty()) {
+      sequence = make_shared<string>(boost::any_cast<string>(m["Sequence"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigsTieredCache() = default;
+};
+class ListSiteFunctionsResponseBodyConfigs : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsCacheReserve>> cacheReserve{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsCacheRules>> cacheRules{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsCacheTags>> cacheTags{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsCnameFlattening>> cnameFlattening{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsCompressionRules>> compressionRules{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization>> crossBorderOptimization{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsDevelopmentMode>> developmentMode{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules>> httpRequestHeaderModificationRules{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules>> httpResponseHeaderModificationRules{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration>> httpsApplicationConfiguration{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration>> httpsBasicConfiguration{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsImageTransform>> imageTransform{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsIpv6>> ipv6{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsManagedTransforms>> managedTransforms{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsNetworkOptimization>> networkOptimization{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsOriginRules>> originRules{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsRedirectRules>> redirectRules{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsRewriteUrlRules>> rewriteUrlRules{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsSeoBypass>> seoBypass{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsSiteNameExclusive>> siteNameExclusive{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsSitePause>> sitePause{};
+  shared_ptr<vector<ListSiteFunctionsResponseBodyConfigsTieredCache>> tieredCache{};
+
+  ListSiteFunctionsResponseBodyConfigs() {}
+
+  explicit ListSiteFunctionsResponseBodyConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheReserve) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheReserve){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheReserve"] = boost::any(temp1);
+    }
+    if (cacheRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheRules"] = boost::any(temp1);
+    }
+    if (cacheTags) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheTags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheTags"] = boost::any(temp1);
+    }
+    if (cnameFlattening) {
+      vector<boost::any> temp1;
+      for(auto item1:*cnameFlattening){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CnameFlattening"] = boost::any(temp1);
+    }
+    if (compressionRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*compressionRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CompressionRules"] = boost::any(temp1);
+    }
+    if (crossBorderOptimization) {
+      vector<boost::any> temp1;
+      for(auto item1:*crossBorderOptimization){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CrossBorderOptimization"] = boost::any(temp1);
+    }
+    if (developmentMode) {
+      vector<boost::any> temp1;
+      for(auto item1:*developmentMode){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DevelopmentMode"] = boost::any(temp1);
+    }
+    if (httpRequestHeaderModificationRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpRequestHeaderModificationRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpRequestHeaderModificationRules"] = boost::any(temp1);
+    }
+    if (httpResponseHeaderModificationRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpResponseHeaderModificationRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpResponseHeaderModificationRules"] = boost::any(temp1);
+    }
+    if (httpsApplicationConfiguration) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpsApplicationConfiguration){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpsApplicationConfiguration"] = boost::any(temp1);
+    }
+    if (httpsBasicConfiguration) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpsBasicConfiguration){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpsBasicConfiguration"] = boost::any(temp1);
+    }
+    if (imageTransform) {
+      vector<boost::any> temp1;
+      for(auto item1:*imageTransform){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ImageTransform"] = boost::any(temp1);
+    }
+    if (ipv6) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipv6){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Ipv6"] = boost::any(temp1);
+    }
+    if (managedTransforms) {
+      vector<boost::any> temp1;
+      for(auto item1:*managedTransforms){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ManagedTransforms"] = boost::any(temp1);
+    }
+    if (networkOptimization) {
+      vector<boost::any> temp1;
+      for(auto item1:*networkOptimization){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetworkOptimization"] = boost::any(temp1);
+    }
+    if (originRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*originRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OriginRules"] = boost::any(temp1);
+    }
+    if (redirectRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*redirectRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RedirectRules"] = boost::any(temp1);
+    }
+    if (rewriteUrlRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rewriteUrlRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RewriteUrlRules"] = boost::any(temp1);
+    }
+    if (seoBypass) {
+      vector<boost::any> temp1;
+      for(auto item1:*seoBypass){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SeoBypass"] = boost::any(temp1);
+    }
+    if (siteNameExclusive) {
+      vector<boost::any> temp1;
+      for(auto item1:*siteNameExclusive){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SiteNameExclusive"] = boost::any(temp1);
+    }
+    if (sitePause) {
+      vector<boost::any> temp1;
+      for(auto item1:*sitePause){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SitePause"] = boost::any(temp1);
+    }
+    if (tieredCache) {
+      vector<boost::any> temp1;
+      for(auto item1:*tieredCache){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TieredCache"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheReserve") != m.end() && !m["CacheReserve"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheReserve"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsCacheReserve> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheReserve"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsCacheReserve model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheReserve = make_shared<vector<ListSiteFunctionsResponseBodyConfigsCacheReserve>>(expect1);
+      }
+    }
+    if (m.find("CacheRules") != m.end() && !m["CacheRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheRules"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsCacheRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsCacheRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheRules = make_shared<vector<ListSiteFunctionsResponseBodyConfigsCacheRules>>(expect1);
+      }
+    }
+    if (m.find("CacheTags") != m.end() && !m["CacheTags"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheTags"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsCacheTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheTags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsCacheTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheTags = make_shared<vector<ListSiteFunctionsResponseBodyConfigsCacheTags>>(expect1);
+      }
+    }
+    if (m.find("CnameFlattening") != m.end() && !m["CnameFlattening"].empty()) {
+      if (typeid(vector<boost::any>) == m["CnameFlattening"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsCnameFlattening> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CnameFlattening"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsCnameFlattening model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cnameFlattening = make_shared<vector<ListSiteFunctionsResponseBodyConfigsCnameFlattening>>(expect1);
+      }
+    }
+    if (m.find("CompressionRules") != m.end() && !m["CompressionRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["CompressionRules"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsCompressionRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CompressionRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsCompressionRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        compressionRules = make_shared<vector<ListSiteFunctionsResponseBodyConfigsCompressionRules>>(expect1);
+      }
+    }
+    if (m.find("CrossBorderOptimization") != m.end() && !m["CrossBorderOptimization"].empty()) {
+      if (typeid(vector<boost::any>) == m["CrossBorderOptimization"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CrossBorderOptimization"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        crossBorderOptimization = make_shared<vector<ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization>>(expect1);
+      }
+    }
+    if (m.find("DevelopmentMode") != m.end() && !m["DevelopmentMode"].empty()) {
+      if (typeid(vector<boost::any>) == m["DevelopmentMode"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsDevelopmentMode> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DevelopmentMode"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsDevelopmentMode model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        developmentMode = make_shared<vector<ListSiteFunctionsResponseBodyConfigsDevelopmentMode>>(expect1);
+      }
+    }
+    if (m.find("HttpRequestHeaderModificationRules") != m.end() && !m["HttpRequestHeaderModificationRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpRequestHeaderModificationRules"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpRequestHeaderModificationRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpRequestHeaderModificationRules = make_shared<vector<ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules>>(expect1);
+      }
+    }
+    if (m.find("HttpResponseHeaderModificationRules") != m.end() && !m["HttpResponseHeaderModificationRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpResponseHeaderModificationRules"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpResponseHeaderModificationRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpResponseHeaderModificationRules = make_shared<vector<ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules>>(expect1);
+      }
+    }
+    if (m.find("HttpsApplicationConfiguration") != m.end() && !m["HttpsApplicationConfiguration"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpsApplicationConfiguration"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpsApplicationConfiguration"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpsApplicationConfiguration = make_shared<vector<ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration>>(expect1);
+      }
+    }
+    if (m.find("HttpsBasicConfiguration") != m.end() && !m["HttpsBasicConfiguration"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpsBasicConfiguration"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpsBasicConfiguration"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpsBasicConfiguration = make_shared<vector<ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration>>(expect1);
+      }
+    }
+    if (m.find("ImageTransform") != m.end() && !m["ImageTransform"].empty()) {
+      if (typeid(vector<boost::any>) == m["ImageTransform"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsImageTransform> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ImageTransform"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsImageTransform model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        imageTransform = make_shared<vector<ListSiteFunctionsResponseBodyConfigsImageTransform>>(expect1);
+      }
+    }
+    if (m.find("Ipv6") != m.end() && !m["Ipv6"].empty()) {
+      if (typeid(vector<boost::any>) == m["Ipv6"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsIpv6> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Ipv6"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsIpv6 model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipv6 = make_shared<vector<ListSiteFunctionsResponseBodyConfigsIpv6>>(expect1);
+      }
+    }
+    if (m.find("ManagedTransforms") != m.end() && !m["ManagedTransforms"].empty()) {
+      if (typeid(vector<boost::any>) == m["ManagedTransforms"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsManagedTransforms> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ManagedTransforms"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsManagedTransforms model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        managedTransforms = make_shared<vector<ListSiteFunctionsResponseBodyConfigsManagedTransforms>>(expect1);
+      }
+    }
+    if (m.find("NetworkOptimization") != m.end() && !m["NetworkOptimization"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetworkOptimization"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsNetworkOptimization> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetworkOptimization"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsNetworkOptimization model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networkOptimization = make_shared<vector<ListSiteFunctionsResponseBodyConfigsNetworkOptimization>>(expect1);
+      }
+    }
+    if (m.find("OriginRules") != m.end() && !m["OriginRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["OriginRules"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsOriginRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OriginRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsOriginRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        originRules = make_shared<vector<ListSiteFunctionsResponseBodyConfigsOriginRules>>(expect1);
+      }
+    }
+    if (m.find("RedirectRules") != m.end() && !m["RedirectRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["RedirectRules"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsRedirectRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RedirectRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsRedirectRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        redirectRules = make_shared<vector<ListSiteFunctionsResponseBodyConfigsRedirectRules>>(expect1);
+      }
+    }
+    if (m.find("RewriteUrlRules") != m.end() && !m["RewriteUrlRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["RewriteUrlRules"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsRewriteUrlRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RewriteUrlRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsRewriteUrlRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rewriteUrlRules = make_shared<vector<ListSiteFunctionsResponseBodyConfigsRewriteUrlRules>>(expect1);
+      }
+    }
+    if (m.find("SeoBypass") != m.end() && !m["SeoBypass"].empty()) {
+      if (typeid(vector<boost::any>) == m["SeoBypass"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsSeoBypass> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SeoBypass"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsSeoBypass model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        seoBypass = make_shared<vector<ListSiteFunctionsResponseBodyConfigsSeoBypass>>(expect1);
+      }
+    }
+    if (m.find("SiteNameExclusive") != m.end() && !m["SiteNameExclusive"].empty()) {
+      if (typeid(vector<boost::any>) == m["SiteNameExclusive"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsSiteNameExclusive> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SiteNameExclusive"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsSiteNameExclusive model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        siteNameExclusive = make_shared<vector<ListSiteFunctionsResponseBodyConfigsSiteNameExclusive>>(expect1);
+      }
+    }
+    if (m.find("SitePause") != m.end() && !m["SitePause"].empty()) {
+      if (typeid(vector<boost::any>) == m["SitePause"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsSitePause> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SitePause"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsSitePause model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sitePause = make_shared<vector<ListSiteFunctionsResponseBodyConfigsSitePause>>(expect1);
+      }
+    }
+    if (m.find("TieredCache") != m.end() && !m["TieredCache"].empty()) {
+      if (typeid(vector<boost::any>) == m["TieredCache"].type()) {
+        vector<ListSiteFunctionsResponseBodyConfigsTieredCache> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TieredCache"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSiteFunctionsResponseBodyConfigsTieredCache model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tieredCache = make_shared<vector<ListSiteFunctionsResponseBodyConfigsTieredCache>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBodyConfigs() = default;
+};
+class ListSiteFunctionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListSiteFunctionsResponseBodyConfigs> configs{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<long> totalPage{};
+
+  ListSiteFunctionsResponseBody() {}
+
+  explicit ListSiteFunctionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configs) {
+      res["Configs"] = configs ? boost::any(configs->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (totalPage) {
+      res["TotalPage"] = boost::any(*totalPage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Configs") != m.end() && !m["Configs"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Configs"].type()) {
+        ListSiteFunctionsResponseBodyConfigs model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Configs"]));
+        configs = make_shared<ListSiteFunctionsResponseBodyConfigs>(model1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("TotalPage") != m.end() && !m["TotalPage"].empty()) {
+      totalPage = make_shared<long>(boost::any_cast<long>(m["TotalPage"]));
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponseBody() = default;
+};
+class ListSiteFunctionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListSiteFunctionsResponseBody> body{};
+
+  ListSiteFunctionsResponse() {}
+
+  explicit ListSiteFunctionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSiteFunctionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSiteFunctionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSiteFunctionsResponse() = default;
+};
 class ListSitesRequestTagFilter : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -37144,6 +44638,233 @@ public:
 
   virtual ~UpdateListResponse() = default;
 };
+class UpdateOriginProtectionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> originConverge{};
+  shared_ptr<long> siteId{};
+
+  UpdateOriginProtectionRequest() {}
+
+  explicit UpdateOriginProtectionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (originConverge) {
+      res["OriginConverge"] = boost::any(*originConverge);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OriginConverge") != m.end() && !m["OriginConverge"].empty()) {
+      originConverge = make_shared<string>(boost::any_cast<string>(m["OriginConverge"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~UpdateOriginProtectionRequest() = default;
+};
+class UpdateOriginProtectionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateOriginProtectionResponseBody() {}
+
+  explicit UpdateOriginProtectionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateOriginProtectionResponseBody() = default;
+};
+class UpdateOriginProtectionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateOriginProtectionResponseBody> body{};
+
+  UpdateOriginProtectionResponse() {}
+
+  explicit UpdateOriginProtectionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateOriginProtectionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateOriginProtectionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateOriginProtectionResponse() = default;
+};
+class UpdateOriginProtectionIpWhiteListRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> siteId{};
+
+  UpdateOriginProtectionIpWhiteListRequest() {}
+
+  explicit UpdateOriginProtectionIpWhiteListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~UpdateOriginProtectionIpWhiteListRequest() = default;
+};
+class UpdateOriginProtectionIpWhiteListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateOriginProtectionIpWhiteListResponseBody() {}
+
+  explicit UpdateOriginProtectionIpWhiteListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateOriginProtectionIpWhiteListResponseBody() = default;
+};
+class UpdateOriginProtectionIpWhiteListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateOriginProtectionIpWhiteListResponseBody> body{};
+
+  UpdateOriginProtectionIpWhiteListResponse() {}
+
+  explicit UpdateOriginProtectionIpWhiteListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateOriginProtectionIpWhiteListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateOriginProtectionIpWhiteListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateOriginProtectionIpWhiteListResponse() = default;
+};
 class UpdatePageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -38623,6 +46344,2276 @@ public:
 
 
   virtual ~UpdateSiteDeliveryTaskStatusResponse() = default;
+};
+class UpdateSiteFunctionRequestCacheReserve : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> instanceId{};
+
+  UpdateSiteFunctionRequestCacheReserve() {}
+
+  explicit UpdateSiteFunctionRequestCacheReserve(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestCacheReserve() = default;
+};
+class UpdateSiteFunctionRequestCacheRules : public Darabonba::Model {
+public:
+  shared_ptr<string> additionalCacheablePorts{};
+  shared_ptr<string> browserCacheMode{};
+  shared_ptr<string> browserCacheTtl{};
+  shared_ptr<string> bypassCache{};
+  shared_ptr<string> cacheDeceptionArmor{};
+  shared_ptr<string> cacheReserveEligibility{};
+  shared_ptr<string> checkPresenceCookie{};
+  shared_ptr<string> checkPresenceHeader{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> edgeCacheMode{};
+  shared_ptr<string> edgeCacheTtl{};
+  shared_ptr<string> edgeStatusCodeCacheTtl{};
+  shared_ptr<string> includeCookie{};
+  shared_ptr<string> includeHeader{};
+  shared_ptr<string> queryString{};
+  shared_ptr<string> queryStringMode{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> serveStale{};
+  shared_ptr<string> sortQueryStringForCache{};
+  shared_ptr<string> userDeviceType{};
+  shared_ptr<string> userGeo{};
+  shared_ptr<string> userLanguage{};
+
+  UpdateSiteFunctionRequestCacheRules() {}
+
+  explicit UpdateSiteFunctionRequestCacheRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (additionalCacheablePorts) {
+      res["AdditionalCacheablePorts"] = boost::any(*additionalCacheablePorts);
+    }
+    if (browserCacheMode) {
+      res["BrowserCacheMode"] = boost::any(*browserCacheMode);
+    }
+    if (browserCacheTtl) {
+      res["BrowserCacheTtl"] = boost::any(*browserCacheTtl);
+    }
+    if (bypassCache) {
+      res["BypassCache"] = boost::any(*bypassCache);
+    }
+    if (cacheDeceptionArmor) {
+      res["CacheDeceptionArmor"] = boost::any(*cacheDeceptionArmor);
+    }
+    if (cacheReserveEligibility) {
+      res["CacheReserveEligibility"] = boost::any(*cacheReserveEligibility);
+    }
+    if (checkPresenceCookie) {
+      res["CheckPresenceCookie"] = boost::any(*checkPresenceCookie);
+    }
+    if (checkPresenceHeader) {
+      res["CheckPresenceHeader"] = boost::any(*checkPresenceHeader);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (edgeCacheMode) {
+      res["EdgeCacheMode"] = boost::any(*edgeCacheMode);
+    }
+    if (edgeCacheTtl) {
+      res["EdgeCacheTtl"] = boost::any(*edgeCacheTtl);
+    }
+    if (edgeStatusCodeCacheTtl) {
+      res["EdgeStatusCodeCacheTtl"] = boost::any(*edgeStatusCodeCacheTtl);
+    }
+    if (includeCookie) {
+      res["IncludeCookie"] = boost::any(*includeCookie);
+    }
+    if (includeHeader) {
+      res["IncludeHeader"] = boost::any(*includeHeader);
+    }
+    if (queryString) {
+      res["QueryString"] = boost::any(*queryString);
+    }
+    if (queryStringMode) {
+      res["QueryStringMode"] = boost::any(*queryStringMode);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (serveStale) {
+      res["ServeStale"] = boost::any(*serveStale);
+    }
+    if (sortQueryStringForCache) {
+      res["SortQueryStringForCache"] = boost::any(*sortQueryStringForCache);
+    }
+    if (userDeviceType) {
+      res["UserDeviceType"] = boost::any(*userDeviceType);
+    }
+    if (userGeo) {
+      res["UserGeo"] = boost::any(*userGeo);
+    }
+    if (userLanguage) {
+      res["UserLanguage"] = boost::any(*userLanguage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalCacheablePorts") != m.end() && !m["AdditionalCacheablePorts"].empty()) {
+      additionalCacheablePorts = make_shared<string>(boost::any_cast<string>(m["AdditionalCacheablePorts"]));
+    }
+    if (m.find("BrowserCacheMode") != m.end() && !m["BrowserCacheMode"].empty()) {
+      browserCacheMode = make_shared<string>(boost::any_cast<string>(m["BrowserCacheMode"]));
+    }
+    if (m.find("BrowserCacheTtl") != m.end() && !m["BrowserCacheTtl"].empty()) {
+      browserCacheTtl = make_shared<string>(boost::any_cast<string>(m["BrowserCacheTtl"]));
+    }
+    if (m.find("BypassCache") != m.end() && !m["BypassCache"].empty()) {
+      bypassCache = make_shared<string>(boost::any_cast<string>(m["BypassCache"]));
+    }
+    if (m.find("CacheDeceptionArmor") != m.end() && !m["CacheDeceptionArmor"].empty()) {
+      cacheDeceptionArmor = make_shared<string>(boost::any_cast<string>(m["CacheDeceptionArmor"]));
+    }
+    if (m.find("CacheReserveEligibility") != m.end() && !m["CacheReserveEligibility"].empty()) {
+      cacheReserveEligibility = make_shared<string>(boost::any_cast<string>(m["CacheReserveEligibility"]));
+    }
+    if (m.find("CheckPresenceCookie") != m.end() && !m["CheckPresenceCookie"].empty()) {
+      checkPresenceCookie = make_shared<string>(boost::any_cast<string>(m["CheckPresenceCookie"]));
+    }
+    if (m.find("CheckPresenceHeader") != m.end() && !m["CheckPresenceHeader"].empty()) {
+      checkPresenceHeader = make_shared<string>(boost::any_cast<string>(m["CheckPresenceHeader"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("EdgeCacheMode") != m.end() && !m["EdgeCacheMode"].empty()) {
+      edgeCacheMode = make_shared<string>(boost::any_cast<string>(m["EdgeCacheMode"]));
+    }
+    if (m.find("EdgeCacheTtl") != m.end() && !m["EdgeCacheTtl"].empty()) {
+      edgeCacheTtl = make_shared<string>(boost::any_cast<string>(m["EdgeCacheTtl"]));
+    }
+    if (m.find("EdgeStatusCodeCacheTtl") != m.end() && !m["EdgeStatusCodeCacheTtl"].empty()) {
+      edgeStatusCodeCacheTtl = make_shared<string>(boost::any_cast<string>(m["EdgeStatusCodeCacheTtl"]));
+    }
+    if (m.find("IncludeCookie") != m.end() && !m["IncludeCookie"].empty()) {
+      includeCookie = make_shared<string>(boost::any_cast<string>(m["IncludeCookie"]));
+    }
+    if (m.find("IncludeHeader") != m.end() && !m["IncludeHeader"].empty()) {
+      includeHeader = make_shared<string>(boost::any_cast<string>(m["IncludeHeader"]));
+    }
+    if (m.find("QueryString") != m.end() && !m["QueryString"].empty()) {
+      queryString = make_shared<string>(boost::any_cast<string>(m["QueryString"]));
+    }
+    if (m.find("QueryStringMode") != m.end() && !m["QueryStringMode"].empty()) {
+      queryStringMode = make_shared<string>(boost::any_cast<string>(m["QueryStringMode"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("ServeStale") != m.end() && !m["ServeStale"].empty()) {
+      serveStale = make_shared<string>(boost::any_cast<string>(m["ServeStale"]));
+    }
+    if (m.find("SortQueryStringForCache") != m.end() && !m["SortQueryStringForCache"].empty()) {
+      sortQueryStringForCache = make_shared<string>(boost::any_cast<string>(m["SortQueryStringForCache"]));
+    }
+    if (m.find("UserDeviceType") != m.end() && !m["UserDeviceType"].empty()) {
+      userDeviceType = make_shared<string>(boost::any_cast<string>(m["UserDeviceType"]));
+    }
+    if (m.find("UserGeo") != m.end() && !m["UserGeo"].empty()) {
+      userGeo = make_shared<string>(boost::any_cast<string>(m["UserGeo"]));
+    }
+    if (m.find("UserLanguage") != m.end() && !m["UserLanguage"].empty()) {
+      userLanguage = make_shared<string>(boost::any_cast<string>(m["UserLanguage"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestCacheRules() = default;
+};
+class UpdateSiteFunctionRequestCacheTags : public Darabonba::Model {
+public:
+  shared_ptr<string> caseInsensitive{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> tagName{};
+
+  UpdateSiteFunctionRequestCacheTags() {}
+
+  explicit UpdateSiteFunctionRequestCacheTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (caseInsensitive) {
+      res["CaseInsensitive"] = boost::any(*caseInsensitive);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (tagName) {
+      res["TagName"] = boost::any(*tagName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CaseInsensitive") != m.end() && !m["CaseInsensitive"].empty()) {
+      caseInsensitive = make_shared<string>(boost::any_cast<string>(m["CaseInsensitive"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("TagName") != m.end() && !m["TagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["TagName"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestCacheTags() = default;
+};
+class UpdateSiteFunctionRequestCnameFlattening : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> flattenMode{};
+
+  UpdateSiteFunctionRequestCnameFlattening() {}
+
+  explicit UpdateSiteFunctionRequestCnameFlattening(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (flattenMode) {
+      res["FlattenMode"] = boost::any(*flattenMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("FlattenMode") != m.end() && !m["FlattenMode"].empty()) {
+      flattenMode = make_shared<string>(boost::any_cast<string>(m["FlattenMode"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestCnameFlattening() = default;
+};
+class UpdateSiteFunctionRequestCompressionRules : public Darabonba::Model {
+public:
+  shared_ptr<string> brotli{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> gzip{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+
+  UpdateSiteFunctionRequestCompressionRules() {}
+
+  explicit UpdateSiteFunctionRequestCompressionRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (brotli) {
+      res["Brotli"] = boost::any(*brotli);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (gzip) {
+      res["Gzip"] = boost::any(*gzip);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Brotli") != m.end() && !m["Brotli"].empty()) {
+      brotli = make_shared<string>(boost::any_cast<string>(m["Brotli"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Gzip") != m.end() && !m["Gzip"].empty()) {
+      gzip = make_shared<string>(boost::any_cast<string>(m["Gzip"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestCompressionRules() = default;
+};
+class UpdateSiteFunctionRequestCrossBorderOptimization : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+
+  UpdateSiteFunctionRequestCrossBorderOptimization() {}
+
+  explicit UpdateSiteFunctionRequestCrossBorderOptimization(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestCrossBorderOptimization() = default;
+};
+class UpdateSiteFunctionRequestDevelopmentMode : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+
+  UpdateSiteFunctionRequestDevelopmentMode() {}
+
+  explicit UpdateSiteFunctionRequestDevelopmentMode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestDevelopmentMode() = default;
+};
+class UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> operation{};
+  shared_ptr<string> value{};
+
+  UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification() {}
+
+  explicit UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (operation) {
+      res["Operation"] = boost::any(*operation);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Operation") != m.end() && !m["Operation"].empty()) {
+      operation = make_shared<string>(boost::any_cast<string>(m["Operation"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification() = default;
+};
+class UpdateSiteFunctionRequestHttpRequestHeaderModificationRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<vector<UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification>> requestHeaderModification{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+
+  UpdateSiteFunctionRequestHttpRequestHeaderModificationRules() {}
+
+  explicit UpdateSiteFunctionRequestHttpRequestHeaderModificationRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (requestHeaderModification) {
+      vector<boost::any> temp1;
+      for(auto item1:*requestHeaderModification){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RequestHeaderModification"] = boost::any(temp1);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("RequestHeaderModification") != m.end() && !m["RequestHeaderModification"].empty()) {
+      if (typeid(vector<boost::any>) == m["RequestHeaderModification"].type()) {
+        vector<UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RequestHeaderModification"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        requestHeaderModification = make_shared<vector<UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification>>(expect1);
+      }
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestHttpRequestHeaderModificationRules() = default;
+};
+class UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> operation{};
+  shared_ptr<string> value{};
+
+  UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification() {}
+
+  explicit UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (operation) {
+      res["Operation"] = boost::any(*operation);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Operation") != m.end() && !m["Operation"].empty()) {
+      operation = make_shared<string>(boost::any_cast<string>(m["Operation"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification() = default;
+};
+class UpdateSiteFunctionRequestHttpResponseHeaderModificationRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<vector<UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification>> responseHeaderModification{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+
+  UpdateSiteFunctionRequestHttpResponseHeaderModificationRules() {}
+
+  explicit UpdateSiteFunctionRequestHttpResponseHeaderModificationRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (responseHeaderModification) {
+      vector<boost::any> temp1;
+      for(auto item1:*responseHeaderModification){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResponseHeaderModification"] = boost::any(temp1);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("ResponseHeaderModification") != m.end() && !m["ResponseHeaderModification"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResponseHeaderModification"].type()) {
+        vector<UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResponseHeaderModification"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        responseHeaderModification = make_shared<vector<UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification>>(expect1);
+      }
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestHttpResponseHeaderModificationRules() = default;
+};
+class UpdateSiteFunctionRequestHttpsApplicationConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<string> altSvc{};
+  shared_ptr<string> altSvcClear{};
+  shared_ptr<string> altSvcMa{};
+  shared_ptr<string> altSvcPersist{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> hsts{};
+  shared_ptr<string> hstsIncludeSubdomains{};
+  shared_ptr<string> hstsMaxAge{};
+  shared_ptr<string> hstsPreload{};
+  shared_ptr<string> httpsForce{};
+  shared_ptr<string> httpsForceCode{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+
+  UpdateSiteFunctionRequestHttpsApplicationConfiguration() {}
+
+  explicit UpdateSiteFunctionRequestHttpsApplicationConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (altSvc) {
+      res["AltSvc"] = boost::any(*altSvc);
+    }
+    if (altSvcClear) {
+      res["AltSvcClear"] = boost::any(*altSvcClear);
+    }
+    if (altSvcMa) {
+      res["AltSvcMa"] = boost::any(*altSvcMa);
+    }
+    if (altSvcPersist) {
+      res["AltSvcPersist"] = boost::any(*altSvcPersist);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (hsts) {
+      res["Hsts"] = boost::any(*hsts);
+    }
+    if (hstsIncludeSubdomains) {
+      res["HstsIncludeSubdomains"] = boost::any(*hstsIncludeSubdomains);
+    }
+    if (hstsMaxAge) {
+      res["HstsMaxAge"] = boost::any(*hstsMaxAge);
+    }
+    if (hstsPreload) {
+      res["HstsPreload"] = boost::any(*hstsPreload);
+    }
+    if (httpsForce) {
+      res["HttpsForce"] = boost::any(*httpsForce);
+    }
+    if (httpsForceCode) {
+      res["HttpsForceCode"] = boost::any(*httpsForceCode);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AltSvc") != m.end() && !m["AltSvc"].empty()) {
+      altSvc = make_shared<string>(boost::any_cast<string>(m["AltSvc"]));
+    }
+    if (m.find("AltSvcClear") != m.end() && !m["AltSvcClear"].empty()) {
+      altSvcClear = make_shared<string>(boost::any_cast<string>(m["AltSvcClear"]));
+    }
+    if (m.find("AltSvcMa") != m.end() && !m["AltSvcMa"].empty()) {
+      altSvcMa = make_shared<string>(boost::any_cast<string>(m["AltSvcMa"]));
+    }
+    if (m.find("AltSvcPersist") != m.end() && !m["AltSvcPersist"].empty()) {
+      altSvcPersist = make_shared<string>(boost::any_cast<string>(m["AltSvcPersist"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Hsts") != m.end() && !m["Hsts"].empty()) {
+      hsts = make_shared<string>(boost::any_cast<string>(m["Hsts"]));
+    }
+    if (m.find("HstsIncludeSubdomains") != m.end() && !m["HstsIncludeSubdomains"].empty()) {
+      hstsIncludeSubdomains = make_shared<string>(boost::any_cast<string>(m["HstsIncludeSubdomains"]));
+    }
+    if (m.find("HstsMaxAge") != m.end() && !m["HstsMaxAge"].empty()) {
+      hstsMaxAge = make_shared<string>(boost::any_cast<string>(m["HstsMaxAge"]));
+    }
+    if (m.find("HstsPreload") != m.end() && !m["HstsPreload"].empty()) {
+      hstsPreload = make_shared<string>(boost::any_cast<string>(m["HstsPreload"]));
+    }
+    if (m.find("HttpsForce") != m.end() && !m["HttpsForce"].empty()) {
+      httpsForce = make_shared<string>(boost::any_cast<string>(m["HttpsForce"]));
+    }
+    if (m.find("HttpsForceCode") != m.end() && !m["HttpsForceCode"].empty()) {
+      httpsForceCode = make_shared<string>(boost::any_cast<string>(m["HttpsForceCode"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestHttpsApplicationConfiguration() = default;
+};
+class UpdateSiteFunctionRequestHttpsBasicConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<string> ciphersuite{};
+  shared_ptr<string> ciphersuiteGroup{};
+  shared_ptr<long> configId{};
+  shared_ptr<string> http2{};
+  shared_ptr<string> http3{};
+  shared_ptr<string> https{};
+  shared_ptr<string> ocspStapling{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> tls10{};
+  shared_ptr<string> tls11{};
+  shared_ptr<string> tls12{};
+  shared_ptr<string> tls13{};
+
+  UpdateSiteFunctionRequestHttpsBasicConfiguration() {}
+
+  explicit UpdateSiteFunctionRequestHttpsBasicConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ciphersuite) {
+      res["Ciphersuite"] = boost::any(*ciphersuite);
+    }
+    if (ciphersuiteGroup) {
+      res["CiphersuiteGroup"] = boost::any(*ciphersuiteGroup);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (http2) {
+      res["Http2"] = boost::any(*http2);
+    }
+    if (http3) {
+      res["Http3"] = boost::any(*http3);
+    }
+    if (https) {
+      res["Https"] = boost::any(*https);
+    }
+    if (ocspStapling) {
+      res["OcspStapling"] = boost::any(*ocspStapling);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (tls10) {
+      res["Tls10"] = boost::any(*tls10);
+    }
+    if (tls11) {
+      res["Tls11"] = boost::any(*tls11);
+    }
+    if (tls12) {
+      res["Tls12"] = boost::any(*tls12);
+    }
+    if (tls13) {
+      res["Tls13"] = boost::any(*tls13);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ciphersuite") != m.end() && !m["Ciphersuite"].empty()) {
+      ciphersuite = make_shared<string>(boost::any_cast<string>(m["Ciphersuite"]));
+    }
+    if (m.find("CiphersuiteGroup") != m.end() && !m["CiphersuiteGroup"].empty()) {
+      ciphersuiteGroup = make_shared<string>(boost::any_cast<string>(m["CiphersuiteGroup"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Http2") != m.end() && !m["Http2"].empty()) {
+      http2 = make_shared<string>(boost::any_cast<string>(m["Http2"]));
+    }
+    if (m.find("Http3") != m.end() && !m["Http3"].empty()) {
+      http3 = make_shared<string>(boost::any_cast<string>(m["Http3"]));
+    }
+    if (m.find("Https") != m.end() && !m["Https"].empty()) {
+      https = make_shared<string>(boost::any_cast<string>(m["Https"]));
+    }
+    if (m.find("OcspStapling") != m.end() && !m["OcspStapling"].empty()) {
+      ocspStapling = make_shared<string>(boost::any_cast<string>(m["OcspStapling"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Tls10") != m.end() && !m["Tls10"].empty()) {
+      tls10 = make_shared<string>(boost::any_cast<string>(m["Tls10"]));
+    }
+    if (m.find("Tls11") != m.end() && !m["Tls11"].empty()) {
+      tls11 = make_shared<string>(boost::any_cast<string>(m["Tls11"]));
+    }
+    if (m.find("Tls12") != m.end() && !m["Tls12"].empty()) {
+      tls12 = make_shared<string>(boost::any_cast<string>(m["Tls12"]));
+    }
+    if (m.find("Tls13") != m.end() && !m["Tls13"].empty()) {
+      tls13 = make_shared<string>(boost::any_cast<string>(m["Tls13"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestHttpsBasicConfiguration() = default;
+};
+class UpdateSiteFunctionRequestImageTransform : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+
+  UpdateSiteFunctionRequestImageTransform() {}
+
+  explicit UpdateSiteFunctionRequestImageTransform(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestImageTransform() = default;
+};
+class UpdateSiteFunctionRequestIpv6 : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+
+  UpdateSiteFunctionRequestIpv6() {}
+
+  explicit UpdateSiteFunctionRequestIpv6(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestIpv6() = default;
+};
+class UpdateSiteFunctionRequestManagedTransforms : public Darabonba::Model {
+public:
+  shared_ptr<string> addClientGeolocationHeaders{};
+  shared_ptr<string> addRealClientIpHeader{};
+  shared_ptr<long> configId{};
+
+  UpdateSiteFunctionRequestManagedTransforms() {}
+
+  explicit UpdateSiteFunctionRequestManagedTransforms(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addClientGeolocationHeaders) {
+      res["AddClientGeolocationHeaders"] = boost::any(*addClientGeolocationHeaders);
+    }
+    if (addRealClientIpHeader) {
+      res["AddRealClientIpHeader"] = boost::any(*addRealClientIpHeader);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddClientGeolocationHeaders") != m.end() && !m["AddClientGeolocationHeaders"].empty()) {
+      addClientGeolocationHeaders = make_shared<string>(boost::any_cast<string>(m["AddClientGeolocationHeaders"]));
+    }
+    if (m.find("AddRealClientIpHeader") != m.end() && !m["AddRealClientIpHeader"].empty()) {
+      addRealClientIpHeader = make_shared<string>(boost::any_cast<string>(m["AddRealClientIpHeader"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestManagedTransforms() = default;
+};
+class UpdateSiteFunctionRequestNetworkOptimization : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> grpc{};
+  shared_ptr<string> http2Origin{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> smartRouting{};
+  shared_ptr<string> uploadMaxFilesize{};
+  shared_ptr<string> websocket{};
+
+  UpdateSiteFunctionRequestNetworkOptimization() {}
+
+  explicit UpdateSiteFunctionRequestNetworkOptimization(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (grpc) {
+      res["Grpc"] = boost::any(*grpc);
+    }
+    if (http2Origin) {
+      res["Http2Origin"] = boost::any(*http2Origin);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (smartRouting) {
+      res["SmartRouting"] = boost::any(*smartRouting);
+    }
+    if (uploadMaxFilesize) {
+      res["UploadMaxFilesize"] = boost::any(*uploadMaxFilesize);
+    }
+    if (websocket) {
+      res["Websocket"] = boost::any(*websocket);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Grpc") != m.end() && !m["Grpc"].empty()) {
+      grpc = make_shared<string>(boost::any_cast<string>(m["Grpc"]));
+    }
+    if (m.find("Http2Origin") != m.end() && !m["Http2Origin"].empty()) {
+      http2Origin = make_shared<string>(boost::any_cast<string>(m["Http2Origin"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("SmartRouting") != m.end() && !m["SmartRouting"].empty()) {
+      smartRouting = make_shared<string>(boost::any_cast<string>(m["SmartRouting"]));
+    }
+    if (m.find("UploadMaxFilesize") != m.end() && !m["UploadMaxFilesize"].empty()) {
+      uploadMaxFilesize = make_shared<string>(boost::any_cast<string>(m["UploadMaxFilesize"]));
+    }
+    if (m.find("Websocket") != m.end() && !m["Websocket"].empty()) {
+      websocket = make_shared<string>(boost::any_cast<string>(m["Websocket"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestNetworkOptimization() = default;
+};
+class UpdateSiteFunctionRequestOriginRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> dnsRecord{};
+  shared_ptr<string> originHost{};
+  shared_ptr<string> originHttpPort{};
+  shared_ptr<string> originHttpsPort{};
+  shared_ptr<string> originScheme{};
+  shared_ptr<string> originSni{};
+  shared_ptr<string> range{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+
+  UpdateSiteFunctionRequestOriginRules() {}
+
+  explicit UpdateSiteFunctionRequestOriginRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (dnsRecord) {
+      res["DnsRecord"] = boost::any(*dnsRecord);
+    }
+    if (originHost) {
+      res["OriginHost"] = boost::any(*originHost);
+    }
+    if (originHttpPort) {
+      res["OriginHttpPort"] = boost::any(*originHttpPort);
+    }
+    if (originHttpsPort) {
+      res["OriginHttpsPort"] = boost::any(*originHttpsPort);
+    }
+    if (originScheme) {
+      res["OriginScheme"] = boost::any(*originScheme);
+    }
+    if (originSni) {
+      res["OriginSni"] = boost::any(*originSni);
+    }
+    if (range) {
+      res["Range"] = boost::any(*range);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("DnsRecord") != m.end() && !m["DnsRecord"].empty()) {
+      dnsRecord = make_shared<string>(boost::any_cast<string>(m["DnsRecord"]));
+    }
+    if (m.find("OriginHost") != m.end() && !m["OriginHost"].empty()) {
+      originHost = make_shared<string>(boost::any_cast<string>(m["OriginHost"]));
+    }
+    if (m.find("OriginHttpPort") != m.end() && !m["OriginHttpPort"].empty()) {
+      originHttpPort = make_shared<string>(boost::any_cast<string>(m["OriginHttpPort"]));
+    }
+    if (m.find("OriginHttpsPort") != m.end() && !m["OriginHttpsPort"].empty()) {
+      originHttpsPort = make_shared<string>(boost::any_cast<string>(m["OriginHttpsPort"]));
+    }
+    if (m.find("OriginScheme") != m.end() && !m["OriginScheme"].empty()) {
+      originScheme = make_shared<string>(boost::any_cast<string>(m["OriginScheme"]));
+    }
+    if (m.find("OriginSni") != m.end() && !m["OriginSni"].empty()) {
+      originSni = make_shared<string>(boost::any_cast<string>(m["OriginSni"]));
+    }
+    if (m.find("Range") != m.end() && !m["Range"].empty()) {
+      range = make_shared<string>(boost::any_cast<string>(m["Range"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestOriginRules() = default;
+};
+class UpdateSiteFunctionRequestRedirectRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> reserveQueryString{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> statusCode{};
+  shared_ptr<string> targetUrl{};
+  shared_ptr<string> type{};
+
+  UpdateSiteFunctionRequestRedirectRules() {}
+
+  explicit UpdateSiteFunctionRequestRedirectRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (reserveQueryString) {
+      res["ReserveQueryString"] = boost::any(*reserveQueryString);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (statusCode) {
+      res["StatusCode"] = boost::any(*statusCode);
+    }
+    if (targetUrl) {
+      res["TargetUrl"] = boost::any(*targetUrl);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("ReserveQueryString") != m.end() && !m["ReserveQueryString"].empty()) {
+      reserveQueryString = make_shared<string>(boost::any_cast<string>(m["ReserveQueryString"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      statusCode = make_shared<string>(boost::any_cast<string>(m["StatusCode"]));
+    }
+    if (m.find("TargetUrl") != m.end() && !m["TargetUrl"].empty()) {
+      targetUrl = make_shared<string>(boost::any_cast<string>(m["TargetUrl"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestRedirectRules() = default;
+};
+class UpdateSiteFunctionRequestRewriteUrlRules : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> queryString{};
+  shared_ptr<string> rewriteQueryStringType{};
+  shared_ptr<string> rewriteUriType{};
+  shared_ptr<string> rule{};
+  shared_ptr<string> ruleEnable{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> uri{};
+
+  UpdateSiteFunctionRequestRewriteUrlRules() {}
+
+  explicit UpdateSiteFunctionRequestRewriteUrlRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (queryString) {
+      res["QueryString"] = boost::any(*queryString);
+    }
+    if (rewriteQueryStringType) {
+      res["RewriteQueryStringType"] = boost::any(*rewriteQueryStringType);
+    }
+    if (rewriteUriType) {
+      res["RewriteUriType"] = boost::any(*rewriteUriType);
+    }
+    if (rule) {
+      res["Rule"] = boost::any(*rule);
+    }
+    if (ruleEnable) {
+      res["RuleEnable"] = boost::any(*ruleEnable);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("QueryString") != m.end() && !m["QueryString"].empty()) {
+      queryString = make_shared<string>(boost::any_cast<string>(m["QueryString"]));
+    }
+    if (m.find("RewriteQueryStringType") != m.end() && !m["RewriteQueryStringType"].empty()) {
+      rewriteQueryStringType = make_shared<string>(boost::any_cast<string>(m["RewriteQueryStringType"]));
+    }
+    if (m.find("RewriteUriType") != m.end() && !m["RewriteUriType"].empty()) {
+      rewriteUriType = make_shared<string>(boost::any_cast<string>(m["RewriteUriType"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      rule = make_shared<string>(boost::any_cast<string>(m["Rule"]));
+    }
+    if (m.find("RuleEnable") != m.end() && !m["RuleEnable"].empty()) {
+      ruleEnable = make_shared<string>(boost::any_cast<string>(m["RuleEnable"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestRewriteUrlRules() = default;
+};
+class UpdateSiteFunctionRequestSeoBypass : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+
+  UpdateSiteFunctionRequestSeoBypass() {}
+
+  explicit UpdateSiteFunctionRequestSeoBypass(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestSeoBypass() = default;
+};
+class UpdateSiteFunctionRequestSiteNameExclusive : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> enable{};
+
+  UpdateSiteFunctionRequestSiteNameExclusive() {}
+
+  explicit UpdateSiteFunctionRequestSiteNameExclusive(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestSiteNameExclusive() = default;
+};
+class UpdateSiteFunctionRequestSitePause : public Darabonba::Model {
+public:
+  shared_ptr<long> configId{};
+  shared_ptr<string> paused{};
+
+  UpdateSiteFunctionRequestSitePause() {}
+
+  explicit UpdateSiteFunctionRequestSitePause(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    if (paused) {
+      res["Paused"] = boost::any(*paused);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+    if (m.find("Paused") != m.end() && !m["Paused"].empty()) {
+      paused = make_shared<string>(boost::any_cast<string>(m["Paused"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestSitePause() = default;
+};
+class UpdateSiteFunctionRequestTieredCache : public Darabonba::Model {
+public:
+  shared_ptr<string> cacheArchitectureMode{};
+  shared_ptr<long> configId{};
+
+  UpdateSiteFunctionRequestTieredCache() {}
+
+  explicit UpdateSiteFunctionRequestTieredCache(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheArchitectureMode) {
+      res["CacheArchitectureMode"] = boost::any(*cacheArchitectureMode);
+    }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheArchitectureMode") != m.end() && !m["CacheArchitectureMode"].empty()) {
+      cacheArchitectureMode = make_shared<string>(boost::any_cast<string>(m["CacheArchitectureMode"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<long>(boost::any_cast<long>(m["ConfigId"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequestTieredCache() = default;
+};
+class UpdateSiteFunctionRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<UpdateSiteFunctionRequestCacheReserve>> cacheReserve{};
+  shared_ptr<vector<UpdateSiteFunctionRequestCacheRules>> cacheRules{};
+  shared_ptr<vector<UpdateSiteFunctionRequestCacheTags>> cacheTags{};
+  shared_ptr<vector<UpdateSiteFunctionRequestCnameFlattening>> cnameFlattening{};
+  shared_ptr<vector<UpdateSiteFunctionRequestCompressionRules>> compressionRules{};
+  shared_ptr<vector<UpdateSiteFunctionRequestCrossBorderOptimization>> crossBorderOptimization{};
+  shared_ptr<vector<UpdateSiteFunctionRequestDevelopmentMode>> developmentMode{};
+  shared_ptr<vector<UpdateSiteFunctionRequestHttpRequestHeaderModificationRules>> httpRequestHeaderModificationRules{};
+  shared_ptr<vector<UpdateSiteFunctionRequestHttpResponseHeaderModificationRules>> httpResponseHeaderModificationRules{};
+  shared_ptr<vector<UpdateSiteFunctionRequestHttpsApplicationConfiguration>> httpsApplicationConfiguration{};
+  shared_ptr<vector<UpdateSiteFunctionRequestHttpsBasicConfiguration>> httpsBasicConfiguration{};
+  shared_ptr<vector<UpdateSiteFunctionRequestImageTransform>> imageTransform{};
+  shared_ptr<vector<UpdateSiteFunctionRequestIpv6>> ipv6{};
+  shared_ptr<vector<UpdateSiteFunctionRequestManagedTransforms>> managedTransforms{};
+  shared_ptr<vector<UpdateSiteFunctionRequestNetworkOptimization>> networkOptimization{};
+  shared_ptr<vector<UpdateSiteFunctionRequestOriginRules>> originRules{};
+  shared_ptr<vector<UpdateSiteFunctionRequestRedirectRules>> redirectRules{};
+  shared_ptr<vector<UpdateSiteFunctionRequestRewriteUrlRules>> rewriteUrlRules{};
+  shared_ptr<vector<UpdateSiteFunctionRequestSeoBypass>> seoBypass{};
+  shared_ptr<long> siteId{};
+  shared_ptr<vector<UpdateSiteFunctionRequestSiteNameExclusive>> siteNameExclusive{};
+  shared_ptr<vector<UpdateSiteFunctionRequestSitePause>> sitePause{};
+  shared_ptr<vector<UpdateSiteFunctionRequestTieredCache>> tieredCache{};
+
+  UpdateSiteFunctionRequest() {}
+
+  explicit UpdateSiteFunctionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheReserve) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheReserve){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheReserve"] = boost::any(temp1);
+    }
+    if (cacheRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheRules"] = boost::any(temp1);
+    }
+    if (cacheTags) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheTags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheTags"] = boost::any(temp1);
+    }
+    if (cnameFlattening) {
+      vector<boost::any> temp1;
+      for(auto item1:*cnameFlattening){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CnameFlattening"] = boost::any(temp1);
+    }
+    if (compressionRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*compressionRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CompressionRules"] = boost::any(temp1);
+    }
+    if (crossBorderOptimization) {
+      vector<boost::any> temp1;
+      for(auto item1:*crossBorderOptimization){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CrossBorderOptimization"] = boost::any(temp1);
+    }
+    if (developmentMode) {
+      vector<boost::any> temp1;
+      for(auto item1:*developmentMode){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DevelopmentMode"] = boost::any(temp1);
+    }
+    if (httpRequestHeaderModificationRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpRequestHeaderModificationRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpRequestHeaderModificationRules"] = boost::any(temp1);
+    }
+    if (httpResponseHeaderModificationRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpResponseHeaderModificationRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpResponseHeaderModificationRules"] = boost::any(temp1);
+    }
+    if (httpsApplicationConfiguration) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpsApplicationConfiguration){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpsApplicationConfiguration"] = boost::any(temp1);
+    }
+    if (httpsBasicConfiguration) {
+      vector<boost::any> temp1;
+      for(auto item1:*httpsBasicConfiguration){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HttpsBasicConfiguration"] = boost::any(temp1);
+    }
+    if (imageTransform) {
+      vector<boost::any> temp1;
+      for(auto item1:*imageTransform){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ImageTransform"] = boost::any(temp1);
+    }
+    if (ipv6) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipv6){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Ipv6"] = boost::any(temp1);
+    }
+    if (managedTransforms) {
+      vector<boost::any> temp1;
+      for(auto item1:*managedTransforms){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ManagedTransforms"] = boost::any(temp1);
+    }
+    if (networkOptimization) {
+      vector<boost::any> temp1;
+      for(auto item1:*networkOptimization){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetworkOptimization"] = boost::any(temp1);
+    }
+    if (originRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*originRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OriginRules"] = boost::any(temp1);
+    }
+    if (redirectRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*redirectRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RedirectRules"] = boost::any(temp1);
+    }
+    if (rewriteUrlRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rewriteUrlRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RewriteUrlRules"] = boost::any(temp1);
+    }
+    if (seoBypass) {
+      vector<boost::any> temp1;
+      for(auto item1:*seoBypass){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SeoBypass"] = boost::any(temp1);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    if (siteNameExclusive) {
+      vector<boost::any> temp1;
+      for(auto item1:*siteNameExclusive){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SiteNameExclusive"] = boost::any(temp1);
+    }
+    if (sitePause) {
+      vector<boost::any> temp1;
+      for(auto item1:*sitePause){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SitePause"] = boost::any(temp1);
+    }
+    if (tieredCache) {
+      vector<boost::any> temp1;
+      for(auto item1:*tieredCache){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TieredCache"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheReserve") != m.end() && !m["CacheReserve"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheReserve"].type()) {
+        vector<UpdateSiteFunctionRequestCacheReserve> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheReserve"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestCacheReserve model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheReserve = make_shared<vector<UpdateSiteFunctionRequestCacheReserve>>(expect1);
+      }
+    }
+    if (m.find("CacheRules") != m.end() && !m["CacheRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheRules"].type()) {
+        vector<UpdateSiteFunctionRequestCacheRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestCacheRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheRules = make_shared<vector<UpdateSiteFunctionRequestCacheRules>>(expect1);
+      }
+    }
+    if (m.find("CacheTags") != m.end() && !m["CacheTags"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheTags"].type()) {
+        vector<UpdateSiteFunctionRequestCacheTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheTags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestCacheTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheTags = make_shared<vector<UpdateSiteFunctionRequestCacheTags>>(expect1);
+      }
+    }
+    if (m.find("CnameFlattening") != m.end() && !m["CnameFlattening"].empty()) {
+      if (typeid(vector<boost::any>) == m["CnameFlattening"].type()) {
+        vector<UpdateSiteFunctionRequestCnameFlattening> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CnameFlattening"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestCnameFlattening model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cnameFlattening = make_shared<vector<UpdateSiteFunctionRequestCnameFlattening>>(expect1);
+      }
+    }
+    if (m.find("CompressionRules") != m.end() && !m["CompressionRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["CompressionRules"].type()) {
+        vector<UpdateSiteFunctionRequestCompressionRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CompressionRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestCompressionRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        compressionRules = make_shared<vector<UpdateSiteFunctionRequestCompressionRules>>(expect1);
+      }
+    }
+    if (m.find("CrossBorderOptimization") != m.end() && !m["CrossBorderOptimization"].empty()) {
+      if (typeid(vector<boost::any>) == m["CrossBorderOptimization"].type()) {
+        vector<UpdateSiteFunctionRequestCrossBorderOptimization> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CrossBorderOptimization"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestCrossBorderOptimization model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        crossBorderOptimization = make_shared<vector<UpdateSiteFunctionRequestCrossBorderOptimization>>(expect1);
+      }
+    }
+    if (m.find("DevelopmentMode") != m.end() && !m["DevelopmentMode"].empty()) {
+      if (typeid(vector<boost::any>) == m["DevelopmentMode"].type()) {
+        vector<UpdateSiteFunctionRequestDevelopmentMode> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DevelopmentMode"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestDevelopmentMode model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        developmentMode = make_shared<vector<UpdateSiteFunctionRequestDevelopmentMode>>(expect1);
+      }
+    }
+    if (m.find("HttpRequestHeaderModificationRules") != m.end() && !m["HttpRequestHeaderModificationRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpRequestHeaderModificationRules"].type()) {
+        vector<UpdateSiteFunctionRequestHttpRequestHeaderModificationRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpRequestHeaderModificationRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestHttpRequestHeaderModificationRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpRequestHeaderModificationRules = make_shared<vector<UpdateSiteFunctionRequestHttpRequestHeaderModificationRules>>(expect1);
+      }
+    }
+    if (m.find("HttpResponseHeaderModificationRules") != m.end() && !m["HttpResponseHeaderModificationRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpResponseHeaderModificationRules"].type()) {
+        vector<UpdateSiteFunctionRequestHttpResponseHeaderModificationRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpResponseHeaderModificationRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestHttpResponseHeaderModificationRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpResponseHeaderModificationRules = make_shared<vector<UpdateSiteFunctionRequestHttpResponseHeaderModificationRules>>(expect1);
+      }
+    }
+    if (m.find("HttpsApplicationConfiguration") != m.end() && !m["HttpsApplicationConfiguration"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpsApplicationConfiguration"].type()) {
+        vector<UpdateSiteFunctionRequestHttpsApplicationConfiguration> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpsApplicationConfiguration"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestHttpsApplicationConfiguration model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpsApplicationConfiguration = make_shared<vector<UpdateSiteFunctionRequestHttpsApplicationConfiguration>>(expect1);
+      }
+    }
+    if (m.find("HttpsBasicConfiguration") != m.end() && !m["HttpsBasicConfiguration"].empty()) {
+      if (typeid(vector<boost::any>) == m["HttpsBasicConfiguration"].type()) {
+        vector<UpdateSiteFunctionRequestHttpsBasicConfiguration> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HttpsBasicConfiguration"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestHttpsBasicConfiguration model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        httpsBasicConfiguration = make_shared<vector<UpdateSiteFunctionRequestHttpsBasicConfiguration>>(expect1);
+      }
+    }
+    if (m.find("ImageTransform") != m.end() && !m["ImageTransform"].empty()) {
+      if (typeid(vector<boost::any>) == m["ImageTransform"].type()) {
+        vector<UpdateSiteFunctionRequestImageTransform> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ImageTransform"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestImageTransform model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        imageTransform = make_shared<vector<UpdateSiteFunctionRequestImageTransform>>(expect1);
+      }
+    }
+    if (m.find("Ipv6") != m.end() && !m["Ipv6"].empty()) {
+      if (typeid(vector<boost::any>) == m["Ipv6"].type()) {
+        vector<UpdateSiteFunctionRequestIpv6> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Ipv6"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestIpv6 model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipv6 = make_shared<vector<UpdateSiteFunctionRequestIpv6>>(expect1);
+      }
+    }
+    if (m.find("ManagedTransforms") != m.end() && !m["ManagedTransforms"].empty()) {
+      if (typeid(vector<boost::any>) == m["ManagedTransforms"].type()) {
+        vector<UpdateSiteFunctionRequestManagedTransforms> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ManagedTransforms"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestManagedTransforms model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        managedTransforms = make_shared<vector<UpdateSiteFunctionRequestManagedTransforms>>(expect1);
+      }
+    }
+    if (m.find("NetworkOptimization") != m.end() && !m["NetworkOptimization"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetworkOptimization"].type()) {
+        vector<UpdateSiteFunctionRequestNetworkOptimization> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetworkOptimization"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestNetworkOptimization model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networkOptimization = make_shared<vector<UpdateSiteFunctionRequestNetworkOptimization>>(expect1);
+      }
+    }
+    if (m.find("OriginRules") != m.end() && !m["OriginRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["OriginRules"].type()) {
+        vector<UpdateSiteFunctionRequestOriginRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OriginRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestOriginRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        originRules = make_shared<vector<UpdateSiteFunctionRequestOriginRules>>(expect1);
+      }
+    }
+    if (m.find("RedirectRules") != m.end() && !m["RedirectRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["RedirectRules"].type()) {
+        vector<UpdateSiteFunctionRequestRedirectRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RedirectRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestRedirectRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        redirectRules = make_shared<vector<UpdateSiteFunctionRequestRedirectRules>>(expect1);
+      }
+    }
+    if (m.find("RewriteUrlRules") != m.end() && !m["RewriteUrlRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["RewriteUrlRules"].type()) {
+        vector<UpdateSiteFunctionRequestRewriteUrlRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RewriteUrlRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestRewriteUrlRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rewriteUrlRules = make_shared<vector<UpdateSiteFunctionRequestRewriteUrlRules>>(expect1);
+      }
+    }
+    if (m.find("SeoBypass") != m.end() && !m["SeoBypass"].empty()) {
+      if (typeid(vector<boost::any>) == m["SeoBypass"].type()) {
+        vector<UpdateSiteFunctionRequestSeoBypass> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SeoBypass"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestSeoBypass model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        seoBypass = make_shared<vector<UpdateSiteFunctionRequestSeoBypass>>(expect1);
+      }
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+    if (m.find("SiteNameExclusive") != m.end() && !m["SiteNameExclusive"].empty()) {
+      if (typeid(vector<boost::any>) == m["SiteNameExclusive"].type()) {
+        vector<UpdateSiteFunctionRequestSiteNameExclusive> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SiteNameExclusive"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestSiteNameExclusive model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        siteNameExclusive = make_shared<vector<UpdateSiteFunctionRequestSiteNameExclusive>>(expect1);
+      }
+    }
+    if (m.find("SitePause") != m.end() && !m["SitePause"].empty()) {
+      if (typeid(vector<boost::any>) == m["SitePause"].type()) {
+        vector<UpdateSiteFunctionRequestSitePause> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SitePause"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestSitePause model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sitePause = make_shared<vector<UpdateSiteFunctionRequestSitePause>>(expect1);
+      }
+    }
+    if (m.find("TieredCache") != m.end() && !m["TieredCache"].empty()) {
+      if (typeid(vector<boost::any>) == m["TieredCache"].type()) {
+        vector<UpdateSiteFunctionRequestTieredCache> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TieredCache"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateSiteFunctionRequestTieredCache model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tieredCache = make_shared<vector<UpdateSiteFunctionRequestTieredCache>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionRequest() = default;
+};
+class UpdateSiteFunctionShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cacheReserveShrink{};
+  shared_ptr<string> cacheRulesShrink{};
+  shared_ptr<string> cacheTagsShrink{};
+  shared_ptr<string> cnameFlatteningShrink{};
+  shared_ptr<string> compressionRulesShrink{};
+  shared_ptr<string> crossBorderOptimizationShrink{};
+  shared_ptr<string> developmentModeShrink{};
+  shared_ptr<string> httpRequestHeaderModificationRulesShrink{};
+  shared_ptr<string> httpResponseHeaderModificationRulesShrink{};
+  shared_ptr<string> httpsApplicationConfigurationShrink{};
+  shared_ptr<string> httpsBasicConfigurationShrink{};
+  shared_ptr<string> imageTransformShrink{};
+  shared_ptr<string> ipv6Shrink{};
+  shared_ptr<string> managedTransformsShrink{};
+  shared_ptr<string> networkOptimizationShrink{};
+  shared_ptr<string> originRulesShrink{};
+  shared_ptr<string> redirectRulesShrink{};
+  shared_ptr<string> rewriteUrlRulesShrink{};
+  shared_ptr<string> seoBypassShrink{};
+  shared_ptr<long> siteId{};
+  shared_ptr<string> siteNameExclusiveShrink{};
+  shared_ptr<string> sitePauseShrink{};
+  shared_ptr<string> tieredCacheShrink{};
+
+  UpdateSiteFunctionShrinkRequest() {}
+
+  explicit UpdateSiteFunctionShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheReserveShrink) {
+      res["CacheReserve"] = boost::any(*cacheReserveShrink);
+    }
+    if (cacheRulesShrink) {
+      res["CacheRules"] = boost::any(*cacheRulesShrink);
+    }
+    if (cacheTagsShrink) {
+      res["CacheTags"] = boost::any(*cacheTagsShrink);
+    }
+    if (cnameFlatteningShrink) {
+      res["CnameFlattening"] = boost::any(*cnameFlatteningShrink);
+    }
+    if (compressionRulesShrink) {
+      res["CompressionRules"] = boost::any(*compressionRulesShrink);
+    }
+    if (crossBorderOptimizationShrink) {
+      res["CrossBorderOptimization"] = boost::any(*crossBorderOptimizationShrink);
+    }
+    if (developmentModeShrink) {
+      res["DevelopmentMode"] = boost::any(*developmentModeShrink);
+    }
+    if (httpRequestHeaderModificationRulesShrink) {
+      res["HttpRequestHeaderModificationRules"] = boost::any(*httpRequestHeaderModificationRulesShrink);
+    }
+    if (httpResponseHeaderModificationRulesShrink) {
+      res["HttpResponseHeaderModificationRules"] = boost::any(*httpResponseHeaderModificationRulesShrink);
+    }
+    if (httpsApplicationConfigurationShrink) {
+      res["HttpsApplicationConfiguration"] = boost::any(*httpsApplicationConfigurationShrink);
+    }
+    if (httpsBasicConfigurationShrink) {
+      res["HttpsBasicConfiguration"] = boost::any(*httpsBasicConfigurationShrink);
+    }
+    if (imageTransformShrink) {
+      res["ImageTransform"] = boost::any(*imageTransformShrink);
+    }
+    if (ipv6Shrink) {
+      res["Ipv6"] = boost::any(*ipv6Shrink);
+    }
+    if (managedTransformsShrink) {
+      res["ManagedTransforms"] = boost::any(*managedTransformsShrink);
+    }
+    if (networkOptimizationShrink) {
+      res["NetworkOptimization"] = boost::any(*networkOptimizationShrink);
+    }
+    if (originRulesShrink) {
+      res["OriginRules"] = boost::any(*originRulesShrink);
+    }
+    if (redirectRulesShrink) {
+      res["RedirectRules"] = boost::any(*redirectRulesShrink);
+    }
+    if (rewriteUrlRulesShrink) {
+      res["RewriteUrlRules"] = boost::any(*rewriteUrlRulesShrink);
+    }
+    if (seoBypassShrink) {
+      res["SeoBypass"] = boost::any(*seoBypassShrink);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    if (siteNameExclusiveShrink) {
+      res["SiteNameExclusive"] = boost::any(*siteNameExclusiveShrink);
+    }
+    if (sitePauseShrink) {
+      res["SitePause"] = boost::any(*sitePauseShrink);
+    }
+    if (tieredCacheShrink) {
+      res["TieredCache"] = boost::any(*tieredCacheShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheReserve") != m.end() && !m["CacheReserve"].empty()) {
+      cacheReserveShrink = make_shared<string>(boost::any_cast<string>(m["CacheReserve"]));
+    }
+    if (m.find("CacheRules") != m.end() && !m["CacheRules"].empty()) {
+      cacheRulesShrink = make_shared<string>(boost::any_cast<string>(m["CacheRules"]));
+    }
+    if (m.find("CacheTags") != m.end() && !m["CacheTags"].empty()) {
+      cacheTagsShrink = make_shared<string>(boost::any_cast<string>(m["CacheTags"]));
+    }
+    if (m.find("CnameFlattening") != m.end() && !m["CnameFlattening"].empty()) {
+      cnameFlatteningShrink = make_shared<string>(boost::any_cast<string>(m["CnameFlattening"]));
+    }
+    if (m.find("CompressionRules") != m.end() && !m["CompressionRules"].empty()) {
+      compressionRulesShrink = make_shared<string>(boost::any_cast<string>(m["CompressionRules"]));
+    }
+    if (m.find("CrossBorderOptimization") != m.end() && !m["CrossBorderOptimization"].empty()) {
+      crossBorderOptimizationShrink = make_shared<string>(boost::any_cast<string>(m["CrossBorderOptimization"]));
+    }
+    if (m.find("DevelopmentMode") != m.end() && !m["DevelopmentMode"].empty()) {
+      developmentModeShrink = make_shared<string>(boost::any_cast<string>(m["DevelopmentMode"]));
+    }
+    if (m.find("HttpRequestHeaderModificationRules") != m.end() && !m["HttpRequestHeaderModificationRules"].empty()) {
+      httpRequestHeaderModificationRulesShrink = make_shared<string>(boost::any_cast<string>(m["HttpRequestHeaderModificationRules"]));
+    }
+    if (m.find("HttpResponseHeaderModificationRules") != m.end() && !m["HttpResponseHeaderModificationRules"].empty()) {
+      httpResponseHeaderModificationRulesShrink = make_shared<string>(boost::any_cast<string>(m["HttpResponseHeaderModificationRules"]));
+    }
+    if (m.find("HttpsApplicationConfiguration") != m.end() && !m["HttpsApplicationConfiguration"].empty()) {
+      httpsApplicationConfigurationShrink = make_shared<string>(boost::any_cast<string>(m["HttpsApplicationConfiguration"]));
+    }
+    if (m.find("HttpsBasicConfiguration") != m.end() && !m["HttpsBasicConfiguration"].empty()) {
+      httpsBasicConfigurationShrink = make_shared<string>(boost::any_cast<string>(m["HttpsBasicConfiguration"]));
+    }
+    if (m.find("ImageTransform") != m.end() && !m["ImageTransform"].empty()) {
+      imageTransformShrink = make_shared<string>(boost::any_cast<string>(m["ImageTransform"]));
+    }
+    if (m.find("Ipv6") != m.end() && !m["Ipv6"].empty()) {
+      ipv6Shrink = make_shared<string>(boost::any_cast<string>(m["Ipv6"]));
+    }
+    if (m.find("ManagedTransforms") != m.end() && !m["ManagedTransforms"].empty()) {
+      managedTransformsShrink = make_shared<string>(boost::any_cast<string>(m["ManagedTransforms"]));
+    }
+    if (m.find("NetworkOptimization") != m.end() && !m["NetworkOptimization"].empty()) {
+      networkOptimizationShrink = make_shared<string>(boost::any_cast<string>(m["NetworkOptimization"]));
+    }
+    if (m.find("OriginRules") != m.end() && !m["OriginRules"].empty()) {
+      originRulesShrink = make_shared<string>(boost::any_cast<string>(m["OriginRules"]));
+    }
+    if (m.find("RedirectRules") != m.end() && !m["RedirectRules"].empty()) {
+      redirectRulesShrink = make_shared<string>(boost::any_cast<string>(m["RedirectRules"]));
+    }
+    if (m.find("RewriteUrlRules") != m.end() && !m["RewriteUrlRules"].empty()) {
+      rewriteUrlRulesShrink = make_shared<string>(boost::any_cast<string>(m["RewriteUrlRules"]));
+    }
+    if (m.find("SeoBypass") != m.end() && !m["SeoBypass"].empty()) {
+      seoBypassShrink = make_shared<string>(boost::any_cast<string>(m["SeoBypass"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+    if (m.find("SiteNameExclusive") != m.end() && !m["SiteNameExclusive"].empty()) {
+      siteNameExclusiveShrink = make_shared<string>(boost::any_cast<string>(m["SiteNameExclusive"]));
+    }
+    if (m.find("SitePause") != m.end() && !m["SitePause"].empty()) {
+      sitePauseShrink = make_shared<string>(boost::any_cast<string>(m["SitePause"]));
+    }
+    if (m.find("TieredCache") != m.end() && !m["TieredCache"].empty()) {
+      tieredCacheShrink = make_shared<string>(boost::any_cast<string>(m["TieredCache"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionShrinkRequest() = default;
+};
+class UpdateSiteFunctionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateSiteFunctionResponseBody() {}
+
+  explicit UpdateSiteFunctionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionResponseBody() = default;
+};
+class UpdateSiteFunctionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateSiteFunctionResponseBody> body{};
+
+  UpdateSiteFunctionResponse() {}
+
+  explicit UpdateSiteFunctionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateSiteFunctionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateSiteFunctionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateSiteFunctionResponse() = default;
 };
 class UpdateSiteVanityNSRequest : public Darabonba::Model {
 public:
@@ -40528,6 +50519,8 @@ public:
   CreateKvNamespaceResponse createKvNamespace(shared_ptr<CreateKvNamespaceRequest> request);
   CreateListResponse createListWithOptions(shared_ptr<CreateListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateListResponse createList(shared_ptr<CreateListRequest> request);
+  CreateOriginProtectionResponse createOriginProtectionWithOptions(shared_ptr<CreateOriginProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateOriginProtectionResponse createOriginProtection(shared_ptr<CreateOriginProtectionRequest> request);
   CreatePageResponse createPageWithOptions(shared_ptr<CreatePageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePageResponse createPage(shared_ptr<CreatePageRequest> request);
   CreateRecordResponse createRecordWithOptions(shared_ptr<CreateRecordRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -40548,6 +50541,8 @@ public:
   CreateSiteCustomLogResponse createSiteCustomLog(shared_ptr<CreateSiteCustomLogRequest> request);
   CreateSiteDeliveryTaskResponse createSiteDeliveryTaskWithOptions(shared_ptr<CreateSiteDeliveryTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSiteDeliveryTaskResponse createSiteDeliveryTask(shared_ptr<CreateSiteDeliveryTaskRequest> request);
+  CreateSiteFunctionResponse createSiteFunctionWithOptions(shared_ptr<CreateSiteFunctionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSiteFunctionResponse createSiteFunction(shared_ptr<CreateSiteFunctionRequest> request);
   CreateUserDeliveryTaskResponse createUserDeliveryTaskWithOptions(shared_ptr<CreateUserDeliveryTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateUserDeliveryTaskResponse createUserDeliveryTask(shared_ptr<CreateUserDeliveryTaskRequest> request);
   CreateWafRuleResponse createWafRuleWithOptions(shared_ptr<CreateWafRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -40572,6 +50567,8 @@ public:
   DeleteKvNamespaceResponse deleteKvNamespace(shared_ptr<DeleteKvNamespaceRequest> request);
   DeleteListResponse deleteListWithOptions(shared_ptr<DeleteListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteListResponse deleteList(shared_ptr<DeleteListRequest> request);
+  DeleteOriginProtectionResponse deleteOriginProtectionWithOptions(shared_ptr<DeleteOriginProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteOriginProtectionResponse deleteOriginProtection(shared_ptr<DeleteOriginProtectionRequest> request);
   DeletePageResponse deletePageWithOptions(shared_ptr<DeletePageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeletePageResponse deletePage(shared_ptr<DeletePageRequest> request);
   DeleteRecordResponse deleteRecordWithOptions(shared_ptr<DeleteRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -40592,6 +50589,8 @@ public:
   DeleteSiteResponse deleteSite(shared_ptr<DeleteSiteRequest> request);
   DeleteSiteDeliveryTaskResponse deleteSiteDeliveryTaskWithOptions(shared_ptr<DeleteSiteDeliveryTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSiteDeliveryTaskResponse deleteSiteDeliveryTask(shared_ptr<DeleteSiteDeliveryTaskRequest> request);
+  DeleteSiteFunctionResponse deleteSiteFunctionWithOptions(shared_ptr<DeleteSiteFunctionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteSiteFunctionResponse deleteSiteFunction(shared_ptr<DeleteSiteFunctionRequest> request);
   DeleteUserDeliveryTaskResponse deleteUserDeliveryTaskWithOptions(shared_ptr<DeleteUserDeliveryTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteUserDeliveryTaskResponse deleteUserDeliveryTask(shared_ptr<DeleteUserDeliveryTaskRequest> request);
   DeleteWafRuleResponse deleteWafRuleWithOptions(shared_ptr<DeleteWafRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -40652,6 +50651,8 @@ public:
   GetKvNamespaceResponse getKvNamespace(shared_ptr<GetKvNamespaceRequest> request);
   GetListResponse getListWithOptions(shared_ptr<GetListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetListResponse getList(shared_ptr<GetListRequest> request);
+  GetOriginProtectionResponse getOriginProtectionWithOptions(shared_ptr<GetOriginProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetOriginProtectionResponse getOriginProtection(shared_ptr<GetOriginProtectionRequest> request);
   GetPageResponse getPageWithOptions(shared_ptr<GetPageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPageResponse getPage(shared_ptr<GetPageRequest> request);
   GetPurgeQuotaResponse getPurgeQuotaWithOptions(shared_ptr<GetPurgeQuotaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -40740,6 +50741,8 @@ public:
   ListScheduledPreloadJobsResponse listScheduledPreloadJobs(shared_ptr<ListScheduledPreloadJobsRequest> request);
   ListSiteDeliveryTasksResponse listSiteDeliveryTasksWithOptions(shared_ptr<ListSiteDeliveryTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSiteDeliveryTasksResponse listSiteDeliveryTasks(shared_ptr<ListSiteDeliveryTasksRequest> request);
+  ListSiteFunctionsResponse listSiteFunctionsWithOptions(shared_ptr<ListSiteFunctionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSiteFunctionsResponse listSiteFunctions(shared_ptr<ListSiteFunctionsRequest> request);
   ListSitesResponse listSitesWithOptions(shared_ptr<ListSitesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSitesResponse listSites(shared_ptr<ListSitesRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -40805,6 +50808,10 @@ public:
   UpdateKvNamespaceResponse updateKvNamespace(shared_ptr<UpdateKvNamespaceRequest> request);
   UpdateListResponse updateListWithOptions(shared_ptr<UpdateListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateListResponse updateList(shared_ptr<UpdateListRequest> request);
+  UpdateOriginProtectionResponse updateOriginProtectionWithOptions(shared_ptr<UpdateOriginProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateOriginProtectionResponse updateOriginProtection(shared_ptr<UpdateOriginProtectionRequest> request);
+  UpdateOriginProtectionIpWhiteListResponse updateOriginProtectionIpWhiteListWithOptions(shared_ptr<UpdateOriginProtectionIpWhiteListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateOriginProtectionIpWhiteListResponse updateOriginProtectionIpWhiteList(shared_ptr<UpdateOriginProtectionIpWhiteListRequest> request);
   UpdatePageResponse updatePageWithOptions(shared_ptr<UpdatePageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePageResponse updatePage(shared_ptr<UpdatePageRequest> request);
   UpdateRecordResponse updateRecordWithOptions(shared_ptr<UpdateRecordRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -40821,6 +50828,8 @@ public:
   UpdateSiteDeliveryTaskResponse updateSiteDeliveryTask(shared_ptr<UpdateSiteDeliveryTaskRequest> request);
   UpdateSiteDeliveryTaskStatusResponse updateSiteDeliveryTaskStatusWithOptions(shared_ptr<UpdateSiteDeliveryTaskStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSiteDeliveryTaskStatusResponse updateSiteDeliveryTaskStatus(shared_ptr<UpdateSiteDeliveryTaskStatusRequest> request);
+  UpdateSiteFunctionResponse updateSiteFunctionWithOptions(shared_ptr<UpdateSiteFunctionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateSiteFunctionResponse updateSiteFunction(shared_ptr<UpdateSiteFunctionRequest> request);
   UpdateSiteVanityNSResponse updateSiteVanityNSWithOptions(shared_ptr<UpdateSiteVanityNSRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSiteVanityNSResponse updateSiteVanityNS(shared_ptr<UpdateSiteVanityNSRequest> request);
   UpdateUserDeliveryTaskResponse updateUserDeliveryTaskWithOptions(shared_ptr<UpdateUserDeliveryTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
