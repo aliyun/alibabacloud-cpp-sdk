@@ -2959,6 +2959,42 @@ public:
 
   virtual ~GetCloudDriveServiceMountTokenResponse() = default;
 };
+class GetConnectionTicketRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetConnectionTicketRequestTag() {}
+
+  explicit GetConnectionTicketRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetConnectionTicketRequestTag() = default;
+};
 class GetConnectionTicketRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientId{};
@@ -2973,6 +3009,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> sessionId{};
+  shared_ptr<vector<GetConnectionTicketRequestTag>> tag{};
   shared_ptr<string> taskId{};
   shared_ptr<string> uuid{};
 
@@ -3022,6 +3059,13 @@ public:
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
@@ -3067,6 +3111,19 @@ public:
     }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<GetConnectionTicketRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetConnectionTicketRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<GetConnectionTicketRequestTag>>(expect1);
+      }
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));

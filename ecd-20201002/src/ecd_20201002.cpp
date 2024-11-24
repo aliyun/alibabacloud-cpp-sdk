@@ -571,6 +571,9 @@ GetConnectionTicketResponse Alibabacloud_Ecd20201002::Client::getConnectionTicke
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     query->insert(pair<string, string>("SessionId", *request->sessionId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<GetConnectionTicketRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<GetConnectionTicketRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("TaskId", *request->taskId));
   }
