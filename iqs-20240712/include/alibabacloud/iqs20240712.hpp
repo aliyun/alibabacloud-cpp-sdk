@@ -791,6 +791,7 @@ public:
   shared_ptr<BicyclingDirectionNovaResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
   BicyclingDirectionNovaResponseBody() {}
@@ -812,6 +813,9 @@ public:
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
     if (success) {
       res["success"] = boost::any(*success);
     }
@@ -831,6 +835,9 @@ public:
     }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
@@ -1416,6 +1423,7 @@ public:
   shared_ptr<DrivingDirectionNovaResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
   DrivingDirectionNovaResponseBody() {}
@@ -1437,6 +1445,9 @@ public:
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
     if (success) {
       res["success"] = boost::any(*success);
     }
@@ -1456,6 +1467,9 @@ public:
     }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
@@ -2304,6 +2318,7 @@ public:
   shared_ptr<ElectrobikeDirectionNovaResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
   ElectrobikeDirectionNovaResponseBody() {}
@@ -2325,6 +2340,9 @@ public:
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
     if (success) {
       res["success"] = boost::any(*success);
     }
@@ -2344,6 +2362,9 @@ public:
     }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
@@ -2585,6 +2606,7 @@ public:
   shared_ptr<vector<GeoCodeResponseBodyData>> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
   GeoCodeResponseBody() {}
@@ -2609,6 +2631,9 @@ public:
     }
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
     }
     if (success) {
       res["success"] = boost::any(*success);
@@ -2635,6 +2660,9 @@ public:
     }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
@@ -3038,6 +3066,7 @@ public:
   shared_ptr<vector<NearbySearchNovaResponseBodyData>> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
   NearbySearchNovaResponseBody() {}
@@ -3062,6 +3091,9 @@ public:
     }
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
     }
     if (success) {
       res["success"] = boost::any(*success);
@@ -3088,6 +3120,9 @@ public:
     }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
@@ -3470,6 +3505,7 @@ public:
   shared_ptr<vector<PlaceSearchNovaResponseBodyData>> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
   PlaceSearchNovaResponseBody() {}
@@ -3494,6 +3530,9 @@ public:
     }
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
     }
     if (success) {
       res["success"] = boost::any(*success);
@@ -3520,6 +3559,9 @@ public:
     }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
@@ -3947,6 +3989,7 @@ public:
   shared_ptr<RgeoCodeResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
   RgeoCodeResponseBody() {}
@@ -3968,6 +4011,9 @@ public:
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
     if (success) {
       res["success"] = boost::any(*success);
     }
@@ -3987,6 +4033,9 @@ public:
     }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
@@ -5686,6 +5735,7 @@ public:
   shared_ptr<TransitIntegratedDirectionResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
   TransitIntegratedDirectionResponseBody() {}
@@ -5707,6 +5757,9 @@ public:
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
     if (success) {
       res["success"] = boost::any(*success);
     }
@@ -5726,6 +5779,9 @@ public:
     }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
@@ -6212,6 +6268,7 @@ public:
   shared_ptr<WalkingDirectionNovaResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
   WalkingDirectionNovaResponseBody() {}
@@ -6233,6 +6290,9 @@ public:
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
     if (success) {
       res["success"] = boost::any(*success);
     }
@@ -6252,6 +6312,9 @@ public:
     }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
