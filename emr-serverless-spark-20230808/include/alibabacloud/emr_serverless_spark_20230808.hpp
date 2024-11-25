@@ -87,8 +87,10 @@ public:
 class Artifact : public Darabonba::Model {
 public:
   shared_ptr<string> bizId{};
+  shared_ptr<string> catagoryBizId{};
   shared_ptr<long> creator{};
   shared_ptr<Credential> credential{};
+  shared_ptr<vector<string>> fullPath{};
   shared_ptr<string> gmtCreated{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> location{};
@@ -108,11 +110,17 @@ public:
     if (bizId) {
       res["bizId"] = boost::any(*bizId);
     }
+    if (catagoryBizId) {
+      res["catagoryBizId"] = boost::any(*catagoryBizId);
+    }
     if (creator) {
       res["creator"] = boost::any(*creator);
     }
     if (credential) {
       res["credential"] = credential ? boost::any(credential->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fullPath) {
+      res["fullPath"] = boost::any(*fullPath);
     }
     if (gmtCreated) {
       res["gmtCreated"] = boost::any(*gmtCreated);
@@ -136,6 +144,9 @@ public:
     if (m.find("bizId") != m.end() && !m["bizId"].empty()) {
       bizId = make_shared<string>(boost::any_cast<string>(m["bizId"]));
     }
+    if (m.find("catagoryBizId") != m.end() && !m["catagoryBizId"].empty()) {
+      catagoryBizId = make_shared<string>(boost::any_cast<string>(m["catagoryBizId"]));
+    }
     if (m.find("creator") != m.end() && !m["creator"].empty()) {
       creator = make_shared<long>(boost::any_cast<long>(m["creator"]));
     }
@@ -145,6 +156,16 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["credential"]));
         credential = make_shared<Credential>(model1);
       }
+    }
+    if (m.find("fullPath") != m.end() && !m["fullPath"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["fullPath"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["fullPath"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      fullPath = make_shared<vector<string>>(toVec1);
     }
     if (m.find("gmtCreated") != m.end() && !m["gmtCreated"].empty()) {
       gmtCreated = make_shared<string>(boost::any_cast<string>(m["gmtCreated"]));
@@ -833,6 +854,84 @@ public:
 
   virtual ~Tag() = default;
 };
+class TaskCredential : public Darabonba::Model {
+public:
+  shared_ptr<string> accessId{};
+  shared_ptr<string> accessUrl{};
+  shared_ptr<long> expire{};
+  shared_ptr<string> host{};
+  shared_ptr<string> path{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> signature{};
+
+  TaskCredential() {}
+
+  explicit TaskCredential(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessId) {
+      res["accessId"] = boost::any(*accessId);
+    }
+    if (accessUrl) {
+      res["accessUrl"] = boost::any(*accessUrl);
+    }
+    if (expire) {
+      res["expire"] = boost::any(*expire);
+    }
+    if (host) {
+      res["host"] = boost::any(*host);
+    }
+    if (path) {
+      res["path"] = boost::any(*path);
+    }
+    if (policy) {
+      res["policy"] = boost::any(*policy);
+    }
+    if (securityToken) {
+      res["securityToken"] = boost::any(*securityToken);
+    }
+    if (signature) {
+      res["signature"] = boost::any(*signature);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessId") != m.end() && !m["accessId"].empty()) {
+      accessId = make_shared<string>(boost::any_cast<string>(m["accessId"]));
+    }
+    if (m.find("accessUrl") != m.end() && !m["accessUrl"].empty()) {
+      accessUrl = make_shared<string>(boost::any_cast<string>(m["accessUrl"]));
+    }
+    if (m.find("expire") != m.end() && !m["expire"].empty()) {
+      expire = make_shared<long>(boost::any_cast<long>(m["expire"]));
+    }
+    if (m.find("host") != m.end() && !m["host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["host"]));
+    }
+    if (m.find("path") != m.end() && !m["path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["path"]));
+    }
+    if (m.find("policy") != m.end() && !m["policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["policy"]));
+    }
+    if (m.find("securityToken") != m.end() && !m["securityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["securityToken"]));
+    }
+    if (m.find("signature") != m.end() && !m["signature"].empty()) {
+      signature = make_shared<string>(boost::any_cast<string>(m["signature"]));
+    }
+  }
+
+
+  virtual ~TaskCredential() = default;
+};
 class Task : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> archives{};
@@ -841,11 +940,13 @@ public:
   shared_ptr<string> categoryBizId{};
   shared_ptr<string> content{};
   shared_ptr<long> creator{};
+  shared_ptr<TaskCredential> credential{};
   shared_ptr<string> defaultCatalogId{};
   shared_ptr<string> defaultDatabase{};
   shared_ptr<string> defaultResourceQueueId{};
   shared_ptr<string> defaultSqlComputeId{};
   shared_ptr<string> deploymentId{};
+  shared_ptr<string> environmentId{};
   shared_ptr<vector<string>> extraArtifactIds{};
   shared_ptr<string> extraSparkSubmitParams{};
   shared_ptr<vector<string>> files{};
@@ -903,6 +1004,9 @@ public:
     if (creator) {
       res["creator"] = boost::any(*creator);
     }
+    if (credential) {
+      res["credential"] = credential ? boost::any(credential->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (defaultCatalogId) {
       res["defaultCatalogId"] = boost::any(*defaultCatalogId);
     }
@@ -917,6 +1021,9 @@ public:
     }
     if (deploymentId) {
       res["deploymentId"] = boost::any(*deploymentId);
+    }
+    if (environmentId) {
+      res["environmentId"] = boost::any(*environmentId);
     }
     if (extraArtifactIds) {
       res["extraArtifactIds"] = boost::any(*extraArtifactIds);
@@ -1035,6 +1142,13 @@ public:
     if (m.find("creator") != m.end() && !m["creator"].empty()) {
       creator = make_shared<long>(boost::any_cast<long>(m["creator"]));
     }
+    if (m.find("credential") != m.end() && !m["credential"].empty()) {
+      if (typeid(map<string, boost::any>) == m["credential"].type()) {
+        TaskCredential model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["credential"]));
+        credential = make_shared<TaskCredential>(model1);
+      }
+    }
     if (m.find("defaultCatalogId") != m.end() && !m["defaultCatalogId"].empty()) {
       defaultCatalogId = make_shared<string>(boost::any_cast<string>(m["defaultCatalogId"]));
     }
@@ -1049,6 +1163,9 @@ public:
     }
     if (m.find("deploymentId") != m.end() && !m["deploymentId"].empty()) {
       deploymentId = make_shared<string>(boost::any_cast<string>(m["deploymentId"]));
+    }
+    if (m.find("environmentId") != m.end() && !m["environmentId"].empty()) {
+      environmentId = make_shared<string>(boost::any_cast<string>(m["environmentId"]));
     }
     if (m.find("extraArtifactIds") != m.end() && !m["extraArtifactIds"].empty()) {
       vector<string> toVec1;
@@ -2063,6 +2180,7 @@ public:
   shared_ptr<GetJobRunResponseBodyJobRunConfigurationOverrides> configurationOverrides{};
   shared_ptr<string> displayReleaseVersion{};
   shared_ptr<long> endTime{};
+  shared_ptr<string> environmentId{};
   shared_ptr<long> executionTimeoutSeconds{};
   shared_ptr<bool> fusion{};
   shared_ptr<JobDriver> jobDriver{};
@@ -2100,6 +2218,9 @@ public:
     }
     if (endTime) {
       res["endTime"] = boost::any(*endTime);
+    }
+    if (environmentId) {
+      res["environmentId"] = boost::any(*environmentId);
     }
     if (executionTimeoutSeconds) {
       res["executionTimeoutSeconds"] = boost::any(*executionTimeoutSeconds);
@@ -2169,6 +2290,9 @@ public:
     }
     if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("environmentId") != m.end() && !m["environmentId"].empty()) {
+      environmentId = make_shared<string>(boost::any_cast<string>(m["environmentId"]));
     }
     if (m.find("executionTimeoutSeconds") != m.end() && !m["executionTimeoutSeconds"].empty()) {
       executionTimeoutSeconds = make_shared<long>(boost::any_cast<long>(m["executionTimeoutSeconds"]));
@@ -2514,14 +2638,17 @@ public:
   shared_ptr<GetSessionClusterResponseBodySessionClusterAutoStopConfiguration> autoStopConfiguration{};
   shared_ptr<string> displayReleaseVersion{};
   shared_ptr<string> domain{};
+  shared_ptr<string> domainInner{};
   shared_ptr<string> draftId{};
   shared_ptr<string> envId{};
   shared_ptr<bool> fusion{};
+  shared_ptr<long> gmtCreate{};
   shared_ptr<string> kind{};
   shared_ptr<string> name{};
   shared_ptr<string> queueName{};
   shared_ptr<string> releaseVersion{};
   shared_ptr<string> sessionClusterId{};
+  shared_ptr<long> startTime{};
   shared_ptr<string> state{};
   shared_ptr<GetSessionClusterResponseBodySessionClusterStateChangeReason> stateChangeReason{};
   shared_ptr<string> userId{};
@@ -2558,6 +2685,9 @@ public:
     if (domain) {
       res["domain"] = boost::any(*domain);
     }
+    if (domainInner) {
+      res["domainInner"] = boost::any(*domainInner);
+    }
     if (draftId) {
       res["draftId"] = boost::any(*draftId);
     }
@@ -2566,6 +2696,9 @@ public:
     }
     if (fusion) {
       res["fusion"] = boost::any(*fusion);
+    }
+    if (gmtCreate) {
+      res["gmtCreate"] = boost::any(*gmtCreate);
     }
     if (kind) {
       res["kind"] = boost::any(*kind);
@@ -2581,6 +2714,9 @@ public:
     }
     if (sessionClusterId) {
       res["sessionClusterId"] = boost::any(*sessionClusterId);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
     }
     if (state) {
       res["state"] = boost::any(*state);
@@ -2637,6 +2773,9 @@ public:
     if (m.find("domain") != m.end() && !m["domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["domain"]));
     }
+    if (m.find("domainInner") != m.end() && !m["domainInner"].empty()) {
+      domainInner = make_shared<string>(boost::any_cast<string>(m["domainInner"]));
+    }
     if (m.find("draftId") != m.end() && !m["draftId"].empty()) {
       draftId = make_shared<string>(boost::any_cast<string>(m["draftId"]));
     }
@@ -2645,6 +2784,9 @@ public:
     }
     if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
       fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
+    }
+    if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["gmtCreate"]));
     }
     if (m.find("kind") != m.end() && !m["kind"].empty()) {
       kind = make_shared<string>(boost::any_cast<string>(m["kind"]));
@@ -2660,6 +2802,9 @@ public:
     }
     if (m.find("sessionClusterId") != m.end() && !m["sessionClusterId"].empty()) {
       sessionClusterId = make_shared<string>(boost::any_cast<string>(m["sessionClusterId"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
     }
     if (m.find("state") != m.end() && !m["state"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["state"]));
@@ -4597,13 +4742,16 @@ public:
   shared_ptr<ListSessionClustersResponseBodySessionClustersAutoStopConfiguration> autoStopConfiguration{};
   shared_ptr<string> displayReleaseVersion{};
   shared_ptr<string> domain{};
+  shared_ptr<string> domainInner{};
   shared_ptr<string> draftId{};
   shared_ptr<bool> fusion{};
+  shared_ptr<long> gmtCreate{};
   shared_ptr<string> kind{};
   shared_ptr<string> name{};
   shared_ptr<string> queueName{};
   shared_ptr<string> releaseVersion{};
   shared_ptr<string> sessionClusterId{};
+  shared_ptr<long> startTime{};
   shared_ptr<string> state{};
   shared_ptr<ListSessionClustersResponseBodySessionClustersStateChangeReason> stateChangeReason{};
   shared_ptr<string> userId{};
@@ -4640,11 +4788,17 @@ public:
     if (domain) {
       res["domain"] = boost::any(*domain);
     }
+    if (domainInner) {
+      res["domainInner"] = boost::any(*domainInner);
+    }
     if (draftId) {
       res["draftId"] = boost::any(*draftId);
     }
     if (fusion) {
       res["fusion"] = boost::any(*fusion);
+    }
+    if (gmtCreate) {
+      res["gmtCreate"] = boost::any(*gmtCreate);
     }
     if (kind) {
       res["kind"] = boost::any(*kind);
@@ -4660,6 +4814,9 @@ public:
     }
     if (sessionClusterId) {
       res["sessionClusterId"] = boost::any(*sessionClusterId);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
     }
     if (state) {
       res["state"] = boost::any(*state);
@@ -4716,11 +4873,17 @@ public:
     if (m.find("domain") != m.end() && !m["domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["domain"]));
     }
+    if (m.find("domainInner") != m.end() && !m["domainInner"].empty()) {
+      domainInner = make_shared<string>(boost::any_cast<string>(m["domainInner"]));
+    }
     if (m.find("draftId") != m.end() && !m["draftId"].empty()) {
       draftId = make_shared<string>(boost::any_cast<string>(m["draftId"]));
     }
     if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
       fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
+    }
+    if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["gmtCreate"]));
     }
     if (m.find("kind") != m.end() && !m["kind"].empty()) {
       kind = make_shared<string>(boost::any_cast<string>(m["kind"]));
@@ -4736,6 +4899,9 @@ public:
     }
     if (m.find("sessionClusterId") != m.end() && !m["sessionClusterId"].empty()) {
       sessionClusterId = make_shared<string>(boost::any_cast<string>(m["sessionClusterId"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
     }
     if (m.find("state") != m.end() && !m["state"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["state"]));
