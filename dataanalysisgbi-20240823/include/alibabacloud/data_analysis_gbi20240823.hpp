@@ -221,6 +221,7 @@ public:
   shared_ptr<string> errorMessage{};
   shared_ptr<string> event{};
   shared_ptr<string> evidence{};
+  shared_ptr<long> httpStatusCode{};
   shared_ptr<string> requestId{};
   shared_ptr<string> rewrite{};
   shared_ptr<vector<string>> selector{};
@@ -248,6 +249,9 @@ public:
     }
     if (evidence) {
       res["evidence"] = boost::any(*evidence);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -285,6 +289,9 @@ public:
     }
     if (m.find("evidence") != m.end() && !m["evidence"].empty()) {
       evidence = make_shared<string>(boost::any_cast<string>(m["evidence"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -332,7 +339,10 @@ public:
 };
 class RunDataAnalysisResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> code{};
   shared_ptr<RunDataAnalysisResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
 
   RunDataAnalysisResponseBody() {}
 
@@ -344,19 +354,37 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(map<string, boost::any>) == m["data"].type()) {
         RunDataAnalysisResponseBodyData model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
         data = make_shared<RunDataAnalysisResponseBodyData>(model1);
       }
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
     }
   }
 
