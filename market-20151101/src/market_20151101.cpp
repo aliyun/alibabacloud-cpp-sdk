@@ -350,6 +350,34 @@ DescribeInstanceResponse Alibabacloud_Market20151101::Client::describeInstance(s
   return describeInstanceWithOptions(request, runtime);
 }
 
+DescribeInstanceForIsvResponse Alibabacloud_Market20151101::Client::describeInstanceForIsvWithOptions(shared_ptr<DescribeInstanceForIsvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeInstanceForIsv"))},
+    {"version", boost::any(string("2015-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeInstanceForIsvResponse(callApi(params, req, runtime));
+}
+
+DescribeInstanceForIsvResponse Alibabacloud_Market20151101::Client::describeInstanceForIsv(shared_ptr<DescribeInstanceForIsvRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeInstanceForIsvWithOptions(request, runtime);
+}
+
 DescribeInstancesResponse Alibabacloud_Market20151101::Client::describeInstancesWithOptions(shared_ptr<DescribeInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -444,6 +472,34 @@ DescribeOrderResponse Alibabacloud_Market20151101::Client::describeOrderWithOpti
 DescribeOrderResponse Alibabacloud_Market20151101::Client::describeOrder(shared_ptr<DescribeOrderRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeOrderWithOptions(request, runtime);
+}
+
+DescribeOrderForIsvResponse Alibabacloud_Market20151101::Client::describeOrderForIsvWithOptions(shared_ptr<DescribeOrderForIsvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
+    query->insert(pair<string, string>("OrderId", *request->orderId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeOrderForIsv"))},
+    {"version", boost::any(string("2015-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeOrderForIsvResponse(callApi(params, req, runtime));
+}
+
+DescribeOrderForIsvResponse Alibabacloud_Market20151101::Client::describeOrderForIsv(shared_ptr<DescribeOrderForIsvRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeOrderForIsvWithOptions(request, runtime);
 }
 
 DescribePriceResponse Alibabacloud_Market20151101::Client::describePriceWithOptions(shared_ptr<DescribePriceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
