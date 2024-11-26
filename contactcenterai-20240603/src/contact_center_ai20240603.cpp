@@ -71,6 +71,9 @@ AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyz
   if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
     body->insert(pair<string, bool>("stream", *request->stream));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->timeConstraintList)) {
+    body->insert(pair<string, vector<string>>("timeConstraintList", *request->timeConstraintList));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<AnalyzeConversationRequestUserProfiles>>(request->userProfiles)) {
     body->insert(pair<string, vector<AnalyzeConversationRequestUserProfiles>>("userProfiles", *request->userProfiles));
   }
@@ -98,74 +101,44 @@ AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyz
   return analyzeConversationWithOptions(workspaceId, appId, request, headers, runtime);
 }
 
-CreateConversationAnalysisTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createConversationAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
-                                                                                                                               shared_ptr<string> appId,
-                                                                                                                               shared_ptr<CreateConversationAnalysisTaskRequest> request,
-                                                                                                                               shared_ptr<map<string, string>> headers,
-                                                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+AnalyzeImageResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeImageWithOptions(shared_ptr<string> workspaceId,
+                                                                                           shared_ptr<string> appId,
+                                                                                           shared_ptr<AnalyzeImageRequest> request,
+                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->autoSplit)) {
-    body->insert(pair<string, long>("autoSplit", *request->autoSplit));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->clientChannel)) {
-    body->insert(pair<string, long>("clientChannel", *request->clientChannel));
-  }
-  if (!Darabonba_Util::Client::isUnset<CreateConversationAnalysisTaskRequestExamples>(request->examples)) {
-    body->insert(pair<string, CreateConversationAnalysisTaskRequestExamples>("examples", *request->examples));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateConversationAnalysisTaskRequestFields>>(request->fields)) {
-    body->insert(pair<string, vector<CreateConversationAnalysisTaskRequestFields>>("fields", *request->fields));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
-    body->insert(pair<string, string>("fileName", *request->fileName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->modelCode)) {
-    body->insert(pair<string, string>("modelCode", *request->modelCode));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->imageUrls)) {
+    body->insert(pair<string, vector<string>>("imageUrls", *request->imageUrls));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resultTypes)) {
     body->insert(pair<string, vector<string>>("resultTypes", *request->resultTypes));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sceneName)) {
-    body->insert(pair<string, string>("sceneName", *request->sceneName));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->serviceChannel)) {
-    body->insert(pair<string, long>("serviceChannel", *request->serviceChannel));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->serviceChannelKeywords)) {
-    body->insert(pair<string, vector<string>>("serviceChannelKeywords", *request->serviceChannelKeywords));
-  }
-  if (!Darabonba_Util::Client::isUnset<CreateConversationAnalysisTaskRequestServiceInspection>(request->serviceInspection)) {
-    body->insert(pair<string, CreateConversationAnalysisTaskRequestServiceInspection>("serviceInspection", *request->serviceInspection));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->templateIds)) {
-    body->insert(pair<string, vector<string>>("templateIds", *request->templateIds));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->voiceFileUrl)) {
-    body->insert(pair<string, string>("voiceFileUrl", *request->voiceFileUrl));
+  if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
+    body->insert(pair<string, bool>("stream", *request->stream));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateConversationAnalysisTask"))},
+    {"action", boost::any(string("AnalyzeImage"))},
     {"version", boost::any(string("2024-06-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/ccai/app/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appId)) + string("/createConversationAnalysisTask"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/ccai/app/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appId)) + string("/analyzeImage"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateConversationAnalysisTaskResponse(callApi(params, req, runtime));
+  return AnalyzeImageResponse(callApi(params, req, runtime));
 }
 
-CreateConversationAnalysisTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createConversationAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<CreateConversationAnalysisTaskRequest> request) {
+AnalyzeImageResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeImage(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<AnalyzeImageRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createConversationAnalysisTaskWithOptions(workspaceId, appId, request, headers, runtime);
+  return analyzeImageWithOptions(workspaceId, appId, request, headers, runtime);
 }
 
 CreateTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createTaskWithOptions(shared_ptr<string> workspaceId,

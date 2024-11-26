@@ -468,6 +468,7 @@ public:
   shared_ptr<string> sceneName{};
   shared_ptr<AnalyzeConversationRequestServiceInspection> serviceInspection{};
   shared_ptr<bool> stream{};
+  shared_ptr<vector<string>> timeConstraintList{};
   shared_ptr<vector<AnalyzeConversationRequestUserProfiles>> userProfiles{};
 
   AnalyzeConversationRequest() {}
@@ -518,6 +519,9 @@ public:
     }
     if (stream) {
       res["stream"] = boost::any(*stream);
+    }
+    if (timeConstraintList) {
+      res["timeConstraintList"] = boost::any(*timeConstraintList);
     }
     if (userProfiles) {
       vector<boost::any> temp1;
@@ -602,6 +606,16 @@ public:
     if (m.find("stream") != m.end() && !m["stream"].empty()) {
       stream = make_shared<bool>(boost::any_cast<bool>(m["stream"]));
     }
+    if (m.find("timeConstraintList") != m.end() && !m["timeConstraintList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["timeConstraintList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["timeConstraintList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      timeConstraintList = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("userProfiles") != m.end() && !m["userProfiles"].empty()) {
       if (typeid(vector<boost::any>) == m["userProfiles"].type()) {
         vector<AnalyzeConversationRequestUserProfiles> expect1;
@@ -625,9 +639,12 @@ public:
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorInfo{};
   shared_ptr<string> finishReason{};
+  shared_ptr<string> inputTokens{};
+  shared_ptr<string> outputTokens{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
   shared_ptr<string> text{};
+  shared_ptr<string> totalTokens{};
 
   AnalyzeConversationResponseBody() {}
 
@@ -648,6 +665,12 @@ public:
     if (finishReason) {
       res["finishReason"] = boost::any(*finishReason);
     }
+    if (inputTokens) {
+      res["inputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["outputTokens"] = boost::any(*outputTokens);
+    }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
@@ -656,6 +679,9 @@ public:
     }
     if (text) {
       res["text"] = boost::any(*text);
+    }
+    if (totalTokens) {
+      res["totalTokens"] = boost::any(*totalTokens);
     }
     return res;
   }
@@ -670,6 +696,12 @@ public:
     if (m.find("finishReason") != m.end() && !m["finishReason"].empty()) {
       finishReason = make_shared<string>(boost::any_cast<string>(m["finishReason"]));
     }
+    if (m.find("inputTokens") != m.end() && !m["inputTokens"].empty()) {
+      inputTokens = make_shared<string>(boost::any_cast<string>(m["inputTokens"]));
+    }
+    if (m.find("outputTokens") != m.end() && !m["outputTokens"].empty()) {
+      outputTokens = make_shared<string>(boost::any_cast<string>(m["outputTokens"]));
+    }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
@@ -678,6 +710,9 @@ public:
     }
     if (m.find("text") != m.end() && !m["text"].empty()) {
       text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+    if (m.find("totalTokens") != m.end() && !m["totalTokens"].empty()) {
+      totalTokens = make_shared<string>(boost::any_cast<string>(m["totalTokens"]));
     }
   }
 
@@ -736,311 +771,15 @@ public:
 
   virtual ~AnalyzeConversationResponse() = default;
 };
-class CreateConversationAnalysisTaskRequestExamplesSentences : public Darabonba::Model {
+class AnalyzeImageRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> chatId{};
-  shared_ptr<string> role{};
-  shared_ptr<string> text{};
-
-  CreateConversationAnalysisTaskRequestExamplesSentences() {}
-
-  explicit CreateConversationAnalysisTaskRequestExamplesSentences(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (chatId) {
-      res["chatId"] = boost::any(*chatId);
-    }
-    if (role) {
-      res["role"] = boost::any(*role);
-    }
-    if (text) {
-      res["text"] = boost::any(*text);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("chatId") != m.end() && !m["chatId"].empty()) {
-      chatId = make_shared<string>(boost::any_cast<string>(m["chatId"]));
-    }
-    if (m.find("role") != m.end() && !m["role"].empty()) {
-      role = make_shared<string>(boost::any_cast<string>(m["role"]));
-    }
-    if (m.find("text") != m.end() && !m["text"].empty()) {
-      text = make_shared<string>(boost::any_cast<string>(m["text"]));
-    }
-  }
-
-
-  virtual ~CreateConversationAnalysisTaskRequestExamplesSentences() = default;
-};
-class CreateConversationAnalysisTaskRequestExamples : public Darabonba::Model {
-public:
-  shared_ptr<string> output{};
-  shared_ptr<vector<CreateConversationAnalysisTaskRequestExamplesSentences>> sentences{};
-
-  CreateConversationAnalysisTaskRequestExamples() {}
-
-  explicit CreateConversationAnalysisTaskRequestExamples(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (output) {
-      res["output"] = boost::any(*output);
-    }
-    if (sentences) {
-      vector<boost::any> temp1;
-      for(auto item1:*sentences){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["sentences"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("output") != m.end() && !m["output"].empty()) {
-      output = make_shared<string>(boost::any_cast<string>(m["output"]));
-    }
-    if (m.find("sentences") != m.end() && !m["sentences"].empty()) {
-      if (typeid(vector<boost::any>) == m["sentences"].type()) {
-        vector<CreateConversationAnalysisTaskRequestExamplesSentences> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["sentences"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            CreateConversationAnalysisTaskRequestExamplesSentences model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        sentences = make_shared<vector<CreateConversationAnalysisTaskRequestExamplesSentences>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~CreateConversationAnalysisTaskRequestExamples() = default;
-};
-class CreateConversationAnalysisTaskRequestFieldsEnumValues : public Darabonba::Model {
-public:
-  shared_ptr<string> desc{};
-  shared_ptr<string> enumValue{};
-
-  CreateConversationAnalysisTaskRequestFieldsEnumValues() {}
-
-  explicit CreateConversationAnalysisTaskRequestFieldsEnumValues(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (desc) {
-      res["desc"] = boost::any(*desc);
-    }
-    if (enumValue) {
-      res["enumValue"] = boost::any(*enumValue);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("desc") != m.end() && !m["desc"].empty()) {
-      desc = make_shared<string>(boost::any_cast<string>(m["desc"]));
-    }
-    if (m.find("enumValue") != m.end() && !m["enumValue"].empty()) {
-      enumValue = make_shared<string>(boost::any_cast<string>(m["enumValue"]));
-    }
-  }
-
-
-  virtual ~CreateConversationAnalysisTaskRequestFieldsEnumValues() = default;
-};
-class CreateConversationAnalysisTaskRequestFields : public Darabonba::Model {
-public:
-  shared_ptr<string> code{};
-  shared_ptr<string> desc{};
-  shared_ptr<vector<CreateConversationAnalysisTaskRequestFieldsEnumValues>> enumValues{};
-  shared_ptr<string> name{};
-
-  CreateConversationAnalysisTaskRequestFields() {}
-
-  explicit CreateConversationAnalysisTaskRequestFields(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["code"] = boost::any(*code);
-    }
-    if (desc) {
-      res["desc"] = boost::any(*desc);
-    }
-    if (enumValues) {
-      vector<boost::any> temp1;
-      for(auto item1:*enumValues){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["enumValues"] = boost::any(temp1);
-    }
-    if (name) {
-      res["name"] = boost::any(*name);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["code"]));
-    }
-    if (m.find("desc") != m.end() && !m["desc"].empty()) {
-      desc = make_shared<string>(boost::any_cast<string>(m["desc"]));
-    }
-    if (m.find("enumValues") != m.end() && !m["enumValues"].empty()) {
-      if (typeid(vector<boost::any>) == m["enumValues"].type()) {
-        vector<CreateConversationAnalysisTaskRequestFieldsEnumValues> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["enumValues"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            CreateConversationAnalysisTaskRequestFieldsEnumValues model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        enumValues = make_shared<vector<CreateConversationAnalysisTaskRequestFieldsEnumValues>>(expect1);
-      }
-    }
-    if (m.find("name") != m.end() && !m["name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["name"]));
-    }
-  }
-
-
-  virtual ~CreateConversationAnalysisTaskRequestFields() = default;
-};
-class CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents : public Darabonba::Model {
-public:
-  shared_ptr<string> content{};
-  shared_ptr<string> title{};
-
-  CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents() {}
-
-  explicit CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (content) {
-      res["content"] = boost::any(*content);
-    }
-    if (title) {
-      res["title"] = boost::any(*title);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("content") != m.end() && !m["content"].empty()) {
-      content = make_shared<string>(boost::any_cast<string>(m["content"]));
-    }
-    if (m.find("title") != m.end() && !m["title"].empty()) {
-      title = make_shared<string>(boost::any_cast<string>(m["title"]));
-    }
-  }
-
-
-  virtual ~CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents() = default;
-};
-class CreateConversationAnalysisTaskRequestServiceInspection : public Darabonba::Model {
-public:
-  shared_ptr<vector<CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents>> inspectionContents{};
-  shared_ptr<string> inspectionIntroduction{};
-  shared_ptr<string> sceneIntroduction{};
-
-  CreateConversationAnalysisTaskRequestServiceInspection() {}
-
-  explicit CreateConversationAnalysisTaskRequestServiceInspection(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (inspectionContents) {
-      vector<boost::any> temp1;
-      for(auto item1:*inspectionContents){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["inspectionContents"] = boost::any(temp1);
-    }
-    if (inspectionIntroduction) {
-      res["inspectionIntroduction"] = boost::any(*inspectionIntroduction);
-    }
-    if (sceneIntroduction) {
-      res["sceneIntroduction"] = boost::any(*sceneIntroduction);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("inspectionContents") != m.end() && !m["inspectionContents"].empty()) {
-      if (typeid(vector<boost::any>) == m["inspectionContents"].type()) {
-        vector<CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["inspectionContents"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        inspectionContents = make_shared<vector<CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents>>(expect1);
-      }
-    }
-    if (m.find("inspectionIntroduction") != m.end() && !m["inspectionIntroduction"].empty()) {
-      inspectionIntroduction = make_shared<string>(boost::any_cast<string>(m["inspectionIntroduction"]));
-    }
-    if (m.find("sceneIntroduction") != m.end() && !m["sceneIntroduction"].empty()) {
-      sceneIntroduction = make_shared<string>(boost::any_cast<string>(m["sceneIntroduction"]));
-    }
-  }
-
-
-  virtual ~CreateConversationAnalysisTaskRequestServiceInspection() = default;
-};
-class CreateConversationAnalysisTaskRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> autoSplit{};
-  shared_ptr<long> clientChannel{};
-  shared_ptr<CreateConversationAnalysisTaskRequestExamples> examples{};
-  shared_ptr<vector<CreateConversationAnalysisTaskRequestFields>> fields{};
-  shared_ptr<string> fileName{};
-  shared_ptr<string> modelCode{};
+  shared_ptr<vector<string>> imageUrls{};
   shared_ptr<vector<string>> resultTypes{};
-  shared_ptr<string> sceneName{};
-  shared_ptr<long> serviceChannel{};
-  shared_ptr<vector<string>> serviceChannelKeywords{};
-  shared_ptr<CreateConversationAnalysisTaskRequestServiceInspection> serviceInspection{};
-  shared_ptr<vector<string>> templateIds{};
-  shared_ptr<string> voiceFileUrl{};
+  shared_ptr<bool> stream{};
 
-  CreateConversationAnalysisTaskRequest() {}
+  AnalyzeImageRequest() {}
 
-  explicit CreateConversationAnalysisTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit AnalyzeImageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -1048,84 +787,28 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (autoSplit) {
-      res["autoSplit"] = boost::any(*autoSplit);
-    }
-    if (clientChannel) {
-      res["clientChannel"] = boost::any(*clientChannel);
-    }
-    if (examples) {
-      res["examples"] = examples ? boost::any(examples->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (fields) {
-      vector<boost::any> temp1;
-      for(auto item1:*fields){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["fields"] = boost::any(temp1);
-    }
-    if (fileName) {
-      res["fileName"] = boost::any(*fileName);
-    }
-    if (modelCode) {
-      res["modelCode"] = boost::any(*modelCode);
+    if (imageUrls) {
+      res["imageUrls"] = boost::any(*imageUrls);
     }
     if (resultTypes) {
       res["resultTypes"] = boost::any(*resultTypes);
     }
-    if (sceneName) {
-      res["sceneName"] = boost::any(*sceneName);
-    }
-    if (serviceChannel) {
-      res["serviceChannel"] = boost::any(*serviceChannel);
-    }
-    if (serviceChannelKeywords) {
-      res["serviceChannelKeywords"] = boost::any(*serviceChannelKeywords);
-    }
-    if (serviceInspection) {
-      res["serviceInspection"] = serviceInspection ? boost::any(serviceInspection->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (templateIds) {
-      res["templateIds"] = boost::any(*templateIds);
-    }
-    if (voiceFileUrl) {
-      res["voiceFileUrl"] = boost::any(*voiceFileUrl);
+    if (stream) {
+      res["stream"] = boost::any(*stream);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("autoSplit") != m.end() && !m["autoSplit"].empty()) {
-      autoSplit = make_shared<long>(boost::any_cast<long>(m["autoSplit"]));
-    }
-    if (m.find("clientChannel") != m.end() && !m["clientChannel"].empty()) {
-      clientChannel = make_shared<long>(boost::any_cast<long>(m["clientChannel"]));
-    }
-    if (m.find("examples") != m.end() && !m["examples"].empty()) {
-      if (typeid(map<string, boost::any>) == m["examples"].type()) {
-        CreateConversationAnalysisTaskRequestExamples model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["examples"]));
-        examples = make_shared<CreateConversationAnalysisTaskRequestExamples>(model1);
-      }
-    }
-    if (m.find("fields") != m.end() && !m["fields"].empty()) {
-      if (typeid(vector<boost::any>) == m["fields"].type()) {
-        vector<CreateConversationAnalysisTaskRequestFields> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["fields"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            CreateConversationAnalysisTaskRequestFields model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
+    if (m.find("imageUrls") != m.end() && !m["imageUrls"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["imageUrls"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["imageUrls"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
         }
-        fields = make_shared<vector<CreateConversationAnalysisTaskRequestFields>>(expect1);
       }
-    }
-    if (m.find("fileName") != m.end() && !m["fileName"].empty()) {
-      fileName = make_shared<string>(boost::any_cast<string>(m["fileName"]));
-    }
-    if (m.find("modelCode") != m.end() && !m["modelCode"].empty()) {
-      modelCode = make_shared<string>(boost::any_cast<string>(m["modelCode"]));
+      imageUrls = make_shared<vector<string>>(toVec1);
     }
     if (m.find("resultTypes") != m.end() && !m["resultTypes"].empty()) {
       vector<string> toVec1;
@@ -1137,85 +820,27 @@ public:
       }
       resultTypes = make_shared<vector<string>>(toVec1);
     }
-    if (m.find("sceneName") != m.end() && !m["sceneName"].empty()) {
-      sceneName = make_shared<string>(boost::any_cast<string>(m["sceneName"]));
-    }
-    if (m.find("serviceChannel") != m.end() && !m["serviceChannel"].empty()) {
-      serviceChannel = make_shared<long>(boost::any_cast<long>(m["serviceChannel"]));
-    }
-    if (m.find("serviceChannelKeywords") != m.end() && !m["serviceChannelKeywords"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["serviceChannelKeywords"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["serviceChannelKeywords"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      serviceChannelKeywords = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("serviceInspection") != m.end() && !m["serviceInspection"].empty()) {
-      if (typeid(map<string, boost::any>) == m["serviceInspection"].type()) {
-        CreateConversationAnalysisTaskRequestServiceInspection model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["serviceInspection"]));
-        serviceInspection = make_shared<CreateConversationAnalysisTaskRequestServiceInspection>(model1);
-      }
-    }
-    if (m.find("templateIds") != m.end() && !m["templateIds"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["templateIds"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["templateIds"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      templateIds = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("voiceFileUrl") != m.end() && !m["voiceFileUrl"].empty()) {
-      voiceFileUrl = make_shared<string>(boost::any_cast<string>(m["voiceFileUrl"]));
+    if (m.find("stream") != m.end() && !m["stream"].empty()) {
+      stream = make_shared<bool>(boost::any_cast<bool>(m["stream"]));
     }
   }
 
 
-  virtual ~CreateConversationAnalysisTaskRequest() = default;
+  virtual ~AnalyzeImageRequest() = default;
 };
-class CreateConversationAnalysisTaskResponseBodyData : public Darabonba::Model {
+class AnalyzeImageResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> taskId{};
-
-  CreateConversationAnalysisTaskResponseBodyData() {}
-
-  explicit CreateConversationAnalysisTaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (taskId) {
-      res["taskId"] = boost::any(*taskId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
-      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
-    }
-  }
-
-
-  virtual ~CreateConversationAnalysisTaskResponseBodyData() = default;
-};
-class CreateConversationAnalysisTaskResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<CreateConversationAnalysisTaskResponseBodyData> data{};
+  shared_ptr<string> finishReason{};
+  shared_ptr<string> inputTokens{};
+  shared_ptr<string> outputTokens{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> success{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> text{};
+  shared_ptr<string> totalTokens{};
 
-  CreateConversationAnalysisTaskResponseBody() {}
+  AnalyzeImageResponseBody() {}
 
-  explicit CreateConversationAnalysisTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit AnalyzeImageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -1223,8 +848,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (data) {
-      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    if (finishReason) {
+      res["finishReason"] = boost::any(*finishReason);
+    }
+    if (inputTokens) {
+      res["inputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["outputTokens"] = boost::any(*outputTokens);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -1232,37 +863,51 @@ public:
     if (success) {
       res["success"] = boost::any(*success);
     }
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    if (totalTokens) {
+      res["totalTokens"] = boost::any(*totalTokens);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("data") != m.end() && !m["data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["data"].type()) {
-        CreateConversationAnalysisTaskResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
-        data = make_shared<CreateConversationAnalysisTaskResponseBodyData>(model1);
-      }
+    if (m.find("finishReason") != m.end() && !m["finishReason"].empty()) {
+      finishReason = make_shared<string>(boost::any_cast<string>(m["finishReason"]));
+    }
+    if (m.find("inputTokens") != m.end() && !m["inputTokens"].empty()) {
+      inputTokens = make_shared<string>(boost::any_cast<string>(m["inputTokens"]));
+    }
+    if (m.find("outputTokens") != m.end() && !m["outputTokens"].empty()) {
+      outputTokens = make_shared<string>(boost::any_cast<string>(m["outputTokens"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
-      success = make_shared<string>(boost::any_cast<string>(m["success"]));
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+    if (m.find("totalTokens") != m.end() && !m["totalTokens"].empty()) {
+      totalTokens = make_shared<string>(boost::any_cast<string>(m["totalTokens"]));
     }
   }
 
 
-  virtual ~CreateConversationAnalysisTaskResponseBody() = default;
+  virtual ~AnalyzeImageResponseBody() = default;
 };
-class CreateConversationAnalysisTaskResponse : public Darabonba::Model {
+class AnalyzeImageResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
   shared_ptr<long> statusCode{};
-  shared_ptr<CreateConversationAnalysisTaskResponseBody> body{};
+  shared_ptr<AnalyzeImageResponseBody> body{};
 
-  CreateConversationAnalysisTaskResponse() {}
+  AnalyzeImageResponse() {}
 
-  explicit CreateConversationAnalysisTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit AnalyzeImageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -1296,15 +941,15 @@ public:
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
-        CreateConversationAnalysisTaskResponseBody model1;
+        AnalyzeImageResponseBody model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<CreateConversationAnalysisTaskResponseBody>(model1);
+        body = make_shared<AnalyzeImageResponseBody>(model1);
       }
     }
   }
 
 
-  virtual ~CreateConversationAnalysisTaskResponse() = default;
+  virtual ~AnalyzeImageResponse() = default;
 };
 class CreateTaskRequestDialogueSentences : public Darabonba::Model {
 public:
@@ -2554,6 +2199,9 @@ public:
   shared_ptr<string> finishReason{};
   shared_ptr<string> requestId{};
   shared_ptr<string> text{};
+  shared_ptr<string> inputTokens{};
+  shared_ptr<string> outputTokens{};
+  shared_ptr<string> totalTokens{};
 
   RunCompletionResponseBody() {}
 
@@ -2574,6 +2222,15 @@ public:
     if (text) {
       res["Text"] = boost::any(*text);
     }
+    if (inputTokens) {
+      res["inputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["outputTokens"] = boost::any(*outputTokens);
+    }
+    if (totalTokens) {
+      res["totalTokens"] = boost::any(*totalTokens);
+    }
     return res;
   }
 
@@ -2586,6 +2243,15 @@ public:
     }
     if (m.find("Text") != m.end() && !m["Text"].empty()) {
       text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+    if (m.find("inputTokens") != m.end() && !m["inputTokens"].empty()) {
+      inputTokens = make_shared<string>(boost::any_cast<string>(m["inputTokens"]));
+    }
+    if (m.find("outputTokens") != m.end() && !m["outputTokens"].empty()) {
+      outputTokens = make_shared<string>(boost::any_cast<string>(m["outputTokens"]));
+    }
+    if (m.find("totalTokens") != m.end() && !m["totalTokens"].empty()) {
+      totalTokens = make_shared<string>(boost::any_cast<string>(m["totalTokens"]));
     }
   }
 
@@ -2742,6 +2408,9 @@ public:
   shared_ptr<string> finishReason{};
   shared_ptr<string> requestId{};
   shared_ptr<string> text{};
+  shared_ptr<string> inputTokens{};
+  shared_ptr<string> outputTokens{};
+  shared_ptr<string> totalTokens{};
 
   RunCompletionMessageResponseBody() {}
 
@@ -2762,6 +2431,15 @@ public:
     if (text) {
       res["Text"] = boost::any(*text);
     }
+    if (inputTokens) {
+      res["inputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["outputTokens"] = boost::any(*outputTokens);
+    }
+    if (totalTokens) {
+      res["totalTokens"] = boost::any(*totalTokens);
+    }
     return res;
   }
 
@@ -2774,6 +2452,15 @@ public:
     }
     if (m.find("Text") != m.end() && !m["Text"].empty()) {
       text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+    if (m.find("inputTokens") != m.end() && !m["inputTokens"].empty()) {
+      inputTokens = make_shared<string>(boost::any_cast<string>(m["inputTokens"]));
+    }
+    if (m.find("outputTokens") != m.end() && !m["outputTokens"].empty()) {
+      outputTokens = make_shared<string>(boost::any_cast<string>(m["outputTokens"]));
+    }
+    if (m.find("totalTokens") != m.end() && !m["totalTokens"].empty()) {
+      totalTokens = make_shared<string>(boost::any_cast<string>(m["totalTokens"]));
     }
   }
 
@@ -2848,12 +2535,12 @@ public:
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AnalyzeConversationResponse analyzeConversation(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<AnalyzeConversationRequest> request);
-  CreateConversationAnalysisTaskResponse createConversationAnalysisTaskWithOptions(shared_ptr<string> workspaceId,
-                                                                                   shared_ptr<string> appId,
-                                                                                   shared_ptr<CreateConversationAnalysisTaskRequest> request,
-                                                                                   shared_ptr<map<string, string>> headers,
-                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateConversationAnalysisTaskResponse createConversationAnalysisTask(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<CreateConversationAnalysisTaskRequest> request);
+  AnalyzeImageResponse analyzeImageWithOptions(shared_ptr<string> workspaceId,
+                                               shared_ptr<string> appId,
+                                               shared_ptr<AnalyzeImageRequest> request,
+                                               shared_ptr<map<string, string>> headers,
+                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AnalyzeImageResponse analyzeImage(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<AnalyzeImageRequest> request);
   CreateTaskResponse createTaskWithOptions(shared_ptr<string> workspaceId,
                                            shared_ptr<string> appId,
                                            shared_ptr<CreateTaskRequest> request,
