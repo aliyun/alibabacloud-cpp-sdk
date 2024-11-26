@@ -146,12 +146,49 @@ public:
 
   virtual ~AICreateSessionMessageRequest() = default;
 };
+class AICreateSessionMessageResponseBodyReference : public Darabonba::Model {
+public:
+  shared_ptr<string> title{};
+  shared_ptr<string> url{};
+
+  AICreateSessionMessageResponseBodyReference() {}
+
+  explicit AICreateSessionMessageResponseBodyReference(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~AICreateSessionMessageResponseBodyReference() = default;
+};
 class AICreateSessionMessageResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> answer{};
   shared_ptr<long> code{};
   shared_ptr<string> data{};
   shared_ptr<string> msg{};
+  shared_ptr<vector<AICreateSessionMessageResponseBodyReference>> reference{};
   shared_ptr<string> requestId{};
   shared_ptr<string> sessionId{};
 
@@ -177,6 +214,13 @@ public:
     if (msg) {
       res["msg"] = boost::any(*msg);
     }
+    if (reference) {
+      vector<boost::any> temp1;
+      for(auto item1:*reference){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["reference"] = boost::any(temp1);
+    }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
@@ -198,6 +242,19 @@ public:
     }
     if (m.find("msg") != m.end() && !m["msg"].empty()) {
       msg = make_shared<string>(boost::any_cast<string>(m["msg"]));
+    }
+    if (m.find("reference") != m.end() && !m["reference"].empty()) {
+      if (typeid(vector<boost::any>) == m["reference"].type()) {
+        vector<AICreateSessionMessageResponseBodyReference> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["reference"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AICreateSessionMessageResponseBodyReference model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        reference = make_shared<vector<AICreateSessionMessageResponseBodyReference>>(expect1);
+      }
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
