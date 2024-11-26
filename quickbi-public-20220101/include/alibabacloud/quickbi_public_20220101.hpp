@@ -444,6 +444,7 @@ public:
 };
 class AddUserRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accountId{};
   shared_ptr<string> accountName{};
   shared_ptr<bool> adminUser{};
   shared_ptr<bool> authAdminUser{};
@@ -461,6 +462,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
     if (accountName) {
       res["AccountName"] = boost::any(*accountName);
     }
@@ -483,6 +487,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
     if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
       accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
     }
@@ -21169,6 +21176,291 @@ public:
 
   virtual ~SetDataLevelPermissionWhiteListResponse() = default;
 };
+class SmartqQueryAbilityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cubeId{};
+  shared_ptr<string> userId{};
+  shared_ptr<string> userQuestion{};
+
+  SmartqQueryAbilityRequest() {}
+
+  explicit SmartqQueryAbilityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cubeId) {
+      res["CubeId"] = boost::any(*cubeId);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (userQuestion) {
+      res["UserQuestion"] = boost::any(*userQuestion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CubeId") != m.end() && !m["CubeId"].empty()) {
+      cubeId = make_shared<string>(boost::any_cast<string>(m["CubeId"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("UserQuestion") != m.end() && !m["UserQuestion"].empty()) {
+      userQuestion = make_shared<string>(boost::any_cast<string>(m["UserQuestion"]));
+    }
+  }
+
+
+  virtual ~SmartqQueryAbilityRequest() = default;
+};
+class SmartqQueryAbilityResponseBodyResultMetaType : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  SmartqQueryAbilityResponseBodyResultMetaType() {}
+
+  explicit SmartqQueryAbilityResponseBodyResultMetaType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~SmartqQueryAbilityResponseBodyResultMetaType() = default;
+};
+class SmartqQueryAbilityResponseBodyResultValues : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> row{};
+
+  SmartqQueryAbilityResponseBodyResultValues() {}
+
+  explicit SmartqQueryAbilityResponseBodyResultValues(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (row) {
+      res["Row"] = boost::any(*row);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Row") != m.end() && !m["Row"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Row"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Row"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      row = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~SmartqQueryAbilityResponseBodyResultValues() = default;
+};
+class SmartqQueryAbilityResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> chartType{};
+  shared_ptr<vector<SmartqQueryAbilityResponseBodyResultMetaType>> metaType{};
+  shared_ptr<vector<SmartqQueryAbilityResponseBodyResultValues>> values{};
+
+  SmartqQueryAbilityResponseBodyResult() {}
+
+  explicit SmartqQueryAbilityResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (chartType) {
+      res["ChartType"] = boost::any(*chartType);
+    }
+    if (metaType) {
+      vector<boost::any> temp1;
+      for(auto item1:*metaType){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MetaType"] = boost::any(temp1);
+    }
+    if (values) {
+      vector<boost::any> temp1;
+      for(auto item1:*values){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Values"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChartType") != m.end() && !m["ChartType"].empty()) {
+      chartType = make_shared<string>(boost::any_cast<string>(m["ChartType"]));
+    }
+    if (m.find("MetaType") != m.end() && !m["MetaType"].empty()) {
+      if (typeid(vector<boost::any>) == m["MetaType"].type()) {
+        vector<SmartqQueryAbilityResponseBodyResultMetaType> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MetaType"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SmartqQueryAbilityResponseBodyResultMetaType model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        metaType = make_shared<vector<SmartqQueryAbilityResponseBodyResultMetaType>>(expect1);
+      }
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<SmartqQueryAbilityResponseBodyResultValues> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Values"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SmartqQueryAbilityResponseBodyResultValues model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        values = make_shared<vector<SmartqQueryAbilityResponseBodyResultValues>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~SmartqQueryAbilityResponseBodyResult() = default;
+};
+class SmartqQueryAbilityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<SmartqQueryAbilityResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+
+  SmartqQueryAbilityResponseBody() {}
+
+  explicit SmartqQueryAbilityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        SmartqQueryAbilityResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<SmartqQueryAbilityResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SmartqQueryAbilityResponseBody() = default;
+};
+class SmartqQueryAbilityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SmartqQueryAbilityResponseBody> body{};
+
+  SmartqQueryAbilityResponse() {}
+
+  explicit SmartqQueryAbilityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SmartqQueryAbilityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SmartqQueryAbilityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SmartqQueryAbilityResponse() = default;
+};
 class UpdateDataLevelPermissionStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cubeId{};
@@ -22808,6 +23100,8 @@ public:
   SetDataLevelPermissionRuleConfigResponse setDataLevelPermissionRuleConfig(shared_ptr<SetDataLevelPermissionRuleConfigRequest> request);
   SetDataLevelPermissionWhiteListResponse setDataLevelPermissionWhiteListWithOptions(shared_ptr<SetDataLevelPermissionWhiteListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetDataLevelPermissionWhiteListResponse setDataLevelPermissionWhiteList(shared_ptr<SetDataLevelPermissionWhiteListRequest> request);
+  SmartqQueryAbilityResponse smartqQueryAbilityWithOptions(shared_ptr<SmartqQueryAbilityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SmartqQueryAbilityResponse smartqQueryAbility(shared_ptr<SmartqQueryAbilityRequest> request);
   UpdateDataLevelPermissionStatusResponse updateDataLevelPermissionStatusWithOptions(shared_ptr<UpdateDataLevelPermissionStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateDataLevelPermissionStatusResponse updateDataLevelPermissionStatus(shared_ptr<UpdateDataLevelPermissionStatusRequest> request);
   UpdateEmbeddedStatusResponse updateEmbeddedStatusWithOptions(shared_ptr<UpdateEmbeddedStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

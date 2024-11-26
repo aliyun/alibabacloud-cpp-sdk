@@ -148,6 +148,9 @@ AddShareReportResponse Alibabacloud_Quickbi-public20220101::Client::addShareRepo
 AddUserResponse Alibabacloud_Quickbi-public20220101::Client::addUserWithOptions(shared_ptr<AddUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("AccountId", *request->accountId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->accountName)) {
     query->insert(pair<string, string>("AccountName", *request->accountName));
   }
@@ -3144,6 +3147,40 @@ SetDataLevelPermissionWhiteListResponse Alibabacloud_Quickbi-public20220101::Cli
 SetDataLevelPermissionWhiteListResponse Alibabacloud_Quickbi-public20220101::Client::setDataLevelPermissionWhiteList(shared_ptr<SetDataLevelPermissionWhiteListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return setDataLevelPermissionWhiteListWithOptions(request, runtime);
+}
+
+SmartqQueryAbilityResponse Alibabacloud_Quickbi-public20220101::Client::smartqQueryAbilityWithOptions(shared_ptr<SmartqQueryAbilityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cubeId)) {
+    query->insert(pair<string, string>("CubeId", *request->cubeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("UserId", *request->userId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userQuestion)) {
+    query->insert(pair<string, string>("UserQuestion", *request->userQuestion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SmartqQueryAbility"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SmartqQueryAbilityResponse(callApi(params, req, runtime));
+}
+
+SmartqQueryAbilityResponse Alibabacloud_Quickbi-public20220101::Client::smartqQueryAbility(shared_ptr<SmartqQueryAbilityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return smartqQueryAbilityWithOptions(request, runtime);
 }
 
 UpdateDataLevelPermissionStatusResponse Alibabacloud_Quickbi-public20220101::Client::updateDataLevelPermissionStatusWithOptions(shared_ptr<UpdateDataLevelPermissionStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

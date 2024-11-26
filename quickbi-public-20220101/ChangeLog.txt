@@ -1,3 +1,6 @@
+2024-11-26 Version: 0.1.18
+- Generated cpp 2022-01-01 for quickbi-public.
+
 2024-10-10 Version: 0.1.17
 - Generated cpp 2022-01-01 for quickbi-public.
 
