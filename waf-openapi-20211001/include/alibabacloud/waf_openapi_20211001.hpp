@@ -24907,6 +24907,7 @@ public:
   shared_ptr<string> clientIP{};
   shared_ptr<long> count{};
   shared_ptr<string> matchedHost{};
+  shared_ptr<string> remoteCountryId{};
   shared_ptr<long> requestTime{};
   shared_ptr<string> sensitiveList{};
   shared_ptr<string> traceId{};
@@ -24936,6 +24937,9 @@ public:
     if (matchedHost) {
       res["MatchedHost"] = boost::any(*matchedHost);
     }
+    if (remoteCountryId) {
+      res["RemoteCountryId"] = boost::any(*remoteCountryId);
+    }
     if (requestTime) {
       res["RequestTime"] = boost::any(*requestTime);
     }
@@ -24963,6 +24967,9 @@ public:
     }
     if (m.find("MatchedHost") != m.end() && !m["MatchedHost"].empty()) {
       matchedHost = make_shared<string>(boost::any_cast<string>(m["MatchedHost"]));
+    }
+    if (m.find("RemoteCountryId") != m.end() && !m["RemoteCountryId"].empty()) {
+      remoteCountryId = make_shared<string>(boost::any_cast<string>(m["RemoteCountryId"]));
     }
     if (m.find("RequestTime") != m.end() && !m["RequestTime"].empty()) {
       requestTime = make_shared<long>(boost::any_cast<long>(m["RequestTime"]));
