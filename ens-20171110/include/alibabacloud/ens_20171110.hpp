@@ -43396,6 +43396,7 @@ class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus : public Darabonba
 public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> mountType{};
+  shared_ptr<string> phase{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
@@ -43416,6 +43417,9 @@ public:
     if (mountType) {
       res["MountType"] = boost::any(*mountType);
     }
+    if (phase) {
+      res["Phase"] = boost::any(*phase);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -43434,6 +43438,9 @@ public:
     }
     if (m.find("MountType") != m.end() && !m["MountType"].empty()) {
       mountType = make_shared<string>(boost::any_cast<string>(m["MountType"]));
+    }
+    if (m.find("Phase") != m.end() && !m["Phase"].empty()) {
+      phase = make_shared<string>(boost::any_cast<string>(m["Phase"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -46080,10 +46087,12 @@ class DescribeSnapshotsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> diskId{};
   shared_ptr<string> ensRegionId{};
+  shared_ptr<string> ensRegionIds{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> snapshotId{};
+  shared_ptr<string> snapshotName{};
 
   DescribeSnapshotsRequest() {}
 
@@ -46101,6 +46110,9 @@ public:
     if (ensRegionId) {
       res["EnsRegionId"] = boost::any(*ensRegionId);
     }
+    if (ensRegionIds) {
+      res["EnsRegionIds"] = boost::any(*ensRegionIds);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -46113,6 +46125,9 @@ public:
     if (snapshotId) {
       res["SnapshotId"] = boost::any(*snapshotId);
     }
+    if (snapshotName) {
+      res["SnapshotName"] = boost::any(*snapshotName);
+    }
     return res;
   }
 
@@ -46122,6 +46137,9 @@ public:
     }
     if (m.find("EnsRegionId") != m.end() && !m["EnsRegionId"].empty()) {
       ensRegionId = make_shared<string>(boost::any_cast<string>(m["EnsRegionId"]));
+    }
+    if (m.find("EnsRegionIds") != m.end() && !m["EnsRegionIds"].empty()) {
+      ensRegionIds = make_shared<string>(boost::any_cast<string>(m["EnsRegionIds"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -46134,6 +46152,9 @@ public:
     }
     if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
       snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
+    }
+    if (m.find("SnapshotName") != m.end() && !m["SnapshotName"].empty()) {
+      snapshotName = make_shared<string>(boost::any_cast<string>(m["SnapshotName"]));
     }
   }
 

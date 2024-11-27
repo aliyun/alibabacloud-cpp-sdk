@@ -6211,6 +6211,9 @@ DescribeSnapshotsResponse Alibabacloud_Ens20171110::Client::describeSnapshotsWit
   if (!Darabonba_Util::Client::isUnset<string>(request->ensRegionId)) {
     query->insert(pair<string, string>("EnsRegionId", *request->ensRegionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ensRegionIds)) {
+    query->insert(pair<string, string>("EnsRegionIds", *request->ensRegionIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -6222,6 +6225,9 @@ DescribeSnapshotsResponse Alibabacloud_Ens20171110::Client::describeSnapshotsWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->snapshotId)) {
     query->insert(pair<string, string>("SnapshotId", *request->snapshotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->snapshotName)) {
+    query->insert(pair<string, string>("SnapshotName", *request->snapshotName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
