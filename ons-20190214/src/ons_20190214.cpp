@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1161,8 +1160,14 @@ OnsTopicUpdateResponse Alibabacloud_Ons20190214::Client::onsTopicUpdate(shared_p
 OnsTraceGetResultResponse Alibabacloud_Ons20190214::Client::onsTraceGetResultWithOptions(shared_ptr<OnsTraceGetResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->queryId)) {
     query->insert(pair<string, string>("QueryId", *request->queryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topic)) {
+    query->insert(pair<string, string>("Topic", *request->topic));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
