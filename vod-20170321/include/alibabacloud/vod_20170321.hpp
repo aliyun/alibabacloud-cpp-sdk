@@ -28841,6 +28841,7 @@ public:
   shared_ptr<string> tags{};
   shared_ptr<string> templateGroupId{};
   shared_ptr<string> title{};
+  shared_ptr<string> userData{};
   shared_ptr<string> videoId{};
 
   GetVideoInfoResponseBodyVideo() {}
@@ -28919,6 +28920,9 @@ public:
     if (title) {
       res["Title"] = boost::any(*title);
     }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
     if (videoId) {
       res["VideoId"] = boost::any(*videoId);
     }
@@ -28995,6 +28999,9 @@ public:
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
     if (m.find("VideoId") != m.end() && !m["VideoId"].empty()) {
       videoId = make_shared<string>(boost::any_cast<string>(m["VideoId"]));
@@ -29146,6 +29153,7 @@ public:
   shared_ptr<string> tags{};
   shared_ptr<string> templateGroupId{};
   shared_ptr<string> title{};
+  shared_ptr<string> userData{};
   shared_ptr<string> videoId{};
 
   GetVideoInfosResponseBodyVideoList() {}
@@ -29214,6 +29222,9 @@ public:
     }
     if (title) {
       res["Title"] = boost::any(*title);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
     }
     if (videoId) {
       res["VideoId"] = boost::any(*videoId);
@@ -29285,6 +29296,9 @@ public:
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
     if (m.find("VideoId") != m.end() && !m["VideoId"].empty()) {
       videoId = make_shared<string>(boost::any_cast<string>(m["VideoId"]));
@@ -39626,6 +39640,7 @@ public:
   shared_ptr<string> overrideParams{};
   shared_ptr<string> pipelineId{};
   shared_ptr<string> priority{};
+  shared_ptr<string> sessionId{};
   shared_ptr<string> templateGroupId{};
   shared_ptr<string> userData{};
   shared_ptr<string> videoId{};
@@ -39652,6 +39667,9 @@ public:
     if (priority) {
       res["Priority"] = boost::any(*priority);
     }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
     if (templateGroupId) {
       res["TemplateGroupId"] = boost::any(*templateGroupId);
     }
@@ -39676,6 +39694,9 @@ public:
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
     }
     if (m.find("TemplateGroupId") != m.end() && !m["TemplateGroupId"].empty()) {
       templateGroupId = make_shared<string>(boost::any_cast<string>(m["TemplateGroupId"]));
@@ -41232,6 +41253,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> tags{};
   shared_ptr<string> title{};
+  shared_ptr<string> userData{};
   shared_ptr<string> videoId{};
 
   UpdateVideoInfoRequest() {}
@@ -41259,6 +41281,9 @@ public:
     if (title) {
       res["Title"] = boost::any(*title);
     }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
     if (videoId) {
       res["VideoId"] = boost::any(*videoId);
     }
@@ -41280,6 +41305,9 @@ public:
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
     if (m.find("VideoId") != m.end() && !m["VideoId"].empty()) {
       videoId = make_shared<string>(boost::any_cast<string>(m["VideoId"]));

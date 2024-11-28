@@ -5964,6 +5964,9 @@ SubmitTranscodeJobsResponse Alibabacloud_Vod20170321::Client::submitTranscodeJob
   if (!Darabonba_Util::Client::isUnset<string>(request->priority)) {
     query->insert(pair<string, string>("Priority", *request->priority));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    query->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateGroupId)) {
     query->insert(pair<string, string>("TemplateGroupId", *request->templateGroupId));
   }
@@ -6330,6 +6333,9 @@ UpdateVideoInfoResponse Alibabacloud_Vod20170321::Client::updateVideoInfoWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
     query->insert(pair<string, string>("Title", *request->title));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoId)) {
     query->insert(pair<string, string>("VideoId", *request->videoId));
