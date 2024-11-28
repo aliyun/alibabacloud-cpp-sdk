@@ -2275,8 +2275,8 @@ public:
 };
 class ImageBatchModerationRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> service{};
   shared_ptr<string> serviceParameters{};
-  shared_ptr<string> services{};
 
   ImageBatchModerationRequest() {}
 
@@ -2288,21 +2288,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (service) {
+      res["Service"] = boost::any(*service);
+    }
     if (serviceParameters) {
       res["ServiceParameters"] = boost::any(*serviceParameters);
-    }
-    if (services) {
-      res["Services"] = boost::any(*services);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Service") != m.end() && !m["Service"].empty()) {
+      service = make_shared<string>(boost::any_cast<string>(m["Service"]));
+    }
     if (m.find("ServiceParameters") != m.end() && !m["ServiceParameters"].empty()) {
       serviceParameters = make_shared<string>(boost::any_cast<string>(m["ServiceParameters"]));
-    }
-    if (m.find("Services") != m.end() && !m["Services"].empty()) {
-      services = make_shared<string>(boost::any_cast<string>(m["Services"]));
     }
   }
 
