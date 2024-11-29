@@ -5668,6 +5668,9 @@ CreateVpnAttachmentResponse Alibabacloud_Vpc20160428::Client::createVpnAttachmen
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableNatTraversal)) {
     query->insert(pair<string, bool>("EnableNatTraversal", *request->enableNatTraversal));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableTunnelsBgp)) {
+    query->insert(pair<string, bool>("EnableTunnelsBgp", *request->enableTunnelsBgp));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->healthCheckConfig)) {
     query->insert(pair<string, string>("HealthCheckConfig", *request->healthCheckConfig));
   }
@@ -5710,8 +5713,15 @@ CreateVpnAttachmentResponse Alibabacloud_Vpc20160428::Client::createVpnAttachmen
   if (!Darabonba_Util::Client::isUnset<vector<CreateVpnAttachmentRequestTags>>(request->tags)) {
     query->insert(pair<string, vector<CreateVpnAttachmentRequestTags>>("Tags", *request->tags));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CreateVpnAttachmentRequestTunnelOptionsSpecification>>(request->tunnelOptionsSpecification)) {
+    bodyFlat->insert(pair<string, vector<CreateVpnAttachmentRequestTunnelOptionsSpecification>>("TunnelOptionsSpecification", *request->tunnelOptionsSpecification));
+  }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateVpnAttachment"))},
@@ -18468,6 +18478,9 @@ ModifyVpnAttachmentAttributeResponse Alibabacloud_Vpc20160428::Client::modifyVpn
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableNatTraversal)) {
     query->insert(pair<string, bool>("EnableNatTraversal", *request->enableNatTraversal));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableTunnelsBgp)) {
+    query->insert(pair<string, bool>("EnableTunnelsBgp", *request->enableTunnelsBgp));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->healthCheckConfig)) {
     query->insert(pair<string, string>("HealthCheckConfig", *request->healthCheckConfig));
   }
@@ -18507,8 +18520,15 @@ ModifyVpnAttachmentAttributeResponse Alibabacloud_Vpc20160428::Client::modifyVpn
   if (!Darabonba_Util::Client::isUnset<string>(request->vpnConnectionId)) {
     query->insert(pair<string, string>("VpnConnectionId", *request->vpnConnectionId));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecification>>(request->tunnelOptionsSpecification)) {
+    bodyFlat->insert(pair<string, vector<ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecification>>("TunnelOptionsSpecification", *request->tunnelOptionsSpecification));
+  }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ModifyVpnAttachmentAttribute"))},
