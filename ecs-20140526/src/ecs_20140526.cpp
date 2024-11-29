@@ -4152,6 +4152,9 @@ CreateSavingsPlanResponse Alibabacloud_Ecs20140526::Client::createSavingsPlanWit
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceTypeFamily)) {
     query->insert(pair<string, string>("InstanceTypeFamily", *request->instanceTypeFamily));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceTypeFamilyGroup)) {
+    query->insert(pair<string, string>("InstanceTypeFamilyGroup", *request->instanceTypeFamilyGroup));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->offeringType)) {
     query->insert(pair<string, string>("OfferingType", *request->offeringType));
   }
@@ -11809,6 +11812,12 @@ DescribeRouterInterfacesResponse Alibabacloud_Ecs20140526::Client::describeRoute
 DescribeSavingsPlanEstimationResponse Alibabacloud_Ecs20140526::Client::describeSavingsPlanEstimationWithOptions(shared_ptr<DescribeSavingsPlanEstimationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->estimationResource)) {
+    query->insert(pair<string, string>("EstimationResource", *request->estimationResource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceTypeScope)) {
+    query->insert(pair<string, string>("InstanceTypeScope", *request->instanceTypeScope));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->offeringType)) {
     query->insert(pair<string, string>("OfferingType", *request->offeringType));
   }
@@ -11857,6 +11866,9 @@ DescribeSavingsPlanPriceResponse Alibabacloud_Ecs20140526::Client::describeSavin
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceTypeFamily)) {
     query->insert(pair<string, string>("InstanceTypeFamily", *request->instanceTypeFamily));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceTypeFamilyGroup)) {
+    query->insert(pair<string, string>("InstanceTypeFamilyGroup", *request->instanceTypeFamilyGroup));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->offeringType)) {
     query->insert(pair<string, string>("OfferingType", *request->offeringType));
@@ -18793,6 +18805,9 @@ RedeployDedicatedHostResponse Alibabacloud_Ecs20140526::Client::redeployDedicate
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->dedicatedHostId)) {
     query->insert(pair<string, string>("DedicatedHostId", *request->dedicatedHostId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->migrationType)) {
+    query->insert(pair<string, string>("MigrationType", *request->migrationType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
