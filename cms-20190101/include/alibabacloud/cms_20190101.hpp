@@ -37393,6 +37393,8 @@ public:
   shared_ptr<string> expectValue{};
   shared_ptr<double> failureRate{};
   shared_ptr<string> header{};
+  shared_ptr<string> hostBinding{};
+  shared_ptr<long> hostBindingType{};
   shared_ptr<string> httpMethod{};
   shared_ptr<string> ipNetwork{};
   shared_ptr<string> isBase64Encode{};
@@ -37412,6 +37414,7 @@ public:
   shared_ptr<string> responseFormat{};
   shared_ptr<long> retryDelay{};
   shared_ptr<bool> screenShot{};
+  shared_ptr<bool> scrollEnd{};
   shared_ptr<bool> strictMode{};
   shared_ptr<long> timeOut{};
   shared_ptr<DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementBlacklist> trafficHijackElementBlacklist{};
@@ -37496,6 +37499,12 @@ public:
     if (header) {
       res["header"] = boost::any(*header);
     }
+    if (hostBinding) {
+      res["host_binding"] = boost::any(*hostBinding);
+    }
+    if (hostBindingType) {
+      res["host_binding_type"] = boost::any(*hostBindingType);
+    }
     if (httpMethod) {
       res["http_method"] = boost::any(*httpMethod);
     }
@@ -37552,6 +37561,9 @@ public:
     }
     if (screenShot) {
       res["screen_shot"] = boost::any(*screenShot);
+    }
+    if (scrollEnd) {
+      res["scroll_end"] = boost::any(*scrollEnd);
     }
     if (strictMode) {
       res["strict_mode"] = boost::any(*strictMode);
@@ -37666,6 +37678,12 @@ public:
     if (m.find("header") != m.end() && !m["header"].empty()) {
       header = make_shared<string>(boost::any_cast<string>(m["header"]));
     }
+    if (m.find("host_binding") != m.end() && !m["host_binding"].empty()) {
+      hostBinding = make_shared<string>(boost::any_cast<string>(m["host_binding"]));
+    }
+    if (m.find("host_binding_type") != m.end() && !m["host_binding_type"].empty()) {
+      hostBindingType = make_shared<long>(boost::any_cast<long>(m["host_binding_type"]));
+    }
     if (m.find("http_method") != m.end() && !m["http_method"].empty()) {
       httpMethod = make_shared<string>(boost::any_cast<string>(m["http_method"]));
     }
@@ -37726,6 +37744,9 @@ public:
     }
     if (m.find("screen_shot") != m.end() && !m["screen_shot"].empty()) {
       screenShot = make_shared<bool>(boost::any_cast<bool>(m["screen_shot"]));
+    }
+    if (m.find("scroll_end") != m.end() && !m["scroll_end"].empty()) {
+      scrollEnd = make_shared<bool>(boost::any_cast<bool>(m["scroll_end"]));
     }
     if (m.find("strict_mode") != m.end() && !m["strict_mode"].empty()) {
       strictMode = make_shared<bool>(boost::any_cast<bool>(m["strict_mode"]));
