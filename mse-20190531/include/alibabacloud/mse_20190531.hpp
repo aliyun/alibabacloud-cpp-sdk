@@ -51677,6 +51677,7 @@ public:
   shared_ptr<vector<string>> groupList{};
   shared_ptr<long> id{};
   shared_ptr<ListServiceSourceResponseBodyDataIngressOptions> ingressOptions{};
+  shared_ptr<bool> invalid{};
   shared_ptr<string> name{};
   shared_ptr<vector<string>> pathList{};
   shared_ptr<string> source{};
@@ -51719,6 +51720,9 @@ public:
     }
     if (ingressOptions) {
       res["IngressOptions"] = ingressOptions ? boost::any(ingressOptions->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (invalid) {
+      res["Invalid"] = boost::any(*invalid);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -51776,6 +51780,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IngressOptions"]));
         ingressOptions = make_shared<ListServiceSourceResponseBodyDataIngressOptions>(model1);
       }
+    }
+    if (m.find("Invalid") != m.end() && !m["Invalid"].empty()) {
+      invalid = make_shared<bool>(boost::any_cast<bool>(m["Invalid"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
