@@ -14,6 +14,144 @@
 using namespace std;
 
 namespace Alibabacloud_Agency20221216 {
+class CancelCouponRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> couponId{};
+
+  CancelCouponRequest() {}
+
+  explicit CancelCouponRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (couponId) {
+      res["CouponId"] = boost::any(*couponId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CouponId") != m.end() && !m["CouponId"].empty()) {
+      couponId = make_shared<long>(boost::any_cast<long>(m["CouponId"]));
+    }
+  }
+
+
+  virtual ~CancelCouponRequest() = default;
+};
+class CancelCouponResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CancelCouponResponseBody() {}
+
+  explicit CancelCouponResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CancelCouponResponseBody() = default;
+};
+class CancelCouponResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CancelCouponResponseBody> body{};
+
+  CancelCouponResponse() {}
+
+  explicit CancelCouponResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CancelCouponResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CancelCouponResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CancelCouponResponse() = default;
+};
 class CancelSubscriptionBillRequest : public Darabonba::Model {
 public:
   shared_ptr<string> subscribeType{};
@@ -151,6 +289,271 @@ public:
 
 
   virtual ~CancelSubscriptionBillResponse() = default;
+};
+class CouponApprovalStatusListRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> templateName{};
+  shared_ptr<string> templateStatus{};
+
+  CouponApprovalStatusListRequest() {}
+
+  explicit CouponApprovalStatusListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    if (templateStatus) {
+      res["TemplateStatus"] = boost::any(*templateStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("TemplateStatus") != m.end() && !m["TemplateStatus"].empty()) {
+      templateStatus = make_shared<string>(boost::any_cast<string>(m["TemplateStatus"]));
+    }
+  }
+
+
+  virtual ~CouponApprovalStatusListRequest() = default;
+};
+class CouponApprovalStatusListResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> issuerAccount{};
+  shared_ptr<string> issuerUid{};
+  shared_ptr<string> note{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> templateName{};
+  shared_ptr<long> templateStatus{};
+  shared_ptr<string> timeOfRequest{};
+
+  CouponApprovalStatusListResponseBodyData() {}
+
+  explicit CouponApprovalStatusListResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (issuerAccount) {
+      res["IssuerAccount"] = boost::any(*issuerAccount);
+    }
+    if (issuerUid) {
+      res["IssuerUid"] = boost::any(*issuerUid);
+    }
+    if (note) {
+      res["Note"] = boost::any(*note);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    if (templateStatus) {
+      res["TemplateStatus"] = boost::any(*templateStatus);
+    }
+    if (timeOfRequest) {
+      res["TimeOfRequest"] = boost::any(*timeOfRequest);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IssuerAccount") != m.end() && !m["IssuerAccount"].empty()) {
+      issuerAccount = make_shared<string>(boost::any_cast<string>(m["IssuerAccount"]));
+    }
+    if (m.find("IssuerUid") != m.end() && !m["IssuerUid"].empty()) {
+      issuerUid = make_shared<string>(boost::any_cast<string>(m["IssuerUid"]));
+    }
+    if (m.find("Note") != m.end() && !m["Note"].empty()) {
+      note = make_shared<string>(boost::any_cast<string>(m["Note"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("TemplateStatus") != m.end() && !m["TemplateStatus"].empty()) {
+      templateStatus = make_shared<long>(boost::any_cast<long>(m["TemplateStatus"]));
+    }
+    if (m.find("TimeOfRequest") != m.end() && !m["TimeOfRequest"].empty()) {
+      timeOfRequest = make_shared<string>(boost::any_cast<string>(m["TimeOfRequest"]));
+    }
+  }
+
+
+  virtual ~CouponApprovalStatusListResponseBodyData() = default;
+};
+class CouponApprovalStatusListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<CouponApprovalStatusListResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> total{};
+
+  CouponApprovalStatusListResponseBody() {}
+
+  explicit CouponApprovalStatusListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<CouponApprovalStatusListResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CouponApprovalStatusListResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<CouponApprovalStatusListResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~CouponApprovalStatusListResponseBody() = default;
+};
+class CouponApprovalStatusListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CouponApprovalStatusListResponseBody> body{};
+
+  CouponApprovalStatusListResponse() {}
+
+  explicit CouponApprovalStatusListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CouponApprovalStatusListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CouponApprovalStatusListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CouponApprovalStatusListResponse() = default;
 };
 class CreateCouponTemplateRequest : public Darabonba::Model {
 public:
@@ -1215,6 +1618,144 @@ public:
 
   virtual ~DeductOutstandingBalanceResponse() = default;
 };
+class DeleteCouponTemplateRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> templateId{};
+
+  DeleteCouponTemplateRequest() {}
+
+  explicit DeleteCouponTemplateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~DeleteCouponTemplateRequest() = default;
+};
+class DeleteCouponTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteCouponTemplateResponseBody() {}
+
+  explicit DeleteCouponTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteCouponTemplateResponseBody() = default;
+};
+class DeleteCouponTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteCouponTemplateResponseBody> body{};
+
+  DeleteCouponTemplateResponse() {}
+
+  explicit DeleteCouponTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteCouponTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteCouponTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteCouponTemplateResponse() = default;
+};
 class EditEndUserStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> creditStatus{};
@@ -2242,6 +2783,261 @@ public:
 
 
   virtual ~GetAccountInfoResponse() = default;
+};
+class GetCouponTemplateDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> templateId{};
+
+  GetCouponTemplateDetailRequest() {}
+
+  explicit GetCouponTemplateDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~GetCouponTemplateDetailRequest() = default;
+};
+class GetCouponTemplateDetailResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> applicableProducts{};
+  shared_ptr<string> costBearer{};
+  shared_ptr<string> couponDescription{};
+  shared_ptr<string> createdTime{};
+  shared_ptr<double> denomination{};
+  shared_ptr<long> limitPerPerson{};
+  shared_ptr<string> purchaseType{};
+  shared_ptr<string> reasonForApplication{};
+  shared_ptr<string> status{};
+  shared_ptr<long> templateId{};
+  shared_ptr<string> templateName{};
+  shared_ptr<string> validUntil{};
+  shared_ptr<string> validUntilType{};
+
+  GetCouponTemplateDetailResponseBodyData() {}
+
+  explicit GetCouponTemplateDetailResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicableProducts) {
+      res["ApplicableProducts"] = boost::any(*applicableProducts);
+    }
+    if (costBearer) {
+      res["CostBearer"] = boost::any(*costBearer);
+    }
+    if (couponDescription) {
+      res["CouponDescription"] = boost::any(*couponDescription);
+    }
+    if (createdTime) {
+      res["CreatedTime"] = boost::any(*createdTime);
+    }
+    if (denomination) {
+      res["Denomination"] = boost::any(*denomination);
+    }
+    if (limitPerPerson) {
+      res["LimitPerPerson"] = boost::any(*limitPerPerson);
+    }
+    if (purchaseType) {
+      res["PurchaseType"] = boost::any(*purchaseType);
+    }
+    if (reasonForApplication) {
+      res["ReasonForApplication"] = boost::any(*reasonForApplication);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    if (validUntil) {
+      res["ValidUntil"] = boost::any(*validUntil);
+    }
+    if (validUntilType) {
+      res["ValidUntilType"] = boost::any(*validUntilType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicableProducts") != m.end() && !m["ApplicableProducts"].empty()) {
+      applicableProducts = make_shared<string>(boost::any_cast<string>(m["ApplicableProducts"]));
+    }
+    if (m.find("CostBearer") != m.end() && !m["CostBearer"].empty()) {
+      costBearer = make_shared<string>(boost::any_cast<string>(m["CostBearer"]));
+    }
+    if (m.find("CouponDescription") != m.end() && !m["CouponDescription"].empty()) {
+      couponDescription = make_shared<string>(boost::any_cast<string>(m["CouponDescription"]));
+    }
+    if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
+      createdTime = make_shared<string>(boost::any_cast<string>(m["CreatedTime"]));
+    }
+    if (m.find("Denomination") != m.end() && !m["Denomination"].empty()) {
+      denomination = make_shared<double>(boost::any_cast<double>(m["Denomination"]));
+    }
+    if (m.find("LimitPerPerson") != m.end() && !m["LimitPerPerson"].empty()) {
+      limitPerPerson = make_shared<long>(boost::any_cast<long>(m["LimitPerPerson"]));
+    }
+    if (m.find("PurchaseType") != m.end() && !m["PurchaseType"].empty()) {
+      purchaseType = make_shared<string>(boost::any_cast<string>(m["PurchaseType"]));
+    }
+    if (m.find("ReasonForApplication") != m.end() && !m["ReasonForApplication"].empty()) {
+      reasonForApplication = make_shared<string>(boost::any_cast<string>(m["ReasonForApplication"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("ValidUntil") != m.end() && !m["ValidUntil"].empty()) {
+      validUntil = make_shared<string>(boost::any_cast<string>(m["ValidUntil"]));
+    }
+    if (m.find("ValidUntilType") != m.end() && !m["ValidUntilType"].empty()) {
+      validUntilType = make_shared<string>(boost::any_cast<string>(m["ValidUntilType"]));
+    }
+  }
+
+
+  virtual ~GetCouponTemplateDetailResponseBodyData() = default;
+};
+class GetCouponTemplateDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetCouponTemplateDetailResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetCouponTemplateDetailResponseBody() {}
+
+  explicit GetCouponTemplateDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetCouponTemplateDetailResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetCouponTemplateDetailResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetCouponTemplateDetailResponseBody() = default;
+};
+class GetCouponTemplateDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetCouponTemplateDetailResponseBody> body{};
+
+  GetCouponTemplateDetailResponse() {}
+
+  explicit GetCouponTemplateDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetCouponTemplateDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetCouponTemplateDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetCouponTemplateDetailResponse() = default;
 };
 class GetCoupondeductProductCodeRequest : public Darabonba::Model {
 public:
@@ -6132,8 +6928,12 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  CancelCouponResponse cancelCouponWithOptions(shared_ptr<CancelCouponRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CancelCouponResponse cancelCoupon(shared_ptr<CancelCouponRequest> request);
   CancelSubscriptionBillResponse cancelSubscriptionBillWithOptions(shared_ptr<CancelSubscriptionBillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelSubscriptionBillResponse cancelSubscriptionBill(shared_ptr<CancelSubscriptionBillRequest> request);
+  CouponApprovalStatusListResponse couponApprovalStatusListWithOptions(shared_ptr<CouponApprovalStatusListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CouponApprovalStatusListResponse couponApprovalStatusList(shared_ptr<CouponApprovalStatusListRequest> request);
   CreateCouponTemplateResponse createCouponTemplateWithOptions(shared_ptr<CreateCouponTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCouponTemplateResponse createCouponTemplate(shared_ptr<CreateCouponTemplateRequest> request);
   CreateCustomerResponse createCustomerWithOptions(shared_ptr<CreateCustomerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6142,6 +6942,8 @@ public:
   CustomerQuotaRecordListResponse customerQuotaRecordList(shared_ptr<CustomerQuotaRecordListRequest> request);
   DeductOutstandingBalanceResponse deductOutstandingBalanceWithOptions(shared_ptr<DeductOutstandingBalanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeductOutstandingBalanceResponse deductOutstandingBalance(shared_ptr<DeductOutstandingBalanceRequest> request);
+  DeleteCouponTemplateResponse deleteCouponTemplateWithOptions(shared_ptr<DeleteCouponTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteCouponTemplateResponse deleteCouponTemplate(shared_ptr<DeleteCouponTemplateRequest> request);
   EditEndUserStatusResponse editEndUserStatusWithOptions(shared_ptr<EditEndUserStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EditEndUserStatusResponse editEndUserStatus(shared_ptr<EditEndUserStatusRequest> request);
   EditNewBuyStatusResponse editNewBuyStatusWithOptions(shared_ptr<EditNewBuyStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6152,6 +6954,8 @@ public:
   ExportCustomerQuotaRecordResponse exportCustomerQuotaRecord(shared_ptr<ExportCustomerQuotaRecordRequest> request);
   GetAccountInfoResponse getAccountInfoWithOptions(shared_ptr<GetAccountInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAccountInfoResponse getAccountInfo(shared_ptr<GetAccountInfoRequest> request);
+  GetCouponTemplateDetailResponse getCouponTemplateDetailWithOptions(shared_ptr<GetCouponTemplateDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetCouponTemplateDetailResponse getCouponTemplateDetail(shared_ptr<GetCouponTemplateDetailRequest> request);
   GetCoupondeductProductCodeResponse getCoupondeductProductCodeWithOptions(shared_ptr<GetCoupondeductProductCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCoupondeductProductCodeResponse getCoupondeductProductCode(shared_ptr<GetCoupondeductProductCodeRequest> request);
   GetCreditInfoResponse getCreditInfoWithOptions(shared_ptr<GetCreditInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

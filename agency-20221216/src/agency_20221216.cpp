@@ -96,6 +96,34 @@ string Alibabacloud_Agency20221216::Client::getEndpoint(shared_ptr<string> produ
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CancelCouponResponse Alibabacloud_Agency20221216::Client::cancelCouponWithOptions(shared_ptr<CancelCouponRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->couponId)) {
+    query->insert(pair<string, long>("CouponId", *request->couponId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelCoupon"))},
+    {"version", boost::any(string("2022-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelCouponResponse(callApi(params, req, runtime));
+}
+
+CancelCouponResponse Alibabacloud_Agency20221216::Client::cancelCoupon(shared_ptr<CancelCouponRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return cancelCouponWithOptions(request, runtime);
+}
+
 CancelSubscriptionBillResponse Alibabacloud_Agency20221216::Client::cancelSubscriptionBillWithOptions(shared_ptr<CancelSubscriptionBillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -122,6 +150,46 @@ CancelSubscriptionBillResponse Alibabacloud_Agency20221216::Client::cancelSubscr
 CancelSubscriptionBillResponse Alibabacloud_Agency20221216::Client::cancelSubscriptionBill(shared_ptr<CancelSubscriptionBillRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return cancelSubscriptionBillWithOptions(request, runtime);
+}
+
+CouponApprovalStatusListResponse Alibabacloud_Agency20221216::Client::couponApprovalStatusListWithOptions(shared_ptr<CouponApprovalStatusListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
+    query->insert(pair<string, string>("TemplateId", *request->templateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
+    query->insert(pair<string, string>("TemplateName", *request->templateName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateStatus)) {
+    query->insert(pair<string, string>("TemplateStatus", *request->templateStatus));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CouponApprovalStatusList"))},
+    {"version", boost::any(string("2022-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CouponApprovalStatusListResponse(callApi(params, req, runtime));
+}
+
+CouponApprovalStatusListResponse Alibabacloud_Agency20221216::Client::couponApprovalStatusList(shared_ptr<CouponApprovalStatusListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return couponApprovalStatusListWithOptions(request, runtime);
 }
 
 CreateCouponTemplateResponse Alibabacloud_Agency20221216::Client::createCouponTemplateWithOptions(shared_ptr<CreateCouponTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -292,6 +360,34 @@ DeductOutstandingBalanceResponse Alibabacloud_Agency20221216::Client::deductOuts
   return deductOutstandingBalanceWithOptions(request, runtime);
 }
 
+DeleteCouponTemplateResponse Alibabacloud_Agency20221216::Client::deleteCouponTemplateWithOptions(shared_ptr<DeleteCouponTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->templateId)) {
+    query->insert(pair<string, long>("TemplateId", *request->templateId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCouponTemplate"))},
+    {"version", boost::any(string("2022-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCouponTemplateResponse(callApi(params, req, runtime));
+}
+
+DeleteCouponTemplateResponse Alibabacloud_Agency20221216::Client::deleteCouponTemplate(shared_ptr<DeleteCouponTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCouponTemplateWithOptions(request, runtime);
+}
+
 EditEndUserStatusResponse Alibabacloud_Agency20221216::Client::editEndUserStatusWithOptions(shared_ptr<EditEndUserStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -442,6 +538,34 @@ GetAccountInfoResponse Alibabacloud_Agency20221216::Client::getAccountInfoWithOp
 GetAccountInfoResponse Alibabacloud_Agency20221216::Client::getAccountInfo(shared_ptr<GetAccountInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getAccountInfoWithOptions(request, runtime);
+}
+
+GetCouponTemplateDetailResponse Alibabacloud_Agency20221216::Client::getCouponTemplateDetailWithOptions(shared_ptr<GetCouponTemplateDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->templateId)) {
+    query->insert(pair<string, long>("TemplateId", *request->templateId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCouponTemplateDetail"))},
+    {"version", boost::any(string("2022-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCouponTemplateDetailResponse(callApi(params, req, runtime));
+}
+
+GetCouponTemplateDetailResponse Alibabacloud_Agency20221216::Client::getCouponTemplateDetail(shared_ptr<GetCouponTemplateDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getCouponTemplateDetailWithOptions(request, runtime);
 }
 
 GetCoupondeductProductCodeResponse Alibabacloud_Agency20221216::Client::getCoupondeductProductCodeWithOptions(shared_ptr<GetCoupondeductProductCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
