@@ -14,6 +14,286 @@
 using namespace std;
 
 namespace Alibabacloud_Oos20190601 {
+class AnalyzeGitRepositoryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> branch{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> owner{};
+  shared_ptr<string> platform{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> repoFullName{};
+  shared_ptr<string> repoId{};
+
+  AnalyzeGitRepositoryRequest() {}
+
+  explicit AnalyzeGitRepositoryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (branch) {
+      res["Branch"] = boost::any(*branch);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (platform) {
+      res["Platform"] = boost::any(*platform);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (repoFullName) {
+      res["RepoFullName"] = boost::any(*repoFullName);
+    }
+    if (repoId) {
+      res["RepoId"] = boost::any(*repoId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Branch") != m.end() && !m["Branch"].empty()) {
+      branch = make_shared<string>(boost::any_cast<string>(m["Branch"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
+      platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RepoFullName") != m.end() && !m["RepoFullName"].empty()) {
+      repoFullName = make_shared<string>(boost::any_cast<string>(m["RepoFullName"]));
+    }
+    if (m.find("RepoId") != m.end() && !m["RepoId"].empty()) {
+      repoId = make_shared<string>(boost::any_cast<string>(m["RepoId"]));
+    }
+  }
+
+
+  virtual ~AnalyzeGitRepositoryRequest() = default;
+};
+class AnalyzeGitRepositoryResponseBodyAnalysisResultsBuildFiles : public Darabonba::Model {
+public:
+  shared_ptr<string> fileType{};
+  shared_ptr<vector<string>> paths{};
+
+  AnalyzeGitRepositoryResponseBodyAnalysisResultsBuildFiles() {}
+
+  explicit AnalyzeGitRepositoryResponseBodyAnalysisResultsBuildFiles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileType) {
+      res["FileType"] = boost::any(*fileType);
+    }
+    if (paths) {
+      res["Paths"] = boost::any(*paths);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
+      fileType = make_shared<string>(boost::any_cast<string>(m["FileType"]));
+    }
+    if (m.find("Paths") != m.end() && !m["Paths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Paths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Paths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      paths = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~AnalyzeGitRepositoryResponseBodyAnalysisResultsBuildFiles() = default;
+};
+class AnalyzeGitRepositoryResponseBodyAnalysisResults : public Darabonba::Model {
+public:
+  shared_ptr<vector<AnalyzeGitRepositoryResponseBodyAnalysisResultsBuildFiles>> buildFiles{};
+  shared_ptr<string> buildType{};
+
+  AnalyzeGitRepositoryResponseBodyAnalysisResults() {}
+
+  explicit AnalyzeGitRepositoryResponseBodyAnalysisResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (buildFiles) {
+      vector<boost::any> temp1;
+      for(auto item1:*buildFiles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BuildFiles"] = boost::any(temp1);
+    }
+    if (buildType) {
+      res["BuildType"] = boost::any(*buildType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BuildFiles") != m.end() && !m["BuildFiles"].empty()) {
+      if (typeid(vector<boost::any>) == m["BuildFiles"].type()) {
+        vector<AnalyzeGitRepositoryResponseBodyAnalysisResultsBuildFiles> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BuildFiles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AnalyzeGitRepositoryResponseBodyAnalysisResultsBuildFiles model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        buildFiles = make_shared<vector<AnalyzeGitRepositoryResponseBodyAnalysisResultsBuildFiles>>(expect1);
+      }
+    }
+    if (m.find("BuildType") != m.end() && !m["BuildType"].empty()) {
+      buildType = make_shared<string>(boost::any_cast<string>(m["BuildType"]));
+    }
+  }
+
+
+  virtual ~AnalyzeGitRepositoryResponseBodyAnalysisResults() = default;
+};
+class AnalyzeGitRepositoryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<AnalyzeGitRepositoryResponseBodyAnalysisResults>> analysisResults{};
+  shared_ptr<long> count{};
+  shared_ptr<string> requestId{};
+
+  AnalyzeGitRepositoryResponseBody() {}
+
+  explicit AnalyzeGitRepositoryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (analysisResults) {
+      vector<boost::any> temp1;
+      for(auto item1:*analysisResults){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AnalysisResults"] = boost::any(temp1);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnalysisResults") != m.end() && !m["AnalysisResults"].empty()) {
+      if (typeid(vector<boost::any>) == m["AnalysisResults"].type()) {
+        vector<AnalyzeGitRepositoryResponseBodyAnalysisResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AnalysisResults"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AnalyzeGitRepositoryResponseBodyAnalysisResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        analysisResults = make_shared<vector<AnalyzeGitRepositoryResponseBodyAnalysisResults>>(expect1);
+      }
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AnalyzeGitRepositoryResponseBody() = default;
+};
+class AnalyzeGitRepositoryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AnalyzeGitRepositoryResponseBody> body{};
+
+  AnalyzeGitRepositoryResponse() {}
+
+  explicit AnalyzeGitRepositoryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AnalyzeGitRepositoryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AnalyzeGitRepositoryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AnalyzeGitRepositoryResponse() = default;
+};
 class CancelExecutionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> executionId{};
@@ -11216,6 +11496,7 @@ public:
   shared_ptr<string> lastTriggerStatusMessage{};
   shared_ptr<string> lastTriggerTime{};
   shared_ptr<string> mode{};
+  shared_ptr<string> nextScheduleTime{};
   shared_ptr<string> outputs{};
   shared_ptr<map<string, boost::any>> parameters{};
   shared_ptr<string> parentExecutionId{};
@@ -11293,6 +11574,9 @@ public:
     }
     if (mode) {
       res["Mode"] = boost::any(*mode);
+    }
+    if (nextScheduleTime) {
+      res["NextScheduleTime"] = boost::any(*nextScheduleTime);
     }
     if (outputs) {
       res["Outputs"] = boost::any(*outputs);
@@ -11411,6 +11695,9 @@ public:
     }
     if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
       mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("NextScheduleTime") != m.end() && !m["NextScheduleTime"].empty()) {
+      nextScheduleTime = make_shared<string>(boost::any_cast<string>(m["NextScheduleTime"]));
     }
     if (m.find("Outputs") != m.end() && !m["Outputs"].empty()) {
       outputs = make_shared<string>(boost::any_cast<string>(m["Outputs"]));
@@ -11840,6 +12127,257 @@ public:
 
 
   virtual ~ListGitRepositoriesResponse() = default;
+};
+class ListGitRepositoryContentsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> branch{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> contentType{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> owner{};
+  shared_ptr<string> path{};
+  shared_ptr<string> platform{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> repoFullName{};
+  shared_ptr<long> repoId{};
+
+  ListGitRepositoryContentsRequest() {}
+
+  explicit ListGitRepositoryContentsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (branch) {
+      res["Branch"] = boost::any(*branch);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (contentType) {
+      res["ContentType"] = boost::any(*contentType);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    if (platform) {
+      res["Platform"] = boost::any(*platform);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (repoFullName) {
+      res["RepoFullName"] = boost::any(*repoFullName);
+    }
+    if (repoId) {
+      res["RepoId"] = boost::any(*repoId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Branch") != m.end() && !m["Branch"].empty()) {
+      branch = make_shared<string>(boost::any_cast<string>(m["Branch"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ContentType") != m.end() && !m["ContentType"].empty()) {
+      contentType = make_shared<string>(boost::any_cast<string>(m["ContentType"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+    if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
+      platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RepoFullName") != m.end() && !m["RepoFullName"].empty()) {
+      repoFullName = make_shared<string>(boost::any_cast<string>(m["RepoFullName"]));
+    }
+    if (m.find("RepoId") != m.end() && !m["RepoId"].empty()) {
+      repoId = make_shared<long>(boost::any_cast<long>(m["RepoId"]));
+    }
+  }
+
+
+  virtual ~ListGitRepositoryContentsRequest() = default;
+};
+class ListGitRepositoryContentsResponseBodyContents : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> name{};
+  shared_ptr<string> path{};
+  shared_ptr<string> type{};
+
+  ListGitRepositoryContentsResponseBodyContents() {}
+
+  explicit ListGitRepositoryContentsResponseBodyContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListGitRepositoryContentsResponseBodyContents() = default;
+};
+class ListGitRepositoryContentsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListGitRepositoryContentsResponseBodyContents>> contents{};
+  shared_ptr<long> count{};
+  shared_ptr<string> requestId{};
+
+  ListGitRepositoryContentsResponseBody() {}
+
+  explicit ListGitRepositoryContentsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contents) {
+      vector<boost::any> temp1;
+      for(auto item1:*contents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Contents"] = boost::any(temp1);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Contents") != m.end() && !m["Contents"].empty()) {
+      if (typeid(vector<boost::any>) == m["Contents"].type()) {
+        vector<ListGitRepositoryContentsResponseBodyContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Contents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListGitRepositoryContentsResponseBodyContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        contents = make_shared<vector<ListGitRepositoryContentsResponseBodyContents>>(expect1);
+      }
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListGitRepositoryContentsResponseBody() = default;
+};
+class ListGitRepositoryContentsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListGitRepositoryContentsResponseBody> body{};
+
+  ListGitRepositoryContentsResponse() {}
+
+  explicit ListGitRepositoryContentsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListGitRepositoryContentsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListGitRepositoryContentsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListGitRepositoryContentsResponse() = default;
 };
 class ListInstancePackageStatesRequest : public Darabonba::Model {
 public:
@@ -23649,6 +24187,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AnalyzeGitRepositoryResponse analyzeGitRepositoryWithOptions(shared_ptr<AnalyzeGitRepositoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AnalyzeGitRepositoryResponse analyzeGitRepository(shared_ptr<AnalyzeGitRepositoryRequest> request);
   CancelExecutionResponse cancelExecutionWithOptions(shared_ptr<CancelExecutionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelExecutionResponse cancelExecution(shared_ptr<CancelExecutionRequest> request);
   ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23739,6 +24279,8 @@ public:
   ListExecutionsResponse listExecutions(shared_ptr<ListExecutionsRequest> request);
   ListGitRepositoriesResponse listGitRepositoriesWithOptions(shared_ptr<ListGitRepositoriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListGitRepositoriesResponse listGitRepositories(shared_ptr<ListGitRepositoriesRequest> request);
+  ListGitRepositoryContentsResponse listGitRepositoryContentsWithOptions(shared_ptr<ListGitRepositoryContentsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListGitRepositoryContentsResponse listGitRepositoryContents(shared_ptr<ListGitRepositoryContentsRequest> request);
   ListInstancePackageStatesResponse listInstancePackageStatesWithOptions(shared_ptr<ListInstancePackageStatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInstancePackageStatesResponse listInstancePackageStates(shared_ptr<ListInstancePackageStatesRequest> request);
   ListInstancePatchStatesResponse listInstancePatchStatesWithOptions(shared_ptr<ListInstancePatchStatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
