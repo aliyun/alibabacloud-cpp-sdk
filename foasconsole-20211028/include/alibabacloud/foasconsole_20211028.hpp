@@ -6409,8 +6409,10 @@ public:
   shared_ptr<vector<string>> haVSwitchIds{};
   shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> promotionCode{};
   shared_ptr<string> region{};
   shared_ptr<QueryModifyInstancePriceRequestResourceSpec> resourceSpec{};
+  shared_ptr<bool> usePromotionCode{};
 
   QueryModifyInstancePriceRequest() {}
 
@@ -6437,11 +6439,17 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (promotionCode) {
+      res["PromotionCode"] = boost::any(*promotionCode);
+    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
     if (resourceSpec) {
       res["ResourceSpec"] = resourceSpec ? boost::any(resourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (usePromotionCode) {
+      res["UsePromotionCode"] = boost::any(*usePromotionCode);
     }
     return res;
   }
@@ -6473,6 +6481,9 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("PromotionCode") != m.end() && !m["PromotionCode"].empty()) {
+      promotionCode = make_shared<string>(boost::any_cast<string>(m["PromotionCode"]));
+    }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
@@ -6482,6 +6493,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceSpec"]));
         resourceSpec = make_shared<QueryModifyInstancePriceRequestResourceSpec>(model1);
       }
+    }
+    if (m.find("UsePromotionCode") != m.end() && !m["UsePromotionCode"].empty()) {
+      usePromotionCode = make_shared<bool>(boost::any_cast<bool>(m["UsePromotionCode"]));
     }
   }
 
@@ -6495,8 +6509,10 @@ public:
   shared_ptr<string> haVSwitchIdsShrink{};
   shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> promotionCode{};
   shared_ptr<string> region{};
   shared_ptr<string> resourceSpecShrink{};
+  shared_ptr<bool> usePromotionCode{};
 
   QueryModifyInstancePriceShrinkRequest() {}
 
@@ -6523,11 +6539,17 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (promotionCode) {
+      res["PromotionCode"] = boost::any(*promotionCode);
+    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
     if (resourceSpecShrink) {
       res["ResourceSpec"] = boost::any(*resourceSpecShrink);
+    }
+    if (usePromotionCode) {
+      res["UsePromotionCode"] = boost::any(*usePromotionCode);
     }
     return res;
   }
@@ -6548,11 +6570,17 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("PromotionCode") != m.end() && !m["PromotionCode"].empty()) {
+      promotionCode = make_shared<string>(boost::any_cast<string>(m["PromotionCode"]));
+    }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
     if (m.find("ResourceSpec") != m.end() && !m["ResourceSpec"].empty()) {
       resourceSpecShrink = make_shared<string>(boost::any_cast<string>(m["ResourceSpec"]));
+    }
+    if (m.find("UsePromotionCode") != m.end() && !m["UsePromotionCode"].empty()) {
+      usePromotionCode = make_shared<bool>(boost::any_cast<bool>(m["UsePromotionCode"]));
     }
   }
 

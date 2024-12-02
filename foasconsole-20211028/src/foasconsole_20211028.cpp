@@ -718,11 +718,17 @@ QueryModifyInstancePriceResponse Alibabacloud_Foasconsole20211028::Client::query
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     body->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->promotionCode)) {
+    body->insert(pair<string, string>("PromotionCode", *request->promotionCode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     body->insert(pair<string, string>("Region", *request->region));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceSpecShrink)) {
     body->insert(pair<string, string>("ResourceSpec", *request->resourceSpecShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->usePromotionCode)) {
+    body->insert(pair<string, bool>("UsePromotionCode", *request->usePromotionCode));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
