@@ -22430,6 +22430,158 @@ public:
 
   virtual ~GetClientCertificateResponse() = default;
 };
+class GetClientCertificateHostnamesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<long> siteId{};
+
+  GetClientCertificateHostnamesRequest() {}
+
+  explicit GetClientCertificateHostnamesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~GetClientCertificateHostnamesRequest() = default;
+};
+class GetClientCertificateHostnamesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> hostnames{};
+  shared_ptr<string> id{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> siteId{};
+  shared_ptr<string> siteName{};
+
+  GetClientCertificateHostnamesResponseBody() {}
+
+  explicit GetClientCertificateHostnamesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostnames) {
+      res["Hostnames"] = boost::any(*hostnames);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    if (siteName) {
+      res["SiteName"] = boost::any(*siteName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Hostnames") != m.end() && !m["Hostnames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Hostnames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Hostnames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      hostnames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+    if (m.find("SiteName") != m.end() && !m["SiteName"].empty()) {
+      siteName = make_shared<string>(boost::any_cast<string>(m["SiteName"]));
+    }
+  }
+
+
+  virtual ~GetClientCertificateHostnamesResponseBody() = default;
+};
+class GetClientCertificateHostnamesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetClientCertificateHostnamesResponseBody> body{};
+
+  GetClientCertificateHostnamesResponse() {}
+
+  explicit GetClientCertificateHostnamesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetClientCertificateHostnamesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetClientCertificateHostnamesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetClientCertificateHostnamesResponse() = default;
+};
 class GetEdgeContainerAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -45324,6 +45476,201 @@ public:
 
   virtual ~SetCertificateResponse() = default;
 };
+class SetClientCertificateHostnamesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> hostnames{};
+  shared_ptr<string> id{};
+  shared_ptr<long> siteId{};
+
+  SetClientCertificateHostnamesRequest() {}
+
+  explicit SetClientCertificateHostnamesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostnames) {
+      res["Hostnames"] = boost::any(*hostnames);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Hostnames") != m.end() && !m["Hostnames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Hostnames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Hostnames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      hostnames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~SetClientCertificateHostnamesRequest() = default;
+};
+class SetClientCertificateHostnamesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> hostnamesShrink{};
+  shared_ptr<string> id{};
+  shared_ptr<long> siteId{};
+
+  SetClientCertificateHostnamesShrinkRequest() {}
+
+  explicit SetClientCertificateHostnamesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostnamesShrink) {
+      res["Hostnames"] = boost::any(*hostnamesShrink);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Hostnames") != m.end() && !m["Hostnames"].empty()) {
+      hostnamesShrink = make_shared<string>(boost::any_cast<string>(m["Hostnames"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+  }
+
+
+  virtual ~SetClientCertificateHostnamesShrinkRequest() = default;
+};
+class SetClientCertificateHostnamesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> siteId{};
+  shared_ptr<string> siteName{};
+
+  SetClientCertificateHostnamesResponseBody() {}
+
+  explicit SetClientCertificateHostnamesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (siteId) {
+      res["SiteId"] = boost::any(*siteId);
+    }
+    if (siteName) {
+      res["SiteName"] = boost::any(*siteName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+    if (m.find("SiteName") != m.end() && !m["SiteName"].empty()) {
+      siteName = make_shared<string>(boost::any_cast<string>(m["SiteName"]));
+    }
+  }
+
+
+  virtual ~SetClientCertificateHostnamesResponseBody() = default;
+};
+class SetClientCertificateHostnamesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetClientCertificateHostnamesResponseBody> body{};
+
+  SetClientCertificateHostnamesResponse() {}
+
+  explicit SetClientCertificateHostnamesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetClientCertificateHostnamesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetClientCertificateHostnamesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetClientCertificateHostnamesResponse() = default;
+};
 class SetHttpDDoSAttackIntelligentProtectionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aiMode{};
@@ -52822,6 +53169,8 @@ public:
   GetClientCaCertificateResponse getClientCaCertificate(shared_ptr<GetClientCaCertificateRequest> request);
   GetClientCertificateResponse getClientCertificateWithOptions(shared_ptr<GetClientCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetClientCertificateResponse getClientCertificate(shared_ptr<GetClientCertificateRequest> request);
+  GetClientCertificateHostnamesResponse getClientCertificateHostnamesWithOptions(shared_ptr<GetClientCertificateHostnamesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetClientCertificateHostnamesResponse getClientCertificateHostnames(shared_ptr<GetClientCertificateHostnamesRequest> request);
   GetEdgeContainerAppResponse getEdgeContainerAppWithOptions(shared_ptr<GetEdgeContainerAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetEdgeContainerAppResponse getEdgeContainerApp(shared_ptr<GetEdgeContainerAppRequest> request);
   GetEdgeContainerAppStatusResponse getEdgeContainerAppStatusWithOptions(shared_ptr<GetEdgeContainerAppStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -52993,6 +53342,8 @@ public:
   RollbackEdgeContainerAppVersionResponse rollbackEdgeContainerAppVersion(shared_ptr<RollbackEdgeContainerAppVersionRequest> request);
   SetCertificateResponse setCertificateWithOptions(shared_ptr<SetCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetCertificateResponse setCertificate(shared_ptr<SetCertificateRequest> request);
+  SetClientCertificateHostnamesResponse setClientCertificateHostnamesWithOptions(shared_ptr<SetClientCertificateHostnamesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetClientCertificateHostnamesResponse setClientCertificateHostnames(shared_ptr<SetClientCertificateHostnamesRequest> request);
   SetHttpDDoSAttackIntelligentProtectionResponse setHttpDDoSAttackIntelligentProtectionWithOptions(shared_ptr<SetHttpDDoSAttackIntelligentProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetHttpDDoSAttackIntelligentProtectionResponse setHttpDDoSAttackIntelligentProtection(shared_ptr<SetHttpDDoSAttackIntelligentProtectionRequest> request);
   SetHttpDDoSAttackProtectionResponse setHttpDDoSAttackProtectionWithOptions(shared_ptr<SetHttpDDoSAttackProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

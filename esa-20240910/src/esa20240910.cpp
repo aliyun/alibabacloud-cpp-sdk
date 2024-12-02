@@ -3250,6 +3250,31 @@ GetClientCertificateResponse Alibabacloud_ESA20240910::Client::getClientCertific
   return getClientCertificateWithOptions(request, runtime);
 }
 
+GetClientCertificateHostnamesResponse Alibabacloud_ESA20240910::Client::getClientCertificateHostnamesWithOptions(shared_ptr<GetClientCertificateHostnamesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetClientCertificateHostnames"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetClientCertificateHostnamesResponse(callApi(params, req, runtime));
+}
+
+GetClientCertificateHostnamesResponse Alibabacloud_ESA20240910::Client::getClientCertificateHostnames(shared_ptr<GetClientCertificateHostnamesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getClientCertificateHostnamesWithOptions(request, runtime);
+}
+
 GetEdgeContainerAppResponse Alibabacloud_ESA20240910::Client::getEdgeContainerAppWithOptions(shared_ptr<GetEdgeContainerAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5826,6 +5851,47 @@ SetCertificateResponse Alibabacloud_ESA20240910::Client::setCertificateWithOptio
 SetCertificateResponse Alibabacloud_ESA20240910::Client::setCertificate(shared_ptr<SetCertificateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return setCertificateWithOptions(request, runtime);
+}
+
+SetClientCertificateHostnamesResponse Alibabacloud_ESA20240910::Client::setClientCertificateHostnamesWithOptions(shared_ptr<SetClientCertificateHostnamesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SetClientCertificateHostnamesShrinkRequest> request = make_shared<SetClientCertificateHostnamesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->hostnames)) {
+    request->hostnamesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->hostnames, make_shared<string>("Hostnames"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->hostnamesShrink)) {
+    body->insert(pair<string, string>("Hostnames", *request->hostnamesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
+    body->insert(pair<string, string>("Id", *request->id));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetClientCertificateHostnames"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetClientCertificateHostnamesResponse(callApi(params, req, runtime));
+}
+
+SetClientCertificateHostnamesResponse Alibabacloud_ESA20240910::Client::setClientCertificateHostnames(shared_ptr<SetClientCertificateHostnamesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setClientCertificateHostnamesWithOptions(request, runtime);
 }
 
 SetHttpDDoSAttackIntelligentProtectionResponse Alibabacloud_ESA20240910::Client::setHttpDDoSAttackIntelligentProtectionWithOptions(shared_ptr<SetHttpDDoSAttackIntelligentProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
