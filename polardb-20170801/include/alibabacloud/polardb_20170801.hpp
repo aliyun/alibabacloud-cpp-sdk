@@ -1867,6 +1867,7 @@ public:
   shared_ptr<string> architecture{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<string> backupRetentionPolicyOnClusterDeletion{};
+  shared_ptr<string> burstingEnabled{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> cloneDataPoint{};
   shared_ptr<string> clusterNetworkType{};
@@ -1913,6 +1914,7 @@ public:
   shared_ptr<string> strictConsistency{};
   shared_ptr<bool> TDEStatus{};
   shared_ptr<vector<CreateDBClusterRequestTag>> tag{};
+  shared_ptr<string> targetMinorVersion{};
   shared_ptr<string> usedTime{};
   shared_ptr<string> VPCId{};
   shared_ptr<string> vSwitchId{};
@@ -1939,6 +1941,9 @@ public:
     }
     if (backupRetentionPolicyOnClusterDeletion) {
       res["BackupRetentionPolicyOnClusterDeletion"] = boost::any(*backupRetentionPolicyOnClusterDeletion);
+    }
+    if (burstingEnabled) {
+      res["BurstingEnabled"] = boost::any(*burstingEnabled);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -2082,6 +2087,9 @@ public:
       }
       res["Tag"] = boost::any(temp1);
     }
+    if (targetMinorVersion) {
+      res["TargetMinorVersion"] = boost::any(*targetMinorVersion);
+    }
     if (usedTime) {
       res["UsedTime"] = boost::any(*usedTime);
     }
@@ -2109,6 +2117,9 @@ public:
     }
     if (m.find("BackupRetentionPolicyOnClusterDeletion") != m.end() && !m["BackupRetentionPolicyOnClusterDeletion"].empty()) {
       backupRetentionPolicyOnClusterDeletion = make_shared<string>(boost::any_cast<string>(m["BackupRetentionPolicyOnClusterDeletion"]));
+    }
+    if (m.find("BurstingEnabled") != m.end() && !m["BurstingEnabled"].empty()) {
+      burstingEnabled = make_shared<string>(boost::any_cast<string>(m["BurstingEnabled"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -2257,6 +2268,9 @@ public:
         }
         tag = make_shared<vector<CreateDBClusterRequestTag>>(expect1);
       }
+    }
+    if (m.find("TargetMinorVersion") != m.end() && !m["TargetMinorVersion"].empty()) {
+      targetMinorVersion = make_shared<string>(boost::any_cast<string>(m["TargetMinorVersion"]));
     }
     if (m.find("UsedTime") != m.end() && !m["UsedTime"].empty()) {
       usedTime = make_shared<string>(boost::any_cast<string>(m["UsedTime"]));
@@ -8941,6 +8955,7 @@ public:
   shared_ptr<string> pageNumber{};
   shared_ptr<string> pageRecordCount{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> totalLevel2BackupSize{};
   shared_ptr<string> totalRecordCount{};
 
   DescribeBackupsResponseBody() {}
@@ -8965,6 +8980,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (totalLevel2BackupSize) {
+      res["TotalLevel2BackupSize"] = boost::any(*totalLevel2BackupSize);
+    }
     if (totalRecordCount) {
       res["TotalRecordCount"] = boost::any(*totalRecordCount);
     }
@@ -8987,6 +9005,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalLevel2BackupSize") != m.end() && !m["TotalLevel2BackupSize"].empty()) {
+      totalLevel2BackupSize = make_shared<string>(boost::any_cast<string>(m["TotalLevel2BackupSize"]));
     }
     if (m.find("TotalRecordCount") != m.end() && !m["TotalRecordCount"].empty()) {
       totalRecordCount = make_shared<string>(boost::any_cast<string>(m["TotalRecordCount"]));
@@ -9338,6 +9359,7 @@ public:
   shared_ptr<string> classGroup{};
   shared_ptr<string> classTypeLevel{};
   shared_ptr<string> cpu{};
+  shared_ptr<string> essdMaxStorageCapacity{};
   shared_ptr<string> maxConnections{};
   shared_ptr<string> maxIOPS{};
   shared_ptr<string> maxStorageCapacity{};
@@ -9345,6 +9367,7 @@ public:
   shared_ptr<string> pl1MaxIOPS{};
   shared_ptr<string> pl2MaxIOPS{};
   shared_ptr<string> pl3MaxIOPS{};
+  shared_ptr<string> polarStoreMaxStorageCapacity{};
   shared_ptr<string> psl4MaxIOPS{};
   shared_ptr<string> psl5MaxIOPS{};
   shared_ptr<string> referenceExtPrice{};
@@ -9372,6 +9395,9 @@ public:
     if (cpu) {
       res["Cpu"] = boost::any(*cpu);
     }
+    if (essdMaxStorageCapacity) {
+      res["EssdMaxStorageCapacity"] = boost::any(*essdMaxStorageCapacity);
+    }
     if (maxConnections) {
       res["MaxConnections"] = boost::any(*maxConnections);
     }
@@ -9392,6 +9418,9 @@ public:
     }
     if (pl3MaxIOPS) {
       res["Pl3MaxIOPS"] = boost::any(*pl3MaxIOPS);
+    }
+    if (polarStoreMaxStorageCapacity) {
+      res["PolarStoreMaxStorageCapacity"] = boost::any(*polarStoreMaxStorageCapacity);
     }
     if (psl4MaxIOPS) {
       res["Psl4MaxIOPS"] = boost::any(*psl4MaxIOPS);
@@ -9421,6 +9450,9 @@ public:
     if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
       cpu = make_shared<string>(boost::any_cast<string>(m["Cpu"]));
     }
+    if (m.find("EssdMaxStorageCapacity") != m.end() && !m["EssdMaxStorageCapacity"].empty()) {
+      essdMaxStorageCapacity = make_shared<string>(boost::any_cast<string>(m["EssdMaxStorageCapacity"]));
+    }
     if (m.find("MaxConnections") != m.end() && !m["MaxConnections"].empty()) {
       maxConnections = make_shared<string>(boost::any_cast<string>(m["MaxConnections"]));
     }
@@ -9441,6 +9473,9 @@ public:
     }
     if (m.find("Pl3MaxIOPS") != m.end() && !m["Pl3MaxIOPS"].empty()) {
       pl3MaxIOPS = make_shared<string>(boost::any_cast<string>(m["Pl3MaxIOPS"]));
+    }
+    if (m.find("PolarStoreMaxStorageCapacity") != m.end() && !m["PolarStoreMaxStorageCapacity"].empty()) {
+      polarStoreMaxStorageCapacity = make_shared<string>(boost::any_cast<string>(m["PolarStoreMaxStorageCapacity"]));
     }
     if (m.find("Psl4MaxIOPS") != m.end() && !m["Psl4MaxIOPS"].empty()) {
       psl4MaxIOPS = make_shared<string>(boost::any_cast<string>(m["Psl4MaxIOPS"]));
@@ -9963,6 +9998,7 @@ public:
   shared_ptr<string> cpuCores{};
   shared_ptr<string> creationTime{};
   shared_ptr<string> DBNodeClass{};
+  shared_ptr<string> DBNodeDescription{};
   shared_ptr<string> DBNodeId{};
   shared_ptr<string> DBNodeRole{};
   shared_ptr<string> DBNodeStatus{};
@@ -10005,6 +10041,9 @@ public:
     }
     if (DBNodeClass) {
       res["DBNodeClass"] = boost::any(*DBNodeClass);
+    }
+    if (DBNodeDescription) {
+      res["DBNodeDescription"] = boost::any(*DBNodeDescription);
     }
     if (DBNodeId) {
       res["DBNodeId"] = boost::any(*DBNodeId);
@@ -10081,6 +10120,9 @@ public:
     }
     if (m.find("DBNodeClass") != m.end() && !m["DBNodeClass"].empty()) {
       DBNodeClass = make_shared<string>(boost::any_cast<string>(m["DBNodeClass"]));
+    }
+    if (m.find("DBNodeDescription") != m.end() && !m["DBNodeDescription"].empty()) {
+      DBNodeDescription = make_shared<string>(boost::any_cast<string>(m["DBNodeDescription"]));
     }
     if (m.find("DBNodeId") != m.end() && !m["DBNodeId"].empty()) {
       DBNodeId = make_shared<string>(boost::any_cast<string>(m["DBNodeId"]));
@@ -10190,6 +10232,7 @@ public:
   shared_ptr<string> architecture{};
   shared_ptr<long> blktagTotal{};
   shared_ptr<long> blktagUsed{};
+  shared_ptr<string> burstingEnabled{};
   shared_ptr<string> category{};
   shared_ptr<string> compressStorageMode{};
   shared_ptr<long> compressStorageUsed{};
@@ -10272,6 +10315,9 @@ public:
     }
     if (blktagUsed) {
       res["BlktagUsed"] = boost::any(*blktagUsed);
+    }
+    if (burstingEnabled) {
+      res["BurstingEnabled"] = boost::any(*burstingEnabled);
     }
     if (category) {
       res["Category"] = boost::any(*category);
@@ -10470,6 +10516,9 @@ public:
     }
     if (m.find("BlktagUsed") != m.end() && !m["BlktagUsed"].empty()) {
       blktagUsed = make_shared<long>(boost::any_cast<long>(m["BlktagUsed"]));
+    }
+    if (m.find("BurstingEnabled") != m.end() && !m["BurstingEnabled"].empty()) {
+      burstingEnabled = make_shared<string>(boost::any_cast<string>(m["BurstingEnabled"]));
     }
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));

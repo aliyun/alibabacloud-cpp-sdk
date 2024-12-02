@@ -608,6 +608,9 @@ CreateDBClusterResponse Alibabacloud_Polardb20170801::Client::createDBClusterWit
   if (!Darabonba_Util::Client::isUnset<string>(request->backupRetentionPolicyOnClusterDeletion)) {
     query->insert(pair<string, string>("BackupRetentionPolicyOnClusterDeletion", *request->backupRetentionPolicyOnClusterDeletion));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->burstingEnabled)) {
+    query->insert(pair<string, string>("BurstingEnabled", *request->burstingEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -745,6 +748,9 @@ CreateDBClusterResponse Alibabacloud_Polardb20170801::Client::createDBClusterWit
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateDBClusterRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<CreateDBClusterRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetMinorVersion)) {
+    query->insert(pair<string, string>("TargetMinorVersion", *request->targetMinorVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->usedTime)) {
     query->insert(pair<string, string>("UsedTime", *request->usedTime));
