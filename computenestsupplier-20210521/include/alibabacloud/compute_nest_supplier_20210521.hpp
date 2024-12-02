@@ -567,11 +567,101 @@ public:
 
   virtual ~ContinueDeployServiceInstanceResponse() = default;
 };
+class CreateArtifactRequestArtifactBuildPropertyBuildArgs : public Darabonba::Model {
+public:
+  shared_ptr<string> argumentName{};
+  shared_ptr<string> argumentValue{};
+
+  CreateArtifactRequestArtifactBuildPropertyBuildArgs() {}
+
+  explicit CreateArtifactRequestArtifactBuildPropertyBuildArgs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (argumentName) {
+      res["ArgumentName"] = boost::any(*argumentName);
+    }
+    if (argumentValue) {
+      res["ArgumentValue"] = boost::any(*argumentValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArgumentName") != m.end() && !m["ArgumentName"].empty()) {
+      argumentName = make_shared<string>(boost::any_cast<string>(m["ArgumentName"]));
+    }
+    if (m.find("ArgumentValue") != m.end() && !m["ArgumentValue"].empty()) {
+      argumentValue = make_shared<string>(boost::any_cast<string>(m["ArgumentValue"]));
+    }
+  }
+
+
+  virtual ~CreateArtifactRequestArtifactBuildPropertyBuildArgs() = default;
+};
+class CreateArtifactRequestArtifactBuildPropertyCodeRepo : public Darabonba::Model {
+public:
+  shared_ptr<string> branch{};
+  shared_ptr<string> owner{};
+  shared_ptr<string> platform{};
+  shared_ptr<string> repoName{};
+
+  CreateArtifactRequestArtifactBuildPropertyCodeRepo() {}
+
+  explicit CreateArtifactRequestArtifactBuildPropertyCodeRepo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (branch) {
+      res["Branch"] = boost::any(*branch);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (platform) {
+      res["Platform"] = boost::any(*platform);
+    }
+    if (repoName) {
+      res["RepoName"] = boost::any(*repoName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Branch") != m.end() && !m["Branch"].empty()) {
+      branch = make_shared<string>(boost::any_cast<string>(m["Branch"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
+      platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
+    }
+    if (m.find("RepoName") != m.end() && !m["RepoName"].empty()) {
+      repoName = make_shared<string>(boost::any_cast<string>(m["RepoName"]));
+    }
+  }
+
+
+  virtual ~CreateArtifactRequestArtifactBuildPropertyCodeRepo() = default;
+};
 class CreateArtifactRequestArtifactBuildProperty : public Darabonba::Model {
 public:
+  shared_ptr<vector<CreateArtifactRequestArtifactBuildPropertyBuildArgs>> buildArgs{};
+  shared_ptr<CreateArtifactRequestArtifactBuildPropertyCodeRepo> codeRepo{};
   shared_ptr<string> commandContent{};
   shared_ptr<string> commandType{};
+  shared_ptr<string> dockerfilePath{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> sourceContainerImage{};
   shared_ptr<string> sourceImageId{};
 
   CreateArtifactRequestArtifactBuildProperty() {}
@@ -584,14 +674,30 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (buildArgs) {
+      vector<boost::any> temp1;
+      for(auto item1:*buildArgs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BuildArgs"] = boost::any(temp1);
+    }
+    if (codeRepo) {
+      res["CodeRepo"] = codeRepo ? boost::any(codeRepo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (commandContent) {
       res["CommandContent"] = boost::any(*commandContent);
     }
     if (commandType) {
       res["CommandType"] = boost::any(*commandType);
     }
+    if (dockerfilePath) {
+      res["DockerfilePath"] = boost::any(*dockerfilePath);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (sourceContainerImage) {
+      res["SourceContainerImage"] = boost::any(*sourceContainerImage);
     }
     if (sourceImageId) {
       res["SourceImageId"] = boost::any(*sourceImageId);
@@ -600,14 +706,40 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BuildArgs") != m.end() && !m["BuildArgs"].empty()) {
+      if (typeid(vector<boost::any>) == m["BuildArgs"].type()) {
+        vector<CreateArtifactRequestArtifactBuildPropertyBuildArgs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BuildArgs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateArtifactRequestArtifactBuildPropertyBuildArgs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        buildArgs = make_shared<vector<CreateArtifactRequestArtifactBuildPropertyBuildArgs>>(expect1);
+      }
+    }
+    if (m.find("CodeRepo") != m.end() && !m["CodeRepo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CodeRepo"].type()) {
+        CreateArtifactRequestArtifactBuildPropertyCodeRepo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CodeRepo"]));
+        codeRepo = make_shared<CreateArtifactRequestArtifactBuildPropertyCodeRepo>(model1);
+      }
+    }
     if (m.find("CommandContent") != m.end() && !m["CommandContent"].empty()) {
       commandContent = make_shared<string>(boost::any_cast<string>(m["CommandContent"]));
     }
     if (m.find("CommandType") != m.end() && !m["CommandType"].empty()) {
       commandType = make_shared<string>(boost::any_cast<string>(m["CommandType"]));
     }
+    if (m.find("DockerfilePath") != m.end() && !m["DockerfilePath"].empty()) {
+      dockerfilePath = make_shared<string>(boost::any_cast<string>(m["DockerfilePath"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SourceContainerImage") != m.end() && !m["SourceContainerImage"].empty()) {
+      sourceContainerImage = make_shared<string>(boost::any_cast<string>(m["SourceContainerImage"]));
     }
     if (m.find("SourceImageId") != m.end() && !m["SourceImageId"].empty()) {
       sourceImageId = make_shared<string>(boost::any_cast<string>(m["SourceImageId"]));
@@ -755,6 +887,7 @@ public:
 class CreateArtifactRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateArtifactRequestArtifactBuildProperty> artifactBuildProperty{};
+  shared_ptr<string> artifactBuildType{};
   shared_ptr<string> artifactId{};
   shared_ptr<CreateArtifactRequestArtifactProperty> artifactProperty{};
   shared_ptr<string> artifactType{};
@@ -777,6 +910,9 @@ public:
     map<string, boost::any> res;
     if (artifactBuildProperty) {
       res["ArtifactBuildProperty"] = artifactBuildProperty ? boost::any(artifactBuildProperty->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (artifactBuildType) {
+      res["ArtifactBuildType"] = boost::any(*artifactBuildType);
     }
     if (artifactId) {
       res["ArtifactId"] = boost::any(*artifactId);
@@ -819,6 +955,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ArtifactBuildProperty"]));
         artifactBuildProperty = make_shared<CreateArtifactRequestArtifactBuildProperty>(model1);
       }
+    }
+    if (m.find("ArtifactBuildType") != m.end() && !m["ArtifactBuildType"].empty()) {
+      artifactBuildType = make_shared<string>(boost::any_cast<string>(m["ArtifactBuildType"]));
     }
     if (m.find("ArtifactId") != m.end() && !m["ArtifactId"].empty()) {
       artifactId = make_shared<string>(boost::any_cast<string>(m["ArtifactId"]));
@@ -912,6 +1051,7 @@ public:
 class CreateArtifactShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> artifactBuildPropertyShrink{};
+  shared_ptr<string> artifactBuildType{};
   shared_ptr<string> artifactId{};
   shared_ptr<string> artifactPropertyShrink{};
   shared_ptr<string> artifactType{};
@@ -934,6 +1074,9 @@ public:
     map<string, boost::any> res;
     if (artifactBuildPropertyShrink) {
       res["ArtifactBuildProperty"] = boost::any(*artifactBuildPropertyShrink);
+    }
+    if (artifactBuildType) {
+      res["ArtifactBuildType"] = boost::any(*artifactBuildType);
     }
     if (artifactId) {
       res["ArtifactId"] = boost::any(*artifactId);
@@ -972,6 +1115,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ArtifactBuildProperty") != m.end() && !m["ArtifactBuildProperty"].empty()) {
       artifactBuildPropertyShrink = make_shared<string>(boost::any_cast<string>(m["ArtifactBuildProperty"]));
+    }
+    if (m.find("ArtifactBuildType") != m.end() && !m["ArtifactBuildType"].empty()) {
+      artifactBuildType = make_shared<string>(boost::any_cast<string>(m["ArtifactBuildType"]));
     }
     if (m.find("ArtifactId") != m.end() && !m["ArtifactId"].empty()) {
       artifactId = make_shared<string>(boost::any_cast<string>(m["ArtifactId"]));
@@ -1025,6 +1171,7 @@ public:
 class CreateArtifactResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> artifactBuildProperty{};
+  shared_ptr<string> artifactBuildType{};
   shared_ptr<string> artifactId{};
   shared_ptr<string> artifactProperty{};
   shared_ptr<string> artifactType{};
@@ -1051,6 +1198,9 @@ public:
     map<string, boost::any> res;
     if (artifactBuildProperty) {
       res["ArtifactBuildProperty"] = boost::any(*artifactBuildProperty);
+    }
+    if (artifactBuildType) {
+      res["ArtifactBuildType"] = boost::any(*artifactBuildType);
     }
     if (artifactId) {
       res["ArtifactId"] = boost::any(*artifactId);
@@ -1097,6 +1247,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ArtifactBuildProperty") != m.end() && !m["ArtifactBuildProperty"].empty()) {
       artifactBuildProperty = make_shared<string>(boost::any_cast<string>(m["ArtifactBuildProperty"]));
+    }
+    if (m.find("ArtifactBuildType") != m.end() && !m["ArtifactBuildType"].empty()) {
+      artifactBuildType = make_shared<string>(boost::any_cast<string>(m["ArtifactBuildType"]));
     }
     if (m.find("ArtifactId") != m.end() && !m["ArtifactId"].empty()) {
       artifactId = make_shared<string>(boost::any_cast<string>(m["ArtifactId"]));
@@ -3521,6 +3674,7 @@ public:
 class GetArtifactResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> artifactBuildProperty{};
+  shared_ptr<string> artifactBuildType{};
   shared_ptr<string> artifactId{};
   shared_ptr<string> artifactProperty{};
   shared_ptr<string> artifactType{};
@@ -3550,6 +3704,9 @@ public:
     map<string, boost::any> res;
     if (artifactBuildProperty) {
       res["ArtifactBuildProperty"] = boost::any(*artifactBuildProperty);
+    }
+    if (artifactBuildType) {
+      res["ArtifactBuildType"] = boost::any(*artifactBuildType);
     }
     if (artifactId) {
       res["ArtifactId"] = boost::any(*artifactId);
@@ -3609,6 +3766,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ArtifactBuildProperty") != m.end() && !m["ArtifactBuildProperty"].empty()) {
       artifactBuildProperty = make_shared<string>(boost::any_cast<string>(m["ArtifactBuildProperty"]));
+    }
+    if (m.find("ArtifactBuildType") != m.end() && !m["ArtifactBuildType"].empty()) {
+      artifactBuildType = make_shared<string>(boost::any_cast<string>(m["ArtifactBuildType"]));
     }
     if (m.find("ArtifactId") != m.end() && !m["ArtifactId"].empty()) {
       artifactId = make_shared<string>(boost::any_cast<string>(m["ArtifactId"]));
@@ -8266,6 +8426,7 @@ public:
 class ListArtifactVersionsResponseBodyArtifacts : public Darabonba::Model {
 public:
   shared_ptr<string> artifactBuildProperty{};
+  shared_ptr<string> artifactBuildType{};
   shared_ptr<string> artifactId{};
   shared_ptr<string> artifactProperty{};
   shared_ptr<string> artifactType{};
@@ -8293,6 +8454,9 @@ public:
     map<string, boost::any> res;
     if (artifactBuildProperty) {
       res["ArtifactBuildProperty"] = boost::any(*artifactBuildProperty);
+    }
+    if (artifactBuildType) {
+      res["ArtifactBuildType"] = boost::any(*artifactBuildType);
     }
     if (artifactId) {
       res["ArtifactId"] = boost::any(*artifactId);
@@ -8342,6 +8506,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ArtifactBuildProperty") != m.end() && !m["ArtifactBuildProperty"].empty()) {
       artifactBuildProperty = make_shared<string>(boost::any_cast<string>(m["ArtifactBuildProperty"]));
+    }
+    if (m.find("ArtifactBuildType") != m.end() && !m["ArtifactBuildType"].empty()) {
+      artifactBuildType = make_shared<string>(boost::any_cast<string>(m["ArtifactBuildType"]));
     }
     if (m.find("ArtifactId") != m.end() && !m["ArtifactId"].empty()) {
       artifactId = make_shared<string>(boost::any_cast<string>(m["ArtifactId"]));
@@ -12488,11 +12655,101 @@ public:
 
   virtual ~StopServiceInstanceResponse() = default;
 };
+class UpdateArtifactRequestArtifactBuildPropertyBuildArgs : public Darabonba::Model {
+public:
+  shared_ptr<string> argumentName{};
+  shared_ptr<string> argumentValue{};
+
+  UpdateArtifactRequestArtifactBuildPropertyBuildArgs() {}
+
+  explicit UpdateArtifactRequestArtifactBuildPropertyBuildArgs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (argumentName) {
+      res["ArgumentName"] = boost::any(*argumentName);
+    }
+    if (argumentValue) {
+      res["ArgumentValue"] = boost::any(*argumentValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArgumentName") != m.end() && !m["ArgumentName"].empty()) {
+      argumentName = make_shared<string>(boost::any_cast<string>(m["ArgumentName"]));
+    }
+    if (m.find("ArgumentValue") != m.end() && !m["ArgumentValue"].empty()) {
+      argumentValue = make_shared<string>(boost::any_cast<string>(m["ArgumentValue"]));
+    }
+  }
+
+
+  virtual ~UpdateArtifactRequestArtifactBuildPropertyBuildArgs() = default;
+};
+class UpdateArtifactRequestArtifactBuildPropertyCodeRepo : public Darabonba::Model {
+public:
+  shared_ptr<string> branch{};
+  shared_ptr<string> owner{};
+  shared_ptr<string> platform{};
+  shared_ptr<string> repoName{};
+
+  UpdateArtifactRequestArtifactBuildPropertyCodeRepo() {}
+
+  explicit UpdateArtifactRequestArtifactBuildPropertyCodeRepo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (branch) {
+      res["Branch"] = boost::any(*branch);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (platform) {
+      res["Platform"] = boost::any(*platform);
+    }
+    if (repoName) {
+      res["RepoName"] = boost::any(*repoName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Branch") != m.end() && !m["Branch"].empty()) {
+      branch = make_shared<string>(boost::any_cast<string>(m["Branch"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
+      platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
+    }
+    if (m.find("RepoName") != m.end() && !m["RepoName"].empty()) {
+      repoName = make_shared<string>(boost::any_cast<string>(m["RepoName"]));
+    }
+  }
+
+
+  virtual ~UpdateArtifactRequestArtifactBuildPropertyCodeRepo() = default;
+};
 class UpdateArtifactRequestArtifactBuildProperty : public Darabonba::Model {
 public:
+  shared_ptr<vector<UpdateArtifactRequestArtifactBuildPropertyBuildArgs>> buildArgs{};
+  shared_ptr<UpdateArtifactRequestArtifactBuildPropertyCodeRepo> codeRepo{};
   shared_ptr<string> commandContent{};
   shared_ptr<string> commandType{};
+  shared_ptr<string> dockerfilePath{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> sourceContainerImage{};
   shared_ptr<string> sourceImageId{};
 
   UpdateArtifactRequestArtifactBuildProperty() {}
@@ -12505,14 +12762,30 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (buildArgs) {
+      vector<boost::any> temp1;
+      for(auto item1:*buildArgs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BuildArgs"] = boost::any(temp1);
+    }
+    if (codeRepo) {
+      res["CodeRepo"] = codeRepo ? boost::any(codeRepo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (commandContent) {
       res["CommandContent"] = boost::any(*commandContent);
     }
     if (commandType) {
       res["CommandType"] = boost::any(*commandType);
     }
+    if (dockerfilePath) {
+      res["DockerfilePath"] = boost::any(*dockerfilePath);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (sourceContainerImage) {
+      res["SourceContainerImage"] = boost::any(*sourceContainerImage);
     }
     if (sourceImageId) {
       res["SourceImageId"] = boost::any(*sourceImageId);
@@ -12521,14 +12794,40 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BuildArgs") != m.end() && !m["BuildArgs"].empty()) {
+      if (typeid(vector<boost::any>) == m["BuildArgs"].type()) {
+        vector<UpdateArtifactRequestArtifactBuildPropertyBuildArgs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BuildArgs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateArtifactRequestArtifactBuildPropertyBuildArgs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        buildArgs = make_shared<vector<UpdateArtifactRequestArtifactBuildPropertyBuildArgs>>(expect1);
+      }
+    }
+    if (m.find("CodeRepo") != m.end() && !m["CodeRepo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CodeRepo"].type()) {
+        UpdateArtifactRequestArtifactBuildPropertyCodeRepo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CodeRepo"]));
+        codeRepo = make_shared<UpdateArtifactRequestArtifactBuildPropertyCodeRepo>(model1);
+      }
+    }
     if (m.find("CommandContent") != m.end() && !m["CommandContent"].empty()) {
       commandContent = make_shared<string>(boost::any_cast<string>(m["CommandContent"]));
     }
     if (m.find("CommandType") != m.end() && !m["CommandType"].empty()) {
       commandType = make_shared<string>(boost::any_cast<string>(m["CommandType"]));
     }
+    if (m.find("DockerfilePath") != m.end() && !m["DockerfilePath"].empty()) {
+      dockerfilePath = make_shared<string>(boost::any_cast<string>(m["DockerfilePath"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SourceContainerImage") != m.end() && !m["SourceContainerImage"].empty()) {
+      sourceContainerImage = make_shared<string>(boost::any_cast<string>(m["SourceContainerImage"]));
     }
     if (m.find("SourceImageId") != m.end() && !m["SourceImageId"].empty()) {
       sourceImageId = make_shared<string>(boost::any_cast<string>(m["SourceImageId"]));
@@ -12790,6 +13089,7 @@ public:
 class UpdateArtifactResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> artifactBuildProperty{};
+  shared_ptr<string> artifactBuildType{};
   shared_ptr<string> artifactId{};
   shared_ptr<string> artifactProperty{};
   shared_ptr<string> artifactType{};
@@ -12798,6 +13098,7 @@ public:
   shared_ptr<string> gmtModified{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
+  shared_ptr<string> statusDetail{};
   shared_ptr<string> supportRegionIds{};
   shared_ptr<string> versionName{};
 
@@ -12813,6 +13114,9 @@ public:
     map<string, boost::any> res;
     if (artifactBuildProperty) {
       res["ArtifactBuildProperty"] = boost::any(*artifactBuildProperty);
+    }
+    if (artifactBuildType) {
+      res["ArtifactBuildType"] = boost::any(*artifactBuildType);
     }
     if (artifactId) {
       res["ArtifactId"] = boost::any(*artifactId);
@@ -12838,6 +13142,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (statusDetail) {
+      res["StatusDetail"] = boost::any(*statusDetail);
+    }
     if (supportRegionIds) {
       res["SupportRegionIds"] = boost::any(*supportRegionIds);
     }
@@ -12850,6 +13157,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ArtifactBuildProperty") != m.end() && !m["ArtifactBuildProperty"].empty()) {
       artifactBuildProperty = make_shared<string>(boost::any_cast<string>(m["ArtifactBuildProperty"]));
+    }
+    if (m.find("ArtifactBuildType") != m.end() && !m["ArtifactBuildType"].empty()) {
+      artifactBuildType = make_shared<string>(boost::any_cast<string>(m["ArtifactBuildType"]));
     }
     if (m.find("ArtifactId") != m.end() && !m["ArtifactId"].empty()) {
       artifactId = make_shared<string>(boost::any_cast<string>(m["ArtifactId"]));
@@ -12874,6 +13184,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StatusDetail") != m.end() && !m["StatusDetail"].empty()) {
+      statusDetail = make_shared<string>(boost::any_cast<string>(m["StatusDetail"]));
     }
     if (m.find("SupportRegionIds") != m.end() && !m["SupportRegionIds"].empty()) {
       supportRegionIds = make_shared<string>(boost::any_cast<string>(m["SupportRegionIds"]));

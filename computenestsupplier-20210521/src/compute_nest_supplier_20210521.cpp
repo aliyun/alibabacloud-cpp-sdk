@@ -174,6 +174,9 @@ CreateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::createA
   if (!Darabonba_Util::Client::isUnset<string>(request->artifactBuildPropertyShrink)) {
     query->insert(pair<string, string>("ArtifactBuildProperty", *request->artifactBuildPropertyShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactBuildType)) {
+    query->insert(pair<string, string>("ArtifactBuildType", *request->artifactBuildType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->artifactId)) {
     query->insert(pair<string, string>("ArtifactId", *request->artifactId));
   }
