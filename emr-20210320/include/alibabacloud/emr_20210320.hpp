@@ -2113,10 +2113,14 @@ public:
 };
 class NodeAttributes : public Darabonba::Model {
 public:
+  shared_ptr<bool> dataDiskEncrypted{};
+  shared_ptr<string> dataDiskKMSKeyId{};
   shared_ptr<string> keyPairName{};
   shared_ptr<string> masterRootPassword{};
   shared_ptr<string> ramRole{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<bool> systemDiskEncrypted{};
+  shared_ptr<string> systemDiskKMSKeyId{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
 
@@ -2130,6 +2134,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dataDiskEncrypted) {
+      res["DataDiskEncrypted"] = boost::any(*dataDiskEncrypted);
+    }
+    if (dataDiskKMSKeyId) {
+      res["DataDiskKMSKeyId"] = boost::any(*dataDiskKMSKeyId);
+    }
     if (keyPairName) {
       res["KeyPairName"] = boost::any(*keyPairName);
     }
@@ -2142,6 +2152,12 @@ public:
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
     }
+    if (systemDiskEncrypted) {
+      res["SystemDiskEncrypted"] = boost::any(*systemDiskEncrypted);
+    }
+    if (systemDiskKMSKeyId) {
+      res["SystemDiskKMSKeyId"] = boost::any(*systemDiskKMSKeyId);
+    }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
@@ -2152,6 +2168,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataDiskEncrypted") != m.end() && !m["DataDiskEncrypted"].empty()) {
+      dataDiskEncrypted = make_shared<bool>(boost::any_cast<bool>(m["DataDiskEncrypted"]));
+    }
+    if (m.find("DataDiskKMSKeyId") != m.end() && !m["DataDiskKMSKeyId"].empty()) {
+      dataDiskKMSKeyId = make_shared<string>(boost::any_cast<string>(m["DataDiskKMSKeyId"]));
+    }
     if (m.find("KeyPairName") != m.end() && !m["KeyPairName"].empty()) {
       keyPairName = make_shared<string>(boost::any_cast<string>(m["KeyPairName"]));
     }
@@ -2163,6 +2185,12 @@ public:
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("SystemDiskEncrypted") != m.end() && !m["SystemDiskEncrypted"].empty()) {
+      systemDiskEncrypted = make_shared<bool>(boost::any_cast<bool>(m["SystemDiskEncrypted"]));
+    }
+    if (m.find("SystemDiskKMSKeyId") != m.end() && !m["SystemDiskKMSKeyId"].empty()) {
+      systemDiskKMSKeyId = make_shared<string>(boost::any_cast<string>(m["SystemDiskKMSKeyId"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -2275,6 +2303,7 @@ public:
   shared_ptr<string> clusterState{};
   shared_ptr<string> clusterType{};
   shared_ptr<long> createTime{};
+  shared_ptr<bool> deletionProtection{};
   shared_ptr<string> deployMode{};
   shared_ptr<string> description{};
   shared_ptr<string> emrDefaultRole{};
@@ -2315,6 +2344,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
     }
     if (deployMode) {
       res["DeployMode"] = boost::any(*deployMode);
@@ -2383,6 +2415,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
     }
     if (m.find("DeployMode") != m.end() && !m["DeployMode"].empty()) {
       deployMode = make_shared<string>(boost::any_cast<string>(m["DeployMode"]));
@@ -2637,6 +2672,7 @@ public:
   shared_ptr<string> clusterState{};
   shared_ptr<string> clusterType{};
   shared_ptr<long> createTime{};
+  shared_ptr<bool> deletionProtection{};
   shared_ptr<string> description{};
   shared_ptr<string> emrDefaultRole{};
   shared_ptr<long> endTime{};
@@ -2672,6 +2708,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -2725,6 +2764,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -4792,6 +4834,49 @@ public:
 
   virtual ~NodeCountConstraint() = default;
 };
+class PrivatePoolOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> matchCriteria{};
+  shared_ptr<vector<string>> privatePoolIds{};
+
+  PrivatePoolOptions() {}
+
+  explicit PrivatePoolOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (matchCriteria) {
+      res["MatchCriteria"] = boost::any(*matchCriteria);
+    }
+    if (privatePoolIds) {
+      res["PrivatePoolIds"] = boost::any(*privatePoolIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MatchCriteria") != m.end() && !m["MatchCriteria"].empty()) {
+      matchCriteria = make_shared<string>(boost::any_cast<string>(m["MatchCriteria"]));
+    }
+    if (m.find("PrivatePoolIds") != m.end() && !m["PrivatePoolIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrivatePoolIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrivatePoolIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      privatePoolIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~PrivatePoolOptions() = default;
+};
 class SpotBidPrice : public Darabonba::Model {
 public:
   shared_ptr<double> bidPrice{};
@@ -4928,6 +5013,7 @@ public:
   shared_ptr<string> nodeGroupType{};
   shared_ptr<string> nodeResizeStrategy{};
   shared_ptr<string> paymentType{};
+  shared_ptr<PrivatePoolOptions> privatePoolOptions{};
   shared_ptr<long> runningNodeCount{};
   shared_ptr<vector<SpotBidPrice>> spotBidPrices{};
   shared_ptr<bool> spotInstanceRemedy{};
@@ -4988,6 +5074,9 @@ public:
     }
     if (paymentType) {
       res["PaymentType"] = boost::any(*paymentType);
+    }
+    if (privatePoolOptions) {
+      res["PrivatePoolOptions"] = privatePoolOptions ? boost::any(privatePoolOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (runningNodeCount) {
       res["RunningNodeCount"] = boost::any(*runningNodeCount);
@@ -5091,6 +5180,13 @@ public:
     if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
       paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
     }
+    if (m.find("PrivatePoolOptions") != m.end() && !m["PrivatePoolOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PrivatePoolOptions"].type()) {
+        PrivatePoolOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PrivatePoolOptions"]));
+        privatePoolOptions = make_shared<PrivatePoolOptions>(model1);
+      }
+    }
     if (m.find("RunningNodeCount") != m.end() && !m["RunningNodeCount"].empty()) {
       runningNodeCount = make_shared<long>(boost::any_cast<long>(m["RunningNodeCount"]));
     }
@@ -5166,6 +5262,7 @@ public:
   shared_ptr<string> nodeGroupType{};
   shared_ptr<string> nodeResizeStrategy{};
   shared_ptr<string> paymentType{};
+  shared_ptr<PrivatePoolOptions> privatePoolOptions{};
   shared_ptr<vector<SpotBidPrice>> spotBidPrices{};
   shared_ptr<bool> spotInstanceRemedy{};
   shared_ptr<string> spotStrategy{};
@@ -5226,6 +5323,9 @@ public:
     }
     if (paymentType) {
       res["PaymentType"] = boost::any(*paymentType);
+    }
+    if (privatePoolOptions) {
+      res["PrivatePoolOptions"] = privatePoolOptions ? boost::any(privatePoolOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (spotBidPrices) {
       vector<boost::any> temp1;
@@ -5333,6 +5433,13 @@ public:
     }
     if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
       paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
+    }
+    if (m.find("PrivatePoolOptions") != m.end() && !m["PrivatePoolOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PrivatePoolOptions"].type()) {
+        PrivatePoolOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PrivatePoolOptions"]));
+        privatePoolOptions = make_shared<PrivatePoolOptions>(model1);
+      }
     }
     if (m.find("SpotBidPrices") != m.end() && !m["SpotBidPrices"].empty()) {
       if (typeid(vector<boost::any>) == m["SpotBidPrices"].type()) {
@@ -8123,6 +8230,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
+  shared_ptr<bool> deletionProtection{};
   shared_ptr<string> deployMode{};
   shared_ptr<string> description{};
   shared_ptr<NodeAttributes> nodeAttributes{};
@@ -8174,6 +8282,9 @@ public:
     }
     if (clusterType) {
       res["ClusterType"] = boost::any(*clusterType);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
     }
     if (deployMode) {
       res["DeployMode"] = boost::any(*deployMode);
@@ -8267,6 +8378,9 @@ public:
     }
     if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
       clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
     }
     if (m.find("DeployMode") != m.end() && !m["DeployMode"].empty()) {
       deployMode = make_shared<string>(boost::any_cast<string>(m["DeployMode"]));
@@ -8718,6 +8832,8 @@ public:
 };
 class DecreaseNodesRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> batchInterval{};
+  shared_ptr<long> batchSize{};
   shared_ptr<string> clusterId{};
   shared_ptr<long> decreaseNodeCount{};
   shared_ptr<string> nodeGroupId{};
@@ -8734,6 +8850,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (batchInterval) {
+      res["BatchInterval"] = boost::any(*batchInterval);
+    }
+    if (batchSize) {
+      res["BatchSize"] = boost::any(*batchSize);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -8753,6 +8875,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BatchInterval") != m.end() && !m["BatchInterval"].empty()) {
+      batchInterval = make_shared<long>(boost::any_cast<long>(m["BatchInterval"]));
+    }
+    if (m.find("BatchSize") != m.end() && !m["BatchSize"].empty()) {
+      batchSize = make_shared<long>(boost::any_cast<long>(m["BatchSize"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -9840,6 +9968,7 @@ public:
   shared_ptr<string> nodeGroupId{};
   shared_ptr<string> nodeGroupName{};
   shared_ptr<string> operationId{};
+  shared_ptr<string> policyType{};
   shared_ptr<ScalingRule> ruleDetail{};
   shared_ptr<string> ruleName{};
   shared_ptr<long> startTime{};
@@ -9890,6 +10019,9 @@ public:
     }
     if (operationId) {
       res["OperationId"] = boost::any(*operationId);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
     }
     if (ruleDetail) {
       res["RuleDetail"] = ruleDetail ? boost::any(ruleDetail->toMap()) : boost::any(map<string,boost::any>({}));
@@ -9946,6 +10078,9 @@ public:
     }
     if (m.find("OperationId") != m.end() && !m["OperationId"].empty()) {
       operationId = make_shared<string>(boost::any_cast<string>(m["OperationId"]));
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
     }
     if (m.find("RuleDetail") != m.end() && !m["RuleDetail"].empty()) {
       if (typeid(map<string, boost::any>) == m["RuleDetail"].type()) {
@@ -10549,6 +10684,7 @@ public:
 class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConstraints : public Darabonba::Model {
 public:
   shared_ptr<long> maxCapacity{};
+  shared_ptr<long> maxOnDemandCapacity{};
   shared_ptr<long> minCapacity{};
 
   GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConstraints() {}
@@ -10564,6 +10700,9 @@ public:
     if (maxCapacity) {
       res["MaxCapacity"] = boost::any(*maxCapacity);
     }
+    if (maxOnDemandCapacity) {
+      res["MaxOnDemandCapacity"] = boost::any(*maxOnDemandCapacity);
+    }
     if (minCapacity) {
       res["MinCapacity"] = boost::any(*minCapacity);
     }
@@ -10573,6 +10712,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("MaxCapacity") != m.end() && !m["MaxCapacity"].empty()) {
       maxCapacity = make_shared<long>(boost::any_cast<long>(m["MaxCapacity"]));
+    }
+    if (m.find("MaxOnDemandCapacity") != m.end() && !m["MaxOnDemandCapacity"].empty()) {
+      maxOnDemandCapacity = make_shared<long>(boost::any_cast<long>(m["MaxOnDemandCapacity"]));
     }
     if (m.find("MinCapacity") != m.end() && !m["MinCapacity"].empty()) {
       minCapacity = make_shared<long>(boost::any_cast<long>(m["MinCapacity"]));
@@ -10660,6 +10802,7 @@ public:
   shared_ptr<GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConstraints> constraints{};
   shared_ptr<string> nodeGroupId{};
   shared_ptr<string> scalingPolicyId{};
+  shared_ptr<string> scalingPolicyType{};
   shared_ptr<vector<GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesScalingRules>> scalingRules{};
 
   GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies() {}
@@ -10683,6 +10826,9 @@ public:
     }
     if (scalingPolicyId) {
       res["ScalingPolicyId"] = boost::any(*scalingPolicyId);
+    }
+    if (scalingPolicyType) {
+      res["ScalingPolicyType"] = boost::any(*scalingPolicyType);
     }
     if (scalingRules) {
       vector<boost::any> temp1;
@@ -10711,6 +10857,9 @@ public:
     if (m.find("ScalingPolicyId") != m.end() && !m["ScalingPolicyId"].empty()) {
       scalingPolicyId = make_shared<string>(boost::any_cast<string>(m["ScalingPolicyId"]));
     }
+    if (m.find("ScalingPolicyType") != m.end() && !m["ScalingPolicyType"].empty()) {
+      scalingPolicyType = make_shared<string>(boost::any_cast<string>(m["ScalingPolicyType"]));
+    }
     if (m.find("ScalingRules") != m.end() && !m["ScalingRules"].empty()) {
       if (typeid(vector<boost::any>) == m["ScalingRules"].type()) {
         vector<GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesScalingRules> expect1;
@@ -10738,6 +10887,7 @@ public:
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterState{};
   shared_ptr<string> clusterType{};
+  shared_ptr<bool> deletionProtection{};
   shared_ptr<string> deployMode{};
   shared_ptr<string> emrDefaultRole{};
   shared_ptr<bool> existCloneConfig{};
@@ -10794,6 +10944,9 @@ public:
     }
     if (clusterType) {
       res["ClusterType"] = boost::any(*clusterType);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
     }
     if (deployMode) {
       res["DeployMode"] = boost::any(*deployMode);
@@ -10900,6 +11053,9 @@ public:
     }
     if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
       clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
     }
     if (m.find("DeployMode") != m.end() && !m["DeployMode"].empty()) {
       deployMode = make_shared<string>(boost::any_cast<string>(m["DeployMode"]));
@@ -33026,6 +33182,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<vector<string>> scalingActivityStates{};
   shared_ptr<string> scalingActivityType{};
+  shared_ptr<string> scalingPolicyType{};
   shared_ptr<string> scalingRuleName{};
   shared_ptr<long> startTime{};
 
@@ -33062,6 +33219,9 @@ public:
     }
     if (scalingActivityType) {
       res["ScalingActivityType"] = boost::any(*scalingActivityType);
+    }
+    if (scalingPolicyType) {
+      res["ScalingPolicyType"] = boost::any(*scalingPolicyType);
     }
     if (scalingRuleName) {
       res["ScalingRuleName"] = boost::any(*scalingRuleName);
@@ -33104,6 +33264,9 @@ public:
     if (m.find("ScalingActivityType") != m.end() && !m["ScalingActivityType"].empty()) {
       scalingActivityType = make_shared<string>(boost::any_cast<string>(m["ScalingActivityType"]));
     }
+    if (m.find("ScalingPolicyType") != m.end() && !m["ScalingPolicyType"].empty()) {
+      scalingPolicyType = make_shared<string>(boost::any_cast<string>(m["ScalingPolicyType"]));
+    }
     if (m.find("ScalingRuleName") != m.end() && !m["ScalingRuleName"].empty()) {
       scalingRuleName = make_shared<string>(boost::any_cast<string>(m["ScalingRuleName"]));
     }
@@ -33124,9 +33287,11 @@ public:
   shared_ptr<string> description{};
   shared_ptr<long> endTime{};
   shared_ptr<long> expectNum{};
+  shared_ptr<map<string, long>> instanceTypeToNum{};
   shared_ptr<string> nodeGroupId{};
   shared_ptr<string> nodeGroupName{};
   shared_ptr<string> operationId{};
+  shared_ptr<string> policyType{};
   shared_ptr<string> ruleName{};
   shared_ptr<long> startTime{};
 
@@ -33161,6 +33326,9 @@ public:
     if (expectNum) {
       res["ExpectNum"] = boost::any(*expectNum);
     }
+    if (instanceTypeToNum) {
+      res["InstanceTypeToNum"] = boost::any(*instanceTypeToNum);
+    }
     if (nodeGroupId) {
       res["NodeGroupId"] = boost::any(*nodeGroupId);
     }
@@ -33169,6 +33337,9 @@ public:
     }
     if (operationId) {
       res["OperationId"] = boost::any(*operationId);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
     }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
@@ -33201,6 +33372,14 @@ public:
     if (m.find("ExpectNum") != m.end() && !m["ExpectNum"].empty()) {
       expectNum = make_shared<long>(boost::any_cast<long>(m["ExpectNum"]));
     }
+    if (m.find("InstanceTypeToNum") != m.end() && !m["InstanceTypeToNum"].empty()) {
+      map<string, long> map1 = boost::any_cast<map<string, long>>(m["InstanceTypeToNum"]);
+      map<string, long> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      instanceTypeToNum = make_shared<map<string, long>>(toMap1);
+    }
     if (m.find("NodeGroupId") != m.end() && !m["NodeGroupId"].empty()) {
       nodeGroupId = make_shared<string>(boost::any_cast<string>(m["NodeGroupId"]));
     }
@@ -33209,6 +33388,9 @@ public:
     }
     if (m.find("OperationId") != m.end() && !m["OperationId"].empty()) {
       operationId = make_shared<string>(boost::any_cast<string>(m["OperationId"]));
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
@@ -50855,6 +51037,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
+  shared_ptr<bool> deletionProtection{};
   shared_ptr<string> deployMode{};
   shared_ptr<string> description{};
   shared_ptr<NodeAttributes> nodeAttributes{};
@@ -50906,6 +51089,9 @@ public:
     }
     if (clusterType) {
       res["ClusterType"] = boost::any(*clusterType);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
     }
     if (deployMode) {
       res["DeployMode"] = boost::any(*deployMode);
@@ -51000,6 +51186,9 @@ public:
     if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
       clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
     }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
+    }
     if (m.find("DeployMode") != m.end() && !m["DeployMode"].empty()) {
       deployMode = make_shared<string>(boost::any_cast<string>(m["DeployMode"]));
     }
@@ -51074,6 +51263,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
+  shared_ptr<bool> deletionProtection{};
   shared_ptr<string> deployMode{};
   shared_ptr<string> description{};
   shared_ptr<string> nodeAttributesShrink{};
@@ -51113,6 +51303,9 @@ public:
     }
     if (clusterType) {
       res["ClusterType"] = boost::any(*clusterType);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
     }
     if (deployMode) {
       res["DeployMode"] = boost::any(*deployMode);
@@ -51168,6 +51361,9 @@ public:
     }
     if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
       clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
     }
     if (m.find("DeployMode") != m.end() && !m["DeployMode"].empty()) {
       deployMode = make_shared<string>(boost::any_cast<string>(m["DeployMode"]));

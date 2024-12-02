@@ -143,6 +143,9 @@ CreateClusterResponse Alibabacloud_Emr20210320::Client::createClusterWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
     query->insert(pair<string, string>("ClusterType", *request->clusterType));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->deletionProtection)) {
+    query->insert(pair<string, bool>("DeletionProtection", *request->deletionProtection));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->deployMode)) {
     query->insert(pair<string, string>("DeployMode", *request->deployMode));
   }
@@ -272,6 +275,12 @@ CreateScriptResponse Alibabacloud_Emr20210320::Client::createScript(shared_ptr<C
 DecreaseNodesResponse Alibabacloud_Emr20210320::Client::decreaseNodesWithOptions(shared_ptr<DecreaseNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->batchInterval)) {
+    query->insert(pair<string, long>("BatchInterval", *request->batchInterval));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->batchSize)) {
+    query->insert(pair<string, long>("BatchSize", *request->batchSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
@@ -1448,6 +1457,9 @@ ListAutoScalingActivitiesResponse Alibabacloud_Emr20210320::Client::listAutoScal
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scalingActivityType)) {
     query->insert(pair<string, string>("ScalingActivityType", *request->scalingActivityType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scalingPolicyType)) {
+    query->insert(pair<string, string>("ScalingPolicyType", *request->scalingPolicyType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scalingRuleName)) {
     query->insert(pair<string, string>("ScalingRuleName", *request->scalingRuleName));
@@ -2673,6 +2685,9 @@ RunClusterResponse Alibabacloud_Emr20210320::Client::runClusterWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
     body->insert(pair<string, string>("ClusterType", *request->clusterType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->deletionProtection)) {
+    body->insert(pair<string, bool>("DeletionProtection", *request->deletionProtection));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deployMode)) {
     body->insert(pair<string, string>("DeployMode", *request->deployMode));
