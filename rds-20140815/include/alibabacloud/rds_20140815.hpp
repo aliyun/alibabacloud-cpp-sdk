@@ -35171,6 +35171,7 @@ public:
   shared_ptr<string> DBProxyConnectStringNetType{};
   shared_ptr<string> DBProxyConnectStringPort{};
   shared_ptr<string> DBProxyEndpointId{};
+  shared_ptr<string> DBProxyEndpointMinSlaveCount{};
   shared_ptr<string> DBProxyEngineType{};
   shared_ptr<string> DBProxyFeatures{};
   shared_ptr<DescribeDBProxyEndpointResponseBodyDBProxyNodes> DBProxyNodes{};
@@ -35205,6 +35206,9 @@ public:
     }
     if (DBProxyEndpointId) {
       res["DBProxyEndpointId"] = boost::any(*DBProxyEndpointId);
+    }
+    if (DBProxyEndpointMinSlaveCount) {
+      res["DBProxyEndpointMinSlaveCount"] = boost::any(*DBProxyEndpointMinSlaveCount);
     }
     if (DBProxyEngineType) {
       res["DBProxyEngineType"] = boost::any(*DBProxyEngineType);
@@ -35257,6 +35261,9 @@ public:
     }
     if (m.find("DBProxyEndpointId") != m.end() && !m["DBProxyEndpointId"].empty()) {
       DBProxyEndpointId = make_shared<string>(boost::any_cast<string>(m["DBProxyEndpointId"]));
+    }
+    if (m.find("DBProxyEndpointMinSlaveCount") != m.end() && !m["DBProxyEndpointMinSlaveCount"].empty()) {
+      DBProxyEndpointMinSlaveCount = make_shared<string>(boost::any_cast<string>(m["DBProxyEndpointMinSlaveCount"]));
     }
     if (m.find("DBProxyEngineType") != m.end() && !m["DBProxyEngineType"].empty()) {
       DBProxyEngineType = make_shared<string>(boost::any_cast<string>(m["DBProxyEngineType"]));
@@ -49582,6 +49589,7 @@ public:
 class DescribeRCClustersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<string> vpcId{};
 
   DescribeRCClustersRequest() {}
 
@@ -49596,12 +49604,18 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
@@ -49610,9 +49624,11 @@ public:
 };
 class DescribeRCClustersResponseBodyClusters : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterId{};
   shared_ptr<string> clusterName{};
   shared_ptr<string> createTime{};
   shared_ptr<string> status{};
+  shared_ptr<string> vpcId{};
 
   DescribeRCClustersResponseBodyClusters() {}
 
@@ -49624,6 +49640,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
     if (clusterName) {
       res["ClusterName"] = boost::any(*clusterName);
     }
@@ -49633,10 +49652,16 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
     if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
       clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
     }
@@ -49645,6 +49670,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
@@ -51555,6 +51583,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<DescribeRCInstanceAttributeResponseBodySecurityGroupIds> securityGroupIds{};
   shared_ptr<string> serialNumber{};
+  shared_ptr<string> spotStrategy{};
   shared_ptr<string> status{};
   shared_ptr<string> stoppedMode{};
   shared_ptr<string> vlanId{};
@@ -51678,6 +51707,9 @@ public:
     }
     if (serialNumber) {
       res["SerialNumber"] = boost::any(*serialNumber);
+    }
+    if (spotStrategy) {
+      res["SpotStrategy"] = boost::any(*spotStrategy);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -51833,6 +51865,9 @@ public:
     }
     if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
       serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
+    }
+    if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
+      spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -52167,6 +52202,7 @@ public:
   shared_ptr<string> instanceChargeType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> spotStrategy{};
   shared_ptr<string> status{};
   shared_ptr<vector<DescribeRCInstancesResponseBodyRCInstancesTagResources>> tagResources{};
   shared_ptr<string> vpcId{};
@@ -52211,6 +52247,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (spotStrategy) {
+      res["SpotStrategy"] = boost::any(*spotStrategy);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -52261,6 +52300,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
+      spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -71386,6 +71428,7 @@ public:
   shared_ptr<string> DBProxyEndpointId{};
   shared_ptr<string> DBProxyEngineType{};
   shared_ptr<string> dbEndpointAliases{};
+  shared_ptr<string> dbEndpointMinSlaveCount{};
   shared_ptr<string> dbEndpointOperator{};
   shared_ptr<string> dbEndpointReadWriteMode{};
   shared_ptr<string> dbEndpointType{};
@@ -71424,6 +71467,9 @@ public:
     }
     if (dbEndpointAliases) {
       res["DbEndpointAliases"] = boost::any(*dbEndpointAliases);
+    }
+    if (dbEndpointMinSlaveCount) {
+      res["DbEndpointMinSlaveCount"] = boost::any(*dbEndpointMinSlaveCount);
     }
     if (dbEndpointOperator) {
       res["DbEndpointOperator"] = boost::any(*dbEndpointOperator);
@@ -71482,6 +71528,9 @@ public:
     }
     if (m.find("DbEndpointAliases") != m.end() && !m["DbEndpointAliases"].empty()) {
       dbEndpointAliases = make_shared<string>(boost::any_cast<string>(m["DbEndpointAliases"]));
+    }
+    if (m.find("DbEndpointMinSlaveCount") != m.end() && !m["DbEndpointMinSlaveCount"].empty()) {
+      dbEndpointMinSlaveCount = make_shared<string>(boost::any_cast<string>(m["DbEndpointMinSlaveCount"]));
     }
     if (m.find("DbEndpointOperator") != m.end() && !m["DbEndpointOperator"].empty()) {
       dbEndpointOperator = make_shared<string>(boost::any_cast<string>(m["DbEndpointOperator"]));
@@ -81394,6 +81443,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityEnhancementStrategy{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<string> spotStrategy{};
   shared_ptr<RunRCInstancesRequestSystemDisk> systemDisk{};
   shared_ptr<vector<RunRCInstancesRequestTag>> tag{};
   shared_ptr<string> vSwitchId{};
@@ -81487,6 +81537,9 @@ public:
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (spotStrategy) {
+      res["SpotStrategy"] = boost::any(*spotStrategy);
     }
     if (systemDisk) {
       res["SystemDisk"] = systemDisk ? boost::any(systemDisk->toMap()) : boost::any(map<string,boost::any>({}));
@@ -81593,6 +81646,9 @@ public:
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
     }
+    if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
+      spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
+    }
     if (m.find("SystemDisk") != m.end() && !m["SystemDisk"].empty()) {
       if (typeid(map<string, boost::any>) == m["SystemDisk"].type()) {
         RunRCInstancesRequestSystemDisk model1;
@@ -81687,6 +81743,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityEnhancementStrategy{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<string> spotStrategy{};
   shared_ptr<string> systemDiskShrink{};
   shared_ptr<vector<RunRCInstancesShrinkRequestTag>> tag{};
   shared_ptr<string> vSwitchId{};
@@ -81776,6 +81833,9 @@ public:
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (spotStrategy) {
+      res["SpotStrategy"] = boost::any(*spotStrategy);
     }
     if (systemDiskShrink) {
       res["SystemDisk"] = boost::any(*systemDiskShrink);
@@ -81871,6 +81931,9 @@ public:
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
+      spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
     }
     if (m.find("SystemDisk") != m.end() && !m["SystemDisk"].empty()) {
       systemDiskShrink = make_shared<string>(boost::any_cast<string>(m["SystemDisk"]));

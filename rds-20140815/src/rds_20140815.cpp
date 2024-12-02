@@ -8988,6 +8988,9 @@ DescribeRCClustersResponse Alibabacloud_Rds20140815::Client::describeRCClustersW
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -13154,6 +13157,9 @@ ModifyDBProxyEndpointResponse Alibabacloud_Rds20140815::Client::modifyDBProxyEnd
   if (!Darabonba_Util::Client::isUnset<string>(request->dbEndpointAliases)) {
     query->insert(pair<string, string>("DbEndpointAliases", *request->dbEndpointAliases));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbEndpointMinSlaveCount)) {
+    query->insert(pair<string, string>("DbEndpointMinSlaveCount", *request->dbEndpointMinSlaveCount));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dbEndpointOperator)) {
     query->insert(pair<string, string>("DbEndpointOperator", *request->dbEndpointOperator));
   }
@@ -15812,6 +15818,9 @@ RunRCInstancesResponse Alibabacloud_Rds20140815::Client::runRCInstancesWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->spotStrategy)) {
+    query->insert(pair<string, string>("SpotStrategy", *request->spotStrategy));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->systemDiskShrink)) {
     query->insert(pair<string, string>("SystemDisk", *request->systemDiskShrink));
