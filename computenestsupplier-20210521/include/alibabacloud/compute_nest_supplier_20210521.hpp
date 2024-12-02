@@ -5105,11 +5105,9 @@ public:
   shared_ptr<string> buildInfo{};
   shared_ptr<string> categories{};
   shared_ptr<GetServiceResponseBodyCommodity> commodity{};
-  shared_ptr<string> commodityCode{};
   shared_ptr<GetServiceResponseBodyComplianceMetadata> complianceMetadata{};
   shared_ptr<string> createTime{};
   shared_ptr<string> crossRegionConnectionStatus{};
-  shared_ptr<long> defaultLicenseDays{};
   shared_ptr<string> deployMetadata{};
   shared_ptr<string> deployType{};
   shared_ptr<long> duration{};
@@ -5119,7 +5117,6 @@ public:
   shared_ptr<string> logMetadata{};
   shared_ptr<string> operationMetadata{};
   shared_ptr<string> payFromType{};
-  shared_ptr<string> payType{};
   shared_ptr<string> permission{};
   shared_ptr<string> policyNames{};
   shared_ptr<long> progress{};
@@ -5130,7 +5127,6 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceAuditDocumentUrl{};
   shared_ptr<string> serviceDiscoverable{};
-  shared_ptr<string> serviceDocUrl{};
   shared_ptr<vector<GetServiceResponseBodyServiceDocumentInfos>> serviceDocumentInfos{};
   shared_ptr<string> serviceId{};
   shared_ptr<vector<GetServiceResponseBodyServiceInfos>> serviceInfos{};
@@ -5183,9 +5179,6 @@ public:
     if (commodity) {
       res["Commodity"] = commodity ? boost::any(commodity->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (commodityCode) {
-      res["CommodityCode"] = boost::any(*commodityCode);
-    }
     if (complianceMetadata) {
       res["ComplianceMetadata"] = complianceMetadata ? boost::any(complianceMetadata->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -5194,9 +5187,6 @@ public:
     }
     if (crossRegionConnectionStatus) {
       res["CrossRegionConnectionStatus"] = boost::any(*crossRegionConnectionStatus);
-    }
-    if (defaultLicenseDays) {
-      res["DefaultLicenseDays"] = boost::any(*defaultLicenseDays);
     }
     if (deployMetadata) {
       res["DeployMetadata"] = boost::any(*deployMetadata);
@@ -5224,9 +5214,6 @@ public:
     }
     if (payFromType) {
       res["PayFromType"] = boost::any(*payFromType);
-    }
-    if (payType) {
-      res["PayType"] = boost::any(*payType);
     }
     if (permission) {
       res["Permission"] = boost::any(*permission);
@@ -5257,9 +5244,6 @@ public:
     }
     if (serviceDiscoverable) {
       res["ServiceDiscoverable"] = boost::any(*serviceDiscoverable);
-    }
-    if (serviceDocUrl) {
-      res["ServiceDocUrl"] = boost::any(*serviceDocUrl);
     }
     if (serviceDocumentInfos) {
       vector<boost::any> temp1;
@@ -5374,9 +5358,6 @@ public:
         commodity = make_shared<GetServiceResponseBodyCommodity>(model1);
       }
     }
-    if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
-      commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
-    }
     if (m.find("ComplianceMetadata") != m.end() && !m["ComplianceMetadata"].empty()) {
       if (typeid(map<string, boost::any>) == m["ComplianceMetadata"].type()) {
         GetServiceResponseBodyComplianceMetadata model1;
@@ -5389,9 +5370,6 @@ public:
     }
     if (m.find("CrossRegionConnectionStatus") != m.end() && !m["CrossRegionConnectionStatus"].empty()) {
       crossRegionConnectionStatus = make_shared<string>(boost::any_cast<string>(m["CrossRegionConnectionStatus"]));
-    }
-    if (m.find("DefaultLicenseDays") != m.end() && !m["DefaultLicenseDays"].empty()) {
-      defaultLicenseDays = make_shared<long>(boost::any_cast<long>(m["DefaultLicenseDays"]));
     }
     if (m.find("DeployMetadata") != m.end() && !m["DeployMetadata"].empty()) {
       deployMetadata = make_shared<string>(boost::any_cast<string>(m["DeployMetadata"]));
@@ -5425,9 +5403,6 @@ public:
     if (m.find("PayFromType") != m.end() && !m["PayFromType"].empty()) {
       payFromType = make_shared<string>(boost::any_cast<string>(m["PayFromType"]));
     }
-    if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
-      payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
-    }
     if (m.find("Permission") != m.end() && !m["Permission"].empty()) {
       permission = make_shared<string>(boost::any_cast<string>(m["Permission"]));
     }
@@ -5457,9 +5432,6 @@ public:
     }
     if (m.find("ServiceDiscoverable") != m.end() && !m["ServiceDiscoverable"].empty()) {
       serviceDiscoverable = make_shared<string>(boost::any_cast<string>(m["ServiceDiscoverable"]));
-    }
-    if (m.find("ServiceDocUrl") != m.end() && !m["ServiceDocUrl"].empty()) {
-      serviceDocUrl = make_shared<string>(boost::any_cast<string>(m["ServiceDocUrl"]));
     }
     if (m.find("ServiceDocumentInfos") != m.end() && !m["ServiceDocumentInfos"].empty()) {
       if (typeid(vector<boost::any>) == m["ServiceDocumentInfos"].type()) {
@@ -6313,6 +6285,42 @@ public:
 
   virtual ~GetServiceInstanceResponseBodyServiceServiceInfos() = default;
 };
+class GetServiceInstanceResponseBodyServiceUpgradableServiceInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> version{};
+  shared_ptr<string> versionName{};
+
+  GetServiceInstanceResponseBodyServiceUpgradableServiceInfos() {}
+
+  explicit GetServiceInstanceResponseBodyServiceUpgradableServiceInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
+    }
+  }
+
+
+  virtual ~GetServiceInstanceResponseBodyServiceUpgradableServiceInfos() = default;
+};
 class GetServiceInstanceResponseBodyService : public Darabonba::Model {
 public:
   shared_ptr<string> deployMetadata{};
@@ -6326,6 +6334,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<string> supplierName{};
   shared_ptr<string> supplierUrl{};
+  shared_ptr<vector<GetServiceInstanceResponseBodyServiceUpgradableServiceInfos>> upgradableServiceInfos{};
   shared_ptr<vector<string>> upgradableServiceVersions{};
   shared_ptr<string> version{};
   shared_ptr<string> versionName{};
@@ -6376,6 +6385,13 @@ public:
     }
     if (supplierUrl) {
       res["SupplierUrl"] = boost::any(*supplierUrl);
+    }
+    if (upgradableServiceInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*upgradableServiceInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UpgradableServiceInfos"] = boost::any(temp1);
     }
     if (upgradableServiceVersions) {
       res["UpgradableServiceVersions"] = boost::any(*upgradableServiceVersions);
@@ -6432,6 +6448,19 @@ public:
     }
     if (m.find("SupplierUrl") != m.end() && !m["SupplierUrl"].empty()) {
       supplierUrl = make_shared<string>(boost::any_cast<string>(m["SupplierUrl"]));
+    }
+    if (m.find("UpgradableServiceInfos") != m.end() && !m["UpgradableServiceInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["UpgradableServiceInfos"].type()) {
+        vector<GetServiceInstanceResponseBodyServiceUpgradableServiceInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UpgradableServiceInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetServiceInstanceResponseBodyServiceUpgradableServiceInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        upgradableServiceInfos = make_shared<vector<GetServiceInstanceResponseBodyServiceUpgradableServiceInfos>>(expect1);
+      }
     }
     if (m.find("UpgradableServiceVersions") != m.end() && !m["UpgradableServiceVersions"].empty()) {
       vector<string> toVec1;
