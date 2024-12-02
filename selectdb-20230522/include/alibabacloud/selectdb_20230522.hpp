@@ -2563,6 +2563,7 @@ public:
   shared_ptr<long> memory{};
   shared_ptr<string> modifiedTime{};
   shared_ptr<string> performanceLevel{};
+  shared_ptr<bool> scalingRulesEnable{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
 
@@ -2612,6 +2613,9 @@ public:
     if (performanceLevel) {
       res["PerformanceLevel"] = boost::any(*performanceLevel);
     }
+    if (scalingRulesEnable) {
+      res["ScalingRulesEnable"] = boost::any(*scalingRulesEnable);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -2657,6 +2661,9 @@ public:
     }
     if (m.find("PerformanceLevel") != m.end() && !m["PerformanceLevel"].empty()) {
       performanceLevel = make_shared<string>(boost::any_cast<string>(m["PerformanceLevel"]));
+    }
+    if (m.find("ScalingRulesEnable") != m.end() && !m["ScalingRulesEnable"].empty()) {
+      scalingRulesEnable = make_shared<bool>(boost::any_cast<bool>(m["ScalingRulesEnable"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
