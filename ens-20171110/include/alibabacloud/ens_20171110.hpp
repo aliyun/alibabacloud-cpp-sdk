@@ -9644,6 +9644,7 @@ public:
 class CreateSnatEntryRequest : public Darabonba::Model {
 public:
   shared_ptr<long> idleTimeout{};
+  shared_ptr<bool> ispAffinity{};
   shared_ptr<string> natGatewayId{};
   shared_ptr<string> snatEntryName{};
   shared_ptr<string> snatIp{};
@@ -9664,6 +9665,9 @@ public:
     map<string, boost::any> res;
     if (idleTimeout) {
       res["IdleTimeout"] = boost::any(*idleTimeout);
+    }
+    if (ispAffinity) {
+      res["IspAffinity"] = boost::any(*ispAffinity);
     }
     if (natGatewayId) {
       res["NatGatewayId"] = boost::any(*natGatewayId);
@@ -9692,6 +9696,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
       idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
+    }
+    if (m.find("IspAffinity") != m.end() && !m["IspAffinity"].empty()) {
+      ispAffinity = make_shared<bool>(boost::any_cast<bool>(m["IspAffinity"]));
     }
     if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
       natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
@@ -31308,6 +31315,7 @@ public:
   shared_ptr<string> pageSize{};
   shared_ptr<string> searchKey{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<vector<string>> serviceStatus{};
   shared_ptr<string> status{};
   shared_ptr<vector<DescribeInstancesRequestTags>> tags{};
   shared_ptr<string> vSwitchId{};
@@ -31369,6 +31377,9 @@ public:
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (serviceStatus) {
+      res["ServiceStatus"] = boost::any(*serviceStatus);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -31435,6 +31446,16 @@ public:
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
     }
+    if (m.find("ServiceStatus") != m.end() && !m["ServiceStatus"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ServiceStatus"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ServiceStatus"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      serviceStatus = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
@@ -31477,6 +31498,7 @@ public:
   shared_ptr<string> pageSize{};
   shared_ptr<string> searchKey{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<string> serviceStatusShrink{};
   shared_ptr<string> status{};
   shared_ptr<string> tagsShrink{};
   shared_ptr<string> vSwitchId{};
@@ -31539,6 +31561,9 @@ public:
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
     }
+    if (serviceStatusShrink) {
+      res["ServiceStatus"] = boost::any(*serviceStatusShrink);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -31599,6 +31624,9 @@ public:
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("ServiceStatus") != m.end() && !m["ServiceStatus"].empty()) {
+      serviceStatusShrink = make_shared<string>(boost::any_cast<string>(m["ServiceStatus"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -32583,6 +32611,7 @@ public:
   shared_ptr<DescribeInstancesResponseBodyInstancesInstancePublicIpAddress> publicIpAddress{};
   shared_ptr<DescribeInstancesResponseBodyInstancesInstancePublicIpAddresses> publicIpAddresses{};
   shared_ptr<DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds> securityGroupIds{};
+  shared_ptr<string> serviceStatus{};
   shared_ptr<string> specName{};
   shared_ptr<string> spotStrategy{};
   shared_ptr<string> status{};
@@ -32673,6 +32702,9 @@ public:
     }
     if (securityGroupIds) {
       res["SecurityGroupIds"] = securityGroupIds ? boost::any(securityGroupIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (serviceStatus) {
+      res["ServiceStatus"] = boost::any(*serviceStatus);
     }
     if (specName) {
       res["SpecName"] = boost::any(*specName);
@@ -32799,6 +32831,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupIds"]));
         securityGroupIds = make_shared<DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds>(model1);
       }
+    }
+    if (m.find("ServiceStatus") != m.end() && !m["ServiceStatus"].empty()) {
+      serviceStatus = make_shared<string>(boost::any_cast<string>(m["ServiceStatus"]));
     }
     if (m.find("SpecName") != m.end() && !m["SpecName"].empty()) {
       specName = make_shared<string>(boost::any_cast<string>(m["SpecName"]));
@@ -47093,6 +47128,7 @@ public:
   shared_ptr<string> creationTime{};
   shared_ptr<string> destCIDR{};
   shared_ptr<long> idleTimeout{};
+  shared_ptr<bool> ispAffinity{};
   shared_ptr<string> natGatewayId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> snatEntryId{};
@@ -47123,6 +47159,9 @@ public:
     }
     if (idleTimeout) {
       res["IdleTimeout"] = boost::any(*idleTimeout);
+    }
+    if (ispAffinity) {
+      res["IspAffinity"] = boost::any(*ispAffinity);
     }
     if (natGatewayId) {
       res["NatGatewayId"] = boost::any(*natGatewayId);
@@ -47173,6 +47212,9 @@ public:
     }
     if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
       idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
+    }
+    if (m.find("IspAffinity") != m.end() && !m["IspAffinity"].empty()) {
+      ispAffinity = make_shared<bool>(boost::any_cast<bool>(m["IspAffinity"]));
     }
     if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
       natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
@@ -47348,6 +47390,7 @@ public:
 class DescribeSnatTableEntriesResponseBodySnatTableEntries : public Darabonba::Model {
 public:
   shared_ptr<long> idleTimeout{};
+  shared_ptr<bool> ispAffinity{};
   shared_ptr<string> natGatewayId{};
   shared_ptr<string> snatEntryId{};
   shared_ptr<string> snatEntryName{};
@@ -47369,6 +47412,9 @@ public:
     map<string, boost::any> res;
     if (idleTimeout) {
       res["IdleTimeout"] = boost::any(*idleTimeout);
+    }
+    if (ispAffinity) {
+      res["IspAffinity"] = boost::any(*ispAffinity);
     }
     if (natGatewayId) {
       res["NatGatewayId"] = boost::any(*natGatewayId);
@@ -47400,6 +47446,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
       idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
+    }
+    if (m.find("IspAffinity") != m.end() && !m["IspAffinity"].empty()) {
+      ispAffinity = make_shared<bool>(boost::any_cast<bool>(m["IspAffinity"]));
     }
     if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
       natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
@@ -55129,6 +55178,130 @@ public:
 
 
   virtual ~ModifySnapshotAttributeResponse() = default;
+};
+class ModifySnatEntryRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> ispAffinity{};
+  shared_ptr<string> snatEntryId{};
+  shared_ptr<string> snatEntryName{};
+
+  ModifySnatEntryRequest() {}
+
+  explicit ModifySnatEntryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ispAffinity) {
+      res["IspAffinity"] = boost::any(*ispAffinity);
+    }
+    if (snatEntryId) {
+      res["SnatEntryId"] = boost::any(*snatEntryId);
+    }
+    if (snatEntryName) {
+      res["SnatEntryName"] = boost::any(*snatEntryName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IspAffinity") != m.end() && !m["IspAffinity"].empty()) {
+      ispAffinity = make_shared<bool>(boost::any_cast<bool>(m["IspAffinity"]));
+    }
+    if (m.find("SnatEntryId") != m.end() && !m["SnatEntryId"].empty()) {
+      snatEntryId = make_shared<string>(boost::any_cast<string>(m["SnatEntryId"]));
+    }
+    if (m.find("SnatEntryName") != m.end() && !m["SnatEntryName"].empty()) {
+      snatEntryName = make_shared<string>(boost::any_cast<string>(m["SnatEntryName"]));
+    }
+  }
+
+
+  virtual ~ModifySnatEntryRequest() = default;
+};
+class ModifySnatEntryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifySnatEntryResponseBody() {}
+
+  explicit ModifySnatEntryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifySnatEntryResponseBody() = default;
+};
+class ModifySnatEntryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifySnatEntryResponseBody> body{};
+
+  ModifySnatEntryResponse() {}
+
+  explicit ModifySnatEntryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifySnatEntryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifySnatEntryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifySnatEntryResponse() = default;
 };
 class ModifyVSwitchAttributeRequest : public Darabonba::Model {
 public:
@@ -67569,6 +67742,8 @@ public:
   ModifySecurityGroupAttributeResponse modifySecurityGroupAttribute(shared_ptr<ModifySecurityGroupAttributeRequest> request);
   ModifySnapshotAttributeResponse modifySnapshotAttributeWithOptions(shared_ptr<ModifySnapshotAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifySnapshotAttributeResponse modifySnapshotAttribute(shared_ptr<ModifySnapshotAttributeRequest> request);
+  ModifySnatEntryResponse modifySnatEntryWithOptions(shared_ptr<ModifySnatEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifySnatEntryResponse modifySnatEntry(shared_ptr<ModifySnatEntryRequest> request);
   ModifyVSwitchAttributeResponse modifyVSwitchAttributeWithOptions(shared_ptr<ModifyVSwitchAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyVSwitchAttributeResponse modifyVSwitchAttribute(shared_ptr<ModifyVSwitchAttributeRequest> request);
   MountInstanceSDGResponse mountInstanceSDGWithOptions(shared_ptr<MountInstanceSDGRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

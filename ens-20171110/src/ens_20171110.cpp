@@ -2081,6 +2081,9 @@ CreateSnatEntryResponse Alibabacloud_Ens20171110::Client::createSnatEntryWithOpt
   if (!Darabonba_Util::Client::isUnset<long>(request->idleTimeout)) {
     query->insert(pair<string, long>("IdleTimeout", *request->idleTimeout));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ispAffinity)) {
+    query->insert(pair<string, bool>("IspAffinity", *request->ispAffinity));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->natGatewayId)) {
     query->insert(pair<string, string>("NatGatewayId", *request->natGatewayId));
   }
@@ -5050,6 +5053,9 @@ DescribeInstancesResponse Alibabacloud_Ens20171110::Client::describeInstancesWit
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<DescribeInstancesShrinkRequest> request = make_shared<DescribeInstancesShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->serviceStatus)) {
+    request->serviceStatusShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->serviceStatus, make_shared<string>("ServiceStatus"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<DescribeInstancesRequestTags>>(tmpReq->tags)) {
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
   }
@@ -5101,6 +5107,9 @@ DescribeInstancesResponse Alibabacloud_Ens20171110::Client::describeInstancesWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceStatusShrink)) {
+    query->insert(pair<string, string>("ServiceStatus", *request->serviceStatusShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
@@ -7858,6 +7867,40 @@ ModifySnapshotAttributeResponse Alibabacloud_Ens20171110::Client::modifySnapshot
 ModifySnapshotAttributeResponse Alibabacloud_Ens20171110::Client::modifySnapshotAttribute(shared_ptr<ModifySnapshotAttributeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifySnapshotAttributeWithOptions(request, runtime);
+}
+
+ModifySnatEntryResponse Alibabacloud_Ens20171110::Client::modifySnatEntryWithOptions(shared_ptr<ModifySnatEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ispAffinity)) {
+    query->insert(pair<string, bool>("IspAffinity", *request->ispAffinity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->snatEntryId)) {
+    query->insert(pair<string, string>("SnatEntryId", *request->snatEntryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->snatEntryName)) {
+    query->insert(pair<string, string>("SnatEntryName", *request->snatEntryName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifySnatEntry"))},
+    {"version", boost::any(string("2017-11-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifySnatEntryResponse(callApi(params, req, runtime));
+}
+
+ModifySnatEntryResponse Alibabacloud_Ens20171110::Client::modifySnatEntry(shared_ptr<ModifySnatEntryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifySnatEntryWithOptions(request, runtime);
 }
 
 ModifyVSwitchAttributeResponse Alibabacloud_Ens20171110::Client::modifyVSwitchAttributeWithOptions(shared_ptr<ModifyVSwitchAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
