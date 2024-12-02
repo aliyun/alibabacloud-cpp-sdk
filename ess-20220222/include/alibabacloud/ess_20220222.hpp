@@ -16433,12 +16433,19 @@ public:
 };
 class DescribeElasticStrengthRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> dataDiskCategories{};
+  shared_ptr<string> imageFamily{};
+  shared_ptr<string> imageId{};
+  shared_ptr<string> imageName{};
   shared_ptr<vector<string>> instanceTypes{};
+  shared_ptr<long> ipv6AddressCount{};
   shared_ptr<string> priorityStrategy{};
   shared_ptr<string> regionId{};
   shared_ptr<string> scalingGroupId{};
   shared_ptr<vector<string>> scalingGroupIds{};
+  shared_ptr<string> spotStrategy{};
   shared_ptr<vector<string>> systemDiskCategories{};
+  shared_ptr<vector<string>> vSwitchIds{};
 
   DescribeElasticStrengthRequest() {}
 
@@ -16450,8 +16457,23 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dataDiskCategories) {
+      res["DataDiskCategories"] = boost::any(*dataDiskCategories);
+    }
+    if (imageFamily) {
+      res["ImageFamily"] = boost::any(*imageFamily);
+    }
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (imageName) {
+      res["ImageName"] = boost::any(*imageName);
+    }
     if (instanceTypes) {
       res["InstanceTypes"] = boost::any(*instanceTypes);
+    }
+    if (ipv6AddressCount) {
+      res["Ipv6AddressCount"] = boost::any(*ipv6AddressCount);
     }
     if (priorityStrategy) {
       res["PriorityStrategy"] = boost::any(*priorityStrategy);
@@ -16465,13 +16487,38 @@ public:
     if (scalingGroupIds) {
       res["ScalingGroupIds"] = boost::any(*scalingGroupIds);
     }
+    if (spotStrategy) {
+      res["SpotStrategy"] = boost::any(*spotStrategy);
+    }
     if (systemDiskCategories) {
       res["SystemDiskCategories"] = boost::any(*systemDiskCategories);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataDiskCategories") != m.end() && !m["DataDiskCategories"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DataDiskCategories"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DataDiskCategories"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dataDiskCategories = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ImageFamily") != m.end() && !m["ImageFamily"].empty()) {
+      imageFamily = make_shared<string>(boost::any_cast<string>(m["ImageFamily"]));
+    }
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("ImageName") != m.end() && !m["ImageName"].empty()) {
+      imageName = make_shared<string>(boost::any_cast<string>(m["ImageName"]));
+    }
     if (m.find("InstanceTypes") != m.end() && !m["InstanceTypes"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["InstanceTypes"].type()) {
@@ -16481,6 +16528,9 @@ public:
         }
       }
       instanceTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Ipv6AddressCount") != m.end() && !m["Ipv6AddressCount"].empty()) {
+      ipv6AddressCount = make_shared<long>(boost::any_cast<long>(m["Ipv6AddressCount"]));
     }
     if (m.find("PriorityStrategy") != m.end() && !m["PriorityStrategy"].empty()) {
       priorityStrategy = make_shared<string>(boost::any_cast<string>(m["PriorityStrategy"]));
@@ -16501,6 +16551,9 @@ public:
       }
       scalingGroupIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
+      spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
+    }
     if (m.find("SystemDiskCategories") != m.end() && !m["SystemDiskCategories"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["SystemDiskCategories"].type()) {
@@ -16510,6 +16563,16 @@ public:
         }
       }
       systemDiskCategories = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vSwitchIds = make_shared<vector<string>>(toVec1);
     }
   }
 
