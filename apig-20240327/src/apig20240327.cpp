@@ -100,6 +100,9 @@ CreateDomainResponse Alibabacloud_APIG20240327::Client::createDomainWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<TlsCipherSuitesConfig>(request->tlsCipherSuitesConfig)) {
+    body->insert(pair<string, TlsCipherSuitesConfig>("tlsCipherSuitesConfig", *request->tlsCipherSuitesConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tlsMax)) {
     body->insert(pair<string, string>("tlsMax", *request->tlsMax));
   }
@@ -732,6 +735,9 @@ ListHttpApiOperationsResponse Alibabacloud_APIG20240327::Client::listHttpApiOper
   if (!Darabonba_Util::Client::isUnset<string>(request->withConsumerInfoById)) {
     query->insert(pair<string, string>("withConsumerInfoById", *request->withConsumerInfoById));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->withPluginAttachmentByPluginId)) {
+    query->insert(pair<string, string>("withPluginAttachmentByPluginId", *request->withPluginAttachmentByPluginId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -783,11 +789,20 @@ ListHttpApisResponse Alibabacloud_APIG20240327::Client::listHttpApisWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->withAuthPolicyInEnvironmentId)) {
     query->insert(pair<string, string>("withAuthPolicyInEnvironmentId", *request->withAuthPolicyInEnvironmentId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->withAuthPolicyList)) {
+    query->insert(pair<string, bool>("withAuthPolicyList", *request->withAuthPolicyList));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->withConsumerInfoById)) {
     query->insert(pair<string, string>("withConsumerInfoById", *request->withConsumerInfoById));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->withEnvironmentInfo)) {
     query->insert(pair<string, bool>("withEnvironmentInfo", *request->withEnvironmentInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->withEnvironmentInfoById)) {
+    query->insert(pair<string, string>("withEnvironmentInfoById", *request->withEnvironmentInfoById));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->withPluginAttachmentByPluginId)) {
+    query->insert(pair<string, string>("withPluginAttachmentByPluginId", *request->withPluginAttachmentByPluginId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -833,6 +848,9 @@ UpdateDomainResponse Alibabacloud_APIG20240327::Client::updateDomainWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
     body->insert(pair<string, string>("protocol", *request->protocol));
+  }
+  if (!Darabonba_Util::Client::isUnset<TlsCipherSuitesConfig>(request->tlsCipherSuitesConfig)) {
+    body->insert(pair<string, TlsCipherSuitesConfig>("tlsCipherSuitesConfig", *request->tlsCipherSuitesConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tlsMax)) {
     body->insert(pair<string, string>("tlsMax", *request->tlsMax));

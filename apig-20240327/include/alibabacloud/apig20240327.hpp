@@ -4694,6 +4694,187 @@ public:
 
   virtual ~JwtIdentityConfig() = default;
 };
+class ParentResourceInfo : public Darabonba::Model {
+public:
+  shared_ptr<HttpApiApiInfo> apiInfo{};
+  shared_ptr<string> resourceType{};
+
+  ParentResourceInfo() {}
+
+  explicit ParentResourceInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiInfo) {
+      res["apiInfo"] = apiInfo ? boost::any(apiInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceType) {
+      res["resourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("apiInfo") != m.end() && !m["apiInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["apiInfo"].type()) {
+        HttpApiApiInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["apiInfo"]));
+        apiInfo = make_shared<HttpApiApiInfo>(model1);
+      }
+    }
+    if (m.find("resourceType") != m.end() && !m["resourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["resourceType"]));
+    }
+  }
+
+
+  virtual ~ParentResourceInfo() = default;
+};
+class PluginClassInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> alias{};
+  shared_ptr<string> configExample{};
+  shared_ptr<string> description{};
+  shared_ptr<long> executePriority{};
+  shared_ptr<string> executeStage{};
+  shared_ptr<string> imageName{};
+  shared_ptr<bool> innerPlugin{};
+  shared_ptr<string> mode{};
+  shared_ptr<string> name{};
+  shared_ptr<string> pluginClassId{};
+  shared_ptr<string> source{};
+  shared_ptr<string> supportedMinGatewayVersion{};
+  shared_ptr<string> type{};
+  shared_ptr<string> version{};
+  shared_ptr<string> versionDescription{};
+  shared_ptr<string> wasmLanguage{};
+  shared_ptr<string> wasmUrl{};
+
+  PluginClassInfo() {}
+
+  explicit PluginClassInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alias) {
+      res["alias"] = boost::any(*alias);
+    }
+    if (configExample) {
+      res["configExample"] = boost::any(*configExample);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (executePriority) {
+      res["executePriority"] = boost::any(*executePriority);
+    }
+    if (executeStage) {
+      res["executeStage"] = boost::any(*executeStage);
+    }
+    if (imageName) {
+      res["imageName"] = boost::any(*imageName);
+    }
+    if (innerPlugin) {
+      res["innerPlugin"] = boost::any(*innerPlugin);
+    }
+    if (mode) {
+      res["mode"] = boost::any(*mode);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (pluginClassId) {
+      res["pluginClassId"] = boost::any(*pluginClassId);
+    }
+    if (source) {
+      res["source"] = boost::any(*source);
+    }
+    if (supportedMinGatewayVersion) {
+      res["supportedMinGatewayVersion"] = boost::any(*supportedMinGatewayVersion);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (version) {
+      res["version"] = boost::any(*version);
+    }
+    if (versionDescription) {
+      res["versionDescription"] = boost::any(*versionDescription);
+    }
+    if (wasmLanguage) {
+      res["wasmLanguage"] = boost::any(*wasmLanguage);
+    }
+    if (wasmUrl) {
+      res["wasmUrl"] = boost::any(*wasmUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("alias") != m.end() && !m["alias"].empty()) {
+      alias = make_shared<string>(boost::any_cast<string>(m["alias"]));
+    }
+    if (m.find("configExample") != m.end() && !m["configExample"].empty()) {
+      configExample = make_shared<string>(boost::any_cast<string>(m["configExample"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("executePriority") != m.end() && !m["executePriority"].empty()) {
+      executePriority = make_shared<long>(boost::any_cast<long>(m["executePriority"]));
+    }
+    if (m.find("executeStage") != m.end() && !m["executeStage"].empty()) {
+      executeStage = make_shared<string>(boost::any_cast<string>(m["executeStage"]));
+    }
+    if (m.find("imageName") != m.end() && !m["imageName"].empty()) {
+      imageName = make_shared<string>(boost::any_cast<string>(m["imageName"]));
+    }
+    if (m.find("innerPlugin") != m.end() && !m["innerPlugin"].empty()) {
+      innerPlugin = make_shared<bool>(boost::any_cast<bool>(m["innerPlugin"]));
+    }
+    if (m.find("mode") != m.end() && !m["mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["mode"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("pluginClassId") != m.end() && !m["pluginClassId"].empty()) {
+      pluginClassId = make_shared<string>(boost::any_cast<string>(m["pluginClassId"]));
+    }
+    if (m.find("source") != m.end() && !m["source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["source"]));
+    }
+    if (m.find("supportedMinGatewayVersion") != m.end() && !m["supportedMinGatewayVersion"].empty()) {
+      supportedMinGatewayVersion = make_shared<string>(boost::any_cast<string>(m["supportedMinGatewayVersion"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("version") != m.end() && !m["version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["version"]));
+    }
+    if (m.find("versionDescription") != m.end() && !m["versionDescription"].empty()) {
+      versionDescription = make_shared<string>(boost::any_cast<string>(m["versionDescription"]));
+    }
+    if (m.find("wasmLanguage") != m.end() && !m["wasmLanguage"].empty()) {
+      wasmLanguage = make_shared<string>(boost::any_cast<string>(m["wasmLanguage"]));
+    }
+    if (m.find("wasmUrl") != m.end() && !m["wasmUrl"].empty()) {
+      wasmUrl = make_shared<string>(boost::any_cast<string>(m["wasmUrl"]));
+    }
+  }
+
+
+  virtual ~PluginClassInfo() = default;
+};
 class PolicyClassInfo : public Darabonba::Model {
 public:
   shared_ptr<string> alias{};
@@ -4983,6 +5164,56 @@ public:
 
 
   virtual ~PolicyInfo() = default;
+};
+class ResourceInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> resourceVersion{};
+
+  ResourceInfo() {}
+
+  explicit ResourceInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceId) {
+      res["resourceId"] = boost::any(*resourceId);
+    }
+    if (resourceName) {
+      res["resourceName"] = boost::any(*resourceName);
+    }
+    if (resourceType) {
+      res["resourceType"] = boost::any(*resourceType);
+    }
+    if (resourceVersion) {
+      res["resourceVersion"] = boost::any(*resourceVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("resourceId") != m.end() && !m["resourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["resourceId"]));
+    }
+    if (m.find("resourceName") != m.end() && !m["resourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["resourceName"]));
+    }
+    if (m.find("resourceType") != m.end() && !m["resourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["resourceType"]));
+    }
+    if (m.find("resourceVersion") != m.end() && !m["resourceVersion"].empty()) {
+      resourceVersion = make_shared<string>(boost::any_cast<string>(m["resourceVersion"]));
+    }
+  }
+
+
+  virtual ~ResourceInfo() = default;
 };
 class ResourceStatistic : public Darabonba::Model {
 public:
@@ -5551,6 +5782,99 @@ public:
 
   virtual ~SslCertMetaInfo() = default;
 };
+class TlsCipherSuitesConfigCipherSuites : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> supportVersions{};
+
+  TlsCipherSuitesConfigCipherSuites() {}
+
+  explicit TlsCipherSuitesConfigCipherSuites(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (supportVersions) {
+      res["supportVersions"] = boost::any(*supportVersions);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("supportVersions") != m.end() && !m["supportVersions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["supportVersions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["supportVersions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      supportVersions = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~TlsCipherSuitesConfigCipherSuites() = default;
+};
+class TlsCipherSuitesConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<TlsCipherSuitesConfigCipherSuites>> cipherSuites{};
+  shared_ptr<string> configType{};
+
+  TlsCipherSuitesConfig() {}
+
+  explicit TlsCipherSuitesConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cipherSuites) {
+      vector<boost::any> temp1;
+      for(auto item1:*cipherSuites){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["cipherSuites"] = boost::any(temp1);
+    }
+    if (configType) {
+      res["configType"] = boost::any(*configType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cipherSuites") != m.end() && !m["cipherSuites"].empty()) {
+      if (typeid(vector<boost::any>) == m["cipherSuites"].type()) {
+        vector<TlsCipherSuitesConfigCipherSuites> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["cipherSuites"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TlsCipherSuitesConfigCipherSuites model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cipherSuites = make_shared<vector<TlsCipherSuitesConfigCipherSuites>>(expect1);
+      }
+    }
+    if (m.find("configType") != m.end() && !m["configType"].empty()) {
+      configType = make_shared<string>(boost::any_cast<string>(m["configType"]));
+    }
+  }
+
+
+  virtual ~TlsCipherSuitesConfig() = default;
+};
 class AddGatewaySecurityGroupRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -5705,6 +6029,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> protocol{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig{};
   shared_ptr<string> tlsMax{};
   shared_ptr<string> tlsMin{};
 
@@ -5739,6 +6064,9 @@ public:
     if (resourceGroupId) {
       res["resourceGroupId"] = boost::any(*resourceGroupId);
     }
+    if (tlsCipherSuitesConfig) {
+      res["tlsCipherSuitesConfig"] = tlsCipherSuitesConfig ? boost::any(tlsCipherSuitesConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (tlsMax) {
       res["tlsMax"] = boost::any(*tlsMax);
     }
@@ -5769,6 +6097,13 @@ public:
     }
     if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
+    }
+    if (m.find("tlsCipherSuitesConfig") != m.end() && !m["tlsCipherSuitesConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tlsCipherSuitesConfig"].type()) {
+        TlsCipherSuitesConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tlsCipherSuitesConfig"]));
+        tlsCipherSuitesConfig = make_shared<TlsCipherSuitesConfig>(model1);
+      }
     }
     if (m.find("tlsMax") != m.end() && !m["tlsMax"].empty()) {
       tlsMax = make_shared<string>(boost::any_cast<string>(m["tlsMax"]));
@@ -7230,6 +7565,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sans{};
   shared_ptr<GetDomainResponseBodyDataStatisticsInfo> statisticsInfo{};
+  shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig{};
   shared_ptr<string> tlsMax{};
   shared_ptr<string> tlsMin{};
   shared_ptr<long> updatetimestamp{};
@@ -7297,6 +7633,9 @@ public:
     }
     if (statisticsInfo) {
       res["statisticsInfo"] = statisticsInfo ? boost::any(statisticsInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tlsCipherSuitesConfig) {
+      res["tlsCipherSuitesConfig"] = tlsCipherSuitesConfig ? boost::any(tlsCipherSuitesConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (tlsMax) {
       res["tlsMax"] = boost::any(*tlsMax);
@@ -7367,6 +7706,13 @@ public:
         GetDomainResponseBodyDataStatisticsInfo model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["statisticsInfo"]));
         statisticsInfo = make_shared<GetDomainResponseBodyDataStatisticsInfo>(model1);
+      }
+    }
+    if (m.find("tlsCipherSuitesConfig") != m.end() && !m["tlsCipherSuitesConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tlsCipherSuitesConfig"].type()) {
+        TlsCipherSuitesConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tlsCipherSuitesConfig"]));
+        tlsCipherSuitesConfig = make_shared<TlsCipherSuitesConfig>(model1);
       }
     }
     if (m.find("tlsMax") != m.end() && !m["tlsMax"].empty()) {
@@ -10238,6 +10584,7 @@ public:
   shared_ptr<string> pathLike{};
   shared_ptr<string> withConsumerInEnvironmentId{};
   shared_ptr<string> withConsumerInfoById{};
+  shared_ptr<string> withPluginAttachmentByPluginId{};
 
   ListHttpApiOperationsRequest() {}
 
@@ -10276,6 +10623,9 @@ public:
     if (withConsumerInfoById) {
       res["withConsumerInfoById"] = boost::any(*withConsumerInfoById);
     }
+    if (withPluginAttachmentByPluginId) {
+      res["withPluginAttachmentByPluginId"] = boost::any(*withPluginAttachmentByPluginId);
+    }
     return res;
   }
 
@@ -10306,6 +10656,9 @@ public:
     }
     if (m.find("withConsumerInfoById") != m.end() && !m["withConsumerInfoById"].empty()) {
       withConsumerInfoById = make_shared<string>(boost::any_cast<string>(m["withConsumerInfoById"]));
+    }
+    if (m.find("withPluginAttachmentByPluginId") != m.end() && !m["withPluginAttachmentByPluginId"].empty()) {
+      withPluginAttachmentByPluginId = make_shared<string>(boost::any_cast<string>(m["withPluginAttachmentByPluginId"]));
     }
   }
 
@@ -10492,8 +10845,11 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> types{};
   shared_ptr<string> withAuthPolicyInEnvironmentId{};
+  shared_ptr<bool> withAuthPolicyList{};
   shared_ptr<string> withConsumerInfoById{};
   shared_ptr<bool> withEnvironmentInfo{};
+  shared_ptr<string> withEnvironmentInfoById{};
+  shared_ptr<string> withPluginAttachmentByPluginId{};
 
   ListHttpApisRequest() {}
 
@@ -10529,11 +10885,20 @@ public:
     if (withAuthPolicyInEnvironmentId) {
       res["withAuthPolicyInEnvironmentId"] = boost::any(*withAuthPolicyInEnvironmentId);
     }
+    if (withAuthPolicyList) {
+      res["withAuthPolicyList"] = boost::any(*withAuthPolicyList);
+    }
     if (withConsumerInfoById) {
       res["withConsumerInfoById"] = boost::any(*withConsumerInfoById);
     }
     if (withEnvironmentInfo) {
       res["withEnvironmentInfo"] = boost::any(*withEnvironmentInfo);
+    }
+    if (withEnvironmentInfoById) {
+      res["withEnvironmentInfoById"] = boost::any(*withEnvironmentInfoById);
+    }
+    if (withPluginAttachmentByPluginId) {
+      res["withPluginAttachmentByPluginId"] = boost::any(*withPluginAttachmentByPluginId);
     }
     return res;
   }
@@ -10563,11 +10928,20 @@ public:
     if (m.find("withAuthPolicyInEnvironmentId") != m.end() && !m["withAuthPolicyInEnvironmentId"].empty()) {
       withAuthPolicyInEnvironmentId = make_shared<string>(boost::any_cast<string>(m["withAuthPolicyInEnvironmentId"]));
     }
+    if (m.find("withAuthPolicyList") != m.end() && !m["withAuthPolicyList"].empty()) {
+      withAuthPolicyList = make_shared<bool>(boost::any_cast<bool>(m["withAuthPolicyList"]));
+    }
     if (m.find("withConsumerInfoById") != m.end() && !m["withConsumerInfoById"].empty()) {
       withConsumerInfoById = make_shared<string>(boost::any_cast<string>(m["withConsumerInfoById"]));
     }
     if (m.find("withEnvironmentInfo") != m.end() && !m["withEnvironmentInfo"].empty()) {
       withEnvironmentInfo = make_shared<bool>(boost::any_cast<bool>(m["withEnvironmentInfo"]));
+    }
+    if (m.find("withEnvironmentInfoById") != m.end() && !m["withEnvironmentInfoById"].empty()) {
+      withEnvironmentInfoById = make_shared<string>(boost::any_cast<string>(m["withEnvironmentInfoById"]));
+    }
+    if (m.find("withPluginAttachmentByPluginId") != m.end() && !m["withPluginAttachmentByPluginId"].empty()) {
+      withPluginAttachmentByPluginId = make_shared<string>(boost::any_cast<string>(m["withPluginAttachmentByPluginId"]));
     }
   }
 
@@ -10751,6 +11125,7 @@ public:
   shared_ptr<bool> forceHttps{};
   shared_ptr<string> http2Option{};
   shared_ptr<string> protocol{};
+  shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig{};
   shared_ptr<string> tlsMax{};
   shared_ptr<string> tlsMin{};
 
@@ -10779,6 +11154,9 @@ public:
     if (protocol) {
       res["protocol"] = boost::any(*protocol);
     }
+    if (tlsCipherSuitesConfig) {
+      res["tlsCipherSuitesConfig"] = tlsCipherSuitesConfig ? boost::any(tlsCipherSuitesConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (tlsMax) {
       res["tlsMax"] = boost::any(*tlsMax);
     }
@@ -10803,6 +11181,13 @@ public:
     }
     if (m.find("protocol") != m.end() && !m["protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["protocol"]));
+    }
+    if (m.find("tlsCipherSuitesConfig") != m.end() && !m["tlsCipherSuitesConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tlsCipherSuitesConfig"].type()) {
+        TlsCipherSuitesConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tlsCipherSuitesConfig"]));
+        tlsCipherSuitesConfig = make_shared<TlsCipherSuitesConfig>(model1);
+      }
     }
     if (m.find("tlsMax") != m.end() && !m["tlsMax"].empty()) {
       tlsMax = make_shared<string>(boost::any_cast<string>(m["tlsMax"]));
