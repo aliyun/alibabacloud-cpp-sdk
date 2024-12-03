@@ -130,6 +130,137 @@ public:
 
   virtual ~ChangeResourceGroupResponse() = default;
 };
+class CheckInstancePolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> policy{};
+
+  CheckInstancePolicyRequest() {}
+
+  explicit CheckInstancePolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+  }
+
+
+  virtual ~CheckInstancePolicyRequest() = default;
+};
+class CheckInstancePolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  CheckInstancePolicyResponseBody() {}
+
+  explicit CheckInstancePolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CheckInstancePolicyResponseBody() = default;
+};
+class CheckInstancePolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CheckInstancePolicyResponseBody> body{};
+
+  CheckInstancePolicyResponse() {}
+
+  explicit CheckInstancePolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CheckInstancePolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CheckInstancePolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckInstancePolicyResponse() = default;
+};
 class CreateInstanceRequestTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -491,6 +622,137 @@ public:
 
   virtual ~DeleteInstanceResponse() = default;
 };
+class DeleteInstancePolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceName{};
+  shared_ptr<long> policyVersion{};
+
+  DeleteInstancePolicyRequest() {}
+
+  explicit DeleteInstancePolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (policyVersion) {
+      res["PolicyVersion"] = boost::any(*policyVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("PolicyVersion") != m.end() && !m["PolicyVersion"].empty()) {
+      policyVersion = make_shared<long>(boost::any_cast<long>(m["PolicyVersion"]));
+    }
+  }
+
+
+  virtual ~DeleteInstancePolicyRequest() = default;
+};
+class DeleteInstancePolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DeleteInstancePolicyResponseBody() {}
+
+  explicit DeleteInstancePolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteInstancePolicyResponseBody() = default;
+};
+class DeleteInstancePolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteInstancePolicyResponseBody> body{};
+
+  DeleteInstancePolicyResponse() {}
+
+  explicit DeleteInstancePolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteInstancePolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteInstancePolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteInstancePolicyResponse() = default;
+};
 class DescribeRegionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -745,6 +1007,7 @@ public:
   shared_ptr<string> instanceName{};
   shared_ptr<string> instanceSpecification{};
   shared_ptr<string> instanceStatus{};
+  shared_ptr<bool> isMultiAZ{};
   shared_ptr<string> network{};
   shared_ptr<vector<string>> networkSourceACL{};
   shared_ptr<vector<string>> networkTypeACL{};
@@ -788,6 +1051,9 @@ public:
     }
     if (instanceStatus) {
       res["InstanceStatus"] = boost::any(*instanceStatus);
+    }
+    if (isMultiAZ) {
+      res["IsMultiAZ"] = boost::any(*isMultiAZ);
     }
     if (network) {
       res["Network"] = boost::any(*network);
@@ -859,6 +1125,9 @@ public:
     }
     if (m.find("InstanceStatus") != m.end() && !m["InstanceStatus"].empty()) {
       instanceStatus = make_shared<string>(boost::any_cast<string>(m["InstanceStatus"]));
+    }
+    if (m.find("IsMultiAZ") != m.end() && !m["IsMultiAZ"].empty()) {
+      isMultiAZ = make_shared<bool>(boost::any_cast<bool>(m["IsMultiAZ"]));
     }
     if (m.find("Network") != m.end() && !m["Network"].empty()) {
       network = make_shared<string>(boost::any_cast<string>(m["Network"]));
@@ -989,6 +1258,7 @@ public:
 class ListInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceName{};
+  shared_ptr<vector<string>> instanceNameList{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> resourceGroupId{};
@@ -1006,6 +1276,9 @@ public:
     map<string, boost::any> res;
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (instanceNameList) {
+      res["InstanceNameList"] = boost::any(*instanceNameList);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -1026,6 +1299,16 @@ public:
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
     }
+    if (m.find("InstanceNameList") != m.end() && !m["InstanceNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceNameList = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -1043,6 +1326,70 @@ public:
 
   virtual ~ListInstancesRequest() = default;
 };
+class ListInstancesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> instanceNameListShrink{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> status{};
+
+  ListInstancesShrinkRequest() {}
+
+  explicit ListInstancesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (instanceNameListShrink) {
+      res["InstanceNameList"] = boost::any(*instanceNameListShrink);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("InstanceNameList") != m.end() && !m["InstanceNameList"].empty()) {
+      instanceNameListShrink = make_shared<string>(boost::any_cast<string>(m["InstanceNameList"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListInstancesShrinkRequest() = default;
+};
 class ListInstancesResponseBodyInstances : public Darabonba::Model {
 public:
   shared_ptr<string> aliasName{};
@@ -1051,6 +1398,7 @@ public:
   shared_ptr<string> instanceName{};
   shared_ptr<string> instanceSpecification{};
   shared_ptr<string> instanceStatus{};
+  shared_ptr<bool> isMultiAZ{};
   shared_ptr<string> paymentType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -1086,6 +1434,9 @@ public:
     }
     if (instanceStatus) {
       res["InstanceStatus"] = boost::any(*instanceStatus);
+    }
+    if (isMultiAZ) {
+      res["IsMultiAZ"] = boost::any(*isMultiAZ);
     }
     if (paymentType) {
       res["PaymentType"] = boost::any(*paymentType);
@@ -1129,6 +1480,9 @@ public:
     }
     if (m.find("InstanceStatus") != m.end() && !m["InstanceStatus"].empty()) {
       instanceStatus = make_shared<string>(boost::any_cast<string>(m["InstanceStatus"]));
+    }
+    if (m.find("IsMultiAZ") != m.end() && !m["IsMultiAZ"].empty()) {
+      isMultiAZ = make_shared<bool>(boost::any_cast<bool>(m["IsMultiAZ"]));
     }
     if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
       paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
@@ -2094,6 +2448,261 @@ public:
 
   virtual ~UpdateInstanceResponse() = default;
 };
+class UpdateInstanceElasticVCUUpperLimitRequest : public Darabonba::Model {
+public:
+  shared_ptr<double> elasticVCUUpperLimit{};
+  shared_ptr<string> instanceName{};
+
+  UpdateInstanceElasticVCUUpperLimitRequest() {}
+
+  explicit UpdateInstanceElasticVCUUpperLimitRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (elasticVCUUpperLimit) {
+      res["ElasticVCUUpperLimit"] = boost::any(*elasticVCUUpperLimit);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ElasticVCUUpperLimit") != m.end() && !m["ElasticVCUUpperLimit"].empty()) {
+      elasticVCUUpperLimit = make_shared<double>(boost::any_cast<double>(m["ElasticVCUUpperLimit"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+  }
+
+
+  virtual ~UpdateInstanceElasticVCUUpperLimitRequest() = default;
+};
+class UpdateInstanceElasticVCUUpperLimitResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateInstanceElasticVCUUpperLimitResponseBody() {}
+
+  explicit UpdateInstanceElasticVCUUpperLimitResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~UpdateInstanceElasticVCUUpperLimitResponseBody() = default;
+};
+class UpdateInstanceElasticVCUUpperLimitResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateInstanceElasticVCUUpperLimitResponseBody> body{};
+
+  UpdateInstanceElasticVCUUpperLimitResponse() {}
+
+  explicit UpdateInstanceElasticVCUUpperLimitResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateInstanceElasticVCUUpperLimitResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateInstanceElasticVCUUpperLimitResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateInstanceElasticVCUUpperLimitResponse() = default;
+};
+class UpdateInstancePolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> policy{};
+  shared_ptr<long> policyVersion{};
+
+  UpdateInstancePolicyRequest() {}
+
+  explicit UpdateInstancePolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (policyVersion) {
+      res["PolicyVersion"] = boost::any(*policyVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("PolicyVersion") != m.end() && !m["PolicyVersion"].empty()) {
+      policyVersion = make_shared<long>(boost::any_cast<long>(m["PolicyVersion"]));
+    }
+  }
+
+
+  virtual ~UpdateInstancePolicyRequest() = default;
+};
+class UpdateInstancePolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  UpdateInstancePolicyResponseBody() {}
+
+  explicit UpdateInstancePolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~UpdateInstancePolicyResponseBody() = default;
+};
+class UpdateInstancePolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateInstancePolicyResponseBody> body{};
+
+  UpdateInstancePolicyResponse() {}
+
+  explicit UpdateInstancePolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateInstancePolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateInstancePolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateInstancePolicyResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -2106,15 +2715,19 @@ public:
                      shared_ptr<string> endpoint);
   ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
+  CheckInstancePolicyResponse checkInstancePolicyWithOptions(shared_ptr<CheckInstancePolicyRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CheckInstancePolicyResponse checkInstancePolicy(shared_ptr<CheckInstancePolicyRequest> request);
   CreateInstanceResponse createInstanceWithOptions(shared_ptr<CreateInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateInstanceResponse createInstance(shared_ptr<CreateInstanceRequest> request);
   DeleteInstanceResponse deleteInstanceWithOptions(shared_ptr<DeleteInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteInstanceResponse deleteInstance(shared_ptr<DeleteInstanceRequest> request);
+  DeleteInstancePolicyResponse deleteInstancePolicyWithOptions(shared_ptr<DeleteInstancePolicyRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteInstancePolicyResponse deleteInstancePolicy(shared_ptr<DeleteInstancePolicyRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   GetInstanceResponse getInstanceWithOptions(shared_ptr<GetInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetInstanceResponse getInstance(shared_ptr<GetInstanceRequest> request);
-  ListInstancesResponse listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListInstancesResponse listInstancesWithOptions(shared_ptr<ListInstancesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInstancesResponse listInstances(shared_ptr<ListInstancesRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
@@ -2124,6 +2737,10 @@ public:
   UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
   UpdateInstanceResponse updateInstanceWithOptions(shared_ptr<UpdateInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateInstanceResponse updateInstance(shared_ptr<UpdateInstanceRequest> request);
+  UpdateInstanceElasticVCUUpperLimitResponse updateInstanceElasticVCUUpperLimitWithOptions(shared_ptr<UpdateInstanceElasticVCUUpperLimitRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateInstanceElasticVCUUpperLimitResponse updateInstanceElasticVCUUpperLimit(shared_ptr<UpdateInstanceElasticVCUUpperLimitRequest> request);
+  UpdateInstancePolicyResponse updateInstancePolicyWithOptions(shared_ptr<UpdateInstancePolicyRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateInstancePolicyResponse updateInstancePolicy(shared_ptr<UpdateInstancePolicyRequest> request);
 
   virtual ~Client() = default;
 };

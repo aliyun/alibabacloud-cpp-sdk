@@ -70,6 +70,39 @@ ChangeResourceGroupResponse Alibabacloud_Tablestore20201209::Client::changeResou
   return changeResourceGroupWithOptions(request, headers, runtime);
 }
 
+CheckInstancePolicyResponse Alibabacloud_Tablestore20201209::Client::checkInstancePolicyWithOptions(shared_ptr<CheckInstancePolicyRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
+    body->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
+    body->insert(pair<string, string>("Policy", *request->policy));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CheckInstancePolicy"))},
+    {"version", boost::any(string("2020-12-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v2/openapi/checkinstancepolicy"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CheckInstancePolicyResponse(callApi(params, req, runtime));
+}
+
+CheckInstancePolicyResponse Alibabacloud_Tablestore20201209::Client::checkInstancePolicy(shared_ptr<CheckInstancePolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return checkInstancePolicyWithOptions(request, headers, runtime);
+}
+
 CreateInstanceResponse Alibabacloud_Tablestore20201209::Client::createInstanceWithOptions(shared_ptr<CreateInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -157,6 +190,39 @@ DeleteInstanceResponse Alibabacloud_Tablestore20201209::Client::deleteInstance(s
   return deleteInstanceWithOptions(request, headers, runtime);
 }
 
+DeleteInstancePolicyResponse Alibabacloud_Tablestore20201209::Client::deleteInstancePolicyWithOptions(shared_ptr<DeleteInstancePolicyRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
+    body->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->policyVersion)) {
+    body->insert(pair<string, long>("PolicyVersion", *request->policyVersion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteInstancePolicy"))},
+    {"version", boost::any(string("2020-12-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v2/openapi/deleteinstancepolicy"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteInstancePolicyResponse(callApi(params, req, runtime));
+}
+
+DeleteInstancePolicyResponse Alibabacloud_Tablestore20201209::Client::deleteInstancePolicy(shared_ptr<DeleteInstancePolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteInstancePolicyWithOptions(request, headers, runtime);
+}
+
 DescribeRegionsResponse Alibabacloud_Tablestore20201209::Client::describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -217,11 +283,19 @@ GetInstanceResponse Alibabacloud_Tablestore20201209::Client::getInstance(shared_
   return getInstanceWithOptions(request, headers, runtime);
 }
 
-ListInstancesResponse Alibabacloud_Tablestore20201209::Client::listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListInstancesResponse Alibabacloud_Tablestore20201209::Client::listInstancesWithOptions(shared_ptr<ListInstancesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListInstancesShrinkRequest> request = make_shared<ListInstancesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceNameList)) {
+    request->instanceNameListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceNameList, make_shared<string>("InstanceNameList"), make_shared<string>("simple")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     query->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceNameListShrink)) {
+    query->insert(pair<string, string>("InstanceNameList", *request->instanceNameListShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
@@ -427,5 +501,74 @@ UpdateInstanceResponse Alibabacloud_Tablestore20201209::Client::updateInstance(s
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateInstanceWithOptions(request, headers, runtime);
+}
+
+UpdateInstanceElasticVCUUpperLimitResponse Alibabacloud_Tablestore20201209::Client::updateInstanceElasticVCUUpperLimitWithOptions(shared_ptr<UpdateInstanceElasticVCUUpperLimitRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<double>(request->elasticVCUUpperLimit)) {
+    body->insert(pair<string, double>("ElasticVCUUpperLimit", *request->elasticVCUUpperLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
+    body->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateInstanceElasticVCUUpperLimit"))},
+    {"version", boost::any(string("2020-12-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v2/openapi/updateinstanceelasticvcuupperlimit"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateInstanceElasticVCUUpperLimitResponse(callApi(params, req, runtime));
+}
+
+UpdateInstanceElasticVCUUpperLimitResponse Alibabacloud_Tablestore20201209::Client::updateInstanceElasticVCUUpperLimit(shared_ptr<UpdateInstanceElasticVCUUpperLimitRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateInstanceElasticVCUUpperLimitWithOptions(request, headers, runtime);
+}
+
+UpdateInstancePolicyResponse Alibabacloud_Tablestore20201209::Client::updateInstancePolicyWithOptions(shared_ptr<UpdateInstancePolicyRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
+    body->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
+    body->insert(pair<string, string>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->policyVersion)) {
+    body->insert(pair<string, long>("PolicyVersion", *request->policyVersion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateInstancePolicy"))},
+    {"version", boost::any(string("2020-12-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v2/openapi/updateinstancepolicy"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateInstancePolicyResponse(callApi(params, req, runtime));
+}
+
+UpdateInstancePolicyResponse Alibabacloud_Tablestore20201209::Client::updateInstancePolicy(shared_ptr<UpdateInstancePolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateInstancePolicyWithOptions(request, headers, runtime);
 }
 
