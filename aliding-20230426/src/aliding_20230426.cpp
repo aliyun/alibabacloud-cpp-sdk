@@ -2049,6 +2049,9 @@ CreatePersonalTodoTaskResponse Alibabacloud_Aliding20230426::Client::createPerso
   if (!Darabonba_Util::Client::isUnset<string>(request->participantIdsShrink)) {
     body->insert(pair<string, string>("ParticipantIds", *request->participantIdsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->reminderTimeStamp)) {
+    body->insert(pair<string, long>("ReminderTimeStamp", *request->reminderTimeStamp));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->subject)) {
     body->insert(pair<string, string>("Subject", *request->subject));
   }

@@ -15368,6 +15368,7 @@ public:
   shared_ptr<vector<string>> executorIds{};
   shared_ptr<CreatePersonalTodoTaskRequestNotifyConfigs> notifyConfigs{};
   shared_ptr<vector<string>> participantIds{};
+  shared_ptr<long> reminderTimeStamp{};
   shared_ptr<string> subject{};
   shared_ptr<CreatePersonalTodoTaskRequestTenantContext> tenantContext{};
 
@@ -15395,6 +15396,9 @@ public:
     }
     if (participantIds) {
       res["ParticipantIds"] = boost::any(*participantIds);
+    }
+    if (reminderTimeStamp) {
+      res["ReminderTimeStamp"] = boost::any(*reminderTimeStamp);
     }
     if (subject) {
       res["Subject"] = boost::any(*subject);
@@ -15439,6 +15443,9 @@ public:
       }
       participantIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ReminderTimeStamp") != m.end() && !m["ReminderTimeStamp"].empty()) {
+      reminderTimeStamp = make_shared<long>(boost::any_cast<long>(m["ReminderTimeStamp"]));
+    }
     if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
       subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
     }
@@ -15461,6 +15468,7 @@ public:
   shared_ptr<string> executorIdsShrink{};
   shared_ptr<string> notifyConfigsShrink{};
   shared_ptr<string> participantIdsShrink{};
+  shared_ptr<long> reminderTimeStamp{};
   shared_ptr<string> subject{};
   shared_ptr<string> tenantContextShrink{};
 
@@ -15489,6 +15497,9 @@ public:
     if (participantIdsShrink) {
       res["ParticipantIds"] = boost::any(*participantIdsShrink);
     }
+    if (reminderTimeStamp) {
+      res["ReminderTimeStamp"] = boost::any(*reminderTimeStamp);
+    }
     if (subject) {
       res["Subject"] = boost::any(*subject);
     }
@@ -15513,6 +15524,9 @@ public:
     }
     if (m.find("ParticipantIds") != m.end() && !m["ParticipantIds"].empty()) {
       participantIdsShrink = make_shared<string>(boost::any_cast<string>(m["ParticipantIds"]));
+    }
+    if (m.find("ReminderTimeStamp") != m.end() && !m["ReminderTimeStamp"].empty()) {
+      reminderTimeStamp = make_shared<long>(boost::any_cast<long>(m["ReminderTimeStamp"]));
     }
     if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
       subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
