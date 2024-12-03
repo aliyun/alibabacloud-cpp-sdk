@@ -2140,6 +2140,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<vector<CreateInstanceRequestParameter>> parameter{};
   shared_ptr<long> period{};
+  shared_ptr<long> pricingCycle{};
   shared_ptr<string> productCode{};
   shared_ptr<string> productType{};
   shared_ptr<long> renewPeriod{};
@@ -2174,6 +2175,9 @@ public:
     }
     if (period) {
       res["Period"] = boost::any(*period);
+    }
+    if (pricingCycle) {
+      res["PricingCycle"] = boost::any(*pricingCycle);
     }
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
@@ -2218,6 +2222,9 @@ public:
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("PricingCycle") != m.end() && !m["PricingCycle"].empty()) {
+      pricingCycle = make_shared<long>(boost::any_cast<long>(m["PricingCycle"]));
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));

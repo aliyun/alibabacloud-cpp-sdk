@@ -506,6 +506,9 @@ CreateInstanceResponse Alibabacloud_BssOpenApi20171214::Client::createInstanceWi
   if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
     query->insert(pair<string, long>("Period", *request->period));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pricingCycle)) {
+    query->insert(pair<string, long>("PricingCycle", *request->pricingCycle));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
     query->insert(pair<string, string>("ProductCode", *request->productCode));
   }
