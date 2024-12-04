@@ -79,6 +79,10 @@ AcceptVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::acceptVpcP
 
 CreateVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::createVpcPeerConnectionWithOptions(shared_ptr<CreateVpcPeerConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->linkType)) {
+    query->insert(pair<string, string>("LinkType", *request->linkType));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->acceptingAliUid)) {
     body->insert(pair<string, long>("AcceptingAliUid", *request->acceptingAliUid));
@@ -114,6 +118,7 @@ CreateVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::createVpcP
     body->insert(pair<string, string>("VpcId", *request->vpcId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -304,6 +309,10 @@ ListVpcPeerConnectionsResponse Alibabacloud_VpcPeer20220101::Client::listVpcPeer
 
 ModifyVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::modifyVpcPeerConnectionWithOptions(shared_ptr<ModifyVpcPeerConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->linkType)) {
+    query->insert(pair<string, string>("LinkType", *request->linkType));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->bandwidth)) {
     body->insert(pair<string, long>("Bandwidth", *request->bandwidth));
@@ -324,6 +333,7 @@ ModifyVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::modifyVpcP
     body->insert(pair<string, string>("Name", *request->name));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({

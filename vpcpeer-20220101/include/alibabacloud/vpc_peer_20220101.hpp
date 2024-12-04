@@ -160,6 +160,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<bool> dryRun{};
+  shared_ptr<string> linkType{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -195,6 +196,9 @@ public:
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
+    }
+    if (linkType) {
+      res["LinkType"] = boost::any(*linkType);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -232,6 +236,9 @@ public:
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("LinkType") != m.end() && !m["LinkType"].empty()) {
+      linkType = make_shared<string>(boost::any_cast<string>(m["LinkType"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -667,6 +674,7 @@ public:
   shared_ptr<string> gmtExpired{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> linkType{};
   shared_ptr<string> name{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -715,6 +723,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (linkType) {
+      res["LinkType"] = boost::any(*linkType);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -781,6 +792,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LinkType") != m.end() && !m["LinkType"].empty()) {
+      linkType = make_shared<string>(boost::any_cast<string>(m["LinkType"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -1596,6 +1610,7 @@ public:
   shared_ptr<string> gmtExpired{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> linkType{};
   shared_ptr<string> name{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -1643,6 +1658,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (linkType) {
+      res["LinkType"] = boost::any(*linkType);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -1706,6 +1724,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LinkType") != m.end() && !m["LinkType"].empty()) {
+      linkType = make_shared<string>(boost::any_cast<string>(m["LinkType"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -1877,6 +1898,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> linkType{};
   shared_ptr<string> name{};
 
   ModifyVpcPeerConnectionRequest() {}
@@ -1904,6 +1926,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (linkType) {
+      res["LinkType"] = boost::any(*linkType);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -1925,6 +1950,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LinkType") != m.end() && !m["LinkType"].empty()) {
+      linkType = make_shared<string>(boost::any_cast<string>(m["LinkType"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
