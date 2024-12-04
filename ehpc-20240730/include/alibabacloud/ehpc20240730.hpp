@@ -2214,6 +2214,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<NodeTemplate> computeNode{};
   shared_ptr<long> count{};
+  shared_ptr<string> deploymentSetId{};
   shared_ptr<string> HPCInterConnect{};
   shared_ptr<string> hostnamePrefix{};
   shared_ptr<string> hostnameSuffix{};
@@ -2240,6 +2241,9 @@ public:
     }
     if (count) {
       res["Count"] = boost::any(*count);
+    }
+    if (deploymentSetId) {
+      res["DeploymentSetId"] = boost::any(*deploymentSetId);
     }
     if (HPCInterConnect) {
       res["HPCInterConnect"] = boost::any(*HPCInterConnect);
@@ -2279,6 +2283,9 @@ public:
     if (m.find("Count") != m.end() && !m["Count"].empty()) {
       count = make_shared<long>(boost::any_cast<long>(m["Count"]));
     }
+    if (m.find("DeploymentSetId") != m.end() && !m["DeploymentSetId"].empty()) {
+      deploymentSetId = make_shared<string>(boost::any_cast<string>(m["DeploymentSetId"]));
+    }
     if (m.find("HPCInterConnect") != m.end() && !m["HPCInterConnect"].empty()) {
       HPCInterConnect = make_shared<string>(boost::any_cast<string>(m["HPCInterConnect"]));
     }
@@ -2310,6 +2317,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> computeNodeShrink{};
   shared_ptr<long> count{};
+  shared_ptr<string> deploymentSetId{};
   shared_ptr<string> HPCInterConnect{};
   shared_ptr<string> hostnamePrefix{};
   shared_ptr<string> hostnameSuffix{};
@@ -2336,6 +2344,9 @@ public:
     }
     if (count) {
       res["Count"] = boost::any(*count);
+    }
+    if (deploymentSetId) {
+      res["DeploymentSetId"] = boost::any(*deploymentSetId);
     }
     if (HPCInterConnect) {
       res["HPCInterConnect"] = boost::any(*HPCInterConnect);
@@ -2370,6 +2381,9 @@ public:
     }
     if (m.find("Count") != m.end() && !m["Count"].empty()) {
       count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("DeploymentSetId") != m.end() && !m["DeploymentSetId"].empty()) {
+      deploymentSetId = make_shared<string>(boost::any_cast<string>(m["DeploymentSetId"]));
     }
     if (m.find("HPCInterConnect") != m.end() && !m["HPCInterConnect"].empty()) {
       HPCInterConnect = make_shared<string>(boost::any_cast<string>(m["HPCInterConnect"]));
@@ -10829,6 +10843,7 @@ public:
 class ListNodesResponseBodyNodes : public Darabonba::Model {
 public:
   shared_ptr<string> addTime{};
+  shared_ptr<string> deploymentSetId{};
   shared_ptr<string> expiredTime{};
   shared_ptr<string> hostname{};
   shared_ptr<bool> htEnabled{};
@@ -10859,6 +10874,9 @@ public:
     map<string, boost::any> res;
     if (addTime) {
       res["AddTime"] = boost::any(*addTime);
+    }
+    if (deploymentSetId) {
+      res["DeploymentSetId"] = boost::any(*deploymentSetId);
     }
     if (expiredTime) {
       res["ExpiredTime"] = boost::any(*expiredTime);
@@ -10917,6 +10935,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AddTime") != m.end() && !m["AddTime"].empty()) {
       addTime = make_shared<string>(boost::any_cast<string>(m["AddTime"]));
+    }
+    if (m.find("DeploymentSetId") != m.end() && !m["DeploymentSetId"].empty()) {
+      deploymentSetId = make_shared<string>(boost::any_cast<string>(m["DeploymentSetId"]));
     }
     if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
       expiredTime = make_shared<string>(boost::any_cast<string>(m["ExpiredTime"]));

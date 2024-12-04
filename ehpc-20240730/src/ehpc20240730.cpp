@@ -243,6 +243,9 @@ CreateNodesResponse Alibabacloud_EHPC20240730::Client::createNodesWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<long>(request->count)) {
     query->insert(pair<string, long>("Count", *request->count));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deploymentSetId)) {
+    query->insert(pair<string, string>("DeploymentSetId", *request->deploymentSetId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->HPCInterConnect)) {
     query->insert(pair<string, string>("HPCInterConnect", *request->HPCInterConnect));
   }
