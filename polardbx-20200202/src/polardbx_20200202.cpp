@@ -445,8 +445,13 @@ CreateDBResponse Alibabacloud_Polardbx20200202::Client::createDB(shared_ptr<Crea
   return createDBWithOptions(request, runtime);
 }
 
-CreateDBInstanceResponse Alibabacloud_Polardbx20200202::Client::createDBInstanceWithOptions(shared_ptr<CreateDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateDBInstanceResponse Alibabacloud_Polardbx20200202::Client::createDBInstanceWithOptions(shared_ptr<CreateDBInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDBInstanceShrinkRequest> request = make_shared<CreateDBInstanceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->extraParams)) {
+    request->extraParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->extraParams, make_shared<string>("ExtraParams"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
     query->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
@@ -477,6 +482,9 @@ CreateDBInstanceResponse Alibabacloud_Polardbx20200202::Client::createDBInstance
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->engineVersion)) {
     query->insert(pair<string, string>("EngineVersion", *request->engineVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extraParamsShrink)) {
+    query->insert(pair<string, string>("ExtraParams", *request->extraParamsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isColumnarReadDBInstance)) {
     query->insert(pair<string, bool>("IsColumnarReadDBInstance", *request->isColumnarReadDBInstance));
@@ -1222,6 +1230,9 @@ DescribeDBInstanceTopologyResponse Alibabacloud_Polardbx20200202::Client::descri
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->minuteSimple)) {
+    query->insert(pair<string, bool>("MinuteSimple", *request->minuteSimple));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -1284,6 +1295,9 @@ DescribeDBInstanceViaEndpointResponse Alibabacloud_Polardbx20200202::Client::des
 DescribeDBInstancesResponse Alibabacloud_Polardbx20200202::Client::describeDBInstancesWithOptions(shared_ptr<DescribeDBInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbVersion)) {
+    query->insert(pair<string, string>("DbVersion", *request->dbVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -1472,11 +1486,48 @@ DescribeEventsResponse Alibabacloud_Polardbx20200202::Client::describeEvents(sha
   return describeEventsWithOptions(request, runtime);
 }
 
+DescribeOpenBackupSetResponse Alibabacloud_Polardbx20200202::Client::describeOpenBackupSetWithOptions(shared_ptr<DescribeOpenBackupSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceName)) {
+    query->insert(pair<string, string>("DBInstanceName", *request->DBInstanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->restoreTime)) {
+    query->insert(pair<string, string>("RestoreTime", *request->restoreTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeOpenBackupSet"))},
+    {"version", boost::any(string("2020-02-02"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeOpenBackupSetResponse(callApi(params, req, runtime));
+}
+
+DescribeOpenBackupSetResponse Alibabacloud_Polardbx20200202::Client::describeOpenBackupSet(shared_ptr<DescribeOpenBackupSetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeOpenBackupSetWithOptions(request, runtime);
+}
+
 DescribeParameterTemplatesResponse Alibabacloud_Polardbx20200202::Client::describeParameterTemplatesWithOptions(shared_ptr<DescribeParameterTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engineVersion)) {
+    query->insert(pair<string, string>("EngineVersion", *request->engineVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->paramLevel)) {
     query->insert(pair<string, string>("ParamLevel", *request->paramLevel));
@@ -2241,6 +2292,9 @@ ModifyParameterResponse Alibabacloud_Polardbx20200202::Client::modifyParameterWi
   if (!Darabonba_Util::Client::isUnset<string>(request->paramLevel)) {
     query->insert(pair<string, string>("ParamLevel", *request->paramLevel));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parameterGroupId)) {
+    query->insert(pair<string, string>("ParameterGroupId", *request->parameterGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->parameters)) {
     query->insert(pair<string, string>("Parameters", *request->parameters));
   }
@@ -2349,20 +2403,8 @@ ReleaseInstancePublicConnectionResponse Alibabacloud_Polardbx20200202::Client::r
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceName)) {
     query->insert(pair<string, string>("DBInstanceName", *request->DBInstanceName));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
-    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
-    query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
-    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
-    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
