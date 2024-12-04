@@ -11201,6 +11201,7 @@ public:
   shared_ptr<string> rid{};
   shared_ptr<long> schemeId{};
   shared_ptr<long> schemeVersion{};
+  shared_ptr<long> score{};
   shared_ptr<string> type{};
 
   GetResultResponseBodyDataResultInfoHitResultHitResult() {}
@@ -11233,6 +11234,9 @@ public:
     }
     if (schemeVersion) {
       res["SchemeVersion"] = boost::any(*schemeVersion);
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -11269,6 +11273,9 @@ public:
     }
     if (m.find("SchemeVersion") != m.end() && !m["SchemeVersion"].empty()) {
       schemeVersion = make_shared<long>(boost::any_cast<long>(m["SchemeVersion"]));
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<long>(boost::any_cast<long>(m["Score"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -12090,6 +12097,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskName{};
+  shared_ptr<string> vid{};
 
   GetResultResponseBodyDataResultInfo() {}
 
@@ -12178,6 +12186,9 @@ public:
     }
     if (taskName) {
       res["TaskName"] = boost::any(*taskName);
+    }
+    if (vid) {
+      res["Vid"] = boost::any(*vid);
     }
     return res;
   }
@@ -12296,6 +12307,9 @@ public:
     }
     if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
       taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
+    }
+    if (m.find("Vid") != m.end() && !m["Vid"].empty()) {
+      vid = make_shared<string>(boost::any_cast<string>(m["Vid"]));
     }
   }
 
@@ -12526,6 +12540,7 @@ class GetResultToReviewResponseBodyDataDialoguesDialogue : public Darabonba::Mod
 public:
   shared_ptr<long> begin{};
   shared_ptr<string> beginTime{};
+  shared_ptr<long> beginTimeMs{};
   shared_ptr<long> emotionValue{};
   shared_ptr<long> end{};
   shared_ptr<string> hourMinSec{};
@@ -12550,6 +12565,9 @@ public:
     }
     if (beginTime) {
       res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (beginTimeMs) {
+      res["BeginTimeMs"] = boost::any(*beginTimeMs);
     }
     if (emotionValue) {
       res["EmotionValue"] = boost::any(*emotionValue);
@@ -12584,6 +12602,9 @@ public:
     }
     if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
       beginTime = make_shared<string>(boost::any_cast<string>(m["BeginTime"]));
+    }
+    if (m.find("BeginTimeMs") != m.end() && !m["BeginTimeMs"].empty()) {
+      beginTimeMs = make_shared<long>(boost::any_cast<long>(m["BeginTimeMs"]));
     }
     if (m.find("EmotionValue") != m.end() && !m["EmotionValue"].empty()) {
       emotionValue = make_shared<long>(boost::any_cast<long>(m["EmotionValue"]));
