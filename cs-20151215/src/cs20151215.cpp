@@ -444,6 +444,9 @@ CreateAutoscalingConfigResponse Alibabacloud_CS20151215::Client::createAutoscali
   if (!Darabonba_Util::Client::isUnset<bool>(request->scaleUpFromZero)) {
     body->insert(pair<string, bool>("scale_up_from_zero", *request->scaleUpFromZero));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scalerType)) {
+    body->insert(pair<string, string>("scaler_type", *request->scalerType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->scanInterval)) {
     body->insert(pair<string, string>("scan_interval", *request->scanInterval));
   }
@@ -472,7 +475,7 @@ CreateAutoscalingConfigResponse Alibabacloud_CS20151215::Client::createAutoscali
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
+    {"bodyType", boost::any(string("json"))}
   }));
   return CreateAutoscalingConfigResponse(callApi(params, req, runtime));
 }
@@ -521,6 +524,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->containerCidr)) {
     body->insert(pair<string, string>("container_cidr", *request->containerCidr));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateClusterRequestControlPlaneConfig>(request->controlPlaneConfig)) {
+    body->insert(pair<string, CreateClusterRequestControlPlaneConfig>("control_plane_config", *request->controlPlaneConfig));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->controlplaneLogComponents)) {
     body->insert(pair<string, vector<string>>("controlplane_log_components", *request->controlplaneLogComponents));
@@ -3604,6 +3610,9 @@ ModifyClusterResponse Alibabacloud_CS20151215::Client::modifyClusterWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterName)) {
     body->insert(pair<string, string>("cluster_name", *request->clusterName));
+  }
+  if (!Darabonba_Util::Client::isUnset<ModifyClusterRequestControlPlaneConfig>(request->controlPlaneConfig)) {
+    body->insert(pair<string, ModifyClusterRequestControlPlaneConfig>("control_plane_config", *request->controlPlaneConfig));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->deletionProtection)) {
     body->insert(pair<string, bool>("deletion_protection", *request->deletionProtection));

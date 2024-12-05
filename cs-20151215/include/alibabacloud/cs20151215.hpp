@@ -3159,6 +3159,7 @@ public:
   shared_ptr<bool> recycleNodeDeletionEnabled{};
   shared_ptr<bool> scaleDownEnabled{};
   shared_ptr<bool> scaleUpFromZero{};
+  shared_ptr<string> scalerType{};
   shared_ptr<string> scanInterval{};
   shared_ptr<bool> skipNodesWithLocalStorage{};
   shared_ptr<bool> skipNodesWithSystemPods{};
@@ -3201,6 +3202,9 @@ public:
     }
     if (scaleUpFromZero) {
       res["scale_up_from_zero"] = boost::any(*scaleUpFromZero);
+    }
+    if (scalerType) {
+      res["scaler_type"] = boost::any(*scalerType);
     }
     if (scanInterval) {
       res["scan_interval"] = boost::any(*scanInterval);
@@ -3248,6 +3252,9 @@ public:
     if (m.find("scale_up_from_zero") != m.end() && !m["scale_up_from_zero"].empty()) {
       scaleUpFromZero = make_shared<bool>(boost::any_cast<bool>(m["scale_up_from_zero"]));
     }
+    if (m.find("scaler_type") != m.end() && !m["scaler_type"].empty()) {
+      scalerType = make_shared<string>(boost::any_cast<string>(m["scaler_type"]));
+    }
     if (m.find("scan_interval") != m.end() && !m["scan_interval"].empty()) {
       scanInterval = make_shared<string>(boost::any_cast<string>(m["scan_interval"]));
     }
@@ -3268,10 +3275,54 @@ public:
 
   virtual ~CreateAutoscalingConfigRequest() = default;
 };
+class CreateAutoscalingConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  CreateAutoscalingConfigResponseBody() {}
+
+  explicit CreateAutoscalingConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["cluster_id"] = boost::any(*clusterId);
+    }
+    if (requestId) {
+      res["request_id"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["task_id"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cluster_id") != m.end() && !m["cluster_id"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["cluster_id"]));
+    }
+    if (m.find("request_id") != m.end() && !m["request_id"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["request_id"]));
+    }
+    if (m.find("task_id") != m.end() && !m["task_id"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["task_id"]));
+    }
+  }
+
+
+  virtual ~CreateAutoscalingConfigResponseBody() = default;
+};
 class CreateAutoscalingConfigResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
   shared_ptr<long> statusCode{};
+  shared_ptr<CreateAutoscalingConfigResponseBody> body{};
 
   CreateAutoscalingConfigResponse() {}
 
@@ -3289,6 +3340,9 @@ public:
     if (statusCode) {
       res["statusCode"] = boost::any(*statusCode);
     }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -3304,10 +3358,214 @@ public:
     if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
       statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
     }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateAutoscalingConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAutoscalingConfigResponseBody>(model1);
+      }
+    }
   }
 
 
   virtual ~CreateAutoscalingConfigResponse() = default;
+};
+class CreateClusterRequestControlPlaneConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<long> autoRenewPeriod{};
+  shared_ptr<string> chargeType{};
+  shared_ptr<bool> cloudMonitorFlags{};
+  shared_ptr<string> cpuPolicy{};
+  shared_ptr<string> deploymentsetId{};
+  shared_ptr<string> imageId{};
+  shared_ptr<string> imageType{};
+  shared_ptr<vector<string>> instanceTypes{};
+  shared_ptr<string> keyPair{};
+  shared_ptr<string> loginPassword{};
+  shared_ptr<string> nodePortRange{};
+  shared_ptr<long> period{};
+  shared_ptr<string> periodUnit{};
+  shared_ptr<string> runtime{};
+  shared_ptr<bool> securityHardeningOs{};
+  shared_ptr<long> size{};
+  shared_ptr<bool> socEnabled{};
+  shared_ptr<bool> systemDiskBurstingEnabled{};
+  shared_ptr<string> systemDiskCategory{};
+  shared_ptr<string> systemDiskPerformanceLevel{};
+  shared_ptr<long> systemDiskProvisionedIops{};
+  shared_ptr<long> systemDiskSize{};
+  shared_ptr<string> systemDiskSnapshotPolicyId{};
+
+  CreateClusterRequestControlPlaneConfig() {}
+
+  explicit CreateClusterRequestControlPlaneConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoRenew) {
+      res["auto_renew"] = boost::any(*autoRenew);
+    }
+    if (autoRenewPeriod) {
+      res["auto_renew_period"] = boost::any(*autoRenewPeriod);
+    }
+    if (chargeType) {
+      res["charge_type"] = boost::any(*chargeType);
+    }
+    if (cloudMonitorFlags) {
+      res["cloud_monitor_flags"] = boost::any(*cloudMonitorFlags);
+    }
+    if (cpuPolicy) {
+      res["cpu_policy"] = boost::any(*cpuPolicy);
+    }
+    if (deploymentsetId) {
+      res["deploymentset_id"] = boost::any(*deploymentsetId);
+    }
+    if (imageId) {
+      res["image_id"] = boost::any(*imageId);
+    }
+    if (imageType) {
+      res["image_type"] = boost::any(*imageType);
+    }
+    if (instanceTypes) {
+      res["instance_types"] = boost::any(*instanceTypes);
+    }
+    if (keyPair) {
+      res["key_pair"] = boost::any(*keyPair);
+    }
+    if (loginPassword) {
+      res["login_password"] = boost::any(*loginPassword);
+    }
+    if (nodePortRange) {
+      res["node_port_range"] = boost::any(*nodePortRange);
+    }
+    if (period) {
+      res["period"] = boost::any(*period);
+    }
+    if (periodUnit) {
+      res["period_unit"] = boost::any(*periodUnit);
+    }
+    if (runtime) {
+      res["runtime"] = boost::any(*runtime);
+    }
+    if (securityHardeningOs) {
+      res["security_hardening_os"] = boost::any(*securityHardeningOs);
+    }
+    if (size) {
+      res["size"] = boost::any(*size);
+    }
+    if (socEnabled) {
+      res["soc_enabled"] = boost::any(*socEnabled);
+    }
+    if (systemDiskBurstingEnabled) {
+      res["system_disk_bursting_enabled"] = boost::any(*systemDiskBurstingEnabled);
+    }
+    if (systemDiskCategory) {
+      res["system_disk_category"] = boost::any(*systemDiskCategory);
+    }
+    if (systemDiskPerformanceLevel) {
+      res["system_disk_performance_level"] = boost::any(*systemDiskPerformanceLevel);
+    }
+    if (systemDiskProvisionedIops) {
+      res["system_disk_provisioned_iops"] = boost::any(*systemDiskProvisionedIops);
+    }
+    if (systemDiskSize) {
+      res["system_disk_size"] = boost::any(*systemDiskSize);
+    }
+    if (systemDiskSnapshotPolicyId) {
+      res["system_disk_snapshot_policy_id"] = boost::any(*systemDiskSnapshotPolicyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("auto_renew") != m.end() && !m["auto_renew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["auto_renew"]));
+    }
+    if (m.find("auto_renew_period") != m.end() && !m["auto_renew_period"].empty()) {
+      autoRenewPeriod = make_shared<long>(boost::any_cast<long>(m["auto_renew_period"]));
+    }
+    if (m.find("charge_type") != m.end() && !m["charge_type"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["charge_type"]));
+    }
+    if (m.find("cloud_monitor_flags") != m.end() && !m["cloud_monitor_flags"].empty()) {
+      cloudMonitorFlags = make_shared<bool>(boost::any_cast<bool>(m["cloud_monitor_flags"]));
+    }
+    if (m.find("cpu_policy") != m.end() && !m["cpu_policy"].empty()) {
+      cpuPolicy = make_shared<string>(boost::any_cast<string>(m["cpu_policy"]));
+    }
+    if (m.find("deploymentset_id") != m.end() && !m["deploymentset_id"].empty()) {
+      deploymentsetId = make_shared<string>(boost::any_cast<string>(m["deploymentset_id"]));
+    }
+    if (m.find("image_id") != m.end() && !m["image_id"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["image_id"]));
+    }
+    if (m.find("image_type") != m.end() && !m["image_type"].empty()) {
+      imageType = make_shared<string>(boost::any_cast<string>(m["image_type"]));
+    }
+    if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["instance_types"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["instance_types"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("key_pair") != m.end() && !m["key_pair"].empty()) {
+      keyPair = make_shared<string>(boost::any_cast<string>(m["key_pair"]));
+    }
+    if (m.find("login_password") != m.end() && !m["login_password"].empty()) {
+      loginPassword = make_shared<string>(boost::any_cast<string>(m["login_password"]));
+    }
+    if (m.find("node_port_range") != m.end() && !m["node_port_range"].empty()) {
+      nodePortRange = make_shared<string>(boost::any_cast<string>(m["node_port_range"]));
+    }
+    if (m.find("period") != m.end() && !m["period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["period"]));
+    }
+    if (m.find("period_unit") != m.end() && !m["period_unit"].empty()) {
+      periodUnit = make_shared<string>(boost::any_cast<string>(m["period_unit"]));
+    }
+    if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
+      runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
+    }
+    if (m.find("security_hardening_os") != m.end() && !m["security_hardening_os"].empty()) {
+      securityHardeningOs = make_shared<bool>(boost::any_cast<bool>(m["security_hardening_os"]));
+    }
+    if (m.find("size") != m.end() && !m["size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["size"]));
+    }
+    if (m.find("soc_enabled") != m.end() && !m["soc_enabled"].empty()) {
+      socEnabled = make_shared<bool>(boost::any_cast<bool>(m["soc_enabled"]));
+    }
+    if (m.find("system_disk_bursting_enabled") != m.end() && !m["system_disk_bursting_enabled"].empty()) {
+      systemDiskBurstingEnabled = make_shared<bool>(boost::any_cast<bool>(m["system_disk_bursting_enabled"]));
+    }
+    if (m.find("system_disk_category") != m.end() && !m["system_disk_category"].empty()) {
+      systemDiskCategory = make_shared<string>(boost::any_cast<string>(m["system_disk_category"]));
+    }
+    if (m.find("system_disk_performance_level") != m.end() && !m["system_disk_performance_level"].empty()) {
+      systemDiskPerformanceLevel = make_shared<string>(boost::any_cast<string>(m["system_disk_performance_level"]));
+    }
+    if (m.find("system_disk_provisioned_iops") != m.end() && !m["system_disk_provisioned_iops"].empty()) {
+      systemDiskProvisionedIops = make_shared<long>(boost::any_cast<long>(m["system_disk_provisioned_iops"]));
+    }
+    if (m.find("system_disk_size") != m.end() && !m["system_disk_size"].empty()) {
+      systemDiskSize = make_shared<long>(boost::any_cast<long>(m["system_disk_size"]));
+    }
+    if (m.find("system_disk_snapshot_policy_id") != m.end() && !m["system_disk_snapshot_policy_id"].empty()) {
+      systemDiskSnapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["system_disk_snapshot_policy_id"]));
+    }
+  }
+
+
+  virtual ~CreateClusterRequestControlPlaneConfig() = default;
 };
 class CreateClusterRequestOperationPolicyClusterAutoUpgrade : public Darabonba::Model {
 public:
@@ -3442,6 +3700,7 @@ public:
   shared_ptr<string> clusterSpec{};
   shared_ptr<string> clusterType{};
   shared_ptr<string> containerCidr{};
+  shared_ptr<CreateClusterRequestControlPlaneConfig> controlPlaneConfig{};
   shared_ptr<vector<string>> controlplaneLogComponents{};
   shared_ptr<string> controlplaneLogProject{};
   shared_ptr<string> controlplaneLogTtl{};
@@ -3577,6 +3836,9 @@ public:
     }
     if (containerCidr) {
       res["container_cidr"] = boost::any(*containerCidr);
+    }
+    if (controlPlaneConfig) {
+      res["control_plane_config"] = controlPlaneConfig ? boost::any(controlPlaneConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (controlplaneLogComponents) {
       res["controlplane_log_components"] = boost::any(*controlplaneLogComponents);
@@ -3905,6 +4167,13 @@ public:
     }
     if (m.find("container_cidr") != m.end() && !m["container_cidr"].empty()) {
       containerCidr = make_shared<string>(boost::any_cast<string>(m["container_cidr"]));
+    }
+    if (m.find("control_plane_config") != m.end() && !m["control_plane_config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["control_plane_config"].type()) {
+        CreateClusterRequestControlPlaneConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["control_plane_config"]));
+        controlPlaneConfig = make_shared<CreateClusterRequestControlPlaneConfig>(model1);
+      }
     }
     if (m.find("controlplane_log_components") != m.end() && !m["controlplane_log_components"].empty()) {
       vector<string> toVec1;
@@ -8945,6 +9214,196 @@ public:
 
   virtual ~DescribeClusterAttachScriptsResponse() = default;
 };
+class DescribeClusterDetailResponseBodyControlPlaneConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<long> autoRenewPeriod{};
+  shared_ptr<string> chargeType{};
+  shared_ptr<bool> cloudMonitorFlags{};
+  shared_ptr<string> cpuPolicy{};
+  shared_ptr<string> deploymentsetId{};
+  shared_ptr<string> imageId{};
+  shared_ptr<string> imageType{};
+  shared_ptr<vector<string>> instanceTypes{};
+  shared_ptr<string> keyPair{};
+  shared_ptr<string> nodePortRange{};
+  shared_ptr<long> period{};
+  shared_ptr<string> periodUnit{};
+  shared_ptr<string> runtime{};
+  shared_ptr<bool> securityHardeningOs{};
+  shared_ptr<long> size{};
+  shared_ptr<bool> socEnabled{};
+  shared_ptr<bool> systemDiskBurstingEnabled{};
+  shared_ptr<string> systemDiskCategory{};
+  shared_ptr<string> systemDiskPerformanceLevel{};
+  shared_ptr<long> systemDiskProvisionedIops{};
+  shared_ptr<long> systemDiskSize{};
+  shared_ptr<string> systemDiskSnapshotPolicyId{};
+
+  DescribeClusterDetailResponseBodyControlPlaneConfig() {}
+
+  explicit DescribeClusterDetailResponseBodyControlPlaneConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoRenew) {
+      res["auto_renew"] = boost::any(*autoRenew);
+    }
+    if (autoRenewPeriod) {
+      res["auto_renew_period"] = boost::any(*autoRenewPeriod);
+    }
+    if (chargeType) {
+      res["charge_type"] = boost::any(*chargeType);
+    }
+    if (cloudMonitorFlags) {
+      res["cloud_monitor_flags"] = boost::any(*cloudMonitorFlags);
+    }
+    if (cpuPolicy) {
+      res["cpu_policy"] = boost::any(*cpuPolicy);
+    }
+    if (deploymentsetId) {
+      res["deploymentset_id"] = boost::any(*deploymentsetId);
+    }
+    if (imageId) {
+      res["image_id"] = boost::any(*imageId);
+    }
+    if (imageType) {
+      res["image_type"] = boost::any(*imageType);
+    }
+    if (instanceTypes) {
+      res["instance_types"] = boost::any(*instanceTypes);
+    }
+    if (keyPair) {
+      res["key_pair"] = boost::any(*keyPair);
+    }
+    if (nodePortRange) {
+      res["node_port_range"] = boost::any(*nodePortRange);
+    }
+    if (period) {
+      res["period"] = boost::any(*period);
+    }
+    if (periodUnit) {
+      res["period_unit"] = boost::any(*periodUnit);
+    }
+    if (runtime) {
+      res["runtime"] = boost::any(*runtime);
+    }
+    if (securityHardeningOs) {
+      res["security_hardening_os"] = boost::any(*securityHardeningOs);
+    }
+    if (size) {
+      res["size"] = boost::any(*size);
+    }
+    if (socEnabled) {
+      res["soc_enabled"] = boost::any(*socEnabled);
+    }
+    if (systemDiskBurstingEnabled) {
+      res["system_disk_bursting_enabled"] = boost::any(*systemDiskBurstingEnabled);
+    }
+    if (systemDiskCategory) {
+      res["system_disk_category"] = boost::any(*systemDiskCategory);
+    }
+    if (systemDiskPerformanceLevel) {
+      res["system_disk_performance_level"] = boost::any(*systemDiskPerformanceLevel);
+    }
+    if (systemDiskProvisionedIops) {
+      res["system_disk_provisioned_iops"] = boost::any(*systemDiskProvisionedIops);
+    }
+    if (systemDiskSize) {
+      res["system_disk_size"] = boost::any(*systemDiskSize);
+    }
+    if (systemDiskSnapshotPolicyId) {
+      res["system_disk_snapshot_policy_id"] = boost::any(*systemDiskSnapshotPolicyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("auto_renew") != m.end() && !m["auto_renew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["auto_renew"]));
+    }
+    if (m.find("auto_renew_period") != m.end() && !m["auto_renew_period"].empty()) {
+      autoRenewPeriod = make_shared<long>(boost::any_cast<long>(m["auto_renew_period"]));
+    }
+    if (m.find("charge_type") != m.end() && !m["charge_type"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["charge_type"]));
+    }
+    if (m.find("cloud_monitor_flags") != m.end() && !m["cloud_monitor_flags"].empty()) {
+      cloudMonitorFlags = make_shared<bool>(boost::any_cast<bool>(m["cloud_monitor_flags"]));
+    }
+    if (m.find("cpu_policy") != m.end() && !m["cpu_policy"].empty()) {
+      cpuPolicy = make_shared<string>(boost::any_cast<string>(m["cpu_policy"]));
+    }
+    if (m.find("deploymentset_id") != m.end() && !m["deploymentset_id"].empty()) {
+      deploymentsetId = make_shared<string>(boost::any_cast<string>(m["deploymentset_id"]));
+    }
+    if (m.find("image_id") != m.end() && !m["image_id"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["image_id"]));
+    }
+    if (m.find("image_type") != m.end() && !m["image_type"].empty()) {
+      imageType = make_shared<string>(boost::any_cast<string>(m["image_type"]));
+    }
+    if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["instance_types"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["instance_types"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("key_pair") != m.end() && !m["key_pair"].empty()) {
+      keyPair = make_shared<string>(boost::any_cast<string>(m["key_pair"]));
+    }
+    if (m.find("node_port_range") != m.end() && !m["node_port_range"].empty()) {
+      nodePortRange = make_shared<string>(boost::any_cast<string>(m["node_port_range"]));
+    }
+    if (m.find("period") != m.end() && !m["period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["period"]));
+    }
+    if (m.find("period_unit") != m.end() && !m["period_unit"].empty()) {
+      periodUnit = make_shared<string>(boost::any_cast<string>(m["period_unit"]));
+    }
+    if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
+      runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
+    }
+    if (m.find("security_hardening_os") != m.end() && !m["security_hardening_os"].empty()) {
+      securityHardeningOs = make_shared<bool>(boost::any_cast<bool>(m["security_hardening_os"]));
+    }
+    if (m.find("size") != m.end() && !m["size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["size"]));
+    }
+    if (m.find("soc_enabled") != m.end() && !m["soc_enabled"].empty()) {
+      socEnabled = make_shared<bool>(boost::any_cast<bool>(m["soc_enabled"]));
+    }
+    if (m.find("system_disk_bursting_enabled") != m.end() && !m["system_disk_bursting_enabled"].empty()) {
+      systemDiskBurstingEnabled = make_shared<bool>(boost::any_cast<bool>(m["system_disk_bursting_enabled"]));
+    }
+    if (m.find("system_disk_category") != m.end() && !m["system_disk_category"].empty()) {
+      systemDiskCategory = make_shared<string>(boost::any_cast<string>(m["system_disk_category"]));
+    }
+    if (m.find("system_disk_performance_level") != m.end() && !m["system_disk_performance_level"].empty()) {
+      systemDiskPerformanceLevel = make_shared<string>(boost::any_cast<string>(m["system_disk_performance_level"]));
+    }
+    if (m.find("system_disk_provisioned_iops") != m.end() && !m["system_disk_provisioned_iops"].empty()) {
+      systemDiskProvisionedIops = make_shared<long>(boost::any_cast<long>(m["system_disk_provisioned_iops"]));
+    }
+    if (m.find("system_disk_size") != m.end() && !m["system_disk_size"].empty()) {
+      systemDiskSize = make_shared<long>(boost::any_cast<long>(m["system_disk_size"]));
+    }
+    if (m.find("system_disk_snapshot_policy_id") != m.end() && !m["system_disk_snapshot_policy_id"].empty()) {
+      systemDiskSnapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["system_disk_snapshot_policy_id"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterDetailResponseBodyControlPlaneConfig() = default;
+};
 class DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade : public Darabonba::Model {
 public:
   shared_ptr<string> channel{};
@@ -9021,6 +9480,7 @@ public:
   shared_ptr<string> clusterSpec{};
   shared_ptr<string> clusterType{};
   shared_ptr<string> containerCidr{};
+  shared_ptr<DescribeClusterDetailResponseBodyControlPlaneConfig> controlPlaneConfig{};
   shared_ptr<string> created{};
   shared_ptr<string> currentVersion{};
   shared_ptr<bool> deletionProtection{};
@@ -9080,6 +9540,9 @@ public:
     }
     if (containerCidr) {
       res["container_cidr"] = boost::any(*containerCidr);
+    }
+    if (controlPlaneConfig) {
+      res["control_plane_config"] = controlPlaneConfig ? boost::any(controlPlaneConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (created) {
       res["created"] = boost::any(*created);
@@ -9205,6 +9668,13 @@ public:
     }
     if (m.find("container_cidr") != m.end() && !m["container_cidr"].empty()) {
       containerCidr = make_shared<string>(boost::any_cast<string>(m["container_cidr"]));
+    }
+    if (m.find("control_plane_config") != m.end() && !m["control_plane_config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["control_plane_config"].type()) {
+        DescribeClusterDetailResponseBodyControlPlaneConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["control_plane_config"]));
+        controlPlaneConfig = make_shared<DescribeClusterDetailResponseBodyControlPlaneConfig>(model1);
+      }
     }
     if (m.find("created") != m.end() && !m["created"].empty()) {
       created = make_shared<string>(boost::any_cast<string>(m["created"]));
@@ -23943,6 +24413,203 @@ public:
 
   virtual ~ModifyClusterRequestApiServerCustomCertSans() = default;
 };
+class ModifyClusterRequestControlPlaneConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<long> autoRenewPeriod{};
+  shared_ptr<string> chargeType{};
+  shared_ptr<bool> cloudMonitorFlags{};
+  shared_ptr<string> cpuPolicy{};
+  shared_ptr<string> deploymentsetId{};
+  shared_ptr<string> imageId{};
+  shared_ptr<string> imageType{};
+  shared_ptr<vector<string>> instanceTypes{};
+  shared_ptr<string> keyPair{};
+  shared_ptr<string> loginPassword{};
+  shared_ptr<string> nodePortRange{};
+  shared_ptr<long> period{};
+  shared_ptr<string> periodUnit{};
+  shared_ptr<string> runtime{};
+  shared_ptr<bool> securityHardeningOs{};
+  shared_ptr<long> size{};
+  shared_ptr<bool> socEnabled{};
+  shared_ptr<bool> systemDiskBurstingEnabled{};
+  shared_ptr<string> systemDiskCategory{};
+  shared_ptr<string> systemDiskPerformanceLevel{};
+  shared_ptr<long> systemDiskProvisionedIops{};
+  shared_ptr<long> systemDiskSize{};
+  shared_ptr<string> systemDiskSnapshotPolicyId{};
+
+  ModifyClusterRequestControlPlaneConfig() {}
+
+  explicit ModifyClusterRequestControlPlaneConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoRenew) {
+      res["auto_renew"] = boost::any(*autoRenew);
+    }
+    if (autoRenewPeriod) {
+      res["auto_renew_period"] = boost::any(*autoRenewPeriod);
+    }
+    if (chargeType) {
+      res["charge_type"] = boost::any(*chargeType);
+    }
+    if (cloudMonitorFlags) {
+      res["cloud_monitor_flags"] = boost::any(*cloudMonitorFlags);
+    }
+    if (cpuPolicy) {
+      res["cpu_policy"] = boost::any(*cpuPolicy);
+    }
+    if (deploymentsetId) {
+      res["deploymentset_id"] = boost::any(*deploymentsetId);
+    }
+    if (imageId) {
+      res["image_id"] = boost::any(*imageId);
+    }
+    if (imageType) {
+      res["image_type"] = boost::any(*imageType);
+    }
+    if (instanceTypes) {
+      res["instance_types"] = boost::any(*instanceTypes);
+    }
+    if (keyPair) {
+      res["key_pair"] = boost::any(*keyPair);
+    }
+    if (loginPassword) {
+      res["login_password"] = boost::any(*loginPassword);
+    }
+    if (nodePortRange) {
+      res["node_port_range"] = boost::any(*nodePortRange);
+    }
+    if (period) {
+      res["period"] = boost::any(*period);
+    }
+    if (periodUnit) {
+      res["period_unit"] = boost::any(*periodUnit);
+    }
+    if (runtime) {
+      res["runtime"] = boost::any(*runtime);
+    }
+    if (securityHardeningOs) {
+      res["security_hardening_os"] = boost::any(*securityHardeningOs);
+    }
+    if (size) {
+      res["size"] = boost::any(*size);
+    }
+    if (socEnabled) {
+      res["soc_enabled"] = boost::any(*socEnabled);
+    }
+    if (systemDiskBurstingEnabled) {
+      res["system_disk_bursting_enabled"] = boost::any(*systemDiskBurstingEnabled);
+    }
+    if (systemDiskCategory) {
+      res["system_disk_category"] = boost::any(*systemDiskCategory);
+    }
+    if (systemDiskPerformanceLevel) {
+      res["system_disk_performance_level"] = boost::any(*systemDiskPerformanceLevel);
+    }
+    if (systemDiskProvisionedIops) {
+      res["system_disk_provisioned_iops"] = boost::any(*systemDiskProvisionedIops);
+    }
+    if (systemDiskSize) {
+      res["system_disk_size"] = boost::any(*systemDiskSize);
+    }
+    if (systemDiskSnapshotPolicyId) {
+      res["system_disk_snapshot_policy_id"] = boost::any(*systemDiskSnapshotPolicyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("auto_renew") != m.end() && !m["auto_renew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["auto_renew"]));
+    }
+    if (m.find("auto_renew_period") != m.end() && !m["auto_renew_period"].empty()) {
+      autoRenewPeriod = make_shared<long>(boost::any_cast<long>(m["auto_renew_period"]));
+    }
+    if (m.find("charge_type") != m.end() && !m["charge_type"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["charge_type"]));
+    }
+    if (m.find("cloud_monitor_flags") != m.end() && !m["cloud_monitor_flags"].empty()) {
+      cloudMonitorFlags = make_shared<bool>(boost::any_cast<bool>(m["cloud_monitor_flags"]));
+    }
+    if (m.find("cpu_policy") != m.end() && !m["cpu_policy"].empty()) {
+      cpuPolicy = make_shared<string>(boost::any_cast<string>(m["cpu_policy"]));
+    }
+    if (m.find("deploymentset_id") != m.end() && !m["deploymentset_id"].empty()) {
+      deploymentsetId = make_shared<string>(boost::any_cast<string>(m["deploymentset_id"]));
+    }
+    if (m.find("image_id") != m.end() && !m["image_id"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["image_id"]));
+    }
+    if (m.find("image_type") != m.end() && !m["image_type"].empty()) {
+      imageType = make_shared<string>(boost::any_cast<string>(m["image_type"]));
+    }
+    if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["instance_types"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["instance_types"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("key_pair") != m.end() && !m["key_pair"].empty()) {
+      keyPair = make_shared<string>(boost::any_cast<string>(m["key_pair"]));
+    }
+    if (m.find("login_password") != m.end() && !m["login_password"].empty()) {
+      loginPassword = make_shared<string>(boost::any_cast<string>(m["login_password"]));
+    }
+    if (m.find("node_port_range") != m.end() && !m["node_port_range"].empty()) {
+      nodePortRange = make_shared<string>(boost::any_cast<string>(m["node_port_range"]));
+    }
+    if (m.find("period") != m.end() && !m["period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["period"]));
+    }
+    if (m.find("period_unit") != m.end() && !m["period_unit"].empty()) {
+      periodUnit = make_shared<string>(boost::any_cast<string>(m["period_unit"]));
+    }
+    if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
+      runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
+    }
+    if (m.find("security_hardening_os") != m.end() && !m["security_hardening_os"].empty()) {
+      securityHardeningOs = make_shared<bool>(boost::any_cast<bool>(m["security_hardening_os"]));
+    }
+    if (m.find("size") != m.end() && !m["size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["size"]));
+    }
+    if (m.find("soc_enabled") != m.end() && !m["soc_enabled"].empty()) {
+      socEnabled = make_shared<bool>(boost::any_cast<bool>(m["soc_enabled"]));
+    }
+    if (m.find("system_disk_bursting_enabled") != m.end() && !m["system_disk_bursting_enabled"].empty()) {
+      systemDiskBurstingEnabled = make_shared<bool>(boost::any_cast<bool>(m["system_disk_bursting_enabled"]));
+    }
+    if (m.find("system_disk_category") != m.end() && !m["system_disk_category"].empty()) {
+      systemDiskCategory = make_shared<string>(boost::any_cast<string>(m["system_disk_category"]));
+    }
+    if (m.find("system_disk_performance_level") != m.end() && !m["system_disk_performance_level"].empty()) {
+      systemDiskPerformanceLevel = make_shared<string>(boost::any_cast<string>(m["system_disk_performance_level"]));
+    }
+    if (m.find("system_disk_provisioned_iops") != m.end() && !m["system_disk_provisioned_iops"].empty()) {
+      systemDiskProvisionedIops = make_shared<long>(boost::any_cast<long>(m["system_disk_provisioned_iops"]));
+    }
+    if (m.find("system_disk_size") != m.end() && !m["system_disk_size"].empty()) {
+      systemDiskSize = make_shared<long>(boost::any_cast<long>(m["system_disk_size"]));
+    }
+    if (m.find("system_disk_snapshot_policy_id") != m.end() && !m["system_disk_snapshot_policy_id"].empty()) {
+      systemDiskSnapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["system_disk_snapshot_policy_id"]));
+    }
+  }
+
+
+  virtual ~ModifyClusterRequestControlPlaneConfig() = default;
+};
 class ModifyClusterRequestOperationPolicyClusterAutoUpgrade : public Darabonba::Model {
 public:
   shared_ptr<string> channel{};
@@ -24055,6 +24722,7 @@ public:
   shared_ptr<bool> apiServerEip{};
   shared_ptr<string> apiServerEipId{};
   shared_ptr<string> clusterName{};
+  shared_ptr<ModifyClusterRequestControlPlaneConfig> controlPlaneConfig{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<bool> enableRrsa{};
   shared_ptr<bool> ingressDomainRebinding{};
@@ -24090,6 +24758,9 @@ public:
     }
     if (clusterName) {
       res["cluster_name"] = boost::any(*clusterName);
+    }
+    if (controlPlaneConfig) {
+      res["control_plane_config"] = controlPlaneConfig ? boost::any(controlPlaneConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (deletionProtection) {
       res["deletion_protection"] = boost::any(*deletionProtection);
@@ -24150,6 +24821,13 @@ public:
     }
     if (m.find("cluster_name") != m.end() && !m["cluster_name"].empty()) {
       clusterName = make_shared<string>(boost::any_cast<string>(m["cluster_name"]));
+    }
+    if (m.find("control_plane_config") != m.end() && !m["control_plane_config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["control_plane_config"].type()) {
+        ModifyClusterRequestControlPlaneConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["control_plane_config"]));
+        controlPlaneConfig = make_shared<ModifyClusterRequestControlPlaneConfig>(model1);
+      }
     }
     if (m.find("deletion_protection") != m.end() && !m["deletion_protection"].empty()) {
       deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["deletion_protection"]));
