@@ -3284,6 +3284,7 @@ public:
   shared_ptr<string> dailyOpeningHours{};
   shared_ptr<string> mainTag{};
   shared_ptr<string> phone{};
+  shared_ptr<string> score{};
   shared_ptr<string> tag{};
   shared_ptr<string> weeklyOpeningDays{};
 
@@ -3312,6 +3313,9 @@ public:
     if (phone) {
       res["phone"] = boost::any(*phone);
     }
+    if (score) {
+      res["score"] = boost::any(*score);
+    }
     if (tag) {
       res["tag"] = boost::any(*tag);
     }
@@ -3336,6 +3340,9 @@ public:
     }
     if (m.find("phone") != m.end() && !m["phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["phone"]));
+    }
+    if (m.find("score") != m.end() && !m["score"].empty()) {
+      score = make_shared<string>(boost::any_cast<string>(m["score"]));
     }
     if (m.find("tag") != m.end() && !m["tag"].empty()) {
       tag = make_shared<string>(boost::any_cast<string>(m["tag"]));
