@@ -68,6 +68,9 @@ AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyz
   if (!Darabonba_Util::Client::isUnset<AnalyzeConversationRequestServiceInspection>(request->serviceInspection)) {
     body->insert(pair<string, AnalyzeConversationRequestServiceInspection>("serviceInspection", *request->serviceInspection));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceCallerUid)) {
+    body->insert(pair<string, string>("sourceCallerUid", *request->sourceCallerUid));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
     body->insert(pair<string, bool>("stream", *request->stream));
   }
@@ -199,9 +202,17 @@ CreateTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createTask(shar
   return createTaskWithOptions(workspaceId, appId, request, headers, runtime);
 }
 
-GetTaskResultResponse Alibabacloud_ContactCenterAI20240603::Client::getTaskResultWithOptions(shared_ptr<GetTaskResultRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+GetTaskResultResponse Alibabacloud_ContactCenterAI20240603::Client::getTaskResultWithOptions(shared_ptr<GetTaskResultRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetTaskResultShrinkRequest> request = make_shared<GetTaskResultShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->requiredFieldList)) {
+    request->requiredFieldListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->requiredFieldList, make_shared<string>("requiredFieldList"), make_shared<string>("simple")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->requiredFieldListShrink)) {
+    query->insert(pair<string, string>("requiredFieldList", *request->requiredFieldListShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("taskId", *request->taskId));
   }
