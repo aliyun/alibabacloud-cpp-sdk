@@ -3365,6 +3365,8 @@ class JobStatus : public Darabonba::Model {
 public:
   shared_ptr<string> currentJobStatus{};
   shared_ptr<JobFailure> failure{};
+  shared_ptr<long> healthScore{};
+  shared_ptr<string> riskLevel{};
   shared_ptr<JobStatusRunning> running{};
 
   JobStatus() {}
@@ -3383,6 +3385,12 @@ public:
     if (failure) {
       res["failure"] = failure ? boost::any(failure->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (healthScore) {
+      res["healthScore"] = boost::any(*healthScore);
+    }
+    if (riskLevel) {
+      res["riskLevel"] = boost::any(*riskLevel);
+    }
     if (running) {
       res["running"] = running ? boost::any(running->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -3399,6 +3407,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["failure"]));
         failure = make_shared<JobFailure>(model1);
       }
+    }
+    if (m.find("healthScore") != m.end() && !m["healthScore"].empty()) {
+      healthScore = make_shared<long>(boost::any_cast<long>(m["healthScore"]));
+    }
+    if (m.find("riskLevel") != m.end() && !m["riskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["riskLevel"]));
     }
     if (m.find("running") != m.end() && !m["running"].empty()) {
       if (typeid(map<string, boost::any>) == m["running"].type()) {
