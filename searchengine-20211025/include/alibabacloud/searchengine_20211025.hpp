@@ -2303,6 +2303,7 @@ public:
   shared_ptr<string> catalog{};
   shared_ptr<string> database{};
   shared_ptr<string> endpoint{};
+  shared_ptr<string> format{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> ossPath{};
   shared_ptr<string> partition{};
@@ -2338,6 +2339,9 @@ public:
     }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
+    }
+    if (format) {
+      res["format"] = boost::any(*format);
     }
     if (namespace_) {
       res["namespace"] = boost::any(*namespace_);
@@ -2381,6 +2385,9 @@ public:
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
+    }
+    if (m.find("format") != m.end() && !m["format"].empty()) {
+      format = make_shared<string>(boost::any_cast<string>(m["format"]));
     }
     if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
@@ -8900,6 +8907,7 @@ public:
   shared_ptr<string> catalog{};
   shared_ptr<string> database{};
   shared_ptr<string> endpoint{};
+  shared_ptr<string> format{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> ossPath{};
   shared_ptr<string> partition{};
@@ -8935,6 +8943,9 @@ public:
     }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
+    }
+    if (format) {
+      res["format"] = boost::any(*format);
     }
     if (namespace_) {
       res["namespace"] = boost::any(*namespace_);
@@ -8978,6 +8989,9 @@ public:
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
+    }
+    if (m.find("format") != m.end() && !m["format"].empty()) {
+      format = make_shared<string>(boost::any_cast<string>(m["format"]));
     }
     if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
@@ -9261,6 +9275,7 @@ public:
   shared_ptr<map<string, map<string, boost::any>>> config{};
   shared_ptr<map<string, map<string, boost::any>>> configWhenBuild{};
   shared_ptr<string> content{};
+  shared_ptr<string> createTime{};
   shared_ptr<string> dataSource{};
   shared_ptr<GetIndexResponseBodyResultDataSourceInfo> dataSourceInfo{};
   shared_ptr<string> description{};
@@ -9273,6 +9288,7 @@ public:
   shared_ptr<string> indexStatus{};
   shared_ptr<string> name{};
   shared_ptr<long> partition{};
+  shared_ptr<string> updateTime{};
   shared_ptr<vector<GetIndexResponseBodyResultVersions>> versions{};
 
   GetIndexResponseBodyResult() {}
@@ -9300,6 +9316,9 @@ public:
     }
     if (content) {
       res["content"] = boost::any(*content);
+    }
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
     }
     if (dataSource) {
       res["dataSource"] = boost::any(*dataSource);
@@ -9336,6 +9355,9 @@ public:
     }
     if (partition) {
       res["partition"] = boost::any(*partition);
+    }
+    if (updateTime) {
+      res["updateTime"] = boost::any(*updateTime);
     }
     if (versions) {
       vector<boost::any> temp1;
@@ -9390,6 +9412,9 @@ public:
     if (m.find("content") != m.end() && !m["content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["content"]));
     }
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
+    }
     if (m.find("dataSource") != m.end() && !m["dataSource"].empty()) {
       dataSource = make_shared<string>(boost::any_cast<string>(m["dataSource"]));
     }
@@ -9441,6 +9466,9 @@ public:
     }
     if (m.find("partition") != m.end() && !m["partition"].empty()) {
       partition = make_shared<long>(boost::any_cast<long>(m["partition"]));
+    }
+    if (m.find("updateTime") != m.end() && !m["updateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["updateTime"]));
     }
     if (m.find("versions") != m.end() && !m["versions"].empty()) {
       if (typeid(vector<boost::any>) == m["versions"].type()) {
@@ -14594,6 +14622,7 @@ public:
   shared_ptr<string> catalog{};
   shared_ptr<string> database{};
   shared_ptr<string> endpoint{};
+  shared_ptr<string> format{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> ossPath{};
   shared_ptr<string> partition{};
@@ -14629,6 +14658,9 @@ public:
     }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
+    }
+    if (format) {
+      res["format"] = boost::any(*format);
     }
     if (namespace_) {
       res["namespace"] = boost::any(*namespace_);
@@ -14672,6 +14704,9 @@ public:
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
+    }
+    if (m.find("format") != m.end() && !m["format"].empty()) {
+      format = make_shared<string>(boost::any_cast<string>(m["format"]));
     }
     if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
@@ -14945,6 +14980,7 @@ public:
 class ListIndexesResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
+  shared_ptr<string> createTime{};
   shared_ptr<string> dataSource{};
   shared_ptr<ListIndexesResponseBodyResultDataSourceInfo> dataSourceInfo{};
   shared_ptr<string> description{};
@@ -14956,6 +14992,7 @@ public:
   shared_ptr<string> indexStatus{};
   shared_ptr<string> name{};
   shared_ptr<long> partition{};
+  shared_ptr<string> updateTime{};
   shared_ptr<vector<ListIndexesResponseBodyResultVersions>> versions{};
 
   ListIndexesResponseBodyResult() {}
@@ -14970,6 +15007,9 @@ public:
     map<string, boost::any> res;
     if (content) {
       res["content"] = boost::any(*content);
+    }
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
     }
     if (dataSource) {
       res["dataSource"] = boost::any(*dataSource);
@@ -15004,6 +15044,9 @@ public:
     if (partition) {
       res["partition"] = boost::any(*partition);
     }
+    if (updateTime) {
+      res["updateTime"] = boost::any(*updateTime);
+    }
     if (versions) {
       vector<boost::any> temp1;
       for(auto item1:*versions){
@@ -15017,6 +15060,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("content") != m.end() && !m["content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
     }
     if (m.find("dataSource") != m.end() && !m["dataSource"].empty()) {
       dataSource = make_shared<string>(boost::any_cast<string>(m["dataSource"]));
@@ -15054,6 +15100,9 @@ public:
     }
     if (m.find("partition") != m.end() && !m["partition"].empty()) {
       partition = make_shared<long>(boost::any_cast<long>(m["partition"]));
+    }
+    if (m.find("updateTime") != m.end() && !m["updateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["updateTime"]));
     }
     if (m.find("versions") != m.end() && !m["versions"].empty()) {
       if (typeid(vector<boost::any>) == m["versions"].type()) {
@@ -19880,6 +19929,7 @@ public:
   shared_ptr<string> catalog{};
   shared_ptr<string> database{};
   shared_ptr<string> endpoint{};
+  shared_ptr<string> format{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> ossPath{};
   shared_ptr<string> partition{};
@@ -19915,6 +19965,9 @@ public:
     }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
+    }
+    if (format) {
+      res["format"] = boost::any(*format);
     }
     if (namespace_) {
       res["namespace"] = boost::any(*namespace_);
@@ -19958,6 +20011,9 @@ public:
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
+    }
+    if (m.find("format") != m.end() && !m["format"].empty()) {
+      format = make_shared<string>(boost::any_cast<string>(m["format"]));
     }
     if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
@@ -20030,6 +20086,8 @@ public:
   shared_ptr<string> domain{};
   shared_ptr<long> generation{};
   shared_ptr<string> name{};
+  shared_ptr<string> ossDataPath{};
+  shared_ptr<string> partition{};
   shared_ptr<long> processParallelNum{};
   shared_ptr<long> processPartitionCount{};
   shared_ptr<ModifyIndexRequestDataSourceInfoSaroConfig> saroConfig{};
@@ -20065,6 +20123,12 @@ public:
     }
     if (name) {
       res["name"] = boost::any(*name);
+    }
+    if (ossDataPath) {
+      res["ossDataPath"] = boost::any(*ossDataPath);
+    }
+    if (partition) {
+      res["partition"] = boost::any(*partition);
     }
     if (processParallelNum) {
       res["processParallelNum"] = boost::any(*processParallelNum);
@@ -20106,6 +20170,12 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("ossDataPath") != m.end() && !m["ossDataPath"].empty()) {
+      ossDataPath = make_shared<string>(boost::any_cast<string>(m["ossDataPath"]));
+    }
+    if (m.find("partition") != m.end() && !m["partition"].empty()) {
+      partition = make_shared<string>(boost::any_cast<string>(m["partition"]));
     }
     if (m.find("processParallelNum") != m.end() && !m["processParallelNum"].empty()) {
       processParallelNum = make_shared<long>(boost::any_cast<long>(m["processParallelNum"]));

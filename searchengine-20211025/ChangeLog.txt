@@ -1,3 +1,6 @@
+2024-12-05 Version: 3.0.7
+- Generated cpp 2021-10-25 for searchengine.
+
 2024-09-18 Version: 3.0.6
 - Generated cpp 2021-10-25 for searchengine.
 
