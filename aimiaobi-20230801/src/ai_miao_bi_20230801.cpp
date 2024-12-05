@@ -1305,6 +1305,37 @@ GetPropertiesResponse Alibabacloud_AiMiaoBi20230801::Client::getProperties(share
   return getPropertiesWithOptions(request, runtime);
 }
 
+GetSmartClipTaskResponse Alibabacloud_AiMiaoBi20230801::Client::getSmartClipTaskWithOptions(shared_ptr<GetSmartClipTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSmartClipTask"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSmartClipTaskResponse(callApi(params, req, runtime));
+}
+
+GetSmartClipTaskResponse Alibabacloud_AiMiaoBi20230801::Client::getSmartClipTask(shared_ptr<GetSmartClipTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getSmartClipTaskWithOptions(request, runtime);
+}
+
 GetTopicByIdResponse Alibabacloud_AiMiaoBi20230801::Client::getTopicByIdWithOptions(shared_ptr<GetTopicByIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3647,6 +3678,54 @@ SubmitEnterpriseVocAnalysisTaskResponse Alibabacloud_AiMiaoBi20230801::Client::s
 SubmitEnterpriseVocAnalysisTaskResponse Alibabacloud_AiMiaoBi20230801::Client::submitEnterpriseVocAnalysisTask(shared_ptr<SubmitEnterpriseVocAnalysisTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return submitEnterpriseVocAnalysisTaskWithOptions(request, runtime);
+}
+
+SubmitSmartClipTaskResponse Alibabacloud_AiMiaoBi20230801::Client::submitSmartClipTaskWithOptions(shared_ptr<SubmitSmartClipTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitSmartClipTaskShrinkRequest> request = make_shared<SubmitSmartClipTaskShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SubmitSmartClipTaskRequestEditingConfig>(tmpReq->editingConfig)) {
+    request->editingConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->editingConfig, make_shared<string>("EditingConfig"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<SubmitSmartClipTaskRequestInputConfig>(tmpReq->inputConfig)) {
+    request->inputConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->inputConfig, make_shared<string>("InputConfig"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<SubmitSmartClipTaskRequestOutputConfig>(tmpReq->outputConfig)) {
+    request->outputConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->outputConfig, make_shared<string>("OutputConfig"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->editingConfigShrink)) {
+    body->insert(pair<string, string>("EditingConfig", *request->editingConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputConfigShrink)) {
+    body->insert(pair<string, string>("InputConfig", *request->inputConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputConfigShrink)) {
+    body->insert(pair<string, string>("OutputConfig", *request->outputConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitSmartClipTask"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitSmartClipTaskResponse(callApi(params, req, runtime));
+}
+
+SubmitSmartClipTaskResponse Alibabacloud_AiMiaoBi20230801::Client::submitSmartClipTask(shared_ptr<SubmitSmartClipTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitSmartClipTaskWithOptions(request, runtime);
 }
 
 SubmitTopicSelectionPerspectiveAnalysisTaskResponse Alibabacloud_AiMiaoBi20230801::Client::submitTopicSelectionPerspectiveAnalysisTaskWithOptions(shared_ptr<SubmitTopicSelectionPerspectiveAnalysisTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

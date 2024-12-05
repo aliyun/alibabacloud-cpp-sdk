@@ -9848,6 +9848,344 @@ public:
 
   virtual ~GetPropertiesResponse() = default;
 };
+class GetSmartClipTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+  shared_ptr<string> workspaceId{};
+
+  GetSmartClipTaskRequest() {}
+
+  explicit GetSmartClipTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~GetSmartClipTaskRequest() = default;
+};
+class GetSmartClipTaskResponseBodyDataSubJobsFileAttr : public Darabonba::Model {
+public:
+  shared_ptr<double> duration{};
+  shared_ptr<string> fileLength{};
+  shared_ptr<string> fileName{};
+  shared_ptr<long> height{};
+  shared_ptr<string> tmpUrl{};
+  shared_ptr<long> width{};
+
+  GetSmartClipTaskResponseBodyDataSubJobsFileAttr() {}
+
+  explicit GetSmartClipTaskResponseBodyDataSubJobsFileAttr(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (fileLength) {
+      res["FileLength"] = boost::any(*fileLength);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (tmpUrl) {
+      res["TmpUrl"] = boost::any(*tmpUrl);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<double>(boost::any_cast<double>(m["Duration"]));
+    }
+    if (m.find("FileLength") != m.end() && !m["FileLength"].empty()) {
+      fileLength = make_shared<string>(boost::any_cast<string>(m["FileLength"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("TmpUrl") != m.end() && !m["TmpUrl"].empty()) {
+      tmpUrl = make_shared<string>(boost::any_cast<string>(m["TmpUrl"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~GetSmartClipTaskResponseBodyDataSubJobsFileAttr() = default;
+};
+class GetSmartClipTaskResponseBodyDataSubJobs : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<GetSmartClipTaskResponseBodyDataSubJobsFileAttr> fileAttr{};
+  shared_ptr<string> fileKey{};
+  shared_ptr<string> status{};
+  shared_ptr<string> subJobId{};
+
+  GetSmartClipTaskResponseBodyDataSubJobs() {}
+
+  explicit GetSmartClipTaskResponseBodyDataSubJobs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (fileAttr) {
+      res["FileAttr"] = fileAttr ? boost::any(fileAttr->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fileKey) {
+      res["FileKey"] = boost::any(*fileKey);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (subJobId) {
+      res["SubJobId"] = boost::any(*subJobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("FileAttr") != m.end() && !m["FileAttr"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FileAttr"].type()) {
+        GetSmartClipTaskResponseBodyDataSubJobsFileAttr model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FileAttr"]));
+        fileAttr = make_shared<GetSmartClipTaskResponseBodyDataSubJobsFileAttr>(model1);
+      }
+    }
+    if (m.find("FileKey") != m.end() && !m["FileKey"].empty()) {
+      fileKey = make_shared<string>(boost::any_cast<string>(m["FileKey"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubJobId") != m.end() && !m["SubJobId"].empty()) {
+      subJobId = make_shared<string>(boost::any_cast<string>(m["SubJobId"]));
+    }
+  }
+
+
+  virtual ~GetSmartClipTaskResponseBodyDataSubJobs() = default;
+};
+class GetSmartClipTaskResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> status{};
+  shared_ptr<vector<GetSmartClipTaskResponseBodyDataSubJobs>> subJobs{};
+
+  GetSmartClipTaskResponseBodyData() {}
+
+  explicit GetSmartClipTaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (subJobs) {
+      vector<boost::any> temp1;
+      for(auto item1:*subJobs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubJobs"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubJobs") != m.end() && !m["SubJobs"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubJobs"].type()) {
+        vector<GetSmartClipTaskResponseBodyDataSubJobs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubJobs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetSmartClipTaskResponseBodyDataSubJobs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subJobs = make_shared<vector<GetSmartClipTaskResponseBodyDataSubJobs>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetSmartClipTaskResponseBodyData() = default;
+};
+class GetSmartClipTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetSmartClipTaskResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetSmartClipTaskResponseBody() {}
+
+  explicit GetSmartClipTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetSmartClipTaskResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetSmartClipTaskResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetSmartClipTaskResponseBody() = default;
+};
+class GetSmartClipTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetSmartClipTaskResponseBody> body{};
+
+  GetSmartClipTaskResponse() {}
+
+  explicit GetSmartClipTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSmartClipTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSmartClipTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSmartClipTaskResponse() = default;
+};
 class GetTopicByIdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
@@ -31262,6 +31600,703 @@ public:
 
   virtual ~SubmitEnterpriseVocAnalysisTaskResponse() = default;
 };
+class SubmitSmartClipTaskRequestEditingConfigTitleConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> alignment{};
+  shared_ptr<double> timelineIn{};
+  shared_ptr<double> timelineOut{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  SubmitSmartClipTaskRequestEditingConfigTitleConfig() {}
+
+  explicit SubmitSmartClipTaskRequestEditingConfigTitleConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alignment) {
+      res["Alignment"] = boost::any(*alignment);
+    }
+    if (timelineIn) {
+      res["TimelineIn"] = boost::any(*timelineIn);
+    }
+    if (timelineOut) {
+      res["TimelineOut"] = boost::any(*timelineOut);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alignment") != m.end() && !m["Alignment"].empty()) {
+      alignment = make_shared<string>(boost::any_cast<string>(m["Alignment"]));
+    }
+    if (m.find("TimelineIn") != m.end() && !m["TimelineIn"].empty()) {
+      timelineIn = make_shared<double>(boost::any_cast<double>(m["TimelineIn"]));
+    }
+    if (m.find("TimelineOut") != m.end() && !m["TimelineOut"].empty()) {
+      timelineOut = make_shared<double>(boost::any_cast<double>(m["TimelineOut"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskRequestEditingConfigTitleConfig() = default;
+};
+class SubmitSmartClipTaskRequestEditingConfig : public Darabonba::Model {
+public:
+  shared_ptr<SubmitSmartClipTaskRequestEditingConfigTitleConfig> titleConfig{};
+
+  SubmitSmartClipTaskRequestEditingConfig() {}
+
+  explicit SubmitSmartClipTaskRequestEditingConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (titleConfig) {
+      res["TitleConfig"] = titleConfig ? boost::any(titleConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TitleConfig") != m.end() && !m["TitleConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TitleConfig"].type()) {
+        SubmitSmartClipTaskRequestEditingConfigTitleConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TitleConfig"]));
+        titleConfig = make_shared<SubmitSmartClipTaskRequestEditingConfigTitleConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskRequestEditingConfig() = default;
+};
+class SubmitSmartClipTaskRequestInputConfigBackgroundMusics : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> type{};
+
+  SubmitSmartClipTaskRequestInputConfigBackgroundMusics() {}
+
+  explicit SubmitSmartClipTaskRequestInputConfigBackgroundMusics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskRequestInputConfigBackgroundMusics() = default;
+};
+class SubmitSmartClipTaskRequestInputConfigStickersStickerId : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> type{};
+
+  SubmitSmartClipTaskRequestInputConfigStickersStickerId() {}
+
+  explicit SubmitSmartClipTaskRequestInputConfigStickersStickerId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskRequestInputConfigStickersStickerId() = default;
+};
+class SubmitSmartClipTaskRequestInputConfigStickers : public Darabonba::Model {
+public:
+  shared_ptr<double> height{};
+  shared_ptr<SubmitSmartClipTaskRequestInputConfigStickersStickerId> stickerId{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  SubmitSmartClipTaskRequestInputConfigStickers() {}
+
+  explicit SubmitSmartClipTaskRequestInputConfigStickers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (stickerId) {
+      res["StickerId"] = stickerId ? boost::any(stickerId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("StickerId") != m.end() && !m["StickerId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StickerId"].type()) {
+        SubmitSmartClipTaskRequestInputConfigStickersStickerId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StickerId"]));
+        stickerId = make_shared<SubmitSmartClipTaskRequestInputConfigStickersStickerId>(model1);
+      }
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskRequestInputConfigStickers() = default;
+};
+class SubmitSmartClipTaskRequestInputConfigVideoIds : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> type{};
+
+  SubmitSmartClipTaskRequestInputConfigVideoIds() {}
+
+  explicit SubmitSmartClipTaskRequestInputConfigVideoIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskRequestInputConfigVideoIds() = default;
+};
+class SubmitSmartClipTaskRequestInputConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<SubmitSmartClipTaskRequestInputConfigBackgroundMusics>> backgroundMusics{};
+  shared_ptr<vector<string>> speechTexts{};
+  shared_ptr<vector<SubmitSmartClipTaskRequestInputConfigStickers>> stickers{};
+  shared_ptr<vector<string>> titles{};
+  shared_ptr<vector<SubmitSmartClipTaskRequestInputConfigVideoIds>> videoIds{};
+
+  SubmitSmartClipTaskRequestInputConfig() {}
+
+  explicit SubmitSmartClipTaskRequestInputConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (backgroundMusics) {
+      vector<boost::any> temp1;
+      for(auto item1:*backgroundMusics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BackgroundMusics"] = boost::any(temp1);
+    }
+    if (speechTexts) {
+      res["SpeechTexts"] = boost::any(*speechTexts);
+    }
+    if (stickers) {
+      vector<boost::any> temp1;
+      for(auto item1:*stickers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Stickers"] = boost::any(temp1);
+    }
+    if (titles) {
+      res["Titles"] = boost::any(*titles);
+    }
+    if (videoIds) {
+      vector<boost::any> temp1;
+      for(auto item1:*videoIds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VideoIds"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackgroundMusics") != m.end() && !m["BackgroundMusics"].empty()) {
+      if (typeid(vector<boost::any>) == m["BackgroundMusics"].type()) {
+        vector<SubmitSmartClipTaskRequestInputConfigBackgroundMusics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BackgroundMusics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SubmitSmartClipTaskRequestInputConfigBackgroundMusics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        backgroundMusics = make_shared<vector<SubmitSmartClipTaskRequestInputConfigBackgroundMusics>>(expect1);
+      }
+    }
+    if (m.find("SpeechTexts") != m.end() && !m["SpeechTexts"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SpeechTexts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SpeechTexts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      speechTexts = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Stickers") != m.end() && !m["Stickers"].empty()) {
+      if (typeid(vector<boost::any>) == m["Stickers"].type()) {
+        vector<SubmitSmartClipTaskRequestInputConfigStickers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Stickers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SubmitSmartClipTaskRequestInputConfigStickers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        stickers = make_shared<vector<SubmitSmartClipTaskRequestInputConfigStickers>>(expect1);
+      }
+    }
+    if (m.find("Titles") != m.end() && !m["Titles"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Titles"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Titles"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      titles = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("VideoIds") != m.end() && !m["VideoIds"].empty()) {
+      if (typeid(vector<boost::any>) == m["VideoIds"].type()) {
+        vector<SubmitSmartClipTaskRequestInputConfigVideoIds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VideoIds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SubmitSmartClipTaskRequestInputConfigVideoIds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        videoIds = make_shared<vector<SubmitSmartClipTaskRequestInputConfigVideoIds>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskRequestInputConfig() = default;
+};
+class SubmitSmartClipTaskRequestOutputConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<string> fileName{};
+  shared_ptr<long> height{};
+  shared_ptr<long> maxDuration{};
+  shared_ptr<bool> saveToGeneratedContent{};
+  shared_ptr<long> width{};
+
+  SubmitSmartClipTaskRequestOutputConfig() {}
+
+  explicit SubmitSmartClipTaskRequestOutputConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (maxDuration) {
+      res["MaxDuration"] = boost::any(*maxDuration);
+    }
+    if (saveToGeneratedContent) {
+      res["SaveToGeneratedContent"] = boost::any(*saveToGeneratedContent);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("MaxDuration") != m.end() && !m["MaxDuration"].empty()) {
+      maxDuration = make_shared<long>(boost::any_cast<long>(m["MaxDuration"]));
+    }
+    if (m.find("SaveToGeneratedContent") != m.end() && !m["SaveToGeneratedContent"].empty()) {
+      saveToGeneratedContent = make_shared<bool>(boost::any_cast<bool>(m["SaveToGeneratedContent"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskRequestOutputConfig() = default;
+};
+class SubmitSmartClipTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<SubmitSmartClipTaskRequestEditingConfig> editingConfig{};
+  shared_ptr<SubmitSmartClipTaskRequestInputConfig> inputConfig{};
+  shared_ptr<SubmitSmartClipTaskRequestOutputConfig> outputConfig{};
+  shared_ptr<string> workspaceId{};
+
+  SubmitSmartClipTaskRequest() {}
+
+  explicit SubmitSmartClipTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (editingConfig) {
+      res["EditingConfig"] = editingConfig ? boost::any(editingConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (inputConfig) {
+      res["InputConfig"] = inputConfig ? boost::any(inputConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (outputConfig) {
+      res["OutputConfig"] = outputConfig ? boost::any(outputConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EditingConfig") != m.end() && !m["EditingConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EditingConfig"].type()) {
+        SubmitSmartClipTaskRequestEditingConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EditingConfig"]));
+        editingConfig = make_shared<SubmitSmartClipTaskRequestEditingConfig>(model1);
+      }
+    }
+    if (m.find("InputConfig") != m.end() && !m["InputConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InputConfig"].type()) {
+        SubmitSmartClipTaskRequestInputConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InputConfig"]));
+        inputConfig = make_shared<SubmitSmartClipTaskRequestInputConfig>(model1);
+      }
+    }
+    if (m.find("OutputConfig") != m.end() && !m["OutputConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OutputConfig"].type()) {
+        SubmitSmartClipTaskRequestOutputConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OutputConfig"]));
+        outputConfig = make_shared<SubmitSmartClipTaskRequestOutputConfig>(model1);
+      }
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskRequest() = default;
+};
+class SubmitSmartClipTaskShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> editingConfigShrink{};
+  shared_ptr<string> inputConfigShrink{};
+  shared_ptr<string> outputConfigShrink{};
+  shared_ptr<string> workspaceId{};
+
+  SubmitSmartClipTaskShrinkRequest() {}
+
+  explicit SubmitSmartClipTaskShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (editingConfigShrink) {
+      res["EditingConfig"] = boost::any(*editingConfigShrink);
+    }
+    if (inputConfigShrink) {
+      res["InputConfig"] = boost::any(*inputConfigShrink);
+    }
+    if (outputConfigShrink) {
+      res["OutputConfig"] = boost::any(*outputConfigShrink);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EditingConfig") != m.end() && !m["EditingConfig"].empty()) {
+      editingConfigShrink = make_shared<string>(boost::any_cast<string>(m["EditingConfig"]));
+    }
+    if (m.find("InputConfig") != m.end() && !m["InputConfig"].empty()) {
+      inputConfigShrink = make_shared<string>(boost::any_cast<string>(m["InputConfig"]));
+    }
+    if (m.find("OutputConfig") != m.end() && !m["OutputConfig"].empty()) {
+      outputConfigShrink = make_shared<string>(boost::any_cast<string>(m["OutputConfig"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskShrinkRequest() = default;
+};
+class SubmitSmartClipTaskResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+
+  SubmitSmartClipTaskResponseBodyData() {}
+
+  explicit SubmitSmartClipTaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskResponseBodyData() = default;
+};
+class SubmitSmartClipTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<SubmitSmartClipTaskResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  SubmitSmartClipTaskResponseBody() {}
+
+  explicit SubmitSmartClipTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        SubmitSmartClipTaskResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<SubmitSmartClipTaskResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskResponseBody() = default;
+};
+class SubmitSmartClipTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitSmartClipTaskResponseBody> body{};
+
+  SubmitSmartClipTaskResponse() {}
+
+  explicit SubmitSmartClipTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitSmartClipTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitSmartClipTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskResponse() = default;
+};
 class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments : public Darabonba::Model {
 public:
   shared_ptr<string> text{};
@@ -32775,6 +33810,8 @@ public:
   GetMaterialByIdResponse getMaterialById(shared_ptr<GetMaterialByIdRequest> request);
   GetPropertiesResponse getPropertiesWithOptions(shared_ptr<GetPropertiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPropertiesResponse getProperties(shared_ptr<GetPropertiesRequest> request);
+  GetSmartClipTaskResponse getSmartClipTaskWithOptions(shared_ptr<GetSmartClipTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSmartClipTaskResponse getSmartClipTask(shared_ptr<GetSmartClipTaskRequest> request);
   GetTopicByIdResponse getTopicByIdWithOptions(shared_ptr<GetTopicByIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTopicByIdResponse getTopicById(shared_ptr<GetTopicByIdRequest> request);
   GetTopicSelectionPerspectiveAnalysisTaskResponse getTopicSelectionPerspectiveAnalysisTaskWithOptions(shared_ptr<GetTopicSelectionPerspectiveAnalysisTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -32881,6 +33918,8 @@ public:
   SubmitDocClusterTaskResponse submitDocClusterTask(shared_ptr<SubmitDocClusterTaskRequest> request);
   SubmitEnterpriseVocAnalysisTaskResponse submitEnterpriseVocAnalysisTaskWithOptions(shared_ptr<SubmitEnterpriseVocAnalysisTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitEnterpriseVocAnalysisTaskResponse submitEnterpriseVocAnalysisTask(shared_ptr<SubmitEnterpriseVocAnalysisTaskRequest> request);
+  SubmitSmartClipTaskResponse submitSmartClipTaskWithOptions(shared_ptr<SubmitSmartClipTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitSmartClipTaskResponse submitSmartClipTask(shared_ptr<SubmitSmartClipTaskRequest> request);
   SubmitTopicSelectionPerspectiveAnalysisTaskResponse submitTopicSelectionPerspectiveAnalysisTaskWithOptions(shared_ptr<SubmitTopicSelectionPerspectiveAnalysisTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitTopicSelectionPerspectiveAnalysisTaskResponse submitTopicSelectionPerspectiveAnalysisTask(shared_ptr<SubmitTopicSelectionPerspectiveAnalysisTaskRequest> request);
   UpdateCustomTextResponse updateCustomTextWithOptions(shared_ptr<UpdateCustomTextRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
