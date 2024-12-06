@@ -3645,6 +3645,37 @@ GetImageInfosResponse Alibabacloud_Vod20170321::Client::getImageInfos(shared_ptr
   return getImageInfosWithOptions(request, runtime);
 }
 
+GetJobDetailResponse Alibabacloud_Vod20170321::Client::getJobDetailWithOptions(shared_ptr<GetJobDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    query->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobType)) {
+    query->insert(pair<string, string>("JobType", *request->jobType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetJobDetail"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetJobDetailResponse(callApi(params, req, runtime));
+}
+
+GetJobDetailResponse Alibabacloud_Vod20170321::Client::getJobDetail(shared_ptr<GetJobDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getJobDetailWithOptions(request, runtime);
+}
+
 GetMediaAuditAudioResultDetailResponse Alibabacloud_Vod20170321::Client::getMediaAuditAudioResultDetailWithOptions(shared_ptr<GetMediaAuditAudioResultDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4000,6 +4031,9 @@ GetTranscodeSummaryResponse Alibabacloud_Vod20170321::Client::getTranscodeSummar
 GetTranscodeTaskResponse Alibabacloud_Vod20170321::Client::getTranscodeTaskWithOptions(shared_ptr<GetTranscodeTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobIds)) {
+    query->insert(pair<string, string>("JobIds", *request->jobIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->transcodeTaskId)) {
     query->insert(pair<string, string>("TranscodeTaskId", *request->transcodeTaskId));
   }
@@ -4531,6 +4565,37 @@ ListDynamicImageResponse Alibabacloud_Vod20170321::Client::listDynamicImageWithO
 ListDynamicImageResponse Alibabacloud_Vod20170321::Client::listDynamicImage(shared_ptr<ListDynamicImageRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listDynamicImageWithOptions(request, runtime);
+}
+
+ListJobInfoResponse Alibabacloud_Vod20170321::Client::listJobInfoWithOptions(shared_ptr<ListJobInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobType)) {
+    query->insert(pair<string, string>("JobType", *request->jobType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaId)) {
+    query->insert(pair<string, string>("MediaId", *request->mediaId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListJobInfo"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListJobInfoResponse(callApi(params, req, runtime));
+}
+
+ListJobInfoResponse Alibabacloud_Vod20170321::Client::listJobInfo(shared_ptr<ListJobInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listJobInfoWithOptions(request, runtime);
 }
 
 ListLiveRecordVideoResponse Alibabacloud_Vod20170321::Client::listLiveRecordVideoWithOptions(shared_ptr<ListLiveRecordVideoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
