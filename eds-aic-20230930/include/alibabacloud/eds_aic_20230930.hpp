@@ -375,6 +375,7 @@ public:
 class BackupFileRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIdList{};
+  shared_ptr<string> backupFileName{};
   shared_ptr<string> backupFilePath{};
   shared_ptr<string> description{};
   shared_ptr<vector<string>> sourceAppList{};
@@ -394,6 +395,9 @@ public:
     map<string, boost::any> res;
     if (androidInstanceIdList) {
       res["AndroidInstanceIdList"] = boost::any(*androidInstanceIdList);
+    }
+    if (backupFileName) {
+      res["BackupFileName"] = boost::any(*backupFileName);
     }
     if (backupFilePath) {
       res["BackupFilePath"] = boost::any(*backupFilePath);
@@ -426,6 +430,9 @@ public:
         }
       }
       androidInstanceIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BackupFileName") != m.end() && !m["BackupFileName"].empty()) {
+      backupFileName = make_shared<string>(boost::any_cast<string>(m["BackupFileName"]));
     }
     if (m.find("BackupFilePath") != m.end() && !m["BackupFilePath"].empty()) {
       backupFilePath = make_shared<string>(boost::any_cast<string>(m["BackupFilePath"]));
@@ -2754,6 +2761,7 @@ class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel : public Darab
 public:
   shared_ptr<string> appInstanceGroupId{};
   shared_ptr<string> architectureType{};
+  shared_ptr<long> availableInstanceAmount{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> cpu{};
   shared_ptr<vector<DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks>> disks{};
@@ -2795,6 +2803,9 @@ public:
     }
     if (architectureType) {
       res["ArchitectureType"] = boost::any(*architectureType);
+    }
+    if (availableInstanceAmount) {
+      res["AvailableInstanceAmount"] = boost::any(*availableInstanceAmount);
     }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
@@ -2884,6 +2895,9 @@ public:
     }
     if (m.find("ArchitectureType") != m.end() && !m["ArchitectureType"].empty()) {
       architectureType = make_shared<string>(boost::any_cast<string>(m["ArchitectureType"]));
+    }
+    if (m.find("AvailableInstanceAmount") != m.end() && !m["AvailableInstanceAmount"].empty()) {
+      availableInstanceAmount = make_shared<long>(boost::any_cast<long>(m["AvailableInstanceAmount"]));
     }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));

@@ -109,6 +109,9 @@ BackupFileResponse Alibabacloud_Eds-aic20230930::Client::backupFileWithOptions(s
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->androidInstanceIdList)) {
     query->insert(pair<string, vector<string>>("AndroidInstanceIdList", *request->androidInstanceIdList));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->backupFileName)) {
+    query->insert(pair<string, string>("BackupFileName", *request->backupFileName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->backupFilePath)) {
     query->insert(pair<string, string>("BackupFilePath", *request->backupFilePath));
   }
