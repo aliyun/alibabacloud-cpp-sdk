@@ -1118,6 +1118,7 @@ public:
   shared_ptr<long> cpu{};
   shared_ptr<string> defaultGPUDriver{};
   shared_ptr<long> gpu{};
+  shared_ptr<long> gpuMemory{};
   shared_ptr<string> gpuType{};
   shared_ptr<string> instanceType{};
   shared_ptr<bool> isAvailable{};
@@ -1149,6 +1150,9 @@ public:
     }
     if (gpu) {
       res["Gpu"] = boost::any(*gpu);
+    }
+    if (gpuMemory) {
+      res["GpuMemory"] = boost::any(*gpuMemory);
     }
     if (gpuType) {
       res["GpuType"] = boost::any(*gpuType);
@@ -1192,6 +1196,9 @@ public:
     }
     if (m.find("Gpu") != m.end() && !m["Gpu"].empty()) {
       gpu = make_shared<long>(boost::any_cast<long>(m["Gpu"]));
+    }
+    if (m.find("GpuMemory") != m.end() && !m["GpuMemory"].empty()) {
+      gpuMemory = make_shared<long>(boost::any_cast<long>(m["GpuMemory"]));
     }
     if (m.find("GpuType") != m.end() && !m["GpuType"].empty()) {
       gpuType = make_shared<string>(boost::any_cast<string>(m["GpuType"]));
@@ -4087,13 +4094,18 @@ public:
 class Tensorboard : public Darabonba::Model {
 public:
   shared_ptr<string> accessibility{};
+  shared_ptr<long> cpu{};
   shared_ptr<string> dataSourceId{};
+  shared_ptr<string> dataSourceType{};
   shared_ptr<string> displayName{};
   shared_ptr<string> duration{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtFinishTime{};
   shared_ptr<string> gmtModifyTime{};
   shared_ptr<string> jobId{};
+  shared_ptr<long> maxRunningTimeMinutes{};
+  shared_ptr<long> memory{};
+  shared_ptr<string> options{};
   shared_ptr<string> priority{};
   shared_ptr<string> quotaId{};
   shared_ptr<string> quotaName{};
@@ -4102,12 +4114,15 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
   shared_ptr<string> summaryPath{};
+  shared_ptr<string> summaryRelativePath{};
   shared_ptr<vector<TensorboardDataSourceSpec>> tensorboardDataSources{};
   shared_ptr<string> tensorboardId{};
   shared_ptr<TensorboardSpec> tensorboardSpec{};
   shared_ptr<string> tensorboardUrl{};
+  shared_ptr<string> token{};
   shared_ptr<string> userId{};
   shared_ptr<string> username{};
+  shared_ptr<string> workspaceId{};
 
   Tensorboard() {}
 
@@ -4122,8 +4137,14 @@ public:
     if (accessibility) {
       res["Accessibility"] = boost::any(*accessibility);
     }
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
     if (dataSourceId) {
       res["DataSourceId"] = boost::any(*dataSourceId);
+    }
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
     }
     if (displayName) {
       res["DisplayName"] = boost::any(*displayName);
@@ -4142,6 +4163,15 @@ public:
     }
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
+    }
+    if (maxRunningTimeMinutes) {
+      res["MaxRunningTimeMinutes"] = boost::any(*maxRunningTimeMinutes);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (options) {
+      res["Options"] = boost::any(*options);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -4167,6 +4197,9 @@ public:
     if (summaryPath) {
       res["SummaryPath"] = boost::any(*summaryPath);
     }
+    if (summaryRelativePath) {
+      res["SummaryRelativePath"] = boost::any(*summaryRelativePath);
+    }
     if (tensorboardDataSources) {
       vector<boost::any> temp1;
       for(auto item1:*tensorboardDataSources){
@@ -4183,11 +4216,17 @@ public:
     if (tensorboardUrl) {
       res["TensorboardUrl"] = boost::any(*tensorboardUrl);
     }
+    if (token) {
+      res["Token"] = boost::any(*token);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
     if (username) {
       res["Username"] = boost::any(*username);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
     }
     return res;
   }
@@ -4196,8 +4235,14 @@ public:
     if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
       accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
     }
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
     if (m.find("DataSourceId") != m.end() && !m["DataSourceId"].empty()) {
       dataSourceId = make_shared<string>(boost::any_cast<string>(m["DataSourceId"]));
+    }
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
     }
     if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
       displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
@@ -4216,6 +4261,15 @@ public:
     }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("MaxRunningTimeMinutes") != m.end() && !m["MaxRunningTimeMinutes"].empty()) {
+      maxRunningTimeMinutes = make_shared<long>(boost::any_cast<long>(m["MaxRunningTimeMinutes"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
@@ -4240,6 +4294,9 @@ public:
     }
     if (m.find("SummaryPath") != m.end() && !m["SummaryPath"].empty()) {
       summaryPath = make_shared<string>(boost::any_cast<string>(m["SummaryPath"]));
+    }
+    if (m.find("SummaryRelativePath") != m.end() && !m["SummaryRelativePath"].empty()) {
+      summaryRelativePath = make_shared<string>(boost::any_cast<string>(m["SummaryRelativePath"]));
     }
     if (m.find("TensorboardDataSources") != m.end() && !m["TensorboardDataSources"].empty()) {
       if (typeid(vector<boost::any>) == m["TensorboardDataSources"].type()) {
@@ -4267,11 +4324,17 @@ public:
     if (m.find("TensorboardUrl") != m.end() && !m["TensorboardUrl"].empty()) {
       tensorboardUrl = make_shared<string>(boost::any_cast<string>(m["TensorboardUrl"]));
     }
+    if (m.find("Token") != m.end() && !m["Token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
+    }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
     }
     if (m.find("Username") != m.end() && !m["Username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -7764,6 +7827,7 @@ public:
   shared_ptr<string> jobId{};
   shared_ptr<string> jobType{};
   shared_ptr<string> order{};
+  shared_ptr<string> oversoldInfo{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> pipelineId{};
@@ -7814,6 +7878,9 @@ public:
     }
     if (order) {
       res["Order"] = boost::any(*order);
+    }
+    if (oversoldInfo) {
+      res["OversoldInfo"] = boost::any(*oversoldInfo);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -7885,6 +7952,9 @@ public:
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));
     }
+    if (m.find("OversoldInfo") != m.end() && !m["OversoldInfo"].empty()) {
+      oversoldInfo = make_shared<string>(boost::any_cast<string>(m["OversoldInfo"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -7945,6 +8015,7 @@ public:
   shared_ptr<string> jobId{};
   shared_ptr<string> jobType{};
   shared_ptr<string> order{};
+  shared_ptr<string> oversoldInfo{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> pipelineId{};
@@ -7995,6 +8066,9 @@ public:
     }
     if (order) {
       res["Order"] = boost::any(*order);
+    }
+    if (oversoldInfo) {
+      res["OversoldInfo"] = boost::any(*oversoldInfo);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -8065,6 +8139,9 @@ public:
     }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("OversoldInfo") != m.end() && !m["OversoldInfo"].empty()) {
+      oversoldInfo = make_shared<string>(boost::any_cast<string>(m["OversoldInfo"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -8940,6 +9017,7 @@ class UpdateTensorboardRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessibility{};
   shared_ptr<long> maxRunningTimeMinutes{};
+  shared_ptr<string> priority{};
   shared_ptr<string> workspaceId{};
 
   UpdateTensorboardRequest() {}
@@ -8958,6 +9036,9 @@ public:
     if (maxRunningTimeMinutes) {
       res["MaxRunningTimeMinutes"] = boost::any(*maxRunningTimeMinutes);
     }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
     }
@@ -8970,6 +9051,9 @@ public:
     }
     if (m.find("MaxRunningTimeMinutes") != m.end() && !m["MaxRunningTimeMinutes"].empty()) {
       maxRunningTimeMinutes = make_shared<long>(boost::any_cast<long>(m["MaxRunningTimeMinutes"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));

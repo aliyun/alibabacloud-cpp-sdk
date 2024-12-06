@@ -16,7 +16,6 @@ using namespace std;
 using namespace Alibabacloud_Pai-dlc20201203;
 
 Alibabacloud_Pai-dlc20201203::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
-  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"ap-northeast-1", "pai-dlc.aliyuncs.com"},
@@ -830,6 +829,9 @@ ListJobsResponse Alibabacloud_Pai-dlc20201203::Client::listJobsWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
     query->insert(pair<string, string>("Order", *request->order));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->oversoldInfo)) {
+    query->insert(pair<string, string>("OversoldInfo", *request->oversoldInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
@@ -1117,6 +1119,9 @@ UpdateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::updateTensorboar
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxRunningTimeMinutes)) {
     query->insert(pair<string, long>("MaxRunningTimeMinutes", *request->maxRunningTimeMinutes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->priority)) {
+    query->insert(pair<string, string>("Priority", *request->priority));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
