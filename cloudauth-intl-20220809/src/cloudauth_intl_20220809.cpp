@@ -167,6 +167,9 @@ DeleteVerifyResultResponse Alibabacloud_Cloudauth-intl20220809::Client::deleteVe
 DocOcrResponse Alibabacloud_Cloudauth-intl20220809::Client::docOcrWithOptions(shared_ptr<DocOcrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cardSide)) {
+    query->insert(pair<string, string>("CardSide", *request->cardSide));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->docType)) {
     query->insert(pair<string, string>("DocType", *request->docType));
   }
@@ -494,6 +497,9 @@ Id2MetaVerifyIntlResponse Alibabacloud_Cloudauth-intl20220809::Client::id2MetaVe
 InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOptions(shared_ptr<InitializeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appQualityCheck)) {
+    query->insert(pair<string, string>("AppQualityCheck", *request->appQualityCheck));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->authorize)) {
     query->insert(pair<string, string>("Authorize", *request->authorize));
   }

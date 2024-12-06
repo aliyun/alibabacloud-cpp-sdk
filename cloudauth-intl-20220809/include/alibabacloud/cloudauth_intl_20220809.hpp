@@ -688,6 +688,7 @@ public:
 };
 class DocOcrRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> cardSide{};
   shared_ptr<string> docType{};
   shared_ptr<string> idFaceQuality{};
   shared_ptr<string> idOcrPictureBase64{};
@@ -709,6 +710,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cardSide) {
+      res["CardSide"] = boost::any(*cardSide);
+    }
     if (docType) {
       res["DocType"] = boost::any(*docType);
     }
@@ -743,6 +747,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CardSide") != m.end() && !m["CardSide"].empty()) {
+      cardSide = make_shared<string>(boost::any_cast<string>(m["CardSide"]));
+    }
     if (m.find("DocType") != m.end() && !m["DocType"].empty()) {
       docType = make_shared<string>(boost::any_cast<string>(m["DocType"]));
     }
@@ -2249,6 +2256,7 @@ public:
 };
 class InitializeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> appQualityCheck{};
   shared_ptr<string> authorize{};
   shared_ptr<string> callbackToken{};
   shared_ptr<string> callbackUrl{};
@@ -2289,6 +2297,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appQualityCheck) {
+      res["AppQualityCheck"] = boost::any(*appQualityCheck);
+    }
     if (authorize) {
       res["Authorize"] = boost::any(*authorize);
     }
@@ -2380,6 +2391,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppQualityCheck") != m.end() && !m["AppQualityCheck"].empty()) {
+      appQualityCheck = make_shared<string>(boost::any_cast<string>(m["AppQualityCheck"]));
+    }
     if (m.find("Authorize") != m.end() && !m["Authorize"].empty()) {
       authorize = make_shared<string>(boost::any_cast<string>(m["Authorize"]));
     }
