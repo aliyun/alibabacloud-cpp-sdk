@@ -1452,6 +1452,9 @@ UpdateClusterResponse Alibabacloud_EHPC20240730::Client::updateClusterWithOption
   if (!Darabonba_Util::Client::isUnset<UpdateClusterRequestClusterCustomConfiguration>(tmpReq->clusterCustomConfiguration)) {
     request->clusterCustomConfigurationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->clusterCustomConfiguration, make_shared<string>("ClusterCustomConfiguration"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<UpdateClusterRequestMonitorSpec>(tmpReq->monitorSpec)) {
+    request->monitorSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->monitorSpec, make_shared<string>("MonitorSpec"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientVersion)) {
     query->insert(pair<string, string>("ClientVersion", *request->clientVersion));
@@ -1488,6 +1491,9 @@ UpdateClusterResponse Alibabacloud_EHPC20240730::Client::updateClusterWithOption
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxCount)) {
     query->insert(pair<string, long>("MaxCount", *request->maxCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->monitorSpecShrink)) {
+    query->insert(pair<string, string>("MonitorSpec", *request->monitorSpecShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

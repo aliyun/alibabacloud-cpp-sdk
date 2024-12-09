@@ -5185,6 +5185,35 @@ public:
 
   virtual ~GetClusterResponseBodyManager() = default;
 };
+class GetClusterResponseBodyMonitorSpec : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableComputeLoadMonitor{};
+
+  GetClusterResponseBodyMonitorSpec() {}
+
+  explicit GetClusterResponseBodyMonitorSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableComputeLoadMonitor) {
+      res["EnableComputeLoadMonitor"] = boost::any(*enableComputeLoadMonitor);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableComputeLoadMonitor") != m.end() && !m["EnableComputeLoadMonitor"].empty()) {
+      enableComputeLoadMonitor = make_shared<bool>(boost::any_cast<bool>(m["EnableComputeLoadMonitor"]));
+    }
+  }
+
+
+  virtual ~GetClusterResponseBodyMonitorSpec() = default;
+};
 class GetClusterResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> clientVersion{};
@@ -5207,6 +5236,7 @@ public:
   shared_ptr<GetClusterResponseBodyManager> manager{};
   shared_ptr<string> maxCoreCount{};
   shared_ptr<string> maxCount{};
+  shared_ptr<GetClusterResponseBodyMonitorSpec> monitorSpec{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityGroupId{};
@@ -5280,6 +5310,9 @@ public:
     }
     if (maxCount) {
       res["MaxCount"] = boost::any(*maxCount);
+    }
+    if (monitorSpec) {
+      res["MonitorSpec"] = monitorSpec ? boost::any(monitorSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -5361,6 +5394,13 @@ public:
     }
     if (m.find("MaxCount") != m.end() && !m["MaxCount"].empty()) {
       maxCount = make_shared<string>(boost::any_cast<string>(m["MaxCount"]));
+    }
+    if (m.find("MonitorSpec") != m.end() && !m["MonitorSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MonitorSpec"].type()) {
+        GetClusterResponseBodyMonitorSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MonitorSpec"]));
+        monitorSpec = make_shared<GetClusterResponseBodyMonitorSpec>(model1);
+      }
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -9991,6 +10031,49 @@ public:
 
   virtual ~ListInstalledSoftwaresResponse() = default;
 };
+class ListJobsRequestJobFilterDiagnosis : public Darabonba::Model {
+public:
+  shared_ptr<string> operator_{};
+  shared_ptr<string> option{};
+  shared_ptr<string> threshold{};
+
+  ListJobsRequestJobFilterDiagnosis() {}
+
+  explicit ListJobsRequestJobFilterDiagnosis(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (operator_) {
+      res["Operator"] = boost::any(*operator_);
+    }
+    if (option) {
+      res["Option"] = boost::any(*option);
+    }
+    if (threshold) {
+      res["Threshold"] = boost::any(*threshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
+    }
+    if (m.find("Option") != m.end() && !m["Option"].empty()) {
+      option = make_shared<string>(boost::any_cast<string>(m["Option"]));
+    }
+    if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
+      threshold = make_shared<string>(boost::any_cast<string>(m["Threshold"]));
+    }
+  }
+
+
+  virtual ~ListJobsRequestJobFilterDiagnosis() = default;
+};
 class ListJobsRequestJobFilterSortBy : public Darabonba::Model {
 public:
   shared_ptr<string> executeOrder{};
@@ -10038,6 +10121,7 @@ class ListJobsRequestJobFilter : public Darabonba::Model {
 public:
   shared_ptr<string> createTimeEnd{};
   shared_ptr<string> createTimeStart{};
+  shared_ptr<vector<ListJobsRequestJobFilterDiagnosis>> diagnosis{};
   shared_ptr<string> jobName{};
   shared_ptr<string> jobStatus{};
   shared_ptr<vector<string>> nodes{};
@@ -10060,6 +10144,13 @@ public:
     }
     if (createTimeStart) {
       res["CreateTimeStart"] = boost::any(*createTimeStart);
+    }
+    if (diagnosis) {
+      vector<boost::any> temp1;
+      for(auto item1:*diagnosis){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Diagnosis"] = boost::any(temp1);
     }
     if (jobName) {
       res["JobName"] = boost::any(*jobName);
@@ -10088,6 +10179,19 @@ public:
     }
     if (m.find("CreateTimeStart") != m.end() && !m["CreateTimeStart"].empty()) {
       createTimeStart = make_shared<string>(boost::any_cast<string>(m["CreateTimeStart"]));
+    }
+    if (m.find("Diagnosis") != m.end() && !m["Diagnosis"].empty()) {
+      if (typeid(vector<boost::any>) == m["Diagnosis"].type()) {
+        vector<ListJobsRequestJobFilterDiagnosis> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Diagnosis"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListJobsRequestJobFilterDiagnosis model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        diagnosis = make_shared<vector<ListJobsRequestJobFilterDiagnosis>>(expect1);
+      }
     }
     if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
       jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
@@ -10291,6 +10395,56 @@ public:
 
   virtual ~ListJobsResponseBodyJobsJobSpecResources() = default;
 };
+class ListJobsResponseBodyJobsJobSpecResourcesActualOccupied : public Darabonba::Model {
+public:
+  shared_ptr<string> cores{};
+  shared_ptr<string> gpus{};
+  shared_ptr<string> memory{};
+  shared_ptr<string> nodes{};
+
+  ListJobsResponseBodyJobsJobSpecResourcesActualOccupied() {}
+
+  explicit ListJobsResponseBodyJobsJobSpecResourcesActualOccupied(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cores) {
+      res["Cores"] = boost::any(*cores);
+    }
+    if (gpus) {
+      res["Gpus"] = boost::any(*gpus);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (nodes) {
+      res["Nodes"] = boost::any(*nodes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cores") != m.end() && !m["Cores"].empty()) {
+      cores = make_shared<string>(boost::any_cast<string>(m["Cores"]));
+    }
+    if (m.find("Gpus") != m.end() && !m["Gpus"].empty()) {
+      gpus = make_shared<string>(boost::any_cast<string>(m["Gpus"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<string>(boost::any_cast<string>(m["Memory"]));
+    }
+    if (m.find("Nodes") != m.end() && !m["Nodes"].empty()) {
+      nodes = make_shared<string>(boost::any_cast<string>(m["Nodes"]));
+    }
+  }
+
+
+  virtual ~ListJobsResponseBodyJobsJobSpecResourcesActualOccupied() = default;
+};
 class ListJobsResponseBodyJobsJobSpec : public Darabonba::Model {
 public:
   shared_ptr<string> arrayJobId{};
@@ -10303,7 +10457,9 @@ public:
   shared_ptr<string> nodeList{};
   shared_ptr<string> priority{};
   shared_ptr<ListJobsResponseBodyJobsJobSpecResources> resources{};
+  shared_ptr<ListJobsResponseBodyJobsJobSpecResourcesActualOccupied> resourcesActualOccupied{};
   shared_ptr<string> runasUser{};
+  shared_ptr<string> startTime{};
   shared_ptr<string> state{};
   shared_ptr<string> stderrPath{};
   shared_ptr<string> stdoutPath{};
@@ -10350,8 +10506,14 @@ public:
     if (resources) {
       res["Resources"] = resources ? boost::any(resources->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (resourcesActualOccupied) {
+      res["ResourcesActualOccupied"] = resourcesActualOccupied ? boost::any(resourcesActualOccupied->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (runasUser) {
       res["RunasUser"] = boost::any(*runasUser);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -10406,8 +10568,18 @@ public:
         resources = make_shared<ListJobsResponseBodyJobsJobSpecResources>(model1);
       }
     }
+    if (m.find("ResourcesActualOccupied") != m.end() && !m["ResourcesActualOccupied"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourcesActualOccupied"].type()) {
+        ListJobsResponseBodyJobsJobSpecResourcesActualOccupied model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourcesActualOccupied"]));
+        resourcesActualOccupied = make_shared<ListJobsResponseBodyJobsJobSpecResourcesActualOccupied>(model1);
+      }
+    }
     if (m.find("RunasUser") != m.end() && !m["RunasUser"].empty()) {
       runasUser = make_shared<string>(boost::any_cast<string>(m["RunasUser"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -13057,6 +13229,35 @@ public:
 
   virtual ~UpdateClusterRequestClusterCustomConfiguration() = default;
 };
+class UpdateClusterRequestMonitorSpec : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableComputeLoadMonitor{};
+
+  UpdateClusterRequestMonitorSpec() {}
+
+  explicit UpdateClusterRequestMonitorSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableComputeLoadMonitor) {
+      res["EnableComputeLoadMonitor"] = boost::any(*enableComputeLoadMonitor);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableComputeLoadMonitor") != m.end() && !m["EnableComputeLoadMonitor"].empty()) {
+      enableComputeLoadMonitor = make_shared<bool>(boost::any_cast<bool>(m["EnableComputeLoadMonitor"]));
+    }
+  }
+
+
+  virtual ~UpdateClusterRequestMonitorSpec() = default;
+};
 class UpdateClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientVersion{};
@@ -13071,6 +13272,7 @@ public:
   shared_ptr<long> idleInterval{};
   shared_ptr<long> maxCoreCount{};
   shared_ptr<long> maxCount{};
+  shared_ptr<UpdateClusterRequestMonitorSpec> monitorSpec{};
 
   UpdateClusterRequest() {}
 
@@ -13118,6 +13320,9 @@ public:
     if (maxCount) {
       res["MaxCount"] = boost::any(*maxCount);
     }
+    if (monitorSpec) {
+      res["MonitorSpec"] = monitorSpec ? boost::any(monitorSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -13162,6 +13367,13 @@ public:
     if (m.find("MaxCount") != m.end() && !m["MaxCount"].empty()) {
       maxCount = make_shared<long>(boost::any_cast<long>(m["MaxCount"]));
     }
+    if (m.find("MonitorSpec") != m.end() && !m["MonitorSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MonitorSpec"].type()) {
+        UpdateClusterRequestMonitorSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MonitorSpec"]));
+        monitorSpec = make_shared<UpdateClusterRequestMonitorSpec>(model1);
+      }
+    }
   }
 
 
@@ -13181,6 +13393,7 @@ public:
   shared_ptr<long> idleInterval{};
   shared_ptr<long> maxCoreCount{};
   shared_ptr<long> maxCount{};
+  shared_ptr<string> monitorSpecShrink{};
 
   UpdateClusterShrinkRequest() {}
 
@@ -13228,6 +13441,9 @@ public:
     if (maxCount) {
       res["MaxCount"] = boost::any(*maxCount);
     }
+    if (monitorSpecShrink) {
+      res["MonitorSpec"] = boost::any(*monitorSpecShrink);
+    }
     return res;
   }
 
@@ -13267,6 +13483,9 @@ public:
     }
     if (m.find("MaxCount") != m.end() && !m["MaxCount"].empty()) {
       maxCount = make_shared<long>(boost::any_cast<long>(m["MaxCount"]));
+    }
+    if (m.find("MonitorSpec") != m.end() && !m["MonitorSpec"].empty()) {
+      monitorSpecShrink = make_shared<string>(boost::any_cast<string>(m["MonitorSpec"]));
     }
   }
 
