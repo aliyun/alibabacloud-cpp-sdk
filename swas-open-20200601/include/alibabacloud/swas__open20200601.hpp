@@ -13879,6 +13879,7 @@ public:
   shared_ptr<long> memory{};
   shared_ptr<double> originPrice{};
   shared_ptr<string> planId{};
+  shared_ptr<string> planType{};
   shared_ptr<string> supportPlatform{};
 
   ListPlansResponseBodyPlans() {}
@@ -13918,6 +13919,9 @@ public:
     if (planId) {
       res["PlanId"] = boost::any(*planId);
     }
+    if (planType) {
+      res["PlanType"] = boost::any(*planType);
+    }
     if (supportPlatform) {
       res["SupportPlatform"] = boost::any(*supportPlatform);
     }
@@ -13951,6 +13955,9 @@ public:
     }
     if (m.find("PlanId") != m.end() && !m["PlanId"].empty()) {
       planId = make_shared<string>(boost::any_cast<string>(m["PlanId"]));
+    }
+    if (m.find("PlanType") != m.end() && !m["PlanType"].empty()) {
+      planType = make_shared<string>(boost::any_cast<string>(m["PlanType"]));
     }
     if (m.find("SupportPlatform") != m.end() && !m["SupportPlatform"].empty()) {
       supportPlatform = make_shared<string>(boost::any_cast<string>(m["SupportPlatform"]));
