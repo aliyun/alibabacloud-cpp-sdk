@@ -7593,6 +7593,7 @@ public:
   shared_ptr<string> auxiliaryDomain{};
   shared_ptr<string> metadataDocument{};
   shared_ptr<bool> ssoEnabled{};
+  shared_ptr<bool> ssoLoginWithDomain{};
 
   GetUserSsoSettingsResponseBodyUserSsoSettings() {}
 
@@ -7613,6 +7614,9 @@ public:
     if (ssoEnabled) {
       res["SsoEnabled"] = boost::any(*ssoEnabled);
     }
+    if (ssoLoginWithDomain) {
+      res["SsoLoginWithDomain"] = boost::any(*ssoLoginWithDomain);
+    }
     return res;
   }
 
@@ -7625,6 +7629,9 @@ public:
     }
     if (m.find("SsoEnabled") != m.end() && !m["SsoEnabled"].empty()) {
       ssoEnabled = make_shared<bool>(boost::any_cast<bool>(m["SsoEnabled"]));
+    }
+    if (m.find("SsoLoginWithDomain") != m.end() && !m["SsoLoginWithDomain"].empty()) {
+      ssoLoginWithDomain = make_shared<bool>(boost::any_cast<bool>(m["SsoLoginWithDomain"]));
     }
   }
 
@@ -13073,6 +13080,7 @@ public:
   shared_ptr<string> auxiliaryDomain{};
   shared_ptr<string> metadataDocument{};
   shared_ptr<bool> ssoEnabled{};
+  shared_ptr<bool> ssoLoginWithDomain{};
 
   SetUserSsoSettingsRequest() {}
 
@@ -13093,6 +13101,9 @@ public:
     if (ssoEnabled) {
       res["SsoEnabled"] = boost::any(*ssoEnabled);
     }
+    if (ssoLoginWithDomain) {
+      res["SsoLoginWithDomain"] = boost::any(*ssoLoginWithDomain);
+    }
     return res;
   }
 
@@ -13106,6 +13117,9 @@ public:
     if (m.find("SsoEnabled") != m.end() && !m["SsoEnabled"].empty()) {
       ssoEnabled = make_shared<bool>(boost::any_cast<bool>(m["SsoEnabled"]));
     }
+    if (m.find("SsoLoginWithDomain") != m.end() && !m["SsoLoginWithDomain"].empty()) {
+      ssoLoginWithDomain = make_shared<bool>(boost::any_cast<bool>(m["SsoLoginWithDomain"]));
+    }
   }
 
 
@@ -13116,6 +13130,7 @@ public:
   shared_ptr<string> auxiliaryDomain{};
   shared_ptr<string> metadataDocument{};
   shared_ptr<bool> ssoEnabled{};
+  shared_ptr<bool> ssoLoginWithDomain{};
 
   SetUserSsoSettingsResponseBodyUserSsoSettings() {}
 
@@ -13136,6 +13151,9 @@ public:
     if (ssoEnabled) {
       res["SsoEnabled"] = boost::any(*ssoEnabled);
     }
+    if (ssoLoginWithDomain) {
+      res["SsoLoginWithDomain"] = boost::any(*ssoLoginWithDomain);
+    }
     return res;
   }
 
@@ -13148,6 +13166,9 @@ public:
     }
     if (m.find("SsoEnabled") != m.end() && !m["SsoEnabled"].empty()) {
       ssoEnabled = make_shared<bool>(boost::any_cast<bool>(m["SsoEnabled"]));
+    }
+    if (m.find("SsoLoginWithDomain") != m.end() && !m["SsoLoginWithDomain"].empty()) {
+      ssoLoginWithDomain = make_shared<bool>(boost::any_cast<bool>(m["SsoLoginWithDomain"]));
     }
   }
 

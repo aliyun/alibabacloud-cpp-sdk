@@ -1970,6 +1970,9 @@ SetUserSsoSettingsResponse Alibabacloud_Ims20190815::Client::setUserSsoSettingsW
   if (!Darabonba_Util::Client::isUnset<bool>(request->ssoEnabled)) {
     query->insert(pair<string, bool>("SsoEnabled", *request->ssoEnabled));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ssoLoginWithDomain)) {
+    query->insert(pair<string, bool>("SsoLoginWithDomain", *request->ssoLoginWithDomain));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
