@@ -27049,6 +27049,7 @@ class GetPlayInfoResponseBodyPlayInfoListPlayInfo : public Darabonba::Model {
 public:
   shared_ptr<long> bitDepth{};
   shared_ptr<string> bitrate{};
+  shared_ptr<string> codecName{};
   shared_ptr<string> creationTime{};
   shared_ptr<string> definition{};
   shared_ptr<string> duration{};
@@ -27087,6 +27088,9 @@ public:
     }
     if (bitrate) {
       res["Bitrate"] = boost::any(*bitrate);
+    }
+    if (codecName) {
+      res["CodecName"] = boost::any(*codecName);
     }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
@@ -27163,6 +27167,9 @@ public:
     }
     if (m.find("Bitrate") != m.end() && !m["Bitrate"].empty()) {
       bitrate = make_shared<string>(boost::any_cast<string>(m["Bitrate"]));
+    }
+    if (m.find("CodecName") != m.end() && !m["CodecName"].empty()) {
+      codecName = make_shared<string>(boost::any_cast<string>(m["CodecName"]));
     }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
