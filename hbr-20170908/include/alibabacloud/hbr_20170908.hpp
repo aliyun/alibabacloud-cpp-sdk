@@ -8941,6 +8941,92 @@ public:
 
   virtual ~DescribeBackupPlansRequest() = default;
 };
+class DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTagsHitTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> operator_{};
+  shared_ptr<string> value{};
+
+  DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTagsHitTag() {}
+
+  explicit DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTagsHitTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (operator_) {
+      res["Operator"] = boost::any(*operator_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTagsHitTag() = default;
+};
+class DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTagsHitTag>> hitTag{};
+
+  DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTags() {}
+
+  explicit DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hitTag) {
+      vector<boost::any> temp1;
+      for(auto item1:*hitTag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HitTag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HitTag") != m.end() && !m["HitTag"].empty()) {
+      if (typeid(vector<boost::any>) == m["HitTag"].type()) {
+        vector<DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTagsHitTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HitTag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTagsHitTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hitTag = make_shared<vector<DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTagsHitTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTags() = default;
+};
 class DescribeBackupPlansResponseBodyBackupPlansBackupPlanOtsDetailTableNames : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> tableName{};
@@ -9319,6 +9405,7 @@ public:
   shared_ptr<string> clientId{};
   shared_ptr<string> clusterId{};
   shared_ptr<long> createTime{};
+  shared_ptr<bool> createdByTag{};
   shared_ptr<long> createdTime{};
   shared_ptr<string> crossAccountRoleName{};
   shared_ptr<string> crossAccountType{};
@@ -9331,6 +9418,7 @@ public:
   shared_ptr<bool> disabled{};
   shared_ptr<string> exclude{};
   shared_ptr<string> fileSystemId{};
+  shared_ptr<DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTags> hitTags{};
   shared_ptr<string> include{};
   shared_ptr<string> instanceGroupId{};
   shared_ptr<string> instanceId{};
@@ -9384,6 +9472,9 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
+    if (createdByTag) {
+      res["CreatedByTag"] = boost::any(*createdByTag);
+    }
     if (createdTime) {
       res["CreatedTime"] = boost::any(*createdTime);
     }
@@ -9419,6 +9510,9 @@ public:
     }
     if (fileSystemId) {
       res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    if (hitTags) {
+      res["HitTags"] = hitTags ? boost::any(hitTags->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (include) {
       res["Include"] = boost::any(*include);
@@ -9508,6 +9602,9 @@ public:
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
     }
+    if (m.find("CreatedByTag") != m.end() && !m["CreatedByTag"].empty()) {
+      createdByTag = make_shared<bool>(boost::any_cast<bool>(m["CreatedByTag"]));
+    }
     if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
       createdTime = make_shared<long>(boost::any_cast<long>(m["CreatedTime"]));
     }
@@ -9543,6 +9640,13 @@ public:
     }
     if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
       fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("HitTags") != m.end() && !m["HitTags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HitTags"].type()) {
+        DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HitTags"]));
+        hitTags = make_shared<DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTags>(model1);
+      }
     }
     if (m.find("Include") != m.end() && !m["Include"].empty()) {
       include = make_shared<string>(boost::any_cast<string>(m["Include"]));
