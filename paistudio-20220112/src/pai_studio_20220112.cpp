@@ -336,6 +336,9 @@ CreateTrainingJobResponse Alibabacloud_PaiStudio20220112::Client::createTraining
   if (!Darabonba_Util::Client::isUnset<vector<CreateTrainingJobRequestOutputChannels>>(request->outputChannels)) {
     body->insert(pair<string, vector<CreateTrainingJobRequestOutputChannels>>("OutputChannels", *request->outputChannels));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->priority)) {
+    body->insert(pair<string, long>("Priority", *request->priority));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->pythonRequirements)) {
     body->insert(pair<string, vector<string>>("PythonRequirements", *request->pythonRequirements));
   }
@@ -345,8 +348,8 @@ CreateTrainingJobResponse Alibabacloud_PaiStudio20220112::Client::createTraining
   if (!Darabonba_Util::Client::isUnset<CreateTrainingJobRequestScheduler>(request->scheduler)) {
     body->insert(pair<string, CreateTrainingJobRequestScheduler>("Scheduler", *request->scheduler));
   }
-  if (!Darabonba_Util::Client::isUnset<CreateTrainingJobRequestSettings>(request->settings)) {
-    body->insert(pair<string, CreateTrainingJobRequestSettings>("Settings", *request->settings));
+  if (!Darabonba_Util::Client::isUnset<JobSettings>(request->settings)) {
+    body->insert(pair<string, JobSettings>("Settings", *request->settings));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->trainingJobDescription)) {
     body->insert(pair<string, string>("TrainingJobDescription", *request->trainingJobDescription));
@@ -1204,6 +1207,90 @@ ListNodesResponse Alibabacloud_PaiStudio20220112::Client::listNodes(shared_ptr<L
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listNodesWithOptions(request, headers, runtime);
+}
+
+ListQuotaWorkloadsResponse Alibabacloud_PaiStudio20220112::Client::listQuotaWorkloadsWithOptions(shared_ptr<string> QuotaId,
+                                                                                                 shared_ptr<ListQuotaWorkloadsRequest> request,
+                                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->beforeWorkloadId)) {
+    query->insert(pair<string, string>("BeforeWorkloadId", *request->beforeWorkloadId));
+  }
+  if (!Darabonba_Util::Client::isUnset<TimeRangeFilter>(request->gmtDequeuedTimeRange)) {
+    query->insert(pair<string, TimeRangeFilter>("GmtDequeuedTimeRange", *request->gmtDequeuedTimeRange));
+  }
+  if (!Darabonba_Util::Client::isUnset<TimeRangeFilter>(request->gmtEnqueuedTimeRange)) {
+    query->insert(pair<string, TimeRangeFilter>("GmtEnqueuedTimeRange", *request->gmtEnqueuedTimeRange));
+  }
+  if (!Darabonba_Util::Client::isUnset<TimeRangeFilter>(request->gmtPositionModifiedTimeRange)) {
+    query->insert(pair<string, TimeRangeFilter>("GmtPositionModifiedTimeRange", *request->gmtPositionModifiedTimeRange));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeName)) {
+    query->insert(pair<string, string>("NodeName", *request->nodeName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    query->insert(pair<string, string>("Order", *request->order));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->showOwn)) {
+    query->insert(pair<string, bool>("ShowOwn", *request->showOwn));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
+    query->insert(pair<string, string>("SortBy", *request->sortBy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subQuotaIds)) {
+    query->insert(pair<string, string>("SubQuotaIds", *request->subQuotaIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userIds)) {
+    query->insert(pair<string, string>("UserIds", *request->userIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<TimeRangeFilter>(request->workloadCreatedTimeRange)) {
+    query->insert(pair<string, TimeRangeFilter>("WorkloadCreatedTimeRange", *request->workloadCreatedTimeRange));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workloadIds)) {
+    query->insert(pair<string, string>("WorkloadIds", *request->workloadIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workloadStatuses)) {
+    query->insert(pair<string, string>("WorkloadStatuses", *request->workloadStatuses));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workloadType)) {
+    query->insert(pair<string, string>("WorkloadType", *request->workloadType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceIds)) {
+    query->insert(pair<string, string>("WorkspaceIds", *request->workspaceIds));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListQuotaWorkloads"))},
+    {"version", boost::any(string("2022-01-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/quotas/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(QuotaId)) + string("/workloads"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListQuotaWorkloadsResponse(callApi(params, req, runtime));
+}
+
+ListQuotaWorkloadsResponse Alibabacloud_PaiStudio20220112::Client::listQuotaWorkloads(shared_ptr<string> QuotaId, shared_ptr<ListQuotaWorkloadsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listQuotaWorkloadsWithOptions(QuotaId, request, headers, runtime);
 }
 
 ListQuotasResponse Alibabacloud_PaiStudio20220112::Client::listQuotasWithOptions(shared_ptr<ListQuotasRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

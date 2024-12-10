@@ -57,6 +57,35 @@ public:
 
   virtual ~ACS() = default;
 };
+class Action : public Darabonba::Model {
+public:
+  shared_ptr<string> actionType{};
+
+  Action() {}
+
+  explicit Action(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (actionType) {
+      res["ActionType"] = boost::any(*actionType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActionType") != m.end() && !m["ActionType"].empty()) {
+      actionType = make_shared<string>(boost::any_cast<string>(m["ActionType"]));
+    }
+  }
+
+
+  virtual ~Action() = default;
+};
 class AlgorithmSpecComputeResourcePolicy : public Darabonba::Model {
 public:
   shared_ptr<string> value{};
@@ -1881,6 +1910,7 @@ public:
   shared_ptr<string> CPU{};
   shared_ptr<string> creatorId{};
   shared_ptr<string> GPU{};
+  shared_ptr<string> GPUMemory{};
   shared_ptr<string> GPUType{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtExpiredTime{};
@@ -1934,6 +1964,9 @@ public:
     }
     if (GPU) {
       res["GPU"] = boost::any(*GPU);
+    }
+    if (GPUMemory) {
+      res["GPUMemory"] = boost::any(*GPUMemory);
     }
     if (GPUType) {
       res["GPUType"] = boost::any(*GPUType);
@@ -2039,6 +2072,9 @@ public:
     }
     if (m.find("GPU") != m.end() && !m["GPU"].empty()) {
       GPU = make_shared<string>(boost::any_cast<string>(m["GPU"]));
+    }
+    if (m.find("GPUMemory") != m.end() && !m["GPUMemory"].empty()) {
+      GPUMemory = make_shared<string>(boost::any_cast<string>(m["GPUMemory"]));
     }
     if (m.find("GPUType") != m.end() && !m["GPUType"].empty()) {
       GPUType = make_shared<string>(boost::any_cast<string>(m["GPUType"]));
@@ -2555,6 +2591,7 @@ public:
   shared_ptr<string> acceleratorType{};
   shared_ptr<string> CPU{};
   shared_ptr<string> GPU{};
+  shared_ptr<string> GPUMemory{};
   shared_ptr<string> GPUType{};
   shared_ptr<string> memory{};
   shared_ptr<string> nodeType{};
@@ -2578,6 +2615,9 @@ public:
     if (GPU) {
       res["GPU"] = boost::any(*GPU);
     }
+    if (GPUMemory) {
+      res["GPUMemory"] = boost::any(*GPUMemory);
+    }
     if (GPUType) {
       res["GPUType"] = boost::any(*GPUType);
     }
@@ -2599,6 +2639,9 @@ public:
     }
     if (m.find("GPU") != m.end() && !m["GPU"].empty()) {
       GPU = make_shared<string>(boost::any_cast<string>(m["GPU"]));
+    }
+    if (m.find("GPUMemory") != m.end() && !m["GPUMemory"].empty()) {
+      GPUMemory = make_shared<string>(boost::any_cast<string>(m["GPUMemory"]));
     }
     if (m.find("GPUType") != m.end() && !m["GPUType"].empty()) {
       GPUType = make_shared<string>(boost::any_cast<string>(m["GPUType"]));
@@ -2897,11 +2940,11 @@ public:
   shared_ptr<string> reason{};
   shared_ptr<ResourceAmount> resource{};
   shared_ptr<string> status{};
-  shared_ptr<string> subStatus{};
   shared_ptr<string> userId{};
   shared_ptr<string> userName{};
   shared_ptr<string> workloadId{};
   shared_ptr<string> workloadName{};
+  shared_ptr<string> workloadStatus{};
   shared_ptr<string> workloadType{};
   shared_ptr<string> workspaceId{};
 
@@ -2957,9 +3000,6 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
-    if (subStatus) {
-      res["SubStatus"] = boost::any(*subStatus);
-    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -2971,6 +3011,9 @@ public:
     }
     if (workloadName) {
       res["WorkloadName"] = boost::any(*workloadName);
+    }
+    if (workloadStatus) {
+      res["WorkloadStatus"] = boost::any(*workloadStatus);
     }
     if (workloadType) {
       res["WorkloadType"] = boost::any(*workloadType);
@@ -3028,9 +3071,6 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
-    if (m.find("SubStatus") != m.end() && !m["SubStatus"].empty()) {
-      subStatus = make_shared<string>(boost::any_cast<string>(m["SubStatus"]));
-    }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
     }
@@ -3042,6 +3082,9 @@ public:
     }
     if (m.find("WorkloadName") != m.end() && !m["WorkloadName"].empty()) {
       workloadName = make_shared<string>(boost::any_cast<string>(m["WorkloadName"]));
+    }
+    if (m.find("WorkloadStatus") != m.end() && !m["WorkloadStatus"].empty()) {
+      workloadStatus = make_shared<string>(boost::any_cast<string>(m["WorkloadStatus"]));
     }
     if (m.find("WorkloadType") != m.end() && !m["WorkloadType"].empty()) {
       workloadType = make_shared<string>(boost::any_cast<string>(m["WorkloadType"]));
@@ -3410,8 +3453,12 @@ public:
 class QuotaDetails : public Darabonba::Model {
 public:
   shared_ptr<ResourceAmount> actualMinQuota{};
+  shared_ptr<ResourceAmount> allocatedQuota{};
+  shared_ptr<ResourceAmount> ancestorsAllocatedQuota{};
+  shared_ptr<ResourceAmount> descendantsAllocatedQuota{};
   shared_ptr<ResourceAmount> desiredMinQuota{};
   shared_ptr<ResourceAmount> requestedQuota{};
+  shared_ptr<ResourceAmount> selfAllocatedQuota{};
   shared_ptr<ResourceAmount> usedQuota{};
 
   QuotaDetails() {}
@@ -3427,11 +3474,23 @@ public:
     if (actualMinQuota) {
       res["ActualMinQuota"] = actualMinQuota ? boost::any(actualMinQuota->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (allocatedQuota) {
+      res["AllocatedQuota"] = allocatedQuota ? boost::any(allocatedQuota->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ancestorsAllocatedQuota) {
+      res["AncestorsAllocatedQuota"] = ancestorsAllocatedQuota ? boost::any(ancestorsAllocatedQuota->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (descendantsAllocatedQuota) {
+      res["DescendantsAllocatedQuota"] = descendantsAllocatedQuota ? boost::any(descendantsAllocatedQuota->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (desiredMinQuota) {
       res["DesiredMinQuota"] = desiredMinQuota ? boost::any(desiredMinQuota->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestedQuota) {
       res["RequestedQuota"] = requestedQuota ? boost::any(requestedQuota->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (selfAllocatedQuota) {
+      res["SelfAllocatedQuota"] = selfAllocatedQuota ? boost::any(selfAllocatedQuota->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (usedQuota) {
       res["UsedQuota"] = usedQuota ? boost::any(usedQuota->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3447,6 +3506,27 @@ public:
         actualMinQuota = make_shared<ResourceAmount>(model1);
       }
     }
+    if (m.find("AllocatedQuota") != m.end() && !m["AllocatedQuota"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AllocatedQuota"].type()) {
+        ResourceAmount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AllocatedQuota"]));
+        allocatedQuota = make_shared<ResourceAmount>(model1);
+      }
+    }
+    if (m.find("AncestorsAllocatedQuota") != m.end() && !m["AncestorsAllocatedQuota"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AncestorsAllocatedQuota"].type()) {
+        ResourceAmount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AncestorsAllocatedQuota"]));
+        ancestorsAllocatedQuota = make_shared<ResourceAmount>(model1);
+      }
+    }
+    if (m.find("DescendantsAllocatedQuota") != m.end() && !m["DescendantsAllocatedQuota"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DescendantsAllocatedQuota"].type()) {
+        ResourceAmount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DescendantsAllocatedQuota"]));
+        descendantsAllocatedQuota = make_shared<ResourceAmount>(model1);
+      }
+    }
     if (m.find("DesiredMinQuota") != m.end() && !m["DesiredMinQuota"].empty()) {
       if (typeid(map<string, boost::any>) == m["DesiredMinQuota"].type()) {
         ResourceAmount model1;
@@ -3459,6 +3539,13 @@ public:
         ResourceAmount model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RequestedQuota"]));
         requestedQuota = make_shared<ResourceAmount>(model1);
+      }
+    }
+    if (m.find("SelfAllocatedQuota") != m.end() && !m["SelfAllocatedQuota"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SelfAllocatedQuota"].type()) {
+        ResourceAmount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SelfAllocatedQuota"]));
+        selfAllocatedQuota = make_shared<ResourceAmount>(model1);
       }
     }
     if (m.find("UsedQuota") != m.end() && !m["UsedQuota"].empty()) {
@@ -4953,6 +5040,89 @@ public:
 
   virtual ~ResourceOperation() = default;
 };
+class SchedulingRule : public Darabonba::Model {
+public:
+  shared_ptr<string> cronTab{};
+  shared_ptr<string> endAt{};
+  shared_ptr<bool> executeOnce{};
+  shared_ptr<string> startAt{};
+
+  SchedulingRule() {}
+
+  explicit SchedulingRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cronTab) {
+      res["CronTab"] = boost::any(*cronTab);
+    }
+    if (endAt) {
+      res["EndAt"] = boost::any(*endAt);
+    }
+    if (executeOnce) {
+      res["ExecuteOnce"] = boost::any(*executeOnce);
+    }
+    if (startAt) {
+      res["StartAt"] = boost::any(*startAt);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CronTab") != m.end() && !m["CronTab"].empty()) {
+      cronTab = make_shared<string>(boost::any_cast<string>(m["CronTab"]));
+    }
+    if (m.find("EndAt") != m.end() && !m["EndAt"].empty()) {
+      endAt = make_shared<string>(boost::any_cast<string>(m["EndAt"]));
+    }
+    if (m.find("ExecuteOnce") != m.end() && !m["ExecuteOnce"].empty()) {
+      executeOnce = make_shared<bool>(boost::any_cast<bool>(m["ExecuteOnce"]));
+    }
+    if (m.find("StartAt") != m.end() && !m["StartAt"].empty()) {
+      startAt = make_shared<string>(boost::any_cast<string>(m["StartAt"]));
+    }
+  }
+
+
+  virtual ~SchedulingRule() = default;
+};
+class Rules : public Darabonba::Model {
+public:
+  shared_ptr<SchedulingRule> schedulingRule{};
+
+  Rules() {}
+
+  explicit Rules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (schedulingRule) {
+      res["SchedulingRule"] = schedulingRule ? boost::any(schedulingRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SchedulingRule") != m.end() && !m["SchedulingRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SchedulingRule"].type()) {
+        SchedulingRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SchedulingRule"]));
+        schedulingRule = make_shared<SchedulingRule>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Rules() = default;
+};
 class SpotPriceItem : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -5045,6 +5215,272 @@ public:
 
 
   virtual ~SpotStockPreview() = default;
+};
+class Task : public Darabonba::Model {
+public:
+  shared_ptr<vector<Action>> actions{};
+  shared_ptr<string> description{};
+  shared_ptr<string> gmtActivatedTime{};
+  shared_ptr<string> gmtCreatedTime{};
+  shared_ptr<string> gmtModifiedTime{};
+  shared_ptr<string> gmtStoppedTime{};
+  shared_ptr<string> quotaId{};
+  shared_ptr<Rules> rules{};
+  shared_ptr<string> status{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskName{};
+  shared_ptr<string> userId{};
+  shared_ptr<string> userName{};
+
+  Task() {}
+
+  explicit Task(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (actions) {
+      vector<boost::any> temp1;
+      for(auto item1:*actions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Actions"] = boost::any(temp1);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (gmtActivatedTime) {
+      res["GmtActivatedTime"] = boost::any(*gmtActivatedTime);
+    }
+    if (gmtCreatedTime) {
+      res["GmtCreatedTime"] = boost::any(*gmtCreatedTime);
+    }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
+    if (gmtStoppedTime) {
+      res["GmtStoppedTime"] = boost::any(*gmtStoppedTime);
+    }
+    if (quotaId) {
+      res["QuotaId"] = boost::any(*quotaId);
+    }
+    if (rules) {
+      res["Rules"] = rules ? boost::any(rules->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskName) {
+      res["TaskName"] = boost::any(*taskName);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Actions") != m.end() && !m["Actions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Actions"].type()) {
+        vector<Action> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Actions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Action model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        actions = make_shared<vector<Action>>(expect1);
+      }
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GmtActivatedTime") != m.end() && !m["GmtActivatedTime"].empty()) {
+      gmtActivatedTime = make_shared<string>(boost::any_cast<string>(m["GmtActivatedTime"]));
+    }
+    if (m.find("GmtCreatedTime") != m.end() && !m["GmtCreatedTime"].empty()) {
+      gmtCreatedTime = make_shared<string>(boost::any_cast<string>(m["GmtCreatedTime"]));
+    }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
+    if (m.find("GmtStoppedTime") != m.end() && !m["GmtStoppedTime"].empty()) {
+      gmtStoppedTime = make_shared<string>(boost::any_cast<string>(m["GmtStoppedTime"]));
+    }
+    if (m.find("QuotaId") != m.end() && !m["QuotaId"].empty()) {
+      quotaId = make_shared<string>(boost::any_cast<string>(m["QuotaId"]));
+    }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Rules"].type()) {
+        Rules model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Rules"]));
+        rules = make_shared<Rules>(model1);
+      }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
+      taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~Task() = default;
+};
+class TaskInstance : public Darabonba::Model {
+public:
+  shared_ptr<string> gmtCreatedTime{};
+  shared_ptr<string> gmtEndTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskInstanceId{};
+  shared_ptr<string> tenantId{};
+  shared_ptr<string> userId{};
+
+  TaskInstance() {}
+
+  explicit TaskInstance(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gmtCreatedTime) {
+      res["GmtCreatedTime"] = boost::any(*gmtCreatedTime);
+    }
+    if (gmtEndTime) {
+      res["GmtEndTime"] = boost::any(*gmtEndTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskInstanceId) {
+      res["TaskInstanceId"] = boost::any(*taskInstanceId);
+    }
+    if (tenantId) {
+      res["TenantId"] = boost::any(*tenantId);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GmtCreatedTime") != m.end() && !m["GmtCreatedTime"].empty()) {
+      gmtCreatedTime = make_shared<string>(boost::any_cast<string>(m["GmtCreatedTime"]));
+    }
+    if (m.find("GmtEndTime") != m.end() && !m["GmtEndTime"].empty()) {
+      gmtEndTime = make_shared<string>(boost::any_cast<string>(m["GmtEndTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskInstanceId") != m.end() && !m["TaskInstanceId"].empty()) {
+      taskInstanceId = make_shared<string>(boost::any_cast<string>(m["TaskInstanceId"]));
+    }
+    if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~TaskInstance() = default;
+};
+class TaskInstanceEvent : public Darabonba::Model {
+public:
+  shared_ptr<string> gmtEndTime{};
+  shared_ptr<string> gmtStartTime{};
+  shared_ptr<string> message{};
+  shared_ptr<string> podName{};
+  shared_ptr<string> status{};
+  shared_ptr<string> workloadType{};
+
+  TaskInstanceEvent() {}
+
+  explicit TaskInstanceEvent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gmtEndTime) {
+      res["GmtEndTime"] = boost::any(*gmtEndTime);
+    }
+    if (gmtStartTime) {
+      res["GmtStartTime"] = boost::any(*gmtStartTime);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (podName) {
+      res["PodName"] = boost::any(*podName);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (workloadType) {
+      res["WorkloadType"] = boost::any(*workloadType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GmtEndTime") != m.end() && !m["GmtEndTime"].empty()) {
+      gmtEndTime = make_shared<string>(boost::any_cast<string>(m["GmtEndTime"]));
+    }
+    if (m.find("GmtStartTime") != m.end() && !m["GmtStartTime"].empty()) {
+      gmtStartTime = make_shared<string>(boost::any_cast<string>(m["GmtStartTime"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PodName") != m.end() && !m["PodName"].empty()) {
+      podName = make_shared<string>(boost::any_cast<string>(m["PodName"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("WorkloadType") != m.end() && !m["WorkloadType"].empty()) {
+      workloadType = make_shared<string>(boost::any_cast<string>(m["WorkloadType"]));
+    }
+  }
+
+
+  virtual ~TaskInstanceEvent() = default;
 };
 class TimeRangeFilter : public Darabonba::Model {
 public:
@@ -6530,6 +6966,7 @@ public:
   shared_ptr<string> inputUri{};
   shared_ptr<string> name{};
   shared_ptr<string> options{};
+  shared_ptr<string> versionName{};
 
   CreateTrainingJobRequestInputChannels() {}
 
@@ -6553,6 +6990,9 @@ public:
     if (options) {
       res["Options"] = boost::any(*options);
     }
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
+    }
     return res;
   }
 
@@ -6568,6 +7008,9 @@ public:
     }
     if (m.find("Options") != m.end() && !m["Options"].empty()) {
       options = make_shared<string>(boost::any_cast<string>(m["Options"]));
+    }
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
     }
   }
 
@@ -6615,6 +7058,7 @@ public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> name{};
   shared_ptr<string> outputUri{};
+  shared_ptr<string> versionName{};
 
   CreateTrainingJobRequestOutputChannels() {}
 
@@ -6635,6 +7079,9 @@ public:
     if (outputUri) {
       res["OutputUri"] = boost::any(*outputUri);
     }
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
+    }
     return res;
   }
 
@@ -6648,6 +7095,9 @@ public:
     if (m.find("OutputUri") != m.end() && !m["OutputUri"].empty()) {
       outputUri = make_shared<string>(boost::any_cast<string>(m["OutputUri"]));
     }
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
+    }
   }
 
 
@@ -6655,6 +7105,7 @@ public:
 };
 class CreateTrainingJobRequestScheduler : public Darabonba::Model {
 public:
+  shared_ptr<long> maxRunningTimeInMinutes{};
   shared_ptr<long> maxRunningTimeInSeconds{};
 
   CreateTrainingJobRequestScheduler() {}
@@ -6667,6 +7118,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (maxRunningTimeInMinutes) {
+      res["MaxRunningTimeInMinutes"] = boost::any(*maxRunningTimeInMinutes);
+    }
     if (maxRunningTimeInSeconds) {
       res["MaxRunningTimeInSeconds"] = boost::any(*maxRunningTimeInSeconds);
     }
@@ -6674,6 +7128,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxRunningTimeInMinutes") != m.end() && !m["MaxRunningTimeInMinutes"].empty()) {
+      maxRunningTimeInMinutes = make_shared<long>(boost::any_cast<long>(m["MaxRunningTimeInMinutes"]));
+    }
     if (m.find("MaxRunningTimeInSeconds") != m.end() && !m["MaxRunningTimeInSeconds"].empty()) {
       maxRunningTimeInSeconds = make_shared<long>(boost::any_cast<long>(m["MaxRunningTimeInSeconds"]));
     }
@@ -6681,56 +7138,6 @@ public:
 
 
   virtual ~CreateTrainingJobRequestScheduler() = default;
-};
-class CreateTrainingJobRequestSettings : public Darabonba::Model {
-public:
-  shared_ptr<string> AIMasterType{};
-  shared_ptr<bool> enableErrorMonitoringInAIMaster{};
-  shared_ptr<string> errorMonitoringArgs{};
-  shared_ptr<long> priority{};
-
-  CreateTrainingJobRequestSettings() {}
-
-  explicit CreateTrainingJobRequestSettings(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (AIMasterType) {
-      res["AIMasterType"] = boost::any(*AIMasterType);
-    }
-    if (enableErrorMonitoringInAIMaster) {
-      res["EnableErrorMonitoringInAIMaster"] = boost::any(*enableErrorMonitoringInAIMaster);
-    }
-    if (errorMonitoringArgs) {
-      res["ErrorMonitoringArgs"] = boost::any(*errorMonitoringArgs);
-    }
-    if (priority) {
-      res["Priority"] = boost::any(*priority);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AIMasterType") != m.end() && !m["AIMasterType"].empty()) {
-      AIMasterType = make_shared<string>(boost::any_cast<string>(m["AIMasterType"]));
-    }
-    if (m.find("EnableErrorMonitoringInAIMaster") != m.end() && !m["EnableErrorMonitoringInAIMaster"].empty()) {
-      enableErrorMonitoringInAIMaster = make_shared<bool>(boost::any_cast<bool>(m["EnableErrorMonitoringInAIMaster"]));
-    }
-    if (m.find("ErrorMonitoringArgs") != m.end() && !m["ErrorMonitoringArgs"].empty()) {
-      errorMonitoringArgs = make_shared<string>(boost::any_cast<string>(m["ErrorMonitoringArgs"]));
-    }
-    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
-      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
-    }
-  }
-
-
-  virtual ~CreateTrainingJobRequestSettings() = default;
 };
 class CreateTrainingJobRequestUserVpc : public Darabonba::Model {
 public:
@@ -6810,10 +7217,11 @@ public:
   shared_ptr<vector<CreateTrainingJobRequestInputChannels>> inputChannels{};
   shared_ptr<vector<CreateTrainingJobRequestLabels>> labels{};
   shared_ptr<vector<CreateTrainingJobRequestOutputChannels>> outputChannels{};
+  shared_ptr<long> priority{};
   shared_ptr<vector<string>> pythonRequirements{};
   shared_ptr<string> roleArn{};
   shared_ptr<CreateTrainingJobRequestScheduler> scheduler{};
-  shared_ptr<CreateTrainingJobRequestSettings> settings{};
+  shared_ptr<JobSettings> settings{};
   shared_ptr<string> trainingJobDescription{};
   shared_ptr<string> trainingJobName{};
   shared_ptr<CreateTrainingJobRequestUserVpc> userVpc{};
@@ -6880,6 +7288,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["OutputChannels"] = boost::any(temp1);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
     }
     if (pythonRequirements) {
       res["PythonRequirements"] = boost::any(*pythonRequirements);
@@ -7006,6 +7417,9 @@ public:
         outputChannels = make_shared<vector<CreateTrainingJobRequestOutputChannels>>(expect1);
       }
     }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
     if (m.find("PythonRequirements") != m.end() && !m["PythonRequirements"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["PythonRequirements"].type()) {
@@ -7028,9 +7442,9 @@ public:
     }
     if (m.find("Settings") != m.end() && !m["Settings"].empty()) {
       if (typeid(map<string, boost::any>) == m["Settings"].type()) {
-        CreateTrainingJobRequestSettings model1;
+        JobSettings model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Settings"]));
-        settings = make_shared<CreateTrainingJobRequestSettings>(model1);
+        settings = make_shared<JobSettings>(model1);
       }
     }
     if (m.find("TrainingJobDescription") != m.end() && !m["TrainingJobDescription"].empty()) {
@@ -10242,6 +10656,7 @@ public:
   shared_ptr<string> inputUri{};
   shared_ptr<string> name{};
   shared_ptr<string> options{};
+  shared_ptr<string> versionName{};
 
   GetTrainingJobResponseBodyInputChannels() {}
 
@@ -10265,6 +10680,9 @@ public:
     if (options) {
       res["Options"] = boost::any(*options);
     }
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
+    }
     return res;
   }
 
@@ -10280,6 +10698,9 @@ public:
     }
     if (m.find("Options") != m.end() && !m["Options"].empty()) {
       options = make_shared<string>(boost::any_cast<string>(m["Options"]));
+    }
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
     }
   }
 
@@ -10529,6 +10950,7 @@ public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> name{};
   shared_ptr<string> outputUri{};
+  shared_ptr<string> versionName{};
 
   GetTrainingJobResponseBodyOutputChannels() {}
 
@@ -10549,6 +10971,9 @@ public:
     if (outputUri) {
       res["OutputUri"] = boost::any(*outputUri);
     }
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
+    }
     return res;
   }
 
@@ -10561,6 +10986,9 @@ public:
     }
     if (m.find("OutputUri") != m.end() && !m["OutputUri"].empty()) {
       outputUri = make_shared<string>(boost::any_cast<string>(m["OutputUri"]));
+    }
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
     }
   }
 
@@ -10605,7 +11033,8 @@ public:
 };
 class GetTrainingJobResponseBodyScheduler : public Darabonba::Model {
 public:
-  shared_ptr<long> maxRunningTimeInSeconds{};
+  shared_ptr<string> maxRunningTimeInMinutes{};
+  shared_ptr<string> maxRunningTimeInSeconds{};
 
   GetTrainingJobResponseBodyScheduler() {}
 
@@ -10617,6 +11046,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (maxRunningTimeInMinutes) {
+      res["MaxRunningTimeInMinutes"] = boost::any(*maxRunningTimeInMinutes);
+    }
     if (maxRunningTimeInSeconds) {
       res["MaxRunningTimeInSeconds"] = boost::any(*maxRunningTimeInSeconds);
     }
@@ -10624,63 +11056,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxRunningTimeInMinutes") != m.end() && !m["MaxRunningTimeInMinutes"].empty()) {
+      maxRunningTimeInMinutes = make_shared<string>(boost::any_cast<string>(m["MaxRunningTimeInMinutes"]));
+    }
     if (m.find("MaxRunningTimeInSeconds") != m.end() && !m["MaxRunningTimeInSeconds"].empty()) {
-      maxRunningTimeInSeconds = make_shared<long>(boost::any_cast<long>(m["MaxRunningTimeInSeconds"]));
+      maxRunningTimeInSeconds = make_shared<string>(boost::any_cast<string>(m["MaxRunningTimeInSeconds"]));
     }
   }
 
 
   virtual ~GetTrainingJobResponseBodyScheduler() = default;
-};
-class GetTrainingJobResponseBodySettings : public Darabonba::Model {
-public:
-  shared_ptr<string> AIMasterType{};
-  shared_ptr<bool> enableErrorMonitoringInAIMaster{};
-  shared_ptr<string> errorMonitoringArgs{};
-  shared_ptr<long> priority{};
-
-  GetTrainingJobResponseBodySettings() {}
-
-  explicit GetTrainingJobResponseBodySettings(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (AIMasterType) {
-      res["AIMasterType"] = boost::any(*AIMasterType);
-    }
-    if (enableErrorMonitoringInAIMaster) {
-      res["EnableErrorMonitoringInAIMaster"] = boost::any(*enableErrorMonitoringInAIMaster);
-    }
-    if (errorMonitoringArgs) {
-      res["ErrorMonitoringArgs"] = boost::any(*errorMonitoringArgs);
-    }
-    if (priority) {
-      res["Priority"] = boost::any(*priority);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AIMasterType") != m.end() && !m["AIMasterType"].empty()) {
-      AIMasterType = make_shared<string>(boost::any_cast<string>(m["AIMasterType"]));
-    }
-    if (m.find("EnableErrorMonitoringInAIMaster") != m.end() && !m["EnableErrorMonitoringInAIMaster"].empty()) {
-      enableErrorMonitoringInAIMaster = make_shared<bool>(boost::any_cast<bool>(m["EnableErrorMonitoringInAIMaster"]));
-    }
-    if (m.find("ErrorMonitoringArgs") != m.end() && !m["ErrorMonitoringArgs"].empty()) {
-      errorMonitoringArgs = make_shared<string>(boost::any_cast<string>(m["ErrorMonitoringArgs"]));
-    }
-    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
-      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
-    }
-  }
-
-
-  virtual ~GetTrainingJobResponseBodySettings() = default;
 };
 class GetTrainingJobResponseBodyStatusTransitions : public Darabonba::Model {
 public:
@@ -10818,13 +11203,14 @@ public:
   shared_ptr<GetTrainingJobResponseBodyLatestProgress> latestProgress{};
   shared_ptr<vector<GetTrainingJobResponseBodyOutputChannels>> outputChannels{};
   shared_ptr<GetTrainingJobResponseBodyOutputModel> outputModel{};
+  shared_ptr<long> priority{};
   shared_ptr<vector<string>> pythonRequirements{};
   shared_ptr<string> reasonCode{};
   shared_ptr<string> reasonMessage{};
   shared_ptr<string> requestId{};
   shared_ptr<string> roleArn{};
   shared_ptr<GetTrainingJobResponseBodyScheduler> scheduler{};
-  shared_ptr<GetTrainingJobResponseBodySettings> settings{};
+  shared_ptr<JobSettings> settings{};
   shared_ptr<string> status{};
   shared_ptr<vector<GetTrainingJobResponseBodyStatusTransitions>> statusTransitions{};
   shared_ptr<string> trainingJobDescription{};
@@ -10928,6 +11314,9 @@ public:
     }
     if (outputModel) {
       res["OutputModel"] = outputModel ? boost::any(outputModel->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
     }
     if (pythonRequirements) {
       res["PythonRequirements"] = boost::any(*pythonRequirements);
@@ -11130,6 +11519,9 @@ public:
         outputModel = make_shared<GetTrainingJobResponseBodyOutputModel>(model1);
       }
     }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
     if (m.find("PythonRequirements") != m.end() && !m["PythonRequirements"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["PythonRequirements"].type()) {
@@ -11161,9 +11553,9 @@ public:
     }
     if (m.find("Settings") != m.end() && !m["Settings"].empty()) {
       if (typeid(map<string, boost::any>) == m["Settings"].type()) {
-        GetTrainingJobResponseBodySettings model1;
+        JobSettings model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Settings"]));
-        settings = make_shared<GetTrainingJobResponseBodySettings>(model1);
+        settings = make_shared<JobSettings>(model1);
       }
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
@@ -12480,6 +12872,279 @@ public:
 
 
   virtual ~ListNodesResponse() = default;
+};
+class ListQuotaWorkloadsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> beforeWorkloadId{};
+  shared_ptr<TimeRangeFilter> gmtDequeuedTimeRange{};
+  shared_ptr<TimeRangeFilter> gmtEnqueuedTimeRange{};
+  shared_ptr<TimeRangeFilter> gmtPositionModifiedTimeRange{};
+  shared_ptr<string> nodeName{};
+  shared_ptr<string> order{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<bool> showOwn{};
+  shared_ptr<string> sortBy{};
+  shared_ptr<string> status{};
+  shared_ptr<string> subQuotaIds{};
+  shared_ptr<string> userIds{};
+  shared_ptr<TimeRangeFilter> workloadCreatedTimeRange{};
+  shared_ptr<string> workloadIds{};
+  shared_ptr<string> workloadStatuses{};
+  shared_ptr<string> workloadType{};
+  shared_ptr<string> workspaceIds{};
+
+  ListQuotaWorkloadsRequest() {}
+
+  explicit ListQuotaWorkloadsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beforeWorkloadId) {
+      res["BeforeWorkloadId"] = boost::any(*beforeWorkloadId);
+    }
+    if (gmtDequeuedTimeRange) {
+      res["GmtDequeuedTimeRange"] = gmtDequeuedTimeRange ? boost::any(gmtDequeuedTimeRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (gmtEnqueuedTimeRange) {
+      res["GmtEnqueuedTimeRange"] = gmtEnqueuedTimeRange ? boost::any(gmtEnqueuedTimeRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (gmtPositionModifiedTimeRange) {
+      res["GmtPositionModifiedTimeRange"] = gmtPositionModifiedTimeRange ? boost::any(gmtPositionModifiedTimeRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (nodeName) {
+      res["NodeName"] = boost::any(*nodeName);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (showOwn) {
+      res["ShowOwn"] = boost::any(*showOwn);
+    }
+    if (sortBy) {
+      res["SortBy"] = boost::any(*sortBy);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (subQuotaIds) {
+      res["SubQuotaIds"] = boost::any(*subQuotaIds);
+    }
+    if (userIds) {
+      res["UserIds"] = boost::any(*userIds);
+    }
+    if (workloadCreatedTimeRange) {
+      res["WorkloadCreatedTimeRange"] = workloadCreatedTimeRange ? boost::any(workloadCreatedTimeRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (workloadIds) {
+      res["WorkloadIds"] = boost::any(*workloadIds);
+    }
+    if (workloadStatuses) {
+      res["WorkloadStatuses"] = boost::any(*workloadStatuses);
+    }
+    if (workloadType) {
+      res["WorkloadType"] = boost::any(*workloadType);
+    }
+    if (workspaceIds) {
+      res["WorkspaceIds"] = boost::any(*workspaceIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeforeWorkloadId") != m.end() && !m["BeforeWorkloadId"].empty()) {
+      beforeWorkloadId = make_shared<string>(boost::any_cast<string>(m["BeforeWorkloadId"]));
+    }
+    if (m.find("GmtDequeuedTimeRange") != m.end() && !m["GmtDequeuedTimeRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GmtDequeuedTimeRange"].type()) {
+        TimeRangeFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GmtDequeuedTimeRange"]));
+        gmtDequeuedTimeRange = make_shared<TimeRangeFilter>(model1);
+      }
+    }
+    if (m.find("GmtEnqueuedTimeRange") != m.end() && !m["GmtEnqueuedTimeRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GmtEnqueuedTimeRange"].type()) {
+        TimeRangeFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GmtEnqueuedTimeRange"]));
+        gmtEnqueuedTimeRange = make_shared<TimeRangeFilter>(model1);
+      }
+    }
+    if (m.find("GmtPositionModifiedTimeRange") != m.end() && !m["GmtPositionModifiedTimeRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GmtPositionModifiedTimeRange"].type()) {
+        TimeRangeFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GmtPositionModifiedTimeRange"]));
+        gmtPositionModifiedTimeRange = make_shared<TimeRangeFilter>(model1);
+      }
+    }
+    if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
+      nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ShowOwn") != m.end() && !m["ShowOwn"].empty()) {
+      showOwn = make_shared<bool>(boost::any_cast<bool>(m["ShowOwn"]));
+    }
+    if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
+      sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubQuotaIds") != m.end() && !m["SubQuotaIds"].empty()) {
+      subQuotaIds = make_shared<string>(boost::any_cast<string>(m["SubQuotaIds"]));
+    }
+    if (m.find("UserIds") != m.end() && !m["UserIds"].empty()) {
+      userIds = make_shared<string>(boost::any_cast<string>(m["UserIds"]));
+    }
+    if (m.find("WorkloadCreatedTimeRange") != m.end() && !m["WorkloadCreatedTimeRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["WorkloadCreatedTimeRange"].type()) {
+        TimeRangeFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["WorkloadCreatedTimeRange"]));
+        workloadCreatedTimeRange = make_shared<TimeRangeFilter>(model1);
+      }
+    }
+    if (m.find("WorkloadIds") != m.end() && !m["WorkloadIds"].empty()) {
+      workloadIds = make_shared<string>(boost::any_cast<string>(m["WorkloadIds"]));
+    }
+    if (m.find("WorkloadStatuses") != m.end() && !m["WorkloadStatuses"].empty()) {
+      workloadStatuses = make_shared<string>(boost::any_cast<string>(m["WorkloadStatuses"]));
+    }
+    if (m.find("WorkloadType") != m.end() && !m["WorkloadType"].empty()) {
+      workloadType = make_shared<string>(boost::any_cast<string>(m["WorkloadType"]));
+    }
+    if (m.find("WorkspaceIds") != m.end() && !m["WorkspaceIds"].empty()) {
+      workspaceIds = make_shared<string>(boost::any_cast<string>(m["WorkspaceIds"]));
+    }
+  }
+
+
+  virtual ~ListQuotaWorkloadsRequest() = default;
+};
+class ListQuotaWorkloadsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<vector<QueueInfo>> workloads{};
+
+  ListQuotaWorkloadsResponseBody() {}
+
+  explicit ListQuotaWorkloadsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (workloads) {
+      vector<boost::any> temp1;
+      for(auto item1:*workloads){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Workloads"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("Workloads") != m.end() && !m["Workloads"].empty()) {
+      if (typeid(vector<boost::any>) == m["Workloads"].type()) {
+        vector<QueueInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Workloads"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueueInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        workloads = make_shared<vector<QueueInfo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListQuotaWorkloadsResponseBody() = default;
+};
+class ListQuotaWorkloadsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListQuotaWorkloadsResponseBody> body{};
+
+  ListQuotaWorkloadsResponse() {}
+
+  explicit ListQuotaWorkloadsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListQuotaWorkloadsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListQuotaWorkloadsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListQuotaWorkloadsResponse() = default;
 };
 class ListQuotasRequest : public Darabonba::Model {
 public:
@@ -13952,6 +14617,7 @@ class ListTrainingJobMetricsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<ListTrainingJobMetricsResponseBodyMetrics>> metrics{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
 
   ListTrainingJobMetricsResponseBody() {}
 
@@ -13973,6 +14639,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
@@ -13992,6 +14661,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
@@ -14759,6 +15431,7 @@ public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> inputUri{};
   shared_ptr<string> name{};
+  shared_ptr<string> versionName{};
 
   ListTrainingJobsResponseBodyTrainingJobsInputChannels() {}
 
@@ -14779,6 +15452,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
+    }
     return res;
   }
 
@@ -14791,6 +15467,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
     }
   }
 
@@ -14838,6 +15517,7 @@ public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> name{};
   shared_ptr<string> outputUri{};
+  shared_ptr<string> versionName{};
 
   ListTrainingJobsResponseBodyTrainingJobsOutputChannels() {}
 
@@ -14858,6 +15538,9 @@ public:
     if (outputUri) {
       res["OutputUri"] = boost::any(*outputUri);
     }
+    if (versionName) {
+      res["VersionName"] = boost::any(*versionName);
+    }
     return res;
   }
 
@@ -14870,6 +15553,9 @@ public:
     }
     if (m.find("OutputUri") != m.end() && !m["OutputUri"].empty()) {
       outputUri = make_shared<string>(boost::any_cast<string>(m["OutputUri"]));
+    }
+    if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
+      versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
     }
   }
 
@@ -16512,6 +17198,11 @@ public:
   ListAlgorithmsResponse listAlgorithms(shared_ptr<ListAlgorithmsRequest> request);
   ListNodesResponse listNodesWithOptions(shared_ptr<ListNodesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListNodesResponse listNodes(shared_ptr<ListNodesRequest> request);
+  ListQuotaWorkloadsResponse listQuotaWorkloadsWithOptions(shared_ptr<string> QuotaId,
+                                                           shared_ptr<ListQuotaWorkloadsRequest> request,
+                                                           shared_ptr<map<string, string>> headers,
+                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListQuotaWorkloadsResponse listQuotaWorkloads(shared_ptr<string> QuotaId, shared_ptr<ListQuotaWorkloadsRequest> request);
   ListQuotasResponse listQuotasWithOptions(shared_ptr<ListQuotasRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListQuotasResponse listQuotas(shared_ptr<ListQuotasRequest> request);
   ListResourceGroupMachineGroupsResponse listResourceGroupMachineGroupsWithOptions(shared_ptr<string> ResourceGroupID,
