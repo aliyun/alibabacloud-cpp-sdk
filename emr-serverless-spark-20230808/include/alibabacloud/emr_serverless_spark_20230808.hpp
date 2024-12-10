@@ -477,6 +477,105 @@ public:
 
   virtual ~JobDriver() = default;
 };
+class KerberosConf : public Darabonba::Model {
+public:
+  shared_ptr<string> creator{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> gmtCreated{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<string> kerberosConfId{};
+  shared_ptr<vector<string>> keytabs{};
+  shared_ptr<string> krb5Conf{};
+  shared_ptr<string> name{};
+  shared_ptr<string> networkServiceId{};
+  shared_ptr<string> workspaceId{};
+
+  KerberosConf() {}
+
+  explicit KerberosConf(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (creator) {
+      res["creator"] = boost::any(*creator);
+    }
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    if (gmtCreated) {
+      res["gmtCreated"] = boost::any(*gmtCreated);
+    }
+    if (gmtModified) {
+      res["gmtModified"] = boost::any(*gmtModified);
+    }
+    if (kerberosConfId) {
+      res["kerberosConfId"] = boost::any(*kerberosConfId);
+    }
+    if (keytabs) {
+      res["keytabs"] = boost::any(*keytabs);
+    }
+    if (krb5Conf) {
+      res["krb5Conf"] = boost::any(*krb5Conf);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (networkServiceId) {
+      res["networkServiceId"] = boost::any(*networkServiceId);
+    }
+    if (workspaceId) {
+      res["workspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("creator") != m.end() && !m["creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["creator"]));
+    }
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+    if (m.find("gmtCreated") != m.end() && !m["gmtCreated"].empty()) {
+      gmtCreated = make_shared<string>(boost::any_cast<string>(m["gmtCreated"]));
+    }
+    if (m.find("gmtModified") != m.end() && !m["gmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["gmtModified"]));
+    }
+    if (m.find("kerberosConfId") != m.end() && !m["kerberosConfId"].empty()) {
+      kerberosConfId = make_shared<string>(boost::any_cast<string>(m["kerberosConfId"]));
+    }
+    if (m.find("keytabs") != m.end() && !m["keytabs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["keytabs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["keytabs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      keytabs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("krb5Conf") != m.end() && !m["krb5Conf"].empty()) {
+      krb5Conf = make_shared<string>(boost::any_cast<string>(m["krb5Conf"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("networkServiceId") != m.end() && !m["networkServiceId"].empty()) {
+      networkServiceId = make_shared<string>(boost::any_cast<string>(m["networkServiceId"]));
+    }
+    if (m.find("workspaceId") != m.end() && !m["workspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["workspaceId"]));
+    }
+  }
+
+
+  virtual ~KerberosConf() = default;
+};
 class PrincipalAction : public Darabonba::Model {
 public:
   shared_ptr<string> actionArn{};
@@ -3887,6 +3986,7 @@ public:
   shared_ptr<string> codeType{};
   shared_ptr<ListJobRunsResponseBodyJobRunsConfigurationOverrides> configurationOverrides{};
   shared_ptr<string> creator{};
+  shared_ptr<long> cuHours{};
   shared_ptr<string> displayReleaseVersion{};
   shared_ptr<long> endTime{};
   shared_ptr<long> executionTimeoutSeconds{};
@@ -3894,12 +3994,14 @@ public:
   shared_ptr<JobDriver> jobDriver{};
   shared_ptr<string> jobRunId{};
   shared_ptr<RunLog> log{};
+  shared_ptr<long> mbSeconds{};
   shared_ptr<string> name{};
   shared_ptr<string> releaseVersion{};
   shared_ptr<string> state{};
   shared_ptr<ListJobRunsResponseBodyJobRunsStateChangeReason> stateChangeReason{};
   shared_ptr<long> submitTime{};
   shared_ptr<vector<Tag>> tags{};
+  shared_ptr<long> vcoreSeconds{};
   shared_ptr<string> webUI{};
   shared_ptr<string> workspaceId{};
 
@@ -3922,6 +4024,9 @@ public:
     if (creator) {
       res["creator"] = boost::any(*creator);
     }
+    if (cuHours) {
+      res["cuHours"] = boost::any(*cuHours);
+    }
     if (displayReleaseVersion) {
       res["displayReleaseVersion"] = boost::any(*displayReleaseVersion);
     }
@@ -3942,6 +4047,9 @@ public:
     }
     if (log) {
       res["log"] = log ? boost::any(log->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mbSeconds) {
+      res["mbSeconds"] = boost::any(*mbSeconds);
     }
     if (name) {
       res["name"] = boost::any(*name);
@@ -3965,6 +4073,9 @@ public:
       }
       res["tags"] = boost::any(temp1);
     }
+    if (vcoreSeconds) {
+      res["vcoreSeconds"] = boost::any(*vcoreSeconds);
+    }
     if (webUI) {
       res["webUI"] = boost::any(*webUI);
     }
@@ -3987,6 +4098,9 @@ public:
     }
     if (m.find("creator") != m.end() && !m["creator"].empty()) {
       creator = make_shared<string>(boost::any_cast<string>(m["creator"]));
+    }
+    if (m.find("cuHours") != m.end() && !m["cuHours"].empty()) {
+      cuHours = make_shared<long>(boost::any_cast<long>(m["cuHours"]));
     }
     if (m.find("displayReleaseVersion") != m.end() && !m["displayReleaseVersion"].empty()) {
       displayReleaseVersion = make_shared<string>(boost::any_cast<string>(m["displayReleaseVersion"]));
@@ -4016,6 +4130,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["log"]));
         log = make_shared<RunLog>(model1);
       }
+    }
+    if (m.find("mbSeconds") != m.end() && !m["mbSeconds"].empty()) {
+      mbSeconds = make_shared<long>(boost::any_cast<long>(m["mbSeconds"]));
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
@@ -4048,6 +4165,9 @@ public:
         }
         tags = make_shared<vector<Tag>>(expect1);
       }
+    }
+    if (m.find("vcoreSeconds") != m.end() && !m["vcoreSeconds"].empty()) {
+      vcoreSeconds = make_shared<long>(boost::any_cast<long>(m["vcoreSeconds"]));
     }
     if (m.find("webUI") != m.end() && !m["webUI"].empty()) {
       webUI = make_shared<string>(boost::any_cast<string>(m["webUI"]));
