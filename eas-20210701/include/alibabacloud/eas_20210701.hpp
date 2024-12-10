@@ -6645,6 +6645,7 @@ public:
   shared_ptr<bool> isDefault{};
   shared_ptr<long> replicas{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> SSLRedirectionEnabled{};
   shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
 
@@ -6694,6 +6695,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (SSLRedirectionEnabled) {
+      res["SSLRedirectionEnabled"] = boost::any(*SSLRedirectionEnabled);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -6739,6 +6743,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SSLRedirectionEnabled") != m.end() && !m["SSLRedirectionEnabled"].empty()) {
+      SSLRedirectionEnabled = make_shared<bool>(boost::any_cast<bool>(m["SSLRedirectionEnabled"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -6859,10 +6866,14 @@ class DescribeResourceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<long> cpuCount{};
+  shared_ptr<long> cpuUsed{};
   shared_ptr<string> createTime{};
   shared_ptr<string> extraData{};
   shared_ptr<long> gpuCount{};
+  shared_ptr<double> gpuUsed{};
   shared_ptr<long> instanceCount{};
+  shared_ptr<long> memory{};
+  shared_ptr<long> memoryUsed{};
   shared_ptr<string> message{};
   shared_ptr<string> ownerUid{};
   shared_ptr<long> postPaidInstanceCount{};
@@ -6890,6 +6901,9 @@ public:
     if (cpuCount) {
       res["CpuCount"] = boost::any(*cpuCount);
     }
+    if (cpuUsed) {
+      res["CpuUsed"] = boost::any(*cpuUsed);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -6899,8 +6913,17 @@ public:
     if (gpuCount) {
       res["GpuCount"] = boost::any(*gpuCount);
     }
+    if (gpuUsed) {
+      res["GpuUsed"] = boost::any(*gpuUsed);
+    }
     if (instanceCount) {
       res["InstanceCount"] = boost::any(*instanceCount);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (memoryUsed) {
+      res["MemoryUsed"] = boost::any(*memoryUsed);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -6942,6 +6965,9 @@ public:
     if (m.find("CpuCount") != m.end() && !m["CpuCount"].empty()) {
       cpuCount = make_shared<long>(boost::any_cast<long>(m["CpuCount"]));
     }
+    if (m.find("CpuUsed") != m.end() && !m["CpuUsed"].empty()) {
+      cpuUsed = make_shared<long>(boost::any_cast<long>(m["CpuUsed"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
@@ -6951,8 +6977,17 @@ public:
     if (m.find("GpuCount") != m.end() && !m["GpuCount"].empty()) {
       gpuCount = make_shared<long>(boost::any_cast<long>(m["GpuCount"]));
     }
+    if (m.find("GpuUsed") != m.end() && !m["GpuUsed"].empty()) {
+      gpuUsed = make_shared<double>(boost::any_cast<double>(m["GpuUsed"]));
+    }
     if (m.find("InstanceCount") != m.end() && !m["InstanceCount"].empty()) {
       instanceCount = make_shared<long>(boost::any_cast<long>(m["InstanceCount"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("MemoryUsed") != m.end() && !m["MemoryUsed"].empty()) {
+      memoryUsed = make_shared<long>(boost::any_cast<long>(m["MemoryUsed"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -9952,6 +9987,7 @@ public:
   shared_ptr<string> intranetDomain{};
   shared_ptr<bool> isDefault{};
   shared_ptr<long> replicas{};
+  shared_ptr<bool> SSLRedirectionEnabled{};
   shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
 
@@ -9995,6 +10031,9 @@ public:
     if (replicas) {
       res["Replicas"] = boost::any(*replicas);
     }
+    if (SSLRedirectionEnabled) {
+      res["SSLRedirectionEnabled"] = boost::any(*SSLRedirectionEnabled);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -10034,6 +10073,9 @@ public:
     }
     if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
       replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
+    }
+    if (m.find("SSLRedirectionEnabled") != m.end() && !m["SSLRedirectionEnabled"].empty()) {
+      SSLRedirectionEnabled = make_shared<bool>(boost::any_cast<bool>(m["SSLRedirectionEnabled"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -10710,6 +10752,101 @@ public:
 
 
   virtual ~ListGatewayIntranetLinkedVpcPeerResponse() = default;
+};
+class ListGatewayIntranetSupportedZoneResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> zones{};
+
+  ListGatewayIntranetSupportedZoneResponseBody() {}
+
+  explicit ListGatewayIntranetSupportedZoneResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (zones) {
+      res["Zones"] = boost::any(*zones);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Zones") != m.end() && !m["Zones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Zones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Zones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      zones = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListGatewayIntranetSupportedZoneResponseBody() = default;
+};
+class ListGatewayIntranetSupportedZoneResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListGatewayIntranetSupportedZoneResponseBody> body{};
+
+  ListGatewayIntranetSupportedZoneResponse() {}
+
+  explicit ListGatewayIntranetSupportedZoneResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListGatewayIntranetSupportedZoneResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListGatewayIntranetSupportedZoneResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListGatewayIntranetSupportedZoneResponse() = default;
 };
 class ListGroupsRequest : public Darabonba::Model {
 public:
@@ -13878,6 +14015,7 @@ class UpdateGatewayRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> enableInternet{};
   shared_ptr<bool> enableIntranet{};
+  shared_ptr<bool> enableSSLRedirection{};
   shared_ptr<string> instanceType{};
   shared_ptr<bool> isDefault{};
   shared_ptr<string> name{};
@@ -13898,6 +14036,9 @@ public:
     }
     if (enableIntranet) {
       res["EnableIntranet"] = boost::any(*enableIntranet);
+    }
+    if (enableSSLRedirection) {
+      res["EnableSSLRedirection"] = boost::any(*enableSSLRedirection);
     }
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
@@ -13920,6 +14061,9 @@ public:
     }
     if (m.find("EnableIntranet") != m.end() && !m["EnableIntranet"].empty()) {
       enableIntranet = make_shared<bool>(boost::any_cast<bool>(m["EnableIntranet"]));
+    }
+    if (m.find("EnableSSLRedirection") != m.end() && !m["EnableSSLRedirection"].empty()) {
+      enableSSLRedirection = make_shared<bool>(boost::any_cast<bool>(m["EnableSSLRedirection"]));
     }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
@@ -16305,6 +16449,11 @@ public:
                                                                                        shared_ptr<map<string, string>> headers,
                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListGatewayIntranetLinkedVpcPeerResponse listGatewayIntranetLinkedVpcPeer(shared_ptr<string> ClusterId, shared_ptr<string> GatewayId, shared_ptr<ListGatewayIntranetLinkedVpcPeerRequest> request);
+  ListGatewayIntranetSupportedZoneResponse listGatewayIntranetSupportedZoneWithOptions(shared_ptr<string> GatewayId,
+                                                                                       shared_ptr<string> ClusterId,
+                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListGatewayIntranetSupportedZoneResponse listGatewayIntranetSupportedZone(shared_ptr<string> GatewayId, shared_ptr<string> ClusterId);
   ListGroupsResponse listGroupsWithOptions(shared_ptr<ListGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListGroupsResponse listGroups(shared_ptr<ListGroupsRequest> request);
   ListResourceInstanceWorkerResponse listResourceInstanceWorkerWithOptions(shared_ptr<string> ClusterId,

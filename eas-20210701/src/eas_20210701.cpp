@@ -2055,6 +2055,33 @@ ListGatewayIntranetLinkedVpcPeerResponse Alibabacloud_Eas20210701::Client::listG
   return listGatewayIntranetLinkedVpcPeerWithOptions(ClusterId, GatewayId, request, headers, runtime);
 }
 
+ListGatewayIntranetSupportedZoneResponse Alibabacloud_Eas20210701::Client::listGatewayIntranetSupportedZoneWithOptions(shared_ptr<string> GatewayId,
+                                                                                                                       shared_ptr<string> ClusterId,
+                                                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListGatewayIntranetSupportedZone"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/gateways/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(GatewayId)) + string("/intranet_supported_zone"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListGatewayIntranetSupportedZoneResponse(callApi(params, req, runtime));
+}
+
+ListGatewayIntranetSupportedZoneResponse Alibabacloud_Eas20210701::Client::listGatewayIntranetSupportedZone(shared_ptr<string> GatewayId, shared_ptr<string> ClusterId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listGatewayIntranetSupportedZoneWithOptions(GatewayId, ClusterId, headers, runtime);
+}
+
 ListGroupsResponse Alibabacloud_Eas20210701::Client::listGroupsWithOptions(shared_ptr<ListGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2851,6 +2878,9 @@ UpdateGatewayResponse Alibabacloud_Eas20210701::Client::updateGatewayWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableIntranet)) {
     body->insert(pair<string, bool>("EnableIntranet", *request->enableIntranet));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableSSLRedirection)) {
+    body->insert(pair<string, bool>("EnableSSLRedirection", *request->enableSSLRedirection));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
     body->insert(pair<string, string>("InstanceType", *request->instanceType));
