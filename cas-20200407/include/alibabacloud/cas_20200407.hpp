@@ -234,6 +234,42 @@ public:
 
   virtual ~CancelOrderRequestResponse() = default;
 };
+class CreateCertificateForPackageRequestRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateCertificateForPackageRequestRequestTags() {}
+
+  explicit CreateCertificateForPackageRequestRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateCertificateForPackageRequestRequestTags() = default;
+};
 class CreateCertificateForPackageRequestRequest : public Darabonba::Model {
 public:
   shared_ptr<string> companyName{};
@@ -242,6 +278,7 @@ public:
   shared_ptr<string> email{};
   shared_ptr<string> phone{};
   shared_ptr<string> productCode{};
+  shared_ptr<vector<CreateCertificateForPackageRequestRequestTags>> tags{};
   shared_ptr<string> username{};
   shared_ptr<string> validateType{};
 
@@ -273,6 +310,13 @@ public:
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     if (username) {
       res["Username"] = boost::any(*username);
     }
@@ -300,6 +344,19 @@ public:
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateCertificateForPackageRequestRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCertificateForPackageRequestRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateCertificateForPackageRequestRequestTags>>(expect1);
+      }
     }
     if (m.find("Username") != m.end() && !m["Username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["Username"]));
@@ -400,12 +457,49 @@ public:
 
   virtual ~CreateCertificateForPackageRequestResponse() = default;
 };
+class CreateCertificateRequestRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateCertificateRequestRequestTags() {}
+
+  explicit CreateCertificateRequestRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateCertificateRequestRequestTags() = default;
+};
 class CreateCertificateRequestRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domain{};
   shared_ptr<string> email{};
   shared_ptr<string> phone{};
   shared_ptr<string> productCode{};
+  shared_ptr<vector<CreateCertificateRequestRequestTags>> tags{};
   shared_ptr<string> username{};
   shared_ptr<string> validateType{};
 
@@ -431,6 +525,13 @@ public:
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     if (username) {
       res["Username"] = boost::any(*username);
     }
@@ -452,6 +553,19 @@ public:
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateCertificateRequestRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCertificateRequestRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateCertificateRequestRequestTags>>(expect1);
+      }
     }
     if (m.find("Username") != m.end() && !m["Username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["Username"]));
@@ -552,12 +666,49 @@ public:
 
   virtual ~CreateCertificateRequestResponse() = default;
 };
+class CreateCertificateWithCsrRequestRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateCertificateWithCsrRequestRequestTags() {}
+
+  explicit CreateCertificateWithCsrRequestRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateCertificateWithCsrRequestRequestTags() = default;
+};
 class CreateCertificateWithCsrRequestRequest : public Darabonba::Model {
 public:
   shared_ptr<string> csr{};
   shared_ptr<string> email{};
   shared_ptr<string> phone{};
   shared_ptr<string> productCode{};
+  shared_ptr<vector<CreateCertificateWithCsrRequestRequestTags>> tags{};
   shared_ptr<string> username{};
   shared_ptr<string> validateType{};
 
@@ -583,6 +734,13 @@ public:
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     if (username) {
       res["Username"] = boost::any(*username);
     }
@@ -604,6 +762,19 @@ public:
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateCertificateWithCsrRequestRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCertificateWithCsrRequestRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateCertificateWithCsrRequestRequestTags>>(expect1);
+      }
     }
     if (m.find("Username") != m.end() && !m["Username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["Username"]));
@@ -7225,10 +7396,47 @@ public:
 
   virtual ~MoveResourceGroupResponse() = default;
 };
+class RenewCertificateOrderForPackageRequestRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  RenewCertificateOrderForPackageRequestRequestTags() {}
+
+  explicit RenewCertificateOrderForPackageRequestRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~RenewCertificateOrderForPackageRequestRequestTags() = default;
+};
 class RenewCertificateOrderForPackageRequestRequest : public Darabonba::Model {
 public:
   shared_ptr<string> csr{};
   shared_ptr<long> orderId{};
+  shared_ptr<vector<RenewCertificateOrderForPackageRequestRequestTags>> tags{};
 
   RenewCertificateOrderForPackageRequestRequest() {}
 
@@ -7246,6 +7454,13 @@ public:
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -7255,6 +7470,19 @@ public:
     }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<RenewCertificateOrderForPackageRequestRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RenewCertificateOrderForPackageRequestRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<RenewCertificateOrderForPackageRequestRequestTags>>(expect1);
+      }
     }
   }
 
@@ -8135,6 +8363,42 @@ public:
 
   virtual ~UploadCsrResponse() = default;
 };
+class UploadUserCertificateRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  UploadUserCertificateRequestTags() {}
+
+  explicit UploadUserCertificateRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UploadUserCertificateRequestTags() = default;
+};
 class UploadUserCertificateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cert{};
@@ -8145,6 +8409,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> signCert{};
   shared_ptr<string> signPrivateKey{};
+  shared_ptr<vector<UploadUserCertificateRequestTags>> tags{};
 
   UploadUserCertificateRequest() {}
 
@@ -8180,6 +8445,13 @@ public:
     if (signPrivateKey) {
       res["SignPrivateKey"] = boost::any(*signPrivateKey);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -8207,6 +8479,19 @@ public:
     }
     if (m.find("SignPrivateKey") != m.end() && !m["SignPrivateKey"].empty()) {
       signPrivateKey = make_shared<string>(boost::any_cast<string>(m["SignPrivateKey"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<UploadUserCertificateRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UploadUserCertificateRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<UploadUserCertificateRequestTags>>(expect1);
+      }
     }
   }
 

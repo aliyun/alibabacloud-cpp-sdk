@@ -168,6 +168,9 @@ CreateCertificateForPackageRequestResponse Alibabacloud_Cas20200407::Client::cre
   if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
     query->insert(pair<string, string>("ProductCode", *request->productCode));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCertificateForPackageRequestRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<CreateCertificateForPackageRequestRequestTags>>("Tags", *request->tags));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
     query->insert(pair<string, string>("Username", *request->username));
   }
@@ -211,6 +214,9 @@ CreateCertificateRequestResponse Alibabacloud_Cas20200407::Client::createCertifi
   if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
     query->insert(pair<string, string>("ProductCode", *request->productCode));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCertificateRequestRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<CreateCertificateRequestRequestTags>>("Tags", *request->tags));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
     query->insert(pair<string, string>("Username", *request->username));
   }
@@ -253,6 +259,9 @@ CreateCertificateWithCsrRequestResponse Alibabacloud_Cas20200407::Client::create
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
     query->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCertificateWithCsrRequestRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<CreateCertificateWithCsrRequestRequestTags>>("Tags", *request->tags));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
     query->insert(pair<string, string>("Username", *request->username));
@@ -1312,6 +1321,9 @@ RenewCertificateOrderForPackageRequestResponse Alibabacloud_Cas20200407::Client:
   if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
     query->insert(pair<string, long>("OrderId", *request->orderId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<RenewCertificateOrderForPackageRequestRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<RenewCertificateOrderForPackageRequestRequestTags>>("Tags", *request->tags));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1570,6 +1582,9 @@ UploadUserCertificateResponse Alibabacloud_Cas20200407::Client::uploadUserCertif
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->signPrivateKey)) {
     query->insert(pair<string, string>("SignPrivateKey", *request->signPrivateKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UploadUserCertificateRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<UploadUserCertificateRequestTags>>("Tags", *request->tags));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
