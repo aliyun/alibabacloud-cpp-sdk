@@ -766,6 +766,9 @@ CreateEciScalingConfigurationResponse Alibabacloud_Ess20220222::Client::createEc
   if (!Darabonba_Util::Client::isUnset<long>(request->ephemeralStorage)) {
     query->insert(pair<string, long>("EphemeralStorage", *request->ephemeralStorage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gpuDriverVersion)) {
+    query->insert(pair<string, string>("GpuDriverVersion", *request->gpuDriverVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateEciScalingConfigurationRequestHostAliases>>(request->hostAliases)) {
     query->insert(pair<string, vector<CreateEciScalingConfigurationRequestHostAliases>>("HostAliases", *request->hostAliases));
   }
@@ -1188,6 +1191,9 @@ CreateScalingGroupResponse Alibabacloud_Ess20220222::Client::createScalingGroupW
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->azBalance)) {
     query->insert(pair<string, bool>("AzBalance", *request->azBalance));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateScalingGroupRequestCapacityOptions>(request->capacityOptions)) {
+    query->insert(pair<string, CreateScalingGroupRequestCapacityOptions>("CapacityOptions", *request->capacityOptions));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -3855,6 +3861,9 @@ ModifyEciScalingConfigurationResponse Alibabacloud_Ess20220222::Client::modifyEc
   if (!Darabonba_Util::Client::isUnset<long>(request->ephemeralStorage)) {
     query->insert(pair<string, long>("EphemeralStorage", *request->ephemeralStorage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gpuDriverVersion)) {
+    query->insert(pair<string, string>("GpuDriverVersion", *request->gpuDriverVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ModifyEciScalingConfigurationRequestHostAliases>>(request->hostAliases)) {
     query->insert(pair<string, vector<ModifyEciScalingConfigurationRequestHostAliases>>("HostAliases", *request->hostAliases));
   }
@@ -4323,6 +4332,9 @@ ModifyScalingGroupResponse Alibabacloud_Ess20220222::Client::modifyScalingGroupW
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->azBalance)) {
     query->insert(pair<string, bool>("AzBalance", *request->azBalance));
+  }
+  if (!Darabonba_Util::Client::isUnset<ModifyScalingGroupRequestCapacityOptions>(request->capacityOptions)) {
+    query->insert(pair<string, ModifyScalingGroupRequestCapacityOptions>("CapacityOptions", *request->capacityOptions));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->compensateWithOnDemand)) {
     query->insert(pair<string, bool>("CompensateWithOnDemand", *request->compensateWithOnDemand));
@@ -5100,6 +5112,9 @@ StartInstanceRefreshResponse Alibabacloud_Ess20220222::Client::startInstanceRefr
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scalingGroupId)) {
     query->insert(pair<string, string>("ScalingGroupId", *request->scalingGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->skipMatching)) {
+    query->insert(pair<string, bool>("SkipMatching", *request->skipMatching));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

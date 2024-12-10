@@ -4496,6 +4496,7 @@ public:
   shared_ptr<long> eipBandwidth{};
   shared_ptr<bool> enableSls{};
   shared_ptr<long> ephemeralStorage{};
+  shared_ptr<string> gpuDriverVersion{};
   shared_ptr<vector<CreateEciScalingConfigurationRequestHostAliases>> hostAliases{};
   shared_ptr<string> hostName{};
   shared_ptr<vector<CreateEciScalingConfigurationRequestImageRegistryCredentials>> imageRegistryCredentials{};
@@ -4613,6 +4614,9 @@ public:
     }
     if (ephemeralStorage) {
       res["EphemeralStorage"] = boost::any(*ephemeralStorage);
+    }
+    if (gpuDriverVersion) {
+      res["GpuDriverVersion"] = boost::any(*gpuDriverVersion);
     }
     if (hostAliases) {
       vector<boost::any> temp1;
@@ -4832,6 +4836,9 @@ public:
     }
     if (m.find("EphemeralStorage") != m.end() && !m["EphemeralStorage"].empty()) {
       ephemeralStorage = make_shared<long>(boost::any_cast<long>(m["EphemeralStorage"]));
+    }
+    if (m.find("GpuDriverVersion") != m.end() && !m["GpuDriverVersion"].empty()) {
+      gpuDriverVersion = make_shared<string>(boost::any_cast<string>(m["GpuDriverVersion"]));
     }
     if (m.find("HostAliases") != m.end() && !m["HostAliases"].empty()) {
       if (typeid(vector<boost::any>) == m["HostAliases"].type()) {
@@ -8113,6 +8120,56 @@ public:
 
   virtual ~CreateScalingGroupRequestAlbServerGroups() = default;
 };
+class CreateScalingGroupRequestCapacityOptions : public Darabonba::Model {
+public:
+  shared_ptr<bool> compensateWithOnDemand{};
+  shared_ptr<long> onDemandBaseCapacity{};
+  shared_ptr<long> onDemandPercentageAboveBaseCapacity{};
+  shared_ptr<bool> spotAutoReplaceOnDemand{};
+
+  CreateScalingGroupRequestCapacityOptions() {}
+
+  explicit CreateScalingGroupRequestCapacityOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (compensateWithOnDemand) {
+      res["CompensateWithOnDemand"] = boost::any(*compensateWithOnDemand);
+    }
+    if (onDemandBaseCapacity) {
+      res["OnDemandBaseCapacity"] = boost::any(*onDemandBaseCapacity);
+    }
+    if (onDemandPercentageAboveBaseCapacity) {
+      res["OnDemandPercentageAboveBaseCapacity"] = boost::any(*onDemandPercentageAboveBaseCapacity);
+    }
+    if (spotAutoReplaceOnDemand) {
+      res["SpotAutoReplaceOnDemand"] = boost::any(*spotAutoReplaceOnDemand);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompensateWithOnDemand") != m.end() && !m["CompensateWithOnDemand"].empty()) {
+      compensateWithOnDemand = make_shared<bool>(boost::any_cast<bool>(m["CompensateWithOnDemand"]));
+    }
+    if (m.find("OnDemandBaseCapacity") != m.end() && !m["OnDemandBaseCapacity"].empty()) {
+      onDemandBaseCapacity = make_shared<long>(boost::any_cast<long>(m["OnDemandBaseCapacity"]));
+    }
+    if (m.find("OnDemandPercentageAboveBaseCapacity") != m.end() && !m["OnDemandPercentageAboveBaseCapacity"].empty()) {
+      onDemandPercentageAboveBaseCapacity = make_shared<long>(boost::any_cast<long>(m["OnDemandPercentageAboveBaseCapacity"]));
+    }
+    if (m.find("SpotAutoReplaceOnDemand") != m.end() && !m["SpotAutoReplaceOnDemand"].empty()) {
+      spotAutoReplaceOnDemand = make_shared<bool>(boost::any_cast<bool>(m["SpotAutoReplaceOnDemand"]));
+    }
+  }
+
+
+  virtual ~CreateScalingGroupRequestCapacityOptions() = default;
+};
 class CreateScalingGroupRequestDBInstances : public Darabonba::Model {
 public:
   shared_ptr<string> attachMode{};
@@ -8490,6 +8547,7 @@ public:
   shared_ptr<vector<CreateScalingGroupRequestAlbServerGroups>> albServerGroups{};
   shared_ptr<string> allocationStrategy{};
   shared_ptr<bool> azBalance{};
+  shared_ptr<CreateScalingGroupRequestCapacityOptions> capacityOptions{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> compensateWithOnDemand{};
   shared_ptr<string> containerGroupId{};
@@ -8556,6 +8614,9 @@ public:
     }
     if (azBalance) {
       res["AzBalance"] = boost::any(*azBalance);
+    }
+    if (capacityOptions) {
+      res["CapacityOptions"] = capacityOptions ? boost::any(capacityOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -8736,6 +8797,13 @@ public:
     }
     if (m.find("AzBalance") != m.end() && !m["AzBalance"].empty()) {
       azBalance = make_shared<bool>(boost::any_cast<bool>(m["AzBalance"]));
+    }
+    if (m.find("CapacityOptions") != m.end() && !m["CapacityOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CapacityOptions"].type()) {
+        CreateScalingGroupRequestCapacityOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CapacityOptions"]));
+        capacityOptions = make_shared<CreateScalingGroupRequestCapacityOptions>(model1);
+      }
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -15800,6 +15868,7 @@ public:
   shared_ptr<long> egressBandwidth{};
   shared_ptr<long> eipBandwidth{};
   shared_ptr<long> ephemeralStorage{};
+  shared_ptr<string> gpuDriverVersion{};
   shared_ptr<vector<DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsHostAliases>> hostAliases{};
   shared_ptr<string> hostName{};
   shared_ptr<vector<DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsImageRegistryCredentials>> imageRegistryCredentials{};
@@ -15919,6 +15988,9 @@ public:
     }
     if (ephemeralStorage) {
       res["EphemeralStorage"] = boost::any(*ephemeralStorage);
+    }
+    if (gpuDriverVersion) {
+      res["GpuDriverVersion"] = boost::any(*gpuDriverVersion);
     }
     if (hostAliases) {
       vector<boost::any> temp1;
@@ -16144,6 +16216,9 @@ public:
     }
     if (m.find("EphemeralStorage") != m.end() && !m["EphemeralStorage"].empty()) {
       ephemeralStorage = make_shared<long>(boost::any_cast<long>(m["EphemeralStorage"]));
+    }
+    if (m.find("GpuDriverVersion") != m.end() && !m["GpuDriverVersion"].empty()) {
+      gpuDriverVersion = make_shared<string>(boost::any_cast<string>(m["GpuDriverVersion"]));
     }
     if (m.find("HostAliases") != m.end() && !m["HostAliases"].empty()) {
       if (typeid(vector<boost::any>) == m["HostAliases"].type()) {
@@ -17047,6 +17122,7 @@ public:
   shared_ptr<long> minHealthyPercentage{};
   shared_ptr<string> regionId{};
   shared_ptr<string> scalingGroupId{};
+  shared_ptr<bool> skipMatching{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<long> totalNeedUpdateCapacity{};
@@ -17087,6 +17163,9 @@ public:
     }
     if (scalingGroupId) {
       res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    if (skipMatching) {
+      res["SkipMatching"] = boost::any(*skipMatching);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -17131,6 +17210,9 @@ public:
     }
     if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
       scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("SkipMatching") != m.end() && !m["SkipMatching"].empty()) {
+      skipMatching = make_shared<bool>(boost::any_cast<bool>(m["SkipMatching"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -22616,6 +22698,56 @@ public:
 
   virtual ~DescribeScalingGroupsResponseBodyScalingGroupsAlbServerGroups() = default;
 };
+class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions : public Darabonba::Model {
+public:
+  shared_ptr<bool> compensateWithOnDemand{};
+  shared_ptr<long> onDemandBaseCapacity{};
+  shared_ptr<long> onDemandPercentageAboveBaseCapacity{};
+  shared_ptr<bool> spotAutoReplaceOnDemand{};
+
+  DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions() {}
+
+  explicit DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (compensateWithOnDemand) {
+      res["CompensateWithOnDemand"] = boost::any(*compensateWithOnDemand);
+    }
+    if (onDemandBaseCapacity) {
+      res["OnDemandBaseCapacity"] = boost::any(*onDemandBaseCapacity);
+    }
+    if (onDemandPercentageAboveBaseCapacity) {
+      res["OnDemandPercentageAboveBaseCapacity"] = boost::any(*onDemandPercentageAboveBaseCapacity);
+    }
+    if (spotAutoReplaceOnDemand) {
+      res["SpotAutoReplaceOnDemand"] = boost::any(*spotAutoReplaceOnDemand);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompensateWithOnDemand") != m.end() && !m["CompensateWithOnDemand"].empty()) {
+      compensateWithOnDemand = make_shared<bool>(boost::any_cast<bool>(m["CompensateWithOnDemand"]));
+    }
+    if (m.find("OnDemandBaseCapacity") != m.end() && !m["OnDemandBaseCapacity"].empty()) {
+      onDemandBaseCapacity = make_shared<long>(boost::any_cast<long>(m["OnDemandBaseCapacity"]));
+    }
+    if (m.find("OnDemandPercentageAboveBaseCapacity") != m.end() && !m["OnDemandPercentageAboveBaseCapacity"].empty()) {
+      onDemandPercentageAboveBaseCapacity = make_shared<long>(boost::any_cast<long>(m["OnDemandPercentageAboveBaseCapacity"]));
+    }
+    if (m.find("SpotAutoReplaceOnDemand") != m.end() && !m["SpotAutoReplaceOnDemand"].empty()) {
+      spotAutoReplaceOnDemand = make_shared<bool>(boost::any_cast<bool>(m["SpotAutoReplaceOnDemand"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions() = default;
+};
 class DescribeScalingGroupsResponseBodyScalingGroupsDBInstances : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
@@ -22938,6 +23070,7 @@ public:
   shared_ptr<vector<DescribeScalingGroupsResponseBodyScalingGroupsAlbServerGroups>> albServerGroups{};
   shared_ptr<string> allocationStrategy{};
   shared_ptr<bool> azBalance{};
+  shared_ptr<DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions> capacityOptions{};
   shared_ptr<bool> compensateWithOnDemand{};
   shared_ptr<string> creationTime{};
   shared_ptr<string> currentHostName{};
@@ -23024,6 +23157,9 @@ public:
     }
     if (azBalance) {
       res["AzBalance"] = boost::any(*azBalance);
+    }
+    if (capacityOptions) {
+      res["CapacityOptions"] = capacityOptions ? boost::any(capacityOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (compensateWithOnDemand) {
       res["CompensateWithOnDemand"] = boost::any(*compensateWithOnDemand);
@@ -23248,6 +23384,13 @@ public:
     }
     if (m.find("AzBalance") != m.end() && !m["AzBalance"].empty()) {
       azBalance = make_shared<bool>(boost::any_cast<bool>(m["AzBalance"]));
+    }
+    if (m.find("CapacityOptions") != m.end() && !m["CapacityOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CapacityOptions"].type()) {
+        DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CapacityOptions"]));
+        capacityOptions = make_shared<DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions>(model1);
+      }
     }
     if (m.find("CompensateWithOnDemand") != m.end() && !m["CompensateWithOnDemand"].empty()) {
       compensateWithOnDemand = make_shared<bool>(boost::any_cast<bool>(m["CompensateWithOnDemand"]));
@@ -30896,6 +31039,7 @@ public:
   shared_ptr<long> eipBandwidth{};
   shared_ptr<bool> enableSls{};
   shared_ptr<long> ephemeralStorage{};
+  shared_ptr<string> gpuDriverVersion{};
   shared_ptr<vector<ModifyEciScalingConfigurationRequestHostAliases>> hostAliases{};
   shared_ptr<string> hostName{};
   shared_ptr<vector<ModifyEciScalingConfigurationRequestImageRegistryCredentials>> imageRegistryCredentials{};
@@ -31016,6 +31160,9 @@ public:
     }
     if (ephemeralStorage) {
       res["EphemeralStorage"] = boost::any(*ephemeralStorage);
+    }
+    if (gpuDriverVersion) {
+      res["GpuDriverVersion"] = boost::any(*gpuDriverVersion);
     }
     if (hostAliases) {
       vector<boost::any> temp1;
@@ -31238,6 +31385,9 @@ public:
     }
     if (m.find("EphemeralStorage") != m.end() && !m["EphemeralStorage"].empty()) {
       ephemeralStorage = make_shared<long>(boost::any_cast<long>(m["EphemeralStorage"]));
+    }
+    if (m.find("GpuDriverVersion") != m.end() && !m["GpuDriverVersion"].empty()) {
+      gpuDriverVersion = make_shared<string>(boost::any_cast<string>(m["GpuDriverVersion"]));
     }
     if (m.find("HostAliases") != m.end() && !m["HostAliases"].empty()) {
       if (typeid(vector<boost::any>) == m["HostAliases"].type()) {
@@ -34593,6 +34743,56 @@ public:
 
   virtual ~ModifyScalingConfigurationResponse() = default;
 };
+class ModifyScalingGroupRequestCapacityOptions : public Darabonba::Model {
+public:
+  shared_ptr<bool> compensateWithOnDemand{};
+  shared_ptr<long> onDemandBaseCapacity{};
+  shared_ptr<long> onDemandPercentageAboveBaseCapacity{};
+  shared_ptr<bool> spotAutoReplaceOnDemand{};
+
+  ModifyScalingGroupRequestCapacityOptions() {}
+
+  explicit ModifyScalingGroupRequestCapacityOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (compensateWithOnDemand) {
+      res["CompensateWithOnDemand"] = boost::any(*compensateWithOnDemand);
+    }
+    if (onDemandBaseCapacity) {
+      res["OnDemandBaseCapacity"] = boost::any(*onDemandBaseCapacity);
+    }
+    if (onDemandPercentageAboveBaseCapacity) {
+      res["OnDemandPercentageAboveBaseCapacity"] = boost::any(*onDemandPercentageAboveBaseCapacity);
+    }
+    if (spotAutoReplaceOnDemand) {
+      res["SpotAutoReplaceOnDemand"] = boost::any(*spotAutoReplaceOnDemand);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompensateWithOnDemand") != m.end() && !m["CompensateWithOnDemand"].empty()) {
+      compensateWithOnDemand = make_shared<bool>(boost::any_cast<bool>(m["CompensateWithOnDemand"]));
+    }
+    if (m.find("OnDemandBaseCapacity") != m.end() && !m["OnDemandBaseCapacity"].empty()) {
+      onDemandBaseCapacity = make_shared<long>(boost::any_cast<long>(m["OnDemandBaseCapacity"]));
+    }
+    if (m.find("OnDemandPercentageAboveBaseCapacity") != m.end() && !m["OnDemandPercentageAboveBaseCapacity"].empty()) {
+      onDemandPercentageAboveBaseCapacity = make_shared<long>(boost::any_cast<long>(m["OnDemandPercentageAboveBaseCapacity"]));
+    }
+    if (m.find("SpotAutoReplaceOnDemand") != m.end() && !m["SpotAutoReplaceOnDemand"].empty()) {
+      spotAutoReplaceOnDemand = make_shared<bool>(boost::any_cast<bool>(m["SpotAutoReplaceOnDemand"]));
+    }
+  }
+
+
+  virtual ~ModifyScalingGroupRequestCapacityOptions() = default;
+};
 class ModifyScalingGroupRequestLaunchTemplateOverrides : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -34641,6 +34841,7 @@ public:
   shared_ptr<string> activeScalingConfigurationId{};
   shared_ptr<string> allocationStrategy{};
   shared_ptr<bool> azBalance{};
+  shared_ptr<ModifyScalingGroupRequestCapacityOptions> capacityOptions{};
   shared_ptr<bool> compensateWithOnDemand{};
   shared_ptr<string> customPolicyARN{};
   shared_ptr<long> defaultCooldown{};
@@ -34690,6 +34891,9 @@ public:
     }
     if (azBalance) {
       res["AzBalance"] = boost::any(*azBalance);
+    }
+    if (capacityOptions) {
+      res["CapacityOptions"] = capacityOptions ? boost::any(capacityOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (compensateWithOnDemand) {
       res["CompensateWithOnDemand"] = boost::any(*compensateWithOnDemand);
@@ -34797,6 +35001,13 @@ public:
     }
     if (m.find("AzBalance") != m.end() && !m["AzBalance"].empty()) {
       azBalance = make_shared<bool>(boost::any_cast<bool>(m["AzBalance"]));
+    }
+    if (m.find("CapacityOptions") != m.end() && !m["CapacityOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CapacityOptions"].type()) {
+        ModifyScalingGroupRequestCapacityOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CapacityOptions"]));
+        capacityOptions = make_shared<ModifyScalingGroupRequestCapacityOptions>(model1);
+      }
     }
     if (m.find("CompensateWithOnDemand") != m.end() && !m["CompensateWithOnDemand"].empty()) {
       compensateWithOnDemand = make_shared<bool>(boost::any_cast<bool>(m["CompensateWithOnDemand"]));
@@ -37669,6 +37880,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<string> scalingGroupId{};
+  shared_ptr<bool> skipMatching{};
 
   StartInstanceRefreshRequest() {}
 
@@ -37704,6 +37916,9 @@ public:
     if (scalingGroupId) {
       res["ScalingGroupId"] = boost::any(*scalingGroupId);
     }
+    if (skipMatching) {
+      res["SkipMatching"] = boost::any(*skipMatching);
+    }
     return res;
   }
 
@@ -37735,6 +37950,9 @@ public:
     }
     if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
       scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("SkipMatching") != m.end() && !m["SkipMatching"].empty()) {
+      skipMatching = make_shared<bool>(boost::any_cast<bool>(m["SkipMatching"]));
     }
   }
 
