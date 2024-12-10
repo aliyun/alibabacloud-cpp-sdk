@@ -97,19 +97,11 @@ FindIdpListByLoginIdentifierResponse Alibabacloud_Appstream-center20210220::Clie
   return findIdpListByLoginIdentifierWithOptions(request, runtime);
 }
 
-GetLoginTokenResponse Alibabacloud_Appstream-center20210220::Client::getLoginTokenWithOptions(shared_ptr<GetLoginTokenRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<GetLoginTokenShrinkRequest> request = make_shared<GetLoginTokenShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->availableFeatures)) {
-    request->availableFeaturesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->availableFeatures, make_shared<string>("AvailableFeatures"), make_shared<string>("json")));
-  }
+GetLoginTokenResponse Alibabacloud_Appstream-center20210220::Client::getLoginTokenWithOptions(shared_ptr<GetLoginTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->authenticationCode)) {
     query->insert(pair<string, string>("AuthenticationCode", *request->authenticationCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->availableFeaturesShrink)) {
-    query->insert(pair<string, string>("AvailableFeatures", *request->availableFeaturesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
     query->insert(pair<string, string>("ClientId", *request->clientId));
@@ -227,6 +219,49 @@ GetLoginTokenResponse Alibabacloud_Appstream-center20210220::Client::getLoginTok
 GetLoginTokenResponse Alibabacloud_Appstream-center20210220::Client::getLoginToken(shared_ptr<GetLoginTokenRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getLoginTokenWithOptions(request, runtime);
+}
+
+GetStsTokenResponse Alibabacloud_Appstream-center20210220::Client::getStsTokenWithOptions(shared_ptr<GetStsTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
+    body->insert(pair<string, string>("AuthCode", *request->authCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
+    body->insert(pair<string, string>("ClientId", *request->clientId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientIp)) {
+    body->insert(pair<string, string>("ClientIp", *request->clientIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientOS)) {
+    body->insert(pair<string, string>("ClientOS", *request->clientOS));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientVersion)) {
+    body->insert(pair<string, string>("ClientVersion", *request->clientVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    body->insert(pair<string, string>("Uuid", *request->uuid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetStsToken"))},
+    {"version", boost::any(string("2021-02-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("Anonymous"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetStsTokenResponse(callApi(params, req, runtime));
+}
+
+GetStsTokenResponse Alibabacloud_Appstream-center20210220::Client::getStsToken(shared_ptr<GetStsTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getStsTokenWithOptions(request, runtime);
 }
 
 RefreshLoginTokenResponse Alibabacloud_Appstream-center20210220::Client::refreshLoginTokenWithOptions(shared_ptr<RefreshLoginTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
