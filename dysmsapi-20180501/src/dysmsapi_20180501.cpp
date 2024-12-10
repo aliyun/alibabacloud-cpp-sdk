@@ -251,6 +251,9 @@ SmsConversionResponse Alibabacloud_Dysmsapi20180501::Client::smsConversionWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->messageId)) {
     query->insert(pair<string, string>("MessageId", *request->messageId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->to)) {
+    query->insert(pair<string, string>("To", *request->to));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

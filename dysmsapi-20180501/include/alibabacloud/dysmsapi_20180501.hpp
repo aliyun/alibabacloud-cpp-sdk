@@ -1058,6 +1058,7 @@ public:
   shared_ptr<long> conversionTime{};
   shared_ptr<bool> delivered{};
   shared_ptr<string> messageId{};
+  shared_ptr<string> to{};
 
   SmsConversionRequest() {}
 
@@ -1078,6 +1079,9 @@ public:
     if (messageId) {
       res["MessageId"] = boost::any(*messageId);
     }
+    if (to) {
+      res["To"] = boost::any(*to);
+    }
     return res;
   }
 
@@ -1090,6 +1094,9 @@ public:
     }
     if (m.find("MessageId") != m.end() && !m["MessageId"].empty()) {
       messageId = make_shared<string>(boost::any_cast<string>(m["MessageId"]));
+    }
+    if (m.find("To") != m.end() && !m["To"].empty()) {
+      to = make_shared<string>(boost::any_cast<string>(m["To"]));
     }
   }
 
