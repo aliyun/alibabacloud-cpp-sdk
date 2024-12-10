@@ -127,6 +127,9 @@ CreateVirtualDatasourceInstanceResponse Alibabacloud_DataAnalysisGBI20240823::Cl
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("name", *request->name));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->type)) {
+    body->insert(pair<string, long>("type", *request->type));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
@@ -358,6 +361,9 @@ UpdateVirtualDatasourceInstanceResponse Alibabacloud_DataAnalysisGBI20240823::Cl
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->type)) {
+    body->insert(pair<string, long>("type", *request->type));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vdbId)) {
     body->insert(pair<string, string>("vdbId", *request->vdbId));

@@ -329,6 +329,7 @@ class CreateVirtualDatasourceInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<string> name{};
+  shared_ptr<long> type{};
   shared_ptr<string> workspaceId{};
 
   CreateVirtualDatasourceInstanceRequest() {}
@@ -347,6 +348,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
     if (workspaceId) {
       res["workspaceId"] = boost::any(*workspaceId);
     }
@@ -359,6 +363,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["type"]));
     }
     if (m.find("workspaceId") != m.end() && !m["workspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["workspaceId"]));
@@ -1532,6 +1539,7 @@ class UpdateVirtualDatasourceInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<string> name{};
+  shared_ptr<long> type{};
   shared_ptr<string> vdbId{};
   shared_ptr<string> workspaceId{};
 
@@ -1551,6 +1559,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
     if (vdbId) {
       res["vdbId"] = boost::any(*vdbId);
     }
@@ -1566,6 +1577,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["type"]));
     }
     if (m.find("vdbId") != m.end() && !m["vdbId"].empty()) {
       vdbId = make_shared<string>(boost::any_cast<string>(m["vdbId"]));
