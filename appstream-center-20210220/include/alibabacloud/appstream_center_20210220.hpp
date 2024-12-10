@@ -1466,7 +1466,6 @@ public:
   shared_ptr<string> loginIdentifier{};
   shared_ptr<string> loginToken{};
   shared_ptr<string> officeSiteId{};
-  shared_ptr<string> profileRegion{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> uuid{};
 
@@ -1498,9 +1497,6 @@ public:
     if (officeSiteId) {
       res["OfficeSiteId"] = boost::any(*officeSiteId);
     }
-    if (profileRegion) {
-      res["ProfileRegion"] = boost::any(*profileRegion);
-    }
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
@@ -1528,9 +1524,6 @@ public:
     }
     if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
       officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
-    }
-    if (m.find("ProfileRegion") != m.end() && !m["ProfileRegion"].empty()) {
-      profileRegion = make_shared<string>(boost::any_cast<string>(m["ProfileRegion"]));
     }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));

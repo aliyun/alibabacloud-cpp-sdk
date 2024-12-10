@@ -285,9 +285,6 @@ RefreshLoginTokenResponse Alibabacloud_Appstream-center20210220::Client::refresh
   if (!Darabonba_Util::Client::isUnset<string>(request->officeSiteId)) {
     query->insert(pair<string, string>("OfficeSiteId", *request->officeSiteId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->profileRegion)) {
-    query->insert(pair<string, string>("ProfileRegion", *request->profileRegion));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     query->insert(pair<string, string>("SessionId", *request->sessionId));
   }
