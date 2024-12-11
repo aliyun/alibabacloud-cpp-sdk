@@ -128,6 +128,9 @@ RunHotTopicChatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runHotTop
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->hotTopics)) {
     request->hotTopicsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->hotTopics, make_shared<string>("hotTopics"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<RunHotTopicChatRequestMessages>>(tmpReq->messages)) {
+    request->messagesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->messages, make_shared<string>("messages"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<RunHotTopicChatRequestStepForBroadcastContentConfig>(tmpReq->stepForBroadcastContentConfig)) {
     request->stepForBroadcastContentConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->stepForBroadcastContentConfig, make_shared<string>("stepForBroadcastContentConfig"), make_shared<string>("json")));
   }
@@ -146,6 +149,9 @@ RunHotTopicChatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runHotTop
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->imageCount)) {
     body->insert(pair<string, long>("imageCount", *request->imageCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->messagesShrink)) {
+    body->insert(pair<string, string>("messages", *request->messagesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->modelCustomPromptTemplate)) {
     body->insert(pair<string, string>("modelCustomPromptTemplate", *request->modelCustomPromptTemplate));

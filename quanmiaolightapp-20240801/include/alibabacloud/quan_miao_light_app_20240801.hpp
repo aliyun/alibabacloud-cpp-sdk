@@ -877,6 +877,49 @@ public:
 
   virtual ~ListHotTopicSummariesResponse() = default;
 };
+class RunHotTopicChatRequestMessages : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> role{};
+
+  RunHotTopicChatRequestMessages() {}
+
+  explicit RunHotTopicChatRequestMessages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+  }
+
+
+  virtual ~RunHotTopicChatRequestMessages() = default;
+};
 class RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights : public Darabonba::Model {
 public:
   shared_ptr<string> dimension{};
@@ -984,6 +1027,7 @@ public:
   shared_ptr<string> hotTopicVersion{};
   shared_ptr<vector<string>> hotTopics{};
   shared_ptr<long> imageCount{};
+  shared_ptr<vector<RunHotTopicChatRequestMessages>> messages{};
   shared_ptr<string> modelCustomPromptTemplate{};
   shared_ptr<string> modelId{};
   shared_ptr<string> originalSessionId{};
@@ -1015,6 +1059,13 @@ public:
     }
     if (imageCount) {
       res["imageCount"] = boost::any(*imageCount);
+    }
+    if (messages) {
+      vector<boost::any> temp1;
+      for(auto item1:*messages){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["messages"] = boost::any(temp1);
     }
     if (modelCustomPromptTemplate) {
       res["modelCustomPromptTemplate"] = boost::any(*modelCustomPromptTemplate);
@@ -1067,6 +1118,19 @@ public:
     if (m.find("imageCount") != m.end() && !m["imageCount"].empty()) {
       imageCount = make_shared<long>(boost::any_cast<long>(m["imageCount"]));
     }
+    if (m.find("messages") != m.end() && !m["messages"].empty()) {
+      if (typeid(vector<boost::any>) == m["messages"].type()) {
+        vector<RunHotTopicChatRequestMessages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["messages"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunHotTopicChatRequestMessages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        messages = make_shared<vector<RunHotTopicChatRequestMessages>>(expect1);
+      }
+    }
     if (m.find("modelCustomPromptTemplate") != m.end() && !m["modelCustomPromptTemplate"].empty()) {
       modelCustomPromptTemplate = make_shared<string>(boost::any_cast<string>(m["modelCustomPromptTemplate"]));
     }
@@ -1101,6 +1165,7 @@ public:
   shared_ptr<string> hotTopicVersion{};
   shared_ptr<string> hotTopicsShrink{};
   shared_ptr<long> imageCount{};
+  shared_ptr<string> messagesShrink{};
   shared_ptr<string> modelCustomPromptTemplate{};
   shared_ptr<string> modelId{};
   shared_ptr<string> originalSessionId{};
@@ -1132,6 +1197,9 @@ public:
     }
     if (imageCount) {
       res["imageCount"] = boost::any(*imageCount);
+    }
+    if (messagesShrink) {
+      res["messages"] = boost::any(*messagesShrink);
     }
     if (modelCustomPromptTemplate) {
       res["modelCustomPromptTemplate"] = boost::any(*modelCustomPromptTemplate);
@@ -1169,6 +1237,9 @@ public:
     }
     if (m.find("imageCount") != m.end() && !m["imageCount"].empty()) {
       imageCount = make_shared<long>(boost::any_cast<long>(m["imageCount"]));
+    }
+    if (m.find("messages") != m.end() && !m["messages"].empty()) {
+      messagesShrink = make_shared<string>(boost::any_cast<string>(m["messages"]));
     }
     if (m.find("modelCustomPromptTemplate") != m.end() && !m["modelCustomPromptTemplate"].empty()) {
       modelCustomPromptTemplate = make_shared<string>(boost::any_cast<string>(m["modelCustomPromptTemplate"]));
