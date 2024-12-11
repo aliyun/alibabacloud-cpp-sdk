@@ -205,6 +205,9 @@ CreateApplicationResponse Alibabacloud_Oos20190601::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->alarmConfigShrink)) {
     query->insert(pair<string, string>("AlarmConfig", *request->alarmConfigShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->applicationSource)) {
+    query->insert(pair<string, string>("ApplicationSource", *request->applicationSource));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -1618,6 +1621,49 @@ GetTemplateResponse Alibabacloud_Oos20190601::Client::getTemplateWithOptions(sha
 GetTemplateResponse Alibabacloud_Oos20190601::Client::getTemplate(shared_ptr<GetTemplateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getTemplateWithOptions(request, runtime);
+}
+
+GetTemplateParameterConstraintsResponse Alibabacloud_Oos20190601::Client::getTemplateParameterConstraintsWithOptions(shared_ptr<GetTemplateParameterConstraintsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->parameters)) {
+    query->insert(pair<string, string>("Parameters", *request->parameters));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateContent)) {
+    query->insert(pair<string, string>("TemplateContent", *request->templateContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
+    query->insert(pair<string, string>("TemplateName", *request->templateName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateURL)) {
+    query->insert(pair<string, string>("TemplateURL", *request->templateURL));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateVersion)) {
+    query->insert(pair<string, string>("TemplateVersion", *request->templateVersion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTemplateParameterConstraints"))},
+    {"version", boost::any(string("2019-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTemplateParameterConstraintsResponse(callApi(params, req, runtime));
+}
+
+GetTemplateParameterConstraintsResponse Alibabacloud_Oos20190601::Client::getTemplateParameterConstraints(shared_ptr<GetTemplateParameterConstraintsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getTemplateParameterConstraintsWithOptions(request, runtime);
 }
 
 ListActionsResponse Alibabacloud_Oos20190601::Client::listActionsWithOptions(shared_ptr<ListActionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

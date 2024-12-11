@@ -733,6 +733,7 @@ public:
 class CreateApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateApplicationRequestAlarmConfig> alarmConfig{};
+  shared_ptr<string> applicationSource{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
@@ -753,6 +754,9 @@ public:
     map<string, boost::any> res;
     if (alarmConfig) {
       res["AlarmConfig"] = alarmConfig ? boost::any(alarmConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (applicationSource) {
+      res["ApplicationSource"] = boost::any(*applicationSource);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -785,6 +789,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AlarmConfig"]));
         alarmConfig = make_shared<CreateApplicationRequestAlarmConfig>(model1);
       }
+    }
+    if (m.find("ApplicationSource") != m.end() && !m["ApplicationSource"].empty()) {
+      applicationSource = make_shared<string>(boost::any_cast<string>(m["ApplicationSource"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -820,6 +827,7 @@ public:
 class CreateApplicationShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alarmConfigShrink{};
+  shared_ptr<string> applicationSource{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
@@ -840,6 +848,9 @@ public:
     map<string, boost::any> res;
     if (alarmConfigShrink) {
       res["AlarmConfig"] = boost::any(*alarmConfigShrink);
+    }
+    if (applicationSource) {
+      res["ApplicationSource"] = boost::any(*applicationSource);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -868,6 +879,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AlarmConfig") != m.end() && !m["AlarmConfig"].empty()) {
       alarmConfigShrink = make_shared<string>(boost::any_cast<string>(m["AlarmConfig"]));
+    }
+    if (m.find("ApplicationSource") != m.end() && !m["ApplicationSource"].empty()) {
+      applicationSource = make_shared<string>(boost::any_cast<string>(m["ApplicationSource"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -6159,6 +6173,7 @@ public:
 class GetApplicationGroupResponseBodyApplicationGroup : public Darabonba::Model {
 public:
   shared_ptr<string> applicationName{};
+  shared_ptr<string> applicationSource{};
   shared_ptr<string> cmsGroupId{};
   shared_ptr<string> createDate{};
   shared_ptr<string> deployOutputs{};
@@ -6186,6 +6201,9 @@ public:
     map<string, boost::any> res;
     if (applicationName) {
       res["ApplicationName"] = boost::any(*applicationName);
+    }
+    if (applicationSource) {
+      res["ApplicationSource"] = boost::any(*applicationSource);
     }
     if (cmsGroupId) {
       res["CmsGroupId"] = boost::any(*cmsGroupId);
@@ -6235,6 +6253,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplicationName") != m.end() && !m["ApplicationName"].empty()) {
       applicationName = make_shared<string>(boost::any_cast<string>(m["ApplicationName"]));
+    }
+    if (m.find("ApplicationSource") != m.end() && !m["ApplicationSource"].empty()) {
+      applicationSource = make_shared<string>(boost::any_cast<string>(m["ApplicationSource"]));
     }
     if (m.find("CmsGroupId") != m.end() && !m["CmsGroupId"].empty()) {
       cmsGroupId = make_shared<string>(boost::any_cast<string>(m["CmsGroupId"]));
@@ -9721,6 +9742,163 @@ public:
 
 
   virtual ~GetTemplateResponse() = default;
+};
+class GetTemplateParameterConstraintsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> parameters{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> templateContent{};
+  shared_ptr<string> templateName{};
+  shared_ptr<string> templateURL{};
+  shared_ptr<string> templateVersion{};
+
+  GetTemplateParameterConstraintsRequest() {}
+
+  explicit GetTemplateParameterConstraintsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameters) {
+      res["Parameters"] = boost::any(*parameters);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (templateContent) {
+      res["TemplateContent"] = boost::any(*templateContent);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    if (templateURL) {
+      res["TemplateURL"] = boost::any(*templateURL);
+    }
+    if (templateVersion) {
+      res["TemplateVersion"] = boost::any(*templateVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      parameters = make_shared<string>(boost::any_cast<string>(m["Parameters"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
+      templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("TemplateURL") != m.end() && !m["TemplateURL"].empty()) {
+      templateURL = make_shared<string>(boost::any_cast<string>(m["TemplateURL"]));
+    }
+    if (m.find("TemplateVersion") != m.end() && !m["TemplateVersion"].empty()) {
+      templateVersion = make_shared<string>(boost::any_cast<string>(m["TemplateVersion"]));
+    }
+  }
+
+
+  virtual ~GetTemplateParameterConstraintsRequest() = default;
+};
+class GetTemplateParameterConstraintsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> parameterConstraints{};
+  shared_ptr<string> requestId{};
+
+  GetTemplateParameterConstraintsResponseBody() {}
+
+  explicit GetTemplateParameterConstraintsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameterConstraints) {
+      res["ParameterConstraints"] = boost::any(*parameterConstraints);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParameterConstraints") != m.end() && !m["ParameterConstraints"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ParameterConstraints"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      parameterConstraints = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetTemplateParameterConstraintsResponseBody() = default;
+};
+class GetTemplateParameterConstraintsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetTemplateParameterConstraintsResponseBody> body{};
+
+  GetTemplateParameterConstraintsResponse() {}
+
+  explicit GetTemplateParameterConstraintsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetTemplateParameterConstraintsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetTemplateParameterConstraintsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetTemplateParameterConstraintsResponse() = default;
 };
 class ListActionsRequest : public Darabonba::Model {
 public:
@@ -24265,6 +24443,8 @@ public:
   GetServiceSettingsResponse getServiceSettings(shared_ptr<GetServiceSettingsRequest> request);
   GetTemplateResponse getTemplateWithOptions(shared_ptr<GetTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTemplateResponse getTemplate(shared_ptr<GetTemplateRequest> request);
+  GetTemplateParameterConstraintsResponse getTemplateParameterConstraintsWithOptions(shared_ptr<GetTemplateParameterConstraintsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetTemplateParameterConstraintsResponse getTemplateParameterConstraints(shared_ptr<GetTemplateParameterConstraintsRequest> request);
   ListActionsResponse listActionsWithOptions(shared_ptr<ListActionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListActionsResponse listActions(shared_ptr<ListActionsRequest> request);
   ListApplicationGroupsResponse listApplicationGroupsWithOptions(shared_ptr<ListApplicationGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
