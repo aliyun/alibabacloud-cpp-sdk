@@ -57,6 +57,312 @@ public:
 
   virtual ~GroupResources() = default;
 };
+class ThirdAppOidcSsoConfigEndpoints : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationEndpoint{};
+  shared_ptr<string> discoveryEndpoint{};
+  shared_ptr<string> guestAuthorizationEndpoint{};
+  shared_ptr<string> issuer{};
+  shared_ptr<string> jwksEndpoint{};
+  shared_ptr<string> logoutEndpoint{};
+  shared_ptr<string> revokeEndpoint{};
+  shared_ptr<string> tokenEndpoint{};
+  shared_ptr<string> userinfoEndpoint{};
+
+  ThirdAppOidcSsoConfigEndpoints() {}
+
+  explicit ThirdAppOidcSsoConfigEndpoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationEndpoint) {
+      res["AuthorizationEndpoint"] = boost::any(*authorizationEndpoint);
+    }
+    if (discoveryEndpoint) {
+      res["DiscoveryEndpoint"] = boost::any(*discoveryEndpoint);
+    }
+    if (guestAuthorizationEndpoint) {
+      res["GuestAuthorizationEndpoint"] = boost::any(*guestAuthorizationEndpoint);
+    }
+    if (issuer) {
+      res["Issuer"] = boost::any(*issuer);
+    }
+    if (jwksEndpoint) {
+      res["JwksEndpoint"] = boost::any(*jwksEndpoint);
+    }
+    if (logoutEndpoint) {
+      res["LogoutEndpoint"] = boost::any(*logoutEndpoint);
+    }
+    if (revokeEndpoint) {
+      res["RevokeEndpoint"] = boost::any(*revokeEndpoint);
+    }
+    if (tokenEndpoint) {
+      res["TokenEndpoint"] = boost::any(*tokenEndpoint);
+    }
+    if (userinfoEndpoint) {
+      res["UserinfoEndpoint"] = boost::any(*userinfoEndpoint);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationEndpoint") != m.end() && !m["AuthorizationEndpoint"].empty()) {
+      authorizationEndpoint = make_shared<string>(boost::any_cast<string>(m["AuthorizationEndpoint"]));
+    }
+    if (m.find("DiscoveryEndpoint") != m.end() && !m["DiscoveryEndpoint"].empty()) {
+      discoveryEndpoint = make_shared<string>(boost::any_cast<string>(m["DiscoveryEndpoint"]));
+    }
+    if (m.find("GuestAuthorizationEndpoint") != m.end() && !m["GuestAuthorizationEndpoint"].empty()) {
+      guestAuthorizationEndpoint = make_shared<string>(boost::any_cast<string>(m["GuestAuthorizationEndpoint"]));
+    }
+    if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
+      issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
+    }
+    if (m.find("JwksEndpoint") != m.end() && !m["JwksEndpoint"].empty()) {
+      jwksEndpoint = make_shared<string>(boost::any_cast<string>(m["JwksEndpoint"]));
+    }
+    if (m.find("LogoutEndpoint") != m.end() && !m["LogoutEndpoint"].empty()) {
+      logoutEndpoint = make_shared<string>(boost::any_cast<string>(m["LogoutEndpoint"]));
+    }
+    if (m.find("RevokeEndpoint") != m.end() && !m["RevokeEndpoint"].empty()) {
+      revokeEndpoint = make_shared<string>(boost::any_cast<string>(m["RevokeEndpoint"]));
+    }
+    if (m.find("TokenEndpoint") != m.end() && !m["TokenEndpoint"].empty()) {
+      tokenEndpoint = make_shared<string>(boost::any_cast<string>(m["TokenEndpoint"]));
+    }
+    if (m.find("UserinfoEndpoint") != m.end() && !m["UserinfoEndpoint"].empty()) {
+      userinfoEndpoint = make_shared<string>(boost::any_cast<string>(m["UserinfoEndpoint"]));
+    }
+  }
+
+
+  virtual ~ThirdAppOidcSsoConfigEndpoints() = default;
+};
+class ThirdAppOidcSsoConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> accessTokenEffectiveTime{};
+  shared_ptr<long> codeEffectiveTime{};
+  shared_ptr<bool> enableAuthLogin{};
+  shared_ptr<ThirdAppOidcSsoConfigEndpoints> endpoints{};
+  shared_ptr<vector<string>> grantScopes{};
+  shared_ptr<vector<string>> grantTypes{};
+  shared_ptr<long> idTokenAlgorithmType{};
+  shared_ptr<long> idTokenEffectiveTime{};
+  shared_ptr<vector<string>> redirectUris{};
+  shared_ptr<long> refreshTokenEffective{};
+
+  ThirdAppOidcSsoConfig() {}
+
+  explicit ThirdAppOidcSsoConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessTokenEffectiveTime) {
+      res["AccessTokenEffectiveTime"] = boost::any(*accessTokenEffectiveTime);
+    }
+    if (codeEffectiveTime) {
+      res["CodeEffectiveTime"] = boost::any(*codeEffectiveTime);
+    }
+    if (enableAuthLogin) {
+      res["EnableAuthLogin"] = boost::any(*enableAuthLogin);
+    }
+    if (endpoints) {
+      res["Endpoints"] = endpoints ? boost::any(endpoints->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (grantScopes) {
+      res["GrantScopes"] = boost::any(*grantScopes);
+    }
+    if (grantTypes) {
+      res["GrantTypes"] = boost::any(*grantTypes);
+    }
+    if (idTokenAlgorithmType) {
+      res["IdTokenAlgorithmType"] = boost::any(*idTokenAlgorithmType);
+    }
+    if (idTokenEffectiveTime) {
+      res["IdTokenEffectiveTime"] = boost::any(*idTokenEffectiveTime);
+    }
+    if (redirectUris) {
+      res["RedirectUris"] = boost::any(*redirectUris);
+    }
+    if (refreshTokenEffective) {
+      res["RefreshTokenEffective"] = boost::any(*refreshTokenEffective);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessTokenEffectiveTime") != m.end() && !m["AccessTokenEffectiveTime"].empty()) {
+      accessTokenEffectiveTime = make_shared<long>(boost::any_cast<long>(m["AccessTokenEffectiveTime"]));
+    }
+    if (m.find("CodeEffectiveTime") != m.end() && !m["CodeEffectiveTime"].empty()) {
+      codeEffectiveTime = make_shared<long>(boost::any_cast<long>(m["CodeEffectiveTime"]));
+    }
+    if (m.find("EnableAuthLogin") != m.end() && !m["EnableAuthLogin"].empty()) {
+      enableAuthLogin = make_shared<bool>(boost::any_cast<bool>(m["EnableAuthLogin"]));
+    }
+    if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Endpoints"].type()) {
+        ThirdAppOidcSsoConfigEndpoints model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Endpoints"]));
+        endpoints = make_shared<ThirdAppOidcSsoConfigEndpoints>(model1);
+      }
+    }
+    if (m.find("GrantScopes") != m.end() && !m["GrantScopes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GrantScopes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GrantScopes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      grantScopes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("GrantTypes") != m.end() && !m["GrantTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GrantTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GrantTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      grantTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IdTokenAlgorithmType") != m.end() && !m["IdTokenAlgorithmType"].empty()) {
+      idTokenAlgorithmType = make_shared<long>(boost::any_cast<long>(m["IdTokenAlgorithmType"]));
+    }
+    if (m.find("IdTokenEffectiveTime") != m.end() && !m["IdTokenEffectiveTime"].empty()) {
+      idTokenEffectiveTime = make_shared<long>(boost::any_cast<long>(m["IdTokenEffectiveTime"]));
+    }
+    if (m.find("RedirectUris") != m.end() && !m["RedirectUris"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RedirectUris"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RedirectUris"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      redirectUris = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RefreshTokenEffective") != m.end() && !m["RefreshTokenEffective"].empty()) {
+      refreshTokenEffective = make_shared<long>(boost::any_cast<long>(m["RefreshTokenEffective"]));
+    }
+  }
+
+
+  virtual ~ThirdAppOidcSsoConfig() = default;
+};
+class ThirdAppSecrets : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<string> secret{};
+
+  ThirdAppSecrets() {}
+
+  explicit ThirdAppSecrets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (secret) {
+      res["Secret"] = boost::any(*secret);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("Secret") != m.end() && !m["Secret"].empty()) {
+      secret = make_shared<string>(boost::any_cast<string>(m["Secret"]));
+    }
+  }
+
+
+  virtual ~ThirdAppSecrets() = default;
+};
+class ThirdApp : public Darabonba::Model {
+public:
+  shared_ptr<string> appKey{};
+  shared_ptr<string> name{};
+  shared_ptr<ThirdAppOidcSsoConfig> oidcSsoConfig{};
+  shared_ptr<vector<ThirdAppSecrets>> secrets{};
+
+  ThirdApp() {}
+
+  explicit ThirdApp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (oidcSsoConfig) {
+      res["OidcSsoConfig"] = oidcSsoConfig ? boost::any(oidcSsoConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (secrets) {
+      vector<boost::any> temp1;
+      for(auto item1:*secrets){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Secrets"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OidcSsoConfig") != m.end() && !m["OidcSsoConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OidcSsoConfig"].type()) {
+        ThirdAppOidcSsoConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OidcSsoConfig"]));
+        oidcSsoConfig = make_shared<ThirdAppOidcSsoConfig>(model1);
+      }
+    }
+    if (m.find("Secrets") != m.end() && !m["Secrets"].empty()) {
+      if (typeid(vector<boost::any>) == m["Secrets"].type()) {
+        vector<ThirdAppSecrets> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Secrets"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ThirdAppSecrets model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        secrets = make_shared<vector<ThirdAppSecrets>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ThirdApp() = default;
+};
 class WaIdPermissions : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
@@ -2697,6 +3003,7 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<bool> includeDesktopCount{};
   shared_ptr<bool> includeDesktopGroupCount{};
+  shared_ptr<bool> isQueryAllSubOrgs{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<FilterUsersRequestOrderParam> orderParam{};
@@ -2727,6 +3034,9 @@ public:
     }
     if (includeDesktopGroupCount) {
       res["IncludeDesktopGroupCount"] = boost::any(*includeDesktopGroupCount);
+    }
+    if (isQueryAllSubOrgs) {
+      res["IsQueryAllSubOrgs"] = boost::any(*isQueryAllSubOrgs);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -2782,6 +3092,9 @@ public:
     }
     if (m.find("IncludeDesktopGroupCount") != m.end() && !m["IncludeDesktopGroupCount"].empty()) {
       includeDesktopGroupCount = make_shared<bool>(boost::any_cast<bool>(m["IncludeDesktopGroupCount"]));
+    }
+    if (m.find("IsQueryAllSubOrgs") != m.end() && !m["IsQueryAllSubOrgs"].empty()) {
+      isQueryAllSubOrgs = make_shared<bool>(boost::any_cast<bool>(m["IsQueryAllSubOrgs"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
@@ -2914,6 +3227,7 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<bool> includeDesktopCount{};
   shared_ptr<bool> includeDesktopGroupCount{};
+  shared_ptr<bool> isQueryAllSubOrgs{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> orderParamShrink{};
@@ -2944,6 +3258,9 @@ public:
     }
     if (includeDesktopGroupCount) {
       res["IncludeDesktopGroupCount"] = boost::any(*includeDesktopGroupCount);
+    }
+    if (isQueryAllSubOrgs) {
+      res["IsQueryAllSubOrgs"] = boost::any(*isQueryAllSubOrgs);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -2999,6 +3316,9 @@ public:
     }
     if (m.find("IncludeDesktopGroupCount") != m.end() && !m["IncludeDesktopGroupCount"].empty()) {
       includeDesktopGroupCount = make_shared<bool>(boost::any_cast<bool>(m["IncludeDesktopGroupCount"]));
+    }
+    if (m.find("IsQueryAllSubOrgs") != m.end() && !m["IsQueryAllSubOrgs"].empty()) {
+      isQueryAllSubOrgs = make_shared<bool>(boost::any_cast<bool>(m["IsQueryAllSubOrgs"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));

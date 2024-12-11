@@ -431,6 +431,9 @@ FilterUsersResponse Alibabacloud_Eds-user20210308::Client::filterUsersWithOption
   if (!Darabonba_Util::Client::isUnset<bool>(request->includeDesktopGroupCount)) {
     query->insert(pair<string, bool>("IncludeDesktopGroupCount", *request->includeDesktopGroupCount));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isQueryAllSubOrgs)) {
+    query->insert(pair<string, bool>("IsQueryAllSubOrgs", *request->isQueryAllSubOrgs));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
