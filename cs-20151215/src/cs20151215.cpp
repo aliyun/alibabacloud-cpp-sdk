@@ -2043,6 +2043,9 @@ DescribeClusterV2UserKubeconfigResponse Alibabacloud_CS20151215::Client::describ
   if (!Darabonba_Util::Client::isUnset<bool>(request->privateIpAddress)) {
     query->insert(pair<string, bool>("PrivateIpAddress", *request->privateIpAddress));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->temporaryDurationMinutes)) {
+    query->insert(pair<string, long>("TemporaryDurationMinutes", *request->temporaryDurationMinutes));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

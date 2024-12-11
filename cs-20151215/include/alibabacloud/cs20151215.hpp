@@ -269,11 +269,91 @@ public:
 
   virtual ~InstancePatterns() = default;
 };
+class KubeletConfigReservedMemory : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> limits{};
+  shared_ptr<long> numaNode{};
+
+  KubeletConfigReservedMemory() {}
+
+  explicit KubeletConfigReservedMemory(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (limits) {
+      res["limits"] = boost::any(*limits);
+    }
+    if (numaNode) {
+      res["numaNode"] = boost::any(*numaNode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("limits") != m.end() && !m["limits"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["limits"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      limits = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("numaNode") != m.end() && !m["numaNode"].empty()) {
+      numaNode = make_shared<long>(boost::any_cast<long>(m["numaNode"]));
+    }
+  }
+
+
+  virtual ~KubeletConfigReservedMemory() = default;
+};
+class KubeletConfigTracing : public Darabonba::Model {
+public:
+  shared_ptr<string> endpoint{};
+  shared_ptr<long> samplingRatePerMillion{};
+
+  KubeletConfigTracing() {}
+
+  explicit KubeletConfigTracing(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpoint) {
+      res["endpoint"] = boost::any(*endpoint);
+    }
+    if (samplingRatePerMillion) {
+      res["samplingRatePerMillion"] = boost::any(*samplingRatePerMillion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
+    }
+    if (m.find("samplingRatePerMillion") != m.end() && !m["samplingRatePerMillion"].empty()) {
+      samplingRatePerMillion = make_shared<long>(boost::any_cast<long>(m["samplingRatePerMillion"]));
+    }
+  }
+
+
+  virtual ~KubeletConfigTracing() = default;
+};
 class KubeletConfig : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> allowedUnsafeSysctls{};
+  shared_ptr<vector<string>> clusterDNS{};
   shared_ptr<long> containerLogMaxFiles{};
   shared_ptr<string> containerLogMaxSize{};
+  shared_ptr<bool> cpuCFSQuota{};
+  shared_ptr<string> cpuCFSQuotaPeriod{};
   shared_ptr<string> cpuManagerPolicy{};
   shared_ptr<long> eventBurst{};
   shared_ptr<long> eventRecordQPS{};
@@ -281,15 +361,22 @@ public:
   shared_ptr<map<string, boost::any>> evictionSoft{};
   shared_ptr<map<string, boost::any>> evictionSoftGracePeriod{};
   shared_ptr<map<string, boost::any>> featureGates{};
+  shared_ptr<long> imageGCHighThresholdPercent{};
+  shared_ptr<long> imageGCLowThresholdPercent{};
   shared_ptr<long> kubeAPIBurst{};
   shared_ptr<long> kubeAPIQPS{};
   shared_ptr<map<string, boost::any>> kubeReserved{};
   shared_ptr<long> maxPods{};
+  shared_ptr<string> memoryManagerPolicy{};
+  shared_ptr<long> podPidsLimit{};
   shared_ptr<long> readOnlyPort{};
   shared_ptr<long> registryBurst{};
   shared_ptr<long> registryPullQPS{};
+  shared_ptr<vector<KubeletConfigReservedMemory>> reservedMemory{};
   shared_ptr<bool> serializeImagePulls{};
   shared_ptr<map<string, boost::any>> systemReserved{};
+  shared_ptr<string> topologyManagerPolicy{};
+  shared_ptr<KubeletConfigTracing> tracing{};
 
   KubeletConfig() {}
 
@@ -304,11 +391,20 @@ public:
     if (allowedUnsafeSysctls) {
       res["allowedUnsafeSysctls"] = boost::any(*allowedUnsafeSysctls);
     }
+    if (clusterDNS) {
+      res["clusterDNS"] = boost::any(*clusterDNS);
+    }
     if (containerLogMaxFiles) {
       res["containerLogMaxFiles"] = boost::any(*containerLogMaxFiles);
     }
     if (containerLogMaxSize) {
       res["containerLogMaxSize"] = boost::any(*containerLogMaxSize);
+    }
+    if (cpuCFSQuota) {
+      res["cpuCFSQuota"] = boost::any(*cpuCFSQuota);
+    }
+    if (cpuCFSQuotaPeriod) {
+      res["cpuCFSQuotaPeriod"] = boost::any(*cpuCFSQuotaPeriod);
     }
     if (cpuManagerPolicy) {
       res["cpuManagerPolicy"] = boost::any(*cpuManagerPolicy);
@@ -331,6 +427,12 @@ public:
     if (featureGates) {
       res["featureGates"] = boost::any(*featureGates);
     }
+    if (imageGCHighThresholdPercent) {
+      res["imageGCHighThresholdPercent"] = boost::any(*imageGCHighThresholdPercent);
+    }
+    if (imageGCLowThresholdPercent) {
+      res["imageGCLowThresholdPercent"] = boost::any(*imageGCLowThresholdPercent);
+    }
     if (kubeAPIBurst) {
       res["kubeAPIBurst"] = boost::any(*kubeAPIBurst);
     }
@@ -343,6 +445,12 @@ public:
     if (maxPods) {
       res["maxPods"] = boost::any(*maxPods);
     }
+    if (memoryManagerPolicy) {
+      res["memoryManagerPolicy"] = boost::any(*memoryManagerPolicy);
+    }
+    if (podPidsLimit) {
+      res["podPidsLimit"] = boost::any(*podPidsLimit);
+    }
     if (readOnlyPort) {
       res["readOnlyPort"] = boost::any(*readOnlyPort);
     }
@@ -352,11 +460,24 @@ public:
     if (registryPullQPS) {
       res["registryPullQPS"] = boost::any(*registryPullQPS);
     }
+    if (reservedMemory) {
+      vector<boost::any> temp1;
+      for(auto item1:*reservedMemory){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["reservedMemory"] = boost::any(temp1);
+    }
     if (serializeImagePulls) {
       res["serializeImagePulls"] = boost::any(*serializeImagePulls);
     }
     if (systemReserved) {
       res["systemReserved"] = boost::any(*systemReserved);
+    }
+    if (topologyManagerPolicy) {
+      res["topologyManagerPolicy"] = boost::any(*topologyManagerPolicy);
+    }
+    if (tracing) {
+      res["tracing"] = tracing ? boost::any(tracing->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -372,11 +493,27 @@ public:
       }
       allowedUnsafeSysctls = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("clusterDNS") != m.end() && !m["clusterDNS"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["clusterDNS"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["clusterDNS"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      clusterDNS = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("containerLogMaxFiles") != m.end() && !m["containerLogMaxFiles"].empty()) {
       containerLogMaxFiles = make_shared<long>(boost::any_cast<long>(m["containerLogMaxFiles"]));
     }
     if (m.find("containerLogMaxSize") != m.end() && !m["containerLogMaxSize"].empty()) {
       containerLogMaxSize = make_shared<string>(boost::any_cast<string>(m["containerLogMaxSize"]));
+    }
+    if (m.find("cpuCFSQuota") != m.end() && !m["cpuCFSQuota"].empty()) {
+      cpuCFSQuota = make_shared<bool>(boost::any_cast<bool>(m["cpuCFSQuota"]));
+    }
+    if (m.find("cpuCFSQuotaPeriod") != m.end() && !m["cpuCFSQuotaPeriod"].empty()) {
+      cpuCFSQuotaPeriod = make_shared<string>(boost::any_cast<string>(m["cpuCFSQuotaPeriod"]));
     }
     if (m.find("cpuManagerPolicy") != m.end() && !m["cpuManagerPolicy"].empty()) {
       cpuManagerPolicy = make_shared<string>(boost::any_cast<string>(m["cpuManagerPolicy"]));
@@ -419,6 +556,12 @@ public:
       }
       featureGates = make_shared<map<string, boost::any>>(toMap1);
     }
+    if (m.find("imageGCHighThresholdPercent") != m.end() && !m["imageGCHighThresholdPercent"].empty()) {
+      imageGCHighThresholdPercent = make_shared<long>(boost::any_cast<long>(m["imageGCHighThresholdPercent"]));
+    }
+    if (m.find("imageGCLowThresholdPercent") != m.end() && !m["imageGCLowThresholdPercent"].empty()) {
+      imageGCLowThresholdPercent = make_shared<long>(boost::any_cast<long>(m["imageGCLowThresholdPercent"]));
+    }
     if (m.find("kubeAPIBurst") != m.end() && !m["kubeAPIBurst"].empty()) {
       kubeAPIBurst = make_shared<long>(boost::any_cast<long>(m["kubeAPIBurst"]));
     }
@@ -436,6 +579,12 @@ public:
     if (m.find("maxPods") != m.end() && !m["maxPods"].empty()) {
       maxPods = make_shared<long>(boost::any_cast<long>(m["maxPods"]));
     }
+    if (m.find("memoryManagerPolicy") != m.end() && !m["memoryManagerPolicy"].empty()) {
+      memoryManagerPolicy = make_shared<string>(boost::any_cast<string>(m["memoryManagerPolicy"]));
+    }
+    if (m.find("podPidsLimit") != m.end() && !m["podPidsLimit"].empty()) {
+      podPidsLimit = make_shared<long>(boost::any_cast<long>(m["podPidsLimit"]));
+    }
     if (m.find("readOnlyPort") != m.end() && !m["readOnlyPort"].empty()) {
       readOnlyPort = make_shared<long>(boost::any_cast<long>(m["readOnlyPort"]));
     }
@@ -444,6 +593,19 @@ public:
     }
     if (m.find("registryPullQPS") != m.end() && !m["registryPullQPS"].empty()) {
       registryPullQPS = make_shared<long>(boost::any_cast<long>(m["registryPullQPS"]));
+    }
+    if (m.find("reservedMemory") != m.end() && !m["reservedMemory"].empty()) {
+      if (typeid(vector<boost::any>) == m["reservedMemory"].type()) {
+        vector<KubeletConfigReservedMemory> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["reservedMemory"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            KubeletConfigReservedMemory model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        reservedMemory = make_shared<vector<KubeletConfigReservedMemory>>(expect1);
+      }
     }
     if (m.find("serializeImagePulls") != m.end() && !m["serializeImagePulls"].empty()) {
       serializeImagePulls = make_shared<bool>(boost::any_cast<bool>(m["serializeImagePulls"]));
@@ -455,6 +617,16 @@ public:
          toMap1[item.first] = item.second;
       }
       systemReserved = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("topologyManagerPolicy") != m.end() && !m["topologyManagerPolicy"].empty()) {
+      topologyManagerPolicy = make_shared<string>(boost::any_cast<string>(m["topologyManagerPolicy"]));
+    }
+    if (m.find("tracing") != m.end() && !m["tracing"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tracing"].type()) {
+        KubeletConfigTracing model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tracing"]));
+        tracing = make_shared<KubeletConfigTracing>(model1);
+      }
     }
   }
 
@@ -14356,6 +14528,7 @@ public:
 class DescribeClusterV2UserKubeconfigRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> privateIpAddress{};
+  shared_ptr<long> temporaryDurationMinutes{};
 
   DescribeClusterV2UserKubeconfigRequest() {}
 
@@ -14370,12 +14543,18 @@ public:
     if (privateIpAddress) {
       res["PrivateIpAddress"] = boost::any(*privateIpAddress);
     }
+    if (temporaryDurationMinutes) {
+      res["TemporaryDurationMinutes"] = boost::any(*temporaryDurationMinutes);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
       privateIpAddress = make_shared<bool>(boost::any_cast<bool>(m["PrivateIpAddress"]));
+    }
+    if (m.find("TemporaryDurationMinutes") != m.end() && !m["TemporaryDurationMinutes"].empty()) {
+      temporaryDurationMinutes = make_shared<long>(boost::any_cast<long>(m["TemporaryDurationMinutes"]));
     }
   }
 
