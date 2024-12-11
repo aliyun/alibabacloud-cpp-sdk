@@ -659,11 +659,15 @@ CreateRulesResponse Alibabacloud_Alb20200616::Client::createRulesWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
     query->insert(pair<string, string>("ListenerId", *request->listenerId));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<CreateRulesRequestRules>>(request->rules)) {
-    query->insert(pair<string, vector<CreateRulesRequestRules>>("Rules", *request->rules));
+    bodyFlat->insert(pair<string, vector<CreateRulesRequestRules>>("Rules", *request->rules));
   }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateRules"))},
@@ -738,6 +742,9 @@ CreateServerGroupResponse Alibabacloud_Alb20200616::Client::createServerGroupWit
   }
   if (!Darabonba_Util::Client::isUnset<CreateServerGroupRequestConnectionDrainConfig>(request->connectionDrainConfig)) {
     query->insert(pair<string, CreateServerGroupRequestConnectionDrainConfig>("ConnectionDrainConfig", *request->connectionDrainConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->crossZoneEnabled)) {
+    query->insert(pair<string, bool>("CrossZoneEnabled", *request->crossZoneEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
@@ -3205,11 +3212,15 @@ UpdateRulesAttributeResponse Alibabacloud_Alb20200616::Client::updateRulesAttrib
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<UpdateRulesAttributeRequestRules>>(request->rules)) {
-    query->insert(pair<string, vector<UpdateRulesAttributeRequestRules>>("Rules", *request->rules));
+    bodyFlat->insert(pair<string, vector<UpdateRulesAttributeRequestRules>>("Rules", *request->rules));
   }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateRulesAttribute"))},
@@ -3281,6 +3292,9 @@ UpdateServerGroupAttributeResponse Alibabacloud_Alb20200616::Client::updateServe
   }
   if (!Darabonba_Util::Client::isUnset<UpdateServerGroupAttributeRequestConnectionDrainConfig>(request->connectionDrainConfig)) {
     query->insert(pair<string, UpdateServerGroupAttributeRequestConnectionDrainConfig>("ConnectionDrainConfig", *request->connectionDrainConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->crossZoneEnabled)) {
+    query->insert(pair<string, bool>("CrossZoneEnabled", *request->crossZoneEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));

@@ -6782,6 +6782,7 @@ class CreateServerGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<CreateServerGroupRequestConnectionDrainConfig> connectionDrainConfig{};
+  shared_ptr<bool> crossZoneEnabled{};
   shared_ptr<bool> dryRun{};
   shared_ptr<CreateServerGroupRequestHealthCheckConfig> healthCheckConfig{};
   shared_ptr<string> protocol{};
@@ -6812,6 +6813,9 @@ public:
     }
     if (connectionDrainConfig) {
       res["ConnectionDrainConfig"] = connectionDrainConfig ? boost::any(connectionDrainConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (crossZoneEnabled) {
+      res["CrossZoneEnabled"] = boost::any(*crossZoneEnabled);
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
@@ -6872,6 +6876,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConnectionDrainConfig"]));
         connectionDrainConfig = make_shared<CreateServerGroupRequestConnectionDrainConfig>(model1);
       }
+    }
+    if (m.find("CrossZoneEnabled") != m.end() && !m["CrossZoneEnabled"].empty()) {
+      crossZoneEnabled = make_shared<bool>(boost::any_cast<bool>(m["CrossZoneEnabled"]));
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
@@ -19044,6 +19051,7 @@ public:
   shared_ptr<bool> configManagedEnabled{};
   shared_ptr<ListServerGroupsResponseBodyServerGroupsConnectionDrainConfig> connectionDrainConfig{};
   shared_ptr<string> createTime{};
+  shared_ptr<bool> crossZoneEnabled{};
   shared_ptr<ListServerGroupsResponseBodyServerGroupsHealthCheckConfig> healthCheckConfig{};
   shared_ptr<bool> ipv6Enabled{};
   shared_ptr<string> protocol{};
@@ -19081,6 +19089,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (crossZoneEnabled) {
+      res["CrossZoneEnabled"] = boost::any(*crossZoneEnabled);
     }
     if (healthCheckConfig) {
       res["HealthCheckConfig"] = healthCheckConfig ? boost::any(healthCheckConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -19156,6 +19167,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("CrossZoneEnabled") != m.end() && !m["CrossZoneEnabled"].empty()) {
+      crossZoneEnabled = make_shared<bool>(boost::any_cast<bool>(m["CrossZoneEnabled"]));
     }
     if (m.find("HealthCheckConfig") != m.end() && !m["HealthCheckConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["HealthCheckConfig"].type()) {
@@ -27618,6 +27632,7 @@ class UpdateServerGroupAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<UpdateServerGroupAttributeRequestConnectionDrainConfig> connectionDrainConfig{};
+  shared_ptr<bool> crossZoneEnabled{};
   shared_ptr<bool> dryRun{};
   shared_ptr<UpdateServerGroupAttributeRequestHealthCheckConfig> healthCheckConfig{};
   shared_ptr<string> scheduler{};
@@ -27644,6 +27659,9 @@ public:
     }
     if (connectionDrainConfig) {
       res["ConnectionDrainConfig"] = connectionDrainConfig ? boost::any(connectionDrainConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (crossZoneEnabled) {
+      res["CrossZoneEnabled"] = boost::any(*crossZoneEnabled);
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
@@ -27688,6 +27706,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConnectionDrainConfig"]));
         connectionDrainConfig = make_shared<UpdateServerGroupAttributeRequestConnectionDrainConfig>(model1);
       }
+    }
+    if (m.find("CrossZoneEnabled") != m.end() && !m["CrossZoneEnabled"].empty()) {
+      crossZoneEnabled = make_shared<bool>(boost::any_cast<bool>(m["CrossZoneEnabled"]));
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
