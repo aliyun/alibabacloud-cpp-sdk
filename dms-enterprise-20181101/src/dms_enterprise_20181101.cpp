@@ -5593,6 +5593,12 @@ ListDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::listDa
   if (!Darabonba_Util::Client::isUnset<string>(request->dataRegion)) {
     query->insert(pair<string, string>("DataRegion", *request->dataRegion));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->searchKey)) {
     query->insert(pair<string, string>("SearchKey", *request->searchKey));
   }

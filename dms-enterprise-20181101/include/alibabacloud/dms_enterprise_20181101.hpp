@@ -40438,6 +40438,8 @@ class ListDataLakeDatabaseRequest : public Darabonba::Model {
 public:
   shared_ptr<string> catalogName{};
   shared_ptr<string> dataRegion{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
   shared_ptr<string> searchKey{};
   shared_ptr<long> tid{};
 
@@ -40457,6 +40459,12 @@ public:
     if (dataRegion) {
       res["DataRegion"] = boost::any(*dataRegion);
     }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
     if (searchKey) {
       res["SearchKey"] = boost::any(*searchKey);
     }
@@ -40472,6 +40480,12 @@ public:
     }
     if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
       dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("SearchKey") != m.end() && !m["SearchKey"].empty()) {
       searchKey = make_shared<string>(boost::any_cast<string>(m["SearchKey"]));
@@ -40532,6 +40546,8 @@ public:
   shared_ptr<ListDataLakeDatabaseResponseBodyDatabaseList> databaseList{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -40553,6 +40569,12 @@ public:
     }
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -40576,6 +40598,12 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
