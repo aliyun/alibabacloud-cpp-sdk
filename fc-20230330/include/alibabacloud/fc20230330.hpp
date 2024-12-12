@@ -2142,6 +2142,42 @@ public:
 
   virtual ~OSSMountConfig() = default;
 };
+class Tag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  Tag() {}
+
+  explicit Tag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~Tag() = default;
+};
 class TracingConfig : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> params{};
@@ -2263,6 +2299,7 @@ public:
   shared_ptr<OSSMountConfig> ossMountConfig{};
   shared_ptr<string> role{};
   shared_ptr<string> runtime{};
+  shared_ptr<vector<Tag>> tags{};
   shared_ptr<long> timeout{};
   shared_ptr<TracingConfig> tracingConfig{};
   shared_ptr<VPCConfig> vpcConfig{};
@@ -2339,6 +2376,13 @@ public:
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
     }
     if (timeout) {
       res["timeout"] = boost::any(*timeout);
@@ -2463,6 +2507,19 @@ public:
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<Tag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Tag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<Tag>>(expect1);
+      }
     }
     if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
       timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
@@ -3795,6 +3852,7 @@ public:
   shared_ptr<string> state{};
   shared_ptr<string> stateReason{};
   shared_ptr<string> stateReasonCode{};
+  shared_ptr<vector<Tag>> tags{};
   shared_ptr<long> timeout{};
   shared_ptr<TracingConfig> tracingConfig{};
   shared_ptr<VPCConfig> vpcConfig{};
@@ -3908,6 +3966,13 @@ public:
     }
     if (stateReasonCode) {
       res["stateReasonCode"] = boost::any(*stateReasonCode);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
     }
     if (timeout) {
       res["timeout"] = boost::any(*timeout);
@@ -4064,6 +4129,19 @@ public:
     }
     if (m.find("stateReasonCode") != m.end() && !m["stateReasonCode"].empty()) {
       stateReasonCode = make_shared<string>(boost::any_cast<string>(m["stateReasonCode"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<Tag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Tag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<Tag>>(expect1);
+      }
     }
     if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
       timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
@@ -5037,6 +5115,7 @@ public:
   shared_ptr<bool> alwaysAllocateGPU{};
   shared_ptr<long> current{};
   shared_ptr<string> currentError{};
+  shared_ptr<long> defaultTarget{};
   shared_ptr<string> functionArn{};
   shared_ptr<vector<ScheduledAction>> scheduledActions{};
   shared_ptr<long> target{};
@@ -5063,6 +5142,9 @@ public:
     }
     if (currentError) {
       res["currentError"] = boost::any(*currentError);
+    }
+    if (defaultTarget) {
+      res["defaultTarget"] = boost::any(*defaultTarget);
     }
     if (functionArn) {
       res["functionArn"] = boost::any(*functionArn);
@@ -5099,6 +5181,9 @@ public:
     }
     if (m.find("currentError") != m.end() && !m["currentError"].empty()) {
       currentError = make_shared<string>(boost::any_cast<string>(m["currentError"]));
+    }
+    if (m.find("defaultTarget") != m.end() && !m["defaultTarget"].empty()) {
+      defaultTarget = make_shared<long>(boost::any_cast<long>(m["defaultTarget"]));
     }
     if (m.find("functionArn") != m.end() && !m["functionArn"].empty()) {
       functionArn = make_shared<string>(boost::any_cast<string>(m["functionArn"]));
@@ -5944,6 +6029,7 @@ class PutProvisionConfigInput : public Darabonba::Model {
 public:
   shared_ptr<bool> alwaysAllocateCPU{};
   shared_ptr<bool> alwaysAllocateGPU{};
+  shared_ptr<long> defaultTarget{};
   shared_ptr<vector<ScheduledAction>> scheduledActions{};
   shared_ptr<long> target{};
   shared_ptr<vector<TargetTrackingPolicy>> targetTrackingPolicies{};
@@ -5963,6 +6049,9 @@ public:
     }
     if (alwaysAllocateGPU) {
       res["alwaysAllocateGPU"] = boost::any(*alwaysAllocateGPU);
+    }
+    if (defaultTarget) {
+      res["defaultTarget"] = boost::any(*defaultTarget);
     }
     if (scheduledActions) {
       vector<boost::any> temp1;
@@ -5990,6 +6079,9 @@ public:
     }
     if (m.find("alwaysAllocateGPU") != m.end() && !m["alwaysAllocateGPU"].empty()) {
       alwaysAllocateGPU = make_shared<bool>(boost::any_cast<bool>(m["alwaysAllocateGPU"]));
+    }
+    if (m.find("defaultTarget") != m.end() && !m["defaultTarget"].empty()) {
+      defaultTarget = make_shared<long>(boost::any_cast<long>(m["defaultTarget"]));
     }
     if (m.find("scheduledActions") != m.end() && !m["scheduledActions"].empty()) {
       if (typeid(vector<boost::any>) == m["scheduledActions"].type()) {
@@ -6170,42 +6262,6 @@ public:
 
 
   virtual ~SLSTriggerConfig() = default;
-};
-class Tag : public Darabonba::Model {
-public:
-  shared_ptr<string> key{};
-  shared_ptr<string> value{};
-
-  Tag() {}
-
-  explicit Tag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (key) {
-      res["Key"] = boost::any(*key);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Key") != m.end() && !m["Key"].empty()) {
-      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
-    }
-  }
-
-
-  virtual ~Tag() = default;
 };
 class TagResourceInput : public Darabonba::Model {
 public:
