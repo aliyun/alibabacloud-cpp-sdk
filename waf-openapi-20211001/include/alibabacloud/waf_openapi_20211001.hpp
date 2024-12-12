@@ -878,6 +878,42 @@ public:
 
   virtual ~CreateCloudResourceRequestRedirect() = default;
 };
+class CreateCloudResourceRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateCloudResourceRequestTag() {}
+
+  explicit CreateCloudResourceRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateCloudResourceRequestTag() = default;
+};
 class CreateCloudResourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -886,6 +922,7 @@ public:
   shared_ptr<CreateCloudResourceRequestRedirect> redirect{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<vector<CreateCloudResourceRequestTag>> tag{};
 
   CreateCloudResourceRequest() {}
 
@@ -914,6 +951,13 @@ public:
     }
     if (resourceManagerResourceGroupId) {
       res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     return res;
   }
@@ -945,10 +989,59 @@ public:
     if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
       resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateCloudResourceRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCloudResourceRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateCloudResourceRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~CreateCloudResourceRequest() = default;
+};
+class CreateCloudResourceShrinkRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateCloudResourceShrinkRequestTag() {}
+
+  explicit CreateCloudResourceShrinkRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateCloudResourceShrinkRequestTag() = default;
 };
 class CreateCloudResourceShrinkRequest : public Darabonba::Model {
 public:
@@ -958,6 +1051,7 @@ public:
   shared_ptr<string> redirectShrink{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<vector<CreateCloudResourceShrinkRequestTag>> tag{};
 
   CreateCloudResourceShrinkRequest() {}
 
@@ -987,6 +1081,13 @@ public:
     if (resourceManagerResourceGroupId) {
       res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1008,6 +1109,19 @@ public:
     }
     if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
       resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateCloudResourceShrinkRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCloudResourceShrinkRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateCloudResourceShrinkRequestTag>>(expect1);
+      }
     }
   }
 
@@ -1780,6 +1894,7 @@ public:
 class CreateDomainRequestRedirect : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> backends{};
+  shared_ptr<vector<string>> backupBackends{};
   shared_ptr<bool> cnameEnabled{};
   shared_ptr<long> connectTimeout{};
   shared_ptr<bool> focusHttpBackend{};
@@ -1808,6 +1923,9 @@ public:
     map<string, boost::any> res;
     if (backends) {
       res["Backends"] = boost::any(*backends);
+    }
+    if (backupBackends) {
+      res["BackupBackends"] = boost::any(*backupBackends);
     }
     if (cnameEnabled) {
       res["CnameEnabled"] = boost::any(*cnameEnabled);
@@ -1872,6 +1990,16 @@ public:
       }
       backends = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("BackupBackends") != m.end() && !m["BackupBackends"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["BackupBackends"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BackupBackends"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      backupBackends = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("CnameEnabled") != m.end() && !m["CnameEnabled"].empty()) {
       cnameEnabled = make_shared<bool>(boost::any_cast<bool>(m["CnameEnabled"]));
     }
@@ -1932,6 +2060,42 @@ public:
 
   virtual ~CreateDomainRequestRedirect() = default;
 };
+class CreateDomainRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateDomainRequestTag() {}
+
+  explicit CreateDomainRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateDomainRequestTag() = default;
+};
 class CreateDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessType{};
@@ -1941,6 +2105,7 @@ public:
   shared_ptr<CreateDomainRequestRedirect> redirect{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<vector<CreateDomainRequestTag>> tag{};
 
   CreateDomainRequest() {}
 
@@ -1972,6 +2137,13 @@ public:
     }
     if (resourceManagerResourceGroupId) {
       res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     return res;
   }
@@ -2006,10 +2178,59 @@ public:
     if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
       resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateDomainRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateDomainRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateDomainRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~CreateDomainRequest() = default;
+};
+class CreateDomainShrinkRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateDomainShrinkRequestTag() {}
+
+  explicit CreateDomainShrinkRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateDomainShrinkRequestTag() = default;
 };
 class CreateDomainShrinkRequest : public Darabonba::Model {
 public:
@@ -2020,6 +2241,7 @@ public:
   shared_ptr<string> redirectShrink{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<vector<CreateDomainShrinkRequestTag>> tag{};
 
   CreateDomainShrinkRequest() {}
 
@@ -2052,6 +2274,13 @@ public:
     if (resourceManagerResourceGroupId) {
       res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -2077,6 +2306,19 @@ public:
     if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
       resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateDomainShrinkRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateDomainShrinkRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateDomainShrinkRequestTag>>(expect1);
+      }
+    }
   }
 
 
@@ -2086,6 +2328,7 @@ class CreateDomainResponseBodyDomainInfo : public Darabonba::Model {
 public:
   shared_ptr<string> cname{};
   shared_ptr<string> domain{};
+  shared_ptr<string> domainId{};
 
   CreateDomainResponseBodyDomainInfo() {}
 
@@ -2103,6 +2346,9 @@ public:
     if (domain) {
       res["Domain"] = boost::any(*domain);
     }
+    if (domainId) {
+      res["DomainId"] = boost::any(*domainId);
+    }
     return res;
   }
 
@@ -2112,6 +2358,9 @@ public:
     }
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
+      domainId = make_shared<string>(boost::any_cast<string>(m["DomainId"]));
     }
   }
 
@@ -14447,6 +14696,35 @@ public:
 
   virtual ~DescribeDomainDetailResponseBodyRedirectBackends() = default;
 };
+class DescribeDomainDetailResponseBodyRedirectBackupBackends : public Darabonba::Model {
+public:
+  shared_ptr<string> backend{};
+
+  DescribeDomainDetailResponseBodyRedirectBackupBackends() {}
+
+  explicit DescribeDomainDetailResponseBodyRedirectBackupBackends(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (backend) {
+      res["Backend"] = boost::any(*backend);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Backend") != m.end() && !m["Backend"].empty()) {
+      backend = make_shared<string>(boost::any_cast<string>(m["Backend"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainDetailResponseBodyRedirectBackupBackends() = default;
+};
 class DescribeDomainDetailResponseBodyRedirectRequestHeaders : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -14486,6 +14764,7 @@ public:
 class DescribeDomainDetailResponseBodyRedirect : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeDomainDetailResponseBodyRedirectBackends>> backends{};
+  shared_ptr<vector<DescribeDomainDetailResponseBodyRedirectBackupBackends>> backupBackends{};
   shared_ptr<long> connectTimeout{};
   shared_ptr<bool> focusHttpBackend{};
   shared_ptr<bool> keepalive{};
@@ -14516,6 +14795,13 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Backends"] = boost::any(temp1);
+    }
+    if (backupBackends) {
+      vector<boost::any> temp1;
+      for(auto item1:*backupBackends){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BackupBackends"] = boost::any(temp1);
     }
     if (connectTimeout) {
       res["ConnectTimeout"] = boost::any(*connectTimeout);
@@ -14575,6 +14861,19 @@ public:
           }
         }
         backends = make_shared<vector<DescribeDomainDetailResponseBodyRedirectBackends>>(expect1);
+      }
+    }
+    if (m.find("BackupBackends") != m.end() && !m["BackupBackends"].empty()) {
+      if (typeid(vector<boost::any>) == m["BackupBackends"].type()) {
+        vector<DescribeDomainDetailResponseBodyRedirectBackupBackends> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BackupBackends"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDomainDetailResponseBodyRedirectBackupBackends model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        backupBackends = make_shared<vector<DescribeDomainDetailResponseBodyRedirectBackupBackends>>(expect1);
       }
     }
     if (m.find("ConnectTimeout") != m.end() && !m["ConnectTimeout"].empty()) {
@@ -32212,6 +32511,7 @@ public:
 class ModifyDomainRequestRedirect : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> backends{};
+  shared_ptr<vector<string>> backupBackends{};
   shared_ptr<bool> cnameEnabled{};
   shared_ptr<long> connectTimeout{};
   shared_ptr<bool> focusHttpBackend{};
@@ -32240,6 +32540,9 @@ public:
     map<string, boost::any> res;
     if (backends) {
       res["Backends"] = boost::any(*backends);
+    }
+    if (backupBackends) {
+      res["BackupBackends"] = boost::any(*backupBackends);
     }
     if (cnameEnabled) {
       res["CnameEnabled"] = boost::any(*cnameEnabled);
@@ -32303,6 +32606,16 @@ public:
         }
       }
       backends = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BackupBackends") != m.end() && !m["BackupBackends"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["BackupBackends"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BackupBackends"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      backupBackends = make_shared<vector<string>>(toVec1);
     }
     if (m.find("CnameEnabled") != m.end() && !m["CnameEnabled"].empty()) {
       cnameEnabled = make_shared<bool>(boost::any_cast<bool>(m["CnameEnabled"]));

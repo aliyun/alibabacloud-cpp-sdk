@@ -259,6 +259,9 @@ CreateCloudResourceResponse Alibabacloud_Waf-openapi20211001::Client::createClou
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
     query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCloudResourceShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateCloudResourceShrinkRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -452,6 +455,9 @@ CreateDomainResponse Alibabacloud_Waf-openapi20211001::Client::createDomainWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
     query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateDomainShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateDomainShrinkRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
