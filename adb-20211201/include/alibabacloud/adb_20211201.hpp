@@ -20888,6 +20888,373 @@ public:
 
   virtual ~DescribeSchemasResponse() = default;
 };
+class DescribeSparkAppDiagnosisInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> language{};
+  shared_ptr<string> regionId{};
+
+  DescribeSparkAppDiagnosisInfoRequest() {}
+
+  explicit DescribeSparkAppDiagnosisInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeSparkAppDiagnosisInfoRequest() = default;
+};
+class DescribeSparkAppDiagnosisInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> appId{};
+  shared_ptr<double> cpuUtilization{};
+  shared_ptr<vector<Adb4MysqlSparkDiagnosisInfo>> diagnosisInfoList{};
+  shared_ptr<long> durationInMillis{};
+  shared_ptr<long> JVMGcCostInMillis{};
+  shared_ptr<long> peakMemoryInByte{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> shuffleReadInByte{};
+  shared_ptr<long> shuffleWriteInByte{};
+  shared_ptr<long> spillInByte{};
+  shared_ptr<long> startedTime{};
+  shared_ptr<string> state{};
+
+  DescribeSparkAppDiagnosisInfoResponseBody() {}
+
+  explicit DescribeSparkAppDiagnosisInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (cpuUtilization) {
+      res["CpuUtilization"] = boost::any(*cpuUtilization);
+    }
+    if (diagnosisInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*diagnosisInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DiagnosisInfoList"] = boost::any(temp1);
+    }
+    if (durationInMillis) {
+      res["DurationInMillis"] = boost::any(*durationInMillis);
+    }
+    if (JVMGcCostInMillis) {
+      res["JVMGcCostInMillis"] = boost::any(*JVMGcCostInMillis);
+    }
+    if (peakMemoryInByte) {
+      res["PeakMemoryInByte"] = boost::any(*peakMemoryInByte);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (shuffleReadInByte) {
+      res["ShuffleReadInByte"] = boost::any(*shuffleReadInByte);
+    }
+    if (shuffleWriteInByte) {
+      res["ShuffleWriteInByte"] = boost::any(*shuffleWriteInByte);
+    }
+    if (spillInByte) {
+      res["SpillInByte"] = boost::any(*spillInByte);
+    }
+    if (startedTime) {
+      res["StartedTime"] = boost::any(*startedTime);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("CpuUtilization") != m.end() && !m["CpuUtilization"].empty()) {
+      cpuUtilization = make_shared<double>(boost::any_cast<double>(m["CpuUtilization"]));
+    }
+    if (m.find("DiagnosisInfoList") != m.end() && !m["DiagnosisInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DiagnosisInfoList"].type()) {
+        vector<Adb4MysqlSparkDiagnosisInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DiagnosisInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Adb4MysqlSparkDiagnosisInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        diagnosisInfoList = make_shared<vector<Adb4MysqlSparkDiagnosisInfo>>(expect1);
+      }
+    }
+    if (m.find("DurationInMillis") != m.end() && !m["DurationInMillis"].empty()) {
+      durationInMillis = make_shared<long>(boost::any_cast<long>(m["DurationInMillis"]));
+    }
+    if (m.find("JVMGcCostInMillis") != m.end() && !m["JVMGcCostInMillis"].empty()) {
+      JVMGcCostInMillis = make_shared<long>(boost::any_cast<long>(m["JVMGcCostInMillis"]));
+    }
+    if (m.find("PeakMemoryInByte") != m.end() && !m["PeakMemoryInByte"].empty()) {
+      peakMemoryInByte = make_shared<long>(boost::any_cast<long>(m["PeakMemoryInByte"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ShuffleReadInByte") != m.end() && !m["ShuffleReadInByte"].empty()) {
+      shuffleReadInByte = make_shared<long>(boost::any_cast<long>(m["ShuffleReadInByte"]));
+    }
+    if (m.find("ShuffleWriteInByte") != m.end() && !m["ShuffleWriteInByte"].empty()) {
+      shuffleWriteInByte = make_shared<long>(boost::any_cast<long>(m["ShuffleWriteInByte"]));
+    }
+    if (m.find("SpillInByte") != m.end() && !m["SpillInByte"].empty()) {
+      spillInByte = make_shared<long>(boost::any_cast<long>(m["SpillInByte"]));
+    }
+    if (m.find("StartedTime") != m.end() && !m["StartedTime"].empty()) {
+      startedTime = make_shared<long>(boost::any_cast<long>(m["StartedTime"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+  }
+
+
+  virtual ~DescribeSparkAppDiagnosisInfoResponseBody() = default;
+};
+class DescribeSparkAppDiagnosisInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSparkAppDiagnosisInfoResponseBody> body{};
+
+  DescribeSparkAppDiagnosisInfoResponse() {}
+
+  explicit DescribeSparkAppDiagnosisInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSparkAppDiagnosisInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSparkAppDiagnosisInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSparkAppDiagnosisInfoResponse() = default;
+};
+class DescribeSparkAppTypeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> regionId{};
+
+  DescribeSparkAppTypeRequest() {}
+
+  explicit DescribeSparkAppTypeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeSparkAppTypeRequest() = default;
+};
+class DescribeSparkAppTypeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> type{};
+
+  DescribeSparkAppTypeResponseBody() {}
+
+  explicit DescribeSparkAppTypeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeSparkAppTypeResponseBody() = default;
+};
+class DescribeSparkAppTypeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSparkAppTypeResponseBody> body{};
+
+  DescribeSparkAppTypeResponse() {}
+
+  explicit DescribeSparkAppTypeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSparkAppTypeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSparkAppTypeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSparkAppTypeResponse() = default;
+};
 class DescribeSparkCodeLogRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
@@ -34476,6 +34843,10 @@ public:
   DescribeSQLPatternsResponse describeSQLPatterns(shared_ptr<DescribeSQLPatternsRequest> request);
   DescribeSchemasResponse describeSchemasWithOptions(shared_ptr<DescribeSchemasRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSchemasResponse describeSchemas(shared_ptr<DescribeSchemasRequest> request);
+  DescribeSparkAppDiagnosisInfoResponse describeSparkAppDiagnosisInfoWithOptions(shared_ptr<DescribeSparkAppDiagnosisInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSparkAppDiagnosisInfoResponse describeSparkAppDiagnosisInfo(shared_ptr<DescribeSparkAppDiagnosisInfoRequest> request);
+  DescribeSparkAppTypeResponse describeSparkAppTypeWithOptions(shared_ptr<DescribeSparkAppTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSparkAppTypeResponse describeSparkAppType(shared_ptr<DescribeSparkAppTypeRequest> request);
   DescribeSparkCodeLogResponse describeSparkCodeLogWithOptions(shared_ptr<DescribeSparkCodeLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSparkCodeLogResponse describeSparkCodeLog(shared_ptr<DescribeSparkCodeLogRequest> request);
   DescribeSparkCodeOutputResponse describeSparkCodeOutputWithOptions(shared_ptr<DescribeSparkCodeOutputRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
