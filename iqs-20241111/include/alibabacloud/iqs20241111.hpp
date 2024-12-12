@@ -138,6 +138,8 @@ class ScorePageItem : public Darabonba::Model {
 public:
   shared_ptr<string> cardType{};
   shared_ptr<string> displayLink{};
+  shared_ptr<string> hostLogo{};
+  shared_ptr<string> hostname{};
   shared_ptr<string> htmlSnippet{};
   shared_ptr<string> htmlTitle{};
   shared_ptr<vector<IncludeImage>> images{};
@@ -147,6 +149,7 @@ public:
   shared_ptr<map<string, string>> pageMap{};
   shared_ptr<long> publishTime{};
   shared_ptr<double> score{};
+  shared_ptr<string> siteLabel{};
   shared_ptr<string> title{};
 
   ScorePageItem() {}
@@ -164,6 +167,12 @@ public:
     }
     if (displayLink) {
       res["displayLink"] = boost::any(*displayLink);
+    }
+    if (hostLogo) {
+      res["hostLogo"] = boost::any(*hostLogo);
+    }
+    if (hostname) {
+      res["hostname"] = boost::any(*hostname);
     }
     if (htmlSnippet) {
       res["htmlSnippet"] = boost::any(*htmlSnippet);
@@ -196,6 +205,9 @@ public:
     if (score) {
       res["score"] = boost::any(*score);
     }
+    if (siteLabel) {
+      res["siteLabel"] = boost::any(*siteLabel);
+    }
     if (title) {
       res["title"] = boost::any(*title);
     }
@@ -208,6 +220,12 @@ public:
     }
     if (m.find("displayLink") != m.end() && !m["displayLink"].empty()) {
       displayLink = make_shared<string>(boost::any_cast<string>(m["displayLink"]));
+    }
+    if (m.find("hostLogo") != m.end() && !m["hostLogo"].empty()) {
+      hostLogo = make_shared<string>(boost::any_cast<string>(m["hostLogo"]));
+    }
+    if (m.find("hostname") != m.end() && !m["hostname"].empty()) {
+      hostname = make_shared<string>(boost::any_cast<string>(m["hostname"]));
     }
     if (m.find("htmlSnippet") != m.end() && !m["htmlSnippet"].empty()) {
       htmlSnippet = make_shared<string>(boost::any_cast<string>(m["htmlSnippet"]));
@@ -251,6 +269,9 @@ public:
     if (m.find("score") != m.end() && !m["score"].empty()) {
       score = make_shared<double>(boost::any_cast<double>(m["score"]));
     }
+    if (m.find("siteLabel") != m.end() && !m["siteLabel"].empty()) {
+      siteLabel = make_shared<string>(boost::any_cast<string>(m["siteLabel"]));
+    }
     if (m.find("title") != m.end() && !m["title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["title"]));
     }
@@ -258,6 +279,42 @@ public:
 
 
   virtual ~ScorePageItem() = default;
+};
+class SceneItem : public Darabonba::Model {
+public:
+  shared_ptr<string> detail{};
+  shared_ptr<string> type{};
+
+  SceneItem() {}
+
+  explicit SceneItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detail) {
+      res["detail"] = boost::any(*detail);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("detail") != m.end() && !m["detail"].empty()) {
+      detail = make_shared<string>(boost::any_cast<string>(m["detail"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~SceneItem() = default;
 };
 class SearchInformation : public Darabonba::Model {
 public:
@@ -377,6 +434,7 @@ class GenericSearchResult : public Darabonba::Model {
 public:
   shared_ptr<vector<ScorePageItem>> pageItems{};
   shared_ptr<string> requestId{};
+  shared_ptr<vector<SceneItem>> sceneItems{};
   shared_ptr<SearchInformation> searchInformation{};
   shared_ptr<vector<WeiboItem>> weiboItems{};
 
@@ -399,6 +457,13 @@ public:
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
+    }
+    if (sceneItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*sceneItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["sceneItems"] = boost::any(temp1);
     }
     if (searchInformation) {
       res["searchInformation"] = searchInformation ? boost::any(searchInformation->toMap()) : boost::any(map<string,boost::any>({}));
@@ -429,6 +494,19 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("sceneItems") != m.end() && !m["sceneItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["sceneItems"].type()) {
+        vector<SceneItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["sceneItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SceneItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sceneItems = make_shared<vector<SceneItem>>(expect1);
+      }
     }
     if (m.find("searchInformation") != m.end() && !m["searchInformation"].empty()) {
       if (typeid(map<string, boost::any>) == m["searchInformation"].type()) {
