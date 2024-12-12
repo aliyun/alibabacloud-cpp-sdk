@@ -3286,7 +3286,7 @@ InstallClusterAddonsResponse Alibabacloud_CS20151215::Client::installClusterAddo
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
+    {"bodyType", boost::any(string("json"))}
   }));
   return InstallClusterAddonsResponse(callApi(params, req, runtime));
 }
@@ -4672,7 +4672,7 @@ UnInstallClusterAddonsResponse Alibabacloud_CS20151215::Client::unInstallCluster
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
+    {"bodyType", boost::any(string("json"))}
   }));
   return UnInstallClusterAddonsResponse(callApi(params, req, runtime));
 }
