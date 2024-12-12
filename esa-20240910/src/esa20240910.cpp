@@ -3769,6 +3769,9 @@ GetSiteLogDeliveryQuotaResponse Alibabacloud_ESA20240910::Client::getSiteLogDeli
 GetSiteWafSettingsResponse Alibabacloud_ESA20240910::Client::getSiteWafSettingsWithOptions(shared_ptr<GetSiteWafSettingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->path)) {
+    query->insert(pair<string, string>("Path", *request->path));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
     query->insert(pair<string, long>("SiteId", *request->siteId));
   }

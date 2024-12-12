@@ -1489,11 +1489,13 @@ public:
   shared_ptr<vector<WafRuleConfigManagedRulesets>> managedRulesets{};
   shared_ptr<WafRuleMatch> match{};
   shared_ptr<string> name{};
+  shared_ptr<string> notes{};
   shared_ptr<WafRuleConfigRateLimit> rateLimit{};
   shared_ptr<vector<string>> sigchl{};
   shared_ptr<string> status{};
   shared_ptr<WafTimer> timer{};
   shared_ptr<string> type{};
+  shared_ptr<string> value{};
 
   WafRuleConfig() {}
 
@@ -1542,6 +1544,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (notes) {
+      res["Notes"] = boost::any(*notes);
+    }
     if (rateLimit) {
       res["RateLimit"] = rateLimit ? boost::any(rateLimit->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1556,6 +1561,9 @@ public:
     }
     if (type) {
       res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
     }
     return res;
   }
@@ -1620,6 +1628,9 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("Notes") != m.end() && !m["Notes"].empty()) {
+      notes = make_shared<string>(boost::any_cast<string>(m["Notes"]));
+    }
     if (m.find("RateLimit") != m.end() && !m["RateLimit"].empty()) {
       if (typeid(map<string, boost::any>) == m["RateLimit"].type()) {
         WafRuleConfigRateLimit model1;
@@ -1649,6 +1660,9 @@ public:
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
     }
   }
 
@@ -1712,6 +1726,249 @@ public:
 
 
   virtual ~WafSiteSettingsAddSecurityHeaders() = default;
+};
+class WafSiteSettingsBotManagementDefiniteBots : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<long> id{};
+
+  WafSiteSettingsBotManagementDefiniteBots() {}
+
+  explicit WafSiteSettingsBotManagementDefiniteBots(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+  }
+
+
+  virtual ~WafSiteSettingsBotManagementDefiniteBots() = default;
+};
+class WafSiteSettingsBotManagementEffectOnStatic : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  WafSiteSettingsBotManagementEffectOnStatic() {}
+
+  explicit WafSiteSettingsBotManagementEffectOnStatic(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~WafSiteSettingsBotManagementEffectOnStatic() = default;
+};
+class WafSiteSettingsBotManagementJSDetection : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  WafSiteSettingsBotManagementJSDetection() {}
+
+  explicit WafSiteSettingsBotManagementJSDetection(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~WafSiteSettingsBotManagementJSDetection() = default;
+};
+class WafSiteSettingsBotManagementLikelyBots : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<long> id{};
+
+  WafSiteSettingsBotManagementLikelyBots() {}
+
+  explicit WafSiteSettingsBotManagementLikelyBots(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+  }
+
+
+  virtual ~WafSiteSettingsBotManagementLikelyBots() = default;
+};
+class WafSiteSettingsBotManagementVerifiedBots : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<long> id{};
+
+  WafSiteSettingsBotManagementVerifiedBots() {}
+
+  explicit WafSiteSettingsBotManagementVerifiedBots(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+  }
+
+
+  virtual ~WafSiteSettingsBotManagementVerifiedBots() = default;
+};
+class WafSiteSettingsBotManagement : public Darabonba::Model {
+public:
+  shared_ptr<WafSiteSettingsBotManagementDefiniteBots> definiteBots{};
+  shared_ptr<WafSiteSettingsBotManagementEffectOnStatic> effectOnStatic{};
+  shared_ptr<WafSiteSettingsBotManagementJSDetection> JSDetection{};
+  shared_ptr<WafSiteSettingsBotManagementLikelyBots> likelyBots{};
+  shared_ptr<WafSiteSettingsBotManagementVerifiedBots> verifiedBots{};
+
+  WafSiteSettingsBotManagement() {}
+
+  explicit WafSiteSettingsBotManagement(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (definiteBots) {
+      res["DefiniteBots"] = definiteBots ? boost::any(definiteBots->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (effectOnStatic) {
+      res["EffectOnStatic"] = effectOnStatic ? boost::any(effectOnStatic->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (JSDetection) {
+      res["JSDetection"] = JSDetection ? boost::any(JSDetection->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (likelyBots) {
+      res["LikelyBots"] = likelyBots ? boost::any(likelyBots->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (verifiedBots) {
+      res["VerifiedBots"] = verifiedBots ? boost::any(verifiedBots->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefiniteBots") != m.end() && !m["DefiniteBots"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DefiniteBots"].type()) {
+        WafSiteSettingsBotManagementDefiniteBots model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DefiniteBots"]));
+        definiteBots = make_shared<WafSiteSettingsBotManagementDefiniteBots>(model1);
+      }
+    }
+    if (m.find("EffectOnStatic") != m.end() && !m["EffectOnStatic"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EffectOnStatic"].type()) {
+        WafSiteSettingsBotManagementEffectOnStatic model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EffectOnStatic"]));
+        effectOnStatic = make_shared<WafSiteSettingsBotManagementEffectOnStatic>(model1);
+      }
+    }
+    if (m.find("JSDetection") != m.end() && !m["JSDetection"].empty()) {
+      if (typeid(map<string, boost::any>) == m["JSDetection"].type()) {
+        WafSiteSettingsBotManagementJSDetection model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["JSDetection"]));
+        JSDetection = make_shared<WafSiteSettingsBotManagementJSDetection>(model1);
+      }
+    }
+    if (m.find("LikelyBots") != m.end() && !m["LikelyBots"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LikelyBots"].type()) {
+        WafSiteSettingsBotManagementLikelyBots model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LikelyBots"]));
+        likelyBots = make_shared<WafSiteSettingsBotManagementLikelyBots>(model1);
+      }
+    }
+    if (m.find("VerifiedBots") != m.end() && !m["VerifiedBots"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VerifiedBots"].type()) {
+        WafSiteSettingsBotManagementVerifiedBots model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VerifiedBots"]));
+        verifiedBots = make_shared<WafSiteSettingsBotManagementVerifiedBots>(model1);
+      }
+    }
+  }
+
+
+  virtual ~WafSiteSettingsBotManagement() = default;
 };
 class WafSiteSettingsClientIpIdentifier : public Darabonba::Model {
 public:
@@ -1789,6 +2046,7 @@ class WafSiteSettings : public Darabonba::Model {
 public:
   shared_ptr<WafSiteSettingsAddBotProtectionHeaders> addBotProtectionHeaders{};
   shared_ptr<WafSiteSettingsAddSecurityHeaders> addSecurityHeaders{};
+  shared_ptr<WafSiteSettingsBotManagement> botManagement{};
   shared_ptr<WafSiteSettingsClientIpIdentifier> clientIpIdentifier{};
   shared_ptr<WafSiteSettingsSecurityLevel> securityLevel{};
 
@@ -1807,6 +2065,9 @@ public:
     }
     if (addSecurityHeaders) {
       res["AddSecurityHeaders"] = addSecurityHeaders ? boost::any(addSecurityHeaders->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (botManagement) {
+      res["BotManagement"] = botManagement ? boost::any(botManagement->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (clientIpIdentifier) {
       res["ClientIpIdentifier"] = clientIpIdentifier ? boost::any(clientIpIdentifier->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1830,6 +2091,13 @@ public:
         WafSiteSettingsAddSecurityHeaders model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AddSecurityHeaders"]));
         addSecurityHeaders = make_shared<WafSiteSettingsAddSecurityHeaders>(model1);
+      }
+    }
+    if (m.find("BotManagement") != m.end() && !m["BotManagement"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BotManagement"].type()) {
+        WafSiteSettingsBotManagement model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BotManagement"]));
+        botManagement = make_shared<WafSiteSettingsBotManagement>(model1);
       }
     }
     if (m.find("ClientIpIdentifier") != m.end() && !m["ClientIpIdentifier"].empty()) {
@@ -24035,6 +24303,7 @@ public:
 };
 class GetSiteWafSettingsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> path{};
   shared_ptr<long> siteId{};
   shared_ptr<long> siteVersion{};
 
@@ -24048,6 +24317,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
     if (siteId) {
       res["SiteId"] = boost::any(*siteId);
     }
@@ -24058,6 +24330,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
     if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
       siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
     }
@@ -34421,6 +34696,7 @@ public:
 };
 class ListWafRulesRequestQueryArgs : public Darabonba::Model {
 public:
+  shared_ptr<string> configValueLike{};
   shared_ptr<bool> desc{};
   shared_ptr<long> id{};
   shared_ptr<string> idNameLike{};
@@ -34439,6 +34715,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (configValueLike) {
+      res["ConfigValueLike"] = boost::any(*configValueLike);
+    }
     if (desc) {
       res["Desc"] = boost::any(*desc);
     }
@@ -34464,6 +34743,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigValueLike") != m.end() && !m["ConfigValueLike"].empty()) {
+      configValueLike = make_shared<string>(boost::any_cast<string>(m["ConfigValueLike"]));
+    }
     if (m.find("Desc") != m.end() && !m["Desc"].empty()) {
       desc = make_shared<bool>(boost::any_cast<bool>(m["Desc"]));
     }
