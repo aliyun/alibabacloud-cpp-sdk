@@ -13458,6 +13458,7 @@ public:
   shared_ptr<string> cnClass{};
   shared_ptr<string> DBInstanceName{};
   shared_ptr<string> dnClass{};
+  shared_ptr<string> dnStorageSpace{};
   shared_ptr<string> regionId{};
   shared_ptr<bool> specifiedDNScale{};
   shared_ptr<string> specifiedDNSpecMapJson{};
@@ -13486,6 +13487,9 @@ public:
     }
     if (dnClass) {
       res["DnClass"] = boost::any(*dnClass);
+    }
+    if (dnStorageSpace) {
+      res["DnStorageSpace"] = boost::any(*dnStorageSpace);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -13520,6 +13524,9 @@ public:
     }
     if (m.find("DnClass") != m.end() && !m["DnClass"].empty()) {
       dnClass = make_shared<string>(boost::any_cast<string>(m["DnClass"]));
+    }
+    if (m.find("DnStorageSpace") != m.end() && !m["DnStorageSpace"].empty()) {
+      dnStorageSpace = make_shared<string>(boost::any_cast<string>(m["DnStorageSpace"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));

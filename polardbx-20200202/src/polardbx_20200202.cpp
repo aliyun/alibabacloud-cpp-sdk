@@ -2092,6 +2092,9 @@ ModifyDBInstanceClassResponse Alibabacloud_Polardbx20200202::Client::modifyDBIns
   if (!Darabonba_Util::Client::isUnset<string>(request->dnClass)) {
     query->insert(pair<string, string>("DnClass", *request->dnClass));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dnStorageSpace)) {
+    query->insert(pair<string, string>("DnStorageSpace", *request->dnStorageSpace));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
