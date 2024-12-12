@@ -880,6 +880,9 @@ ListChunksResponse Alibabacloud_Bailian20231229::Client::listChunksWithOptions(s
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->fields)) {
     body->insert(pair<string, vector<string>>("Fields", *request->fields));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileId)) {
+    body->insert(pair<string, string>("FileId", *request->fileId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->filed)) {
     body->insert(pair<string, string>("Filed", *request->filed));
   }

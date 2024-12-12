@@ -5137,6 +5137,7 @@ public:
 class ListChunksRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> fields{};
+  shared_ptr<string> fileId{};
   shared_ptr<string> filed{};
   shared_ptr<string> indexId{};
   shared_ptr<long> pageNum{};
@@ -5154,6 +5155,9 @@ public:
     map<string, boost::any> res;
     if (fields) {
       res["Fields"] = boost::any(*fields);
+    }
+    if (fileId) {
+      res["FileId"] = boost::any(*fileId);
     }
     if (filed) {
       res["Filed"] = boost::any(*filed);
@@ -5180,6 +5184,9 @@ public:
         }
       }
       fields = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
+      fileId = make_shared<string>(boost::any_cast<string>(m["FileId"]));
     }
     if (m.find("Filed") != m.end() && !m["Filed"].empty()) {
       filed = make_shared<string>(boost::any_cast<string>(m["Filed"]));
