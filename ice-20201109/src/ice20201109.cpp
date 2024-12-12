@@ -4720,6 +4720,77 @@ ListTranscodeJobsResponse Alibabacloud_ICE20201109::Client::listTranscodeJobs(sh
   return listTranscodeJobsWithOptions(request, runtime);
 }
 
+QueryCopyrightExtractJobResponse Alibabacloud_ICE20201109::Client::queryCopyrightExtractJobWithOptions(shared_ptr<QueryCopyrightExtractJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    query->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryCopyrightExtractJob"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryCopyrightExtractJobResponse(callApi(params, req, runtime));
+}
+
+QueryCopyrightExtractJobResponse Alibabacloud_ICE20201109::Client::queryCopyrightExtractJob(shared_ptr<QueryCopyrightExtractJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryCopyrightExtractJobWithOptions(request, runtime);
+}
+
+QueryCopyrightJobListResponse Alibabacloud_ICE20201109::Client::queryCopyrightJobListWithOptions(shared_ptr<QueryCopyrightJobListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->createTimeEnd)) {
+    query->insert(pair<string, long>("CreateTimeEnd", *request->createTimeEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createTimeStart)) {
+    query->insert(pair<string, long>("CreateTimeStart", *request->createTimeStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    query->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->level)) {
+    query->insert(pair<string, long>("Level", *request->level));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryCopyrightJobList"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryCopyrightJobListResponse(callApi(params, req, runtime));
+}
+
+QueryCopyrightJobListResponse Alibabacloud_ICE20201109::Client::queryCopyrightJobList(shared_ptr<QueryCopyrightJobListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryCopyrightJobListWithOptions(request, runtime);
+}
+
 QueryDNAJobListResponse Alibabacloud_ICE20201109::Client::queryDNAJobListWithOptions(shared_ptr<QueryDNAJobListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5014,6 +5085,117 @@ QuerySmarttagJobResponse Alibabacloud_ICE20201109::Client::querySmarttagJobWithO
 QuerySmarttagJobResponse Alibabacloud_ICE20201109::Client::querySmarttagJob(shared_ptr<QuerySmarttagJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return querySmarttagJobWithOptions(request, runtime);
+}
+
+QueryTraceAbJobListResponse Alibabacloud_ICE20201109::Client::queryTraceAbJobListWithOptions(shared_ptr<QueryTraceAbJobListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->createTimeEnd)) {
+    query->insert(pair<string, long>("CreateTimeEnd", *request->createTimeEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createTimeStart)) {
+    query->insert(pair<string, long>("CreateTimeStart", *request->createTimeStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    query->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->traceMediaId)) {
+    query->insert(pair<string, string>("TraceMediaId", *request->traceMediaId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryTraceAbJobList"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryTraceAbJobListResponse(callApi(params, req, runtime));
+}
+
+QueryTraceAbJobListResponse Alibabacloud_ICE20201109::Client::queryTraceAbJobList(shared_ptr<QueryTraceAbJobListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryTraceAbJobListWithOptions(request, runtime);
+}
+
+QueryTraceExtractJobResponse Alibabacloud_ICE20201109::Client::queryTraceExtractJobWithOptions(shared_ptr<QueryTraceExtractJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    query->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryTraceExtractJob"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryTraceExtractJobResponse(callApi(params, req, runtime));
+}
+
+QueryTraceExtractJobResponse Alibabacloud_ICE20201109::Client::queryTraceExtractJob(shared_ptr<QueryTraceExtractJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryTraceExtractJobWithOptions(request, runtime);
+}
+
+QueryTraceM3u8JobListResponse Alibabacloud_ICE20201109::Client::queryTraceM3u8JobListWithOptions(shared_ptr<QueryTraceM3u8JobListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->createTimeEnd)) {
+    query->insert(pair<string, long>("CreateTimeEnd", *request->createTimeEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createTimeStart)) {
+    query->insert(pair<string, long>("CreateTimeStart", *request->createTimeStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    query->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryTraceM3u8JobList"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryTraceM3u8JobListResponse(callApi(params, req, runtime));
+}
+
+QueryTraceM3u8JobListResponse Alibabacloud_ICE20201109::Client::queryTraceM3u8JobList(shared_ptr<QueryTraceM3u8JobListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryTraceM3u8JobListWithOptions(request, runtime);
 }
 
 RefreshUploadMediaResponse Alibabacloud_ICE20201109::Client::refreshUploadMediaWithOptions(shared_ptr<RefreshUploadMediaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -6216,6 +6398,105 @@ SubmitBatchMediaProducingJobResponse Alibabacloud_ICE20201109::Client::submitBat
   return submitBatchMediaProducingJobWithOptions(request, runtime);
 }
 
+SubmitCopyrightExtractJobResponse Alibabacloud_ICE20201109::Client::submitCopyrightExtractJobWithOptions(shared_ptr<SubmitCopyrightExtractJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitCopyrightExtractJobShrinkRequest> request = make_shared<SubmitCopyrightExtractJobShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SubmitCopyrightExtractJobRequestInput>(tmpReq->input)) {
+    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->input, make_shared<string>("Input"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputShrink)) {
+    query->insert(pair<string, string>("Input", *request->inputShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    query->insert(pair<string, string>("Params", *request->params));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitCopyrightExtractJob"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitCopyrightExtractJobResponse(callApi(params, req, runtime));
+}
+
+SubmitCopyrightExtractJobResponse Alibabacloud_ICE20201109::Client::submitCopyrightExtractJob(shared_ptr<SubmitCopyrightExtractJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitCopyrightExtractJobWithOptions(request, runtime);
+}
+
+SubmitCopyrightJobResponse Alibabacloud_ICE20201109::Client::submitCopyrightJobWithOptions(shared_ptr<SubmitCopyrightJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitCopyrightJobShrinkRequest> request = make_shared<SubmitCopyrightJobShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SubmitCopyrightJobRequestInput>(tmpReq->input)) {
+    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->input, make_shared<string>("Input"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<SubmitCopyrightJobRequestOutput>(tmpReq->output)) {
+    request->outputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->output, make_shared<string>("Output"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputShrink)) {
+    query->insert(pair<string, string>("Input", *request->inputShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->level)) {
+    query->insert(pair<string, long>("Level", *request->level));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->message)) {
+    query->insert(pair<string, string>("Message", *request->message));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputShrink)) {
+    query->insert(pair<string, string>("Output", *request->outputShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    query->insert(pair<string, string>("Params", *request->params));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->totalTime)) {
+    query->insert(pair<string, string>("TotalTime", *request->totalTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitCopyrightJob"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitCopyrightJobResponse(callApi(params, req, runtime));
+}
+
+SubmitCopyrightJobResponse Alibabacloud_ICE20201109::Client::submitCopyrightJob(shared_ptr<SubmitCopyrightJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitCopyrightJobWithOptions(request, runtime);
+}
+
 SubmitCustomizedVoiceJobResponse Alibabacloud_ICE20201109::Client::submitCustomizedVoiceJobWithOptions(shared_ptr<SubmitCustomizedVoiceJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -7225,6 +7506,144 @@ SubmitTextGenerateJobResponse Alibabacloud_ICE20201109::Client::submitTextGenera
 SubmitTextGenerateJobResponse Alibabacloud_ICE20201109::Client::submitTextGenerateJob(shared_ptr<SubmitTextGenerateJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return submitTextGenerateJobWithOptions(request, runtime);
+}
+
+SubmitTraceAbJobResponse Alibabacloud_ICE20201109::Client::submitTraceAbJobWithOptions(shared_ptr<SubmitTraceAbJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitTraceAbJobShrinkRequest> request = make_shared<SubmitTraceAbJobShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SubmitTraceAbJobRequestInput>(tmpReq->input)) {
+    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->input, make_shared<string>("Input"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<SubmitTraceAbJobRequestOutput>(tmpReq->output)) {
+    request->outputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->output, make_shared<string>("Output"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cipherBase64ed)) {
+    query->insert(pair<string, string>("CipherBase64ed", *request->cipherBase64ed));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputShrink)) {
+    query->insert(pair<string, string>("Input", *request->inputShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->level)) {
+    query->insert(pair<string, long>("Level", *request->level));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputShrink)) {
+    query->insert(pair<string, string>("Output", *request->outputShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->totalTime)) {
+    query->insert(pair<string, string>("TotalTime", *request->totalTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitTraceAbJob"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitTraceAbJobResponse(callApi(params, req, runtime));
+}
+
+SubmitTraceAbJobResponse Alibabacloud_ICE20201109::Client::submitTraceAbJob(shared_ptr<SubmitTraceAbJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitTraceAbJobWithOptions(request, runtime);
+}
+
+SubmitTraceExtractJobResponse Alibabacloud_ICE20201109::Client::submitTraceExtractJobWithOptions(shared_ptr<SubmitTraceExtractJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitTraceExtractJobShrinkRequest> request = make_shared<SubmitTraceExtractJobShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SubmitTraceExtractJobRequestInput>(tmpReq->input)) {
+    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->input, make_shared<string>("Input"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputShrink)) {
+    query->insert(pair<string, string>("Input", *request->inputShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    query->insert(pair<string, string>("Params", *request->params));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitTraceExtractJob"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitTraceExtractJobResponse(callApi(params, req, runtime));
+}
+
+SubmitTraceExtractJobResponse Alibabacloud_ICE20201109::Client::submitTraceExtractJob(shared_ptr<SubmitTraceExtractJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitTraceExtractJobWithOptions(request, runtime);
+}
+
+SubmitTraceM3u8JobResponse Alibabacloud_ICE20201109::Client::submitTraceM3u8JobWithOptions(shared_ptr<SubmitTraceM3u8JobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitTraceM3u8JobShrinkRequest> request = make_shared<SubmitTraceM3u8JobShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SubmitTraceM3u8JobRequestOutput>(tmpReq->output)) {
+    request->outputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->output, make_shared<string>("Output"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyUri)) {
+    query->insert(pair<string, string>("KeyUri", *request->keyUri));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputShrink)) {
+    query->insert(pair<string, string>("Output", *request->outputShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    query->insert(pair<string, string>("Params", *request->params));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trace)) {
+    query->insert(pair<string, string>("Trace", *request->trace));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->traceMediaId)) {
+    query->insert(pair<string, string>("TraceMediaId", *request->traceMediaId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitTraceM3u8Job"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitTraceM3u8JobResponse(callApi(params, req, runtime));
+}
+
+SubmitTraceM3u8JobResponse Alibabacloud_ICE20201109::Client::submitTraceM3u8Job(shared_ptr<SubmitTraceM3u8JobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitTraceM3u8JobWithOptions(request, runtime);
 }
 
 SubmitTranscodeJobResponse Alibabacloud_ICE20201109::Client::submitTranscodeJobWithOptions(shared_ptr<SubmitTranscodeJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
