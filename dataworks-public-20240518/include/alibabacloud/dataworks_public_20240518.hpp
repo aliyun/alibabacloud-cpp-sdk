@@ -43048,7 +43048,7 @@ public:
 };
 class UpdateDIJobRequestResourceSettingsOfflineResourceSettings : public Darabonba::Model {
 public:
-  shared_ptr<long> requestedCu{};
+  shared_ptr<double> requestedCu{};
   shared_ptr<string> resourceGroupIdentifier{};
 
   UpdateDIJobRequestResourceSettingsOfflineResourceSettings() {}
@@ -43072,7 +43072,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestedCu") != m.end() && !m["RequestedCu"].empty()) {
-      requestedCu = make_shared<long>(boost::any_cast<long>(m["RequestedCu"]));
+      requestedCu = make_shared<double>(boost::any_cast<double>(m["RequestedCu"]));
     }
     if (m.find("ResourceGroupIdentifier") != m.end() && !m["ResourceGroupIdentifier"].empty()) {
       resourceGroupIdentifier = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdentifier"]));
@@ -43084,7 +43084,7 @@ public:
 };
 class UpdateDIJobRequestResourceSettingsRealtimeResourceSettings : public Darabonba::Model {
 public:
-  shared_ptr<long> requestedCu{};
+  shared_ptr<double> requestedCu{};
   shared_ptr<string> resourceGroupIdentifier{};
 
   UpdateDIJobRequestResourceSettingsRealtimeResourceSettings() {}
@@ -43108,7 +43108,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestedCu") != m.end() && !m["RequestedCu"].empty()) {
-      requestedCu = make_shared<long>(boost::any_cast<long>(m["RequestedCu"]));
+      requestedCu = make_shared<double>(boost::any_cast<double>(m["RequestedCu"]));
     }
     if (m.find("ResourceGroupIdentifier") != m.end() && !m["ResourceGroupIdentifier"].empty()) {
       resourceGroupIdentifier = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdentifier"]));
@@ -43120,7 +43120,7 @@ public:
 };
 class UpdateDIJobRequestResourceSettingsScheduleResourceSettings : public Darabonba::Model {
 public:
-  shared_ptr<long> requestedCu{};
+  shared_ptr<double> requestedCu{};
   shared_ptr<string> resourceGroupIdentifier{};
 
   UpdateDIJobRequestResourceSettingsScheduleResourceSettings() {}
@@ -43144,7 +43144,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestedCu") != m.end() && !m["RequestedCu"].empty()) {
-      requestedCu = make_shared<long>(boost::any_cast<long>(m["RequestedCu"]));
+      requestedCu = make_shared<double>(boost::any_cast<double>(m["RequestedCu"]));
     }
     if (m.find("ResourceGroupIdentifier") != m.end() && !m["ResourceGroupIdentifier"].empty()) {
       resourceGroupIdentifier = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdentifier"]));
