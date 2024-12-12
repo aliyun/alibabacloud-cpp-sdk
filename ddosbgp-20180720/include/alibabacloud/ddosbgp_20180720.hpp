@@ -3785,6 +3785,7 @@ public:
   shared_ptr<string> ipType{};
   shared_ptr<string> product{};
   shared_ptr<string> remark{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
 
   DescribeInstanceListResponseBodyInstanceList() {}
@@ -3836,6 +3837,9 @@ public:
     if (remark) {
       res["Remark"] = boost::any(*remark);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -3885,6 +3889,9 @@ public:
     }
     if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
