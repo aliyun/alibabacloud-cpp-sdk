@@ -4800,6 +4800,7 @@ public:
 class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus : public Darabonba::Model {
 public:
   shared_ptr<vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines>> buslines{};
+  shared_ptr<string> index{};
 
   TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus() {}
 
@@ -4818,6 +4819,9 @@ public:
       }
       res["buslines"] = boost::any(temp1);
     }
+    if (index) {
+      res["index"] = boost::any(*index);
+    }
     return res;
   }
 
@@ -4834,6 +4838,9 @@ public:
         }
         buslines = make_shared<vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines>>(expect1);
       }
+    }
+    if (m.find("index") != m.end() && !m["index"].empty()) {
+      index = make_shared<string>(boost::any_cast<string>(m["index"]));
     }
   }
 
@@ -5010,6 +5017,7 @@ public:
   shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop> departureStop{};
   shared_ptr<string> distanceMeter{};
   shared_ptr<string> id{};
+  shared_ptr<string> index{};
   shared_ptr<string> name{};
   shared_ptr<vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces>> spaces{};
   shared_ptr<string> time{};
@@ -5037,6 +5045,9 @@ public:
     }
     if (id) {
       res["id"] = boost::any(*id);
+    }
+    if (index) {
+      res["index"] = boost::any(*index);
     }
     if (name) {
       res["name"] = boost::any(*name);
@@ -5081,6 +5092,9 @@ public:
     if (m.find("id") != m.end() && !m["id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["id"]));
     }
+    if (m.find("index") != m.end() && !m["index"].empty()) {
+      index = make_shared<string>(boost::any_cast<string>(m["index"]));
+    }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
@@ -5117,6 +5131,7 @@ public:
   shared_ptr<string> destinationPoint{};
   shared_ptr<string> distanceMeter{};
   shared_ptr<string> driveTimeSecond{};
+  shared_ptr<string> index{};
   shared_ptr<string> originName{};
   shared_ptr<string> originPoint{};
   shared_ptr<string> price{};
@@ -5143,6 +5158,9 @@ public:
     if (driveTimeSecond) {
       res["driveTimeSecond"] = boost::any(*driveTimeSecond);
     }
+    if (index) {
+      res["index"] = boost::any(*index);
+    }
     if (originName) {
       res["originName"] = boost::any(*originName);
     }
@@ -5167,6 +5185,9 @@ public:
     }
     if (m.find("driveTimeSecond") != m.end() && !m["driveTimeSecond"].empty()) {
       driveTimeSecond = make_shared<string>(boost::any_cast<string>(m["driveTimeSecond"]));
+    }
+    if (m.find("index") != m.end() && !m["index"].empty()) {
+      index = make_shared<string>(boost::any_cast<string>(m["index"]));
     }
     if (m.find("originName") != m.end() && !m["originName"].empty()) {
       originName = make_shared<string>(boost::any_cast<string>(m["originName"]));
@@ -5430,6 +5451,7 @@ public:
   shared_ptr<TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost> cost{};
   shared_ptr<string> destination{};
   shared_ptr<string> distanceMeter{};
+  shared_ptr<string> index{};
   shared_ptr<string> origin{};
   shared_ptr<vector<TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps>> steps{};
 
@@ -5451,6 +5473,9 @@ public:
     }
     if (distanceMeter) {
       res["distanceMeter"] = boost::any(*distanceMeter);
+    }
+    if (index) {
+      res["index"] = boost::any(*index);
     }
     if (origin) {
       res["origin"] = boost::any(*origin);
@@ -5478,6 +5503,9 @@ public:
     }
     if (m.find("distanceMeter") != m.end() && !m["distanceMeter"].empty()) {
       distanceMeter = make_shared<string>(boost::any_cast<string>(m["distanceMeter"]));
+    }
+    if (m.find("index") != m.end() && !m["index"].empty()) {
+      index = make_shared<string>(boost::any_cast<string>(m["index"]));
     }
     if (m.find("origin") != m.end() && !m["origin"].empty()) {
       origin = make_shared<string>(boost::any_cast<string>(m["origin"]));
