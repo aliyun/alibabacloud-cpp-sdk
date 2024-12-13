@@ -5711,6 +5711,7 @@ public:
   shared_ptr<string> network{};
   shared_ptr<string> payType{};
   shared_ptr<string> port{};
+  shared_ptr<string> primaryInstanceId{};
   shared_ptr<string> primaryZone{};
   shared_ptr<vector<string>> readDBInstances{};
   shared_ptr<string> regionId{};
@@ -5859,6 +5860,9 @@ public:
     }
     if (port) {
       res["Port"] = boost::any(*port);
+    }
+    if (primaryInstanceId) {
+      res["PrimaryInstanceId"] = boost::any(*primaryInstanceId);
     }
     if (primaryZone) {
       res["PrimaryZone"] = boost::any(*primaryZone);
@@ -6073,6 +6077,9 @@ public:
     }
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
+    if (m.find("PrimaryInstanceId") != m.end() && !m["PrimaryInstanceId"].empty()) {
+      primaryInstanceId = make_shared<string>(boost::any_cast<string>(m["PrimaryInstanceId"]));
     }
     if (m.find("PrimaryZone") != m.end() && !m["PrimaryZone"].empty()) {
       primaryZone = make_shared<string>(boost::any_cast<string>(m["PrimaryZone"]));
@@ -8558,6 +8565,7 @@ public:
   shared_ptr<long> nodeCount{};
   shared_ptr<vector<DescribeDBInstancesResponseBodyDBInstancesNodes>> nodes{};
   shared_ptr<string> payType{};
+  shared_ptr<string> primaryInstanceId{};
   shared_ptr<string> primaryZone{};
   shared_ptr<vector<string>> readDBInstances{};
   shared_ptr<string> regionId{};
@@ -8670,6 +8678,9 @@ public:
     }
     if (payType) {
       res["PayType"] = boost::any(*payType);
+    }
+    if (primaryInstanceId) {
+      res["PrimaryInstanceId"] = boost::any(*primaryInstanceId);
     }
     if (primaryZone) {
       res["PrimaryZone"] = boost::any(*primaryZone);
@@ -8827,6 +8838,9 @@ public:
     }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
+    }
+    if (m.find("PrimaryInstanceId") != m.end() && !m["PrimaryInstanceId"].empty()) {
+      primaryInstanceId = make_shared<string>(boost::any_cast<string>(m["PrimaryInstanceId"]));
     }
     if (m.find("PrimaryZone") != m.end() && !m["PrimaryZone"].empty()) {
       primaryZone = make_shared<string>(boost::any_cast<string>(m["PrimaryZone"]));
