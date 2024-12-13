@@ -49,15 +49,15 @@ FindIdpListByLoginIdentifierResponse Alibabacloud_Appstream-center20210220::Clie
   if (!Darabonba_Util::Client::isUnset<string>(request->availableFeaturesShrink)) {
     query->insert(pair<string, string>("AvailableFeatures", *request->availableFeaturesShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientIp)) {
+    query->insert(pair<string, string>("ClientIp", *request->clientIp));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientChannel)) {
     body->insert(pair<string, string>("ClientChannel", *request->clientChannel));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
     body->insert(pair<string, string>("ClientId", *request->clientId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->clientIp)) {
-    body->insert(pair<string, string>("ClientIp", *request->clientIp));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientOS)) {
     body->insert(pair<string, string>("ClientOS", *request->clientOS));
