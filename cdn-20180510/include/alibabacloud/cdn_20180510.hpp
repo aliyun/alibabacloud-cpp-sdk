@@ -32078,6 +32078,9 @@ public:
 class DisableRealtimeLogDeliveryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domain{};
+  shared_ptr<string> logstore{};
+  shared_ptr<string> project{};
+  shared_ptr<string> region{};
 
   DisableRealtimeLogDeliveryRequest() {}
 
@@ -32092,12 +32095,30 @@ public:
     if (domain) {
       res["Domain"] = boost::any(*domain);
     }
+    if (logstore) {
+      res["Logstore"] = boost::any(*logstore);
+    }
+    if (project) {
+      res["Project"] = boost::any(*project);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Logstore") != m.end() && !m["Logstore"].empty()) {
+      logstore = make_shared<string>(boost::any_cast<string>(m["Logstore"]));
+    }
+    if (m.find("Project") != m.end() && !m["Project"].empty()) {
+      project = make_shared<string>(boost::any_cast<string>(m["Project"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
   }
 
@@ -32188,6 +32209,9 @@ public:
 class EnableRealtimeLogDeliveryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domain{};
+  shared_ptr<string> logstore{};
+  shared_ptr<string> project{};
+  shared_ptr<string> region{};
 
   EnableRealtimeLogDeliveryRequest() {}
 
@@ -32202,12 +32226,30 @@ public:
     if (domain) {
       res["Domain"] = boost::any(*domain);
     }
+    if (logstore) {
+      res["Logstore"] = boost::any(*logstore);
+    }
+    if (project) {
+      res["Project"] = boost::any(*project);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Logstore") != m.end() && !m["Logstore"].empty()) {
+      logstore = make_shared<string>(boost::any_cast<string>(m["Logstore"]));
+    }
+    if (m.find("Project") != m.end() && !m["Project"].empty()) {
+      project = make_shared<string>(boost::any_cast<string>(m["Project"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
   }
 
