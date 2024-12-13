@@ -4882,6 +4882,7 @@ public:
 };
 class GetExternalSAMLIdentityProviderResponseBodySAMLIdentityProviderConfiguration : public Darabonba::Model {
 public:
+  shared_ptr<string> bindingType{};
   shared_ptr<vector<string>> certificateIds{};
   shared_ptr<string> createTime{};
   shared_ptr<string> directoryId{};
@@ -4902,6 +4903,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bindingType) {
+      res["BindingType"] = boost::any(*bindingType);
+    }
     if (certificateIds) {
       res["CertificateIds"] = boost::any(*certificateIds);
     }
@@ -4933,6 +4937,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BindingType") != m.end() && !m["BindingType"].empty()) {
+      bindingType = make_shared<string>(boost::any_cast<string>(m["BindingType"]));
+    }
     if (m.find("CertificateIds") != m.end() && !m["CertificateIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["CertificateIds"].type()) {
@@ -5287,6 +5294,7 @@ public:
 };
 class GetLoginPreferenceResponseBodyLoginPreference : public Darabonba::Model {
 public:
+  shared_ptr<bool> allowUserToGetCredentials{};
   shared_ptr<string> loginNetworkMasks{};
 
   GetLoginPreferenceResponseBodyLoginPreference() {}
@@ -5299,6 +5307,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowUserToGetCredentials) {
+      res["AllowUserToGetCredentials"] = boost::any(*allowUserToGetCredentials);
+    }
     if (loginNetworkMasks) {
       res["LoginNetworkMasks"] = boost::any(*loginNetworkMasks);
     }
@@ -5306,6 +5317,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowUserToGetCredentials") != m.end() && !m["AllowUserToGetCredentials"].empty()) {
+      allowUserToGetCredentials = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToGetCredentials"]));
+    }
     if (m.find("LoginNetworkMasks") != m.end() && !m["LoginNetworkMasks"].empty()) {
       loginNetworkMasks = make_shared<string>(boost::any_cast<string>(m["LoginNetworkMasks"]));
     }
@@ -13357,6 +13371,7 @@ public:
 };
 class SetExternalSAMLIdentityProviderRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> bindingType{};
   shared_ptr<string> directoryId{};
   shared_ptr<string> encodedMetadataDocument{};
   shared_ptr<string> entityId{};
@@ -13375,6 +13390,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bindingType) {
+      res["BindingType"] = boost::any(*bindingType);
+    }
     if (directoryId) {
       res["DirectoryId"] = boost::any(*directoryId);
     }
@@ -13400,6 +13418,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BindingType") != m.end() && !m["BindingType"].empty()) {
+      bindingType = make_shared<string>(boost::any_cast<string>(m["BindingType"]));
+    }
     if (m.find("DirectoryId") != m.end() && !m["DirectoryId"].empty()) {
       directoryId = make_shared<string>(boost::any_cast<string>(m["DirectoryId"]));
     }
@@ -13428,6 +13449,7 @@ public:
 };
 class SetExternalSAMLIdentityProviderResponseBodySAMLIdentityProviderConfiguration : public Darabonba::Model {
 public:
+  shared_ptr<string> bindingType{};
   shared_ptr<vector<string>> certificateIds{};
   shared_ptr<string> createTime{};
   shared_ptr<string> directoryId{};
@@ -13448,6 +13470,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bindingType) {
+      res["BindingType"] = boost::any(*bindingType);
+    }
     if (certificateIds) {
       res["CertificateIds"] = boost::any(*certificateIds);
     }
@@ -13479,6 +13504,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BindingType") != m.end() && !m["BindingType"].empty()) {
+      bindingType = make_shared<string>(boost::any_cast<string>(m["BindingType"]));
+    }
     if (m.find("CertificateIds") != m.end() && !m["CertificateIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["CertificateIds"].type()) {
@@ -13612,6 +13640,7 @@ public:
 };
 class SetLoginPreferenceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> allowUserToGetCredentials{};
   shared_ptr<string> directoryId{};
   shared_ptr<string> loginNetworkMasks{};
 
@@ -13625,6 +13654,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowUserToGetCredentials) {
+      res["AllowUserToGetCredentials"] = boost::any(*allowUserToGetCredentials);
+    }
     if (directoryId) {
       res["DirectoryId"] = boost::any(*directoryId);
     }
@@ -13635,6 +13667,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowUserToGetCredentials") != m.end() && !m["AllowUserToGetCredentials"].empty()) {
+      allowUserToGetCredentials = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToGetCredentials"]));
+    }
     if (m.find("DirectoryId") != m.end() && !m["DirectoryId"].empty()) {
       directoryId = make_shared<string>(boost::any_cast<string>(m["DirectoryId"]));
     }

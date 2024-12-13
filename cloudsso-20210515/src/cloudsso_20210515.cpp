@@ -2345,6 +2345,9 @@ RetryUserProvisioningEventResponse Alibabacloud_Cloudsso20210515::Client::retryU
 SetExternalSAMLIdentityProviderResponse Alibabacloud_Cloudsso20210515::Client::setExternalSAMLIdentityProviderWithOptions(shared_ptr<SetExternalSAMLIdentityProviderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bindingType)) {
+    query->insert(pair<string, string>("BindingType", *request->bindingType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->directoryId)) {
     query->insert(pair<string, string>("DirectoryId", *request->directoryId));
   }
@@ -2391,6 +2394,9 @@ SetExternalSAMLIdentityProviderResponse Alibabacloud_Cloudsso20210515::Client::s
 SetLoginPreferenceResponse Alibabacloud_Cloudsso20210515::Client::setLoginPreferenceWithOptions(shared_ptr<SetLoginPreferenceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->allowUserToGetCredentials)) {
+    query->insert(pair<string, bool>("AllowUserToGetCredentials", *request->allowUserToGetCredentials));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->directoryId)) {
     query->insert(pair<string, string>("DirectoryId", *request->directoryId));
   }
