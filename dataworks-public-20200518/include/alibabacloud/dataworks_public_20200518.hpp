@@ -6165,6 +6165,7 @@ public:
   shared_ptr<long> startEffectDate{};
   shared_ptr<bool> startImmediately{};
   shared_ptr<bool> stop{};
+  shared_ptr<long> timeout{};
 
   CreateFileRequest() {}
 
@@ -6272,6 +6273,9 @@ public:
     if (stop) {
       res["Stop"] = boost::any(*stop);
     }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
     return res;
   }
 
@@ -6371,6 +6375,9 @@ public:
     }
     if (m.find("Stop") != m.end() && !m["Stop"].empty()) {
       stop = make_shared<bool>(boost::any_cast<bool>(m["Stop"]));
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["Timeout"]));
     }
   }
 
@@ -30455,6 +30462,7 @@ public:
   shared_ptr<string> dependentNodeIdList{};
   shared_ptr<string> dependentType{};
   shared_ptr<long> endEffectDate{};
+  shared_ptr<string> ignoreParentSkipRunningProperty{};
   shared_ptr<vector<GetFileResponseBodyDataNodeConfigurationInputList>> inputList{};
   shared_ptr<vector<GetFileResponseBodyDataNodeConfigurationInputParameters>> inputParameters{};
   shared_ptr<vector<GetFileResponseBodyDataNodeConfigurationOutputList>> outputList{};
@@ -30466,6 +30474,7 @@ public:
   shared_ptr<long> startEffectDate{};
   shared_ptr<bool> startImmediately{};
   shared_ptr<bool> stop{};
+  shared_ptr<long> timeout{};
 
   GetFileResponseBodyDataNodeConfiguration() {}
 
@@ -30500,6 +30509,9 @@ public:
     }
     if (endEffectDate) {
       res["EndEffectDate"] = boost::any(*endEffectDate);
+    }
+    if (ignoreParentSkipRunningProperty) {
+      res["IgnoreParentSkipRunningProperty"] = boost::any(*ignoreParentSkipRunningProperty);
     }
     if (inputList) {
       vector<boost::any> temp1;
@@ -30550,6 +30562,9 @@ public:
     if (stop) {
       res["Stop"] = boost::any(*stop);
     }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
     return res;
   }
 
@@ -30577,6 +30592,9 @@ public:
     }
     if (m.find("EndEffectDate") != m.end() && !m["EndEffectDate"].empty()) {
       endEffectDate = make_shared<long>(boost::any_cast<long>(m["EndEffectDate"]));
+    }
+    if (m.find("IgnoreParentSkipRunningProperty") != m.end() && !m["IgnoreParentSkipRunningProperty"].empty()) {
+      ignoreParentSkipRunningProperty = make_shared<string>(boost::any_cast<string>(m["IgnoreParentSkipRunningProperty"]));
     }
     if (m.find("InputList") != m.end() && !m["InputList"].empty()) {
       if (typeid(vector<boost::any>) == m["InputList"].type()) {
@@ -30650,6 +30668,9 @@ public:
     }
     if (m.find("Stop") != m.end() && !m["Stop"].empty()) {
       stop = make_shared<bool>(boost::any_cast<bool>(m["Stop"]));
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["Timeout"]));
     }
   }
 
@@ -32442,7 +32463,9 @@ public:
   shared_ptr<long> modifyTime{};
   shared_ptr<long> nodeId{};
   shared_ptr<string> nodeName{};
+  shared_ptr<string> owner{};
   shared_ptr<string> paramValues{};
+  shared_ptr<long> periodNumber{};
   shared_ptr<long> priority{};
   shared_ptr<long> relatedFlowId{};
   shared_ptr<long> repeatInterval{};
@@ -32518,8 +32541,14 @@ public:
     if (nodeName) {
       res["NodeName"] = boost::any(*nodeName);
     }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
     if (paramValues) {
       res["ParamValues"] = boost::any(*paramValues);
+    }
+    if (periodNumber) {
+      res["PeriodNumber"] = boost::any(*periodNumber);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -32603,8 +32632,14 @@ public:
     if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
       nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
     }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
     if (m.find("ParamValues") != m.end() && !m["ParamValues"].empty()) {
       paramValues = make_shared<string>(boost::any_cast<string>(m["ParamValues"]));
+    }
+    if (m.find("PeriodNumber") != m.end() && !m["PeriodNumber"].empty()) {
+      periodNumber = make_shared<long>(boost::any_cast<long>(m["PeriodNumber"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
@@ -80867,6 +80902,7 @@ public:
   shared_ptr<long> startEffectDate{};
   shared_ptr<bool> startImmediately{};
   shared_ptr<bool> stop{};
+  shared_ptr<long> timeout{};
 
   UpdateFileRequest() {}
 
@@ -80971,6 +81007,9 @@ public:
     if (stop) {
       res["Stop"] = boost::any(*stop);
     }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
     return res;
   }
 
@@ -81067,6 +81106,9 @@ public:
     }
     if (m.find("Stop") != m.end() && !m["Stop"].empty()) {
       stop = make_shared<bool>(boost::any_cast<bool>(m["Stop"]));
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["Timeout"]));
     }
   }
 
