@@ -1355,6 +1355,40 @@ SendMessageResponse Alibabacloud_OnsMqtt20200420::Client::sendMessage(shared_ptr
   return sendMessageWithOptions(request, runtime);
 }
 
+SetSniConfigResponse Alibabacloud_OnsMqtt20200420::Client::setSniConfigWithOptions(shared_ptr<SetSniConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultCertificate)) {
+    query->insert(pair<string, string>("DefaultCertificate", *request->defaultCertificate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mqttInstanceId)) {
+    query->insert(pair<string, string>("MqttInstanceId", *request->mqttInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sniConfig)) {
+    query->insert(pair<string, string>("SniConfig", *request->sniConfig));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetSniConfig"))},
+    {"version", boost::any(string("2020-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetSniConfigResponse(callApi(params, req, runtime));
+}
+
+SetSniConfigResponse Alibabacloud_OnsMqtt20200420::Client::setSniConfig(shared_ptr<SetSniConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setSniConfigWithOptions(request, runtime);
+}
+
 UnRegisterDeviceCredentialResponse Alibabacloud_OnsMqtt20200420::Client::unRegisterDeviceCredentialWithOptions(shared_ptr<UnRegisterDeviceCredentialRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
