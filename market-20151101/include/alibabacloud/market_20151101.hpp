@@ -3746,7 +3746,7 @@ class DescribeOrderForIsvResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> accountQuantity{};
   shared_ptr<long> aliUid{};
-  shared_ptr<map<string, boost::any>> components{};
+  shared_ptr<boost::any> components{};
   shared_ptr<double> couponPrice{};
   shared_ptr<long> createdOn{};
   shared_ptr<vector<string>> instanceIds{};
@@ -3846,12 +3846,7 @@ public:
       aliUid = make_shared<long>(boost::any_cast<long>(m["AliUid"]));
     }
     if (m.find("Components") != m.end() && !m["Components"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Components"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      components = make_shared<map<string, boost::any>>(toMap1);
+      components = make_shared<boost::any>(boost::any_cast<boost::any>(m["Components"]));
     }
     if (m.find("CouponPrice") != m.end() && !m["CouponPrice"].empty()) {
       couponPrice = make_shared<double>(boost::any_cast<double>(m["CouponPrice"]));
