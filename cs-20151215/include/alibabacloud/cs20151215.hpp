@@ -21848,6 +21848,35 @@ public:
 
   virtual ~GetClusterCheckResponse() = default;
 };
+class GetClusterDiagnosisCheckItemsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> language{};
+
+  GetClusterDiagnosisCheckItemsRequest() {}
+
+  explicit GetClusterDiagnosisCheckItemsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (language) {
+      res["language"] = boost::any(*language);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("language") != m.end() && !m["language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["language"]));
+    }
+  }
+
+
+  virtual ~GetClusterDiagnosisCheckItemsRequest() = default;
+};
 class GetClusterDiagnosisCheckItemsResponseBodyCheckItems : public Darabonba::Model {
 public:
   shared_ptr<string> desc{};
@@ -22041,6 +22070,35 @@ public:
 
 
   virtual ~GetClusterDiagnosisCheckItemsResponse() = default;
+};
+class GetClusterDiagnosisResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> language{};
+
+  GetClusterDiagnosisResultRequest() {}
+
+  explicit GetClusterDiagnosisResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (language) {
+      res["language"] = boost::any(*language);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("language") != m.end() && !m["language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["language"]));
+    }
+  }
+
+
+  virtual ~GetClusterDiagnosisResultRequest() = default;
 };
 class GetClusterDiagnosisResultResponseBody : public Darabonba::Model {
 public:
@@ -31817,14 +31875,16 @@ public:
   GetClusterCheckResponse getClusterCheck(shared_ptr<string> clusterId, shared_ptr<string> checkId);
   GetClusterDiagnosisCheckItemsResponse getClusterDiagnosisCheckItemsWithOptions(shared_ptr<string> clusterId,
                                                                                  shared_ptr<string> diagnosisId,
+                                                                                 shared_ptr<GetClusterDiagnosisCheckItemsRequest> request,
                                                                                  shared_ptr<map<string, string>> headers,
                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetClusterDiagnosisCheckItemsResponse getClusterDiagnosisCheckItems(shared_ptr<string> clusterId, shared_ptr<string> diagnosisId);
+  GetClusterDiagnosisCheckItemsResponse getClusterDiagnosisCheckItems(shared_ptr<string> clusterId, shared_ptr<string> diagnosisId, shared_ptr<GetClusterDiagnosisCheckItemsRequest> request);
   GetClusterDiagnosisResultResponse getClusterDiagnosisResultWithOptions(shared_ptr<string> clusterId,
                                                                          shared_ptr<string> diagnosisId,
+                                                                         shared_ptr<GetClusterDiagnosisResultRequest> request,
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetClusterDiagnosisResultResponse getClusterDiagnosisResult(shared_ptr<string> clusterId, shared_ptr<string> diagnosisId);
+  GetClusterDiagnosisResultResponse getClusterDiagnosisResult(shared_ptr<string> clusterId, shared_ptr<string> diagnosisId, shared_ptr<GetClusterDiagnosisResultRequest> request);
   GetKubernetesTriggerResponse getKubernetesTriggerWithOptions(shared_ptr<string> ClusterId,
                                                                shared_ptr<GetKubernetesTriggerRequest> request,
                                                                shared_ptr<map<string, string>> headers,
