@@ -127,6 +127,9 @@ CreateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::createInstanceWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
     body->insert(pair<string, string>("ResourceId", *request->resourceId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateInstanceRequestTag>>(request->tag)) {
+    body->insert(pair<string, vector<CreateInstanceRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     body->insert(pair<string, string>("UserId", *request->userId));
   }
@@ -890,6 +893,9 @@ ListInstancesResponse Alibabacloud_Pai-dsw20220101::Client::listInstancesWithOpt
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->labels)) {
     request->labelsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->labels, make_shared<string>("Labels"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListInstancesRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorType)) {
     query->insert(pair<string, string>("AcceleratorType", *request->acceleratorType));
@@ -959,6 +965,9 @@ ListInstancesResponse Alibabacloud_Pai-dsw20220101::Client::listInstancesWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));

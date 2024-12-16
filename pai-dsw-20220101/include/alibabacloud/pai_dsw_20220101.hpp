@@ -305,11 +305,14 @@ public:
 };
 class ForwardInfo : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> accessType{};
   shared_ptr<string> containerName{};
   shared_ptr<string> eipAllocationId{};
   shared_ptr<bool> enable{};
+  shared_ptr<string> externalPort{};
+  shared_ptr<string> forwardPort{};
+  shared_ptr<string> name{};
   shared_ptr<string> natGatewayId{};
-  shared_ptr<string> port{};
   shared_ptr<string> SSHPublicKey{};
 
   ForwardInfo() {}
@@ -322,6 +325,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessType) {
+      res["AccessType"] = boost::any(*accessType);
+    }
     if (containerName) {
       res["ContainerName"] = boost::any(*containerName);
     }
@@ -331,11 +337,17 @@ public:
     if (enable) {
       res["Enable"] = boost::any(*enable);
     }
+    if (externalPort) {
+      res["ExternalPort"] = boost::any(*externalPort);
+    }
+    if (forwardPort) {
+      res["ForwardPort"] = boost::any(*forwardPort);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
     if (natGatewayId) {
       res["NatGatewayId"] = boost::any(*natGatewayId);
-    }
-    if (port) {
-      res["Port"] = boost::any(*port);
     }
     if (SSHPublicKey) {
       res["SSHPublicKey"] = boost::any(*SSHPublicKey);
@@ -344,6 +356,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessType") != m.end() && !m["AccessType"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccessType"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccessType"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accessType = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ContainerName") != m.end() && !m["ContainerName"].empty()) {
       containerName = make_shared<string>(boost::any_cast<string>(m["ContainerName"]));
     }
@@ -353,11 +375,17 @@ public:
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
     }
+    if (m.find("ExternalPort") != m.end() && !m["ExternalPort"].empty()) {
+      externalPort = make_shared<string>(boost::any_cast<string>(m["ExternalPort"]));
+    }
+    if (m.find("ForwardPort") != m.end() && !m["ForwardPort"].empty()) {
+      forwardPort = make_shared<string>(boost::any_cast<string>(m["ForwardPort"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
     if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
       natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
-    }
-    if (m.find("Port") != m.end() && !m["Port"].empty()) {
-      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
     }
     if (m.find("SSHPublicKey") != m.end() && !m["SSHPublicKey"].empty()) {
       SSHPublicKey = make_shared<string>(boost::any_cast<string>(m["SSHPublicKey"]));
@@ -499,12 +527,15 @@ public:
 };
 class ForwardInfoResponse : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> accessType{};
   shared_ptr<ForwardInfoResponseConnectInfo> connectInfo{};
   shared_ptr<string> containerName{};
   shared_ptr<string> eipAllocationId{};
   shared_ptr<bool> enable{};
+  shared_ptr<string> externalPort{};
+  shared_ptr<string> forwardPort{};
+  shared_ptr<string> name{};
   shared_ptr<string> natGatewayId{};
-  shared_ptr<string> port{};
   shared_ptr<string> SSHPublicKey{};
 
   ForwardInfoResponse() {}
@@ -517,6 +548,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessType) {
+      res["AccessType"] = boost::any(*accessType);
+    }
     if (connectInfo) {
       res["ConnectInfo"] = connectInfo ? boost::any(connectInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -529,11 +563,17 @@ public:
     if (enable) {
       res["Enable"] = boost::any(*enable);
     }
+    if (externalPort) {
+      res["ExternalPort"] = boost::any(*externalPort);
+    }
+    if (forwardPort) {
+      res["ForwardPort"] = boost::any(*forwardPort);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
     if (natGatewayId) {
       res["NatGatewayId"] = boost::any(*natGatewayId);
-    }
-    if (port) {
-      res["Port"] = boost::any(*port);
     }
     if (SSHPublicKey) {
       res["SSHPublicKey"] = boost::any(*SSHPublicKey);
@@ -542,6 +582,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessType") != m.end() && !m["AccessType"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccessType"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccessType"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accessType = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ConnectInfo") != m.end() && !m["ConnectInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["ConnectInfo"].type()) {
         ForwardInfoResponseConnectInfo model1;
@@ -558,11 +608,17 @@ public:
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
     }
+    if (m.find("ExternalPort") != m.end() && !m["ExternalPort"].empty()) {
+      externalPort = make_shared<string>(boost::any_cast<string>(m["ExternalPort"]));
+    }
+    if (m.find("ForwardPort") != m.end() && !m["ForwardPort"].empty()) {
+      forwardPort = make_shared<string>(boost::any_cast<string>(m["ForwardPort"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
     if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
       natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
-    }
-    if (m.find("Port") != m.end() && !m["Port"].empty()) {
-      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
     }
     if (m.find("SSHPublicKey") != m.end() && !m["SSHPublicKey"].empty()) {
       SSHPublicKey = make_shared<string>(boost::any_cast<string>(m["SSHPublicKey"]));
@@ -1040,6 +1096,42 @@ public:
 
   virtual ~CreateInstanceRequestRequestedResource() = default;
 };
+class CreateInstanceRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateInstanceRequestTag() {}
+
+  explicit CreateInstanceRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateInstanceRequestTag() = default;
+};
 class CreateInstanceRequestUserVpc : public Darabonba::Model {
 public:
   shared_ptr<string> defaultRoute{};
@@ -1143,6 +1235,7 @@ public:
   shared_ptr<long> priority{};
   shared_ptr<CreateInstanceRequestRequestedResource> requestedResource{};
   shared_ptr<string> resourceId{};
+  shared_ptr<vector<CreateInstanceRequestTag>> tag{};
   shared_ptr<string> userId{};
   shared_ptr<CreateInstanceRequestUserVpc> userVpc{};
   shared_ptr<string> workspaceId{};
@@ -1217,6 +1310,13 @@ public:
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (userId) {
       res["UserId"] = boost::any(*userId);
@@ -1328,6 +1428,19 @@ public:
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateInstanceRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateInstanceRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateInstanceRequestTag>>(expect1);
+      }
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -3191,6 +3304,42 @@ public:
 
   virtual ~GetInstanceResponseBodyRequestedResource() = default;
 };
+class GetInstanceResponseBodyTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetInstanceResponseBodyTags() {}
+
+  explicit GetInstanceResponseBodyTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetInstanceResponseBodyTags() = default;
+};
 class GetInstanceResponseBodyUserVpc : public Darabonba::Model {
 public:
   shared_ptr<string> defaultRoute{};
@@ -3309,6 +3458,7 @@ public:
   shared_ptr<GetInstanceResponseBodyNodeErrorRecovery> nodeErrorRecovery{};
   shared_ptr<string> paymentType{};
   shared_ptr<long> priority{};
+  shared_ptr<string> proxyPath{};
   shared_ptr<string> reasonCode{};
   shared_ptr<string> reasonMessage{};
   shared_ptr<string> requestId{};
@@ -3317,6 +3467,7 @@ public:
   shared_ptr<string> resourceName{};
   shared_ptr<string> status{};
   shared_ptr<bool> success{};
+  shared_ptr<vector<GetInstanceResponseBodyTags>> tags{};
   shared_ptr<string> terminalUrl{};
   shared_ptr<string> userId{};
   shared_ptr<string> userName{};
@@ -3445,6 +3596,9 @@ public:
     if (priority) {
       res["Priority"] = boost::any(*priority);
     }
+    if (proxyPath) {
+      res["ProxyPath"] = boost::any(*proxyPath);
+    }
     if (reasonCode) {
       res["ReasonCode"] = boost::any(*reasonCode);
     }
@@ -3468,6 +3622,13 @@ public:
     }
     if (success) {
       res["Success"] = boost::any(*success);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (terminalUrl) {
       res["TerminalUrl"] = boost::any(*terminalUrl);
@@ -3659,6 +3820,9 @@ public:
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
     }
+    if (m.find("ProxyPath") != m.end() && !m["ProxyPath"].empty()) {
+      proxyPath = make_shared<string>(boost::any_cast<string>(m["ProxyPath"]));
+    }
     if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
       reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
     }
@@ -3686,6 +3850,19 @@ public:
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetInstanceResponseBodyTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetInstanceResponseBodyTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetInstanceResponseBodyTags>>(expect1);
+      }
     }
     if (m.find("TerminalUrl") != m.end() && !m["TerminalUrl"].empty()) {
       terminalUrl = make_shared<string>(boost::any_cast<string>(m["TerminalUrl"]));
@@ -6497,6 +6674,42 @@ public:
 
   virtual ~ListInstanceStatisticsResponse() = default;
 };
+class ListInstancesRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListInstancesRequestTag() {}
+
+  explicit ListInstancesRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListInstancesRequestTag() = default;
+};
 class ListInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorType{};
@@ -6522,6 +6735,7 @@ public:
   shared_ptr<string> resourceId{};
   shared_ptr<string> sortBy{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListInstancesRequestTag>> tag{};
   shared_ptr<string> workspaceId{};
 
   ListInstancesRequest() {}
@@ -6602,6 +6816,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
@@ -6684,6 +6905,19 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListInstancesRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListInstancesRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListInstancesRequestTag>>(expect1);
+      }
+    }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
@@ -6717,6 +6951,7 @@ public:
   shared_ptr<string> resourceId{};
   shared_ptr<string> sortBy{};
   shared_ptr<string> status{};
+  shared_ptr<string> tagShrink{};
   shared_ptr<string> workspaceId{};
 
   ListInstancesShrinkRequest() {}
@@ -6798,6 +7033,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
     }
@@ -6873,6 +7111,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
@@ -7428,6 +7669,42 @@ public:
 
   virtual ~ListInstancesResponseBodyInstancesRequestedResource() = default;
 };
+class ListInstancesResponseBodyInstancesTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  ListInstancesResponseBodyInstancesTags() {}
+
+  explicit ListInstancesResponseBodyInstancesTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~ListInstancesResponseBodyInstancesTags() = default;
+};
 class ListInstancesResponseBodyInstancesUserVpc : public Darabonba::Model {
 public:
   shared_ptr<string> defaultRoute{};
@@ -7548,6 +7825,7 @@ public:
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceName{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListInstancesResponseBodyInstancesTags>> tags{};
   shared_ptr<string> terminalUrl{};
   shared_ptr<string> userId{};
   shared_ptr<string> userName{};
@@ -7681,6 +7959,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (terminalUrl) {
       res["TerminalUrl"] = boost::any(*terminalUrl);
@@ -7877,6 +8162,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListInstancesResponseBodyInstancesTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListInstancesResponseBodyInstancesTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListInstancesResponseBodyInstancesTags>>(expect1);
+      }
     }
     if (m.find("TerminalUrl") != m.end() && !m["TerminalUrl"].empty()) {
       terminalUrl = make_shared<string>(boost::any_cast<string>(m["TerminalUrl"]));
