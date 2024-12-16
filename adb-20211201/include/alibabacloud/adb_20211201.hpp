@@ -13168,6 +13168,7 @@ class DescribeDBClusterPerformanceResponseBodyPerformancesSeries : public Darabo
 public:
   shared_ptr<string> name{};
   shared_ptr<string> tags{};
+  shared_ptr<string> translateKey{};
   shared_ptr<vector<string>> values{};
 
   DescribeDBClusterPerformanceResponseBodyPerformancesSeries() {}
@@ -13186,6 +13187,9 @@ public:
     if (tags) {
       res["Tags"] = boost::any(*tags);
     }
+    if (translateKey) {
+      res["TranslateKey"] = boost::any(*translateKey);
+    }
     if (values) {
       res["Values"] = boost::any(*values);
     }
@@ -13198,6 +13202,9 @@ public:
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("TranslateKey") != m.end() && !m["TranslateKey"].empty()) {
+      translateKey = make_shared<string>(boost::any_cast<string>(m["TranslateKey"]));
     }
     if (m.find("Values") != m.end() && !m["Values"].empty()) {
       vector<string> toVec1;
