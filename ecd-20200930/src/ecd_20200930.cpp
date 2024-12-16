@@ -1048,6 +1048,9 @@ CreateADConnectorOfficeSiteResponse Alibabacloud_Ecd20200930::Client::createADCo
   if (!Darabonba_Util::Client::isUnset<string>(request->subDomainName)) {
     query->insert(pair<string, string>("SubDomainName", *request->subDomainName));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vSwitchId)) {
+    query->insert(pair<string, vector<string>>("VSwitchId", *request->vSwitchId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->verifyCode)) {
     query->insert(pair<string, string>("VerifyCode", *request->verifyCode));
   }
@@ -1542,6 +1545,9 @@ CreateDesktopGroupResponse Alibabacloud_Ecd20200930::Client::createDesktopGroupW
   if (!Darabonba_Util::Client::isUnset<bool>(request->profileFollowSwitch)) {
     query->insert(pair<string, bool>("ProfileFollowSwitch", *request->profileFollowSwitch));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->promotionId)) {
+    query->insert(pair<string, string>("PromotionId", *request->promotionId));
+  }
   if (!Darabonba_Util::Client::isUnset<double>(request->ratioThreshold)) {
     query->insert(pair<string, double>("RatioThreshold", *request->ratioThreshold));
   }
@@ -1664,8 +1670,13 @@ CreateDesktopOversoldGroupResponse Alibabacloud_Ecd20200930::Client::createDeskt
   return createDesktopOversoldGroupWithOptions(request, runtime);
 }
 
-CreateDesktopsResponse Alibabacloud_Ecd20200930::Client::createDesktopsWithOptions(shared_ptr<CreateDesktopsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateDesktopsResponse Alibabacloud_Ecd20200930::Client::createDesktopsWithOptions(shared_ptr<CreateDesktopsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDesktopsShrinkRequest> request = make_shared<CreateDesktopsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateDesktopsRequestDesktopAttachment>(tmpReq->desktopAttachment)) {
+    request->desktopAttachmentShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->desktopAttachment, make_shared<string>("DesktopAttachment"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->amount)) {
     query->insert(pair<string, long>("Amount", *request->amount));
@@ -1679,11 +1690,14 @@ CreateDesktopsResponse Alibabacloud_Ecd20200930::Client::createDesktopsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->bundleId)) {
     query->insert(pair<string, string>("BundleId", *request->bundleId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateDesktopsRequestBundleModels>>(request->bundleModels)) {
-    query->insert(pair<string, vector<CreateDesktopsRequestBundleModels>>("BundleModels", *request->bundleModels));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateDesktopsShrinkRequestBundleModels>>(request->bundleModels)) {
+    query->insert(pair<string, vector<CreateDesktopsShrinkRequestBundleModels>>("BundleModels", *request->bundleModels));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
     query->insert(pair<string, string>("ChargeType", *request->chargeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->desktopAttachmentShrink)) {
+    query->insert(pair<string, string>("DesktopAttachment", *request->desktopAttachmentShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->desktopMemberIp)) {
     query->insert(pair<string, string>("DesktopMemberIp", *request->desktopMemberIp));
@@ -1694,8 +1708,8 @@ CreateDesktopsResponse Alibabacloud_Ecd20200930::Client::createDesktopsWithOptio
   if (!Darabonba_Util::Client::isUnset<bool>(request->desktopNameSuffix)) {
     query->insert(pair<string, bool>("DesktopNameSuffix", *request->desktopNameSuffix));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateDesktopsRequestDesktopTimers>>(request->desktopTimers)) {
-    query->insert(pair<string, vector<CreateDesktopsRequestDesktopTimers>>("DesktopTimers", *request->desktopTimers));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateDesktopsShrinkRequestDesktopTimers>>(request->desktopTimers)) {
+    query->insert(pair<string, vector<CreateDesktopsShrinkRequestDesktopTimers>>("DesktopTimers", *request->desktopTimers));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->directoryId)) {
     query->insert(pair<string, string>("DirectoryId", *request->directoryId));
@@ -1709,8 +1723,8 @@ CreateDesktopsResponse Alibabacloud_Ecd20200930::Client::createDesktopsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->hostname)) {
     query->insert(pair<string, string>("Hostname", *request->hostname));
   }
-  if (!Darabonba_Util::Client::isUnset<CreateDesktopsRequestMonthDesktopSetting>(request->monthDesktopSetting)) {
-    query->insert(pair<string, CreateDesktopsRequestMonthDesktopSetting>("MonthDesktopSetting", *request->monthDesktopSetting));
+  if (!Darabonba_Util::Client::isUnset<CreateDesktopsShrinkRequestMonthDesktopSetting>(request->monthDesktopSetting)) {
+    query->insert(pair<string, CreateDesktopsShrinkRequestMonthDesktopSetting>("MonthDesktopSetting", *request->monthDesktopSetting));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->officeSiteId)) {
     query->insert(pair<string, string>("OfficeSiteId", *request->officeSiteId));
@@ -1730,17 +1744,23 @@ CreateDesktopsResponse Alibabacloud_Ecd20200930::Client::createDesktopsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->snapshotPolicyId)) {
     query->insert(pair<string, string>("SnapshotPolicyId", *request->snapshotPolicyId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateDesktopsRequestTag>>(request->tag)) {
-    query->insert(pair<string, vector<CreateDesktopsRequestTag>>("Tag", *request->tag));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateDesktopsShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateDesktopsShrinkRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timerGroupId)) {
+    query->insert(pair<string, string>("TimerGroupId", *request->timerGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userAssignMode)) {
     query->insert(pair<string, string>("UserAssignMode", *request->userAssignMode));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateDesktopsRequestUserCommands>>(request->userCommands)) {
-    query->insert(pair<string, vector<CreateDesktopsRequestUserCommands>>("UserCommands", *request->userCommands));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateDesktopsShrinkRequestUserCommands>>(request->userCommands)) {
+    query->insert(pair<string, vector<CreateDesktopsShrinkRequestUserCommands>>("UserCommands", *request->userCommands));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
     query->insert(pair<string, string>("UserName", *request->userName));
@@ -2124,6 +2144,9 @@ CreatePolicyGroupResponse Alibabacloud_Ecd20200930::Client::createPolicyGroupWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->watermarkType)) {
     query->insert(pair<string, string>("WatermarkType", *request->watermarkType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wyAssistant)) {
+    query->insert(pair<string, string>("WyAssistant", *request->wyAssistant));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3620,6 +3643,9 @@ DescribeDesktopSessionsResponse Alibabacloud_Ecd20200930::Client::describeDeskto
   if (!Darabonba_Util::Client::isUnset<string>(request->endUserId)) {
     query->insert(pair<string, string>("EndUserId", *request->endUserId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endUserIdFilter)) {
+    query->insert(pair<string, string>("EndUserIdFilter", *request->endUserIdFilter));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->officeSiteId)) {
     query->insert(pair<string, string>("OfficeSiteId", *request->officeSiteId));
   }
@@ -3681,6 +3707,9 @@ DescribeDesktopTypesResponse Alibabacloud_Ecd20200930::Client::describeDesktopTy
   if (!Darabonba_Util::Client::isUnset<string>(request->desktopTypeId)) {
     query->insert(pair<string, string>("DesktopTypeId", *request->desktopTypeId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->desktopTypeIdList)) {
+    query->insert(pair<string, vector<string>>("DesktopTypeIdList", *request->desktopTypeIdList));
+  }
   if (!Darabonba_Util::Client::isUnset<double>(request->gpuCount)) {
     query->insert(pair<string, double>("GpuCount", *request->gpuCount));
   }
@@ -3693,11 +3722,20 @@ DescribeDesktopTypesResponse Alibabacloud_Ecd20200930::Client::describeDesktopTy
   if (!Darabonba_Util::Client::isUnset<long>(request->memorySize)) {
     query->insert(pair<string, long>("MemorySize", *request->memorySize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
+    query->insert(pair<string, string>("OrderBy", *request->orderBy));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderType)) {
     query->insert(pair<string, string>("OrderType", *request->orderType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    query->insert(pair<string, string>("Scope", *request->scope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortType)) {
+    query->insert(pair<string, string>("SortType", *request->sortType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3792,6 +3830,12 @@ DescribeDesktopsResponse Alibabacloud_Ecd20200930::Client::describeDesktopsWithO
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->osTypes)) {
     query->insert(pair<string, vector<string>>("OsTypes", *request->osTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->policyGroupId)) {
     query->insert(pair<string, string>("PolicyGroupId", *request->policyGroupId));
@@ -4077,7 +4121,28 @@ DescribeFlowStatisticResponse Alibabacloud_Ecd20200930::Client::describeFlowStat
 
 DescribeFotaPendingDesktopsResponse Alibabacloud_Ecd20200930::Client::describeFotaPendingDesktopsWithOptions(shared_ptr<DescribeFotaPendingDesktopsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->desktopId)) {
+    query->insert(pair<string, string>("DesktopId", *request->desktopId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->desktopName)) {
+    query->insert(pair<string, string>("DesktopName", *request->desktopName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->officeSiteId)) {
+    query->insert(pair<string, string>("OfficeSiteId", *request->officeSiteId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskUid)) {
+    query->insert(pair<string, string>("TaskUid", *request->taskUid));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4086,7 +4151,7 @@ DescribeFotaPendingDesktopsResponse Alibabacloud_Ecd20200930::Client::describeFo
     {"version", boost::any(string("2020-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
@@ -4336,6 +4401,9 @@ DescribeInvocationsResponse Alibabacloud_Ecd20200930::Client::describeInvocation
   if (!Darabonba_Util::Client::isUnset<string>(request->endUserId)) {
     query->insert(pair<string, string>("EndUserId", *request->endUserId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->includeInvokeDesktops)) {
+    query->insert(pair<string, bool>("IncludeInvokeDesktops", *request->includeInvokeDesktops));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->includeOutput)) {
     query->insert(pair<string, bool>("IncludeOutput", *request->includeOutput));
   }
@@ -4402,6 +4470,52 @@ DescribeKmsKeysResponse Alibabacloud_Ecd20200930::Client::describeKmsKeysWithOpt
 DescribeKmsKeysResponse Alibabacloud_Ecd20200930::Client::describeKmsKeys(shared_ptr<DescribeKmsKeysRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeKmsKeysWithOptions(request, runtime);
+}
+
+DescribeModificationPriceResponse Alibabacloud_Ecd20200930::Client::describeModificationPriceWithOptions(shared_ptr<DescribeModificationPriceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->bandwidth)) {
+    query->insert(pair<string, long>("Bandwidth", *request->bandwidth));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
+    query->insert(pair<string, string>("InstanceType", *request->instanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->rootDiskSizeGib)) {
+    query->insert(pair<string, long>("RootDiskSizeGib", *request->rootDiskSizeGib));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->userDiskSizeGib)) {
+    query->insert(pair<string, long>("UserDiskSizeGib", *request->userDiskSizeGib));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeModificationPrice"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeModificationPriceResponse(callApi(params, req, runtime));
+}
+
+DescribeModificationPriceResponse Alibabacloud_Ecd20200930::Client::describeModificationPrice(shared_ptr<DescribeModificationPriceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeModificationPriceWithOptions(request, runtime);
 }
 
 DescribeNASFileSystemsResponse Alibabacloud_Ecd20200930::Client::describeNASFileSystemsWithOptions(shared_ptr<DescribeNASFileSystemsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4582,44 +4696,11 @@ DescribePriceResponse Alibabacloud_Ecd20200930::Client::describePriceWithOptions
   if (!Darabonba_Util::Client::isUnset<long>(request->bandwidth)) {
     query->insert(pair<string, long>("Bandwidth", *request->bandwidth));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<DescribePriceRequestBundleModels>>(request->bundleModels)) {
-    query->insert(pair<string, vector<DescribePriceRequestBundleModels>>("BundleModels", *request->bundleModels));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->eduCdsEnable)) {
-    query->insert(pair<string, string>("EduCdsEnable", *request->eduCdsEnable));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->eduCdsSize)) {
-    query->insert(pair<string, long>("EduCdsSize", *request->eduCdsSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->eduCommittedTime)) {
-    query->insert(pair<string, long>("EduCommittedTime", *request->eduCommittedTime));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->eduDesktopBundleId)) {
-    query->insert(pair<string, string>("EduDesktopBundleId", *request->eduDesktopBundleId));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->eduDesktopNum)) {
-    query->insert(pair<string, long>("EduDesktopNum", *request->eduDesktopNum));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->eduRoomClassify)) {
-    query->insert(pair<string, string>("EduRoomClassify", *request->eduRoomClassify));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->eduStudentBundleId)) {
-    query->insert(pair<string, string>("EduStudentBundleId", *request->eduStudentBundleId));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->eduStudentNum)) {
-    query->insert(pair<string, long>("EduStudentNum", *request->eduStudentNum));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->eduTeacherBundleId)) {
-    query->insert(pair<string, string>("EduTeacherBundleId", *request->eduTeacherBundleId));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->eduTeacherNum)) {
-    query->insert(pair<string, long>("EduTeacherNum", *request->eduTeacherNum));
+  if (!Darabonba_Util::Client::isUnset<long>(request->duration)) {
+    query->insert(pair<string, long>("Duration", *request->duration));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->groupDesktopCount)) {
     query->insert(pair<string, long>("GroupDesktopCount", *request->groupDesktopCount));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->hardwareVersion)) {
-    query->insert(pair<string, string>("HardwareVersion", *request->hardwareVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
     query->insert(pair<string, string>("InstanceType", *request->instanceType));
@@ -4627,14 +4708,8 @@ DescribePriceResponse Alibabacloud_Ecd20200930::Client::describePriceWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->internetChargeType)) {
     query->insert(pair<string, string>("InternetChargeType", *request->internetChargeType));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->networkType)) {
-    query->insert(pair<string, string>("NetworkType", *request->networkType));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->osType)) {
     query->insert(pair<string, string>("OsType", *request->osType));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->packageSize)) {
-    query->insert(pair<string, long>("PackageSize", *request->packageSize));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
     query->insert(pair<string, long>("Period", *request->period));
@@ -4651,23 +4726,14 @@ DescribePriceResponse Alibabacloud_Ecd20200930::Client::describePriceWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->rootDiskPerformanceLevel)) {
-    query->insert(pair<string, string>("RootDiskPerformanceLevel", *request->rootDiskPerformanceLevel));
+  if (!Darabonba_Util::Client::isUnset<string>(request->rootDiskCategory)) {
+    query->insert(pair<string, string>("RootDiskCategory", *request->rootDiskCategory));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->rootDiskSizeGib)) {
     query->insert(pair<string, long>("RootDiskSizeGib", *request->rootDiskSizeGib));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->spPeriodInfo)) {
-    query->insert(pair<string, string>("SpPeriodInfo", *request->spPeriodInfo));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->spPrice)) {
-    query->insert(pair<string, bool>("SpPrice", *request->spPrice));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->spType)) {
-    query->insert(pair<string, string>("SpType", *request->spType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->userDiskPerformanceLevel)) {
-    query->insert(pair<string, string>("UserDiskPerformanceLevel", *request->userDiskPerformanceLevel));
+  if (!Darabonba_Util::Client::isUnset<string>(request->userDiskCategory)) {
+    query->insert(pair<string, string>("UserDiskCategory", *request->userDiskCategory));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->userDiskSizeGib)) {
     query->insert(pair<string, long>("UserDiskSizeGib", *request->userDiskSizeGib));
@@ -4860,6 +4926,40 @@ DescribeRecordingsResponse Alibabacloud_Ecd20200930::Client::describeRecordings(
   return describeRecordingsWithOptions(request, runtime);
 }
 
+DescribeRefundPriceResponse Alibabacloud_Ecd20200930::Client::describeRefundPriceWithOptions(shared_ptr<DescribeRefundPriceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->desktopId)) {
+    query->insert(pair<string, vector<string>>("DesktopId", *request->desktopId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->refundType)) {
+    query->insert(pair<string, string>("RefundType", *request->refundType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeRefundPrice"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeRefundPriceResponse(callApi(params, req, runtime));
+}
+
+DescribeRefundPriceResponse Alibabacloud_Ecd20200930::Client::describeRefundPrice(shared_ptr<DescribeRefundPriceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeRefundPriceWithOptions(request, runtime);
+}
+
 DescribeRegionsResponse Alibabacloud_Ecd20200930::Client::describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4889,6 +4989,49 @@ DescribeRegionsResponse Alibabacloud_Ecd20200930::Client::describeRegionsWithOpt
 DescribeRegionsResponse Alibabacloud_Ecd20200930::Client::describeRegions(shared_ptr<DescribeRegionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeRegionsWithOptions(request, runtime);
+}
+
+DescribeRenewalPriceResponse Alibabacloud_Ecd20200930::Client::describeRenewalPriceWithOptions(shared_ptr<DescribeRenewalPriceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
+    query->insert(pair<string, vector<string>>("InstanceIds", *request->instanceIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
+    query->insert(pair<string, long>("Period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
+    query->insert(pair<string, string>("PeriodUnit", *request->periodUnit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeRenewalPrice"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeRenewalPriceResponse(callApi(params, req, runtime));
+}
+
+DescribeRenewalPriceResponse Alibabacloud_Ecd20200930::Client::describeRenewalPrice(shared_ptr<DescribeRenewalPriceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeRenewalPriceWithOptions(request, runtime);
 }
 
 DescribeSessionStatisticResponse Alibabacloud_Ecd20200930::Client::describeSessionStatisticWithOptions(shared_ptr<DescribeSessionStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -6020,11 +6163,17 @@ ListCdsFilesResponse Alibabacloud_Ecd20200930::Client::listCdsFiles(shared_ptr<L
 ListDirectoryUsersResponse Alibabacloud_Ecd20200930::Client::listDirectoryUsersWithOptions(shared_ptr<ListDirectoryUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->assignedInfo)) {
+    query->insert(pair<string, string>("AssignedInfo", *request->assignedInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->directoryId)) {
     query->insert(pair<string, string>("DirectoryId", *request->directoryId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     query->insert(pair<string, string>("Filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->includeAssignedUser)) {
+    query->insert(pair<string, bool>("IncludeAssignedUser", *request->includeAssignedUser));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
@@ -6037,6 +6186,9 @@ ListDirectoryUsersResponse Alibabacloud_Ecd20200930::Client::listDirectoryUsersW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortType)) {
+    query->insert(pair<string, string>("SortType", *request->sortType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -6146,8 +6298,14 @@ ListOfficeSiteOverviewResponse Alibabacloud_Ecd20200930::Client::listOfficeSiteO
 ListOfficeSiteUsersResponse Alibabacloud_Ecd20200930::Client::listOfficeSiteUsersWithOptions(shared_ptr<ListOfficeSiteUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->assignedInfo)) {
+    query->insert(pair<string, string>("AssignedInfo", *request->assignedInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     query->insert(pair<string, string>("Filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->includeAssignedUser)) {
+    query->insert(pair<string, bool>("IncludeAssignedUser", *request->includeAssignedUser));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
@@ -6163,6 +6321,9 @@ ListOfficeSiteUsersResponse Alibabacloud_Ecd20200930::Client::listOfficeSiteUser
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortType)) {
+    query->insert(pair<string, string>("SortType", *request->sortType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -6792,6 +6953,9 @@ ModifyCloudDrivePermissionResponse Alibabacloud_Ecd20200930::Client::modifyCloud
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->downloadUploadEndUserIds)) {
     query->insert(pair<string, vector<string>>("DownloadUploadEndUserIds", *request->downloadUploadEndUserIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->noDownloadNoUploadEndUserIds)) {
+    query->insert(pair<string, vector<string>>("NoDownloadNoUploadEndUserIds", *request->noDownloadNoUploadEndUserIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -7926,6 +8090,9 @@ ModifyPolicyGroupResponse Alibabacloud_Ecd20200930::Client::modifyPolicyGroupWit
   if (!Darabonba_Util::Client::isUnset<string>(request->watermarkType)) {
     query->insert(pair<string, string>("WatermarkType", *request->watermarkType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wyAssistant)) {
+    query->insert(pair<string, string>("WyAssistant", *request->wyAssistant));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -8259,6 +8426,49 @@ RemoveUserFromDesktopOversoldUserGroupResponse Alibabacloud_Ecd20200930::Client:
 RemoveUserFromDesktopOversoldUserGroupResponse Alibabacloud_Ecd20200930::Client::removeUserFromDesktopOversoldUserGroup(shared_ptr<RemoveUserFromDesktopOversoldUserGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return removeUserFromDesktopOversoldUserGroupWithOptions(request, runtime);
+}
+
+RenewDesktopGroupResponse Alibabacloud_Ecd20200930::Client::renewDesktopGroupWithOptions(shared_ptr<RenewDesktopGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
+    query->insert(pair<string, bool>("AutoPay", *request->autoPay));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
+    query->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->desktopGroupId)) {
+    query->insert(pair<string, string>("DesktopGroupId", *request->desktopGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
+    query->insert(pair<string, long>("Period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
+    query->insert(pair<string, string>("PeriodUnit", *request->periodUnit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RenewDesktopGroup"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RenewDesktopGroupResponse(callApi(params, req, runtime));
+}
+
+RenewDesktopGroupResponse Alibabacloud_Ecd20200930::Client::renewDesktopGroup(shared_ptr<RenewDesktopGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return renewDesktopGroupWithOptions(request, runtime);
 }
 
 RenewDesktopOversoldGroupResponse Alibabacloud_Ecd20200930::Client::renewDesktopOversoldGroupWithOptions(shared_ptr<RenewDesktopOversoldGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -9232,6 +9442,9 @@ UploadImageResponse Alibabacloud_Ecd20200930::Client::uploadImageWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->systemDiskSize)) {
+    query->insert(pair<string, string>("SystemDiskSize", *request->systemDiskSize));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
