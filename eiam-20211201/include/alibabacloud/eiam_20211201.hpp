@@ -1424,6 +1424,1140 @@ public:
 
   virtual ~CreateGroupResponse() = default;
 };
+class CreateIdentityProviderRequestAuthnConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> authnStatus{};
+  shared_ptr<string> autoUpdatePasswordStatus{};
+
+  CreateIdentityProviderRequestAuthnConfig() {}
+
+  explicit CreateIdentityProviderRequestAuthnConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authnStatus) {
+      res["AuthnStatus"] = boost::any(*authnStatus);
+    }
+    if (autoUpdatePasswordStatus) {
+      res["AutoUpdatePasswordStatus"] = boost::any(*autoUpdatePasswordStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthnStatus") != m.end() && !m["AuthnStatus"].empty()) {
+      authnStatus = make_shared<string>(boost::any_cast<string>(m["AuthnStatus"]));
+    }
+    if (m.find("AutoUpdatePasswordStatus") != m.end() && !m["AutoUpdatePasswordStatus"].empty()) {
+      autoUpdatePasswordStatus = make_shared<string>(boost::any_cast<string>(m["AutoUpdatePasswordStatus"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestAuthnConfig() = default;
+};
+class CreateIdentityProviderRequestAutoCreateUserConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> autoCreateUserStatus{};
+  shared_ptr<vector<string>> targetOrganizationalUnitIds{};
+
+  CreateIdentityProviderRequestAutoCreateUserConfig() {}
+
+  explicit CreateIdentityProviderRequestAutoCreateUserConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoCreateUserStatus) {
+      res["AutoCreateUserStatus"] = boost::any(*autoCreateUserStatus);
+    }
+    if (targetOrganizationalUnitIds) {
+      res["TargetOrganizationalUnitIds"] = boost::any(*targetOrganizationalUnitIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoCreateUserStatus") != m.end() && !m["AutoCreateUserStatus"].empty()) {
+      autoCreateUserStatus = make_shared<string>(boost::any_cast<string>(m["AutoCreateUserStatus"]));
+    }
+    if (m.find("TargetOrganizationalUnitIds") != m.end() && !m["TargetOrganizationalUnitIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TargetOrganizationalUnitIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TargetOrganizationalUnitIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      targetOrganizationalUnitIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestAutoCreateUserConfig() = default;
+};
+class CreateIdentityProviderRequestAutoUpdateUserConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> autoUpdateUserStatus{};
+
+  CreateIdentityProviderRequestAutoUpdateUserConfig() {}
+
+  explicit CreateIdentityProviderRequestAutoUpdateUserConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoUpdateUserStatus) {
+      res["AutoUpdateUserStatus"] = boost::any(*autoUpdateUserStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoUpdateUserStatus") != m.end() && !m["AutoUpdateUserStatus"].empty()) {
+      autoUpdateUserStatus = make_shared<string>(boost::any_cast<string>(m["AutoUpdateUserStatus"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestAutoUpdateUserConfig() = default;
+};
+class CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpressions : public Darabonba::Model {
+public:
+  shared_ptr<string> expressionMappingType{};
+  shared_ptr<string> sourceValueExpression{};
+  shared_ptr<string> targetField{};
+  shared_ptr<string> targetFieldDescription{};
+
+  CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpressions() {}
+
+  explicit CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpressions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expressionMappingType) {
+      res["ExpressionMappingType"] = boost::any(*expressionMappingType);
+    }
+    if (sourceValueExpression) {
+      res["SourceValueExpression"] = boost::any(*sourceValueExpression);
+    }
+    if (targetField) {
+      res["TargetField"] = boost::any(*targetField);
+    }
+    if (targetFieldDescription) {
+      res["TargetFieldDescription"] = boost::any(*targetFieldDescription);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExpressionMappingType") != m.end() && !m["ExpressionMappingType"].empty()) {
+      expressionMappingType = make_shared<string>(boost::any_cast<string>(m["ExpressionMappingType"]));
+    }
+    if (m.find("SourceValueExpression") != m.end() && !m["SourceValueExpression"].empty()) {
+      sourceValueExpression = make_shared<string>(boost::any_cast<string>(m["SourceValueExpression"]));
+    }
+    if (m.find("TargetField") != m.end() && !m["TargetField"].empty()) {
+      targetField = make_shared<string>(boost::any_cast<string>(m["TargetField"]));
+    }
+    if (m.find("TargetFieldDescription") != m.end() && !m["TargetFieldDescription"].empty()) {
+      targetFieldDescription = make_shared<string>(boost::any_cast<string>(m["TargetFieldDescription"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpressions() = default;
+};
+class CreateIdentityProviderRequestBindingConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpressions>> autoMatchUserProfileExpressions{};
+  shared_ptr<string> autoMatchUserStatus{};
+  shared_ptr<string> mappingBindingStatus{};
+
+  CreateIdentityProviderRequestBindingConfig() {}
+
+  explicit CreateIdentityProviderRequestBindingConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoMatchUserProfileExpressions) {
+      vector<boost::any> temp1;
+      for(auto item1:*autoMatchUserProfileExpressions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AutoMatchUserProfileExpressions"] = boost::any(temp1);
+    }
+    if (autoMatchUserStatus) {
+      res["AutoMatchUserStatus"] = boost::any(*autoMatchUserStatus);
+    }
+    if (mappingBindingStatus) {
+      res["MappingBindingStatus"] = boost::any(*mappingBindingStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoMatchUserProfileExpressions") != m.end() && !m["AutoMatchUserProfileExpressions"].empty()) {
+      if (typeid(vector<boost::any>) == m["AutoMatchUserProfileExpressions"].type()) {
+        vector<CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpressions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AutoMatchUserProfileExpressions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpressions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        autoMatchUserProfileExpressions = make_shared<vector<CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpressions>>(expect1);
+      }
+    }
+    if (m.find("AutoMatchUserStatus") != m.end() && !m["AutoMatchUserStatus"].empty()) {
+      autoMatchUserStatus = make_shared<string>(boost::any_cast<string>(m["AutoMatchUserStatus"]));
+    }
+    if (m.find("MappingBindingStatus") != m.end() && !m["MappingBindingStatus"].empty()) {
+      mappingBindingStatus = make_shared<string>(boost::any_cast<string>(m["MappingBindingStatus"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestBindingConfig() = default;
+};
+class CreateIdentityProviderRequestDingtalkAppConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> appKey{};
+  shared_ptr<string> appSecret{};
+  shared_ptr<string> corpId{};
+  shared_ptr<string> dingtalkVersion{};
+
+  CreateIdentityProviderRequestDingtalkAppConfig() {}
+
+  explicit CreateIdentityProviderRequestDingtalkAppConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
+    if (appSecret) {
+      res["AppSecret"] = boost::any(*appSecret);
+    }
+    if (corpId) {
+      res["CorpId"] = boost::any(*corpId);
+    }
+    if (dingtalkVersion) {
+      res["DingtalkVersion"] = boost::any(*dingtalkVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("AppSecret") != m.end() && !m["AppSecret"].empty()) {
+      appSecret = make_shared<string>(boost::any_cast<string>(m["AppSecret"]));
+    }
+    if (m.find("CorpId") != m.end() && !m["CorpId"].empty()) {
+      corpId = make_shared<string>(boost::any_cast<string>(m["CorpId"]));
+    }
+    if (m.find("DingtalkVersion") != m.end() && !m["DingtalkVersion"].empty()) {
+      dingtalkVersion = make_shared<string>(boost::any_cast<string>(m["DingtalkVersion"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestDingtalkAppConfig() = default;
+};
+class CreateIdentityProviderRequestLarkConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> appSecret{};
+  shared_ptr<string> enterpriseNumber{};
+
+  CreateIdentityProviderRequestLarkConfig() {}
+
+  explicit CreateIdentityProviderRequestLarkConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appSecret) {
+      res["AppSecret"] = boost::any(*appSecret);
+    }
+    if (enterpriseNumber) {
+      res["EnterpriseNumber"] = boost::any(*enterpriseNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppSecret") != m.end() && !m["AppSecret"].empty()) {
+      appSecret = make_shared<string>(boost::any_cast<string>(m["AppSecret"]));
+    }
+    if (m.find("EnterpriseNumber") != m.end() && !m["EnterpriseNumber"].empty()) {
+      enterpriseNumber = make_shared<string>(boost::any_cast<string>(m["EnterpriseNumber"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestLarkConfig() = default;
+};
+class CreateIdentityProviderRequestLdapConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> administratorPassword{};
+  shared_ptr<string> administratorUsername{};
+  shared_ptr<string> certificateFingerprintStatus{};
+  shared_ptr<vector<string>> certificateFingerprints{};
+  shared_ptr<string> groupMemberAttributeName{};
+  shared_ptr<string> groupObjectClass{};
+  shared_ptr<string> groupObjectClassCustomFilter{};
+  shared_ptr<string> ldapProtocol{};
+  shared_ptr<string> ldapServerHost{};
+  shared_ptr<long> ldapServerPort{};
+  shared_ptr<string> organizationUnitObjectClass{};
+  shared_ptr<string> startTlsStatus{};
+  shared_ptr<string> userLoginIdentifier{};
+  shared_ptr<string> userObjectClass{};
+  shared_ptr<string> userObjectClassCustomFilter{};
+
+  CreateIdentityProviderRequestLdapConfig() {}
+
+  explicit CreateIdentityProviderRequestLdapConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (administratorPassword) {
+      res["AdministratorPassword"] = boost::any(*administratorPassword);
+    }
+    if (administratorUsername) {
+      res["AdministratorUsername"] = boost::any(*administratorUsername);
+    }
+    if (certificateFingerprintStatus) {
+      res["CertificateFingerprintStatus"] = boost::any(*certificateFingerprintStatus);
+    }
+    if (certificateFingerprints) {
+      res["CertificateFingerprints"] = boost::any(*certificateFingerprints);
+    }
+    if (groupMemberAttributeName) {
+      res["GroupMemberAttributeName"] = boost::any(*groupMemberAttributeName);
+    }
+    if (groupObjectClass) {
+      res["GroupObjectClass"] = boost::any(*groupObjectClass);
+    }
+    if (groupObjectClassCustomFilter) {
+      res["GroupObjectClassCustomFilter"] = boost::any(*groupObjectClassCustomFilter);
+    }
+    if (ldapProtocol) {
+      res["LdapProtocol"] = boost::any(*ldapProtocol);
+    }
+    if (ldapServerHost) {
+      res["LdapServerHost"] = boost::any(*ldapServerHost);
+    }
+    if (ldapServerPort) {
+      res["LdapServerPort"] = boost::any(*ldapServerPort);
+    }
+    if (organizationUnitObjectClass) {
+      res["OrganizationUnitObjectClass"] = boost::any(*organizationUnitObjectClass);
+    }
+    if (startTlsStatus) {
+      res["StartTlsStatus"] = boost::any(*startTlsStatus);
+    }
+    if (userLoginIdentifier) {
+      res["UserLoginIdentifier"] = boost::any(*userLoginIdentifier);
+    }
+    if (userObjectClass) {
+      res["UserObjectClass"] = boost::any(*userObjectClass);
+    }
+    if (userObjectClassCustomFilter) {
+      res["UserObjectClassCustomFilter"] = boost::any(*userObjectClassCustomFilter);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdministratorPassword") != m.end() && !m["AdministratorPassword"].empty()) {
+      administratorPassword = make_shared<string>(boost::any_cast<string>(m["AdministratorPassword"]));
+    }
+    if (m.find("AdministratorUsername") != m.end() && !m["AdministratorUsername"].empty()) {
+      administratorUsername = make_shared<string>(boost::any_cast<string>(m["AdministratorUsername"]));
+    }
+    if (m.find("CertificateFingerprintStatus") != m.end() && !m["CertificateFingerprintStatus"].empty()) {
+      certificateFingerprintStatus = make_shared<string>(boost::any_cast<string>(m["CertificateFingerprintStatus"]));
+    }
+    if (m.find("CertificateFingerprints") != m.end() && !m["CertificateFingerprints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CertificateFingerprints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CertificateFingerprints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      certificateFingerprints = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("GroupMemberAttributeName") != m.end() && !m["GroupMemberAttributeName"].empty()) {
+      groupMemberAttributeName = make_shared<string>(boost::any_cast<string>(m["GroupMemberAttributeName"]));
+    }
+    if (m.find("GroupObjectClass") != m.end() && !m["GroupObjectClass"].empty()) {
+      groupObjectClass = make_shared<string>(boost::any_cast<string>(m["GroupObjectClass"]));
+    }
+    if (m.find("GroupObjectClassCustomFilter") != m.end() && !m["GroupObjectClassCustomFilter"].empty()) {
+      groupObjectClassCustomFilter = make_shared<string>(boost::any_cast<string>(m["GroupObjectClassCustomFilter"]));
+    }
+    if (m.find("LdapProtocol") != m.end() && !m["LdapProtocol"].empty()) {
+      ldapProtocol = make_shared<string>(boost::any_cast<string>(m["LdapProtocol"]));
+    }
+    if (m.find("LdapServerHost") != m.end() && !m["LdapServerHost"].empty()) {
+      ldapServerHost = make_shared<string>(boost::any_cast<string>(m["LdapServerHost"]));
+    }
+    if (m.find("LdapServerPort") != m.end() && !m["LdapServerPort"].empty()) {
+      ldapServerPort = make_shared<long>(boost::any_cast<long>(m["LdapServerPort"]));
+    }
+    if (m.find("OrganizationUnitObjectClass") != m.end() && !m["OrganizationUnitObjectClass"].empty()) {
+      organizationUnitObjectClass = make_shared<string>(boost::any_cast<string>(m["OrganizationUnitObjectClass"]));
+    }
+    if (m.find("StartTlsStatus") != m.end() && !m["StartTlsStatus"].empty()) {
+      startTlsStatus = make_shared<string>(boost::any_cast<string>(m["StartTlsStatus"]));
+    }
+    if (m.find("UserLoginIdentifier") != m.end() && !m["UserLoginIdentifier"].empty()) {
+      userLoginIdentifier = make_shared<string>(boost::any_cast<string>(m["UserLoginIdentifier"]));
+    }
+    if (m.find("UserObjectClass") != m.end() && !m["UserObjectClass"].empty()) {
+      userObjectClass = make_shared<string>(boost::any_cast<string>(m["UserObjectClass"]));
+    }
+    if (m.find("UserObjectClassCustomFilter") != m.end() && !m["UserObjectClassCustomFilter"].empty()) {
+      userObjectClassCustomFilter = make_shared<string>(boost::any_cast<string>(m["UserObjectClassCustomFilter"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestLdapConfig() = default;
+};
+class CreateIdentityProviderRequestOidcConfigAuthnParam : public Darabonba::Model {
+public:
+  shared_ptr<string> authnMethod{};
+  shared_ptr<string> clientId{};
+  shared_ptr<string> clientSecret{};
+
+  CreateIdentityProviderRequestOidcConfigAuthnParam() {}
+
+  explicit CreateIdentityProviderRequestOidcConfigAuthnParam(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authnMethod) {
+      res["AuthnMethod"] = boost::any(*authnMethod);
+    }
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (clientSecret) {
+      res["ClientSecret"] = boost::any(*clientSecret);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthnMethod") != m.end() && !m["AuthnMethod"].empty()) {
+      authnMethod = make_shared<string>(boost::any_cast<string>(m["AuthnMethod"]));
+    }
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("ClientSecret") != m.end() && !m["ClientSecret"].empty()) {
+      clientSecret = make_shared<string>(boost::any_cast<string>(m["ClientSecret"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestOidcConfigAuthnParam() = default;
+};
+class CreateIdentityProviderRequestOidcConfigEndpointConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationEndpoint{};
+  shared_ptr<string> issuer{};
+  shared_ptr<string> jwksUri{};
+  shared_ptr<string> tokenEndpoint{};
+  shared_ptr<string> userinfoEndpoint{};
+
+  CreateIdentityProviderRequestOidcConfigEndpointConfig() {}
+
+  explicit CreateIdentityProviderRequestOidcConfigEndpointConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationEndpoint) {
+      res["AuthorizationEndpoint"] = boost::any(*authorizationEndpoint);
+    }
+    if (issuer) {
+      res["Issuer"] = boost::any(*issuer);
+    }
+    if (jwksUri) {
+      res["JwksUri"] = boost::any(*jwksUri);
+    }
+    if (tokenEndpoint) {
+      res["TokenEndpoint"] = boost::any(*tokenEndpoint);
+    }
+    if (userinfoEndpoint) {
+      res["UserinfoEndpoint"] = boost::any(*userinfoEndpoint);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationEndpoint") != m.end() && !m["AuthorizationEndpoint"].empty()) {
+      authorizationEndpoint = make_shared<string>(boost::any_cast<string>(m["AuthorizationEndpoint"]));
+    }
+    if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
+      issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
+    }
+    if (m.find("JwksUri") != m.end() && !m["JwksUri"].empty()) {
+      jwksUri = make_shared<string>(boost::any_cast<string>(m["JwksUri"]));
+    }
+    if (m.find("TokenEndpoint") != m.end() && !m["TokenEndpoint"].empty()) {
+      tokenEndpoint = make_shared<string>(boost::any_cast<string>(m["TokenEndpoint"]));
+    }
+    if (m.find("UserinfoEndpoint") != m.end() && !m["UserinfoEndpoint"].empty()) {
+      userinfoEndpoint = make_shared<string>(boost::any_cast<string>(m["UserinfoEndpoint"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestOidcConfigEndpointConfig() = default;
+};
+class CreateIdentityProviderRequestOidcConfig : public Darabonba::Model {
+public:
+  shared_ptr<CreateIdentityProviderRequestOidcConfigAuthnParam> authnParam{};
+  shared_ptr<CreateIdentityProviderRequestOidcConfigEndpointConfig> endpointConfig{};
+  shared_ptr<vector<string>> grantScopes{};
+  shared_ptr<string> grantType{};
+  shared_ptr<string> pkceChallengeMethod{};
+  shared_ptr<bool> pkceRequired{};
+
+  CreateIdentityProviderRequestOidcConfig() {}
+
+  explicit CreateIdentityProviderRequestOidcConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authnParam) {
+      res["AuthnParam"] = authnParam ? boost::any(authnParam->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (endpointConfig) {
+      res["EndpointConfig"] = endpointConfig ? boost::any(endpointConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (grantScopes) {
+      res["GrantScopes"] = boost::any(*grantScopes);
+    }
+    if (grantType) {
+      res["GrantType"] = boost::any(*grantType);
+    }
+    if (pkceChallengeMethod) {
+      res["PkceChallengeMethod"] = boost::any(*pkceChallengeMethod);
+    }
+    if (pkceRequired) {
+      res["PkceRequired"] = boost::any(*pkceRequired);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthnParam") != m.end() && !m["AuthnParam"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AuthnParam"].type()) {
+        CreateIdentityProviderRequestOidcConfigAuthnParam model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AuthnParam"]));
+        authnParam = make_shared<CreateIdentityProviderRequestOidcConfigAuthnParam>(model1);
+      }
+    }
+    if (m.find("EndpointConfig") != m.end() && !m["EndpointConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EndpointConfig"].type()) {
+        CreateIdentityProviderRequestOidcConfigEndpointConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EndpointConfig"]));
+        endpointConfig = make_shared<CreateIdentityProviderRequestOidcConfigEndpointConfig>(model1);
+      }
+    }
+    if (m.find("GrantScopes") != m.end() && !m["GrantScopes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GrantScopes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GrantScopes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      grantScopes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("GrantType") != m.end() && !m["GrantType"].empty()) {
+      grantType = make_shared<string>(boost::any_cast<string>(m["GrantType"]));
+    }
+    if (m.find("PkceChallengeMethod") != m.end() && !m["PkceChallengeMethod"].empty()) {
+      pkceChallengeMethod = make_shared<string>(boost::any_cast<string>(m["PkceChallengeMethod"]));
+    }
+    if (m.find("PkceRequired") != m.end() && !m["PkceRequired"].empty()) {
+      pkceRequired = make_shared<bool>(boost::any_cast<bool>(m["PkceRequired"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestOidcConfig() = default;
+};
+class CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> sourceScopes{};
+  shared_ptr<string> targetScope{};
+
+  CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig() {}
+
+  explicit CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceScopes) {
+      res["SourceScopes"] = boost::any(*sourceScopes);
+    }
+    if (targetScope) {
+      res["TargetScope"] = boost::any(*targetScope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceScopes") != m.end() && !m["SourceScopes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SourceScopes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SourceScopes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sourceScopes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TargetScope") != m.end() && !m["TargetScope"].empty()) {
+      targetScope = make_shared<string>(boost::any_cast<string>(m["TargetScope"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig() = default;
+};
+class CreateIdentityProviderRequestUdPullConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> groupSyncStatus{};
+  shared_ptr<string> incrementalCallbackStatus{};
+  shared_ptr<string> periodicSyncStatus{};
+  shared_ptr<CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig> udSyncScopeConfig{};
+
+  CreateIdentityProviderRequestUdPullConfig() {}
+
+  explicit CreateIdentityProviderRequestUdPullConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupSyncStatus) {
+      res["GroupSyncStatus"] = boost::any(*groupSyncStatus);
+    }
+    if (incrementalCallbackStatus) {
+      res["IncrementalCallbackStatus"] = boost::any(*incrementalCallbackStatus);
+    }
+    if (periodicSyncStatus) {
+      res["PeriodicSyncStatus"] = boost::any(*periodicSyncStatus);
+    }
+    if (udSyncScopeConfig) {
+      res["UdSyncScopeConfig"] = udSyncScopeConfig ? boost::any(udSyncScopeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupSyncStatus") != m.end() && !m["GroupSyncStatus"].empty()) {
+      groupSyncStatus = make_shared<string>(boost::any_cast<string>(m["GroupSyncStatus"]));
+    }
+    if (m.find("IncrementalCallbackStatus") != m.end() && !m["IncrementalCallbackStatus"].empty()) {
+      incrementalCallbackStatus = make_shared<string>(boost::any_cast<string>(m["IncrementalCallbackStatus"]));
+    }
+    if (m.find("PeriodicSyncStatus") != m.end() && !m["PeriodicSyncStatus"].empty()) {
+      periodicSyncStatus = make_shared<string>(boost::any_cast<string>(m["PeriodicSyncStatus"]));
+    }
+    if (m.find("UdSyncScopeConfig") != m.end() && !m["UdSyncScopeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UdSyncScopeConfig"].type()) {
+        CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UdSyncScopeConfig"]));
+        udSyncScopeConfig = make_shared<CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestUdPullConfig() = default;
+};
+class CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> sourceScopes{};
+  shared_ptr<string> targetScope{};
+
+  CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs() {}
+
+  explicit CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceScopes) {
+      res["SourceScopes"] = boost::any(*sourceScopes);
+    }
+    if (targetScope) {
+      res["TargetScope"] = boost::any(*targetScope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceScopes") != m.end() && !m["SourceScopes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SourceScopes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SourceScopes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sourceScopes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TargetScope") != m.end() && !m["TargetScope"].empty()) {
+      targetScope = make_shared<string>(boost::any_cast<string>(m["TargetScope"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs() = default;
+};
+class CreateIdentityProviderRequestUdPushConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> incrementalCallbackStatus{};
+  shared_ptr<string> periodicSyncStatus{};
+  shared_ptr<vector<CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs>> udSyncScopeConfigs{};
+
+  CreateIdentityProviderRequestUdPushConfig() {}
+
+  explicit CreateIdentityProviderRequestUdPushConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (incrementalCallbackStatus) {
+      res["IncrementalCallbackStatus"] = boost::any(*incrementalCallbackStatus);
+    }
+    if (periodicSyncStatus) {
+      res["PeriodicSyncStatus"] = boost::any(*periodicSyncStatus);
+    }
+    if (udSyncScopeConfigs) {
+      vector<boost::any> temp1;
+      for(auto item1:*udSyncScopeConfigs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UdSyncScopeConfigs"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IncrementalCallbackStatus") != m.end() && !m["IncrementalCallbackStatus"].empty()) {
+      incrementalCallbackStatus = make_shared<string>(boost::any_cast<string>(m["IncrementalCallbackStatus"]));
+    }
+    if (m.find("PeriodicSyncStatus") != m.end() && !m["PeriodicSyncStatus"].empty()) {
+      periodicSyncStatus = make_shared<string>(boost::any_cast<string>(m["PeriodicSyncStatus"]));
+    }
+    if (m.find("UdSyncScopeConfigs") != m.end() && !m["UdSyncScopeConfigs"].empty()) {
+      if (typeid(vector<boost::any>) == m["UdSyncScopeConfigs"].type()) {
+        vector<CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UdSyncScopeConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        udSyncScopeConfigs = make_shared<vector<CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestUdPushConfig() = default;
+};
+class CreateIdentityProviderRequestWeComConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> agentId{};
+  shared_ptr<string> authorizeCallbackDomain{};
+  shared_ptr<string> corpId{};
+  shared_ptr<string> corpSecret{};
+  shared_ptr<string> trustableDomain{};
+
+  CreateIdentityProviderRequestWeComConfig() {}
+
+  explicit CreateIdentityProviderRequestWeComConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentId) {
+      res["AgentId"] = boost::any(*agentId);
+    }
+    if (authorizeCallbackDomain) {
+      res["AuthorizeCallbackDomain"] = boost::any(*authorizeCallbackDomain);
+    }
+    if (corpId) {
+      res["CorpId"] = boost::any(*corpId);
+    }
+    if (corpSecret) {
+      res["CorpSecret"] = boost::any(*corpSecret);
+    }
+    if (trustableDomain) {
+      res["TrustableDomain"] = boost::any(*trustableDomain);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentId") != m.end() && !m["AgentId"].empty()) {
+      agentId = make_shared<string>(boost::any_cast<string>(m["AgentId"]));
+    }
+    if (m.find("AuthorizeCallbackDomain") != m.end() && !m["AuthorizeCallbackDomain"].empty()) {
+      authorizeCallbackDomain = make_shared<string>(boost::any_cast<string>(m["AuthorizeCallbackDomain"]));
+    }
+    if (m.find("CorpId") != m.end() && !m["CorpId"].empty()) {
+      corpId = make_shared<string>(boost::any_cast<string>(m["CorpId"]));
+    }
+    if (m.find("CorpSecret") != m.end() && !m["CorpSecret"].empty()) {
+      corpSecret = make_shared<string>(boost::any_cast<string>(m["CorpSecret"]));
+    }
+    if (m.find("TrustableDomain") != m.end() && !m["TrustableDomain"].empty()) {
+      trustableDomain = make_shared<string>(boost::any_cast<string>(m["TrustableDomain"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequestWeComConfig() = default;
+};
+class CreateIdentityProviderRequest : public Darabonba::Model {
+public:
+  shared_ptr<CreateIdentityProviderRequestAuthnConfig> authnConfig{};
+  shared_ptr<CreateIdentityProviderRequestAutoCreateUserConfig> autoCreateUserConfig{};
+  shared_ptr<CreateIdentityProviderRequestAutoUpdateUserConfig> autoUpdateUserConfig{};
+  shared_ptr<CreateIdentityProviderRequestBindingConfig> bindingConfig{};
+  shared_ptr<CreateIdentityProviderRequestDingtalkAppConfig> dingtalkAppConfig{};
+  shared_ptr<string> identityProviderName{};
+  shared_ptr<string> identityProviderType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<CreateIdentityProviderRequestLarkConfig> larkConfig{};
+  shared_ptr<CreateIdentityProviderRequestLdapConfig> ldapConfig{};
+  shared_ptr<string> networkAccessEndpointId{};
+  shared_ptr<CreateIdentityProviderRequestOidcConfig> oidcConfig{};
+  shared_ptr<CreateIdentityProviderRequestUdPullConfig> udPullConfig{};
+  shared_ptr<CreateIdentityProviderRequestUdPushConfig> udPushConfig{};
+  shared_ptr<CreateIdentityProviderRequestWeComConfig> weComConfig{};
+
+  CreateIdentityProviderRequest() {}
+
+  explicit CreateIdentityProviderRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authnConfig) {
+      res["AuthnConfig"] = authnConfig ? boost::any(authnConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoCreateUserConfig) {
+      res["AutoCreateUserConfig"] = autoCreateUserConfig ? boost::any(autoCreateUserConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoUpdateUserConfig) {
+      res["AutoUpdateUserConfig"] = autoUpdateUserConfig ? boost::any(autoUpdateUserConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (bindingConfig) {
+      res["BindingConfig"] = bindingConfig ? boost::any(bindingConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dingtalkAppConfig) {
+      res["DingtalkAppConfig"] = dingtalkAppConfig ? boost::any(dingtalkAppConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (identityProviderName) {
+      res["IdentityProviderName"] = boost::any(*identityProviderName);
+    }
+    if (identityProviderType) {
+      res["IdentityProviderType"] = boost::any(*identityProviderType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (larkConfig) {
+      res["LarkConfig"] = larkConfig ? boost::any(larkConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ldapConfig) {
+      res["LdapConfig"] = ldapConfig ? boost::any(ldapConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkAccessEndpointId) {
+      res["NetworkAccessEndpointId"] = boost::any(*networkAccessEndpointId);
+    }
+    if (oidcConfig) {
+      res["OidcConfig"] = oidcConfig ? boost::any(oidcConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (udPullConfig) {
+      res["UdPullConfig"] = udPullConfig ? boost::any(udPullConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (udPushConfig) {
+      res["UdPushConfig"] = udPushConfig ? boost::any(udPushConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (weComConfig) {
+      res["WeComConfig"] = weComConfig ? boost::any(weComConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthnConfig") != m.end() && !m["AuthnConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AuthnConfig"].type()) {
+        CreateIdentityProviderRequestAuthnConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AuthnConfig"]));
+        authnConfig = make_shared<CreateIdentityProviderRequestAuthnConfig>(model1);
+      }
+    }
+    if (m.find("AutoCreateUserConfig") != m.end() && !m["AutoCreateUserConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AutoCreateUserConfig"].type()) {
+        CreateIdentityProviderRequestAutoCreateUserConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AutoCreateUserConfig"]));
+        autoCreateUserConfig = make_shared<CreateIdentityProviderRequestAutoCreateUserConfig>(model1);
+      }
+    }
+    if (m.find("AutoUpdateUserConfig") != m.end() && !m["AutoUpdateUserConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AutoUpdateUserConfig"].type()) {
+        CreateIdentityProviderRequestAutoUpdateUserConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AutoUpdateUserConfig"]));
+        autoUpdateUserConfig = make_shared<CreateIdentityProviderRequestAutoUpdateUserConfig>(model1);
+      }
+    }
+    if (m.find("BindingConfig") != m.end() && !m["BindingConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BindingConfig"].type()) {
+        CreateIdentityProviderRequestBindingConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BindingConfig"]));
+        bindingConfig = make_shared<CreateIdentityProviderRequestBindingConfig>(model1);
+      }
+    }
+    if (m.find("DingtalkAppConfig") != m.end() && !m["DingtalkAppConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DingtalkAppConfig"].type()) {
+        CreateIdentityProviderRequestDingtalkAppConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DingtalkAppConfig"]));
+        dingtalkAppConfig = make_shared<CreateIdentityProviderRequestDingtalkAppConfig>(model1);
+      }
+    }
+    if (m.find("IdentityProviderName") != m.end() && !m["IdentityProviderName"].empty()) {
+      identityProviderName = make_shared<string>(boost::any_cast<string>(m["IdentityProviderName"]));
+    }
+    if (m.find("IdentityProviderType") != m.end() && !m["IdentityProviderType"].empty()) {
+      identityProviderType = make_shared<string>(boost::any_cast<string>(m["IdentityProviderType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LarkConfig") != m.end() && !m["LarkConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LarkConfig"].type()) {
+        CreateIdentityProviderRequestLarkConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LarkConfig"]));
+        larkConfig = make_shared<CreateIdentityProviderRequestLarkConfig>(model1);
+      }
+    }
+    if (m.find("LdapConfig") != m.end() && !m["LdapConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LdapConfig"].type()) {
+        CreateIdentityProviderRequestLdapConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LdapConfig"]));
+        ldapConfig = make_shared<CreateIdentityProviderRequestLdapConfig>(model1);
+      }
+    }
+    if (m.find("NetworkAccessEndpointId") != m.end() && !m["NetworkAccessEndpointId"].empty()) {
+      networkAccessEndpointId = make_shared<string>(boost::any_cast<string>(m["NetworkAccessEndpointId"]));
+    }
+    if (m.find("OidcConfig") != m.end() && !m["OidcConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OidcConfig"].type()) {
+        CreateIdentityProviderRequestOidcConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OidcConfig"]));
+        oidcConfig = make_shared<CreateIdentityProviderRequestOidcConfig>(model1);
+      }
+    }
+    if (m.find("UdPullConfig") != m.end() && !m["UdPullConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UdPullConfig"].type()) {
+        CreateIdentityProviderRequestUdPullConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UdPullConfig"]));
+        udPullConfig = make_shared<CreateIdentityProviderRequestUdPullConfig>(model1);
+      }
+    }
+    if (m.find("UdPushConfig") != m.end() && !m["UdPushConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UdPushConfig"].type()) {
+        CreateIdentityProviderRequestUdPushConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UdPushConfig"]));
+        udPushConfig = make_shared<CreateIdentityProviderRequestUdPushConfig>(model1);
+      }
+    }
+    if (m.find("WeComConfig") != m.end() && !m["WeComConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["WeComConfig"].type()) {
+        CreateIdentityProviderRequestWeComConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["WeComConfig"]));
+        weComConfig = make_shared<CreateIdentityProviderRequestWeComConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderRequest() = default;
+};
+class CreateIdentityProviderResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> identityProviderId{};
+  shared_ptr<string> requestId{};
+
+  CreateIdentityProviderResponseBody() {}
+
+  explicit CreateIdentityProviderResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identityProviderId) {
+      res["IdentityProviderId"] = boost::any(*identityProviderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentityProviderId") != m.end() && !m["IdentityProviderId"].empty()) {
+      identityProviderId = make_shared<string>(boost::any_cast<string>(m["IdentityProviderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderResponseBody() = default;
+};
+class CreateIdentityProviderResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateIdentityProviderResponseBody> body{};
+
+  CreateIdentityProviderResponse() {}
+
+  explicit CreateIdentityProviderResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateIdentityProviderResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateIdentityProviderResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIdentityProviderResponse() = default;
+};
 class CreateInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -2777,6 +3911,123 @@ public:
 
   virtual ~DeleteGroupResponse() = default;
 };
+class DeleteIdentityProviderRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identityProviderId{};
+  shared_ptr<string> instanceId{};
+
+  DeleteIdentityProviderRequest() {}
+
+  explicit DeleteIdentityProviderRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identityProviderId) {
+      res["IdentityProviderId"] = boost::any(*identityProviderId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentityProviderId") != m.end() && !m["IdentityProviderId"].empty()) {
+      identityProviderId = make_shared<string>(boost::any_cast<string>(m["IdentityProviderId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~DeleteIdentityProviderRequest() = default;
+};
+class DeleteIdentityProviderResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteIdentityProviderResponseBody() {}
+
+  explicit DeleteIdentityProviderResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteIdentityProviderResponseBody() = default;
+};
+class DeleteIdentityProviderResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteIdentityProviderResponseBody> body{};
+
+  DeleteIdentityProviderResponse() {}
+
+  explicit DeleteIdentityProviderResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteIdentityProviderResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteIdentityProviderResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteIdentityProviderResponse() = default;
+};
 class DeleteInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -4071,6 +5322,123 @@ public:
 
   virtual ~DisableDomainProxyTokenResponse() = default;
 };
+class DisableIdentityProviderUdPullRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identityProviderId{};
+  shared_ptr<string> instanceId{};
+
+  DisableIdentityProviderUdPullRequest() {}
+
+  explicit DisableIdentityProviderUdPullRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identityProviderId) {
+      res["IdentityProviderId"] = boost::any(*identityProviderId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentityProviderId") != m.end() && !m["IdentityProviderId"].empty()) {
+      identityProviderId = make_shared<string>(boost::any_cast<string>(m["IdentityProviderId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~DisableIdentityProviderUdPullRequest() = default;
+};
+class DisableIdentityProviderUdPullResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DisableIdentityProviderUdPullResponseBody() {}
+
+  explicit DisableIdentityProviderUdPullResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DisableIdentityProviderUdPullResponseBody() = default;
+};
+class DisableIdentityProviderUdPullResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DisableIdentityProviderUdPullResponseBody> body{};
+
+  DisableIdentityProviderUdPullResponse() {}
+
+  explicit DisableIdentityProviderUdPullResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DisableIdentityProviderUdPullResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DisableIdentityProviderUdPullResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DisableIdentityProviderUdPullResponse() = default;
+};
 class DisableInitDomainAutoRedirectRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -5013,6 +6381,123 @@ public:
 
 
   virtual ~EnableDomainProxyTokenResponse() = default;
+};
+class EnableIdentityProviderUdPullRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identityProviderId{};
+  shared_ptr<string> instanceId{};
+
+  EnableIdentityProviderUdPullRequest() {}
+
+  explicit EnableIdentityProviderUdPullRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identityProviderId) {
+      res["IdentityProviderId"] = boost::any(*identityProviderId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentityProviderId") != m.end() && !m["IdentityProviderId"].empty()) {
+      identityProviderId = make_shared<string>(boost::any_cast<string>(m["IdentityProviderId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~EnableIdentityProviderUdPullRequest() = default;
+};
+class EnableIdentityProviderUdPullResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  EnableIdentityProviderUdPullResponseBody() {}
+
+  explicit EnableIdentityProviderUdPullResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~EnableIdentityProviderUdPullResponseBody() = default;
+};
+class EnableIdentityProviderUdPullResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnableIdentityProviderUdPullResponseBody> body{};
+
+  EnableIdentityProviderUdPullResponse() {}
+
+  explicit EnableIdentityProviderUdPullResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnableIdentityProviderUdPullResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnableIdentityProviderUdPullResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EnableIdentityProviderUdPullResponse() = default;
 };
 class EnableInitDomainAutoRedirectRequest : public Darabonba::Model {
 public:
@@ -6713,6 +8198,42 @@ public:
 
   virtual ~GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigAttributeStatements() = default;
 };
+class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigOptionalRelayStates : public Darabonba::Model {
+public:
+  shared_ptr<string> displayName{};
+  shared_ptr<string> relayState{};
+
+  GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigOptionalRelayStates() {}
+
+  explicit GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigOptionalRelayStates(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (displayName) {
+      res["DisplayName"] = boost::any(*displayName);
+    }
+    if (relayState) {
+      res["RelayState"] = boost::any(*relayState);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
+      displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
+    }
+    if (m.find("RelayState") != m.end() && !m["RelayState"].empty()) {
+      relayState = make_shared<string>(boost::any_cast<string>(m["RelayState"]));
+    }
+  }
+
+
+  virtual ~GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigOptionalRelayStates() = default;
+};
 class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> assertionSigned{};
@@ -6721,6 +8242,7 @@ public:
   shared_ptr<string> idPEntityId{};
   shared_ptr<string> nameIdFormat{};
   shared_ptr<string> nameIdValueExpression{};
+  shared_ptr<vector<GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigOptionalRelayStates>> optionalRelayStates{};
   shared_ptr<bool> responseSigned{};
   shared_ptr<string> signatureAlgorithm{};
   shared_ptr<string> spEntityId{};
@@ -6757,6 +8279,13 @@ public:
     }
     if (nameIdValueExpression) {
       res["NameIdValueExpression"] = boost::any(*nameIdValueExpression);
+    }
+    if (optionalRelayStates) {
+      vector<boost::any> temp1;
+      for(auto item1:*optionalRelayStates){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OptionalRelayStates"] = boost::any(temp1);
     }
     if (responseSigned) {
       res["ResponseSigned"] = boost::any(*responseSigned);
@@ -6801,6 +8330,19 @@ public:
     }
     if (m.find("NameIdValueExpression") != m.end() && !m["NameIdValueExpression"].empty()) {
       nameIdValueExpression = make_shared<string>(boost::any_cast<string>(m["NameIdValueExpression"]));
+    }
+    if (m.find("OptionalRelayStates") != m.end() && !m["OptionalRelayStates"].empty()) {
+      if (typeid(vector<boost::any>) == m["OptionalRelayStates"].type()) {
+        vector<GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigOptionalRelayStates> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OptionalRelayStates"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigOptionalRelayStates model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        optionalRelayStates = make_shared<vector<GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigOptionalRelayStates>>(expect1);
+      }
     }
     if (m.find("ResponseSigned") != m.end() && !m["ResponseSigned"].empty()) {
       responseSigned = make_shared<bool>(boost::any_cast<bool>(m["ResponseSigned"]));
@@ -7801,6 +9343,1478 @@ public:
 
 
   virtual ~GetGroupResponse() = default;
+};
+class GetIdentityProviderRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identityProviderId{};
+  shared_ptr<string> instanceId{};
+
+  GetIdentityProviderRequest() {}
+
+  explicit GetIdentityProviderRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identityProviderId) {
+      res["IdentityProviderId"] = boost::any(*identityProviderId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentityProviderId") != m.end() && !m["IdentityProviderId"].empty()) {
+      identityProviderId = make_shared<string>(boost::any_cast<string>(m["IdentityProviderId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderRequest() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> appKey{};
+  shared_ptr<string> appSecret{};
+  shared_ptr<string> corpId{};
+  shared_ptr<string> dingtalkVersion{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
+    if (appSecret) {
+      res["AppSecret"] = boost::any(*appSecret);
+    }
+    if (corpId) {
+      res["CorpId"] = boost::any(*corpId);
+    }
+    if (dingtalkVersion) {
+      res["DingtalkVersion"] = boost::any(*dingtalkVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("AppSecret") != m.end() && !m["AppSecret"].empty()) {
+      appSecret = make_shared<string>(boost::any_cast<string>(m["AppSecret"]));
+    }
+    if (m.find("CorpId") != m.end() && !m["CorpId"].empty()) {
+      corpId = make_shared<string>(boost::any_cast<string>(m["CorpId"]));
+    }
+    if (m.find("DingtalkVersion") != m.end() && !m["DingtalkVersion"].empty()) {
+      dingtalkVersion = make_shared<string>(boost::any_cast<string>(m["DingtalkVersion"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds : public Darabonba::Model {
+public:
+  shared_ptr<string> deptId{};
+  shared_ptr<string> deptName{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deptId) {
+      res["DeptId"] = boost::any(*deptId);
+    }
+    if (deptName) {
+      res["DeptName"] = boost::any(*deptName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeptId") != m.end() && !m["DeptId"].empty()) {
+      deptId = make_shared<string>(boost::any_cast<string>(m["DeptId"]));
+    }
+    if (m.find("DeptName") != m.end() && !m["DeptName"].empty()) {
+      deptName = make_shared<string>(boost::any_cast<string>(m["DeptName"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> userId{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds>> authedDepartmentIds{};
+  shared_ptr<vector<GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers>> authedUsers{};
+  shared_ptr<string> corpId{};
+  shared_ptr<string> corpName{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authedDepartmentIds) {
+      vector<boost::any> temp1;
+      for(auto item1:*authedDepartmentIds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthedDepartmentIds"] = boost::any(temp1);
+    }
+    if (authedUsers) {
+      vector<boost::any> temp1;
+      for(auto item1:*authedUsers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthedUsers"] = boost::any(temp1);
+    }
+    if (corpId) {
+      res["CorpId"] = boost::any(*corpId);
+    }
+    if (corpName) {
+      res["CorpName"] = boost::any(*corpName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthedDepartmentIds") != m.end() && !m["AuthedDepartmentIds"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthedDepartmentIds"].type()) {
+        vector<GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthedDepartmentIds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authedDepartmentIds = make_shared<vector<GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds>>(expect1);
+      }
+    }
+    if (m.find("AuthedUsers") != m.end() && !m["AuthedUsers"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthedUsers"].type()) {
+        vector<GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthedUsers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authedUsers = make_shared<vector<GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers>>(expect1);
+      }
+    }
+    if (m.find("CorpId") != m.end() && !m["CorpId"].empty()) {
+      corpId = make_shared<string>(boost::any_cast<string>(m["CorpId"]));
+    }
+    if (m.find("CorpName") != m.end() && !m["CorpName"].empty()) {
+      corpName = make_shared<string>(boost::any_cast<string>(m["CorpName"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> appSecret{};
+  shared_ptr<string> enterpriseNumber{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appSecret) {
+      res["AppSecret"] = boost::any(*appSecret);
+    }
+    if (enterpriseNumber) {
+      res["EnterpriseNumber"] = boost::any(*enterpriseNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppSecret") != m.end() && !m["AppSecret"].empty()) {
+      appSecret = make_shared<string>(boost::any_cast<string>(m["AppSecret"]));
+    }
+    if (m.find("EnterpriseNumber") != m.end() && !m["EnterpriseNumber"].empty()) {
+      enterpriseNumber = make_shared<string>(boost::any_cast<string>(m["EnterpriseNumber"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> administratorPassword{};
+  shared_ptr<string> administratorUsername{};
+  shared_ptr<string> certificateFingerprintStatus{};
+  shared_ptr<vector<string>> certificateFingerprints{};
+  shared_ptr<string> ldapProtocol{};
+  shared_ptr<string> ldapServerHost{};
+  shared_ptr<long> ldapServerPort{};
+  shared_ptr<string> startTlsStatus{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (administratorPassword) {
+      res["AdministratorPassword"] = boost::any(*administratorPassword);
+    }
+    if (administratorUsername) {
+      res["AdministratorUsername"] = boost::any(*administratorUsername);
+    }
+    if (certificateFingerprintStatus) {
+      res["CertificateFingerprintStatus"] = boost::any(*certificateFingerprintStatus);
+    }
+    if (certificateFingerprints) {
+      res["CertificateFingerprints"] = boost::any(*certificateFingerprints);
+    }
+    if (ldapProtocol) {
+      res["LdapProtocol"] = boost::any(*ldapProtocol);
+    }
+    if (ldapServerHost) {
+      res["LdapServerHost"] = boost::any(*ldapServerHost);
+    }
+    if (ldapServerPort) {
+      res["LdapServerPort"] = boost::any(*ldapServerPort);
+    }
+    if (startTlsStatus) {
+      res["StartTlsStatus"] = boost::any(*startTlsStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdministratorPassword") != m.end() && !m["AdministratorPassword"].empty()) {
+      administratorPassword = make_shared<string>(boost::any_cast<string>(m["AdministratorPassword"]));
+    }
+    if (m.find("AdministratorUsername") != m.end() && !m["AdministratorUsername"].empty()) {
+      administratorUsername = make_shared<string>(boost::any_cast<string>(m["AdministratorUsername"]));
+    }
+    if (m.find("CertificateFingerprintStatus") != m.end() && !m["CertificateFingerprintStatus"].empty()) {
+      certificateFingerprintStatus = make_shared<string>(boost::any_cast<string>(m["CertificateFingerprintStatus"]));
+    }
+    if (m.find("CertificateFingerprints") != m.end() && !m["CertificateFingerprints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CertificateFingerprints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CertificateFingerprints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      certificateFingerprints = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LdapProtocol") != m.end() && !m["LdapProtocol"].empty()) {
+      ldapProtocol = make_shared<string>(boost::any_cast<string>(m["LdapProtocol"]));
+    }
+    if (m.find("LdapServerHost") != m.end() && !m["LdapServerHost"].empty()) {
+      ldapServerHost = make_shared<string>(boost::any_cast<string>(m["LdapServerHost"]));
+    }
+    if (m.find("LdapServerPort") != m.end() && !m["LdapServerPort"].empty()) {
+      ldapServerPort = make_shared<long>(boost::any_cast<long>(m["LdapServerPort"]));
+    }
+    if (m.find("StartTlsStatus") != m.end() && !m["StartTlsStatus"].empty()) {
+      startTlsStatus = make_shared<string>(boost::any_cast<string>(m["StartTlsStatus"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigAuthnParam : public Darabonba::Model {
+public:
+  shared_ptr<string> authnMethod{};
+  shared_ptr<string> clientId{};
+  shared_ptr<string> clientSecret{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigAuthnParam() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigAuthnParam(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authnMethod) {
+      res["AuthnMethod"] = boost::any(*authnMethod);
+    }
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (clientSecret) {
+      res["ClientSecret"] = boost::any(*clientSecret);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthnMethod") != m.end() && !m["AuthnMethod"].empty()) {
+      authnMethod = make_shared<string>(boost::any_cast<string>(m["AuthnMethod"]));
+    }
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("ClientSecret") != m.end() && !m["ClientSecret"].empty()) {
+      clientSecret = make_shared<string>(boost::any_cast<string>(m["ClientSecret"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigAuthnParam() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndpointConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationEndpoint{};
+  shared_ptr<string> issuer{};
+  shared_ptr<string> jwksUri{};
+  shared_ptr<string> tokenEndpoint{};
+  shared_ptr<string> userinfoEndpoint{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndpointConfig() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndpointConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationEndpoint) {
+      res["AuthorizationEndpoint"] = boost::any(*authorizationEndpoint);
+    }
+    if (issuer) {
+      res["Issuer"] = boost::any(*issuer);
+    }
+    if (jwksUri) {
+      res["JwksUri"] = boost::any(*jwksUri);
+    }
+    if (tokenEndpoint) {
+      res["TokenEndpoint"] = boost::any(*tokenEndpoint);
+    }
+    if (userinfoEndpoint) {
+      res["UserinfoEndpoint"] = boost::any(*userinfoEndpoint);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationEndpoint") != m.end() && !m["AuthorizationEndpoint"].empty()) {
+      authorizationEndpoint = make_shared<string>(boost::any_cast<string>(m["AuthorizationEndpoint"]));
+    }
+    if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
+      issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
+    }
+    if (m.find("JwksUri") != m.end() && !m["JwksUri"].empty()) {
+      jwksUri = make_shared<string>(boost::any_cast<string>(m["JwksUri"]));
+    }
+    if (m.find("TokenEndpoint") != m.end() && !m["TokenEndpoint"].empty()) {
+      tokenEndpoint = make_shared<string>(boost::any_cast<string>(m["TokenEndpoint"]));
+    }
+    if (m.find("UserinfoEndpoint") != m.end() && !m["UserinfoEndpoint"].empty()) {
+      userinfoEndpoint = make_shared<string>(boost::any_cast<string>(m["UserinfoEndpoint"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndpointConfig() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig : public Darabonba::Model {
+public:
+  shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigAuthnParam> authnParam{};
+  shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndpointConfig> endpointConfig{};
+  shared_ptr<vector<string>> grantScopes{};
+  shared_ptr<string> grantType{};
+  shared_ptr<string> pkceChallengeMethod{};
+  shared_ptr<bool> pkceRequired{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authnParam) {
+      res["AuthnParam"] = authnParam ? boost::any(authnParam->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (endpointConfig) {
+      res["EndpointConfig"] = endpointConfig ? boost::any(endpointConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (grantScopes) {
+      res["GrantScopes"] = boost::any(*grantScopes);
+    }
+    if (grantType) {
+      res["GrantType"] = boost::any(*grantType);
+    }
+    if (pkceChallengeMethod) {
+      res["PkceChallengeMethod"] = boost::any(*pkceChallengeMethod);
+    }
+    if (pkceRequired) {
+      res["PkceRequired"] = boost::any(*pkceRequired);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthnParam") != m.end() && !m["AuthnParam"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AuthnParam"].type()) {
+        GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigAuthnParam model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AuthnParam"]));
+        authnParam = make_shared<GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigAuthnParam>(model1);
+      }
+    }
+    if (m.find("EndpointConfig") != m.end() && !m["EndpointConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EndpointConfig"].type()) {
+        GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndpointConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EndpointConfig"]));
+        endpointConfig = make_shared<GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndpointConfig>(model1);
+      }
+    }
+    if (m.find("GrantScopes") != m.end() && !m["GrantScopes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GrantScopes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GrantScopes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      grantScopes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("GrantType") != m.end() && !m["GrantType"].empty()) {
+      grantType = make_shared<string>(boost::any_cast<string>(m["GrantType"]));
+    }
+    if (m.find("PkceChallengeMethod") != m.end() && !m["PkceChallengeMethod"].empty()) {
+      pkceChallengeMethod = make_shared<string>(boost::any_cast<string>(m["PkceChallengeMethod"]));
+    }
+    if (m.find("PkceRequired") != m.end() && !m["PkceRequired"].empty()) {
+      pkceRequired = make_shared<bool>(boost::any_cast<bool>(m["PkceRequired"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> sourceScopes{};
+  shared_ptr<string> targetScope{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceScopes) {
+      res["SourceScopes"] = boost::any(*sourceScopes);
+    }
+    if (targetScope) {
+      res["TargetScope"] = boost::any(*targetScope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceScopes") != m.end() && !m["SourceScopes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SourceScopes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SourceScopes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sourceScopes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TargetScope") != m.end() && !m["TargetScope"].empty()) {
+      targetScope = make_shared<string>(boost::any_cast<string>(m["TargetScope"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> groupSyncStatus{};
+  shared_ptr<string> incrementalCallbackStatus{};
+  shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig> udSyncScopeConfig{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupSyncStatus) {
+      res["GroupSyncStatus"] = boost::any(*groupSyncStatus);
+    }
+    if (incrementalCallbackStatus) {
+      res["IncrementalCallbackStatus"] = boost::any(*incrementalCallbackStatus);
+    }
+    if (udSyncScopeConfig) {
+      res["UdSyncScopeConfig"] = udSyncScopeConfig ? boost::any(udSyncScopeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupSyncStatus") != m.end() && !m["GroupSyncStatus"].empty()) {
+      groupSyncStatus = make_shared<string>(boost::any_cast<string>(m["GroupSyncStatus"]));
+    }
+    if (m.find("IncrementalCallbackStatus") != m.end() && !m["IncrementalCallbackStatus"].empty()) {
+      incrementalCallbackStatus = make_shared<string>(boost::any_cast<string>(m["IncrementalCallbackStatus"]));
+    }
+    if (m.find("UdSyncScopeConfig") != m.end() && !m["UdSyncScopeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UdSyncScopeConfig"].type()) {
+        GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UdSyncScopeConfig"]));
+        udSyncScopeConfig = make_shared<GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> sourceScopes{};
+  shared_ptr<string> targetScope{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceScopes) {
+      res["SourceScopes"] = boost::any(*sourceScopes);
+    }
+    if (targetScope) {
+      res["TargetScope"] = boost::any(*targetScope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceScopes") != m.end() && !m["SourceScopes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SourceScopes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SourceScopes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sourceScopes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TargetScope") != m.end() && !m["TargetScope"].empty()) {
+      targetScope = make_shared<string>(boost::any_cast<string>(m["TargetScope"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> incrementalCallbackStatus{};
+  shared_ptr<vector<GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs>> udSyncScopeConfigs{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (incrementalCallbackStatus) {
+      res["IncrementalCallbackStatus"] = boost::any(*incrementalCallbackStatus);
+    }
+    if (udSyncScopeConfigs) {
+      vector<boost::any> temp1;
+      for(auto item1:*udSyncScopeConfigs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UdSyncScopeConfigs"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IncrementalCallbackStatus") != m.end() && !m["IncrementalCallbackStatus"].empty()) {
+      incrementalCallbackStatus = make_shared<string>(boost::any_cast<string>(m["IncrementalCallbackStatus"]));
+    }
+    if (m.find("UdSyncScopeConfigs") != m.end() && !m["UdSyncScopeConfigs"].empty()) {
+      if (typeid(vector<boost::any>) == m["UdSyncScopeConfigs"].type()) {
+        vector<GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UdSyncScopeConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        udSyncScopeConfigs = make_shared<vector<GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> agentId{};
+  shared_ptr<string> authorizeCallbackDomain{};
+  shared_ptr<string> corpId{};
+  shared_ptr<string> corpSecret{};
+  shared_ptr<string> trustableDomain{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentId) {
+      res["AgentId"] = boost::any(*agentId);
+    }
+    if (authorizeCallbackDomain) {
+      res["AuthorizeCallbackDomain"] = boost::any(*authorizeCallbackDomain);
+    }
+    if (corpId) {
+      res["CorpId"] = boost::any(*corpId);
+    }
+    if (corpSecret) {
+      res["CorpSecret"] = boost::any(*corpSecret);
+    }
+    if (trustableDomain) {
+      res["TrustableDomain"] = boost::any(*trustableDomain);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentId") != m.end() && !m["AgentId"].empty()) {
+      agentId = make_shared<string>(boost::any_cast<string>(m["AgentId"]));
+    }
+    if (m.find("AuthorizeCallbackDomain") != m.end() && !m["AuthorizeCallbackDomain"].empty()) {
+      authorizeCallbackDomain = make_shared<string>(boost::any_cast<string>(m["AuthorizeCallbackDomain"]));
+    }
+    if (m.find("CorpId") != m.end() && !m["CorpId"].empty()) {
+      corpId = make_shared<string>(boost::any_cast<string>(m["CorpId"]));
+    }
+    if (m.find("CorpSecret") != m.end() && !m["CorpSecret"].empty()) {
+      corpSecret = make_shared<string>(boost::any_cast<string>(m["CorpSecret"]));
+    }
+    if (m.find("TrustableDomain") != m.end() && !m["TrustableDomain"].empty()) {
+      trustableDomain = make_shared<string>(boost::any_cast<string>(m["TrustableDomain"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig() = default;
+};
+class GetIdentityProviderResponseBodyIdentityProviderDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> advancedStatus{};
+  shared_ptr<string> authnSourceSupplier{};
+  shared_ptr<string> authnSourceType{};
+  shared_ptr<string> authnStatus{};
+  shared_ptr<long> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig> dingtalkAppConfig{};
+  shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig> dingtalkProvisioningConfig{};
+  shared_ptr<string> identityProviderExternalId{};
+  shared_ptr<string> identityProviderId{};
+  shared_ptr<string> identityProviderName{};
+  shared_ptr<string> identityProviderType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig> larkConfig{};
+  shared_ptr<string> lastStatusCheckJobResult{};
+  shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig> ldapConfig{};
+  shared_ptr<string> lockReason{};
+  shared_ptr<string> networkAccessEndpointId{};
+  shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig> oidcConfig{};
+  shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig> udPullConfig{};
+  shared_ptr<string> udPullStatus{};
+  shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig> udPushConfig{};
+  shared_ptr<string> udPushStatus{};
+  shared_ptr<long> updateTime{};
+  shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig> weComConfig{};
+
+  GetIdentityProviderResponseBodyIdentityProviderDetail() {}
+
+  explicit GetIdentityProviderResponseBodyIdentityProviderDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (advancedStatus) {
+      res["AdvancedStatus"] = boost::any(*advancedStatus);
+    }
+    if (authnSourceSupplier) {
+      res["AuthnSourceSupplier"] = boost::any(*authnSourceSupplier);
+    }
+    if (authnSourceType) {
+      res["AuthnSourceType"] = boost::any(*authnSourceType);
+    }
+    if (authnStatus) {
+      res["AuthnStatus"] = boost::any(*authnStatus);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dingtalkAppConfig) {
+      res["DingtalkAppConfig"] = dingtalkAppConfig ? boost::any(dingtalkAppConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dingtalkProvisioningConfig) {
+      res["DingtalkProvisioningConfig"] = dingtalkProvisioningConfig ? boost::any(dingtalkProvisioningConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (identityProviderExternalId) {
+      res["IdentityProviderExternalId"] = boost::any(*identityProviderExternalId);
+    }
+    if (identityProviderId) {
+      res["IdentityProviderId"] = boost::any(*identityProviderId);
+    }
+    if (identityProviderName) {
+      res["IdentityProviderName"] = boost::any(*identityProviderName);
+    }
+    if (identityProviderType) {
+      res["IdentityProviderType"] = boost::any(*identityProviderType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (larkConfig) {
+      res["LarkConfig"] = larkConfig ? boost::any(larkConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (lastStatusCheckJobResult) {
+      res["LastStatusCheckJobResult"] = boost::any(*lastStatusCheckJobResult);
+    }
+    if (ldapConfig) {
+      res["LdapConfig"] = ldapConfig ? boost::any(ldapConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (lockReason) {
+      res["LockReason"] = boost::any(*lockReason);
+    }
+    if (networkAccessEndpointId) {
+      res["NetworkAccessEndpointId"] = boost::any(*networkAccessEndpointId);
+    }
+    if (oidcConfig) {
+      res["OidcConfig"] = oidcConfig ? boost::any(oidcConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (udPullConfig) {
+      res["UdPullConfig"] = udPullConfig ? boost::any(udPullConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (udPullStatus) {
+      res["UdPullStatus"] = boost::any(*udPullStatus);
+    }
+    if (udPushConfig) {
+      res["UdPushConfig"] = udPushConfig ? boost::any(udPushConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (udPushStatus) {
+      res["UdPushStatus"] = boost::any(*udPushStatus);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    if (weComConfig) {
+      res["WeComConfig"] = weComConfig ? boost::any(weComConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdvancedStatus") != m.end() && !m["AdvancedStatus"].empty()) {
+      advancedStatus = make_shared<string>(boost::any_cast<string>(m["AdvancedStatus"]));
+    }
+    if (m.find("AuthnSourceSupplier") != m.end() && !m["AuthnSourceSupplier"].empty()) {
+      authnSourceSupplier = make_shared<string>(boost::any_cast<string>(m["AuthnSourceSupplier"]));
+    }
+    if (m.find("AuthnSourceType") != m.end() && !m["AuthnSourceType"].empty()) {
+      authnSourceType = make_shared<string>(boost::any_cast<string>(m["AuthnSourceType"]));
+    }
+    if (m.find("AuthnStatus") != m.end() && !m["AuthnStatus"].empty()) {
+      authnStatus = make_shared<string>(boost::any_cast<string>(m["AuthnStatus"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DingtalkAppConfig") != m.end() && !m["DingtalkAppConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DingtalkAppConfig"].type()) {
+        GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DingtalkAppConfig"]));
+        dingtalkAppConfig = make_shared<GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig>(model1);
+      }
+    }
+    if (m.find("DingtalkProvisioningConfig") != m.end() && !m["DingtalkProvisioningConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DingtalkProvisioningConfig"].type()) {
+        GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DingtalkProvisioningConfig"]));
+        dingtalkProvisioningConfig = make_shared<GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig>(model1);
+      }
+    }
+    if (m.find("IdentityProviderExternalId") != m.end() && !m["IdentityProviderExternalId"].empty()) {
+      identityProviderExternalId = make_shared<string>(boost::any_cast<string>(m["IdentityProviderExternalId"]));
+    }
+    if (m.find("IdentityProviderId") != m.end() && !m["IdentityProviderId"].empty()) {
+      identityProviderId = make_shared<string>(boost::any_cast<string>(m["IdentityProviderId"]));
+    }
+    if (m.find("IdentityProviderName") != m.end() && !m["IdentityProviderName"].empty()) {
+      identityProviderName = make_shared<string>(boost::any_cast<string>(m["IdentityProviderName"]));
+    }
+    if (m.find("IdentityProviderType") != m.end() && !m["IdentityProviderType"].empty()) {
+      identityProviderType = make_shared<string>(boost::any_cast<string>(m["IdentityProviderType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LarkConfig") != m.end() && !m["LarkConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LarkConfig"].type()) {
+        GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LarkConfig"]));
+        larkConfig = make_shared<GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig>(model1);
+      }
+    }
+    if (m.find("LastStatusCheckJobResult") != m.end() && !m["LastStatusCheckJobResult"].empty()) {
+      lastStatusCheckJobResult = make_shared<string>(boost::any_cast<string>(m["LastStatusCheckJobResult"]));
+    }
+    if (m.find("LdapConfig") != m.end() && !m["LdapConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LdapConfig"].type()) {
+        GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LdapConfig"]));
+        ldapConfig = make_shared<GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig>(model1);
+      }
+    }
+    if (m.find("LockReason") != m.end() && !m["LockReason"].empty()) {
+      lockReason = make_shared<string>(boost::any_cast<string>(m["LockReason"]));
+    }
+    if (m.find("NetworkAccessEndpointId") != m.end() && !m["NetworkAccessEndpointId"].empty()) {
+      networkAccessEndpointId = make_shared<string>(boost::any_cast<string>(m["NetworkAccessEndpointId"]));
+    }
+    if (m.find("OidcConfig") != m.end() && !m["OidcConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OidcConfig"].type()) {
+        GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OidcConfig"]));
+        oidcConfig = make_shared<GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig>(model1);
+      }
+    }
+    if (m.find("UdPullConfig") != m.end() && !m["UdPullConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UdPullConfig"].type()) {
+        GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UdPullConfig"]));
+        udPullConfig = make_shared<GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig>(model1);
+      }
+    }
+    if (m.find("UdPullStatus") != m.end() && !m["UdPullStatus"].empty()) {
+      udPullStatus = make_shared<string>(boost::any_cast<string>(m["UdPullStatus"]));
+    }
+    if (m.find("UdPushConfig") != m.end() && !m["UdPushConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UdPushConfig"].type()) {
+        GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UdPushConfig"]));
+        udPushConfig = make_shared<GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig>(model1);
+      }
+    }
+    if (m.find("UdPushStatus") != m.end() && !m["UdPushStatus"].empty()) {
+      udPushStatus = make_shared<string>(boost::any_cast<string>(m["UdPushStatus"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<long>(boost::any_cast<long>(m["UpdateTime"]));
+    }
+    if (m.find("WeComConfig") != m.end() && !m["WeComConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["WeComConfig"].type()) {
+        GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["WeComConfig"]));
+        weComConfig = make_shared<GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBodyIdentityProviderDetail() = default;
+};
+class GetIdentityProviderResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetail> identityProviderDetail{};
+  shared_ptr<string> requestId{};
+
+  GetIdentityProviderResponseBody() {}
+
+  explicit GetIdentityProviderResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identityProviderDetail) {
+      res["IdentityProviderDetail"] = identityProviderDetail ? boost::any(identityProviderDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentityProviderDetail") != m.end() && !m["IdentityProviderDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IdentityProviderDetail"].type()) {
+        GetIdentityProviderResponseBodyIdentityProviderDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IdentityProviderDetail"]));
+        identityProviderDetail = make_shared<GetIdentityProviderResponseBodyIdentityProviderDetail>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponseBody() = default;
+};
+class GetIdentityProviderResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetIdentityProviderResponseBody> body{};
+
+  GetIdentityProviderResponse() {}
+
+  explicit GetIdentityProviderResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetIdentityProviderResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetIdentityProviderResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetIdentityProviderResponse() = default;
+};
+class GetIdentityProviderUdPullConfigurationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identityProviderId{};
+  shared_ptr<string> instanceId{};
+
+  GetIdentityProviderUdPullConfigurationRequest() {}
+
+  explicit GetIdentityProviderUdPullConfigurationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identityProviderId) {
+      res["IdentityProviderId"] = boost::any(*identityProviderId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentityProviderId") != m.end() && !m["IdentityProviderId"].empty()) {
+      identityProviderId = make_shared<string>(boost::any_cast<string>(m["IdentityProviderId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderUdPullConfigurationRequest() = default;
+};
+class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> groupMemberAttributeName{};
+  shared_ptr<string> groupObjectClass{};
+  shared_ptr<string> groupObjectClassCustomFilter{};
+  shared_ptr<string> organizationUnitObjectClass{};
+  shared_ptr<string> userObjectClass{};
+  shared_ptr<string> userObjectClassCustomFilter{};
+
+  GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig() {}
+
+  explicit GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupMemberAttributeName) {
+      res["GroupMemberAttributeName"] = boost::any(*groupMemberAttributeName);
+    }
+    if (groupObjectClass) {
+      res["GroupObjectClass"] = boost::any(*groupObjectClass);
+    }
+    if (groupObjectClassCustomFilter) {
+      res["GroupObjectClassCustomFilter"] = boost::any(*groupObjectClassCustomFilter);
+    }
+    if (organizationUnitObjectClass) {
+      res["OrganizationUnitObjectClass"] = boost::any(*organizationUnitObjectClass);
+    }
+    if (userObjectClass) {
+      res["UserObjectClass"] = boost::any(*userObjectClass);
+    }
+    if (userObjectClassCustomFilter) {
+      res["UserObjectClassCustomFilter"] = boost::any(*userObjectClassCustomFilter);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupMemberAttributeName") != m.end() && !m["GroupMemberAttributeName"].empty()) {
+      groupMemberAttributeName = make_shared<string>(boost::any_cast<string>(m["GroupMemberAttributeName"]));
+    }
+    if (m.find("GroupObjectClass") != m.end() && !m["GroupObjectClass"].empty()) {
+      groupObjectClass = make_shared<string>(boost::any_cast<string>(m["GroupObjectClass"]));
+    }
+    if (m.find("GroupObjectClassCustomFilter") != m.end() && !m["GroupObjectClassCustomFilter"].empty()) {
+      groupObjectClassCustomFilter = make_shared<string>(boost::any_cast<string>(m["GroupObjectClassCustomFilter"]));
+    }
+    if (m.find("OrganizationUnitObjectClass") != m.end() && !m["OrganizationUnitObjectClass"].empty()) {
+      organizationUnitObjectClass = make_shared<string>(boost::any_cast<string>(m["OrganizationUnitObjectClass"]));
+    }
+    if (m.find("UserObjectClass") != m.end() && !m["UserObjectClass"].empty()) {
+      userObjectClass = make_shared<string>(boost::any_cast<string>(m["UserObjectClass"]));
+    }
+    if (m.find("UserObjectClassCustomFilter") != m.end() && !m["UserObjectClassCustomFilter"].empty()) {
+      userObjectClassCustomFilter = make_shared<string>(boost::any_cast<string>(m["UserObjectClassCustomFilter"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig() = default;
+};
+class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule : public Darabonba::Model {
+public:
+  shared_ptr<long> groupDeletedThreshold{};
+  shared_ptr<long> organizationalUnitDeletedThreshold{};
+  shared_ptr<long> userDeletedThreshold{};
+
+  GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule() {}
+
+  explicit GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupDeletedThreshold) {
+      res["GroupDeletedThreshold"] = boost::any(*groupDeletedThreshold);
+    }
+    if (organizationalUnitDeletedThreshold) {
+      res["OrganizationalUnitDeletedThreshold"] = boost::any(*organizationalUnitDeletedThreshold);
+    }
+    if (userDeletedThreshold) {
+      res["UserDeletedThreshold"] = boost::any(*userDeletedThreshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupDeletedThreshold") != m.end() && !m["GroupDeletedThreshold"].empty()) {
+      groupDeletedThreshold = make_shared<long>(boost::any_cast<long>(m["GroupDeletedThreshold"]));
+    }
+    if (m.find("OrganizationalUnitDeletedThreshold") != m.end() && !m["OrganizationalUnitDeletedThreshold"].empty()) {
+      organizationalUnitDeletedThreshold = make_shared<long>(boost::any_cast<long>(m["OrganizationalUnitDeletedThreshold"]));
+    }
+    if (m.find("UserDeletedThreshold") != m.end() && !m["UserDeletedThreshold"].empty()) {
+      userDeletedThreshold = make_shared<long>(boost::any_cast<long>(m["UserDeletedThreshold"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule() = default;
+};
+class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> sourceScopes{};
+  shared_ptr<string> targetScope{};
+
+  GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig() {}
+
+  explicit GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceScopes) {
+      res["SourceScopes"] = boost::any(*sourceScopes);
+    }
+    if (targetScope) {
+      res["TargetScope"] = boost::any(*targetScope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceScopes") != m.end() && !m["SourceScopes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SourceScopes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SourceScopes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sourceScopes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TargetScope") != m.end() && !m["TargetScope"].empty()) {
+      targetScope = make_shared<string>(boost::any_cast<string>(m["TargetScope"]));
+    }
+  }
+
+
+  virtual ~GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig() = default;
+};
+class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<string> groupSyncStatus{};
+  shared_ptr<string> identityProviderId{};
+  shared_ptr<string> incrementalCallbackStatus{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig> ldapUdPullConfig{};
+  shared_ptr<string> periodicSyncStatus{};
+  shared_ptr<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule> pullProtectedRule{};
+  shared_ptr<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig> udSyncScopeConfig{};
+
+  GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfiguration() {}
+
+  explicit GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupSyncStatus) {
+      res["GroupSyncStatus"] = boost::any(*groupSyncStatus);
+    }
+    if (identityProviderId) {
+      res["IdentityProviderId"] = boost::any(*identityProviderId);
+    }
+    if (incrementalCallbackStatus) {
+      res["IncrementalCallbackStatus"] = boost::any(*incrementalCallbackStatus);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ldapUdPullConfig) {
+      res["LdapUdPullConfig"] = ldapUdPullConfig ? boost::any(ldapUdPullConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (periodicSyncStatus) {
+      res["PeriodicSyncStatus"] = boost::any(*periodicSyncStatus);
+    }
+    if (pullProtectedRule) {
+      res["PullProtectedRule"] = pullProtectedRule ? boost::any(pullProtectedRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (udSyncScopeConfig) {
+      res["UdSyncScopeConfig"] = udSyncScopeConfig ? boost::any(udSyncScopeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupSyncStatus") != m.end() && !m["GroupSyncStatus"].empty()) {
+      groupSyncStatus = make_shared<string>(boost::any_cast<string>(m["GroupSyncStatus"]));
+    }
+    if (m.find("IdentityProviderId") != m.end() && !m["IdentityProviderId"].empty()) {
+      identityProviderId = make_shared<string>(boost::any_cast<string>(m["IdentityProviderId"]));
+    }
+    if (m.find("IncrementalCallbackStatus") != m.end() && !m["IncrementalCallbackStatus"].empty()) {
+      incrementalCallbackStatus = make_shared<string>(boost::any_cast<string>(m["IncrementalCallbackStatus"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LdapUdPullConfig") != m.end() && !m["LdapUdPullConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LdapUdPullConfig"].type()) {
+        GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LdapUdPullConfig"]));
+        ldapUdPullConfig = make_shared<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig>(model1);
+      }
+    }
+    if (m.find("PeriodicSyncStatus") != m.end() && !m["PeriodicSyncStatus"].empty()) {
+      periodicSyncStatus = make_shared<string>(boost::any_cast<string>(m["PeriodicSyncStatus"]));
+    }
+    if (m.find("PullProtectedRule") != m.end() && !m["PullProtectedRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PullProtectedRule"].type()) {
+        GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PullProtectedRule"]));
+        pullProtectedRule = make_shared<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule>(model1);
+      }
+    }
+    if (m.find("UdSyncScopeConfig") != m.end() && !m["UdSyncScopeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UdSyncScopeConfig"].type()) {
+        GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UdSyncScopeConfig"]));
+        udSyncScopeConfig = make_shared<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfiguration() = default;
+};
+class GetIdentityProviderUdPullConfigurationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfiguration> udPullConfiguration{};
+
+  GetIdentityProviderUdPullConfigurationResponseBody() {}
+
+  explicit GetIdentityProviderUdPullConfigurationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (udPullConfiguration) {
+      res["UdPullConfiguration"] = udPullConfiguration ? boost::any(udPullConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("UdPullConfiguration") != m.end() && !m["UdPullConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UdPullConfiguration"].type()) {
+        GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UdPullConfiguration"]));
+        udPullConfiguration = make_shared<GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfiguration>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetIdentityProviderUdPullConfigurationResponseBody() = default;
+};
+class GetIdentityProviderUdPullConfigurationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetIdentityProviderUdPullConfigurationResponseBody> body{};
+
+  GetIdentityProviderUdPullConfigurationResponse() {}
+
+  explicit GetIdentityProviderUdPullConfigurationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetIdentityProviderUdPullConfigurationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetIdentityProviderUdPullConfigurationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetIdentityProviderUdPullConfigurationResponse() = default;
 };
 class GetInstanceRequest : public Darabonba::Model {
 public:
@@ -8808,6 +11822,7 @@ public:
 };
 class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationConfiguration : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> effectiveAuthenticationSourceIds{};
   shared_ptr<string> passwordExpirationAction{};
   shared_ptr<vector<string>> passwordExpirationNotificationChannels{};
   shared_ptr<long> passwordExpirationNotificationDuration{};
@@ -8826,6 +11841,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (effectiveAuthenticationSourceIds) {
+      res["EffectiveAuthenticationSourceIds"] = boost::any(*effectiveAuthenticationSourceIds);
+    }
     if (passwordExpirationAction) {
       res["PasswordExpirationAction"] = boost::any(*passwordExpirationAction);
     }
@@ -8851,6 +11869,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EffectiveAuthenticationSourceIds") != m.end() && !m["EffectiveAuthenticationSourceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EffectiveAuthenticationSourceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EffectiveAuthenticationSourceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      effectiveAuthenticationSourceIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("PasswordExpirationAction") != m.end() && !m["PasswordExpirationAction"].empty()) {
       passwordExpirationAction = make_shared<string>(boost::any_cast<string>(m["PasswordExpirationAction"]));
     }
@@ -14311,6 +17339,306 @@ public:
 
 
   virtual ~ListGroupsForUserResponse() = default;
+};
+class ListIdentityProvidersRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  ListIdentityProvidersRequest() {}
+
+  explicit ListIdentityProvidersRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListIdentityProvidersRequest() = default;
+};
+class ListIdentityProvidersResponseBodyIdentityProviders : public Darabonba::Model {
+public:
+  shared_ptr<string> advancedStatus{};
+  shared_ptr<string> authnSourceSupplier{};
+  shared_ptr<string> authnSourceType{};
+  shared_ptr<string> authnStatus{};
+  shared_ptr<long> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> identityProviderExternalId{};
+  shared_ptr<string> identityProviderId{};
+  shared_ptr<string> identityProviderName{};
+  shared_ptr<string> identityProviderType{};
+  shared_ptr<string> incrementalCallbackStatus{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> lastStatusCheckJobResult{};
+  shared_ptr<string> lockReason{};
+  shared_ptr<string> udPullStatus{};
+  shared_ptr<string> udPullTargetScope{};
+  shared_ptr<string> udPushStatus{};
+  shared_ptr<long> updateTime{};
+
+  ListIdentityProvidersResponseBodyIdentityProviders() {}
+
+  explicit ListIdentityProvidersResponseBodyIdentityProviders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (advancedStatus) {
+      res["AdvancedStatus"] = boost::any(*advancedStatus);
+    }
+    if (authnSourceSupplier) {
+      res["AuthnSourceSupplier"] = boost::any(*authnSourceSupplier);
+    }
+    if (authnSourceType) {
+      res["AuthnSourceType"] = boost::any(*authnSourceType);
+    }
+    if (authnStatus) {
+      res["AuthnStatus"] = boost::any(*authnStatus);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (identityProviderExternalId) {
+      res["IdentityProviderExternalId"] = boost::any(*identityProviderExternalId);
+    }
+    if (identityProviderId) {
+      res["IdentityProviderId"] = boost::any(*identityProviderId);
+    }
+    if (identityProviderName) {
+      res["IdentityProviderName"] = boost::any(*identityProviderName);
+    }
+    if (identityProviderType) {
+      res["IdentityProviderType"] = boost::any(*identityProviderType);
+    }
+    if (incrementalCallbackStatus) {
+      res["IncrementalCallbackStatus"] = boost::any(*incrementalCallbackStatus);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (lastStatusCheckJobResult) {
+      res["LastStatusCheckJobResult"] = boost::any(*lastStatusCheckJobResult);
+    }
+    if (lockReason) {
+      res["LockReason"] = boost::any(*lockReason);
+    }
+    if (udPullStatus) {
+      res["UdPullStatus"] = boost::any(*udPullStatus);
+    }
+    if (udPullTargetScope) {
+      res["UdPullTargetScope"] = boost::any(*udPullTargetScope);
+    }
+    if (udPushStatus) {
+      res["UdPushStatus"] = boost::any(*udPushStatus);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdvancedStatus") != m.end() && !m["AdvancedStatus"].empty()) {
+      advancedStatus = make_shared<string>(boost::any_cast<string>(m["AdvancedStatus"]));
+    }
+    if (m.find("AuthnSourceSupplier") != m.end() && !m["AuthnSourceSupplier"].empty()) {
+      authnSourceSupplier = make_shared<string>(boost::any_cast<string>(m["AuthnSourceSupplier"]));
+    }
+    if (m.find("AuthnSourceType") != m.end() && !m["AuthnSourceType"].empty()) {
+      authnSourceType = make_shared<string>(boost::any_cast<string>(m["AuthnSourceType"]));
+    }
+    if (m.find("AuthnStatus") != m.end() && !m["AuthnStatus"].empty()) {
+      authnStatus = make_shared<string>(boost::any_cast<string>(m["AuthnStatus"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("IdentityProviderExternalId") != m.end() && !m["IdentityProviderExternalId"].empty()) {
+      identityProviderExternalId = make_shared<string>(boost::any_cast<string>(m["IdentityProviderExternalId"]));
+    }
+    if (m.find("IdentityProviderId") != m.end() && !m["IdentityProviderId"].empty()) {
+      identityProviderId = make_shared<string>(boost::any_cast<string>(m["IdentityProviderId"]));
+    }
+    if (m.find("IdentityProviderName") != m.end() && !m["IdentityProviderName"].empty()) {
+      identityProviderName = make_shared<string>(boost::any_cast<string>(m["IdentityProviderName"]));
+    }
+    if (m.find("IdentityProviderType") != m.end() && !m["IdentityProviderType"].empty()) {
+      identityProviderType = make_shared<string>(boost::any_cast<string>(m["IdentityProviderType"]));
+    }
+    if (m.find("IncrementalCallbackStatus") != m.end() && !m["IncrementalCallbackStatus"].empty()) {
+      incrementalCallbackStatus = make_shared<string>(boost::any_cast<string>(m["IncrementalCallbackStatus"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LastStatusCheckJobResult") != m.end() && !m["LastStatusCheckJobResult"].empty()) {
+      lastStatusCheckJobResult = make_shared<string>(boost::any_cast<string>(m["LastStatusCheckJobResult"]));
+    }
+    if (m.find("LockReason") != m.end() && !m["LockReason"].empty()) {
+      lockReason = make_shared<string>(boost::any_cast<string>(m["LockReason"]));
+    }
+    if (m.find("UdPullStatus") != m.end() && !m["UdPullStatus"].empty()) {
+      udPullStatus = make_shared<string>(boost::any_cast<string>(m["UdPullStatus"]));
+    }
+    if (m.find("UdPullTargetScope") != m.end() && !m["UdPullTargetScope"].empty()) {
+      udPullTargetScope = make_shared<string>(boost::any_cast<string>(m["UdPullTargetScope"]));
+    }
+    if (m.find("UdPushStatus") != m.end() && !m["UdPushStatus"].empty()) {
+      udPushStatus = make_shared<string>(boost::any_cast<string>(m["UdPushStatus"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<long>(boost::any_cast<long>(m["UpdateTime"]));
+    }
+  }
+
+
+  virtual ~ListIdentityProvidersResponseBodyIdentityProviders() = default;
+};
+class ListIdentityProvidersResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListIdentityProvidersResponseBodyIdentityProviders>> identityProviders{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListIdentityProvidersResponseBody() {}
+
+  explicit ListIdentityProvidersResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identityProviders) {
+      vector<boost::any> temp1;
+      for(auto item1:*identityProviders){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IdentityProviders"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentityProviders") != m.end() && !m["IdentityProviders"].empty()) {
+      if (typeid(vector<boost::any>) == m["IdentityProviders"].type()) {
+        vector<ListIdentityProvidersResponseBodyIdentityProviders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IdentityProviders"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIdentityProvidersResponseBodyIdentityProviders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        identityProviders = make_shared<vector<ListIdentityProvidersResponseBodyIdentityProviders>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListIdentityProvidersResponseBody() = default;
+};
+class ListIdentityProvidersResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListIdentityProvidersResponseBody> body{};
+
+  ListIdentityProvidersResponse() {}
+
+  explicit ListIdentityProvidersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListIdentityProvidersResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListIdentityProvidersResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListIdentityProvidersResponse() = default;
 };
 class ListInstancesRequest : public Darabonba::Model {
 public:
@@ -21087,6 +24415,42 @@ public:
 
   virtual ~SetApplicationSsoConfigRequestSamlSsoConfigAttributeStatements() = default;
 };
+class SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates : public Darabonba::Model {
+public:
+  shared_ptr<string> displayName{};
+  shared_ptr<string> relayState{};
+
+  SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates() {}
+
+  explicit SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (displayName) {
+      res["DisplayName"] = boost::any(*displayName);
+    }
+    if (relayState) {
+      res["RelayState"] = boost::any(*relayState);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
+      displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
+    }
+    if (m.find("RelayState") != m.end() && !m["RelayState"].empty()) {
+      relayState = make_shared<string>(boost::any_cast<string>(m["RelayState"]));
+    }
+  }
+
+
+  virtual ~SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates() = default;
+};
 class SetApplicationSsoConfigRequestSamlSsoConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> assertionSigned{};
@@ -21095,6 +24459,7 @@ public:
   shared_ptr<string> idPEntityId{};
   shared_ptr<string> nameIdFormat{};
   shared_ptr<string> nameIdValueExpression{};
+  shared_ptr<vector<SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates>> optionalRelayStates{};
   shared_ptr<bool> responseSigned{};
   shared_ptr<string> signatureAlgorithm{};
   shared_ptr<string> spEntityId{};
@@ -21131,6 +24496,13 @@ public:
     }
     if (nameIdValueExpression) {
       res["NameIdValueExpression"] = boost::any(*nameIdValueExpression);
+    }
+    if (optionalRelayStates) {
+      vector<boost::any> temp1;
+      for(auto item1:*optionalRelayStates){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OptionalRelayStates"] = boost::any(temp1);
     }
     if (responseSigned) {
       res["ResponseSigned"] = boost::any(*responseSigned);
@@ -21176,6 +24548,19 @@ public:
     if (m.find("NameIdValueExpression") != m.end() && !m["NameIdValueExpression"].empty()) {
       nameIdValueExpression = make_shared<string>(boost::any_cast<string>(m["NameIdValueExpression"]));
     }
+    if (m.find("OptionalRelayStates") != m.end() && !m["OptionalRelayStates"].empty()) {
+      if (typeid(vector<boost::any>) == m["OptionalRelayStates"].type()) {
+        vector<SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OptionalRelayStates"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        optionalRelayStates = make_shared<vector<SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates>>(expect1);
+      }
+    }
     if (m.find("ResponseSigned") != m.end() && !m["ResponseSigned"].empty()) {
       responseSigned = make_shared<bool>(boost::any_cast<bool>(m["ResponseSigned"]));
     }
@@ -21196,6 +24581,7 @@ public:
 class SetApplicationSsoConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationId{};
+  shared_ptr<string> clientToken{};
   shared_ptr<string> initLoginType{};
   shared_ptr<string> initLoginUrl{};
   shared_ptr<string> instanceId{};
@@ -21214,6 +24600,9 @@ public:
     map<string, boost::any> res;
     if (applicationId) {
       res["ApplicationId"] = boost::any(*applicationId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
     }
     if (initLoginType) {
       res["InitLoginType"] = boost::any(*initLoginType);
@@ -21236,6 +24625,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
       applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
     if (m.find("InitLoginType") != m.end() && !m["InitLoginType"].empty()) {
       initLoginType = make_shared<string>(boost::any_cast<string>(m["InitLoginType"]));
@@ -21594,6 +24986,327 @@ public:
 
   virtual ~SetForgetPasswordConfigurationResponse() = default;
 };
+class SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> groupMemberAttributeName{};
+  shared_ptr<string> groupObjectClass{};
+  shared_ptr<string> groupObjectClassCustomFilter{};
+  shared_ptr<string> organizationUnitObjectClass{};
+  shared_ptr<string> userObjectClass{};
+  shared_ptr<string> userObjectClassCustomFilter{};
+
+  SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig() {}
+
+  explicit SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupMemberAttributeName) {
+      res["GroupMemberAttributeName"] = boost::any(*groupMemberAttributeName);
+    }
+    if (groupObjectClass) {
+      res["GroupObjectClass"] = boost::any(*groupObjectClass);
+    }
+    if (groupObjectClassCustomFilter) {
+      res["GroupObjectClassCustomFilter"] = boost::any(*groupObjectClassCustomFilter);
+    }
+    if (organizationUnitObjectClass) {
+      res["OrganizationUnitObjectClass"] = boost::any(*organizationUnitObjectClass);
+    }
+    if (userObjectClass) {
+      res["UserObjectClass"] = boost::any(*userObjectClass);
+    }
+    if (userObjectClassCustomFilter) {
+      res["UserObjectClassCustomFilter"] = boost::any(*userObjectClassCustomFilter);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupMemberAttributeName") != m.end() && !m["GroupMemberAttributeName"].empty()) {
+      groupMemberAttributeName = make_shared<string>(boost::any_cast<string>(m["GroupMemberAttributeName"]));
+    }
+    if (m.find("GroupObjectClass") != m.end() && !m["GroupObjectClass"].empty()) {
+      groupObjectClass = make_shared<string>(boost::any_cast<string>(m["GroupObjectClass"]));
+    }
+    if (m.find("GroupObjectClassCustomFilter") != m.end() && !m["GroupObjectClassCustomFilter"].empty()) {
+      groupObjectClassCustomFilter = make_shared<string>(boost::any_cast<string>(m["GroupObjectClassCustomFilter"]));
+    }
+    if (m.find("OrganizationUnitObjectClass") != m.end() && !m["OrganizationUnitObjectClass"].empty()) {
+      organizationUnitObjectClass = make_shared<string>(boost::any_cast<string>(m["OrganizationUnitObjectClass"]));
+    }
+    if (m.find("UserObjectClass") != m.end() && !m["UserObjectClass"].empty()) {
+      userObjectClass = make_shared<string>(boost::any_cast<string>(m["UserObjectClass"]));
+    }
+    if (m.find("UserObjectClassCustomFilter") != m.end() && !m["UserObjectClassCustomFilter"].empty()) {
+      userObjectClassCustomFilter = make_shared<string>(boost::any_cast<string>(m["UserObjectClassCustomFilter"]));
+    }
+  }
+
+
+  virtual ~SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig() = default;
+};
+class SetIdentityProviderUdPullConfigurationRequestPullProtectedRule : public Darabonba::Model {
+public:
+  shared_ptr<long> groupDeletedThreshold{};
+  shared_ptr<long> organizationalUnitDeletedThreshold{};
+  shared_ptr<long> userDeletedThreshold{};
+
+  SetIdentityProviderUdPullConfigurationRequestPullProtectedRule() {}
+
+  explicit SetIdentityProviderUdPullConfigurationRequestPullProtectedRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupDeletedThreshold) {
+      res["GroupDeletedThreshold"] = boost::any(*groupDeletedThreshold);
+    }
+    if (organizationalUnitDeletedThreshold) {
+      res["OrganizationalUnitDeletedThreshold"] = boost::any(*organizationalUnitDeletedThreshold);
+    }
+    if (userDeletedThreshold) {
+      res["UserDeletedThreshold"] = boost::any(*userDeletedThreshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupDeletedThreshold") != m.end() && !m["GroupDeletedThreshold"].empty()) {
+      groupDeletedThreshold = make_shared<long>(boost::any_cast<long>(m["GroupDeletedThreshold"]));
+    }
+    if (m.find("OrganizationalUnitDeletedThreshold") != m.end() && !m["OrganizationalUnitDeletedThreshold"].empty()) {
+      organizationalUnitDeletedThreshold = make_shared<long>(boost::any_cast<long>(m["OrganizationalUnitDeletedThreshold"]));
+    }
+    if (m.find("UserDeletedThreshold") != m.end() && !m["UserDeletedThreshold"].empty()) {
+      userDeletedThreshold = make_shared<long>(boost::any_cast<long>(m["UserDeletedThreshold"]));
+    }
+  }
+
+
+  virtual ~SetIdentityProviderUdPullConfigurationRequestPullProtectedRule() = default;
+};
+class SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> sourceScopes{};
+  shared_ptr<string> targetScope{};
+
+  SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig() {}
+
+  explicit SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceScopes) {
+      res["SourceScopes"] = boost::any(*sourceScopes);
+    }
+    if (targetScope) {
+      res["TargetScope"] = boost::any(*targetScope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceScopes") != m.end() && !m["SourceScopes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SourceScopes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SourceScopes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sourceScopes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TargetScope") != m.end() && !m["TargetScope"].empty()) {
+      targetScope = make_shared<string>(boost::any_cast<string>(m["TargetScope"]));
+    }
+  }
+
+
+  virtual ~SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig() = default;
+};
+class SetIdentityProviderUdPullConfigurationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> groupSyncStatus{};
+  shared_ptr<string> identityProviderId{};
+  shared_ptr<string> incrementalCallbackStatus{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig> ldapUdPullConfig{};
+  shared_ptr<string> periodicSyncStatus{};
+  shared_ptr<SetIdentityProviderUdPullConfigurationRequestPullProtectedRule> pullProtectedRule{};
+  shared_ptr<SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig> udSyncScopeConfig{};
+
+  SetIdentityProviderUdPullConfigurationRequest() {}
+
+  explicit SetIdentityProviderUdPullConfigurationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupSyncStatus) {
+      res["GroupSyncStatus"] = boost::any(*groupSyncStatus);
+    }
+    if (identityProviderId) {
+      res["IdentityProviderId"] = boost::any(*identityProviderId);
+    }
+    if (incrementalCallbackStatus) {
+      res["IncrementalCallbackStatus"] = boost::any(*incrementalCallbackStatus);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ldapUdPullConfig) {
+      res["LdapUdPullConfig"] = ldapUdPullConfig ? boost::any(ldapUdPullConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (periodicSyncStatus) {
+      res["PeriodicSyncStatus"] = boost::any(*periodicSyncStatus);
+    }
+    if (pullProtectedRule) {
+      res["PullProtectedRule"] = pullProtectedRule ? boost::any(pullProtectedRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (udSyncScopeConfig) {
+      res["UdSyncScopeConfig"] = udSyncScopeConfig ? boost::any(udSyncScopeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupSyncStatus") != m.end() && !m["GroupSyncStatus"].empty()) {
+      groupSyncStatus = make_shared<string>(boost::any_cast<string>(m["GroupSyncStatus"]));
+    }
+    if (m.find("IdentityProviderId") != m.end() && !m["IdentityProviderId"].empty()) {
+      identityProviderId = make_shared<string>(boost::any_cast<string>(m["IdentityProviderId"]));
+    }
+    if (m.find("IncrementalCallbackStatus") != m.end() && !m["IncrementalCallbackStatus"].empty()) {
+      incrementalCallbackStatus = make_shared<string>(boost::any_cast<string>(m["IncrementalCallbackStatus"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LdapUdPullConfig") != m.end() && !m["LdapUdPullConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LdapUdPullConfig"].type()) {
+        SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LdapUdPullConfig"]));
+        ldapUdPullConfig = make_shared<SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig>(model1);
+      }
+    }
+    if (m.find("PeriodicSyncStatus") != m.end() && !m["PeriodicSyncStatus"].empty()) {
+      periodicSyncStatus = make_shared<string>(boost::any_cast<string>(m["PeriodicSyncStatus"]));
+    }
+    if (m.find("PullProtectedRule") != m.end() && !m["PullProtectedRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PullProtectedRule"].type()) {
+        SetIdentityProviderUdPullConfigurationRequestPullProtectedRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PullProtectedRule"]));
+        pullProtectedRule = make_shared<SetIdentityProviderUdPullConfigurationRequestPullProtectedRule>(model1);
+      }
+    }
+    if (m.find("UdSyncScopeConfig") != m.end() && !m["UdSyncScopeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UdSyncScopeConfig"].type()) {
+        SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UdSyncScopeConfig"]));
+        udSyncScopeConfig = make_shared<SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetIdentityProviderUdPullConfigurationRequest() = default;
+};
+class SetIdentityProviderUdPullConfigurationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SetIdentityProviderUdPullConfigurationResponseBody() {}
+
+  explicit SetIdentityProviderUdPullConfigurationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetIdentityProviderUdPullConfigurationResponseBody() = default;
+};
+class SetIdentityProviderUdPullConfigurationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetIdentityProviderUdPullConfigurationResponseBody> body{};
+
+  SetIdentityProviderUdPullConfigurationResponse() {}
+
+  explicit SetIdentityProviderUdPullConfigurationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetIdentityProviderUdPullConfigurationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetIdentityProviderUdPullConfigurationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetIdentityProviderUdPullConfigurationResponse() = default;
+};
 class SetPasswordComplexityConfigurationRequestPasswordComplexityRules : public Darabonba::Model {
 public:
   shared_ptr<string> passwordCheckType{};
@@ -21763,6 +25476,7 @@ public:
 };
 class SetPasswordExpirationConfigurationRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> effectiveAuthenticationSourceIds{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> passwordExpirationAction{};
   shared_ptr<vector<string>> passwordExpirationNotificationChannels{};
@@ -21782,6 +25496,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (effectiveAuthenticationSourceIds) {
+      res["EffectiveAuthenticationSourceIds"] = boost::any(*effectiveAuthenticationSourceIds);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -21810,6 +25527,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EffectiveAuthenticationSourceIds") != m.end() && !m["EffectiveAuthenticationSourceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EffectiveAuthenticationSourceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EffectiveAuthenticationSourceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      effectiveAuthenticationSourceIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -22939,6 +26666,571 @@ public:
 
 
   virtual ~UpdateGroupDescriptionResponse() = default;
+};
+class UpdateIdentityProviderRequestDingtalkAppConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> appKey{};
+  shared_ptr<string> appSecret{};
+
+  UpdateIdentityProviderRequestDingtalkAppConfig() {}
+
+  explicit UpdateIdentityProviderRequestDingtalkAppConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
+    if (appSecret) {
+      res["AppSecret"] = boost::any(*appSecret);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("AppSecret") != m.end() && !m["AppSecret"].empty()) {
+      appSecret = make_shared<string>(boost::any_cast<string>(m["AppSecret"]));
+    }
+  }
+
+
+  virtual ~UpdateIdentityProviderRequestDingtalkAppConfig() = default;
+};
+class UpdateIdentityProviderRequestLarkConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> appSecret{};
+
+  UpdateIdentityProviderRequestLarkConfig() {}
+
+  explicit UpdateIdentityProviderRequestLarkConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appSecret) {
+      res["AppSecret"] = boost::any(*appSecret);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppSecret") != m.end() && !m["AppSecret"].empty()) {
+      appSecret = make_shared<string>(boost::any_cast<string>(m["AppSecret"]));
+    }
+  }
+
+
+  virtual ~UpdateIdentityProviderRequestLarkConfig() = default;
+};
+class UpdateIdentityProviderRequestLdapConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> administratorPassword{};
+  shared_ptr<string> administratorUsername{};
+  shared_ptr<string> certificateFingerprintStatus{};
+  shared_ptr<vector<string>> certificateFingerprints{};
+  shared_ptr<string> ldapProtocol{};
+  shared_ptr<string> ldapServerHost{};
+  shared_ptr<long> ldapServerPort{};
+  shared_ptr<string> startTlsStatus{};
+
+  UpdateIdentityProviderRequestLdapConfig() {}
+
+  explicit UpdateIdentityProviderRequestLdapConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (administratorPassword) {
+      res["AdministratorPassword"] = boost::any(*administratorPassword);
+    }
+    if (administratorUsername) {
+      res["AdministratorUsername"] = boost::any(*administratorUsername);
+    }
+    if (certificateFingerprintStatus) {
+      res["CertificateFingerprintStatus"] = boost::any(*certificateFingerprintStatus);
+    }
+    if (certificateFingerprints) {
+      res["CertificateFingerprints"] = boost::any(*certificateFingerprints);
+    }
+    if (ldapProtocol) {
+      res["LdapProtocol"] = boost::any(*ldapProtocol);
+    }
+    if (ldapServerHost) {
+      res["LdapServerHost"] = boost::any(*ldapServerHost);
+    }
+    if (ldapServerPort) {
+      res["LdapServerPort"] = boost::any(*ldapServerPort);
+    }
+    if (startTlsStatus) {
+      res["StartTlsStatus"] = boost::any(*startTlsStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdministratorPassword") != m.end() && !m["AdministratorPassword"].empty()) {
+      administratorPassword = make_shared<string>(boost::any_cast<string>(m["AdministratorPassword"]));
+    }
+    if (m.find("AdministratorUsername") != m.end() && !m["AdministratorUsername"].empty()) {
+      administratorUsername = make_shared<string>(boost::any_cast<string>(m["AdministratorUsername"]));
+    }
+    if (m.find("CertificateFingerprintStatus") != m.end() && !m["CertificateFingerprintStatus"].empty()) {
+      certificateFingerprintStatus = make_shared<string>(boost::any_cast<string>(m["CertificateFingerprintStatus"]));
+    }
+    if (m.find("CertificateFingerprints") != m.end() && !m["CertificateFingerprints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CertificateFingerprints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CertificateFingerprints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      certificateFingerprints = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LdapProtocol") != m.end() && !m["LdapProtocol"].empty()) {
+      ldapProtocol = make_shared<string>(boost::any_cast<string>(m["LdapProtocol"]));
+    }
+    if (m.find("LdapServerHost") != m.end() && !m["LdapServerHost"].empty()) {
+      ldapServerHost = make_shared<string>(boost::any_cast<string>(m["LdapServerHost"]));
+    }
+    if (m.find("LdapServerPort") != m.end() && !m["LdapServerPort"].empty()) {
+      ldapServerPort = make_shared<long>(boost::any_cast<long>(m["LdapServerPort"]));
+    }
+    if (m.find("StartTlsStatus") != m.end() && !m["StartTlsStatus"].empty()) {
+      startTlsStatus = make_shared<string>(boost::any_cast<string>(m["StartTlsStatus"]));
+    }
+  }
+
+
+  virtual ~UpdateIdentityProviderRequestLdapConfig() = default;
+};
+class UpdateIdentityProviderRequestOidcConfigAuthnParam : public Darabonba::Model {
+public:
+  shared_ptr<string> authnMethod{};
+  shared_ptr<string> clientSecret{};
+
+  UpdateIdentityProviderRequestOidcConfigAuthnParam() {}
+
+  explicit UpdateIdentityProviderRequestOidcConfigAuthnParam(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authnMethod) {
+      res["AuthnMethod"] = boost::any(*authnMethod);
+    }
+    if (clientSecret) {
+      res["ClientSecret"] = boost::any(*clientSecret);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthnMethod") != m.end() && !m["AuthnMethod"].empty()) {
+      authnMethod = make_shared<string>(boost::any_cast<string>(m["AuthnMethod"]));
+    }
+    if (m.find("ClientSecret") != m.end() && !m["ClientSecret"].empty()) {
+      clientSecret = make_shared<string>(boost::any_cast<string>(m["ClientSecret"]));
+    }
+  }
+
+
+  virtual ~UpdateIdentityProviderRequestOidcConfigAuthnParam() = default;
+};
+class UpdateIdentityProviderRequestOidcConfigEndpointConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationEndpoint{};
+  shared_ptr<string> issuer{};
+  shared_ptr<string> jwksUri{};
+  shared_ptr<string> tokenEndpoint{};
+  shared_ptr<string> userinfoEndpoint{};
+
+  UpdateIdentityProviderRequestOidcConfigEndpointConfig() {}
+
+  explicit UpdateIdentityProviderRequestOidcConfigEndpointConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationEndpoint) {
+      res["AuthorizationEndpoint"] = boost::any(*authorizationEndpoint);
+    }
+    if (issuer) {
+      res["Issuer"] = boost::any(*issuer);
+    }
+    if (jwksUri) {
+      res["JwksUri"] = boost::any(*jwksUri);
+    }
+    if (tokenEndpoint) {
+      res["TokenEndpoint"] = boost::any(*tokenEndpoint);
+    }
+    if (userinfoEndpoint) {
+      res["UserinfoEndpoint"] = boost::any(*userinfoEndpoint);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationEndpoint") != m.end() && !m["AuthorizationEndpoint"].empty()) {
+      authorizationEndpoint = make_shared<string>(boost::any_cast<string>(m["AuthorizationEndpoint"]));
+    }
+    if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
+      issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
+    }
+    if (m.find("JwksUri") != m.end() && !m["JwksUri"].empty()) {
+      jwksUri = make_shared<string>(boost::any_cast<string>(m["JwksUri"]));
+    }
+    if (m.find("TokenEndpoint") != m.end() && !m["TokenEndpoint"].empty()) {
+      tokenEndpoint = make_shared<string>(boost::any_cast<string>(m["TokenEndpoint"]));
+    }
+    if (m.find("UserinfoEndpoint") != m.end() && !m["UserinfoEndpoint"].empty()) {
+      userinfoEndpoint = make_shared<string>(boost::any_cast<string>(m["UserinfoEndpoint"]));
+    }
+  }
+
+
+  virtual ~UpdateIdentityProviderRequestOidcConfigEndpointConfig() = default;
+};
+class UpdateIdentityProviderRequestOidcConfig : public Darabonba::Model {
+public:
+  shared_ptr<UpdateIdentityProviderRequestOidcConfigAuthnParam> authnParam{};
+  shared_ptr<UpdateIdentityProviderRequestOidcConfigEndpointConfig> endpointConfig{};
+  shared_ptr<vector<string>> grantScopes{};
+  shared_ptr<string> grantType{};
+  shared_ptr<string> pkceChallengeMethod{};
+  shared_ptr<bool> pkceRequired{};
+
+  UpdateIdentityProviderRequestOidcConfig() {}
+
+  explicit UpdateIdentityProviderRequestOidcConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authnParam) {
+      res["AuthnParam"] = authnParam ? boost::any(authnParam->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (endpointConfig) {
+      res["EndpointConfig"] = endpointConfig ? boost::any(endpointConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (grantScopes) {
+      res["GrantScopes"] = boost::any(*grantScopes);
+    }
+    if (grantType) {
+      res["GrantType"] = boost::any(*grantType);
+    }
+    if (pkceChallengeMethod) {
+      res["PkceChallengeMethod"] = boost::any(*pkceChallengeMethod);
+    }
+    if (pkceRequired) {
+      res["PkceRequired"] = boost::any(*pkceRequired);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthnParam") != m.end() && !m["AuthnParam"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AuthnParam"].type()) {
+        UpdateIdentityProviderRequestOidcConfigAuthnParam model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AuthnParam"]));
+        authnParam = make_shared<UpdateIdentityProviderRequestOidcConfigAuthnParam>(model1);
+      }
+    }
+    if (m.find("EndpointConfig") != m.end() && !m["EndpointConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EndpointConfig"].type()) {
+        UpdateIdentityProviderRequestOidcConfigEndpointConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EndpointConfig"]));
+        endpointConfig = make_shared<UpdateIdentityProviderRequestOidcConfigEndpointConfig>(model1);
+      }
+    }
+    if (m.find("GrantScopes") != m.end() && !m["GrantScopes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GrantScopes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GrantScopes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      grantScopes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("GrantType") != m.end() && !m["GrantType"].empty()) {
+      grantType = make_shared<string>(boost::any_cast<string>(m["GrantType"]));
+    }
+    if (m.find("PkceChallengeMethod") != m.end() && !m["PkceChallengeMethod"].empty()) {
+      pkceChallengeMethod = make_shared<string>(boost::any_cast<string>(m["PkceChallengeMethod"]));
+    }
+    if (m.find("PkceRequired") != m.end() && !m["PkceRequired"].empty()) {
+      pkceRequired = make_shared<bool>(boost::any_cast<bool>(m["PkceRequired"]));
+    }
+  }
+
+
+  virtual ~UpdateIdentityProviderRequestOidcConfig() = default;
+};
+class UpdateIdentityProviderRequestWeComConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> agentId{};
+  shared_ptr<string> authorizeCallbackDomain{};
+  shared_ptr<string> corpSecret{};
+  shared_ptr<string> trustableDomain{};
+
+  UpdateIdentityProviderRequestWeComConfig() {}
+
+  explicit UpdateIdentityProviderRequestWeComConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentId) {
+      res["AgentId"] = boost::any(*agentId);
+    }
+    if (authorizeCallbackDomain) {
+      res["AuthorizeCallbackDomain"] = boost::any(*authorizeCallbackDomain);
+    }
+    if (corpSecret) {
+      res["CorpSecret"] = boost::any(*corpSecret);
+    }
+    if (trustableDomain) {
+      res["TrustableDomain"] = boost::any(*trustableDomain);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentId") != m.end() && !m["AgentId"].empty()) {
+      agentId = make_shared<string>(boost::any_cast<string>(m["AgentId"]));
+    }
+    if (m.find("AuthorizeCallbackDomain") != m.end() && !m["AuthorizeCallbackDomain"].empty()) {
+      authorizeCallbackDomain = make_shared<string>(boost::any_cast<string>(m["AuthorizeCallbackDomain"]));
+    }
+    if (m.find("CorpSecret") != m.end() && !m["CorpSecret"].empty()) {
+      corpSecret = make_shared<string>(boost::any_cast<string>(m["CorpSecret"]));
+    }
+    if (m.find("TrustableDomain") != m.end() && !m["TrustableDomain"].empty()) {
+      trustableDomain = make_shared<string>(boost::any_cast<string>(m["TrustableDomain"]));
+    }
+  }
+
+
+  virtual ~UpdateIdentityProviderRequestWeComConfig() = default;
+};
+class UpdateIdentityProviderRequest : public Darabonba::Model {
+public:
+  shared_ptr<UpdateIdentityProviderRequestDingtalkAppConfig> dingtalkAppConfig{};
+  shared_ptr<string> identityProviderId{};
+  shared_ptr<string> identityProviderName{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<UpdateIdentityProviderRequestLarkConfig> larkConfig{};
+  shared_ptr<UpdateIdentityProviderRequestLdapConfig> ldapConfig{};
+  shared_ptr<string> networkAccessEndpointId{};
+  shared_ptr<UpdateIdentityProviderRequestOidcConfig> oidcConfig{};
+  shared_ptr<UpdateIdentityProviderRequestWeComConfig> weComConfig{};
+
+  UpdateIdentityProviderRequest() {}
+
+  explicit UpdateIdentityProviderRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dingtalkAppConfig) {
+      res["DingtalkAppConfig"] = dingtalkAppConfig ? boost::any(dingtalkAppConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (identityProviderId) {
+      res["IdentityProviderId"] = boost::any(*identityProviderId);
+    }
+    if (identityProviderName) {
+      res["IdentityProviderName"] = boost::any(*identityProviderName);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (larkConfig) {
+      res["LarkConfig"] = larkConfig ? boost::any(larkConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ldapConfig) {
+      res["LdapConfig"] = ldapConfig ? boost::any(ldapConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkAccessEndpointId) {
+      res["NetworkAccessEndpointId"] = boost::any(*networkAccessEndpointId);
+    }
+    if (oidcConfig) {
+      res["OidcConfig"] = oidcConfig ? boost::any(oidcConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (weComConfig) {
+      res["WeComConfig"] = weComConfig ? boost::any(weComConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DingtalkAppConfig") != m.end() && !m["DingtalkAppConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DingtalkAppConfig"].type()) {
+        UpdateIdentityProviderRequestDingtalkAppConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DingtalkAppConfig"]));
+        dingtalkAppConfig = make_shared<UpdateIdentityProviderRequestDingtalkAppConfig>(model1);
+      }
+    }
+    if (m.find("IdentityProviderId") != m.end() && !m["IdentityProviderId"].empty()) {
+      identityProviderId = make_shared<string>(boost::any_cast<string>(m["IdentityProviderId"]));
+    }
+    if (m.find("IdentityProviderName") != m.end() && !m["IdentityProviderName"].empty()) {
+      identityProviderName = make_shared<string>(boost::any_cast<string>(m["IdentityProviderName"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LarkConfig") != m.end() && !m["LarkConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LarkConfig"].type()) {
+        UpdateIdentityProviderRequestLarkConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LarkConfig"]));
+        larkConfig = make_shared<UpdateIdentityProviderRequestLarkConfig>(model1);
+      }
+    }
+    if (m.find("LdapConfig") != m.end() && !m["LdapConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LdapConfig"].type()) {
+        UpdateIdentityProviderRequestLdapConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LdapConfig"]));
+        ldapConfig = make_shared<UpdateIdentityProviderRequestLdapConfig>(model1);
+      }
+    }
+    if (m.find("NetworkAccessEndpointId") != m.end() && !m["NetworkAccessEndpointId"].empty()) {
+      networkAccessEndpointId = make_shared<string>(boost::any_cast<string>(m["NetworkAccessEndpointId"]));
+    }
+    if (m.find("OidcConfig") != m.end() && !m["OidcConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OidcConfig"].type()) {
+        UpdateIdentityProviderRequestOidcConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OidcConfig"]));
+        oidcConfig = make_shared<UpdateIdentityProviderRequestOidcConfig>(model1);
+      }
+    }
+    if (m.find("WeComConfig") != m.end() && !m["WeComConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["WeComConfig"].type()) {
+        UpdateIdentityProviderRequestWeComConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["WeComConfig"]));
+        weComConfig = make_shared<UpdateIdentityProviderRequestWeComConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateIdentityProviderRequest() = default;
+};
+class UpdateIdentityProviderResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateIdentityProviderResponseBody() {}
+
+  explicit UpdateIdentityProviderResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateIdentityProviderResponseBody() = default;
+};
+class UpdateIdentityProviderResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateIdentityProviderResponseBody> body{};
+
+  UpdateIdentityProviderResponse() {}
+
+  explicit UpdateIdentityProviderResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateIdentityProviderResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateIdentityProviderResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateIdentityProviderResponse() = default;
 };
 class UpdateInstanceDescriptionRequest : public Darabonba::Model {
 public:
@@ -24082,6 +28374,8 @@ public:
   CreateDomainProxyTokenResponse createDomainProxyToken(shared_ptr<CreateDomainProxyTokenRequest> request);
   CreateGroupResponse createGroupWithOptions(shared_ptr<CreateGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateGroupResponse createGroup(shared_ptr<CreateGroupRequest> request);
+  CreateIdentityProviderResponse createIdentityProviderWithOptions(shared_ptr<CreateIdentityProviderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateIdentityProviderResponse createIdentityProvider(shared_ptr<CreateIdentityProviderRequest> request);
   CreateInstanceResponse createInstanceWithOptions(shared_ptr<CreateInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateInstanceResponse createInstance(shared_ptr<CreateInstanceRequest> request);
   CreateNetworkAccessEndpointResponse createNetworkAccessEndpointWithOptions(shared_ptr<CreateNetworkAccessEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24100,6 +28394,8 @@ public:
   DeleteDomainProxyTokenResponse deleteDomainProxyToken(shared_ptr<DeleteDomainProxyTokenRequest> request);
   DeleteGroupResponse deleteGroupWithOptions(shared_ptr<DeleteGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteGroupResponse deleteGroup(shared_ptr<DeleteGroupRequest> request);
+  DeleteIdentityProviderResponse deleteIdentityProviderWithOptions(shared_ptr<DeleteIdentityProviderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteIdentityProviderResponse deleteIdentityProvider(shared_ptr<DeleteIdentityProviderRequest> request);
   DeleteInstanceResponse deleteInstanceWithOptions(shared_ptr<DeleteInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteInstanceResponse deleteInstance(shared_ptr<DeleteInstanceRequest> request);
   DeleteNetworkAccessEndpointResponse deleteNetworkAccessEndpointWithOptions(shared_ptr<DeleteNetworkAccessEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24122,6 +28418,8 @@ public:
   DisableApplicationSsoResponse disableApplicationSso(shared_ptr<DisableApplicationSsoRequest> request);
   DisableDomainProxyTokenResponse disableDomainProxyTokenWithOptions(shared_ptr<DisableDomainProxyTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableDomainProxyTokenResponse disableDomainProxyToken(shared_ptr<DisableDomainProxyTokenRequest> request);
+  DisableIdentityProviderUdPullResponse disableIdentityProviderUdPullWithOptions(shared_ptr<DisableIdentityProviderUdPullRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DisableIdentityProviderUdPullResponse disableIdentityProviderUdPull(shared_ptr<DisableIdentityProviderUdPullRequest> request);
   DisableInitDomainAutoRedirectResponse disableInitDomainAutoRedirectWithOptions(shared_ptr<DisableInitDomainAutoRedirectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableInitDomainAutoRedirectResponse disableInitDomainAutoRedirect(shared_ptr<DisableInitDomainAutoRedirectRequest> request);
   DisableUserResponse disableUserWithOptions(shared_ptr<DisableUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24138,6 +28436,8 @@ public:
   EnableApplicationSsoResponse enableApplicationSso(shared_ptr<EnableApplicationSsoRequest> request);
   EnableDomainProxyTokenResponse enableDomainProxyTokenWithOptions(shared_ptr<EnableDomainProxyTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableDomainProxyTokenResponse enableDomainProxyToken(shared_ptr<EnableDomainProxyTokenRequest> request);
+  EnableIdentityProviderUdPullResponse enableIdentityProviderUdPullWithOptions(shared_ptr<EnableIdentityProviderUdPullRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnableIdentityProviderUdPullResponse enableIdentityProviderUdPull(shared_ptr<EnableIdentityProviderUdPullRequest> request);
   EnableInitDomainAutoRedirectResponse enableInitDomainAutoRedirectWithOptions(shared_ptr<EnableInitDomainAutoRedirectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableInitDomainAutoRedirectResponse enableInitDomainAutoRedirect(shared_ptr<EnableInitDomainAutoRedirectRequest> request);
   EnableUserResponse enableUserWithOptions(shared_ptr<EnableUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24160,6 +28460,10 @@ public:
   GetForgetPasswordConfigurationResponse getForgetPasswordConfiguration(shared_ptr<GetForgetPasswordConfigurationRequest> request);
   GetGroupResponse getGroupWithOptions(shared_ptr<GetGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetGroupResponse getGroup(shared_ptr<GetGroupRequest> request);
+  GetIdentityProviderResponse getIdentityProviderWithOptions(shared_ptr<GetIdentityProviderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetIdentityProviderResponse getIdentityProvider(shared_ptr<GetIdentityProviderRequest> request);
+  GetIdentityProviderUdPullConfigurationResponse getIdentityProviderUdPullConfigurationWithOptions(shared_ptr<GetIdentityProviderUdPullConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetIdentityProviderUdPullConfigurationResponse getIdentityProviderUdPullConfiguration(shared_ptr<GetIdentityProviderUdPullConfigurationRequest> request);
   GetInstanceResponse getInstanceWithOptions(shared_ptr<GetInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetInstanceResponse getInstance(shared_ptr<GetInstanceRequest> request);
   GetNetworkAccessEndpointResponse getNetworkAccessEndpointWithOptions(shared_ptr<GetNetworkAccessEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24202,6 +28506,8 @@ public:
   ListGroupsForApplicationResponse listGroupsForApplication(shared_ptr<ListGroupsForApplicationRequest> request);
   ListGroupsForUserResponse listGroupsForUserWithOptions(shared_ptr<ListGroupsForUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListGroupsForUserResponse listGroupsForUser(shared_ptr<ListGroupsForUserRequest> request);
+  ListIdentityProvidersResponse listIdentityProvidersWithOptions(shared_ptr<ListIdentityProvidersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListIdentityProvidersResponse listIdentityProviders(shared_ptr<ListIdentityProvidersRequest> request);
   ListInstancesResponse listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInstancesResponse listInstances(shared_ptr<ListInstancesRequest> request);
   ListNetworkAccessEndpointAvailableRegionsResponse listNetworkAccessEndpointAvailableRegionsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24256,6 +28562,8 @@ public:
   SetDefaultDomainResponse setDefaultDomain(shared_ptr<SetDefaultDomainRequest> request);
   SetForgetPasswordConfigurationResponse setForgetPasswordConfigurationWithOptions(shared_ptr<SetForgetPasswordConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetForgetPasswordConfigurationResponse setForgetPasswordConfiguration(shared_ptr<SetForgetPasswordConfigurationRequest> request);
+  SetIdentityProviderUdPullConfigurationResponse setIdentityProviderUdPullConfigurationWithOptions(shared_ptr<SetIdentityProviderUdPullConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetIdentityProviderUdPullConfigurationResponse setIdentityProviderUdPullConfiguration(shared_ptr<SetIdentityProviderUdPullConfigurationRequest> request);
   SetPasswordComplexityConfigurationResponse setPasswordComplexityConfigurationWithOptions(shared_ptr<SetPasswordComplexityConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetPasswordComplexityConfigurationResponse setPasswordComplexityConfiguration(shared_ptr<SetPasswordComplexityConfigurationRequest> request);
   SetPasswordExpirationConfigurationResponse setPasswordExpirationConfigurationWithOptions(shared_ptr<SetPasswordExpirationConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24276,6 +28584,8 @@ public:
   UpdateGroupResponse updateGroup(shared_ptr<UpdateGroupRequest> request);
   UpdateGroupDescriptionResponse updateGroupDescriptionWithOptions(shared_ptr<UpdateGroupDescriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateGroupDescriptionResponse updateGroupDescription(shared_ptr<UpdateGroupDescriptionRequest> request);
+  UpdateIdentityProviderResponse updateIdentityProviderWithOptions(shared_ptr<UpdateIdentityProviderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateIdentityProviderResponse updateIdentityProvider(shared_ptr<UpdateIdentityProviderRequest> request);
   UpdateInstanceDescriptionResponse updateInstanceDescriptionWithOptions(shared_ptr<UpdateInstanceDescriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateInstanceDescriptionResponse updateInstanceDescription(shared_ptr<UpdateInstanceDescriptionRequest> request);
   UpdateNetworkAccessEndpointNameResponse updateNetworkAccessEndpointNameWithOptions(shared_ptr<UpdateNetworkAccessEndpointNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

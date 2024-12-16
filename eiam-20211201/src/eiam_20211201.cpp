@@ -386,6 +386,76 @@ CreateGroupResponse Alibabacloud_Eiam20211201::Client::createGroup(shared_ptr<Cr
   return createGroupWithOptions(request, runtime);
 }
 
+CreateIdentityProviderResponse Alibabacloud_Eiam20211201::Client::createIdentityProviderWithOptions(shared_ptr<CreateIdentityProviderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<CreateIdentityProviderRequestAuthnConfig>(request->authnConfig)) {
+    query->insert(pair<string, CreateIdentityProviderRequestAuthnConfig>("AuthnConfig", *request->authnConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateIdentityProviderRequestAutoCreateUserConfig>(request->autoCreateUserConfig)) {
+    query->insert(pair<string, CreateIdentityProviderRequestAutoCreateUserConfig>("AutoCreateUserConfig", *request->autoCreateUserConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateIdentityProviderRequestAutoUpdateUserConfig>(request->autoUpdateUserConfig)) {
+    query->insert(pair<string, CreateIdentityProviderRequestAutoUpdateUserConfig>("AutoUpdateUserConfig", *request->autoUpdateUserConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateIdentityProviderRequestBindingConfig>(request->bindingConfig)) {
+    query->insert(pair<string, CreateIdentityProviderRequestBindingConfig>("BindingConfig", *request->bindingConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateIdentityProviderRequestDingtalkAppConfig>(request->dingtalkAppConfig)) {
+    query->insert(pair<string, CreateIdentityProviderRequestDingtalkAppConfig>("DingtalkAppConfig", *request->dingtalkAppConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityProviderName)) {
+    query->insert(pair<string, string>("IdentityProviderName", *request->identityProviderName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityProviderType)) {
+    query->insert(pair<string, string>("IdentityProviderType", *request->identityProviderType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateIdentityProviderRequestLarkConfig>(request->larkConfig)) {
+    query->insert(pair<string, CreateIdentityProviderRequestLarkConfig>("LarkConfig", *request->larkConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateIdentityProviderRequestLdapConfig>(request->ldapConfig)) {
+    query->insert(pair<string, CreateIdentityProviderRequestLdapConfig>("LdapConfig", *request->ldapConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkAccessEndpointId)) {
+    query->insert(pair<string, string>("NetworkAccessEndpointId", *request->networkAccessEndpointId));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateIdentityProviderRequestOidcConfig>(request->oidcConfig)) {
+    query->insert(pair<string, CreateIdentityProviderRequestOidcConfig>("OidcConfig", *request->oidcConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateIdentityProviderRequestUdPullConfig>(request->udPullConfig)) {
+    query->insert(pair<string, CreateIdentityProviderRequestUdPullConfig>("UdPullConfig", *request->udPullConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateIdentityProviderRequestUdPushConfig>(request->udPushConfig)) {
+    query->insert(pair<string, CreateIdentityProviderRequestUdPushConfig>("UdPushConfig", *request->udPushConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateIdentityProviderRequestWeComConfig>(request->weComConfig)) {
+    query->insert(pair<string, CreateIdentityProviderRequestWeComConfig>("WeComConfig", *request->weComConfig));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateIdentityProvider"))},
+    {"version", boost::any(string("2021-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateIdentityProviderResponse(callApi(params, req, runtime));
+}
+
+CreateIdentityProviderResponse Alibabacloud_Eiam20211201::Client::createIdentityProvider(shared_ptr<CreateIdentityProviderRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createIdentityProviderWithOptions(request, runtime);
+}
+
 CreateInstanceResponse Alibabacloud_Eiam20211201::Client::createInstanceWithOptions(shared_ptr<CreateInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -726,6 +796,37 @@ DeleteGroupResponse Alibabacloud_Eiam20211201::Client::deleteGroupWithOptions(sh
 DeleteGroupResponse Alibabacloud_Eiam20211201::Client::deleteGroup(shared_ptr<DeleteGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteGroupWithOptions(request, runtime);
+}
+
+DeleteIdentityProviderResponse Alibabacloud_Eiam20211201::Client::deleteIdentityProviderWithOptions(shared_ptr<DeleteIdentityProviderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityProviderId)) {
+    query->insert(pair<string, string>("IdentityProviderId", *request->identityProviderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteIdentityProvider"))},
+    {"version", boost::any(string("2021-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteIdentityProviderResponse(callApi(params, req, runtime));
+}
+
+DeleteIdentityProviderResponse Alibabacloud_Eiam20211201::Client::deleteIdentityProvider(shared_ptr<DeleteIdentityProviderRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteIdentityProviderWithOptions(request, runtime);
 }
 
 DeleteInstanceResponse Alibabacloud_Eiam20211201::Client::deleteInstanceWithOptions(shared_ptr<DeleteInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1072,6 +1173,37 @@ DisableDomainProxyTokenResponse Alibabacloud_Eiam20211201::Client::disableDomain
   return disableDomainProxyTokenWithOptions(request, runtime);
 }
 
+DisableIdentityProviderUdPullResponse Alibabacloud_Eiam20211201::Client::disableIdentityProviderUdPullWithOptions(shared_ptr<DisableIdentityProviderUdPullRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityProviderId)) {
+    query->insert(pair<string, string>("IdentityProviderId", *request->identityProviderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DisableIdentityProviderUdPull"))},
+    {"version", boost::any(string("2021-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DisableIdentityProviderUdPullResponse(callApi(params, req, runtime));
+}
+
+DisableIdentityProviderUdPullResponse Alibabacloud_Eiam20211201::Client::disableIdentityProviderUdPull(shared_ptr<DisableIdentityProviderUdPullRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return disableIdentityProviderUdPullWithOptions(request, runtime);
+}
+
 DisableInitDomainAutoRedirectResponse Alibabacloud_Eiam20211201::Client::disableInitDomainAutoRedirectWithOptions(shared_ptr<DisableInitDomainAutoRedirectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1321,6 +1453,37 @@ EnableDomainProxyTokenResponse Alibabacloud_Eiam20211201::Client::enableDomainPr
 EnableDomainProxyTokenResponse Alibabacloud_Eiam20211201::Client::enableDomainProxyToken(shared_ptr<EnableDomainProxyTokenRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return enableDomainProxyTokenWithOptions(request, runtime);
+}
+
+EnableIdentityProviderUdPullResponse Alibabacloud_Eiam20211201::Client::enableIdentityProviderUdPullWithOptions(shared_ptr<EnableIdentityProviderUdPullRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityProviderId)) {
+    query->insert(pair<string, string>("IdentityProviderId", *request->identityProviderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EnableIdentityProviderUdPull"))},
+    {"version", boost::any(string("2021-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EnableIdentityProviderUdPullResponse(callApi(params, req, runtime));
+}
+
+EnableIdentityProviderUdPullResponse Alibabacloud_Eiam20211201::Client::enableIdentityProviderUdPull(shared_ptr<EnableIdentityProviderUdPullRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return enableIdentityProviderUdPullWithOptions(request, runtime);
 }
 
 EnableInitDomainAutoRedirectResponse Alibabacloud_Eiam20211201::Client::enableInitDomainAutoRedirectWithOptions(shared_ptr<EnableInitDomainAutoRedirectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1656,6 +1819,68 @@ GetGroupResponse Alibabacloud_Eiam20211201::Client::getGroupWithOptions(shared_p
 GetGroupResponse Alibabacloud_Eiam20211201::Client::getGroup(shared_ptr<GetGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getGroupWithOptions(request, runtime);
+}
+
+GetIdentityProviderResponse Alibabacloud_Eiam20211201::Client::getIdentityProviderWithOptions(shared_ptr<GetIdentityProviderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityProviderId)) {
+    query->insert(pair<string, string>("IdentityProviderId", *request->identityProviderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetIdentityProvider"))},
+    {"version", boost::any(string("2021-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetIdentityProviderResponse(callApi(params, req, runtime));
+}
+
+GetIdentityProviderResponse Alibabacloud_Eiam20211201::Client::getIdentityProvider(shared_ptr<GetIdentityProviderRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getIdentityProviderWithOptions(request, runtime);
+}
+
+GetIdentityProviderUdPullConfigurationResponse Alibabacloud_Eiam20211201::Client::getIdentityProviderUdPullConfigurationWithOptions(shared_ptr<GetIdentityProviderUdPullConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityProviderId)) {
+    query->insert(pair<string, string>("IdentityProviderId", *request->identityProviderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetIdentityProviderUdPullConfiguration"))},
+    {"version", boost::any(string("2021-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetIdentityProviderUdPullConfigurationResponse(callApi(params, req, runtime));
+}
+
+GetIdentityProviderUdPullConfigurationResponse Alibabacloud_Eiam20211201::Client::getIdentityProviderUdPullConfiguration(shared_ptr<GetIdentityProviderUdPullConfigurationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getIdentityProviderUdPullConfigurationWithOptions(request, runtime);
 }
 
 GetInstanceResponse Alibabacloud_Eiam20211201::Client::getInstanceWithOptions(shared_ptr<GetInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2342,6 +2567,40 @@ ListGroupsForUserResponse Alibabacloud_Eiam20211201::Client::listGroupsForUserWi
 ListGroupsForUserResponse Alibabacloud_Eiam20211201::Client::listGroupsForUser(shared_ptr<ListGroupsForUserRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listGroupsForUserWithOptions(request, runtime);
+}
+
+ListIdentityProvidersResponse Alibabacloud_Eiam20211201::Client::listIdentityProvidersWithOptions(shared_ptr<ListIdentityProvidersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListIdentityProviders"))},
+    {"version", boost::any(string("2021-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListIdentityProvidersResponse(callApi(params, req, runtime));
+}
+
+ListIdentityProvidersResponse Alibabacloud_Eiam20211201::Client::listIdentityProviders(shared_ptr<ListIdentityProvidersRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listIdentityProvidersWithOptions(request, runtime);
 }
 
 ListInstancesResponse Alibabacloud_Eiam20211201::Client::listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3242,6 +3501,9 @@ SetApplicationSsoConfigResponse Alibabacloud_Eiam20211201::Client::setApplicatio
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationId)) {
     query->insert(pair<string, string>("ApplicationId", *request->applicationId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->initLoginType)) {
     query->insert(pair<string, string>("InitLoginType", *request->initLoginType));
   }
@@ -3344,6 +3606,55 @@ SetForgetPasswordConfigurationResponse Alibabacloud_Eiam20211201::Client::setFor
   return setForgetPasswordConfigurationWithOptions(request, runtime);
 }
 
+SetIdentityProviderUdPullConfigurationResponse Alibabacloud_Eiam20211201::Client::setIdentityProviderUdPullConfigurationWithOptions(shared_ptr<SetIdentityProviderUdPullConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupSyncStatus)) {
+    query->insert(pair<string, string>("GroupSyncStatus", *request->groupSyncStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityProviderId)) {
+    query->insert(pair<string, string>("IdentityProviderId", *request->identityProviderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->incrementalCallbackStatus)) {
+    query->insert(pair<string, string>("IncrementalCallbackStatus", *request->incrementalCallbackStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig>(request->ldapUdPullConfig)) {
+    query->insert(pair<string, SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig>("LdapUdPullConfig", *request->ldapUdPullConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->periodicSyncStatus)) {
+    query->insert(pair<string, string>("PeriodicSyncStatus", *request->periodicSyncStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<SetIdentityProviderUdPullConfigurationRequestPullProtectedRule>(request->pullProtectedRule)) {
+    query->insert(pair<string, SetIdentityProviderUdPullConfigurationRequestPullProtectedRule>("PullProtectedRule", *request->pullProtectedRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig>(request->udSyncScopeConfig)) {
+    query->insert(pair<string, SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig>("UdSyncScopeConfig", *request->udSyncScopeConfig));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetIdentityProviderUdPullConfiguration"))},
+    {"version", boost::any(string("2021-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetIdentityProviderUdPullConfigurationResponse(callApi(params, req, runtime));
+}
+
+SetIdentityProviderUdPullConfigurationResponse Alibabacloud_Eiam20211201::Client::setIdentityProviderUdPullConfiguration(shared_ptr<SetIdentityProviderUdPullConfigurationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setIdentityProviderUdPullConfigurationWithOptions(request, runtime);
+}
+
 SetPasswordComplexityConfigurationResponse Alibabacloud_Eiam20211201::Client::setPasswordComplexityConfigurationWithOptions(shared_ptr<SetPasswordComplexityConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3381,6 +3692,9 @@ SetPasswordComplexityConfigurationResponse Alibabacloud_Eiam20211201::Client::se
 SetPasswordExpirationConfigurationResponse Alibabacloud_Eiam20211201::Client::setPasswordExpirationConfigurationWithOptions(shared_ptr<SetPasswordExpirationConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->effectiveAuthenticationSourceIds)) {
+    query->insert(pair<string, vector<string>>("EffectiveAuthenticationSourceIds", *request->effectiveAuthenticationSourceIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -3703,6 +4017,58 @@ UpdateGroupDescriptionResponse Alibabacloud_Eiam20211201::Client::updateGroupDes
 UpdateGroupDescriptionResponse Alibabacloud_Eiam20211201::Client::updateGroupDescription(shared_ptr<UpdateGroupDescriptionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateGroupDescriptionWithOptions(request, runtime);
+}
+
+UpdateIdentityProviderResponse Alibabacloud_Eiam20211201::Client::updateIdentityProviderWithOptions(shared_ptr<UpdateIdentityProviderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<UpdateIdentityProviderRequestDingtalkAppConfig>(request->dingtalkAppConfig)) {
+    query->insert(pair<string, UpdateIdentityProviderRequestDingtalkAppConfig>("DingtalkAppConfig", *request->dingtalkAppConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityProviderId)) {
+    query->insert(pair<string, string>("IdentityProviderId", *request->identityProviderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityProviderName)) {
+    query->insert(pair<string, string>("IdentityProviderName", *request->identityProviderName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateIdentityProviderRequestLarkConfig>(request->larkConfig)) {
+    query->insert(pair<string, UpdateIdentityProviderRequestLarkConfig>("LarkConfig", *request->larkConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateIdentityProviderRequestLdapConfig>(request->ldapConfig)) {
+    query->insert(pair<string, UpdateIdentityProviderRequestLdapConfig>("LdapConfig", *request->ldapConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkAccessEndpointId)) {
+    query->insert(pair<string, string>("NetworkAccessEndpointId", *request->networkAccessEndpointId));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateIdentityProviderRequestOidcConfig>(request->oidcConfig)) {
+    query->insert(pair<string, UpdateIdentityProviderRequestOidcConfig>("OidcConfig", *request->oidcConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateIdentityProviderRequestWeComConfig>(request->weComConfig)) {
+    query->insert(pair<string, UpdateIdentityProviderRequestWeComConfig>("WeComConfig", *request->weComConfig));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateIdentityProvider"))},
+    {"version", boost::any(string("2021-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateIdentityProviderResponse(callApi(params, req, runtime));
+}
+
+UpdateIdentityProviderResponse Alibabacloud_Eiam20211201::Client::updateIdentityProvider(shared_ptr<UpdateIdentityProviderRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateIdentityProviderWithOptions(request, runtime);
 }
 
 UpdateInstanceDescriptionResponse Alibabacloud_Eiam20211201::Client::updateInstanceDescriptionWithOptions(shared_ptr<UpdateInstanceDescriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
