@@ -15718,6 +15718,7 @@ public:
   shared_ptr<string> algorithmProvider{};
   shared_ptr<string> algorithmVersion{};
   shared_ptr<ListTrainingJobsResponseBodyTrainingJobsComputeResource> computeResource{};
+  shared_ptr<string> dlcJobId{};
   shared_ptr<map<string, string>> environments{};
   shared_ptr<ListTrainingJobsResponseBodyTrainingJobsExperimentConfig> experimentConfig{};
   shared_ptr<string> gmtCreateTime{};
@@ -15762,6 +15763,9 @@ public:
     }
     if (computeResource) {
       res["ComputeResource"] = computeResource ? boost::any(computeResource->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dlcJobId) {
+      res["DlcJobId"] = boost::any(*dlcJobId);
     }
     if (environments) {
       res["Environments"] = boost::any(*environments);
@@ -15868,6 +15872,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ComputeResource"]));
         computeResource = make_shared<ListTrainingJobsResponseBodyTrainingJobsComputeResource>(model1);
       }
+    }
+    if (m.find("DlcJobId") != m.end() && !m["DlcJobId"].empty()) {
+      dlcJobId = make_shared<string>(boost::any_cast<string>(m["DlcJobId"]));
     }
     if (m.find("Environments") != m.end() && !m["Environments"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["Environments"]);
