@@ -28445,6 +28445,7 @@ public:
 };
 class RunWritingResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<bool> end{};
   shared_ptr<RunWritingResponseBodyHeader> header{};
   shared_ptr<RunWritingResponseBodyPayload> payload{};
   shared_ptr<string> requestId{};
@@ -28459,6 +28460,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (end) {
+      res["End"] = boost::any(*end);
+    }
     if (header) {
       res["Header"] = header ? boost::any(header->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -28472,6 +28476,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("End") != m.end() && !m["End"].empty()) {
+      end = make_shared<bool>(boost::any_cast<bool>(m["End"]));
+    }
     if (m.find("Header") != m.end() && !m["Header"].empty()) {
       if (typeid(map<string, boost::any>) == m["Header"].type()) {
         RunWritingResponseBodyHeader model1;
