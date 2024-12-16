@@ -9491,6 +9491,391 @@ public:
 
   virtual ~DescribeChannelsResponse() = default;
 };
+class DescribeCloudNotesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> channelId{};
+  shared_ptr<long> endTs{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> startTs{};
+  shared_ptr<vector<string>> taskIds{};
+
+  DescribeCloudNotesRequest() {}
+
+  explicit DescribeCloudNotesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (endTs) {
+      res["EndTs"] = boost::any(*endTs);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (startTs) {
+      res["StartTs"] = boost::any(*startTs);
+    }
+    if (taskIds) {
+      res["TaskIds"] = boost::any(*taskIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("EndTs") != m.end() && !m["EndTs"].empty()) {
+      endTs = make_shared<long>(boost::any_cast<long>(m["EndTs"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("StartTs") != m.end() && !m["StartTs"].empty()) {
+      startTs = make_shared<long>(boost::any_cast<long>(m["StartTs"]));
+    }
+    if (m.find("TaskIds") != m.end() && !m["TaskIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TaskIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TaskIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      taskIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeCloudNotesRequest() = default;
+};
+class DescribeCloudNotesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> channelId{};
+  shared_ptr<long> endTs{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> startTs{};
+  shared_ptr<string> taskIdsShrink{};
+
+  DescribeCloudNotesShrinkRequest() {}
+
+  explicit DescribeCloudNotesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (endTs) {
+      res["EndTs"] = boost::any(*endTs);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (startTs) {
+      res["StartTs"] = boost::any(*startTs);
+    }
+    if (taskIdsShrink) {
+      res["TaskIds"] = boost::any(*taskIdsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("EndTs") != m.end() && !m["EndTs"].empty()) {
+      endTs = make_shared<long>(boost::any_cast<long>(m["EndTs"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("StartTs") != m.end() && !m["StartTs"].empty()) {
+      startTs = make_shared<long>(boost::any_cast<long>(m["StartTs"]));
+    }
+    if (m.find("TaskIds") != m.end() && !m["TaskIds"].empty()) {
+      taskIdsShrink = make_shared<string>(boost::any_cast<string>(m["TaskIds"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudNotesShrinkRequest() = default;
+};
+class DescribeCloudNotesResponseBodyItems : public Darabonba::Model {
+public:
+  shared_ptr<string> autoChaptersFilePath{};
+  shared_ptr<string> bucket{};
+  shared_ptr<string> channelId{};
+  shared_ptr<string> customPromptFilePath{};
+  shared_ptr<string> meetingAssistanceFilePath{};
+  shared_ptr<long> region{};
+  shared_ptr<string> serviceInspectionFilePath{};
+  shared_ptr<long> startTs{};
+  shared_ptr<string> summarizationFilePath{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> textPolishFilePath{};
+  shared_ptr<string> transcriptionFilePath{};
+  shared_ptr<long> vendor{};
+
+  DescribeCloudNotesResponseBodyItems() {}
+
+  explicit DescribeCloudNotesResponseBodyItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoChaptersFilePath) {
+      res["AutoChaptersFilePath"] = boost::any(*autoChaptersFilePath);
+    }
+    if (bucket) {
+      res["Bucket"] = boost::any(*bucket);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (customPromptFilePath) {
+      res["CustomPromptFilePath"] = boost::any(*customPromptFilePath);
+    }
+    if (meetingAssistanceFilePath) {
+      res["MeetingAssistanceFilePath"] = boost::any(*meetingAssistanceFilePath);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (serviceInspectionFilePath) {
+      res["ServiceInspectionFilePath"] = boost::any(*serviceInspectionFilePath);
+    }
+    if (startTs) {
+      res["StartTs"] = boost::any(*startTs);
+    }
+    if (summarizationFilePath) {
+      res["SummarizationFilePath"] = boost::any(*summarizationFilePath);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (textPolishFilePath) {
+      res["TextPolishFilePath"] = boost::any(*textPolishFilePath);
+    }
+    if (transcriptionFilePath) {
+      res["TranscriptionFilePath"] = boost::any(*transcriptionFilePath);
+    }
+    if (vendor) {
+      res["Vendor"] = boost::any(*vendor);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoChaptersFilePath") != m.end() && !m["AutoChaptersFilePath"].empty()) {
+      autoChaptersFilePath = make_shared<string>(boost::any_cast<string>(m["AutoChaptersFilePath"]));
+    }
+    if (m.find("Bucket") != m.end() && !m["Bucket"].empty()) {
+      bucket = make_shared<string>(boost::any_cast<string>(m["Bucket"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("CustomPromptFilePath") != m.end() && !m["CustomPromptFilePath"].empty()) {
+      customPromptFilePath = make_shared<string>(boost::any_cast<string>(m["CustomPromptFilePath"]));
+    }
+    if (m.find("MeetingAssistanceFilePath") != m.end() && !m["MeetingAssistanceFilePath"].empty()) {
+      meetingAssistanceFilePath = make_shared<string>(boost::any_cast<string>(m["MeetingAssistanceFilePath"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<long>(boost::any_cast<long>(m["Region"]));
+    }
+    if (m.find("ServiceInspectionFilePath") != m.end() && !m["ServiceInspectionFilePath"].empty()) {
+      serviceInspectionFilePath = make_shared<string>(boost::any_cast<string>(m["ServiceInspectionFilePath"]));
+    }
+    if (m.find("StartTs") != m.end() && !m["StartTs"].empty()) {
+      startTs = make_shared<long>(boost::any_cast<long>(m["StartTs"]));
+    }
+    if (m.find("SummarizationFilePath") != m.end() && !m["SummarizationFilePath"].empty()) {
+      summarizationFilePath = make_shared<string>(boost::any_cast<string>(m["SummarizationFilePath"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TextPolishFilePath") != m.end() && !m["TextPolishFilePath"].empty()) {
+      textPolishFilePath = make_shared<string>(boost::any_cast<string>(m["TextPolishFilePath"]));
+    }
+    if (m.find("TranscriptionFilePath") != m.end() && !m["TranscriptionFilePath"].empty()) {
+      transcriptionFilePath = make_shared<string>(boost::any_cast<string>(m["TranscriptionFilePath"]));
+    }
+    if (m.find("Vendor") != m.end() && !m["Vendor"].empty()) {
+      vendor = make_shared<long>(boost::any_cast<long>(m["Vendor"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudNotesResponseBodyItems() = default;
+};
+class DescribeCloudNotesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeCloudNotesResponseBodyItems>> items{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCnt{};
+
+  DescribeCloudNotesResponseBody() {}
+
+  explicit DescribeCloudNotesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCnt) {
+      res["TotalCnt"] = boost::any(*totalCnt);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<DescribeCloudNotesResponseBodyItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCloudNotesResponseBodyItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<DescribeCloudNotesResponseBodyItems>>(expect1);
+      }
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCnt") != m.end() && !m["TotalCnt"].empty()) {
+      totalCnt = make_shared<long>(boost::any_cast<long>(m["TotalCnt"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudNotesResponseBody() = default;
+};
+class DescribeCloudNotesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCloudNotesResponseBody> body{};
+
+  DescribeCloudNotesResponse() {}
+
+  explicit DescribeCloudNotesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCloudNotesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCloudNotesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCloudNotesResponse() = default;
+};
 class DescribeEndPointEventListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -20887,6 +21272,810 @@ public:
 
   virtual ~StartCategoryCallbackResponse() = default;
 };
+class StartCloudNoteRequestAutoChapters : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+
+  StartCloudNoteRequestAutoChapters() {}
+
+  explicit StartCloudNoteRequestAutoChapters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~StartCloudNoteRequestAutoChapters() = default;
+};
+class StartCloudNoteRequestCustomPromptCustomPromptContents : public Darabonba::Model {
+public:
+  shared_ptr<string> model{};
+  shared_ptr<string> name{};
+  shared_ptr<string> prompt{};
+  shared_ptr<string> transType{};
+
+  StartCloudNoteRequestCustomPromptCustomPromptContents() {}
+
+  explicit StartCloudNoteRequestCustomPromptCustomPromptContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (prompt) {
+      res["Prompt"] = boost::any(*prompt);
+    }
+    if (transType) {
+      res["TransType"] = boost::any(*transType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Prompt") != m.end() && !m["Prompt"].empty()) {
+      prompt = make_shared<string>(boost::any_cast<string>(m["Prompt"]));
+    }
+    if (m.find("TransType") != m.end() && !m["TransType"].empty()) {
+      transType = make_shared<string>(boost::any_cast<string>(m["TransType"]));
+    }
+  }
+
+
+  virtual ~StartCloudNoteRequestCustomPromptCustomPromptContents() = default;
+};
+class StartCloudNoteRequestCustomPrompt : public Darabonba::Model {
+public:
+  shared_ptr<vector<StartCloudNoteRequestCustomPromptCustomPromptContents>> customPromptContents{};
+  shared_ptr<bool> enabled{};
+
+  StartCloudNoteRequestCustomPrompt() {}
+
+  explicit StartCloudNoteRequestCustomPrompt(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customPromptContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*customPromptContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomPromptContents"] = boost::any(temp1);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomPromptContents") != m.end() && !m["CustomPromptContents"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomPromptContents"].type()) {
+        vector<StartCloudNoteRequestCustomPromptCustomPromptContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomPromptContents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartCloudNoteRequestCustomPromptCustomPromptContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customPromptContents = make_shared<vector<StartCloudNoteRequestCustomPromptCustomPromptContents>>(expect1);
+      }
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~StartCloudNoteRequestCustomPrompt() = default;
+};
+class StartCloudNoteRequestMeetingAssistance : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<vector<string>> meetingAssistanceType{};
+
+  StartCloudNoteRequestMeetingAssistance() {}
+
+  explicit StartCloudNoteRequestMeetingAssistance(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (meetingAssistanceType) {
+      res["MeetingAssistanceType"] = boost::any(*meetingAssistanceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("MeetingAssistanceType") != m.end() && !m["MeetingAssistanceType"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MeetingAssistanceType"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MeetingAssistanceType"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      meetingAssistanceType = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~StartCloudNoteRequestMeetingAssistance() = default;
+};
+class StartCloudNoteRequestServiceInspectionInspectionContents : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> title{};
+
+  StartCloudNoteRequestServiceInspectionInspectionContents() {}
+
+  explicit StartCloudNoteRequestServiceInspectionInspectionContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~StartCloudNoteRequestServiceInspectionInspectionContents() = default;
+};
+class StartCloudNoteRequestServiceInspection : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<vector<StartCloudNoteRequestServiceInspectionInspectionContents>> inspectionContents{};
+  shared_ptr<string> inspectionIntroduction{};
+  shared_ptr<string> sceneIntroduction{};
+
+  StartCloudNoteRequestServiceInspection() {}
+
+  explicit StartCloudNoteRequestServiceInspection(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (inspectionContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*inspectionContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InspectionContents"] = boost::any(temp1);
+    }
+    if (inspectionIntroduction) {
+      res["InspectionIntroduction"] = boost::any(*inspectionIntroduction);
+    }
+    if (sceneIntroduction) {
+      res["SceneIntroduction"] = boost::any(*sceneIntroduction);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("InspectionContents") != m.end() && !m["InspectionContents"].empty()) {
+      if (typeid(vector<boost::any>) == m["InspectionContents"].type()) {
+        vector<StartCloudNoteRequestServiceInspectionInspectionContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InspectionContents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartCloudNoteRequestServiceInspectionInspectionContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        inspectionContents = make_shared<vector<StartCloudNoteRequestServiceInspectionInspectionContents>>(expect1);
+      }
+    }
+    if (m.find("InspectionIntroduction") != m.end() && !m["InspectionIntroduction"].empty()) {
+      inspectionIntroduction = make_shared<string>(boost::any_cast<string>(m["InspectionIntroduction"]));
+    }
+    if (m.find("SceneIntroduction") != m.end() && !m["SceneIntroduction"].empty()) {
+      sceneIntroduction = make_shared<string>(boost::any_cast<string>(m["SceneIntroduction"]));
+    }
+  }
+
+
+  virtual ~StartCloudNoteRequestServiceInspection() = default;
+};
+class StartCloudNoteRequestStorageConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKey{};
+  shared_ptr<string> bucket{};
+  shared_ptr<long> region{};
+  shared_ptr<string> secretKey{};
+  shared_ptr<long> vendor{};
+
+  StartCloudNoteRequestStorageConfig() {}
+
+  explicit StartCloudNoteRequestStorageConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKey) {
+      res["AccessKey"] = boost::any(*accessKey);
+    }
+    if (bucket) {
+      res["Bucket"] = boost::any(*bucket);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (secretKey) {
+      res["SecretKey"] = boost::any(*secretKey);
+    }
+    if (vendor) {
+      res["Vendor"] = boost::any(*vendor);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKey") != m.end() && !m["AccessKey"].empty()) {
+      accessKey = make_shared<string>(boost::any_cast<string>(m["AccessKey"]));
+    }
+    if (m.find("Bucket") != m.end() && !m["Bucket"].empty()) {
+      bucket = make_shared<string>(boost::any_cast<string>(m["Bucket"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<long>(boost::any_cast<long>(m["Region"]));
+    }
+    if (m.find("SecretKey") != m.end() && !m["SecretKey"].empty()) {
+      secretKey = make_shared<string>(boost::any_cast<string>(m["SecretKey"]));
+    }
+    if (m.find("Vendor") != m.end() && !m["Vendor"].empty()) {
+      vendor = make_shared<long>(boost::any_cast<long>(m["Vendor"]));
+    }
+  }
+
+
+  virtual ~StartCloudNoteRequestStorageConfig() = default;
+};
+class StartCloudNoteRequestSummarization : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<vector<string>> type{};
+
+  StartCloudNoteRequestSummarization() {}
+
+  explicit StartCloudNoteRequestSummarization(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Type"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Type"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      type = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~StartCloudNoteRequestSummarization() = default;
+};
+class StartCloudNoteRequestTextPolish : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+
+  StartCloudNoteRequestTextPolish() {}
+
+  explicit StartCloudNoteRequestTextPolish(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~StartCloudNoteRequestTextPolish() = default;
+};
+class StartCloudNoteRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<StartCloudNoteRequestAutoChapters> autoChapters{};
+  shared_ptr<string> channelId{};
+  shared_ptr<StartCloudNoteRequestCustomPrompt> customPrompt{};
+  shared_ptr<vector<string>> languageHints{};
+  shared_ptr<StartCloudNoteRequestMeetingAssistance> meetingAssistance{};
+  shared_ptr<StartCloudNoteRequestServiceInspection> serviceInspection{};
+  shared_ptr<string> sourceLanguage{};
+  shared_ptr<StartCloudNoteRequestStorageConfig> storageConfig{};
+  shared_ptr<StartCloudNoteRequestSummarization> summarization{};
+  shared_ptr<string> taskId{};
+  shared_ptr<StartCloudNoteRequestTextPolish> textPolish{};
+
+  StartCloudNoteRequest() {}
+
+  explicit StartCloudNoteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (autoChapters) {
+      res["AutoChapters"] = autoChapters ? boost::any(autoChapters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (customPrompt) {
+      res["CustomPrompt"] = customPrompt ? boost::any(customPrompt->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (languageHints) {
+      res["LanguageHints"] = boost::any(*languageHints);
+    }
+    if (meetingAssistance) {
+      res["MeetingAssistance"] = meetingAssistance ? boost::any(meetingAssistance->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (serviceInspection) {
+      res["ServiceInspection"] = serviceInspection ? boost::any(serviceInspection->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceLanguage) {
+      res["SourceLanguage"] = boost::any(*sourceLanguage);
+    }
+    if (storageConfig) {
+      res["StorageConfig"] = storageConfig ? boost::any(storageConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (summarization) {
+      res["Summarization"] = summarization ? boost::any(summarization->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (textPolish) {
+      res["TextPolish"] = textPolish ? boost::any(textPolish->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AutoChapters") != m.end() && !m["AutoChapters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AutoChapters"].type()) {
+        StartCloudNoteRequestAutoChapters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AutoChapters"]));
+        autoChapters = make_shared<StartCloudNoteRequestAutoChapters>(model1);
+      }
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("CustomPrompt") != m.end() && !m["CustomPrompt"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomPrompt"].type()) {
+        StartCloudNoteRequestCustomPrompt model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomPrompt"]));
+        customPrompt = make_shared<StartCloudNoteRequestCustomPrompt>(model1);
+      }
+    }
+    if (m.find("LanguageHints") != m.end() && !m["LanguageHints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LanguageHints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LanguageHints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      languageHints = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MeetingAssistance") != m.end() && !m["MeetingAssistance"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MeetingAssistance"].type()) {
+        StartCloudNoteRequestMeetingAssistance model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MeetingAssistance"]));
+        meetingAssistance = make_shared<StartCloudNoteRequestMeetingAssistance>(model1);
+      }
+    }
+    if (m.find("ServiceInspection") != m.end() && !m["ServiceInspection"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ServiceInspection"].type()) {
+        StartCloudNoteRequestServiceInspection model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ServiceInspection"]));
+        serviceInspection = make_shared<StartCloudNoteRequestServiceInspection>(model1);
+      }
+    }
+    if (m.find("SourceLanguage") != m.end() && !m["SourceLanguage"].empty()) {
+      sourceLanguage = make_shared<string>(boost::any_cast<string>(m["SourceLanguage"]));
+    }
+    if (m.find("StorageConfig") != m.end() && !m["StorageConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StorageConfig"].type()) {
+        StartCloudNoteRequestStorageConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StorageConfig"]));
+        storageConfig = make_shared<StartCloudNoteRequestStorageConfig>(model1);
+      }
+    }
+    if (m.find("Summarization") != m.end() && !m["Summarization"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Summarization"].type()) {
+        StartCloudNoteRequestSummarization model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Summarization"]));
+        summarization = make_shared<StartCloudNoteRequestSummarization>(model1);
+      }
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TextPolish") != m.end() && !m["TextPolish"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TextPolish"].type()) {
+        StartCloudNoteRequestTextPolish model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TextPolish"]));
+        textPolish = make_shared<StartCloudNoteRequestTextPolish>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartCloudNoteRequest() = default;
+};
+class StartCloudNoteShrinkRequestStorageConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKey{};
+  shared_ptr<string> bucket{};
+  shared_ptr<long> region{};
+  shared_ptr<string> secretKey{};
+  shared_ptr<long> vendor{};
+
+  StartCloudNoteShrinkRequestStorageConfig() {}
+
+  explicit StartCloudNoteShrinkRequestStorageConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKey) {
+      res["AccessKey"] = boost::any(*accessKey);
+    }
+    if (bucket) {
+      res["Bucket"] = boost::any(*bucket);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (secretKey) {
+      res["SecretKey"] = boost::any(*secretKey);
+    }
+    if (vendor) {
+      res["Vendor"] = boost::any(*vendor);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKey") != m.end() && !m["AccessKey"].empty()) {
+      accessKey = make_shared<string>(boost::any_cast<string>(m["AccessKey"]));
+    }
+    if (m.find("Bucket") != m.end() && !m["Bucket"].empty()) {
+      bucket = make_shared<string>(boost::any_cast<string>(m["Bucket"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<long>(boost::any_cast<long>(m["Region"]));
+    }
+    if (m.find("SecretKey") != m.end() && !m["SecretKey"].empty()) {
+      secretKey = make_shared<string>(boost::any_cast<string>(m["SecretKey"]));
+    }
+    if (m.find("Vendor") != m.end() && !m["Vendor"].empty()) {
+      vendor = make_shared<long>(boost::any_cast<long>(m["Vendor"]));
+    }
+  }
+
+
+  virtual ~StartCloudNoteShrinkRequestStorageConfig() = default;
+};
+class StartCloudNoteShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> autoChaptersShrink{};
+  shared_ptr<string> channelId{};
+  shared_ptr<string> customPromptShrink{};
+  shared_ptr<vector<string>> languageHints{};
+  shared_ptr<string> meetingAssistanceShrink{};
+  shared_ptr<string> serviceInspectionShrink{};
+  shared_ptr<string> sourceLanguage{};
+  shared_ptr<StartCloudNoteShrinkRequestStorageConfig> storageConfig{};
+  shared_ptr<string> summarizationShrink{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> textPolishShrink{};
+
+  StartCloudNoteShrinkRequest() {}
+
+  explicit StartCloudNoteShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (autoChaptersShrink) {
+      res["AutoChapters"] = boost::any(*autoChaptersShrink);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (customPromptShrink) {
+      res["CustomPrompt"] = boost::any(*customPromptShrink);
+    }
+    if (languageHints) {
+      res["LanguageHints"] = boost::any(*languageHints);
+    }
+    if (meetingAssistanceShrink) {
+      res["MeetingAssistance"] = boost::any(*meetingAssistanceShrink);
+    }
+    if (serviceInspectionShrink) {
+      res["ServiceInspection"] = boost::any(*serviceInspectionShrink);
+    }
+    if (sourceLanguage) {
+      res["SourceLanguage"] = boost::any(*sourceLanguage);
+    }
+    if (storageConfig) {
+      res["StorageConfig"] = storageConfig ? boost::any(storageConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (summarizationShrink) {
+      res["Summarization"] = boost::any(*summarizationShrink);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (textPolishShrink) {
+      res["TextPolish"] = boost::any(*textPolishShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AutoChapters") != m.end() && !m["AutoChapters"].empty()) {
+      autoChaptersShrink = make_shared<string>(boost::any_cast<string>(m["AutoChapters"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("CustomPrompt") != m.end() && !m["CustomPrompt"].empty()) {
+      customPromptShrink = make_shared<string>(boost::any_cast<string>(m["CustomPrompt"]));
+    }
+    if (m.find("LanguageHints") != m.end() && !m["LanguageHints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LanguageHints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LanguageHints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      languageHints = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MeetingAssistance") != m.end() && !m["MeetingAssistance"].empty()) {
+      meetingAssistanceShrink = make_shared<string>(boost::any_cast<string>(m["MeetingAssistance"]));
+    }
+    if (m.find("ServiceInspection") != m.end() && !m["ServiceInspection"].empty()) {
+      serviceInspectionShrink = make_shared<string>(boost::any_cast<string>(m["ServiceInspection"]));
+    }
+    if (m.find("SourceLanguage") != m.end() && !m["SourceLanguage"].empty()) {
+      sourceLanguage = make_shared<string>(boost::any_cast<string>(m["SourceLanguage"]));
+    }
+    if (m.find("StorageConfig") != m.end() && !m["StorageConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StorageConfig"].type()) {
+        StartCloudNoteShrinkRequestStorageConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StorageConfig"]));
+        storageConfig = make_shared<StartCloudNoteShrinkRequestStorageConfig>(model1);
+      }
+    }
+    if (m.find("Summarization") != m.end() && !m["Summarization"].empty()) {
+      summarizationShrink = make_shared<string>(boost::any_cast<string>(m["Summarization"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TextPolish") != m.end() && !m["TextPolish"].empty()) {
+      textPolishShrink = make_shared<string>(boost::any_cast<string>(m["TextPolish"]));
+    }
+  }
+
+
+  virtual ~StartCloudNoteShrinkRequest() = default;
+};
+class StartCloudNoteResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  StartCloudNoteResponseBody() {}
+
+  explicit StartCloudNoteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~StartCloudNoteResponseBody() = default;
+};
+class StartCloudNoteResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartCloudNoteResponseBody> body{};
+
+  StartCloudNoteResponse() {}
+
+  explicit StartCloudNoteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartCloudNoteResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartCloudNoteResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartCloudNoteResponse() = default;
+};
 class StartCloudRecordRequestBackgrounds : public Darabonba::Model {
 public:
   shared_ptr<double> alpha{};
@@ -21242,6 +22431,49 @@ public:
 
 
   virtual ~StartCloudRecordRequestImages() = default;
+};
+class StartCloudRecordRequestLayoutSpecifiedUsers : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> ids{};
+  shared_ptr<string> type{};
+
+  StartCloudRecordRequestLayoutSpecifiedUsers() {}
+
+  explicit StartCloudRecordRequestLayoutSpecifiedUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ids) {
+      res["Ids"] = boost::any(*ids);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordRequestLayoutSpecifiedUsers() = default;
 };
 class StartCloudRecordRequestPanesImages : public Darabonba::Model {
 public:
@@ -21921,6 +23153,7 @@ public:
   shared_ptr<vector<StartCloudRecordRequestClockWidgets>> clockWidgets{};
   shared_ptr<long> cropMode{};
   shared_ptr<vector<StartCloudRecordRequestImages>> images{};
+  shared_ptr<StartCloudRecordRequestLayoutSpecifiedUsers> layoutSpecifiedUsers{};
   shared_ptr<vector<StartCloudRecordRequestPanes>> panes{};
   shared_ptr<StartCloudRecordRequestRegionColor> regionColor{};
   shared_ptr<StartCloudRecordRequestStorageConfig> storageConfig{};
@@ -21967,6 +23200,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Images"] = boost::any(temp1);
+    }
+    if (layoutSpecifiedUsers) {
+      res["LayoutSpecifiedUsers"] = layoutSpecifiedUsers ? boost::any(layoutSpecifiedUsers->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (panes) {
       vector<boost::any> temp1;
@@ -22046,6 +23282,13 @@ public:
         images = make_shared<vector<StartCloudRecordRequestImages>>(expect1);
       }
     }
+    if (m.find("LayoutSpecifiedUsers") != m.end() && !m["LayoutSpecifiedUsers"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LayoutSpecifiedUsers"].type()) {
+        StartCloudRecordRequestLayoutSpecifiedUsers model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LayoutSpecifiedUsers"]));
+        layoutSpecifiedUsers = make_shared<StartCloudRecordRequestLayoutSpecifiedUsers>(model1);
+      }
+    }
     if (m.find("Panes") != m.end() && !m["Panes"].empty()) {
       if (typeid(vector<boost::any>) == m["Panes"].type()) {
         vector<StartCloudRecordRequestPanes> expect1;
@@ -22096,6 +23339,1223 @@ public:
 
 
   virtual ~StartCloudRecordRequest() = default;
+};
+class StartCloudRecordShrinkRequestBackgrounds : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<long> backgroundCropMode{};
+  shared_ptr<double> height{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> url{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  StartCloudRecordShrinkRequestBackgrounds() {}
+
+  explicit StartCloudRecordShrinkRequestBackgrounds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (backgroundCropMode) {
+      res["BackgroundCropMode"] = boost::any(*backgroundCropMode);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BackgroundCropMode") != m.end() && !m["BackgroundCropMode"].empty()) {
+      backgroundCropMode = make_shared<long>(boost::any_cast<long>(m["BackgroundCropMode"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestBackgrounds() = default;
+};
+class StartCloudRecordShrinkRequestClockWidgetsBoxColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartCloudRecordShrinkRequestClockWidgetsBoxColor() {}
+
+  explicit StartCloudRecordShrinkRequestClockWidgetsBoxColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestClockWidgetsBoxColor() = default;
+};
+class StartCloudRecordShrinkRequestClockWidgetsFontColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartCloudRecordShrinkRequestClockWidgetsFontColor() {}
+
+  explicit StartCloudRecordShrinkRequestClockWidgetsFontColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestClockWidgetsFontColor() = default;
+};
+class StartCloudRecordShrinkRequestClockWidgets : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> boxAlpha{};
+  shared_ptr<long> boxBorderw{};
+  shared_ptr<StartCloudRecordShrinkRequestClockWidgetsBoxColor> boxColor{};
+  shared_ptr<long> font{};
+  shared_ptr<StartCloudRecordShrinkRequestClockWidgetsFontColor> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<bool> hasBox{};
+  shared_ptr<long> layer{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+  shared_ptr<long> zone{};
+
+  StartCloudRecordShrinkRequestClockWidgets() {}
+
+  explicit StartCloudRecordShrinkRequestClockWidgets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (boxAlpha) {
+      res["BoxAlpha"] = boost::any(*boxAlpha);
+    }
+    if (boxBorderw) {
+      res["BoxBorderw"] = boost::any(*boxBorderw);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boxColor ? boost::any(boxColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fontColor) {
+      res["FontColor"] = fontColor ? boost::any(fontColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (hasBox) {
+      res["HasBox"] = boost::any(*hasBox);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    if (zone) {
+      res["Zone"] = boost::any(*zone);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BoxAlpha") != m.end() && !m["BoxAlpha"].empty()) {
+      boxAlpha = make_shared<double>(boost::any_cast<double>(m["BoxAlpha"]));
+    }
+    if (m.find("BoxBorderw") != m.end() && !m["BoxBorderw"].empty()) {
+      boxBorderw = make_shared<long>(boost::any_cast<long>(m["BoxBorderw"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BoxColor"].type()) {
+        StartCloudRecordShrinkRequestClockWidgetsBoxColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BoxColor"]));
+        boxColor = make_shared<StartCloudRecordShrinkRequestClockWidgetsBoxColor>(model1);
+      }
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<long>(boost::any_cast<long>(m["Font"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FontColor"].type()) {
+        StartCloudRecordShrinkRequestClockWidgetsFontColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FontColor"]));
+        fontColor = make_shared<StartCloudRecordShrinkRequestClockWidgetsFontColor>(model1);
+      }
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("HasBox") != m.end() && !m["HasBox"].empty()) {
+      hasBox = make_shared<bool>(boost::any_cast<bool>(m["HasBox"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+    if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
+      zone = make_shared<long>(boost::any_cast<long>(m["Zone"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestClockWidgets() = default;
+};
+class StartCloudRecordShrinkRequestImages : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> height{};
+  shared_ptr<long> imageCropMode{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> url{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  StartCloudRecordShrinkRequestImages() {}
+
+  explicit StartCloudRecordShrinkRequestImages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (imageCropMode) {
+      res["ImageCropMode"] = boost::any(*imageCropMode);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("ImageCropMode") != m.end() && !m["ImageCropMode"].empty()) {
+      imageCropMode = make_shared<long>(boost::any_cast<long>(m["ImageCropMode"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestImages() = default;
+};
+class StartCloudRecordShrinkRequestPanesImages : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> height{};
+  shared_ptr<long> layer{};
+  shared_ptr<long> paneImageCropMode{};
+  shared_ptr<string> url{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  StartCloudRecordShrinkRequestPanesImages() {}
+
+  explicit StartCloudRecordShrinkRequestPanesImages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (paneImageCropMode) {
+      res["PaneImageCropMode"] = boost::any(*paneImageCropMode);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("PaneImageCropMode") != m.end() && !m["PaneImageCropMode"].empty()) {
+      paneImageCropMode = make_shared<long>(boost::any_cast<long>(m["PaneImageCropMode"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestPanesImages() = default;
+};
+class StartCloudRecordShrinkRequestPanesTextsBoxColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartCloudRecordShrinkRequestPanesTextsBoxColor() {}
+
+  explicit StartCloudRecordShrinkRequestPanesTextsBoxColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestPanesTextsBoxColor() = default;
+};
+class StartCloudRecordShrinkRequestPanesTextsFontColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartCloudRecordShrinkRequestPanesTextsFontColor() {}
+
+  explicit StartCloudRecordShrinkRequestPanesTextsFontColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestPanesTextsFontColor() = default;
+};
+class StartCloudRecordShrinkRequestPanesTexts : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> boxAlpha{};
+  shared_ptr<long> boxBorderw{};
+  shared_ptr<StartCloudRecordShrinkRequestPanesTextsBoxColor> boxColor{};
+  shared_ptr<long> font{};
+  shared_ptr<StartCloudRecordShrinkRequestPanesTextsFontColor> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<bool> hasBox{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> texture{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  StartCloudRecordShrinkRequestPanesTexts() {}
+
+  explicit StartCloudRecordShrinkRequestPanesTexts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (boxAlpha) {
+      res["BoxAlpha"] = boost::any(*boxAlpha);
+    }
+    if (boxBorderw) {
+      res["BoxBorderw"] = boost::any(*boxBorderw);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boxColor ? boost::any(boxColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fontColor) {
+      res["FontColor"] = fontColor ? boost::any(fontColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (hasBox) {
+      res["HasBox"] = boost::any(*hasBox);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (texture) {
+      res["Texture"] = boost::any(*texture);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BoxAlpha") != m.end() && !m["BoxAlpha"].empty()) {
+      boxAlpha = make_shared<double>(boost::any_cast<double>(m["BoxAlpha"]));
+    }
+    if (m.find("BoxBorderw") != m.end() && !m["BoxBorderw"].empty()) {
+      boxBorderw = make_shared<long>(boost::any_cast<long>(m["BoxBorderw"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BoxColor"].type()) {
+        StartCloudRecordShrinkRequestPanesTextsBoxColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BoxColor"]));
+        boxColor = make_shared<StartCloudRecordShrinkRequestPanesTextsBoxColor>(model1);
+      }
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<long>(boost::any_cast<long>(m["Font"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FontColor"].type()) {
+        StartCloudRecordShrinkRequestPanesTextsFontColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FontColor"]));
+        fontColor = make_shared<StartCloudRecordShrinkRequestPanesTextsFontColor>(model1);
+      }
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("HasBox") != m.end() && !m["HasBox"].empty()) {
+      hasBox = make_shared<bool>(boost::any_cast<bool>(m["HasBox"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Texture") != m.end() && !m["Texture"].empty()) {
+      texture = make_shared<string>(boost::any_cast<string>(m["Texture"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestPanesTexts() = default;
+};
+class StartCloudRecordShrinkRequestPanes : public Darabonba::Model {
+public:
+  shared_ptr<vector<StartCloudRecordShrinkRequestPanesImages>> images{};
+  shared_ptr<long> paneCropMode{};
+  shared_ptr<long> paneId{};
+  shared_ptr<string> source{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<vector<StartCloudRecordShrinkRequestPanesTexts>> texts{};
+
+  StartCloudRecordShrinkRequestPanes() {}
+
+  explicit StartCloudRecordShrinkRequestPanes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (images) {
+      vector<boost::any> temp1;
+      for(auto item1:*images){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Images"] = boost::any(temp1);
+    }
+    if (paneCropMode) {
+      res["PaneCropMode"] = boost::any(*paneCropMode);
+    }
+    if (paneId) {
+      res["PaneId"] = boost::any(*paneId);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (texts) {
+      vector<boost::any> temp1;
+      for(auto item1:*texts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Texts"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<StartCloudRecordShrinkRequestPanesImages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Images"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartCloudRecordShrinkRequestPanesImages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        images = make_shared<vector<StartCloudRecordShrinkRequestPanesImages>>(expect1);
+      }
+    }
+    if (m.find("PaneCropMode") != m.end() && !m["PaneCropMode"].empty()) {
+      paneCropMode = make_shared<long>(boost::any_cast<long>(m["PaneCropMode"]));
+    }
+    if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
+      paneId = make_shared<long>(boost::any_cast<long>(m["PaneId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Texts") != m.end() && !m["Texts"].empty()) {
+      if (typeid(vector<boost::any>) == m["Texts"].type()) {
+        vector<StartCloudRecordShrinkRequestPanesTexts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Texts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartCloudRecordShrinkRequestPanesTexts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        texts = make_shared<vector<StartCloudRecordShrinkRequestPanesTexts>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestPanes() = default;
+};
+class StartCloudRecordShrinkRequestRegionColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartCloudRecordShrinkRequestRegionColor() {}
+
+  explicit StartCloudRecordShrinkRequestRegionColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestRegionColor() = default;
+};
+class StartCloudRecordShrinkRequestStorageConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKey{};
+  shared_ptr<string> bucket{};
+  shared_ptr<long> region{};
+  shared_ptr<string> secretKey{};
+  shared_ptr<long> vendor{};
+
+  StartCloudRecordShrinkRequestStorageConfig() {}
+
+  explicit StartCloudRecordShrinkRequestStorageConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKey) {
+      res["AccessKey"] = boost::any(*accessKey);
+    }
+    if (bucket) {
+      res["Bucket"] = boost::any(*bucket);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (secretKey) {
+      res["SecretKey"] = boost::any(*secretKey);
+    }
+    if (vendor) {
+      res["Vendor"] = boost::any(*vendor);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKey") != m.end() && !m["AccessKey"].empty()) {
+      accessKey = make_shared<string>(boost::any_cast<string>(m["AccessKey"]));
+    }
+    if (m.find("Bucket") != m.end() && !m["Bucket"].empty()) {
+      bucket = make_shared<string>(boost::any_cast<string>(m["Bucket"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<long>(boost::any_cast<long>(m["Region"]));
+    }
+    if (m.find("SecretKey") != m.end() && !m["SecretKey"].empty()) {
+      secretKey = make_shared<string>(boost::any_cast<string>(m["SecretKey"]));
+    }
+    if (m.find("Vendor") != m.end() && !m["Vendor"].empty()) {
+      vendor = make_shared<long>(boost::any_cast<long>(m["Vendor"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestStorageConfig() = default;
+};
+class StartCloudRecordShrinkRequestTextsBoxColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartCloudRecordShrinkRequestTextsBoxColor() {}
+
+  explicit StartCloudRecordShrinkRequestTextsBoxColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestTextsBoxColor() = default;
+};
+class StartCloudRecordShrinkRequestTextsFontColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartCloudRecordShrinkRequestTextsFontColor() {}
+
+  explicit StartCloudRecordShrinkRequestTextsFontColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestTextsFontColor() = default;
+};
+class StartCloudRecordShrinkRequestTexts : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> boxAlpha{};
+  shared_ptr<long> boxBorderw{};
+  shared_ptr<StartCloudRecordShrinkRequestTextsBoxColor> boxColor{};
+  shared_ptr<long> font{};
+  shared_ptr<StartCloudRecordShrinkRequestTextsFontColor> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<bool> hasBox{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> texture{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  StartCloudRecordShrinkRequestTexts() {}
+
+  explicit StartCloudRecordShrinkRequestTexts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (boxAlpha) {
+      res["BoxAlpha"] = boost::any(*boxAlpha);
+    }
+    if (boxBorderw) {
+      res["BoxBorderw"] = boost::any(*boxBorderw);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boxColor ? boost::any(boxColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fontColor) {
+      res["FontColor"] = fontColor ? boost::any(fontColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (hasBox) {
+      res["HasBox"] = boost::any(*hasBox);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (texture) {
+      res["Texture"] = boost::any(*texture);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BoxAlpha") != m.end() && !m["BoxAlpha"].empty()) {
+      boxAlpha = make_shared<double>(boost::any_cast<double>(m["BoxAlpha"]));
+    }
+    if (m.find("BoxBorderw") != m.end() && !m["BoxBorderw"].empty()) {
+      boxBorderw = make_shared<long>(boost::any_cast<long>(m["BoxBorderw"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BoxColor"].type()) {
+        StartCloudRecordShrinkRequestTextsBoxColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BoxColor"]));
+        boxColor = make_shared<StartCloudRecordShrinkRequestTextsBoxColor>(model1);
+      }
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<long>(boost::any_cast<long>(m["Font"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FontColor"].type()) {
+        StartCloudRecordShrinkRequestTextsFontColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FontColor"]));
+        fontColor = make_shared<StartCloudRecordShrinkRequestTextsFontColor>(model1);
+      }
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("HasBox") != m.end() && !m["HasBox"].empty()) {
+      hasBox = make_shared<bool>(boost::any_cast<bool>(m["HasBox"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Texture") != m.end() && !m["Texture"].empty()) {
+      texture = make_shared<string>(boost::any_cast<string>(m["Texture"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestTexts() = default;
+};
+class StartCloudRecordShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<vector<StartCloudRecordShrinkRequestBackgrounds>> backgrounds{};
+  shared_ptr<string> channelId{};
+  shared_ptr<vector<StartCloudRecordShrinkRequestClockWidgets>> clockWidgets{};
+  shared_ptr<long> cropMode{};
+  shared_ptr<vector<StartCloudRecordShrinkRequestImages>> images{};
+  shared_ptr<string> layoutSpecifiedUsersShrink{};
+  shared_ptr<vector<StartCloudRecordShrinkRequestPanes>> panes{};
+  shared_ptr<StartCloudRecordShrinkRequestRegionColor> regionColor{};
+  shared_ptr<StartCloudRecordShrinkRequestStorageConfig> storageConfig{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> templateId{};
+  shared_ptr<vector<StartCloudRecordShrinkRequestTexts>> texts{};
+
+  StartCloudRecordShrinkRequest() {}
+
+  explicit StartCloudRecordShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (backgrounds) {
+      vector<boost::any> temp1;
+      for(auto item1:*backgrounds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Backgrounds"] = boost::any(temp1);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (clockWidgets) {
+      vector<boost::any> temp1;
+      for(auto item1:*clockWidgets){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ClockWidgets"] = boost::any(temp1);
+    }
+    if (cropMode) {
+      res["CropMode"] = boost::any(*cropMode);
+    }
+    if (images) {
+      vector<boost::any> temp1;
+      for(auto item1:*images){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Images"] = boost::any(temp1);
+    }
+    if (layoutSpecifiedUsersShrink) {
+      res["LayoutSpecifiedUsers"] = boost::any(*layoutSpecifiedUsersShrink);
+    }
+    if (panes) {
+      vector<boost::any> temp1;
+      for(auto item1:*panes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Panes"] = boost::any(temp1);
+    }
+    if (regionColor) {
+      res["RegionColor"] = regionColor ? boost::any(regionColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (storageConfig) {
+      res["StorageConfig"] = storageConfig ? boost::any(storageConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (texts) {
+      vector<boost::any> temp1;
+      for(auto item1:*texts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Texts"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Backgrounds") != m.end() && !m["Backgrounds"].empty()) {
+      if (typeid(vector<boost::any>) == m["Backgrounds"].type()) {
+        vector<StartCloudRecordShrinkRequestBackgrounds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Backgrounds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartCloudRecordShrinkRequestBackgrounds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        backgrounds = make_shared<vector<StartCloudRecordShrinkRequestBackgrounds>>(expect1);
+      }
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("ClockWidgets") != m.end() && !m["ClockWidgets"].empty()) {
+      if (typeid(vector<boost::any>) == m["ClockWidgets"].type()) {
+        vector<StartCloudRecordShrinkRequestClockWidgets> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ClockWidgets"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartCloudRecordShrinkRequestClockWidgets model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        clockWidgets = make_shared<vector<StartCloudRecordShrinkRequestClockWidgets>>(expect1);
+      }
+    }
+    if (m.find("CropMode") != m.end() && !m["CropMode"].empty()) {
+      cropMode = make_shared<long>(boost::any_cast<long>(m["CropMode"]));
+    }
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<StartCloudRecordShrinkRequestImages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Images"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartCloudRecordShrinkRequestImages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        images = make_shared<vector<StartCloudRecordShrinkRequestImages>>(expect1);
+      }
+    }
+    if (m.find("LayoutSpecifiedUsers") != m.end() && !m["LayoutSpecifiedUsers"].empty()) {
+      layoutSpecifiedUsersShrink = make_shared<string>(boost::any_cast<string>(m["LayoutSpecifiedUsers"]));
+    }
+    if (m.find("Panes") != m.end() && !m["Panes"].empty()) {
+      if (typeid(vector<boost::any>) == m["Panes"].type()) {
+        vector<StartCloudRecordShrinkRequestPanes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Panes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartCloudRecordShrinkRequestPanes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        panes = make_shared<vector<StartCloudRecordShrinkRequestPanes>>(expect1);
+      }
+    }
+    if (m.find("RegionColor") != m.end() && !m["RegionColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RegionColor"].type()) {
+        StartCloudRecordShrinkRequestRegionColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RegionColor"]));
+        regionColor = make_shared<StartCloudRecordShrinkRequestRegionColor>(model1);
+      }
+    }
+    if (m.find("StorageConfig") != m.end() && !m["StorageConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StorageConfig"].type()) {
+        StartCloudRecordShrinkRequestStorageConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StorageConfig"]));
+        storageConfig = make_shared<StartCloudRecordShrinkRequestStorageConfig>(model1);
+      }
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("Texts") != m.end() && !m["Texts"].empty()) {
+      if (typeid(vector<boost::any>) == m["Texts"].type()) {
+        vector<StartCloudRecordShrinkRequestTexts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Texts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartCloudRecordShrinkRequestTexts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        texts = make_shared<vector<StartCloudRecordShrinkRequestTexts>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequest() = default;
 };
 class StartCloudRecordResponseBody : public Darabonba::Model {
 public:
@@ -24070,6 +26530,49 @@ public:
 
   virtual ~StartStreamingOutRequestImages() = default;
 };
+class StartStreamingOutRequestLayoutSpecifiedUsers : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> ids{};
+  shared_ptr<string> type{};
+
+  StartStreamingOutRequestLayoutSpecifiedUsers() {}
+
+  explicit StartStreamingOutRequestLayoutSpecifiedUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ids) {
+      res["Ids"] = boost::any(*ids);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutRequestLayoutSpecifiedUsers() = default;
+};
 class StartStreamingOutRequestPanesImages : public Darabonba::Model {
 public:
   shared_ptr<double> alpha{};
@@ -24691,6 +27194,7 @@ public:
   shared_ptr<vector<StartStreamingOutRequestClockWidgets>> clockWidgets{};
   shared_ptr<long> cropMode{};
   shared_ptr<vector<StartStreamingOutRequestImages>> images{};
+  shared_ptr<StartStreamingOutRequestLayoutSpecifiedUsers> layoutSpecifiedUsers{};
   shared_ptr<vector<StartStreamingOutRequestPanes>> panes{};
   shared_ptr<StartStreamingOutRequestRegionColor> regionColor{};
   shared_ptr<string> taskId{};
@@ -24737,6 +27241,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Images"] = boost::any(temp1);
+    }
+    if (layoutSpecifiedUsers) {
+      res["LayoutSpecifiedUsers"] = layoutSpecifiedUsers ? boost::any(layoutSpecifiedUsers->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (panes) {
       vector<boost::any> temp1;
@@ -24816,6 +27323,13 @@ public:
         images = make_shared<vector<StartStreamingOutRequestImages>>(expect1);
       }
     }
+    if (m.find("LayoutSpecifiedUsers") != m.end() && !m["LayoutSpecifiedUsers"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LayoutSpecifiedUsers"].type()) {
+        StartStreamingOutRequestLayoutSpecifiedUsers model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LayoutSpecifiedUsers"]));
+        layoutSpecifiedUsers = make_shared<StartStreamingOutRequestLayoutSpecifiedUsers>(model1);
+      }
+    }
     if (m.find("Panes") != m.end() && !m["Panes"].empty()) {
       if (typeid(vector<boost::any>) == m["Panes"].type()) {
         vector<StartStreamingOutRequestPanes> expect1;
@@ -24862,6 +27376,1162 @@ public:
 
 
   virtual ~StartStreamingOutRequest() = default;
+};
+class StartStreamingOutShrinkRequestBackgrounds : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<long> backgroundCropMode{};
+  shared_ptr<double> height{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> url{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  StartStreamingOutShrinkRequestBackgrounds() {}
+
+  explicit StartStreamingOutShrinkRequestBackgrounds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (backgroundCropMode) {
+      res["BackgroundCropMode"] = boost::any(*backgroundCropMode);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BackgroundCropMode") != m.end() && !m["BackgroundCropMode"].empty()) {
+      backgroundCropMode = make_shared<long>(boost::any_cast<long>(m["BackgroundCropMode"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestBackgrounds() = default;
+};
+class StartStreamingOutShrinkRequestClockWidgetsBoxColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartStreamingOutShrinkRequestClockWidgetsBoxColor() {}
+
+  explicit StartStreamingOutShrinkRequestClockWidgetsBoxColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestClockWidgetsBoxColor() = default;
+};
+class StartStreamingOutShrinkRequestClockWidgetsFontColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartStreamingOutShrinkRequestClockWidgetsFontColor() {}
+
+  explicit StartStreamingOutShrinkRequestClockWidgetsFontColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestClockWidgetsFontColor() = default;
+};
+class StartStreamingOutShrinkRequestClockWidgets : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> boxAlpha{};
+  shared_ptr<long> boxBorderw{};
+  shared_ptr<StartStreamingOutShrinkRequestClockWidgetsBoxColor> boxColor{};
+  shared_ptr<long> font{};
+  shared_ptr<StartStreamingOutShrinkRequestClockWidgetsFontColor> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<bool> hasBox{};
+  shared_ptr<long> layer{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+  shared_ptr<long> zone{};
+
+  StartStreamingOutShrinkRequestClockWidgets() {}
+
+  explicit StartStreamingOutShrinkRequestClockWidgets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (boxAlpha) {
+      res["BoxAlpha"] = boost::any(*boxAlpha);
+    }
+    if (boxBorderw) {
+      res["BoxBorderw"] = boost::any(*boxBorderw);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boxColor ? boost::any(boxColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fontColor) {
+      res["FontColor"] = fontColor ? boost::any(fontColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (hasBox) {
+      res["HasBox"] = boost::any(*hasBox);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    if (zone) {
+      res["Zone"] = boost::any(*zone);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BoxAlpha") != m.end() && !m["BoxAlpha"].empty()) {
+      boxAlpha = make_shared<double>(boost::any_cast<double>(m["BoxAlpha"]));
+    }
+    if (m.find("BoxBorderw") != m.end() && !m["BoxBorderw"].empty()) {
+      boxBorderw = make_shared<long>(boost::any_cast<long>(m["BoxBorderw"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BoxColor"].type()) {
+        StartStreamingOutShrinkRequestClockWidgetsBoxColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BoxColor"]));
+        boxColor = make_shared<StartStreamingOutShrinkRequestClockWidgetsBoxColor>(model1);
+      }
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<long>(boost::any_cast<long>(m["Font"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FontColor"].type()) {
+        StartStreamingOutShrinkRequestClockWidgetsFontColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FontColor"]));
+        fontColor = make_shared<StartStreamingOutShrinkRequestClockWidgetsFontColor>(model1);
+      }
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("HasBox") != m.end() && !m["HasBox"].empty()) {
+      hasBox = make_shared<bool>(boost::any_cast<bool>(m["HasBox"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+    if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
+      zone = make_shared<long>(boost::any_cast<long>(m["Zone"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestClockWidgets() = default;
+};
+class StartStreamingOutShrinkRequestImages : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> height{};
+  shared_ptr<long> imageCropMode{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> url{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  StartStreamingOutShrinkRequestImages() {}
+
+  explicit StartStreamingOutShrinkRequestImages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (imageCropMode) {
+      res["ImageCropMode"] = boost::any(*imageCropMode);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("ImageCropMode") != m.end() && !m["ImageCropMode"].empty()) {
+      imageCropMode = make_shared<long>(boost::any_cast<long>(m["ImageCropMode"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestImages() = default;
+};
+class StartStreamingOutShrinkRequestPanesImages : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> height{};
+  shared_ptr<long> layer{};
+  shared_ptr<long> paneImageCropMode{};
+  shared_ptr<string> url{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  StartStreamingOutShrinkRequestPanesImages() {}
+
+  explicit StartStreamingOutShrinkRequestPanesImages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (paneImageCropMode) {
+      res["PaneImageCropMode"] = boost::any(*paneImageCropMode);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("PaneImageCropMode") != m.end() && !m["PaneImageCropMode"].empty()) {
+      paneImageCropMode = make_shared<long>(boost::any_cast<long>(m["PaneImageCropMode"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestPanesImages() = default;
+};
+class StartStreamingOutShrinkRequestPanesTextsBoxColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartStreamingOutShrinkRequestPanesTextsBoxColor() {}
+
+  explicit StartStreamingOutShrinkRequestPanesTextsBoxColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestPanesTextsBoxColor() = default;
+};
+class StartStreamingOutShrinkRequestPanesTextsFontColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartStreamingOutShrinkRequestPanesTextsFontColor() {}
+
+  explicit StartStreamingOutShrinkRequestPanesTextsFontColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestPanesTextsFontColor() = default;
+};
+class StartStreamingOutShrinkRequestPanesTexts : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> boxAlpha{};
+  shared_ptr<long> boxBorderw{};
+  shared_ptr<StartStreamingOutShrinkRequestPanesTextsBoxColor> boxColor{};
+  shared_ptr<long> font{};
+  shared_ptr<StartStreamingOutShrinkRequestPanesTextsFontColor> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<bool> hasBox{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> texture{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  StartStreamingOutShrinkRequestPanesTexts() {}
+
+  explicit StartStreamingOutShrinkRequestPanesTexts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (boxAlpha) {
+      res["BoxAlpha"] = boost::any(*boxAlpha);
+    }
+    if (boxBorderw) {
+      res["BoxBorderw"] = boost::any(*boxBorderw);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boxColor ? boost::any(boxColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fontColor) {
+      res["FontColor"] = fontColor ? boost::any(fontColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (hasBox) {
+      res["HasBox"] = boost::any(*hasBox);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (texture) {
+      res["Texture"] = boost::any(*texture);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BoxAlpha") != m.end() && !m["BoxAlpha"].empty()) {
+      boxAlpha = make_shared<double>(boost::any_cast<double>(m["BoxAlpha"]));
+    }
+    if (m.find("BoxBorderw") != m.end() && !m["BoxBorderw"].empty()) {
+      boxBorderw = make_shared<long>(boost::any_cast<long>(m["BoxBorderw"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BoxColor"].type()) {
+        StartStreamingOutShrinkRequestPanesTextsBoxColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BoxColor"]));
+        boxColor = make_shared<StartStreamingOutShrinkRequestPanesTextsBoxColor>(model1);
+      }
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<long>(boost::any_cast<long>(m["Font"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FontColor"].type()) {
+        StartStreamingOutShrinkRequestPanesTextsFontColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FontColor"]));
+        fontColor = make_shared<StartStreamingOutShrinkRequestPanesTextsFontColor>(model1);
+      }
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("HasBox") != m.end() && !m["HasBox"].empty()) {
+      hasBox = make_shared<bool>(boost::any_cast<bool>(m["HasBox"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Texture") != m.end() && !m["Texture"].empty()) {
+      texture = make_shared<string>(boost::any_cast<string>(m["Texture"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestPanesTexts() = default;
+};
+class StartStreamingOutShrinkRequestPanes : public Darabonba::Model {
+public:
+  shared_ptr<vector<StartStreamingOutShrinkRequestPanesImages>> images{};
+  shared_ptr<long> paneCropMode{};
+  shared_ptr<string> paneId{};
+  shared_ptr<string> source{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<vector<StartStreamingOutShrinkRequestPanesTexts>> texts{};
+
+  StartStreamingOutShrinkRequestPanes() {}
+
+  explicit StartStreamingOutShrinkRequestPanes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (images) {
+      vector<boost::any> temp1;
+      for(auto item1:*images){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Images"] = boost::any(temp1);
+    }
+    if (paneCropMode) {
+      res["PaneCropMode"] = boost::any(*paneCropMode);
+    }
+    if (paneId) {
+      res["PaneId"] = boost::any(*paneId);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (texts) {
+      vector<boost::any> temp1;
+      for(auto item1:*texts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Texts"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<StartStreamingOutShrinkRequestPanesImages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Images"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartStreamingOutShrinkRequestPanesImages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        images = make_shared<vector<StartStreamingOutShrinkRequestPanesImages>>(expect1);
+      }
+    }
+    if (m.find("PaneCropMode") != m.end() && !m["PaneCropMode"].empty()) {
+      paneCropMode = make_shared<long>(boost::any_cast<long>(m["PaneCropMode"]));
+    }
+    if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
+      paneId = make_shared<string>(boost::any_cast<string>(m["PaneId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Texts") != m.end() && !m["Texts"].empty()) {
+      if (typeid(vector<boost::any>) == m["Texts"].type()) {
+        vector<StartStreamingOutShrinkRequestPanesTexts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Texts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartStreamingOutShrinkRequestPanesTexts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        texts = make_shared<vector<StartStreamingOutShrinkRequestPanesTexts>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestPanes() = default;
+};
+class StartStreamingOutShrinkRequestRegionColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartStreamingOutShrinkRequestRegionColor() {}
+
+  explicit StartStreamingOutShrinkRequestRegionColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestRegionColor() = default;
+};
+class StartStreamingOutShrinkRequestTextsBoxColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartStreamingOutShrinkRequestTextsBoxColor() {}
+
+  explicit StartStreamingOutShrinkRequestTextsBoxColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestTextsBoxColor() = default;
+};
+class StartStreamingOutShrinkRequestTextsFontColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  StartStreamingOutShrinkRequestTextsFontColor() {}
+
+  explicit StartStreamingOutShrinkRequestTextsFontColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestTextsFontColor() = default;
+};
+class StartStreamingOutShrinkRequestTexts : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> boxAlpha{};
+  shared_ptr<long> boxBorderw{};
+  shared_ptr<StartStreamingOutShrinkRequestTextsBoxColor> boxColor{};
+  shared_ptr<long> font{};
+  shared_ptr<StartStreamingOutShrinkRequestTextsFontColor> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<bool> hasBox{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> texture{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  StartStreamingOutShrinkRequestTexts() {}
+
+  explicit StartStreamingOutShrinkRequestTexts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (boxAlpha) {
+      res["BoxAlpha"] = boost::any(*boxAlpha);
+    }
+    if (boxBorderw) {
+      res["BoxBorderw"] = boost::any(*boxBorderw);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boxColor ? boost::any(boxColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fontColor) {
+      res["FontColor"] = fontColor ? boost::any(fontColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (hasBox) {
+      res["HasBox"] = boost::any(*hasBox);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (texture) {
+      res["Texture"] = boost::any(*texture);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BoxAlpha") != m.end() && !m["BoxAlpha"].empty()) {
+      boxAlpha = make_shared<double>(boost::any_cast<double>(m["BoxAlpha"]));
+    }
+    if (m.find("BoxBorderw") != m.end() && !m["BoxBorderw"].empty()) {
+      boxBorderw = make_shared<long>(boost::any_cast<long>(m["BoxBorderw"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BoxColor"].type()) {
+        StartStreamingOutShrinkRequestTextsBoxColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BoxColor"]));
+        boxColor = make_shared<StartStreamingOutShrinkRequestTextsBoxColor>(model1);
+      }
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<long>(boost::any_cast<long>(m["Font"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FontColor"].type()) {
+        StartStreamingOutShrinkRequestTextsFontColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FontColor"]));
+        fontColor = make_shared<StartStreamingOutShrinkRequestTextsFontColor>(model1);
+      }
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("HasBox") != m.end() && !m["HasBox"].empty()) {
+      hasBox = make_shared<bool>(boost::any_cast<bool>(m["HasBox"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Texture") != m.end() && !m["Texture"].empty()) {
+      texture = make_shared<string>(boost::any_cast<string>(m["Texture"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestTexts() = default;
+};
+class StartStreamingOutShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<vector<StartStreamingOutShrinkRequestBackgrounds>> backgrounds{};
+  shared_ptr<string> channelId{};
+  shared_ptr<vector<StartStreamingOutShrinkRequestClockWidgets>> clockWidgets{};
+  shared_ptr<long> cropMode{};
+  shared_ptr<vector<StartStreamingOutShrinkRequestImages>> images{};
+  shared_ptr<string> layoutSpecifiedUsersShrink{};
+  shared_ptr<vector<StartStreamingOutShrinkRequestPanes>> panes{};
+  shared_ptr<StartStreamingOutShrinkRequestRegionColor> regionColor{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> templateId{};
+  shared_ptr<vector<StartStreamingOutShrinkRequestTexts>> texts{};
+  shared_ptr<string> url{};
+
+  StartStreamingOutShrinkRequest() {}
+
+  explicit StartStreamingOutShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (backgrounds) {
+      vector<boost::any> temp1;
+      for(auto item1:*backgrounds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Backgrounds"] = boost::any(temp1);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (clockWidgets) {
+      vector<boost::any> temp1;
+      for(auto item1:*clockWidgets){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ClockWidgets"] = boost::any(temp1);
+    }
+    if (cropMode) {
+      res["CropMode"] = boost::any(*cropMode);
+    }
+    if (images) {
+      vector<boost::any> temp1;
+      for(auto item1:*images){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Images"] = boost::any(temp1);
+    }
+    if (layoutSpecifiedUsersShrink) {
+      res["LayoutSpecifiedUsers"] = boost::any(*layoutSpecifiedUsersShrink);
+    }
+    if (panes) {
+      vector<boost::any> temp1;
+      for(auto item1:*panes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Panes"] = boost::any(temp1);
+    }
+    if (regionColor) {
+      res["RegionColor"] = regionColor ? boost::any(regionColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (texts) {
+      vector<boost::any> temp1;
+      for(auto item1:*texts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Texts"] = boost::any(temp1);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Backgrounds") != m.end() && !m["Backgrounds"].empty()) {
+      if (typeid(vector<boost::any>) == m["Backgrounds"].type()) {
+        vector<StartStreamingOutShrinkRequestBackgrounds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Backgrounds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartStreamingOutShrinkRequestBackgrounds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        backgrounds = make_shared<vector<StartStreamingOutShrinkRequestBackgrounds>>(expect1);
+      }
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("ClockWidgets") != m.end() && !m["ClockWidgets"].empty()) {
+      if (typeid(vector<boost::any>) == m["ClockWidgets"].type()) {
+        vector<StartStreamingOutShrinkRequestClockWidgets> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ClockWidgets"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartStreamingOutShrinkRequestClockWidgets model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        clockWidgets = make_shared<vector<StartStreamingOutShrinkRequestClockWidgets>>(expect1);
+      }
+    }
+    if (m.find("CropMode") != m.end() && !m["CropMode"].empty()) {
+      cropMode = make_shared<long>(boost::any_cast<long>(m["CropMode"]));
+    }
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<StartStreamingOutShrinkRequestImages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Images"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartStreamingOutShrinkRequestImages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        images = make_shared<vector<StartStreamingOutShrinkRequestImages>>(expect1);
+      }
+    }
+    if (m.find("LayoutSpecifiedUsers") != m.end() && !m["LayoutSpecifiedUsers"].empty()) {
+      layoutSpecifiedUsersShrink = make_shared<string>(boost::any_cast<string>(m["LayoutSpecifiedUsers"]));
+    }
+    if (m.find("Panes") != m.end() && !m["Panes"].empty()) {
+      if (typeid(vector<boost::any>) == m["Panes"].type()) {
+        vector<StartStreamingOutShrinkRequestPanes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Panes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartStreamingOutShrinkRequestPanes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        panes = make_shared<vector<StartStreamingOutShrinkRequestPanes>>(expect1);
+      }
+    }
+    if (m.find("RegionColor") != m.end() && !m["RegionColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RegionColor"].type()) {
+        StartStreamingOutShrinkRequestRegionColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RegionColor"]));
+        regionColor = make_shared<StartStreamingOutShrinkRequestRegionColor>(model1);
+      }
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("Texts") != m.end() && !m["Texts"].empty()) {
+      if (typeid(vector<boost::any>) == m["Texts"].type()) {
+        vector<StartStreamingOutShrinkRequestTexts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Texts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartStreamingOutShrinkRequestTexts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        texts = make_shared<vector<StartStreamingOutShrinkRequestTexts>>(expect1);
+      }
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequest() = default;
 };
 class StartStreamingOutResponseBody : public Darabonba::Model {
 public:
@@ -25253,6 +28923,144 @@ public:
 
 
   virtual ~StopChannelResponse() = default;
+};
+class StopCloudNoteRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> channelId{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> taskId{};
+
+  StopCloudNoteRequest() {}
+
+  explicit StopCloudNoteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~StopCloudNoteRequest() = default;
+};
+class StopCloudNoteResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  StopCloudNoteResponseBody() {}
+
+  explicit StopCloudNoteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~StopCloudNoteResponseBody() = default;
+};
+class StopCloudNoteResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StopCloudNoteResponseBody> body{};
+
+  StopCloudNoteResponse() {}
+
+  explicit StopCloudNoteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopCloudNoteResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopCloudNoteResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopCloudNoteResponse() = default;
 };
 class StopCloudRecordRequest : public Darabonba::Model {
 public:
@@ -26300,6 +30108,49 @@ public:
 
   virtual ~UpdateCloudRecordRequestImages() = default;
 };
+class UpdateCloudRecordRequestLayoutSpecifiedUsers : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> ids{};
+  shared_ptr<string> type{};
+
+  UpdateCloudRecordRequestLayoutSpecifiedUsers() {}
+
+  explicit UpdateCloudRecordRequestLayoutSpecifiedUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ids) {
+      res["Ids"] = boost::any(*ids);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordRequestLayoutSpecifiedUsers() = default;
+};
 class UpdateCloudRecordRequestPanesImages : public Darabonba::Model {
 public:
   shared_ptr<double> alpha{};
@@ -26877,6 +30728,7 @@ public:
   shared_ptr<string> channelId{};
   shared_ptr<vector<UpdateCloudRecordRequestClockWidgets>> clockWidgets{};
   shared_ptr<vector<UpdateCloudRecordRequestImages>> images{};
+  shared_ptr<UpdateCloudRecordRequestLayoutSpecifiedUsers> layoutSpecifiedUsers{};
   shared_ptr<vector<UpdateCloudRecordRequestPanes>> panes{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateId{};
@@ -26918,6 +30770,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Images"] = boost::any(temp1);
+    }
+    if (layoutSpecifiedUsers) {
+      res["LayoutSpecifiedUsers"] = layoutSpecifiedUsers ? boost::any(layoutSpecifiedUsers->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (panes) {
       vector<boost::any> temp1;
@@ -26988,6 +30843,13 @@ public:
         images = make_shared<vector<UpdateCloudRecordRequestImages>>(expect1);
       }
     }
+    if (m.find("LayoutSpecifiedUsers") != m.end() && !m["LayoutSpecifiedUsers"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LayoutSpecifiedUsers"].type()) {
+        UpdateCloudRecordRequestLayoutSpecifiedUsers model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LayoutSpecifiedUsers"]));
+        layoutSpecifiedUsers = make_shared<UpdateCloudRecordRequestLayoutSpecifiedUsers>(model1);
+      }
+    }
     if (m.find("Panes") != m.end() && !m["Panes"].empty()) {
       if (typeid(vector<boost::any>) == m["Panes"].type()) {
         vector<UpdateCloudRecordRequestPanes> expect1;
@@ -27024,6 +30886,1094 @@ public:
 
 
   virtual ~UpdateCloudRecordRequest() = default;
+};
+class UpdateCloudRecordShrinkRequestBackgrounds : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<long> backgroundCropMode{};
+  shared_ptr<double> height{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> url{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  UpdateCloudRecordShrinkRequestBackgrounds() {}
+
+  explicit UpdateCloudRecordShrinkRequestBackgrounds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (backgroundCropMode) {
+      res["BackgroundCropMode"] = boost::any(*backgroundCropMode);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BackgroundCropMode") != m.end() && !m["BackgroundCropMode"].empty()) {
+      backgroundCropMode = make_shared<long>(boost::any_cast<long>(m["BackgroundCropMode"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestBackgrounds() = default;
+};
+class UpdateCloudRecordShrinkRequestClockWidgetsBoxColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  UpdateCloudRecordShrinkRequestClockWidgetsBoxColor() {}
+
+  explicit UpdateCloudRecordShrinkRequestClockWidgetsBoxColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestClockWidgetsBoxColor() = default;
+};
+class UpdateCloudRecordShrinkRequestClockWidgetsFontColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  UpdateCloudRecordShrinkRequestClockWidgetsFontColor() {}
+
+  explicit UpdateCloudRecordShrinkRequestClockWidgetsFontColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestClockWidgetsFontColor() = default;
+};
+class UpdateCloudRecordShrinkRequestClockWidgets : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> boxAlpha{};
+  shared_ptr<long> boxBorderw{};
+  shared_ptr<UpdateCloudRecordShrinkRequestClockWidgetsBoxColor> boxColor{};
+  shared_ptr<long> font{};
+  shared_ptr<UpdateCloudRecordShrinkRequestClockWidgetsFontColor> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<bool> hasBox{};
+  shared_ptr<long> layer{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+  shared_ptr<long> zone{};
+
+  UpdateCloudRecordShrinkRequestClockWidgets() {}
+
+  explicit UpdateCloudRecordShrinkRequestClockWidgets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (boxAlpha) {
+      res["BoxAlpha"] = boost::any(*boxAlpha);
+    }
+    if (boxBorderw) {
+      res["BoxBorderw"] = boost::any(*boxBorderw);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boxColor ? boost::any(boxColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fontColor) {
+      res["FontColor"] = fontColor ? boost::any(fontColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (hasBox) {
+      res["HasBox"] = boost::any(*hasBox);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    if (zone) {
+      res["Zone"] = boost::any(*zone);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BoxAlpha") != m.end() && !m["BoxAlpha"].empty()) {
+      boxAlpha = make_shared<double>(boost::any_cast<double>(m["BoxAlpha"]));
+    }
+    if (m.find("BoxBorderw") != m.end() && !m["BoxBorderw"].empty()) {
+      boxBorderw = make_shared<long>(boost::any_cast<long>(m["BoxBorderw"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BoxColor"].type()) {
+        UpdateCloudRecordShrinkRequestClockWidgetsBoxColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BoxColor"]));
+        boxColor = make_shared<UpdateCloudRecordShrinkRequestClockWidgetsBoxColor>(model1);
+      }
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<long>(boost::any_cast<long>(m["Font"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FontColor"].type()) {
+        UpdateCloudRecordShrinkRequestClockWidgetsFontColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FontColor"]));
+        fontColor = make_shared<UpdateCloudRecordShrinkRequestClockWidgetsFontColor>(model1);
+      }
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("HasBox") != m.end() && !m["HasBox"].empty()) {
+      hasBox = make_shared<bool>(boost::any_cast<bool>(m["HasBox"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+    if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
+      zone = make_shared<long>(boost::any_cast<long>(m["Zone"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestClockWidgets() = default;
+};
+class UpdateCloudRecordShrinkRequestImages : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> height{};
+  shared_ptr<long> imageCropMode{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> url{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  UpdateCloudRecordShrinkRequestImages() {}
+
+  explicit UpdateCloudRecordShrinkRequestImages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (imageCropMode) {
+      res["ImageCropMode"] = boost::any(*imageCropMode);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("ImageCropMode") != m.end() && !m["ImageCropMode"].empty()) {
+      imageCropMode = make_shared<long>(boost::any_cast<long>(m["ImageCropMode"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestImages() = default;
+};
+class UpdateCloudRecordShrinkRequestPanesImages : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> height{};
+  shared_ptr<long> layer{};
+  shared_ptr<long> paneImageCropMode{};
+  shared_ptr<string> url{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  UpdateCloudRecordShrinkRequestPanesImages() {}
+
+  explicit UpdateCloudRecordShrinkRequestPanesImages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (paneImageCropMode) {
+      res["PaneImageCropMode"] = boost::any(*paneImageCropMode);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("PaneImageCropMode") != m.end() && !m["PaneImageCropMode"].empty()) {
+      paneImageCropMode = make_shared<long>(boost::any_cast<long>(m["PaneImageCropMode"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestPanesImages() = default;
+};
+class UpdateCloudRecordShrinkRequestPanesTextsBoxColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  UpdateCloudRecordShrinkRequestPanesTextsBoxColor() {}
+
+  explicit UpdateCloudRecordShrinkRequestPanesTextsBoxColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestPanesTextsBoxColor() = default;
+};
+class UpdateCloudRecordShrinkRequestPanesTextsFontColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  UpdateCloudRecordShrinkRequestPanesTextsFontColor() {}
+
+  explicit UpdateCloudRecordShrinkRequestPanesTextsFontColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestPanesTextsFontColor() = default;
+};
+class UpdateCloudRecordShrinkRequestPanesTexts : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> boxAlpha{};
+  shared_ptr<long> boxBorderw{};
+  shared_ptr<UpdateCloudRecordShrinkRequestPanesTextsBoxColor> boxColor{};
+  shared_ptr<long> font{};
+  shared_ptr<UpdateCloudRecordShrinkRequestPanesTextsFontColor> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<bool> hasBox{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> texture{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  UpdateCloudRecordShrinkRequestPanesTexts() {}
+
+  explicit UpdateCloudRecordShrinkRequestPanesTexts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (boxAlpha) {
+      res["BoxAlpha"] = boost::any(*boxAlpha);
+    }
+    if (boxBorderw) {
+      res["BoxBorderw"] = boost::any(*boxBorderw);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boxColor ? boost::any(boxColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fontColor) {
+      res["FontColor"] = fontColor ? boost::any(fontColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (hasBox) {
+      res["HasBox"] = boost::any(*hasBox);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (texture) {
+      res["Texture"] = boost::any(*texture);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BoxAlpha") != m.end() && !m["BoxAlpha"].empty()) {
+      boxAlpha = make_shared<double>(boost::any_cast<double>(m["BoxAlpha"]));
+    }
+    if (m.find("BoxBorderw") != m.end() && !m["BoxBorderw"].empty()) {
+      boxBorderw = make_shared<long>(boost::any_cast<long>(m["BoxBorderw"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BoxColor"].type()) {
+        UpdateCloudRecordShrinkRequestPanesTextsBoxColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BoxColor"]));
+        boxColor = make_shared<UpdateCloudRecordShrinkRequestPanesTextsBoxColor>(model1);
+      }
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<long>(boost::any_cast<long>(m["Font"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FontColor"].type()) {
+        UpdateCloudRecordShrinkRequestPanesTextsFontColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FontColor"]));
+        fontColor = make_shared<UpdateCloudRecordShrinkRequestPanesTextsFontColor>(model1);
+      }
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("HasBox") != m.end() && !m["HasBox"].empty()) {
+      hasBox = make_shared<bool>(boost::any_cast<bool>(m["HasBox"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Texture") != m.end() && !m["Texture"].empty()) {
+      texture = make_shared<string>(boost::any_cast<string>(m["Texture"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestPanesTexts() = default;
+};
+class UpdateCloudRecordShrinkRequestPanes : public Darabonba::Model {
+public:
+  shared_ptr<vector<UpdateCloudRecordShrinkRequestPanesImages>> images{};
+  shared_ptr<long> paneCropMode{};
+  shared_ptr<long> paneId{};
+  shared_ptr<string> source{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<vector<UpdateCloudRecordShrinkRequestPanesTexts>> texts{};
+
+  UpdateCloudRecordShrinkRequestPanes() {}
+
+  explicit UpdateCloudRecordShrinkRequestPanes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (images) {
+      vector<boost::any> temp1;
+      for(auto item1:*images){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Images"] = boost::any(temp1);
+    }
+    if (paneCropMode) {
+      res["PaneCropMode"] = boost::any(*paneCropMode);
+    }
+    if (paneId) {
+      res["PaneId"] = boost::any(*paneId);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (texts) {
+      vector<boost::any> temp1;
+      for(auto item1:*texts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Texts"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<UpdateCloudRecordShrinkRequestPanesImages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Images"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCloudRecordShrinkRequestPanesImages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        images = make_shared<vector<UpdateCloudRecordShrinkRequestPanesImages>>(expect1);
+      }
+    }
+    if (m.find("PaneCropMode") != m.end() && !m["PaneCropMode"].empty()) {
+      paneCropMode = make_shared<long>(boost::any_cast<long>(m["PaneCropMode"]));
+    }
+    if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
+      paneId = make_shared<long>(boost::any_cast<long>(m["PaneId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Texts") != m.end() && !m["Texts"].empty()) {
+      if (typeid(vector<boost::any>) == m["Texts"].type()) {
+        vector<UpdateCloudRecordShrinkRequestPanesTexts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Texts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCloudRecordShrinkRequestPanesTexts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        texts = make_shared<vector<UpdateCloudRecordShrinkRequestPanesTexts>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestPanes() = default;
+};
+class UpdateCloudRecordShrinkRequestTextsBoxColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  UpdateCloudRecordShrinkRequestTextsBoxColor() {}
+
+  explicit UpdateCloudRecordShrinkRequestTextsBoxColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestTextsBoxColor() = default;
+};
+class UpdateCloudRecordShrinkRequestTextsFontColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  UpdateCloudRecordShrinkRequestTextsFontColor() {}
+
+  explicit UpdateCloudRecordShrinkRequestTextsFontColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestTextsFontColor() = default;
+};
+class UpdateCloudRecordShrinkRequestTexts : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> boxAlpha{};
+  shared_ptr<long> boxBorderw{};
+  shared_ptr<UpdateCloudRecordShrinkRequestTextsBoxColor> boxColor{};
+  shared_ptr<long> font{};
+  shared_ptr<UpdateCloudRecordShrinkRequestTextsFontColor> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<bool> hasBox{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> texture{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  UpdateCloudRecordShrinkRequestTexts() {}
+
+  explicit UpdateCloudRecordShrinkRequestTexts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (boxAlpha) {
+      res["BoxAlpha"] = boost::any(*boxAlpha);
+    }
+    if (boxBorderw) {
+      res["BoxBorderw"] = boost::any(*boxBorderw);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boxColor ? boost::any(boxColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fontColor) {
+      res["FontColor"] = fontColor ? boost::any(fontColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (hasBox) {
+      res["HasBox"] = boost::any(*hasBox);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (texture) {
+      res["Texture"] = boost::any(*texture);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BoxAlpha") != m.end() && !m["BoxAlpha"].empty()) {
+      boxAlpha = make_shared<double>(boost::any_cast<double>(m["BoxAlpha"]));
+    }
+    if (m.find("BoxBorderw") != m.end() && !m["BoxBorderw"].empty()) {
+      boxBorderw = make_shared<long>(boost::any_cast<long>(m["BoxBorderw"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BoxColor"].type()) {
+        UpdateCloudRecordShrinkRequestTextsBoxColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BoxColor"]));
+        boxColor = make_shared<UpdateCloudRecordShrinkRequestTextsBoxColor>(model1);
+      }
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<long>(boost::any_cast<long>(m["Font"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FontColor"].type()) {
+        UpdateCloudRecordShrinkRequestTextsFontColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FontColor"]));
+        fontColor = make_shared<UpdateCloudRecordShrinkRequestTextsFontColor>(model1);
+      }
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("HasBox") != m.end() && !m["HasBox"].empty()) {
+      hasBox = make_shared<bool>(boost::any_cast<bool>(m["HasBox"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Texture") != m.end() && !m["Texture"].empty()) {
+      texture = make_shared<string>(boost::any_cast<string>(m["Texture"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestTexts() = default;
+};
+class UpdateCloudRecordShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<vector<UpdateCloudRecordShrinkRequestBackgrounds>> backgrounds{};
+  shared_ptr<string> channelId{};
+  shared_ptr<vector<UpdateCloudRecordShrinkRequestClockWidgets>> clockWidgets{};
+  shared_ptr<vector<UpdateCloudRecordShrinkRequestImages>> images{};
+  shared_ptr<string> layoutSpecifiedUsersShrink{};
+  shared_ptr<vector<UpdateCloudRecordShrinkRequestPanes>> panes{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> templateId{};
+  shared_ptr<vector<UpdateCloudRecordShrinkRequestTexts>> texts{};
+
+  UpdateCloudRecordShrinkRequest() {}
+
+  explicit UpdateCloudRecordShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (backgrounds) {
+      vector<boost::any> temp1;
+      for(auto item1:*backgrounds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Backgrounds"] = boost::any(temp1);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (clockWidgets) {
+      vector<boost::any> temp1;
+      for(auto item1:*clockWidgets){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ClockWidgets"] = boost::any(temp1);
+    }
+    if (images) {
+      vector<boost::any> temp1;
+      for(auto item1:*images){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Images"] = boost::any(temp1);
+    }
+    if (layoutSpecifiedUsersShrink) {
+      res["LayoutSpecifiedUsers"] = boost::any(*layoutSpecifiedUsersShrink);
+    }
+    if (panes) {
+      vector<boost::any> temp1;
+      for(auto item1:*panes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Panes"] = boost::any(temp1);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (texts) {
+      vector<boost::any> temp1;
+      for(auto item1:*texts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Texts"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Backgrounds") != m.end() && !m["Backgrounds"].empty()) {
+      if (typeid(vector<boost::any>) == m["Backgrounds"].type()) {
+        vector<UpdateCloudRecordShrinkRequestBackgrounds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Backgrounds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCloudRecordShrinkRequestBackgrounds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        backgrounds = make_shared<vector<UpdateCloudRecordShrinkRequestBackgrounds>>(expect1);
+      }
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("ClockWidgets") != m.end() && !m["ClockWidgets"].empty()) {
+      if (typeid(vector<boost::any>) == m["ClockWidgets"].type()) {
+        vector<UpdateCloudRecordShrinkRequestClockWidgets> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ClockWidgets"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCloudRecordShrinkRequestClockWidgets model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        clockWidgets = make_shared<vector<UpdateCloudRecordShrinkRequestClockWidgets>>(expect1);
+      }
+    }
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<UpdateCloudRecordShrinkRequestImages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Images"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCloudRecordShrinkRequestImages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        images = make_shared<vector<UpdateCloudRecordShrinkRequestImages>>(expect1);
+      }
+    }
+    if (m.find("LayoutSpecifiedUsers") != m.end() && !m["LayoutSpecifiedUsers"].empty()) {
+      layoutSpecifiedUsersShrink = make_shared<string>(boost::any_cast<string>(m["LayoutSpecifiedUsers"]));
+    }
+    if (m.find("Panes") != m.end() && !m["Panes"].empty()) {
+      if (typeid(vector<boost::any>) == m["Panes"].type()) {
+        vector<UpdateCloudRecordShrinkRequestPanes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Panes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCloudRecordShrinkRequestPanes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        panes = make_shared<vector<UpdateCloudRecordShrinkRequestPanes>>(expect1);
+      }
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("Texts") != m.end() && !m["Texts"].empty()) {
+      if (typeid(vector<boost::any>) == m["Texts"].type()) {
+        vector<UpdateCloudRecordShrinkRequestTexts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Texts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCloudRecordShrinkRequestTexts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        texts = make_shared<vector<UpdateCloudRecordShrinkRequestTexts>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequest() = default;
 };
 class UpdateCloudRecordResponseBody : public Darabonba::Model {
 public:
@@ -29400,6 +34350,49 @@ public:
 
   virtual ~UpdateStreamingOutRequestImages() = default;
 };
+class UpdateStreamingOutRequestLayoutSpecifiedUsers : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> ids{};
+  shared_ptr<string> type{};
+
+  UpdateStreamingOutRequestLayoutSpecifiedUsers() {}
+
+  explicit UpdateStreamingOutRequestLayoutSpecifiedUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ids) {
+      res["Ids"] = boost::any(*ids);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutRequestLayoutSpecifiedUsers() = default;
+};
 class UpdateStreamingOutRequestPanesImages : public Darabonba::Model {
 public:
   shared_ptr<double> alpha{};
@@ -29977,6 +34970,7 @@ public:
   shared_ptr<string> channelId{};
   shared_ptr<vector<UpdateStreamingOutRequestClockWidgets>> clockWidgets{};
   shared_ptr<vector<UpdateStreamingOutRequestImages>> images{};
+  shared_ptr<UpdateStreamingOutRequestLayoutSpecifiedUsers> layoutSpecifiedUsers{};
   shared_ptr<vector<UpdateStreamingOutRequestPanes>> panes{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateId{};
@@ -30018,6 +35012,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Images"] = boost::any(temp1);
+    }
+    if (layoutSpecifiedUsers) {
+      res["LayoutSpecifiedUsers"] = layoutSpecifiedUsers ? boost::any(layoutSpecifiedUsers->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (panes) {
       vector<boost::any> temp1;
@@ -30088,6 +35085,13 @@ public:
         images = make_shared<vector<UpdateStreamingOutRequestImages>>(expect1);
       }
     }
+    if (m.find("LayoutSpecifiedUsers") != m.end() && !m["LayoutSpecifiedUsers"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LayoutSpecifiedUsers"].type()) {
+        UpdateStreamingOutRequestLayoutSpecifiedUsers model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LayoutSpecifiedUsers"]));
+        layoutSpecifiedUsers = make_shared<UpdateStreamingOutRequestLayoutSpecifiedUsers>(model1);
+      }
+    }
     if (m.find("Panes") != m.end() && !m["Panes"].empty()) {
       if (typeid(vector<boost::any>) == m["Panes"].type()) {
         vector<UpdateStreamingOutRequestPanes> expect1;
@@ -30124,6 +35128,1094 @@ public:
 
 
   virtual ~UpdateStreamingOutRequest() = default;
+};
+class UpdateStreamingOutShrinkRequestBackgrounds : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<long> backgroundCropMode{};
+  shared_ptr<double> height{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> url{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  UpdateStreamingOutShrinkRequestBackgrounds() {}
+
+  explicit UpdateStreamingOutShrinkRequestBackgrounds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (backgroundCropMode) {
+      res["BackgroundCropMode"] = boost::any(*backgroundCropMode);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BackgroundCropMode") != m.end() && !m["BackgroundCropMode"].empty()) {
+      backgroundCropMode = make_shared<long>(boost::any_cast<long>(m["BackgroundCropMode"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestBackgrounds() = default;
+};
+class UpdateStreamingOutShrinkRequestClockWidgetsBoxColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  UpdateStreamingOutShrinkRequestClockWidgetsBoxColor() {}
+
+  explicit UpdateStreamingOutShrinkRequestClockWidgetsBoxColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestClockWidgetsBoxColor() = default;
+};
+class UpdateStreamingOutShrinkRequestClockWidgetsFontColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  UpdateStreamingOutShrinkRequestClockWidgetsFontColor() {}
+
+  explicit UpdateStreamingOutShrinkRequestClockWidgetsFontColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestClockWidgetsFontColor() = default;
+};
+class UpdateStreamingOutShrinkRequestClockWidgets : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> boxAlpha{};
+  shared_ptr<long> boxBorderw{};
+  shared_ptr<UpdateStreamingOutShrinkRequestClockWidgetsBoxColor> boxColor{};
+  shared_ptr<long> font{};
+  shared_ptr<UpdateStreamingOutShrinkRequestClockWidgetsFontColor> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<bool> hasBox{};
+  shared_ptr<long> layer{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+  shared_ptr<long> zone{};
+
+  UpdateStreamingOutShrinkRequestClockWidgets() {}
+
+  explicit UpdateStreamingOutShrinkRequestClockWidgets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (boxAlpha) {
+      res["BoxAlpha"] = boost::any(*boxAlpha);
+    }
+    if (boxBorderw) {
+      res["BoxBorderw"] = boost::any(*boxBorderw);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boxColor ? boost::any(boxColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fontColor) {
+      res["FontColor"] = fontColor ? boost::any(fontColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (hasBox) {
+      res["HasBox"] = boost::any(*hasBox);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    if (zone) {
+      res["Zone"] = boost::any(*zone);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BoxAlpha") != m.end() && !m["BoxAlpha"].empty()) {
+      boxAlpha = make_shared<double>(boost::any_cast<double>(m["BoxAlpha"]));
+    }
+    if (m.find("BoxBorderw") != m.end() && !m["BoxBorderw"].empty()) {
+      boxBorderw = make_shared<long>(boost::any_cast<long>(m["BoxBorderw"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BoxColor"].type()) {
+        UpdateStreamingOutShrinkRequestClockWidgetsBoxColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BoxColor"]));
+        boxColor = make_shared<UpdateStreamingOutShrinkRequestClockWidgetsBoxColor>(model1);
+      }
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<long>(boost::any_cast<long>(m["Font"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FontColor"].type()) {
+        UpdateStreamingOutShrinkRequestClockWidgetsFontColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FontColor"]));
+        fontColor = make_shared<UpdateStreamingOutShrinkRequestClockWidgetsFontColor>(model1);
+      }
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("HasBox") != m.end() && !m["HasBox"].empty()) {
+      hasBox = make_shared<bool>(boost::any_cast<bool>(m["HasBox"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+    if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
+      zone = make_shared<long>(boost::any_cast<long>(m["Zone"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestClockWidgets() = default;
+};
+class UpdateStreamingOutShrinkRequestImages : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> height{};
+  shared_ptr<long> imageCropMode{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> url{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  UpdateStreamingOutShrinkRequestImages() {}
+
+  explicit UpdateStreamingOutShrinkRequestImages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (imageCropMode) {
+      res["ImageCropMode"] = boost::any(*imageCropMode);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("ImageCropMode") != m.end() && !m["ImageCropMode"].empty()) {
+      imageCropMode = make_shared<long>(boost::any_cast<long>(m["ImageCropMode"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestImages() = default;
+};
+class UpdateStreamingOutShrinkRequestPanesImages : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> height{};
+  shared_ptr<long> layer{};
+  shared_ptr<long> paneImageCropMode{};
+  shared_ptr<string> url{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  UpdateStreamingOutShrinkRequestPanesImages() {}
+
+  explicit UpdateStreamingOutShrinkRequestPanesImages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (paneImageCropMode) {
+      res["PaneImageCropMode"] = boost::any(*paneImageCropMode);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("PaneImageCropMode") != m.end() && !m["PaneImageCropMode"].empty()) {
+      paneImageCropMode = make_shared<long>(boost::any_cast<long>(m["PaneImageCropMode"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestPanesImages() = default;
+};
+class UpdateStreamingOutShrinkRequestPanesTextsBoxColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  UpdateStreamingOutShrinkRequestPanesTextsBoxColor() {}
+
+  explicit UpdateStreamingOutShrinkRequestPanesTextsBoxColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestPanesTextsBoxColor() = default;
+};
+class UpdateStreamingOutShrinkRequestPanesTextsFontColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  UpdateStreamingOutShrinkRequestPanesTextsFontColor() {}
+
+  explicit UpdateStreamingOutShrinkRequestPanesTextsFontColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestPanesTextsFontColor() = default;
+};
+class UpdateStreamingOutShrinkRequestPanesTexts : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> boxAlpha{};
+  shared_ptr<long> boxBorderw{};
+  shared_ptr<UpdateStreamingOutShrinkRequestPanesTextsBoxColor> boxColor{};
+  shared_ptr<long> font{};
+  shared_ptr<UpdateStreamingOutShrinkRequestPanesTextsFontColor> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<bool> hasBox{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> texture{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  UpdateStreamingOutShrinkRequestPanesTexts() {}
+
+  explicit UpdateStreamingOutShrinkRequestPanesTexts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (boxAlpha) {
+      res["BoxAlpha"] = boost::any(*boxAlpha);
+    }
+    if (boxBorderw) {
+      res["BoxBorderw"] = boost::any(*boxBorderw);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boxColor ? boost::any(boxColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fontColor) {
+      res["FontColor"] = fontColor ? boost::any(fontColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (hasBox) {
+      res["HasBox"] = boost::any(*hasBox);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (texture) {
+      res["Texture"] = boost::any(*texture);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BoxAlpha") != m.end() && !m["BoxAlpha"].empty()) {
+      boxAlpha = make_shared<double>(boost::any_cast<double>(m["BoxAlpha"]));
+    }
+    if (m.find("BoxBorderw") != m.end() && !m["BoxBorderw"].empty()) {
+      boxBorderw = make_shared<long>(boost::any_cast<long>(m["BoxBorderw"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BoxColor"].type()) {
+        UpdateStreamingOutShrinkRequestPanesTextsBoxColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BoxColor"]));
+        boxColor = make_shared<UpdateStreamingOutShrinkRequestPanesTextsBoxColor>(model1);
+      }
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<long>(boost::any_cast<long>(m["Font"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FontColor"].type()) {
+        UpdateStreamingOutShrinkRequestPanesTextsFontColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FontColor"]));
+        fontColor = make_shared<UpdateStreamingOutShrinkRequestPanesTextsFontColor>(model1);
+      }
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("HasBox") != m.end() && !m["HasBox"].empty()) {
+      hasBox = make_shared<bool>(boost::any_cast<bool>(m["HasBox"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Texture") != m.end() && !m["Texture"].empty()) {
+      texture = make_shared<string>(boost::any_cast<string>(m["Texture"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestPanesTexts() = default;
+};
+class UpdateStreamingOutShrinkRequestPanes : public Darabonba::Model {
+public:
+  shared_ptr<vector<UpdateStreamingOutShrinkRequestPanesImages>> images{};
+  shared_ptr<long> paneCropMode{};
+  shared_ptr<long> paneId{};
+  shared_ptr<string> source{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<vector<UpdateStreamingOutShrinkRequestPanesTexts>> texts{};
+
+  UpdateStreamingOutShrinkRequestPanes() {}
+
+  explicit UpdateStreamingOutShrinkRequestPanes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (images) {
+      vector<boost::any> temp1;
+      for(auto item1:*images){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Images"] = boost::any(temp1);
+    }
+    if (paneCropMode) {
+      res["PaneCropMode"] = boost::any(*paneCropMode);
+    }
+    if (paneId) {
+      res["PaneId"] = boost::any(*paneId);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (texts) {
+      vector<boost::any> temp1;
+      for(auto item1:*texts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Texts"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<UpdateStreamingOutShrinkRequestPanesImages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Images"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateStreamingOutShrinkRequestPanesImages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        images = make_shared<vector<UpdateStreamingOutShrinkRequestPanesImages>>(expect1);
+      }
+    }
+    if (m.find("PaneCropMode") != m.end() && !m["PaneCropMode"].empty()) {
+      paneCropMode = make_shared<long>(boost::any_cast<long>(m["PaneCropMode"]));
+    }
+    if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
+      paneId = make_shared<long>(boost::any_cast<long>(m["PaneId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Texts") != m.end() && !m["Texts"].empty()) {
+      if (typeid(vector<boost::any>) == m["Texts"].type()) {
+        vector<UpdateStreamingOutShrinkRequestPanesTexts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Texts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateStreamingOutShrinkRequestPanesTexts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        texts = make_shared<vector<UpdateStreamingOutShrinkRequestPanesTexts>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestPanes() = default;
+};
+class UpdateStreamingOutShrinkRequestTextsBoxColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  UpdateStreamingOutShrinkRequestTextsBoxColor() {}
+
+  explicit UpdateStreamingOutShrinkRequestTextsBoxColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestTextsBoxColor() = default;
+};
+class UpdateStreamingOutShrinkRequestTextsFontColor : public Darabonba::Model {
+public:
+  shared_ptr<long> b{};
+  shared_ptr<long> g{};
+  shared_ptr<long> r{};
+
+  UpdateStreamingOutShrinkRequestTextsFontColor() {}
+
+  explicit UpdateStreamingOutShrinkRequestTextsFontColor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b) {
+      res["B"] = boost::any(*b);
+    }
+    if (g) {
+      res["G"] = boost::any(*g);
+    }
+    if (r) {
+      res["R"] = boost::any(*r);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("B") != m.end() && !m["B"].empty()) {
+      b = make_shared<long>(boost::any_cast<long>(m["B"]));
+    }
+    if (m.find("G") != m.end() && !m["G"].empty()) {
+      g = make_shared<long>(boost::any_cast<long>(m["G"]));
+    }
+    if (m.find("R") != m.end() && !m["R"].empty()) {
+      r = make_shared<long>(boost::any_cast<long>(m["R"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestTextsFontColor() = default;
+};
+class UpdateStreamingOutShrinkRequestTexts : public Darabonba::Model {
+public:
+  shared_ptr<double> alpha{};
+  shared_ptr<double> boxAlpha{};
+  shared_ptr<long> boxBorderw{};
+  shared_ptr<UpdateStreamingOutShrinkRequestTextsBoxColor> boxColor{};
+  shared_ptr<long> font{};
+  shared_ptr<UpdateStreamingOutShrinkRequestTextsFontColor> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<bool> hasBox{};
+  shared_ptr<long> layer{};
+  shared_ptr<string> texture{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  UpdateStreamingOutShrinkRequestTexts() {}
+
+  explicit UpdateStreamingOutShrinkRequestTexts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (boxAlpha) {
+      res["BoxAlpha"] = boost::any(*boxAlpha);
+    }
+    if (boxBorderw) {
+      res["BoxBorderw"] = boost::any(*boxBorderw);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boxColor ? boost::any(boxColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fontColor) {
+      res["FontColor"] = fontColor ? boost::any(fontColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (hasBox) {
+      res["HasBox"] = boost::any(*hasBox);
+    }
+    if (layer) {
+      res["Layer"] = boost::any(*layer);
+    }
+    if (texture) {
+      res["Texture"] = boost::any(*texture);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BoxAlpha") != m.end() && !m["BoxAlpha"].empty()) {
+      boxAlpha = make_shared<double>(boost::any_cast<double>(m["BoxAlpha"]));
+    }
+    if (m.find("BoxBorderw") != m.end() && !m["BoxBorderw"].empty()) {
+      boxBorderw = make_shared<long>(boost::any_cast<long>(m["BoxBorderw"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BoxColor"].type()) {
+        UpdateStreamingOutShrinkRequestTextsBoxColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BoxColor"]));
+        boxColor = make_shared<UpdateStreamingOutShrinkRequestTextsBoxColor>(model1);
+      }
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<long>(boost::any_cast<long>(m["Font"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FontColor"].type()) {
+        UpdateStreamingOutShrinkRequestTextsFontColor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FontColor"]));
+        fontColor = make_shared<UpdateStreamingOutShrinkRequestTextsFontColor>(model1);
+      }
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("HasBox") != m.end() && !m["HasBox"].empty()) {
+      hasBox = make_shared<bool>(boost::any_cast<bool>(m["HasBox"]));
+    }
+    if (m.find("Layer") != m.end() && !m["Layer"].empty()) {
+      layer = make_shared<long>(boost::any_cast<long>(m["Layer"]));
+    }
+    if (m.find("Texture") != m.end() && !m["Texture"].empty()) {
+      texture = make_shared<string>(boost::any_cast<string>(m["Texture"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestTexts() = default;
+};
+class UpdateStreamingOutShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<vector<UpdateStreamingOutShrinkRequestBackgrounds>> backgrounds{};
+  shared_ptr<string> channelId{};
+  shared_ptr<vector<UpdateStreamingOutShrinkRequestClockWidgets>> clockWidgets{};
+  shared_ptr<vector<UpdateStreamingOutShrinkRequestImages>> images{};
+  shared_ptr<string> layoutSpecifiedUsersShrink{};
+  shared_ptr<vector<UpdateStreamingOutShrinkRequestPanes>> panes{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> templateId{};
+  shared_ptr<vector<UpdateStreamingOutShrinkRequestTexts>> texts{};
+
+  UpdateStreamingOutShrinkRequest() {}
+
+  explicit UpdateStreamingOutShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (backgrounds) {
+      vector<boost::any> temp1;
+      for(auto item1:*backgrounds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Backgrounds"] = boost::any(temp1);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (clockWidgets) {
+      vector<boost::any> temp1;
+      for(auto item1:*clockWidgets){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ClockWidgets"] = boost::any(temp1);
+    }
+    if (images) {
+      vector<boost::any> temp1;
+      for(auto item1:*images){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Images"] = boost::any(temp1);
+    }
+    if (layoutSpecifiedUsersShrink) {
+      res["LayoutSpecifiedUsers"] = boost::any(*layoutSpecifiedUsersShrink);
+    }
+    if (panes) {
+      vector<boost::any> temp1;
+      for(auto item1:*panes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Panes"] = boost::any(temp1);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (texts) {
+      vector<boost::any> temp1;
+      for(auto item1:*texts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Texts"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Backgrounds") != m.end() && !m["Backgrounds"].empty()) {
+      if (typeid(vector<boost::any>) == m["Backgrounds"].type()) {
+        vector<UpdateStreamingOutShrinkRequestBackgrounds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Backgrounds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateStreamingOutShrinkRequestBackgrounds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        backgrounds = make_shared<vector<UpdateStreamingOutShrinkRequestBackgrounds>>(expect1);
+      }
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("ClockWidgets") != m.end() && !m["ClockWidgets"].empty()) {
+      if (typeid(vector<boost::any>) == m["ClockWidgets"].type()) {
+        vector<UpdateStreamingOutShrinkRequestClockWidgets> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ClockWidgets"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateStreamingOutShrinkRequestClockWidgets model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        clockWidgets = make_shared<vector<UpdateStreamingOutShrinkRequestClockWidgets>>(expect1);
+      }
+    }
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<UpdateStreamingOutShrinkRequestImages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Images"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateStreamingOutShrinkRequestImages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        images = make_shared<vector<UpdateStreamingOutShrinkRequestImages>>(expect1);
+      }
+    }
+    if (m.find("LayoutSpecifiedUsers") != m.end() && !m["LayoutSpecifiedUsers"].empty()) {
+      layoutSpecifiedUsersShrink = make_shared<string>(boost::any_cast<string>(m["LayoutSpecifiedUsers"]));
+    }
+    if (m.find("Panes") != m.end() && !m["Panes"].empty()) {
+      if (typeid(vector<boost::any>) == m["Panes"].type()) {
+        vector<UpdateStreamingOutShrinkRequestPanes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Panes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateStreamingOutShrinkRequestPanes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        panes = make_shared<vector<UpdateStreamingOutShrinkRequestPanes>>(expect1);
+      }
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("Texts") != m.end() && !m["Texts"].empty()) {
+      if (typeid(vector<boost::any>) == m["Texts"].type()) {
+        vector<UpdateStreamingOutShrinkRequestTexts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Texts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateStreamingOutShrinkRequestTexts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        texts = make_shared<vector<UpdateStreamingOutShrinkRequestTexts>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequest() = default;
 };
 class UpdateStreamingOutResponseBody : public Darabonba::Model {
 public:
@@ -30305,6 +36397,8 @@ public:
   DescribeChannelUsersResponse describeChannelUsers(shared_ptr<DescribeChannelUsersRequest> request);
   DescribeChannelsResponse describeChannelsWithOptions(shared_ptr<DescribeChannelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeChannelsResponse describeChannels(shared_ptr<DescribeChannelsRequest> request);
+  DescribeCloudNotesResponse describeCloudNotesWithOptions(shared_ptr<DescribeCloudNotesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCloudNotesResponse describeCloudNotes(shared_ptr<DescribeCloudNotesRequest> request);
   DescribeEndPointEventListResponse describeEndPointEventListWithOptions(shared_ptr<DescribeEndPointEventListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeEndPointEventListResponse describeEndPointEventList(shared_ptr<DescribeEndPointEventListRequest> request);
   DescribeEndPointMetricDataResponse describeEndPointMetricDataWithOptions(shared_ptr<DescribeEndPointMetricDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -30389,18 +36483,22 @@ public:
   RemoveUsersResponse removeUsers(shared_ptr<RemoveUsersRequest> request);
   StartCategoryCallbackResponse startCategoryCallbackWithOptions(shared_ptr<StartCategoryCallbackRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartCategoryCallbackResponse startCategoryCallback(shared_ptr<StartCategoryCallbackRequest> request);
-  StartCloudRecordResponse startCloudRecordWithOptions(shared_ptr<StartCloudRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartCloudNoteResponse startCloudNoteWithOptions(shared_ptr<StartCloudNoteRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartCloudNoteResponse startCloudNote(shared_ptr<StartCloudNoteRequest> request);
+  StartCloudRecordResponse startCloudRecordWithOptions(shared_ptr<StartCloudRecordRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartCloudRecordResponse startCloudRecord(shared_ptr<StartCloudRecordRequest> request);
   StartMPUTaskResponse startMPUTaskWithOptions(shared_ptr<StartMPUTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartMPUTaskResponse startMPUTask(shared_ptr<StartMPUTaskRequest> request);
   StartRecordTaskResponse startRecordTaskWithOptions(shared_ptr<StartRecordTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartRecordTaskResponse startRecordTask(shared_ptr<StartRecordTaskRequest> request);
-  StartStreamingOutResponse startStreamingOutWithOptions(shared_ptr<StartStreamingOutRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartStreamingOutResponse startStreamingOutWithOptions(shared_ptr<StartStreamingOutRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartStreamingOutResponse startStreamingOut(shared_ptr<StartStreamingOutRequest> request);
   StopCategoryCallbackResponse stopCategoryCallbackWithOptions(shared_ptr<StopCategoryCallbackRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopCategoryCallbackResponse stopCategoryCallback(shared_ptr<StopCategoryCallbackRequest> request);
   StopChannelResponse stopChannelWithOptions(shared_ptr<StopChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopChannelResponse stopChannel(shared_ptr<StopChannelRequest> request);
+  StopCloudNoteResponse stopCloudNoteWithOptions(shared_ptr<StopCloudNoteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopCloudNoteResponse stopCloudNote(shared_ptr<StopCloudNoteRequest> request);
   StopCloudRecordResponse stopCloudRecordWithOptions(shared_ptr<StopCloudRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopCloudRecordResponse stopCloudRecord(shared_ptr<StopCloudRecordRequest> request);
   StopMPUTaskResponse stopMPUTaskWithOptions(shared_ptr<StopMPUTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -30411,7 +36509,7 @@ public:
   StopStreamingOutResponse stopStreamingOut(shared_ptr<StopStreamingOutRequest> request);
   UpdateAutoLiveStreamRuleResponse updateAutoLiveStreamRuleWithOptions(shared_ptr<UpdateAutoLiveStreamRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAutoLiveStreamRuleResponse updateAutoLiveStreamRule(shared_ptr<UpdateAutoLiveStreamRuleRequest> request);
-  UpdateCloudRecordResponse updateCloudRecordWithOptions(shared_ptr<UpdateCloudRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateCloudRecordResponse updateCloudRecordWithOptions(shared_ptr<UpdateCloudRecordRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateCloudRecordResponse updateCloudRecord(shared_ptr<UpdateCloudRecordRequest> request);
   UpdateMPUTaskResponse updateMPUTaskWithOptions(shared_ptr<UpdateMPUTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateMPUTaskResponse updateMPUTask(shared_ptr<UpdateMPUTaskRequest> request);
@@ -30419,7 +36517,7 @@ public:
   UpdateRecordTaskResponse updateRecordTask(shared_ptr<UpdateRecordTaskRequest> request);
   UpdateRecordTemplateResponse updateRecordTemplateWithOptions(shared_ptr<UpdateRecordTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateRecordTemplateResponse updateRecordTemplate(shared_ptr<UpdateRecordTemplateRequest> request);
-  UpdateStreamingOutResponse updateStreamingOutWithOptions(shared_ptr<UpdateStreamingOutRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateStreamingOutResponse updateStreamingOutWithOptions(shared_ptr<UpdateStreamingOutRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateStreamingOutResponse updateStreamingOut(shared_ptr<UpdateStreamingOutRequest> request);
 
   virtual ~Client() = default;
