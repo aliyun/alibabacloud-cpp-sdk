@@ -2734,6 +2734,9 @@ CreateImageResponse Alibabacloud_Ecs20140526::Client::createImageWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<vector<CreateImageRequestDiskDeviceMapping>>(request->diskDeviceMapping)) {
     query->insert(pair<string, vector<CreateImageRequestDiskDeviceMapping>>("DiskDeviceMapping", *request->diskDeviceMapping));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateImageRequestFeatures>(request->features)) {
+    query->insert(pair<string, CreateImageRequestFeatures>("Features", *request->features));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageFamily)) {
     query->insert(pair<string, string>("ImageFamily", *request->imageFamily));
   }
