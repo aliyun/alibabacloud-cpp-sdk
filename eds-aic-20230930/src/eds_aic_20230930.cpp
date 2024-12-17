@@ -712,6 +712,9 @@ DescribeAppsResponse Alibabacloud_Eds-aic20230930::Client::describeAppsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->installationStatus)) {
     query->insert(pair<string, string>("InstallationStatus", *request->installationStatus));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->MD5)) {
+    query->insert(pair<string, string>("MD5", *request->MD5));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
@@ -989,14 +992,29 @@ DescribeSpecResponse Alibabacloud_Eds-aic20230930::Client::describeSpec(shared_p
 DescribeTasksResponse Alibabacloud_Eds-aic20230930::Client::describeTasksWithOptions(shared_ptr<DescribeTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
+    query->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->invokeId)) {
     query->insert(pair<string, string>("InvokeId", *request->invokeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->level)) {
+    query->insert(pair<string, long>("Level", *request->level));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->param)) {
+    query->insert(pair<string, string>("Param", *request->param));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentTaskId)) {
+    query->insert(pair<string, string>("ParentTaskId", *request->parentTaskId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceIds)) {
     query->insert(pair<string, vector<string>>("ResourceIds", *request->resourceIds));
@@ -1007,8 +1025,14 @@ DescribeTasksResponse Alibabacloud_Eds-aic20230930::Client::describeTasksWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->taskStatus)) {
     query->insert(pair<string, string>("TaskStatus", *request->taskStatus));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->taskStatuses)) {
+    query->insert(pair<string, vector<string>>("TaskStatuses", *request->taskStatuses));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskType)) {
     query->insert(pair<string, string>("TaskType", *request->taskType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->taskTypes)) {
+    query->insert(pair<string, vector<string>>("TaskTypes", *request->taskTypes));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1743,6 +1767,9 @@ UninstallAppResponse Alibabacloud_Eds-aic20230930::Client::uninstallAppWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceGroupIdList)) {
     query->insert(pair<string, vector<string>>("InstanceGroupIdList", *request->instanceGroupIdList));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIdList)) {
+    query->insert(pair<string, vector<string>>("InstanceIdList", *request->instanceIdList));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

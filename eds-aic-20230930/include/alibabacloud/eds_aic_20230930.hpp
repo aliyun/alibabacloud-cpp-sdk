@@ -526,6 +526,7 @@ public:
   shared_ptr<long> count{};
   shared_ptr<vector<BackupFileResponseBodyData>> data{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
 
   BackupFileResponseBody() {}
 
@@ -550,6 +551,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
     return res;
   }
 
@@ -572,6 +576,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
   }
 
@@ -3594,6 +3601,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> installationStatus{};
+  shared_ptr<string> MD5{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> status{};
@@ -3619,6 +3627,9 @@ public:
     }
     if (installationStatus) {
       res["InstallationStatus"] = boost::any(*installationStatus);
+    }
+    if (MD5) {
+      res["MD5"] = boost::any(*MD5);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -3652,6 +3663,9 @@ public:
     if (m.find("InstallationStatus") != m.end() && !m["InstallationStatus"].empty()) {
       installationStatus = make_shared<string>(boost::any_cast<string>(m["InstallationStatus"]));
     }
+    if (m.find("MD5") != m.end() && !m["MD5"].empty()) {
+      MD5 = make_shared<string>(boost::any_cast<string>(m["MD5"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -3669,6 +3683,7 @@ public:
 class DescribeAppsResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> androidAppVersion{};
+  shared_ptr<string> apkSize{};
   shared_ptr<long> appId{};
   shared_ptr<string> appName{};
   shared_ptr<string> bizRegionId{};
@@ -3678,6 +3693,7 @@ public:
   shared_ptr<string> iconUrl{};
   shared_ptr<string> installationStatus{};
   shared_ptr<vector<string>> instanceGroupList{};
+  shared_ptr<string> MD5{};
   shared_ptr<string> packageName{};
   shared_ptr<string> status{};
 
@@ -3693,6 +3709,9 @@ public:
     map<string, boost::any> res;
     if (androidAppVersion) {
       res["AndroidAppVersion"] = boost::any(*androidAppVersion);
+    }
+    if (apkSize) {
+      res["ApkSize"] = boost::any(*apkSize);
     }
     if (appId) {
       res["AppId"] = boost::any(*appId);
@@ -3721,6 +3740,9 @@ public:
     if (instanceGroupList) {
       res["InstanceGroupList"] = boost::any(*instanceGroupList);
     }
+    if (MD5) {
+      res["MD5"] = boost::any(*MD5);
+    }
     if (packageName) {
       res["PackageName"] = boost::any(*packageName);
     }
@@ -3733,6 +3755,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AndroidAppVersion") != m.end() && !m["AndroidAppVersion"].empty()) {
       androidAppVersion = make_shared<string>(boost::any_cast<string>(m["AndroidAppVersion"]));
+    }
+    if (m.find("ApkSize") != m.end() && !m["ApkSize"].empty()) {
+      apkSize = make_shared<string>(boost::any_cast<string>(m["ApkSize"]));
     }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<long>(boost::any_cast<long>(m["AppId"]));
@@ -3767,6 +3792,9 @@ public:
         }
       }
       instanceGroupList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MD5") != m.end() && !m["MD5"].empty()) {
+      MD5 = make_shared<string>(boost::any_cast<string>(m["MD5"]));
     }
     if (m.find("PackageName") != m.end() && !m["PackageName"].empty()) {
       packageName = make_shared<string>(boost::any_cast<string>(m["PackageName"]));
@@ -5466,13 +5494,20 @@ public:
 };
 class DescribeTasksRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceName{};
   shared_ptr<string> invokeId{};
+  shared_ptr<long> level{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> param{};
+  shared_ptr<string> parentTaskId{};
   shared_ptr<vector<string>> resourceIds{};
   shared_ptr<vector<string>> taskIds{};
   shared_ptr<string> taskStatus{};
+  shared_ptr<vector<string>> taskStatuses{};
   shared_ptr<string> taskType{};
+  shared_ptr<vector<string>> taskTypes{};
 
   DescribeTasksRequest() {}
 
@@ -5484,14 +5519,29 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
     if (invokeId) {
       res["InvokeId"] = boost::any(*invokeId);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
+    }
+    if (param) {
+      res["Param"] = boost::any(*param);
+    }
+    if (parentTaskId) {
+      res["ParentTaskId"] = boost::any(*parentTaskId);
     }
     if (resourceIds) {
       res["ResourceIds"] = boost::any(*resourceIds);
@@ -5502,21 +5552,42 @@ public:
     if (taskStatus) {
       res["TaskStatus"] = boost::any(*taskStatus);
     }
+    if (taskStatuses) {
+      res["TaskStatuses"] = boost::any(*taskStatuses);
+    }
     if (taskType) {
       res["TaskType"] = boost::any(*taskType);
+    }
+    if (taskTypes) {
+      res["TaskTypes"] = boost::any(*taskTypes);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
     if (m.find("InvokeId") != m.end() && !m["InvokeId"].empty()) {
       invokeId = make_shared<string>(boost::any_cast<string>(m["InvokeId"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<long>(boost::any_cast<long>(m["Level"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Param") != m.end() && !m["Param"].empty()) {
+      param = make_shared<string>(boost::any_cast<string>(m["Param"]));
+    }
+    if (m.find("ParentTaskId") != m.end() && !m["ParentTaskId"].empty()) {
+      parentTaskId = make_shared<string>(boost::any_cast<string>(m["ParentTaskId"]));
     }
     if (m.find("ResourceIds") != m.end() && !m["ResourceIds"].empty()) {
       vector<string> toVec1;
@@ -5541,8 +5612,28 @@ public:
     if (m.find("TaskStatus") != m.end() && !m["TaskStatus"].empty()) {
       taskStatus = make_shared<string>(boost::any_cast<string>(m["TaskStatus"]));
     }
+    if (m.find("TaskStatuses") != m.end() && !m["TaskStatuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TaskStatuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TaskStatuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      taskStatuses = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
       taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+    if (m.find("TaskTypes") != m.end() && !m["TaskTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TaskTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TaskTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      taskTypes = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -5553,15 +5644,25 @@ class DescribeTasksResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMsg{};
+  shared_ptr<long> failedChildCount{};
   shared_ptr<string> finishTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceName{};
   shared_ptr<string> invokeId{};
+  shared_ptr<long> level{};
+  shared_ptr<string> operator_{};
+  shared_ptr<string> param{};
+  shared_ptr<string> parentTaskId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> result{};
+  shared_ptr<long> runningChildCount{};
   shared_ptr<string> startTime{};
+  shared_ptr<long> successChildCount{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskStatus{};
   shared_ptr<string> taskType{};
+  shared_ptr<long> totalChildCount{};
 
   DescribeTasksResponseBodyData() {}
 
@@ -5579,11 +5680,32 @@ public:
     if (errorMsg) {
       res["ErrorMsg"] = boost::any(*errorMsg);
     }
+    if (failedChildCount) {
+      res["FailedChildCount"] = boost::any(*failedChildCount);
+    }
     if (finishTime) {
       res["FinishTime"] = boost::any(*finishTime);
     }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
     if (invokeId) {
       res["InvokeId"] = boost::any(*invokeId);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (operator_) {
+      res["Operator"] = boost::any(*operator_);
+    }
+    if (param) {
+      res["Param"] = boost::any(*param);
+    }
+    if (parentTaskId) {
+      res["ParentTaskId"] = boost::any(*parentTaskId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -5594,8 +5716,14 @@ public:
     if (result) {
       res["Result"] = boost::any(*result);
     }
+    if (runningChildCount) {
+      res["RunningChildCount"] = boost::any(*runningChildCount);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
+    }
+    if (successChildCount) {
+      res["SuccessChildCount"] = boost::any(*successChildCount);
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
@@ -5605,6 +5733,9 @@ public:
     }
     if (taskType) {
       res["TaskType"] = boost::any(*taskType);
+    }
+    if (totalChildCount) {
+      res["TotalChildCount"] = boost::any(*totalChildCount);
     }
     return res;
   }
@@ -5616,11 +5747,32 @@ public:
     if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
       errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
     }
+    if (m.find("FailedChildCount") != m.end() && !m["FailedChildCount"].empty()) {
+      failedChildCount = make_shared<long>(boost::any_cast<long>(m["FailedChildCount"]));
+    }
     if (m.find("FinishTime") != m.end() && !m["FinishTime"].empty()) {
       finishTime = make_shared<string>(boost::any_cast<string>(m["FinishTime"]));
     }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
     if (m.find("InvokeId") != m.end() && !m["InvokeId"].empty()) {
       invokeId = make_shared<string>(boost::any_cast<string>(m["InvokeId"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<long>(boost::any_cast<long>(m["Level"]));
+    }
+    if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
+    }
+    if (m.find("Param") != m.end() && !m["Param"].empty()) {
+      param = make_shared<string>(boost::any_cast<string>(m["Param"]));
+    }
+    if (m.find("ParentTaskId") != m.end() && !m["ParentTaskId"].empty()) {
+      parentTaskId = make_shared<string>(boost::any_cast<string>(m["ParentTaskId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -5631,8 +5783,14 @@ public:
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       result = make_shared<string>(boost::any_cast<string>(m["Result"]));
     }
+    if (m.find("RunningChildCount") != m.end() && !m["RunningChildCount"].empty()) {
+      runningChildCount = make_shared<long>(boost::any_cast<long>(m["RunningChildCount"]));
+    }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("SuccessChildCount") != m.end() && !m["SuccessChildCount"].empty()) {
+      successChildCount = make_shared<long>(boost::any_cast<long>(m["SuccessChildCount"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
@@ -5642,6 +5800,9 @@ public:
     }
     if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
       taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+    if (m.find("TotalChildCount") != m.end() && !m["TotalChildCount"].empty()) {
+      totalChildCount = make_shared<long>(boost::any_cast<long>(m["TotalChildCount"]));
     }
   }
 
@@ -6322,6 +6483,7 @@ class FetchFileResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<FetchFileResponseBodyData>> data{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
 
   FetchFileResponseBody() {}
 
@@ -6343,6 +6505,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
     return res;
   }
 
@@ -6362,6 +6527,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
   }
 
@@ -6658,6 +6826,7 @@ public:
 class InstallAppResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
 
   InstallAppResponseBody() {}
 
@@ -6672,12 +6841,18 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
   }
 
@@ -8141,6 +8316,7 @@ public:
   shared_ptr<long> count{};
   shared_ptr<vector<RecoveryFileResponseBodyData>> data{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
 
   RecoveryFileResponseBody() {}
 
@@ -8165,6 +8341,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
     return res;
   }
 
@@ -8187,6 +8366,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
   }
 
@@ -8756,6 +8938,7 @@ class SendFileResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<SendFileResponseBodyData>> data{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
 
   SendFileResponseBody() {}
 
@@ -8777,6 +8960,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
     return res;
   }
 
@@ -8796,6 +8982,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
   }
 
@@ -9099,6 +9288,7 @@ class UninstallAppRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> appIdList{};
   shared_ptr<vector<string>> instanceGroupIdList{};
+  shared_ptr<vector<string>> instanceIdList{};
 
   UninstallAppRequest() {}
 
@@ -9115,6 +9305,9 @@ public:
     }
     if (instanceGroupIdList) {
       res["InstanceGroupIdList"] = boost::any(*instanceGroupIdList);
+    }
+    if (instanceIdList) {
+      res["InstanceIdList"] = boost::any(*instanceIdList);
     }
     return res;
   }
@@ -9140,6 +9333,16 @@ public:
       }
       instanceGroupIdList = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("InstanceIdList") != m.end() && !m["InstanceIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIdList = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
@@ -9148,6 +9351,7 @@ public:
 class UninstallAppResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
 
   UninstallAppResponseBody() {}
 
@@ -9162,12 +9366,18 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
   }
 
