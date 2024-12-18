@@ -4587,6 +4587,9 @@ ModifyScheduledTaskResponse Alibabacloud_Ess20220222::Client::modifyScheduledTas
   if (!Darabonba_Util::Client::isUnset<string>(request->recurrenceValue)) {
     query->insert(pair<string, string>("RecurrenceValue", *request->recurrenceValue));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }

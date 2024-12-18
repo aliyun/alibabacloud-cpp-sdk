@@ -16654,11 +16654,63 @@ public:
 
   virtual ~DescribeElasticStrengthRequest() = default;
 };
+class DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoolsInventoryHealth : public Darabonba::Model {
+public:
+  shared_ptr<long> adequacyScore{};
+  shared_ptr<long> healthScore{};
+  shared_ptr<long> hotScore{};
+  shared_ptr<long> supplyScore{};
+
+  DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoolsInventoryHealth() {}
+
+  explicit DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoolsInventoryHealth(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adequacyScore) {
+      res["AdequacyScore"] = boost::any(*adequacyScore);
+    }
+    if (healthScore) {
+      res["HealthScore"] = boost::any(*healthScore);
+    }
+    if (hotScore) {
+      res["HotScore"] = boost::any(*hotScore);
+    }
+    if (supplyScore) {
+      res["SupplyScore"] = boost::any(*supplyScore);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdequacyScore") != m.end() && !m["AdequacyScore"].empty()) {
+      adequacyScore = make_shared<long>(boost::any_cast<long>(m["AdequacyScore"]));
+    }
+    if (m.find("HealthScore") != m.end() && !m["HealthScore"].empty()) {
+      healthScore = make_shared<long>(boost::any_cast<long>(m["HealthScore"]));
+    }
+    if (m.find("HotScore") != m.end() && !m["HotScore"].empty()) {
+      hotScore = make_shared<long>(boost::any_cast<long>(m["HotScore"]));
+    }
+    if (m.find("SupplyScore") != m.end() && !m["SupplyScore"].empty()) {
+      supplyScore = make_shared<long>(boost::any_cast<long>(m["SupplyScore"]));
+    }
+  }
+
+
+  virtual ~DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoolsInventoryHealth() = default;
+};
 class DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<string> instanceType{};
+  shared_ptr<DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoolsInventoryHealth> inventoryHealth{};
   shared_ptr<string> msg{};
+  shared_ptr<string> status{};
   shared_ptr<double> strength{};
   shared_ptr<vector<string>> vSwitchIds{};
   shared_ptr<string> zoneId{};
@@ -16679,8 +16731,14 @@ public:
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
     }
+    if (inventoryHealth) {
+      res["InventoryHealth"] = inventoryHealth ? boost::any(inventoryHealth->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (msg) {
       res["Msg"] = boost::any(*msg);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
     }
     if (strength) {
       res["Strength"] = boost::any(*strength);
@@ -16701,8 +16759,18 @@ public:
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
+    if (m.find("InventoryHealth") != m.end() && !m["InventoryHealth"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InventoryHealth"].type()) {
+        DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoolsInventoryHealth model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InventoryHealth"]));
+        inventoryHealth = make_shared<DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoolsInventoryHealth>(model1);
+      }
+    }
     if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
       msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Strength") != m.end() && !m["Strength"].empty()) {
       strength = make_shared<double>(boost::any_cast<double>(m["Strength"]));
@@ -16727,6 +16795,7 @@ public:
 };
 class DescribeElasticStrengthResponseBodyElasticStrengthModels : public Darabonba::Model {
 public:
+  shared_ptr<string> elasticStrength{};
   shared_ptr<vector<DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools>> resourcePools{};
   shared_ptr<string> scalingGroupId{};
   shared_ptr<double> totalStrength{};
@@ -16741,6 +16810,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (elasticStrength) {
+      res["ElasticStrength"] = boost::any(*elasticStrength);
+    }
     if (resourcePools) {
       vector<boost::any> temp1;
       for(auto item1:*resourcePools){
@@ -16758,6 +16830,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ElasticStrength") != m.end() && !m["ElasticStrength"].empty()) {
+      elasticStrength = make_shared<string>(boost::any_cast<string>(m["ElasticStrength"]));
+    }
     if (m.find("ResourcePools") != m.end() && !m["ResourcePools"].empty()) {
       if (typeid(vector<boost::any>) == m["ResourcePools"].type()) {
         vector<DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools> expect1;
@@ -35742,6 +35817,7 @@ public:
   shared_ptr<string> recurrenceEndTime{};
   shared_ptr<string> recurrenceType{};
   shared_ptr<string> recurrenceValue{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> scalingGroupId{};
@@ -35792,6 +35868,9 @@ public:
     }
     if (recurrenceValue) {
       res["RecurrenceValue"] = boost::any(*recurrenceValue);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -35850,6 +35929,9 @@ public:
     }
     if (m.find("RecurrenceValue") != m.end() && !m["RecurrenceValue"].empty()) {
       recurrenceValue = make_shared<string>(boost::any_cast<string>(m["RecurrenceValue"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
