@@ -1240,6 +1240,233 @@ public:
 
   virtual ~CreateDBInstanceResponse() = default;
 };
+class CreateElasticRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterClass{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dbInstanceId{};
+  shared_ptr<string> elasticRuleStartTime{};
+  shared_ptr<string> executionPeriod{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> resourceOwnerId{};
+
+  CreateElasticRuleRequest() {}
+
+  explicit CreateElasticRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterClass) {
+      res["ClusterClass"] = boost::any(*clusterClass);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dbInstanceId) {
+      res["DbInstanceId"] = boost::any(*dbInstanceId);
+    }
+    if (elasticRuleStartTime) {
+      res["ElasticRuleStartTime"] = boost::any(*elasticRuleStartTime);
+    }
+    if (executionPeriod) {
+      res["ExecutionPeriod"] = boost::any(*executionPeriod);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterClass") != m.end() && !m["ClusterClass"].empty()) {
+      clusterClass = make_shared<string>(boost::any_cast<string>(m["ClusterClass"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DbInstanceId") != m.end() && !m["DbInstanceId"].empty()) {
+      dbInstanceId = make_shared<string>(boost::any_cast<string>(m["DbInstanceId"]));
+    }
+    if (m.find("ElasticRuleStartTime") != m.end() && !m["ElasticRuleStartTime"].empty()) {
+      elasticRuleStartTime = make_shared<string>(boost::any_cast<string>(m["ElasticRuleStartTime"]));
+    }
+    if (m.find("ExecutionPeriod") != m.end() && !m["ExecutionPeriod"].empty()) {
+      executionPeriod = make_shared<string>(boost::any_cast<string>(m["ExecutionPeriod"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~CreateElasticRuleRequest() = default;
+};
+class CreateElasticRuleResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterClass{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dbInstanceId{};
+  shared_ptr<string> elasticRuleStartTime{};
+  shared_ptr<string> executionPeriod{};
+  shared_ptr<long> ruleId{};
+
+  CreateElasticRuleResponseBodyData() {}
+
+  explicit CreateElasticRuleResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterClass) {
+      res["ClusterClass"] = boost::any(*clusterClass);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dbInstanceId) {
+      res["DbInstanceId"] = boost::any(*dbInstanceId);
+    }
+    if (elasticRuleStartTime) {
+      res["ElasticRuleStartTime"] = boost::any(*elasticRuleStartTime);
+    }
+    if (executionPeriod) {
+      res["ExecutionPeriod"] = boost::any(*executionPeriod);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterClass") != m.end() && !m["ClusterClass"].empty()) {
+      clusterClass = make_shared<string>(boost::any_cast<string>(m["ClusterClass"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DbInstanceId") != m.end() && !m["DbInstanceId"].empty()) {
+      dbInstanceId = make_shared<string>(boost::any_cast<string>(m["DbInstanceId"]));
+    }
+    if (m.find("ElasticRuleStartTime") != m.end() && !m["ElasticRuleStartTime"].empty()) {
+      elasticRuleStartTime = make_shared<string>(boost::any_cast<string>(m["ElasticRuleStartTime"]));
+    }
+    if (m.find("ExecutionPeriod") != m.end() && !m["ExecutionPeriod"].empty()) {
+      executionPeriod = make_shared<string>(boost::any_cast<string>(m["ExecutionPeriod"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~CreateElasticRuleResponseBodyData() = default;
+};
+class CreateElasticRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CreateElasticRuleResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  CreateElasticRuleResponseBody() {}
+
+  explicit CreateElasticRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateElasticRuleResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateElasticRuleResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateElasticRuleResponseBody() = default;
+};
+class CreateElasticRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateElasticRuleResponseBody> body{};
+
+  CreateElasticRuleResponse() {}
+
+  explicit CreateElasticRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateElasticRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateElasticRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateElasticRuleResponse() = default;
+};
 class CreateServiceLinkedRoleForSelectDBRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ownerAccount{};
@@ -1665,6 +1892,158 @@ public:
 
 
   virtual ~DeleteDBInstanceResponse() = default;
+};
+class DeleteElasticRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dbInstanceId{};
+  shared_ptr<string> product{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> ruleId{};
+
+  DeleteElasticRuleRequest() {}
+
+  explicit DeleteElasticRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dbInstanceId) {
+      res["DbInstanceId"] = boost::any(*dbInstanceId);
+    }
+    if (product) {
+      res["Product"] = boost::any(*product);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DbInstanceId") != m.end() && !m["DbInstanceId"].empty()) {
+      dbInstanceId = make_shared<string>(boost::any_cast<string>(m["DbInstanceId"]));
+    }
+    if (m.find("Product") != m.end() && !m["Product"].empty()) {
+      product = make_shared<string>(boost::any_cast<string>(m["Product"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~DeleteElasticRuleRequest() = default;
+};
+class DeleteElasticRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteElasticRuleResponseBody() {}
+
+  explicit DeleteElasticRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteElasticRuleResponseBody() = default;
+};
+class DeleteElasticRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteElasticRuleResponseBody> body{};
+
+  DeleteElasticRuleResponse() {}
+
+  explicit DeleteElasticRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteElasticRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteElasticRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteElasticRuleResponse() = default;
 };
 class DescribeAllDBInstanceClassRequest : public Darabonba::Model {
 public:
@@ -4120,6 +4499,262 @@ public:
 
   virtual ~DescribeDBInstancesResponse() = default;
 };
+class DescribeElasticRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dbInstanceId{};
+  shared_ptr<string> product{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DescribeElasticRulesRequest() {}
+
+  explicit DescribeElasticRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dbInstanceId) {
+      res["DbInstanceId"] = boost::any(*dbInstanceId);
+    }
+    if (product) {
+      res["Product"] = boost::any(*product);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DbInstanceId") != m.end() && !m["DbInstanceId"].empty()) {
+      dbInstanceId = make_shared<string>(boost::any_cast<string>(m["DbInstanceId"]));
+    }
+    if (m.find("Product") != m.end() && !m["Product"].empty()) {
+      product = make_shared<string>(boost::any_cast<string>(m["Product"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DescribeElasticRulesRequest() = default;
+};
+class DescribeElasticRulesResponseBodyDataRules : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterClass{};
+  shared_ptr<string> elasticRuleStartTime{};
+  shared_ptr<string> executionPeriod{};
+  shared_ptr<long> ruleId{};
+
+  DescribeElasticRulesResponseBodyDataRules() {}
+
+  explicit DescribeElasticRulesResponseBodyDataRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterClass) {
+      res["ClusterClass"] = boost::any(*clusterClass);
+    }
+    if (elasticRuleStartTime) {
+      res["ElasticRuleStartTime"] = boost::any(*elasticRuleStartTime);
+    }
+    if (executionPeriod) {
+      res["ExecutionPeriod"] = boost::any(*executionPeriod);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterClass") != m.end() && !m["ClusterClass"].empty()) {
+      clusterClass = make_shared<string>(boost::any_cast<string>(m["ClusterClass"]));
+    }
+    if (m.find("ElasticRuleStartTime") != m.end() && !m["ElasticRuleStartTime"].empty()) {
+      elasticRuleStartTime = make_shared<string>(boost::any_cast<string>(m["ElasticRuleStartTime"]));
+    }
+    if (m.find("ExecutionPeriod") != m.end() && !m["ExecutionPeriod"].empty()) {
+      executionPeriod = make_shared<string>(boost::any_cast<string>(m["ExecutionPeriod"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~DescribeElasticRulesResponseBodyDataRules() = default;
+};
+class DescribeElasticRulesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dbInstanceId{};
+  shared_ptr<vector<DescribeElasticRulesResponseBodyDataRules>> rules{};
+
+  DescribeElasticRulesResponseBodyData() {}
+
+  explicit DescribeElasticRulesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dbInstanceId) {
+      res["DbInstanceId"] = boost::any(*dbInstanceId);
+    }
+    if (rules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Rules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DbInstanceId") != m.end() && !m["DbInstanceId"].empty()) {
+      dbInstanceId = make_shared<string>(boost::any_cast<string>(m["DbInstanceId"]));
+    }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(vector<boost::any>) == m["Rules"].type()) {
+        vector<DescribeElasticRulesResponseBodyDataRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Rules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeElasticRulesResponseBodyDataRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rules = make_shared<vector<DescribeElasticRulesResponseBodyDataRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeElasticRulesResponseBodyData() = default;
+};
+class DescribeElasticRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeElasticRulesResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  DescribeElasticRulesResponseBody() {}
+
+  explicit DescribeElasticRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeElasticRulesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeElasticRulesResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeElasticRulesResponseBody() = default;
+};
+class DescribeElasticRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeElasticRulesResponseBody> body{};
+
+  DescribeElasticRulesResponse() {}
+
+  explicit DescribeElasticRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeElasticRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeElasticRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeElasticRulesResponse() = default;
+};
 class DescribeSecurityIPListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
@@ -4328,6 +4963,205 @@ public:
 
 
   virtual ~DescribeSecurityIPListResponse() = default;
+};
+class EnDisableScalingRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dbInstanceId{};
+  shared_ptr<string> product{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<bool> scalingRulesEnable{};
+
+  EnDisableScalingRulesRequest() {}
+
+  explicit EnDisableScalingRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dbInstanceId) {
+      res["DbInstanceId"] = boost::any(*dbInstanceId);
+    }
+    if (product) {
+      res["Product"] = boost::any(*product);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (scalingRulesEnable) {
+      res["ScalingRulesEnable"] = boost::any(*scalingRulesEnable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DbInstanceId") != m.end() && !m["DbInstanceId"].empty()) {
+      dbInstanceId = make_shared<string>(boost::any_cast<string>(m["DbInstanceId"]));
+    }
+    if (m.find("Product") != m.end() && !m["Product"].empty()) {
+      product = make_shared<string>(boost::any_cast<string>(m["Product"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ScalingRulesEnable") != m.end() && !m["ScalingRulesEnable"].empty()) {
+      scalingRulesEnable = make_shared<bool>(boost::any_cast<bool>(m["ScalingRulesEnable"]));
+    }
+  }
+
+
+  virtual ~EnDisableScalingRulesRequest() = default;
+};
+class EnDisableScalingRulesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dbInstanceId{};
+  shared_ptr<bool> scalingRulesEnable{};
+
+  EnDisableScalingRulesResponseBodyData() {}
+
+  explicit EnDisableScalingRulesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dbInstanceId) {
+      res["DbInstanceId"] = boost::any(*dbInstanceId);
+    }
+    if (scalingRulesEnable) {
+      res["ScalingRulesEnable"] = boost::any(*scalingRulesEnable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DbInstanceId") != m.end() && !m["DbInstanceId"].empty()) {
+      dbInstanceId = make_shared<string>(boost::any_cast<string>(m["DbInstanceId"]));
+    }
+    if (m.find("ScalingRulesEnable") != m.end() && !m["ScalingRulesEnable"].empty()) {
+      scalingRulesEnable = make_shared<bool>(boost::any_cast<bool>(m["ScalingRulesEnable"]));
+    }
+  }
+
+
+  virtual ~EnDisableScalingRulesResponseBodyData() = default;
+};
+class EnDisableScalingRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<EnDisableScalingRulesResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  EnDisableScalingRulesResponseBody() {}
+
+  explicit EnDisableScalingRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        EnDisableScalingRulesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<EnDisableScalingRulesResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~EnDisableScalingRulesResponseBody() = default;
+};
+class EnDisableScalingRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnDisableScalingRulesResponseBody> body{};
+
+  EnDisableScalingRulesResponse() {}
+
+  explicit EnDisableScalingRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnDisableScalingRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnDisableScalingRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EnDisableScalingRulesResponse() = default;
 };
 class GetCreateBEClusterInquiryRequest : public Darabonba::Model {
 public:
@@ -5513,6 +6347,247 @@ public:
 
   virtual ~ModifyDBInstanceAttributeResponse() = default;
 };
+class ModifyElasticRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterClass{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dbInstanceId{};
+  shared_ptr<string> elasticRuleStartTime{};
+  shared_ptr<string> executionPeriod{};
+  shared_ptr<string> product{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> ruleId{};
+
+  ModifyElasticRuleRequest() {}
+
+  explicit ModifyElasticRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterClass) {
+      res["ClusterClass"] = boost::any(*clusterClass);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dbInstanceId) {
+      res["DbInstanceId"] = boost::any(*dbInstanceId);
+    }
+    if (elasticRuleStartTime) {
+      res["ElasticRuleStartTime"] = boost::any(*elasticRuleStartTime);
+    }
+    if (executionPeriod) {
+      res["ExecutionPeriod"] = boost::any(*executionPeriod);
+    }
+    if (product) {
+      res["Product"] = boost::any(*product);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterClass") != m.end() && !m["ClusterClass"].empty()) {
+      clusterClass = make_shared<string>(boost::any_cast<string>(m["ClusterClass"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DbInstanceId") != m.end() && !m["DbInstanceId"].empty()) {
+      dbInstanceId = make_shared<string>(boost::any_cast<string>(m["DbInstanceId"]));
+    }
+    if (m.find("ElasticRuleStartTime") != m.end() && !m["ElasticRuleStartTime"].empty()) {
+      elasticRuleStartTime = make_shared<string>(boost::any_cast<string>(m["ElasticRuleStartTime"]));
+    }
+    if (m.find("ExecutionPeriod") != m.end() && !m["ExecutionPeriod"].empty()) {
+      executionPeriod = make_shared<string>(boost::any_cast<string>(m["ExecutionPeriod"]));
+    }
+    if (m.find("Product") != m.end() && !m["Product"].empty()) {
+      product = make_shared<string>(boost::any_cast<string>(m["Product"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~ModifyElasticRuleRequest() = default;
+};
+class ModifyElasticRuleResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterClass{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dbInstanceId{};
+  shared_ptr<string> elasticRuleStartTime{};
+  shared_ptr<string> executionPeriod{};
+  shared_ptr<long> ruleId{};
+
+  ModifyElasticRuleResponseBodyData() {}
+
+  explicit ModifyElasticRuleResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterClass) {
+      res["ClusterClass"] = boost::any(*clusterClass);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dbInstanceId) {
+      res["DbInstanceId"] = boost::any(*dbInstanceId);
+    }
+    if (elasticRuleStartTime) {
+      res["ElasticRuleStartTime"] = boost::any(*elasticRuleStartTime);
+    }
+    if (executionPeriod) {
+      res["ExecutionPeriod"] = boost::any(*executionPeriod);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterClass") != m.end() && !m["ClusterClass"].empty()) {
+      clusterClass = make_shared<string>(boost::any_cast<string>(m["ClusterClass"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DbInstanceId") != m.end() && !m["DbInstanceId"].empty()) {
+      dbInstanceId = make_shared<string>(boost::any_cast<string>(m["DbInstanceId"]));
+    }
+    if (m.find("ElasticRuleStartTime") != m.end() && !m["ElasticRuleStartTime"].empty()) {
+      elasticRuleStartTime = make_shared<string>(boost::any_cast<string>(m["ElasticRuleStartTime"]));
+    }
+    if (m.find("ExecutionPeriod") != m.end() && !m["ExecutionPeriod"].empty()) {
+      executionPeriod = make_shared<string>(boost::any_cast<string>(m["ExecutionPeriod"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~ModifyElasticRuleResponseBodyData() = default;
+};
+class ModifyElasticRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ModifyElasticRuleResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  ModifyElasticRuleResponseBody() {}
+
+  explicit ModifyElasticRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ModifyElasticRuleResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ModifyElasticRuleResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyElasticRuleResponseBody() = default;
+};
+class ModifyElasticRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyElasticRuleResponseBody> body{};
+
+  ModifyElasticRuleResponse() {}
+
+  explicit ModifyElasticRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyElasticRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyElasticRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyElasticRuleResponse() = default;
+};
 class ModifySecurityIPListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
@@ -6581,12 +7656,16 @@ public:
   CreateDBClusterResponse createDBCluster(shared_ptr<CreateDBClusterRequest> request);
   CreateDBInstanceResponse createDBInstanceWithOptions(shared_ptr<CreateDBInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDBInstanceResponse createDBInstance(shared_ptr<CreateDBInstanceRequest> request);
+  CreateElasticRuleResponse createElasticRuleWithOptions(shared_ptr<CreateElasticRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateElasticRuleResponse createElasticRule(shared_ptr<CreateElasticRuleRequest> request);
   CreateServiceLinkedRoleForSelectDBResponse createServiceLinkedRoleForSelectDBWithOptions(shared_ptr<CreateServiceLinkedRoleForSelectDBRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateServiceLinkedRoleForSelectDBResponse createServiceLinkedRoleForSelectDB(shared_ptr<CreateServiceLinkedRoleForSelectDBRequest> request);
   DeleteDBClusterResponse deleteDBClusterWithOptions(shared_ptr<DeleteDBClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDBClusterResponse deleteDBCluster(shared_ptr<DeleteDBClusterRequest> request);
   DeleteDBInstanceResponse deleteDBInstanceWithOptions(shared_ptr<DeleteDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDBInstanceResponse deleteDBInstance(shared_ptr<DeleteDBInstanceRequest> request);
+  DeleteElasticRuleResponse deleteElasticRuleWithOptions(shared_ptr<DeleteElasticRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteElasticRuleResponse deleteElasticRule(shared_ptr<DeleteElasticRuleRequest> request);
   DescribeAllDBInstanceClassResponse describeAllDBInstanceClassWithOptions(shared_ptr<DescribeAllDBInstanceClassRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAllDBInstanceClassResponse describeAllDBInstanceClass(shared_ptr<DescribeAllDBInstanceClassRequest> request);
   DescribeDBClusterConfigResponse describeDBClusterConfigWithOptions(shared_ptr<DescribeDBClusterConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6599,8 +7678,12 @@ public:
   DescribeDBInstanceNetInfoResponse describeDBInstanceNetInfo(shared_ptr<DescribeDBInstanceNetInfoRequest> request);
   DescribeDBInstancesResponse describeDBInstancesWithOptions(shared_ptr<DescribeDBInstancesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDBInstancesResponse describeDBInstances(shared_ptr<DescribeDBInstancesRequest> request);
+  DescribeElasticRulesResponse describeElasticRulesWithOptions(shared_ptr<DescribeElasticRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeElasticRulesResponse describeElasticRules(shared_ptr<DescribeElasticRulesRequest> request);
   DescribeSecurityIPListResponse describeSecurityIPListWithOptions(shared_ptr<DescribeSecurityIPListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSecurityIPListResponse describeSecurityIPList(shared_ptr<DescribeSecurityIPListRequest> request);
+  EnDisableScalingRulesResponse enDisableScalingRulesWithOptions(shared_ptr<EnDisableScalingRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnDisableScalingRulesResponse enDisableScalingRules(shared_ptr<EnDisableScalingRulesRequest> request);
   GetCreateBEClusterInquiryResponse getCreateBEClusterInquiryWithOptions(shared_ptr<GetCreateBEClusterInquiryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCreateBEClusterInquiryResponse getCreateBEClusterInquiry(shared_ptr<GetCreateBEClusterInquiryRequest> request);
   GetModifyBEClusterInquiryResponse getModifyBEClusterInquiryWithOptions(shared_ptr<GetModifyBEClusterInquiryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6613,6 +7696,8 @@ public:
   ModifyDBClusterConfigResponse modifyDBClusterConfig(shared_ptr<ModifyDBClusterConfigRequest> request);
   ModifyDBInstanceAttributeResponse modifyDBInstanceAttributeWithOptions(shared_ptr<ModifyDBInstanceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBInstanceAttributeResponse modifyDBInstanceAttribute(shared_ptr<ModifyDBInstanceAttributeRequest> request);
+  ModifyElasticRuleResponse modifyElasticRuleWithOptions(shared_ptr<ModifyElasticRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyElasticRuleResponse modifyElasticRule(shared_ptr<ModifyElasticRuleRequest> request);
   ModifySecurityIPListResponse modifySecurityIPListWithOptions(shared_ptr<ModifySecurityIPListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifySecurityIPListResponse modifySecurityIPList(shared_ptr<ModifySecurityIPListRequest> request);
   ReleaseInstancePublicConnectionResponse releaseInstancePublicConnectionWithOptions(shared_ptr<ReleaseInstancePublicConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
