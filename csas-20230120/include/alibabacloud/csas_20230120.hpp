@@ -13,6 +13,105 @@
 using namespace std;
 
 namespace Alibabacloud_Csas20230120 {
+class Rule : public Darabonba::Model {
+public:
+  shared_ptr<string> combinator{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> operator_{};
+  shared_ptr<string> ruleSubType{};
+  shared_ptr<string> ruleType{};
+  shared_ptr<vector<Rule>> rules{};
+  shared_ptr<vector<string>> values{};
+
+  Rule() {}
+
+  explicit Rule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (combinator) {
+      res["Combinator"] = boost::any(*combinator);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (operator_) {
+      res["Operator"] = boost::any(*operator_);
+    }
+    if (ruleSubType) {
+      res["RuleSubType"] = boost::any(*ruleSubType);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    if (rules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Rules"] = boost::any(temp1);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Combinator") != m.end() && !m["Combinator"].empty()) {
+      combinator = make_shared<string>(boost::any_cast<string>(m["Combinator"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
+    }
+    if (m.find("RuleSubType") != m.end() && !m["RuleSubType"].empty()) {
+      ruleSubType = make_shared<string>(boost::any_cast<string>(m["RuleSubType"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(vector<boost::any>) == m["Rules"].type()) {
+        vector<Rule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Rules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Rule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rules = make_shared<vector<Rule>>(expect1);
+      }
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~Rule() = default;
+};
 class AttachApplication2ConnectorRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> applicationIds{};
@@ -6815,6 +6914,42 @@ public:
 
   virtual ~GetUserDeviceResponseBodyDeviceHistoryUsers() = default;
 };
+class GetUserDeviceResponseBodyDeviceNetInterfaceInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> mac{};
+  shared_ptr<string> name{};
+
+  GetUserDeviceResponseBodyDeviceNetInterfaceInfo() {}
+
+  explicit GetUserDeviceResponseBodyDeviceNetInterfaceInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mac) {
+      res["Mac"] = boost::any(*mac);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mac") != m.end() && !m["Mac"].empty()) {
+      mac = make_shared<string>(boost::any_cast<string>(m["Mac"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~GetUserDeviceResponseBodyDeviceNetInterfaceInfo() = default;
+};
 class GetUserDeviceResponseBodyDevice : public Darabonba::Model {
 public:
   shared_ptr<string> appStatus{};
@@ -6837,6 +6972,7 @@ public:
   shared_ptr<string> mac{};
   shared_ptr<string> memory{};
   shared_ptr<string> nacStatus{};
+  shared_ptr<vector<GetUserDeviceResponseBodyDeviceNetInterfaceInfo>> netInterfaceInfo{};
   shared_ptr<string> paStatus{};
   shared_ptr<string> saseUserId{};
   shared_ptr<bool> sharingStatus{};
@@ -6917,6 +7053,13 @@ public:
     }
     if (nacStatus) {
       res["NacStatus"] = boost::any(*nacStatus);
+    }
+    if (netInterfaceInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*netInterfaceInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetInterfaceInfo"] = boost::any(temp1);
     }
     if (paStatus) {
       res["PaStatus"] = boost::any(*paStatus);
@@ -7009,6 +7152,19 @@ public:
     }
     if (m.find("NacStatus") != m.end() && !m["NacStatus"].empty()) {
       nacStatus = make_shared<string>(boost::any_cast<string>(m["NacStatus"]));
+    }
+    if (m.find("NetInterfaceInfo") != m.end() && !m["NetInterfaceInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetInterfaceInfo"].type()) {
+        vector<GetUserDeviceResponseBodyDeviceNetInterfaceInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetInterfaceInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetUserDeviceResponseBodyDeviceNetInterfaceInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        netInterfaceInfo = make_shared<vector<GetUserDeviceResponseBodyDeviceNetInterfaceInfo>>(expect1);
+      }
     }
     if (m.find("PaStatus") != m.end() && !m["PaStatus"].empty()) {
       paStatus = make_shared<string>(boost::any_cast<string>(m["PaStatus"]));
@@ -15546,6 +15702,42 @@ public:
 
   virtual ~ListUserDevicesRequest() = default;
 };
+class ListUserDevicesResponseBodyDevicesNetInterfaceInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> mac{};
+  shared_ptr<string> name{};
+
+  ListUserDevicesResponseBodyDevicesNetInterfaceInfo() {}
+
+  explicit ListUserDevicesResponseBodyDevicesNetInterfaceInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mac) {
+      res["Mac"] = boost::any(*mac);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mac") != m.end() && !m["Mac"].empty()) {
+      mac = make_shared<string>(boost::any_cast<string>(m["Mac"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~ListUserDevicesResponseBodyDevicesNetInterfaceInfo() = default;
+};
 class ListUserDevicesResponseBodyDevices : public Darabonba::Model {
 public:
   shared_ptr<string> appStatus{};
@@ -15567,6 +15759,7 @@ public:
   shared_ptr<string> mac{};
   shared_ptr<string> memory{};
   shared_ptr<string> nacStatus{};
+  shared_ptr<vector<ListUserDevicesResponseBodyDevicesNetInterfaceInfo>> netInterfaceInfo{};
   shared_ptr<string> paStatus{};
   shared_ptr<string> saseUserId{};
   shared_ptr<bool> sharingStatus{};
@@ -15640,6 +15833,13 @@ public:
     }
     if (nacStatus) {
       res["NacStatus"] = boost::any(*nacStatus);
+    }
+    if (netInterfaceInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*netInterfaceInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetInterfaceInfo"] = boost::any(temp1);
     }
     if (paStatus) {
       res["PaStatus"] = boost::any(*paStatus);
@@ -15719,6 +15919,19 @@ public:
     }
     if (m.find("NacStatus") != m.end() && !m["NacStatus"].empty()) {
       nacStatus = make_shared<string>(boost::any_cast<string>(m["NacStatus"]));
+    }
+    if (m.find("NetInterfaceInfo") != m.end() && !m["NetInterfaceInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetInterfaceInfo"].type()) {
+        vector<ListUserDevicesResponseBodyDevicesNetInterfaceInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetInterfaceInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListUserDevicesResponseBodyDevicesNetInterfaceInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        netInterfaceInfo = make_shared<vector<ListUserDevicesResponseBodyDevicesNetInterfaceInfo>>(expect1);
+      }
     }
     if (m.find("PaStatus") != m.end() && !m["PaStatus"].empty()) {
       paStatus = make_shared<string>(boost::any_cast<string>(m["PaStatus"]));
@@ -19963,6 +20176,42 @@ public:
 
   virtual ~UpdateUserDevicesSharingStatusRequest() = default;
 };
+class UpdateUserDevicesSharingStatusResponseBodyDevicesNetInterfaceInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> mac{};
+  shared_ptr<string> name{};
+
+  UpdateUserDevicesSharingStatusResponseBodyDevicesNetInterfaceInfo() {}
+
+  explicit UpdateUserDevicesSharingStatusResponseBodyDevicesNetInterfaceInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mac) {
+      res["Mac"] = boost::any(*mac);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mac") != m.end() && !m["Mac"].empty()) {
+      mac = make_shared<string>(boost::any_cast<string>(m["Mac"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~UpdateUserDevicesSharingStatusResponseBodyDevicesNetInterfaceInfo() = default;
+};
 class UpdateUserDevicesSharingStatusResponseBodyDevices : public Darabonba::Model {
 public:
   shared_ptr<string> appStatus{};
@@ -19984,6 +20233,7 @@ public:
   shared_ptr<string> mac{};
   shared_ptr<string> memory{};
   shared_ptr<string> nacStatus{};
+  shared_ptr<vector<UpdateUserDevicesSharingStatusResponseBodyDevicesNetInterfaceInfo>> netInterfaceInfo{};
   shared_ptr<string> paStatus{};
   shared_ptr<string> saseUserId{};
   shared_ptr<bool> sharingStatus{};
@@ -20057,6 +20307,13 @@ public:
     }
     if (nacStatus) {
       res["NacStatus"] = boost::any(*nacStatus);
+    }
+    if (netInterfaceInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*netInterfaceInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetInterfaceInfo"] = boost::any(temp1);
     }
     if (paStatus) {
       res["PaStatus"] = boost::any(*paStatus);
@@ -20136,6 +20393,19 @@ public:
     }
     if (m.find("NacStatus") != m.end() && !m["NacStatus"].empty()) {
       nacStatus = make_shared<string>(boost::any_cast<string>(m["NacStatus"]));
+    }
+    if (m.find("NetInterfaceInfo") != m.end() && !m["NetInterfaceInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetInterfaceInfo"].type()) {
+        vector<UpdateUserDevicesSharingStatusResponseBodyDevicesNetInterfaceInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetInterfaceInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateUserDevicesSharingStatusResponseBodyDevicesNetInterfaceInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        netInterfaceInfo = make_shared<vector<UpdateUserDevicesSharingStatusResponseBodyDevicesNetInterfaceInfo>>(expect1);
+      }
     }
     if (m.find("PaStatus") != m.end() && !m["PaStatus"].empty()) {
       paStatus = make_shared<string>(boost::any_cast<string>(m["PaStatus"]));
@@ -20305,6 +20575,42 @@ public:
 
   virtual ~UpdateUserDevicesStatusRequest() = default;
 };
+class UpdateUserDevicesStatusResponseBodyDevicesNetInterfaceInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> mac{};
+  shared_ptr<string> name{};
+
+  UpdateUserDevicesStatusResponseBodyDevicesNetInterfaceInfo() {}
+
+  explicit UpdateUserDevicesStatusResponseBodyDevicesNetInterfaceInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mac) {
+      res["Mac"] = boost::any(*mac);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mac") != m.end() && !m["Mac"].empty()) {
+      mac = make_shared<string>(boost::any_cast<string>(m["Mac"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~UpdateUserDevicesStatusResponseBodyDevicesNetInterfaceInfo() = default;
+};
 class UpdateUserDevicesStatusResponseBodyDevices : public Darabonba::Model {
 public:
   shared_ptr<string> appStatus{};
@@ -20326,6 +20632,7 @@ public:
   shared_ptr<string> mac{};
   shared_ptr<string> memory{};
   shared_ptr<string> nacStatus{};
+  shared_ptr<vector<UpdateUserDevicesStatusResponseBodyDevicesNetInterfaceInfo>> netInterfaceInfo{};
   shared_ptr<string> paStatus{};
   shared_ptr<string> saseUserId{};
   shared_ptr<bool> sharingStatus{};
@@ -20399,6 +20706,13 @@ public:
     }
     if (nacStatus) {
       res["NacStatus"] = boost::any(*nacStatus);
+    }
+    if (netInterfaceInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*netInterfaceInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetInterfaceInfo"] = boost::any(temp1);
     }
     if (paStatus) {
       res["PaStatus"] = boost::any(*paStatus);
@@ -20478,6 +20792,19 @@ public:
     }
     if (m.find("NacStatus") != m.end() && !m["NacStatus"].empty()) {
       nacStatus = make_shared<string>(boost::any_cast<string>(m["NacStatus"]));
+    }
+    if (m.find("NetInterfaceInfo") != m.end() && !m["NetInterfaceInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetInterfaceInfo"].type()) {
+        vector<UpdateUserDevicesStatusResponseBodyDevicesNetInterfaceInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetInterfaceInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateUserDevicesStatusResponseBodyDevicesNetInterfaceInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        netInterfaceInfo = make_shared<vector<UpdateUserDevicesStatusResponseBodyDevicesNetInterfaceInfo>>(expect1);
+      }
     }
     if (m.find("PaStatus") != m.end() && !m["PaStatus"].empty()) {
       paStatus = make_shared<string>(boost::any_cast<string>(m["PaStatus"]));
