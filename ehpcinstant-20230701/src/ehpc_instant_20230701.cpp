@@ -256,6 +256,46 @@ DescribeJobMetricLastResponse Alibabacloud_EhpcInstant20230701::Client::describe
   return describeJobMetricLastWithOptions(request, runtime);
 }
 
+GetAppVersionsResponse Alibabacloud_EhpcInstant20230701::Client::getAppVersionsWithOptions(shared_ptr<GetAppVersionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageCategory)) {
+    query->insert(pair<string, string>("ImageCategory", *request->imageCategory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageType)) {
+    query->insert(pair<string, string>("ImageType", *request->imageType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAppVersions"))},
+    {"version", boost::any(string("2023-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAppVersionsResponse(callApi(params, req, runtime));
+}
+
+GetAppVersionsResponse Alibabacloud_EhpcInstant20230701::Client::getAppVersions(shared_ptr<GetAppVersionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getAppVersionsWithOptions(request, runtime);
+}
+
 GetImageResponse Alibabacloud_EhpcInstant20230701::Client::getImageWithOptions(shared_ptr<GetImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -379,6 +419,9 @@ ListImagesResponse Alibabacloud_EhpcInstant20230701::Client::listImagesWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageType)) {
     query->insert(pair<string, string>("ImageType", *request->imageType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mode)) {
+    query->insert(pair<string, string>("Mode", *request->mode));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));

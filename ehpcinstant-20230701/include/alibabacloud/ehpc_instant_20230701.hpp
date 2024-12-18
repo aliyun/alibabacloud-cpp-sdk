@@ -2061,6 +2061,236 @@ public:
 
   virtual ~DescribeJobMetricLastResponse() = default;
 };
+class GetAppVersionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appName{};
+  shared_ptr<string> imageCategory{};
+  shared_ptr<string> imageType{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  GetAppVersionsRequest() {}
+
+  explicit GetAppVersionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (imageCategory) {
+      res["ImageCategory"] = boost::any(*imageCategory);
+    }
+    if (imageType) {
+      res["ImageType"] = boost::any(*imageType);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("ImageCategory") != m.end() && !m["ImageCategory"].empty()) {
+      imageCategory = make_shared<string>(boost::any_cast<string>(m["ImageCategory"]));
+    }
+    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
+      imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~GetAppVersionsRequest() = default;
+};
+class GetAppVersionsResponseBodyAppVersions : public Darabonba::Model {
+public:
+  shared_ptr<string> imageId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> version{};
+
+  GetAppVersionsResponseBodyAppVersions() {}
+
+  explicit GetAppVersionsResponseBodyAppVersions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~GetAppVersionsResponseBodyAppVersions() = default;
+};
+class GetAppVersionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetAppVersionsResponseBodyAppVersions>> appVersions{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> totalCount{};
+
+  GetAppVersionsResponseBody() {}
+
+  explicit GetAppVersionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appVersions) {
+      vector<boost::any> temp1;
+      for(auto item1:*appVersions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AppVersions"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppVersions") != m.end() && !m["AppVersions"].empty()) {
+      if (typeid(vector<boost::any>) == m["AppVersions"].type()) {
+        vector<GetAppVersionsResponseBodyAppVersions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AppVersions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAppVersionsResponseBodyAppVersions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        appVersions = make_shared<vector<GetAppVersionsResponseBodyAppVersions>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~GetAppVersionsResponseBody() = default;
+};
+class GetAppVersionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAppVersionsResponseBody> body{};
+
+  GetAppVersionsResponse() {}
+
+  explicit GetAppVersionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAppVersionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAppVersionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAppVersionsResponse() = default;
+};
 class GetImageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageCategory{};
@@ -2149,8 +2379,11 @@ public:
 };
 class GetImageResponseBodyImageContainerImageSpec : public Darabonba::Model {
 public:
+  shared_ptr<string> architecture{};
   shared_ptr<bool> isACREnterprise{};
   shared_ptr<bool> isACRRegistry{};
+  shared_ptr<string> osTag{};
+  shared_ptr<string> platform{};
   shared_ptr<GetImageResponseBodyImageContainerImageSpecRegistryCredential> registryCredential{};
   shared_ptr<string> registryCriId{};
   shared_ptr<string> registryUrl{};
@@ -2165,11 +2398,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (architecture) {
+      res["Architecture"] = boost::any(*architecture);
+    }
     if (isACREnterprise) {
       res["IsACREnterprise"] = boost::any(*isACREnterprise);
     }
     if (isACRRegistry) {
       res["IsACRRegistry"] = boost::any(*isACRRegistry);
+    }
+    if (osTag) {
+      res["OsTag"] = boost::any(*osTag);
+    }
+    if (platform) {
+      res["Platform"] = boost::any(*platform);
     }
     if (registryCredential) {
       res["RegistryCredential"] = registryCredential ? boost::any(registryCredential->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2184,11 +2426,20 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Architecture") != m.end() && !m["Architecture"].empty()) {
+      architecture = make_shared<string>(boost::any_cast<string>(m["Architecture"]));
+    }
     if (m.find("IsACREnterprise") != m.end() && !m["IsACREnterprise"].empty()) {
       isACREnterprise = make_shared<bool>(boost::any_cast<bool>(m["IsACREnterprise"]));
     }
     if (m.find("IsACRRegistry") != m.end() && !m["IsACRRegistry"].empty()) {
       isACRRegistry = make_shared<bool>(boost::any_cast<bool>(m["IsACRRegistry"]));
+    }
+    if (m.find("OsTag") != m.end() && !m["OsTag"].empty()) {
+      osTag = make_shared<string>(boost::any_cast<string>(m["OsTag"]));
+    }
+    if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
+      platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
     }
     if (m.find("RegistryCredential") != m.end() && !m["RegistryCredential"].empty()) {
       if (typeid(map<string, boost::any>) == m["RegistryCredential"].type()) {
@@ -2207,6 +2458,49 @@ public:
 
 
   virtual ~GetImageResponseBodyImageContainerImageSpec() = default;
+};
+class GetImageResponseBodyImageDocumentInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> document{};
+  shared_ptr<string> documentId{};
+  shared_ptr<string> encodingMode{};
+
+  GetImageResponseBodyImageDocumentInfo() {}
+
+  explicit GetImageResponseBodyImageDocumentInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (document) {
+      res["Document"] = boost::any(*document);
+    }
+    if (documentId) {
+      res["DocumentId"] = boost::any(*documentId);
+    }
+    if (encodingMode) {
+      res["EncodingMode"] = boost::any(*encodingMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Document") != m.end() && !m["Document"].empty()) {
+      document = make_shared<string>(boost::any_cast<string>(m["Document"]));
+    }
+    if (m.find("DocumentId") != m.end() && !m["DocumentId"].empty()) {
+      documentId = make_shared<string>(boost::any_cast<string>(m["DocumentId"]));
+    }
+    if (m.find("EncodingMode") != m.end() && !m["EncodingMode"].empty()) {
+      encodingMode = make_shared<string>(boost::any_cast<string>(m["EncodingMode"]));
+    }
+  }
+
+
+  virtual ~GetImageResponseBodyImageDocumentInfo() = default;
 };
 class GetImageResponseBodyImageVMImageSpec : public Darabonba::Model {
 public:
@@ -2264,6 +2558,7 @@ public:
   shared_ptr<GetImageResponseBodyImageContainerImageSpec> containerImageSpec{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
+  shared_ptr<GetImageResponseBodyImageDocumentInfo> documentInfo{};
   shared_ptr<string> imageType{};
   shared_ptr<string> name{};
   shared_ptr<string> size{};
@@ -2292,6 +2587,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (documentInfo) {
+      res["DocumentInfo"] = documentInfo ? boost::any(documentInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (imageType) {
       res["ImageType"] = boost::any(*imageType);
@@ -2330,6 +2628,13 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DocumentInfo") != m.end() && !m["DocumentInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DocumentInfo"].type()) {
+        GetImageResponseBodyImageDocumentInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DocumentInfo"]));
+        documentInfo = make_shared<GetImageResponseBodyImageDocumentInfo>(model1);
+      }
     }
     if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
       imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
@@ -3911,6 +4216,7 @@ public:
   shared_ptr<vector<string>> imageIds{};
   shared_ptr<vector<string>> imageNames{};
   shared_ptr<string> imageType{};
+  shared_ptr<string> mode{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
 
@@ -3935,6 +4241,9 @@ public:
     }
     if (imageType) {
       res["ImageType"] = boost::any(*imageType);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -3972,6 +4281,9 @@ public:
     if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
       imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
     }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -3989,6 +4301,7 @@ public:
   shared_ptr<string> imageIdsShrink{};
   shared_ptr<string> imageNamesShrink{};
   shared_ptr<string> imageType{};
+  shared_ptr<string> mode{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
 
@@ -4014,6 +4327,9 @@ public:
     if (imageType) {
       res["ImageType"] = boost::any(*imageType);
     }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -4036,6 +4352,9 @@ public:
     if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
       imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
     }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -4052,11 +4371,14 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
+  shared_ptr<long> documentId{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> name{};
   shared_ptr<string> osTag{};
+  shared_ptr<string> updateTime{};
   shared_ptr<string> version{};
+  shared_ptr<long> weight{};
 
   ListImagesResponseBodyImages() {}
 
@@ -4077,6 +4399,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (documentId) {
+      res["DocumentId"] = boost::any(*documentId);
+    }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
     }
@@ -4089,8 +4414,14 @@ public:
     if (osTag) {
       res["OsTag"] = boost::any(*osTag);
     }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
     if (version) {
       res["Version"] = boost::any(*version);
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
     }
     return res;
   }
@@ -4105,6 +4436,9 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("DocumentId") != m.end() && !m["DocumentId"].empty()) {
+      documentId = make_shared<long>(boost::any_cast<long>(m["DocumentId"]));
+    }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
@@ -4117,8 +4451,14 @@ public:
     if (m.find("OsTag") != m.end() && !m["OsTag"].empty()) {
       osTag = make_shared<string>(boost::any_cast<string>(m["OsTag"]));
     }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
     }
   }
 
@@ -5950,6 +6290,8 @@ public:
   DescribeJobMetricDataResponse describeJobMetricData(shared_ptr<DescribeJobMetricDataRequest> request);
   DescribeJobMetricLastResponse describeJobMetricLastWithOptions(shared_ptr<DescribeJobMetricLastRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeJobMetricLastResponse describeJobMetricLast(shared_ptr<DescribeJobMetricLastRequest> request);
+  GetAppVersionsResponse getAppVersionsWithOptions(shared_ptr<GetAppVersionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAppVersionsResponse getAppVersions(shared_ptr<GetAppVersionsRequest> request);
   GetImageResponse getImageWithOptions(shared_ptr<GetImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetImageResponse getImage(shared_ptr<GetImageRequest> request);
   GetJobResponse getJobWithOptions(shared_ptr<GetJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
