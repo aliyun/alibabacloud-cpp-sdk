@@ -2217,6 +2217,70 @@ public:
 
   virtual ~JobItemDataSources() = default;
 };
+class JobItemUserVpc : public Darabonba::Model {
+public:
+  shared_ptr<string> defaultRoute{};
+  shared_ptr<vector<string>> extendedCidrs{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> switchId{};
+  shared_ptr<string> vpcId{};
+
+  JobItemUserVpc() {}
+
+  explicit JobItemUserVpc(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultRoute) {
+      res["DefaultRoute"] = boost::any(*defaultRoute);
+    }
+    if (extendedCidrs) {
+      res["ExtendedCidrs"] = boost::any(*extendedCidrs);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (switchId) {
+      res["SwitchId"] = boost::any(*switchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultRoute") != m.end() && !m["DefaultRoute"].empty()) {
+      defaultRoute = make_shared<string>(boost::any_cast<string>(m["DefaultRoute"]));
+    }
+    if (m.find("ExtendedCidrs") != m.end() && !m["ExtendedCidrs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExtendedCidrs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExtendedCidrs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      extendedCidrs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("SwitchId") != m.end() && !m["SwitchId"].empty()) {
+      switchId = make_shared<string>(boost::any_cast<string>(m["SwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~JobItemUserVpc() = default;
+};
 class ResourceConfig : public Darabonba::Model {
 public:
   shared_ptr<string> CPU{};
@@ -2277,6 +2341,7 @@ public:
 class SpotSpec : public Darabonba::Model {
 public:
   shared_ptr<double> spotDiscountLimit{};
+  shared_ptr<double> spotPriceLimit{};
   shared_ptr<string> spotStrategy{};
 
   SpotSpec() {}
@@ -2292,6 +2357,9 @@ public:
     if (spotDiscountLimit) {
       res["SpotDiscountLimit"] = boost::any(*spotDiscountLimit);
     }
+    if (spotPriceLimit) {
+      res["SpotPriceLimit"] = boost::any(*spotPriceLimit);
+    }
     if (spotStrategy) {
       res["SpotStrategy"] = boost::any(*spotStrategy);
     }
@@ -2301,6 +2369,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("SpotDiscountLimit") != m.end() && !m["SpotDiscountLimit"].empty()) {
       spotDiscountLimit = make_shared<double>(boost::any_cast<double>(m["SpotDiscountLimit"]));
+    }
+    if (m.find("SpotPriceLimit") != m.end() && !m["SpotPriceLimit"].empty()) {
+      spotPriceLimit = make_shared<double>(boost::any_cast<double>(m["SpotPriceLimit"]));
     }
     if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
       spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
@@ -2782,7 +2853,7 @@ public:
   shared_ptr<string> userCommand{};
   shared_ptr<string> userId{};
   shared_ptr<string> userScript{};
-  shared_ptr<string> userVpc{};
+  shared_ptr<JobItemUserVpc> userVpc{};
   shared_ptr<string> username{};
   shared_ptr<string> workingDir{};
   shared_ptr<string> workspaceId{};
@@ -2968,7 +3039,7 @@ public:
       res["UserScript"] = boost::any(*userScript);
     }
     if (userVpc) {
-      res["UserVpc"] = boost::any(*userVpc);
+      res["UserVpc"] = userVpc ? boost::any(userVpc->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (username) {
       res["Username"] = boost::any(*username);
@@ -3220,7 +3291,11 @@ public:
       userScript = make_shared<string>(boost::any_cast<string>(m["UserScript"]));
     }
     if (m.find("UserVpc") != m.end() && !m["UserVpc"].empty()) {
-      userVpc = make_shared<string>(boost::any_cast<string>(m["UserVpc"]));
+      if (typeid(map<string, boost::any>) == m["UserVpc"].type()) {
+        JobItemUserVpc model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserVpc"]));
+        userVpc = make_shared<JobItemUserVpc>(model1);
+      }
     }
     if (m.find("Username") != m.end() && !m["Username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["Username"]));
@@ -4525,6 +4600,7 @@ public:
 class CreateJobRequestDataSources : public Darabonba::Model {
 public:
   shared_ptr<string> dataSourceId{};
+  shared_ptr<string> dataSourceVersion{};
   shared_ptr<string> mountPath{};
   shared_ptr<string> options{};
   shared_ptr<string> uri{};
@@ -4542,6 +4618,9 @@ public:
     if (dataSourceId) {
       res["DataSourceId"] = boost::any(*dataSourceId);
     }
+    if (dataSourceVersion) {
+      res["DataSourceVersion"] = boost::any(*dataSourceVersion);
+    }
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
     }
@@ -4557,6 +4636,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DataSourceId") != m.end() && !m["DataSourceId"].empty()) {
       dataSourceId = make_shared<string>(boost::any_cast<string>(m["DataSourceId"]));
+    }
+    if (m.find("DataSourceVersion") != m.end() && !m["DataSourceVersion"].empty()) {
+      dataSourceVersion = make_shared<string>(boost::any_cast<string>(m["DataSourceVersion"]));
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
@@ -5781,6 +5863,70 @@ public:
 
   virtual ~GetJobResponseBodyPods() = default;
 };
+class GetJobResponseBodyUserVpc : public Darabonba::Model {
+public:
+  shared_ptr<string> defaultRoute{};
+  shared_ptr<vector<string>> extendedCidrs{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> switchId{};
+  shared_ptr<string> vpcId{};
+
+  GetJobResponseBodyUserVpc() {}
+
+  explicit GetJobResponseBodyUserVpc(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultRoute) {
+      res["DefaultRoute"] = boost::any(*defaultRoute);
+    }
+    if (extendedCidrs) {
+      res["ExtendedCidrs"] = boost::any(*extendedCidrs);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (switchId) {
+      res["SwitchId"] = boost::any(*switchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultRoute") != m.end() && !m["DefaultRoute"].empty()) {
+      defaultRoute = make_shared<string>(boost::any_cast<string>(m["DefaultRoute"]));
+    }
+    if (m.find("ExtendedCidrs") != m.end() && !m["ExtendedCidrs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExtendedCidrs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExtendedCidrs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      extendedCidrs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("SwitchId") != m.end() && !m["SwitchId"].empty()) {
+      switchId = make_shared<string>(boost::any_cast<string>(m["SwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~GetJobResponseBodyUserVpc() = default;
+};
 class GetJobResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> accessibility{};
@@ -5821,6 +5967,7 @@ public:
   shared_ptr<vector<string>> thirdpartyLibs{};
   shared_ptr<string> userCommand{};
   shared_ptr<string> userId{};
+  shared_ptr<GetJobResponseBodyUserVpc> userVpc{};
   shared_ptr<string> workspaceId{};
   shared_ptr<string> workspaceName{};
 
@@ -5963,6 +6110,9 @@ public:
     }
     if (userId) {
       res["UserId"] = boost::any(*userId);
+    }
+    if (userVpc) {
+      res["UserVpc"] = userVpc ? boost::any(userVpc->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
@@ -6155,6 +6305,13 @@ public:
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("UserVpc") != m.end() && !m["UserVpc"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserVpc"].type()) {
+        GetJobResponseBodyUserVpc model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserVpc"]));
+        userVpc = make_shared<GetJobResponseBodyUserVpc>(model1);
+      }
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
