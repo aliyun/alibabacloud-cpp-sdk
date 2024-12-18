@@ -76,6 +76,7 @@ public:
   shared_ptr<map<string, FeatureViewConfigValuePartitionsValue>> partitions{};
   shared_ptr<string> eventTime{};
   shared_ptr<bool> equal{};
+  shared_ptr<bool> useMock{};
 
   FeatureViewConfigValue() {}
 
@@ -100,6 +101,9 @@ public:
     if (equal) {
       res["Equal"] = boost::any(*equal);
     }
+    if (useMock) {
+      res["UseMock"] = boost::any(*useMock);
+    }
     return res;
   }
 
@@ -122,6 +126,9 @@ public:
     }
     if (m.find("Equal") != m.end() && !m["Equal"].empty()) {
       equal = make_shared<bool>(boost::any_cast<bool>(m["Equal"]));
+    }
+    if (m.find("UseMock") != m.end() && !m["UseMock"].empty()) {
+      useMock = make_shared<bool>(boost::any_cast<bool>(m["UseMock"]));
     }
   }
 
@@ -2850,6 +2857,7 @@ public:
   shared_ptr<string> gmtSyncTime{};
   shared_ptr<string> joinId{};
   shared_ptr<string> lastSyncConfig{};
+  shared_ptr<string> mockTableName{};
   shared_ptr<string> name{};
   shared_ptr<string> owner{};
   shared_ptr<string> projectId{};
@@ -2906,6 +2914,9 @@ public:
     }
     if (lastSyncConfig) {
       res["LastSyncConfig"] = boost::any(*lastSyncConfig);
+    }
+    if (mockTableName) {
+      res["MockTableName"] = boost::any(*mockTableName);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -2992,6 +3003,9 @@ public:
     }
     if (m.find("LastSyncConfig") != m.end() && !m["LastSyncConfig"].empty()) {
       lastSyncConfig = make_shared<string>(boost::any_cast<string>(m["LastSyncConfig"]));
+    }
+    if (m.find("MockTableName") != m.end() && !m["MockTableName"].empty()) {
+      mockTableName = make_shared<string>(boost::any_cast<string>(m["MockTableName"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
