@@ -2465,13 +2465,19 @@ public:
 };
 class DescribeInstanceForIsvResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> activeAddress{};
+  shared_ptr<string> appJson{};
+  shared_ptr<string> autoRenewal{};
   shared_ptr<long> beganOn{};
   shared_ptr<string> componentJson{};
   shared_ptr<long> createdOn{};
   shared_ptr<long> endOn{};
   shared_ptr<string> extendJson{};
+  shared_ptr<string> hostJson{};
+  shared_ptr<string> imageJson{};
   shared_ptr<long> instanceId{};
   shared_ptr<bool> isTrial{};
+  shared_ptr<string> licenseCode{};
   shared_ptr<long> orderId{};
   shared_ptr<string> productCode{};
   shared_ptr<string> productName{};
@@ -2492,6 +2498,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activeAddress) {
+      res["ActiveAddress"] = boost::any(*activeAddress);
+    }
+    if (appJson) {
+      res["AppJson"] = boost::any(*appJson);
+    }
+    if (autoRenewal) {
+      res["AutoRenewal"] = boost::any(*autoRenewal);
+    }
     if (beganOn) {
       res["BeganOn"] = boost::any(*beganOn);
     }
@@ -2507,11 +2522,20 @@ public:
     if (extendJson) {
       res["ExtendJson"] = boost::any(*extendJson);
     }
+    if (hostJson) {
+      res["HostJson"] = boost::any(*hostJson);
+    }
+    if (imageJson) {
+      res["ImageJson"] = boost::any(*imageJson);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
     if (isTrial) {
       res["IsTrial"] = boost::any(*isTrial);
+    }
+    if (licenseCode) {
+      res["LicenseCode"] = boost::any(*licenseCode);
     }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
@@ -2544,6 +2568,15 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActiveAddress") != m.end() && !m["ActiveAddress"].empty()) {
+      activeAddress = make_shared<string>(boost::any_cast<string>(m["ActiveAddress"]));
+    }
+    if (m.find("AppJson") != m.end() && !m["AppJson"].empty()) {
+      appJson = make_shared<string>(boost::any_cast<string>(m["AppJson"]));
+    }
+    if (m.find("AutoRenewal") != m.end() && !m["AutoRenewal"].empty()) {
+      autoRenewal = make_shared<string>(boost::any_cast<string>(m["AutoRenewal"]));
+    }
     if (m.find("BeganOn") != m.end() && !m["BeganOn"].empty()) {
       beganOn = make_shared<long>(boost::any_cast<long>(m["BeganOn"]));
     }
@@ -2559,11 +2592,20 @@ public:
     if (m.find("ExtendJson") != m.end() && !m["ExtendJson"].empty()) {
       extendJson = make_shared<string>(boost::any_cast<string>(m["ExtendJson"]));
     }
+    if (m.find("HostJson") != m.end() && !m["HostJson"].empty()) {
+      hostJson = make_shared<string>(boost::any_cast<string>(m["HostJson"]));
+    }
+    if (m.find("ImageJson") != m.end() && !m["ImageJson"].empty()) {
+      imageJson = make_shared<string>(boost::any_cast<string>(m["ImageJson"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
     }
     if (m.find("IsTrial") != m.end() && !m["IsTrial"].empty()) {
       isTrial = make_shared<bool>(boost::any_cast<bool>(m["IsTrial"]));
+    }
+    if (m.find("LicenseCode") != m.end() && !m["LicenseCode"].empty()) {
+      licenseCode = make_shared<string>(boost::any_cast<string>(m["LicenseCode"]));
     }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
