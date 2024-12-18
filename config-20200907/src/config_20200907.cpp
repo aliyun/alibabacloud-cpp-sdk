@@ -48,6 +48,9 @@ ActiveAggregateConfigRulesResponse Alibabacloud_Config20200907::Client::activeAg
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     query->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->compliancePackId)) {
+    query->insert(pair<string, string>("CompliancePackId", *request->compliancePackId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->configRuleIds)) {
     query->insert(pair<string, string>("ConfigRuleIds", *request->configRuleIds));
   }
@@ -76,6 +79,9 @@ ActiveAggregateConfigRulesResponse Alibabacloud_Config20200907::Client::activeAg
 ActiveConfigRulesResponse Alibabacloud_Config20200907::Client::activeConfigRulesWithOptions(shared_ptr<ActiveConfigRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->compliancePackId)) {
+    query->insert(pair<string, string>("CompliancePackId", *request->compliancePackId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->configRuleIds)) {
     query->insert(pair<string, string>("ConfigRuleIds", *request->configRuleIds));
   }
@@ -494,6 +500,9 @@ CreateAggregateConfigRuleResponse Alibabacloud_Config20200907::Client::createAgg
   if (!Darabonba_Util::Client::isUnset<vector<CreateAggregateConfigRuleShrinkRequestExcludeTagsScope>>(request->excludeTagsScope)) {
     bodyFlat->insert(pair<string, vector<CreateAggregateConfigRuleShrinkRequestExcludeTagsScope>>("ExcludeTagsScope", *request->excludeTagsScope));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extendContent)) {
+    body->insert(pair<string, string>("ExtendContent", *request->extendContent));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->folderIdsScope)) {
     body->insert(pair<string, string>("FolderIdsScope", *request->folderIdsScope));
   }
@@ -839,6 +848,9 @@ CreateConfigRuleResponse Alibabacloud_Config20200907::Client::createConfigRuleWi
   if (!Darabonba_Util::Client::isUnset<vector<CreateConfigRuleShrinkRequestExcludeTagsScope>>(request->excludeTagsScope)) {
     bodyFlat->insert(pair<string, vector<CreateConfigRuleShrinkRequestExcludeTagsScope>>("ExcludeTagsScope", *request->excludeTagsScope));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extendContent)) {
+    body->insert(pair<string, string>("ExtendContent", *request->extendContent));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputParametersShrink)) {
     body->insert(pair<string, string>("InputParameters", *request->inputParametersShrink));
   }
@@ -1011,6 +1023,9 @@ DeactiveAggregateConfigRulesResponse Alibabacloud_Config20200907::Client::deacti
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     query->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->compliancePackId)) {
+    query->insert(pair<string, string>("CompliancePackId", *request->compliancePackId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->configRuleIds)) {
     query->insert(pair<string, string>("ConfigRuleIds", *request->configRuleIds));
   }
@@ -1039,6 +1054,9 @@ DeactiveAggregateConfigRulesResponse Alibabacloud_Config20200907::Client::deacti
 DeactiveConfigRulesResponse Alibabacloud_Config20200907::Client::deactiveConfigRulesWithOptions(shared_ptr<DeactiveConfigRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->compliancePackId)) {
+    query->insert(pair<string, string>("CompliancePackId", *request->compliancePackId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->configRuleIds)) {
     query->insert(pair<string, string>("ConfigRuleIds", *request->configRuleIds));
   }
@@ -3181,6 +3199,9 @@ ListAggregateConfigRulesResponse Alibabacloud_Config20200907::Client::listAggreg
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     query->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->compliancePackId)) {
+    query->insert(pair<string, string>("CompliancePackId", *request->compliancePackId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->complianceType)) {
     query->insert(pair<string, string>("ComplianceType", *request->complianceType));
   }
@@ -3673,6 +3694,9 @@ ListConfigRuleEvaluationStatisticsResponse Alibabacloud_Config20200907::Client::
 ListConfigRulesResponse Alibabacloud_Config20200907::Client::listConfigRulesWithOptions(shared_ptr<ListConfigRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->compliancePackId)) {
+    query->insert(pair<string, string>("CompliancePackId", *request->compliancePackId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->complianceType)) {
     query->insert(pair<string, string>("ComplianceType", *request->complianceType));
   }
@@ -5075,6 +5099,9 @@ UpdateConfigRuleResponse Alibabacloud_Config20200907::Client::updateConfigRuleWi
   if (!Darabonba_Util::Client::isUnset<vector<UpdateConfigRuleShrinkRequestExcludeTagsScope>>(request->excludeTagsScope)) {
     bodyFlat->insert(pair<string, vector<UpdateConfigRuleShrinkRequestExcludeTagsScope>>("ExcludeTagsScope", *request->excludeTagsScope));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extendContent)) {
+    body->insert(pair<string, string>("ExtendContent", *request->extendContent));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputParametersShrink)) {
     body->insert(pair<string, string>("InputParameters", *request->inputParametersShrink));
   }
@@ -5223,6 +5250,9 @@ UpdateDeliveryChannelResponse Alibabacloud_Config20200907::Client::updateDeliver
 UpdateIntegratedServiceStatusResponse Alibabacloud_Config20200907::Client::updateIntegratedServiceStatusWithOptions(shared_ptr<UpdateIntegratedServiceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorDeliveryDataType)) {
+    body->insert(pair<string, string>("AggregatorDeliveryDataType", *request->aggregatorDeliveryDataType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->integratedTypes)) {
     body->insert(pair<string, string>("IntegratedTypes", *request->integratedTypes));
   }

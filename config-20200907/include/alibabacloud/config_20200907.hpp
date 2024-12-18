@@ -95,6 +95,7 @@ public:
 class ActiveAggregateConfigRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
+  shared_ptr<string> compliancePackId{};
   shared_ptr<string> configRuleIds{};
 
   ActiveAggregateConfigRulesRequest() {}
@@ -110,6 +111,9 @@ public:
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
     }
+    if (compliancePackId) {
+      res["CompliancePackId"] = boost::any(*compliancePackId);
+    }
     if (configRuleIds) {
       res["ConfigRuleIds"] = boost::any(*configRuleIds);
     }
@@ -119,6 +123,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("CompliancePackId") != m.end() && !m["CompliancePackId"].empty()) {
+      compliancePackId = make_shared<string>(boost::any_cast<string>(m["CompliancePackId"]));
     }
     if (m.find("ConfigRuleIds") != m.end() && !m["ConfigRuleIds"].empty()) {
       configRuleIds = make_shared<string>(boost::any_cast<string>(m["ConfigRuleIds"]));
@@ -308,6 +315,7 @@ public:
 };
 class ActiveConfigRulesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> compliancePackId{};
   shared_ptr<string> configRuleIds{};
 
   ActiveConfigRulesRequest() {}
@@ -320,6 +328,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (compliancePackId) {
+      res["CompliancePackId"] = boost::any(*compliancePackId);
+    }
     if (configRuleIds) {
       res["ConfigRuleIds"] = boost::any(*configRuleIds);
     }
@@ -327,6 +338,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompliancePackId") != m.end() && !m["CompliancePackId"].empty()) {
+      compliancePackId = make_shared<string>(boost::any_cast<string>(m["CompliancePackId"]));
+    }
     if (m.find("ConfigRuleIds") != m.end() && !m["ConfigRuleIds"].empty()) {
       configRuleIds = make_shared<string>(boost::any_cast<string>(m["ConfigRuleIds"]));
     }
@@ -2450,6 +2464,7 @@ public:
   shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
   shared_ptr<vector<CreateAggregateConfigRuleRequestExcludeTagsScope>> excludeTagsScope{};
+  shared_ptr<string> extendContent{};
   shared_ptr<string> folderIdsScope{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<string> maximumExecutionFrequency{};
@@ -2514,6 +2529,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ExcludeTagsScope"] = boost::any(temp1);
+    }
+    if (extendContent) {
+      res["ExtendContent"] = boost::any(*extendContent);
     }
     if (folderIdsScope) {
       res["FolderIdsScope"] = boost::any(*folderIdsScope);
@@ -2610,6 +2628,9 @@ public:
         }
         excludeTagsScope = make_shared<vector<CreateAggregateConfigRuleRequestExcludeTagsScope>>(expect1);
       }
+    }
+    if (m.find("ExtendContent") != m.end() && !m["ExtendContent"].empty()) {
+      extendContent = make_shared<string>(boost::any_cast<string>(m["ExtendContent"]));
     }
     if (m.find("FolderIdsScope") != m.end() && !m["FolderIdsScope"].empty()) {
       folderIdsScope = make_shared<string>(boost::any_cast<string>(m["FolderIdsScope"]));
@@ -2766,6 +2787,7 @@ public:
   shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
   shared_ptr<vector<CreateAggregateConfigRuleShrinkRequestExcludeTagsScope>> excludeTagsScope{};
+  shared_ptr<string> extendContent{};
   shared_ptr<string> folderIdsScope{};
   shared_ptr<string> inputParametersShrink{};
   shared_ptr<string> maximumExecutionFrequency{};
@@ -2830,6 +2852,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ExcludeTagsScope"] = boost::any(temp1);
+    }
+    if (extendContent) {
+      res["ExtendContent"] = boost::any(*extendContent);
     }
     if (folderIdsScope) {
       res["FolderIdsScope"] = boost::any(*folderIdsScope);
@@ -2926,6 +2951,9 @@ public:
         }
         excludeTagsScope = make_shared<vector<CreateAggregateConfigRuleShrinkRequestExcludeTagsScope>>(expect1);
       }
+    }
+    if (m.find("ExtendContent") != m.end() && !m["ExtendContent"].empty()) {
+      extendContent = make_shared<string>(boost::any_cast<string>(m["ExtendContent"]));
     }
     if (m.find("FolderIdsScope") != m.end() && !m["FolderIdsScope"].empty()) {
       folderIdsScope = make_shared<string>(boost::any_cast<string>(m["FolderIdsScope"]));
@@ -4499,6 +4527,7 @@ public:
   shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
   shared_ptr<vector<CreateConfigRuleRequestExcludeTagsScope>> excludeTagsScope{};
+  shared_ptr<string> extendContent{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
@@ -4550,6 +4579,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ExcludeTagsScope"] = boost::any(temp1);
+    }
+    if (extendContent) {
+      res["ExtendContent"] = boost::any(*extendContent);
     }
     if (inputParameters) {
       res["InputParameters"] = boost::any(*inputParameters);
@@ -4631,6 +4663,9 @@ public:
         }
         excludeTagsScope = make_shared<vector<CreateConfigRuleRequestExcludeTagsScope>>(expect1);
       }
+    }
+    if (m.find("ExtendContent") != m.end() && !m["ExtendContent"].empty()) {
+      extendContent = make_shared<string>(boost::any_cast<string>(m["ExtendContent"]));
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InputParameters"]);
@@ -4780,6 +4815,7 @@ public:
   shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
   shared_ptr<vector<CreateConfigRuleShrinkRequestExcludeTagsScope>> excludeTagsScope{};
+  shared_ptr<string> extendContent{};
   shared_ptr<string> inputParametersShrink{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
@@ -4831,6 +4867,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ExcludeTagsScope"] = boost::any(temp1);
+    }
+    if (extendContent) {
+      res["ExtendContent"] = boost::any(*extendContent);
     }
     if (inputParametersShrink) {
       res["InputParameters"] = boost::any(*inputParametersShrink);
@@ -4912,6 +4951,9 @@ public:
         }
         excludeTagsScope = make_shared<vector<CreateConfigRuleShrinkRequestExcludeTagsScope>>(expect1);
       }
+    }
+    if (m.find("ExtendContent") != m.end() && !m["ExtendContent"].empty()) {
+      extendContent = make_shared<string>(boost::any_cast<string>(m["ExtendContent"]));
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       inputParametersShrink = make_shared<string>(boost::any_cast<string>(m["InputParameters"]));
@@ -5404,6 +5446,7 @@ public:
 class DeactiveAggregateConfigRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
+  shared_ptr<string> compliancePackId{};
   shared_ptr<string> configRuleIds{};
 
   DeactiveAggregateConfigRulesRequest() {}
@@ -5419,6 +5462,9 @@ public:
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
     }
+    if (compliancePackId) {
+      res["CompliancePackId"] = boost::any(*compliancePackId);
+    }
     if (configRuleIds) {
       res["ConfigRuleIds"] = boost::any(*configRuleIds);
     }
@@ -5428,6 +5474,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("CompliancePackId") != m.end() && !m["CompliancePackId"].empty()) {
+      compliancePackId = make_shared<string>(boost::any_cast<string>(m["CompliancePackId"]));
     }
     if (m.find("ConfigRuleIds") != m.end() && !m["ConfigRuleIds"].empty()) {
       configRuleIds = make_shared<string>(boost::any_cast<string>(m["ConfigRuleIds"]));
@@ -5617,6 +5666,7 @@ public:
 };
 class DeactiveConfigRulesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> compliancePackId{};
   shared_ptr<string> configRuleIds{};
 
   DeactiveConfigRulesRequest() {}
@@ -5629,6 +5679,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (compliancePackId) {
+      res["CompliancePackId"] = boost::any(*compliancePackId);
+    }
     if (configRuleIds) {
       res["ConfigRuleIds"] = boost::any(*configRuleIds);
     }
@@ -5636,6 +5689,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompliancePackId") != m.end() && !m["CompliancePackId"].empty()) {
+      compliancePackId = make_shared<string>(boost::any_cast<string>(m["CompliancePackId"]));
+    }
     if (m.find("ConfigRuleIds") != m.end() && !m["ConfigRuleIds"].empty()) {
       configRuleIds = make_shared<string>(boost::any_cast<string>(m["ConfigRuleIds"]));
     }
@@ -11714,6 +11770,7 @@ public:
   shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
   shared_ptr<vector<GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope>> excludeTagsScope{};
+  shared_ptr<string> extendContent{};
   shared_ptr<string> folderIdsScope{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<GetAggregateConfigRuleResponseBodyConfigRuleManagedRule> managedRule{};
@@ -11797,6 +11854,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ExcludeTagsScope"] = boost::any(temp1);
+    }
+    if (extendContent) {
+      res["ExtendContent"] = boost::any(*extendContent);
     }
     if (folderIdsScope) {
       res["FolderIdsScope"] = boost::any(*folderIdsScope);
@@ -11926,6 +11986,9 @@ public:
         }
         excludeTagsScope = make_shared<vector<GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope>>(expect1);
       }
+    }
+    if (m.find("ExtendContent") != m.end() && !m["ExtendContent"].empty()) {
+      extendContent = make_shared<string>(boost::any_cast<string>(m["ExtendContent"]));
     }
     if (m.find("FolderIdsScope") != m.end() && !m["FolderIdsScope"].empty()) {
       folderIdsScope = make_shared<string>(boost::any_cast<string>(m["FolderIdsScope"]));
@@ -17197,6 +17260,7 @@ public:
   shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
   shared_ptr<vector<GetConfigRuleResponseBodyConfigRuleExcludeTagsScope>> excludeTagsScope{};
+  shared_ptr<string> extendContent{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<GetConfigRuleResponseBodyConfigRuleManagedRule> managedRule{};
   shared_ptr<string> maximumExecutionFrequency{};
@@ -17271,6 +17335,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ExcludeTagsScope"] = boost::any(temp1);
+    }
+    if (extendContent) {
+      res["ExtendContent"] = boost::any(*extendContent);
     }
     if (inputParameters) {
       res["InputParameters"] = boost::any(*inputParameters);
@@ -17391,6 +17458,9 @@ public:
         }
         excludeTagsScope = make_shared<vector<GetConfigRuleResponseBodyConfigRuleExcludeTagsScope>>(expect1);
       }
+    }
+    if (m.find("ExtendContent") != m.end() && !m["ExtendContent"].empty()) {
+      extendContent = make_shared<string>(boost::any_cast<string>(m["ExtendContent"]));
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InputParameters"]);
@@ -18874,6 +18944,7 @@ public:
 };
 class GetIntegratedServiceStatusResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> aggregatorDeliveryDataType{};
   shared_ptr<bool> data{};
   shared_ptr<string> integratedTypes{};
   shared_ptr<string> requestId{};
@@ -18888,6 +18959,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aggregatorDeliveryDataType) {
+      res["AggregatorDeliveryDataType"] = boost::any(*aggregatorDeliveryDataType);
+    }
     if (data) {
       res["Data"] = boost::any(*data);
     }
@@ -18901,6 +18975,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggregatorDeliveryDataType") != m.end() && !m["AggregatorDeliveryDataType"].empty()) {
+      aggregatorDeliveryDataType = make_shared<string>(boost::any_cast<string>(m["AggregatorDeliveryDataType"]));
+    }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
     }
@@ -23048,6 +23125,7 @@ public:
 class ListAggregateConfigRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
+  shared_ptr<string> compliancePackId{};
   shared_ptr<string> complianceType{};
   shared_ptr<string> configRuleName{};
   shared_ptr<string> configRuleState{};
@@ -23069,6 +23147,9 @@ public:
     map<string, boost::any> res;
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
+    }
+    if (compliancePackId) {
+      res["CompliancePackId"] = boost::any(*compliancePackId);
     }
     if (complianceType) {
       res["ComplianceType"] = boost::any(*complianceType);
@@ -23100,6 +23181,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("CompliancePackId") != m.end() && !m["CompliancePackId"].empty()) {
+      compliancePackId = make_shared<string>(boost::any_cast<string>(m["CompliancePackId"]));
     }
     if (m.find("ComplianceType") != m.end() && !m["ComplianceType"].empty()) {
       complianceType = make_shared<string>(boost::any_cast<string>(m["ComplianceType"]));
@@ -27243,6 +27327,7 @@ public:
 };
 class ListConfigRulesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> compliancePackId{};
   shared_ptr<string> complianceType{};
   shared_ptr<string> configRuleName{};
   shared_ptr<string> configRuleState{};
@@ -27262,6 +27347,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (compliancePackId) {
+      res["CompliancePackId"] = boost::any(*compliancePackId);
+    }
     if (complianceType) {
       res["ComplianceType"] = boost::any(*complianceType);
     }
@@ -27290,6 +27378,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompliancePackId") != m.end() && !m["CompliancePackId"].empty()) {
+      compliancePackId = make_shared<string>(boost::any_cast<string>(m["CompliancePackId"]));
+    }
     if (m.find("ComplianceType") != m.end() && !m["ComplianceType"].empty()) {
       complianceType = make_shared<string>(boost::any_cast<string>(m["ComplianceType"]));
     }
@@ -28074,6 +28165,7 @@ public:
 };
 class ListIntegratedServiceResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> aggregatorDeliveryDataType{};
   shared_ptr<string> integratedTypes{};
   shared_ptr<string> serviceCode{};
   shared_ptr<string> serviceName{};
@@ -28089,6 +28181,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aggregatorDeliveryDataType) {
+      res["AggregatorDeliveryDataType"] = boost::any(*aggregatorDeliveryDataType);
+    }
     if (integratedTypes) {
       res["IntegratedTypes"] = boost::any(*integratedTypes);
     }
@@ -28105,6 +28200,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggregatorDeliveryDataType") != m.end() && !m["AggregatorDeliveryDataType"].empty()) {
+      aggregatorDeliveryDataType = make_shared<string>(boost::any_cast<string>(m["AggregatorDeliveryDataType"]));
+    }
     if (m.find("IntegratedTypes") != m.end() && !m["IntegratedTypes"].empty()) {
       integratedTypes = make_shared<string>(boost::any_cast<string>(m["IntegratedTypes"]));
     }
@@ -35870,6 +35968,7 @@ public:
   shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
   shared_ptr<vector<UpdateConfigRuleRequestExcludeTagsScope>> excludeTagsScope{};
+  shared_ptr<string> extendContent{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
@@ -35922,6 +36021,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ExcludeTagsScope"] = boost::any(temp1);
+    }
+    if (extendContent) {
+      res["ExtendContent"] = boost::any(*extendContent);
     }
     if (inputParameters) {
       res["InputParameters"] = boost::any(*inputParameters);
@@ -36000,6 +36102,9 @@ public:
         }
         excludeTagsScope = make_shared<vector<UpdateConfigRuleRequestExcludeTagsScope>>(expect1);
       }
+    }
+    if (m.find("ExtendContent") != m.end() && !m["ExtendContent"].empty()) {
+      extendContent = make_shared<string>(boost::any_cast<string>(m["ExtendContent"]));
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InputParameters"]);
@@ -36144,6 +36249,7 @@ public:
   shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
   shared_ptr<vector<UpdateConfigRuleShrinkRequestExcludeTagsScope>> excludeTagsScope{};
+  shared_ptr<string> extendContent{};
   shared_ptr<string> inputParametersShrink{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
@@ -36196,6 +36302,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ExcludeTagsScope"] = boost::any(temp1);
+    }
+    if (extendContent) {
+      res["ExtendContent"] = boost::any(*extendContent);
     }
     if (inputParametersShrink) {
       res["InputParameters"] = boost::any(*inputParametersShrink);
@@ -36274,6 +36383,9 @@ public:
         }
         excludeTagsScope = make_shared<vector<UpdateConfigRuleShrinkRequestExcludeTagsScope>>(expect1);
       }
+    }
+    if (m.find("ExtendContent") != m.end() && !m["ExtendContent"].empty()) {
+      extendContent = make_shared<string>(boost::any_cast<string>(m["ExtendContent"]));
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       inputParametersShrink = make_shared<string>(boost::any_cast<string>(m["InputParameters"]));
@@ -36771,6 +36883,7 @@ public:
 };
 class UpdateIntegratedServiceStatusRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> aggregatorDeliveryDataType{};
   shared_ptr<string> integratedTypes{};
   shared_ptr<string> serviceCode{};
   shared_ptr<bool> status{};
@@ -36785,6 +36898,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aggregatorDeliveryDataType) {
+      res["AggregatorDeliveryDataType"] = boost::any(*aggregatorDeliveryDataType);
+    }
     if (integratedTypes) {
       res["IntegratedTypes"] = boost::any(*integratedTypes);
     }
@@ -36798,6 +36914,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggregatorDeliveryDataType") != m.end() && !m["AggregatorDeliveryDataType"].empty()) {
+      aggregatorDeliveryDataType = make_shared<string>(boost::any_cast<string>(m["AggregatorDeliveryDataType"]));
+    }
     if (m.find("IntegratedTypes") != m.end() && !m["IntegratedTypes"].empty()) {
       integratedTypes = make_shared<string>(boost::any_cast<string>(m["IntegratedTypes"]));
     }
