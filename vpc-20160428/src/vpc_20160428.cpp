@@ -2678,8 +2678,14 @@ CreateExpressConnectTrafficQosResponse Alibabacloud_Vpc20160428::Client::createE
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateExpressConnectTrafficQosRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<CreateExpressConnectTrafficQosRequestTags>>("Tags", *request->tags));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2991,6 +2997,9 @@ CreateForwardEntryResponse Alibabacloud_Vpc20160428::Client::createForwardEntryW
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->externalIp)) {
     query->insert(pair<string, string>("ExternalIp", *request->externalIp));
@@ -4595,6 +4604,9 @@ CreateSnatEntryResponse Alibabacloud_Vpc20160428::Client::createSnatEntryWithOpt
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->eipAffinity)) {
     query->insert(pair<string, long>("EipAffinity", *request->eipAffinity));
@@ -9515,8 +9527,14 @@ DescribeExpressConnectTrafficQosResponse Alibabacloud_Vpc20160428::Client::descr
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeExpressConnectTrafficQosRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<DescribeExpressConnectTrafficQosRequestTags>>("Tags", *request->tags));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -16426,6 +16444,9 @@ ModifyForwardEntryResponse Alibabacloud_Vpc20160428::Client::modifyForwardEntryW
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->externalIp)) {
     query->insert(pair<string, string>("ExternalIp", *request->externalIp));
   }
@@ -17773,6 +17794,9 @@ ModifySnatEntryResponse Alibabacloud_Vpc20160428::Client::modifySnatEntryWithOpt
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->eipAffinity)) {
     query->insert(pair<string, long>("EipAffinity", *request->eipAffinity));
