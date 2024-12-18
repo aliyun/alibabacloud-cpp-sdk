@@ -349,33 +349,6 @@ CreateModelFeatureResponse Alibabacloud_PaiFeatureStore20230621::Client::createM
   return createModelFeatureWithOptions(InstanceId, request, headers, runtime);
 }
 
-CreateModelFeatureTrainingSetFGTableResponse Alibabacloud_PaiFeatureStore20230621::Client::createModelFeatureTrainingSetFGTableWithOptions(shared_ptr<string> InstanceId,
-                                                                                                                                           shared_ptr<string> ModelFeatureId,
-                                                                                                                                           shared_ptr<map<string, string>> headers,
-                                                                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateModelFeatureTrainingSetFGTable"))},
-    {"version", boost::any(string("2023-06-21"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(InstanceId)) + string("/modelfeatures/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ModelFeatureId)) + string("/trainingsetfgtable"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateModelFeatureTrainingSetFGTableResponse(callApi(params, req, runtime));
-}
-
-CreateModelFeatureTrainingSetFGTableResponse Alibabacloud_PaiFeatureStore20230621::Client::createModelFeatureTrainingSetFGTable(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createModelFeatureTrainingSetFGTableWithOptions(InstanceId, ModelFeatureId, headers, runtime);
-}
-
 CreateProjectResponse Alibabacloud_PaiFeatureStore20230621::Client::createProjectWithOptions(shared_ptr<string> InstanceId,
                                                                                              shared_ptr<CreateProjectRequest> request,
                                                                                              shared_ptr<map<string, string>> headers,
@@ -614,40 +587,6 @@ DeleteProjectResponse Alibabacloud_PaiFeatureStore20230621::Client::deleteProjec
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return deleteProjectWithOptions(InstanceId, ProjectId, headers, runtime);
-}
-
-ExportModelFeatureTrainingSetFGTableResponse Alibabacloud_PaiFeatureStore20230621::Client::exportModelFeatureTrainingSetFGTableWithOptions(shared_ptr<string> InstanceId,
-                                                                                                                                           shared_ptr<string> ModelFeatureId,
-                                                                                                                                           shared_ptr<ExportModelFeatureTrainingSetFGTableRequest> request,
-                                                                                                                                           shared_ptr<map<string, string>> headers,
-                                                                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig>(request->trainingSetFgConfig)) {
-    body->insert(pair<string, ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig>("TrainingSetFgConfig", *request->trainingSetFgConfig));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ExportModelFeatureTrainingSetFGTable"))},
-    {"version", boost::any(string("2023-06-21"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(InstanceId)) + string("/modelfeatures/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ModelFeatureId)) + string("/action/exporttrainingsetfgtable"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ExportModelFeatureTrainingSetFGTableResponse(callApi(params, req, runtime));
-}
-
-ExportModelFeatureTrainingSetFGTableResponse Alibabacloud_PaiFeatureStore20230621::Client::exportModelFeatureTrainingSetFGTable(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId, shared_ptr<ExportModelFeatureTrainingSetFGTableRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return exportModelFeatureTrainingSetFGTableWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
 }
 
 ExportModelFeatureTrainingSetTableResponse Alibabacloud_PaiFeatureStore20230621::Client::exportModelFeatureTrainingSetTableWithOptions(shared_ptr<string> InstanceId,
@@ -1861,6 +1800,9 @@ UpdateModelFeatureResponse Alibabacloud_PaiFeatureStore20230621::Client::updateM
   if (!Darabonba_Util::Client::isUnset<vector<UpdateModelFeatureRequestFeatures>>(request->features)) {
     body->insert(pair<string, vector<UpdateModelFeatureRequestFeatures>>("Features", *request->features));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->labelPriorityLevel)) {
+    body->insert(pair<string, long>("LabelPriorityLevel", *request->labelPriorityLevel));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->labelTableId)) {
     body->insert(pair<string, string>("LabelTableId", *request->labelTableId));
   }
@@ -1932,40 +1874,6 @@ UpdateModelFeatureFGFeatureResponse Alibabacloud_PaiFeatureStore20230621::Client
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateModelFeatureFGFeatureWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
-}
-
-UpdateModelFeatureFGInfoResponse Alibabacloud_PaiFeatureStore20230621::Client::updateModelFeatureFGInfoWithOptions(shared_ptr<string> InstanceId,
-                                                                                                                   shared_ptr<string> ModelFeatureId,
-                                                                                                                   shared_ptr<UpdateModelFeatureFGInfoRequest> request,
-                                                                                                                   shared_ptr<map<string, string>> headers,
-                                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
-    body->insert(pair<string, string>("Content", *request->content));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("UpdateModelFeatureFGInfo"))},
-    {"version", boost::any(string("2023-06-21"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(InstanceId)) + string("/modelfeatures/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ModelFeatureId)) + string("/fginfo"))},
-    {"method", boost::any(string("PUT"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return UpdateModelFeatureFGInfoResponse(callApi(params, req, runtime));
-}
-
-UpdateModelFeatureFGInfoResponse Alibabacloud_PaiFeatureStore20230621::Client::updateModelFeatureFGInfo(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId, shared_ptr<UpdateModelFeatureFGInfoRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateModelFeatureFGInfoWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
 }
 
 UpdateProjectResponse Alibabacloud_PaiFeatureStore20230621::Client::updateProjectWithOptions(shared_ptr<string> InstanceId,

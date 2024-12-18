@@ -1356,94 +1356,6 @@ public:
 
   virtual ~CreateModelFeatureResponse() = default;
 };
-class CreateModelFeatureTrainingSetFGTableResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> trainingSetFGTableName{};
-  shared_ptr<string> requestId{};
-
-  CreateModelFeatureTrainingSetFGTableResponseBody() {}
-
-  explicit CreateModelFeatureTrainingSetFGTableResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (trainingSetFGTableName) {
-      res["TrainingSetFGTableName"] = boost::any(*trainingSetFGTableName);
-    }
-    if (requestId) {
-      res["requestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("TrainingSetFGTableName") != m.end() && !m["TrainingSetFGTableName"].empty()) {
-      trainingSetFGTableName = make_shared<string>(boost::any_cast<string>(m["TrainingSetFGTableName"]));
-    }
-    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-  }
-
-
-  virtual ~CreateModelFeatureTrainingSetFGTableResponseBody() = default;
-};
-class CreateModelFeatureTrainingSetFGTableResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<CreateModelFeatureTrainingSetFGTableResponseBody> body{};
-
-  CreateModelFeatureTrainingSetFGTableResponse() {}
-
-  explicit CreateModelFeatureTrainingSetFGTableResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        CreateModelFeatureTrainingSetFGTableResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<CreateModelFeatureTrainingSetFGTableResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~CreateModelFeatureTrainingSetFGTableResponse() = default;
-};
 class CreateProjectRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -2205,180 +2117,6 @@ public:
 
 
   virtual ~DeleteProjectResponse() = default;
-};
-class ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig : public Darabonba::Model {
-public:
-  shared_ptr<string> fgJsonName{};
-  shared_ptr<string> jarName{};
-  shared_ptr<map<string, map<string, boost::any>>> partitions{};
-
-  ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig() {}
-
-  explicit ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (fgJsonName) {
-      res["FgJsonName"] = boost::any(*fgJsonName);
-    }
-    if (jarName) {
-      res["JarName"] = boost::any(*jarName);
-    }
-    if (partitions) {
-      res["Partitions"] = boost::any(*partitions);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("FgJsonName") != m.end() && !m["FgJsonName"].empty()) {
-      fgJsonName = make_shared<string>(boost::any_cast<string>(m["FgJsonName"]));
-    }
-    if (m.find("JarName") != m.end() && !m["JarName"].empty()) {
-      jarName = make_shared<string>(boost::any_cast<string>(m["JarName"]));
-    }
-    if (m.find("Partitions") != m.end() && !m["Partitions"].empty()) {
-      map<string, map<string, boost::any>> map1 = boost::any_cast<map<string, map<string, boost::any>>>(m["Partitions"]);
-      map<string, map<string, boost::any>> toMap1;
-      for (auto item:map1) {
-        map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item.second);
-        map<string, boost::any> toMap2;
-        for (auto item:map2) {
-           toMap2[item.first] = item.second;
-        }
-         toMap1[item.first] = toMap2;
-      }
-      partitions = make_shared<map<string, map<string, boost::any>>>(toMap1);
-    }
-  }
-
-
-  virtual ~ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig() = default;
-};
-class ExportModelFeatureTrainingSetFGTableRequest : public Darabonba::Model {
-public:
-  shared_ptr<ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig> trainingSetFgConfig{};
-
-  ExportModelFeatureTrainingSetFGTableRequest() {}
-
-  explicit ExportModelFeatureTrainingSetFGTableRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (trainingSetFgConfig) {
-      res["TrainingSetFgConfig"] = trainingSetFgConfig ? boost::any(trainingSetFgConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("TrainingSetFgConfig") != m.end() && !m["TrainingSetFgConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["TrainingSetFgConfig"].type()) {
-        ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TrainingSetFgConfig"]));
-        trainingSetFgConfig = make_shared<ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ExportModelFeatureTrainingSetFGTableRequest() = default;
-};
-class ExportModelFeatureTrainingSetFGTableResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> taskId{};
-  shared_ptr<string> requestId{};
-
-  ExportModelFeatureTrainingSetFGTableResponseBody() {}
-
-  explicit ExportModelFeatureTrainingSetFGTableResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (taskId) {
-      res["TaskId"] = boost::any(*taskId);
-    }
-    if (requestId) {
-      res["requestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
-      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
-    }
-    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-  }
-
-
-  virtual ~ExportModelFeatureTrainingSetFGTableResponseBody() = default;
-};
-class ExportModelFeatureTrainingSetFGTableResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<ExportModelFeatureTrainingSetFGTableResponseBody> body{};
-
-  ExportModelFeatureTrainingSetFGTableResponse() {}
-
-  explicit ExportModelFeatureTrainingSetFGTableResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ExportModelFeatureTrainingSetFGTableResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ExportModelFeatureTrainingSetFGTableResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ExportModelFeatureTrainingSetFGTableResponse() = default;
 };
 class ExportModelFeatureTrainingSetTableRequestLabelInputConfig : public Darabonba::Model {
 public:
@@ -9777,6 +9515,7 @@ public:
 class UpdateModelFeatureRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<UpdateModelFeatureRequestFeatures>> features{};
+  shared_ptr<long> labelPriorityLevel{};
   shared_ptr<string> labelTableId{};
   shared_ptr<vector<string>> sequenceFeatureViewIds{};
 
@@ -9796,6 +9535,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Features"] = boost::any(temp1);
+    }
+    if (labelPriorityLevel) {
+      res["LabelPriorityLevel"] = boost::any(*labelPriorityLevel);
     }
     if (labelTableId) {
       res["LabelTableId"] = boost::any(*labelTableId);
@@ -9819,6 +9561,9 @@ public:
         }
         features = make_shared<vector<UpdateModelFeatureRequestFeatures>>(expect1);
       }
+    }
+    if (m.find("LabelPriorityLevel") != m.end() && !m["LabelPriorityLevel"].empty()) {
+      labelPriorityLevel = make_shared<long>(boost::any_cast<long>(m["LabelPriorityLevel"]));
     }
     if (m.find("LabelTableId") != m.end() && !m["LabelTableId"].empty()) {
       labelTableId = make_shared<string>(boost::any_cast<string>(m["LabelTableId"]));
@@ -10369,116 +10114,6 @@ public:
 
   virtual ~UpdateModelFeatureFGFeatureResponse() = default;
 };
-class UpdateModelFeatureFGInfoRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> content{};
-
-  UpdateModelFeatureFGInfoRequest() {}
-
-  explicit UpdateModelFeatureFGInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (content) {
-      res["Content"] = boost::any(*content);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Content") != m.end() && !m["Content"].empty()) {
-      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
-    }
-  }
-
-
-  virtual ~UpdateModelFeatureFGInfoRequest() = default;
-};
-class UpdateModelFeatureFGInfoResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  UpdateModelFeatureFGInfoResponseBody() {}
-
-  explicit UpdateModelFeatureFGInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["requestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-  }
-
-
-  virtual ~UpdateModelFeatureFGInfoResponseBody() = default;
-};
-class UpdateModelFeatureFGInfoResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<UpdateModelFeatureFGInfoResponseBody> body{};
-
-  UpdateModelFeatureFGInfoResponse() {}
-
-  explicit UpdateModelFeatureFGInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        UpdateModelFeatureFGInfoResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<UpdateModelFeatureFGInfoResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~UpdateModelFeatureFGInfoResponse() = default;
-};
 class UpdateProjectRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -10826,11 +10461,6 @@ public:
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateModelFeatureResponse createModelFeature(shared_ptr<string> InstanceId, shared_ptr<CreateModelFeatureRequest> request);
-  CreateModelFeatureTrainingSetFGTableResponse createModelFeatureTrainingSetFGTableWithOptions(shared_ptr<string> InstanceId,
-                                                                                               shared_ptr<string> ModelFeatureId,
-                                                                                               shared_ptr<map<string, string>> headers,
-                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateModelFeatureTrainingSetFGTableResponse createModelFeatureTrainingSetFGTable(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId);
   CreateProjectResponse createProjectWithOptions(shared_ptr<string> InstanceId,
                                                  shared_ptr<CreateProjectRequest> request,
                                                  shared_ptr<map<string, string>> headers,
@@ -10868,12 +10498,6 @@ public:
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteProjectResponse deleteProject(shared_ptr<string> InstanceId, shared_ptr<string> ProjectId);
-  ExportModelFeatureTrainingSetFGTableResponse exportModelFeatureTrainingSetFGTableWithOptions(shared_ptr<string> InstanceId,
-                                                                                               shared_ptr<string> ModelFeatureId,
-                                                                                               shared_ptr<ExportModelFeatureTrainingSetFGTableRequest> request,
-                                                                                               shared_ptr<map<string, string>> headers,
-                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ExportModelFeatureTrainingSetFGTableResponse exportModelFeatureTrainingSetFGTable(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId, shared_ptr<ExportModelFeatureTrainingSetFGTableRequest> request);
   ExportModelFeatureTrainingSetTableResponse exportModelFeatureTrainingSetTableWithOptions(shared_ptr<string> InstanceId,
                                                                                            shared_ptr<string> ModelFeatureId,
                                                                                            shared_ptr<ExportModelFeatureTrainingSetTableRequest> request,
@@ -11048,12 +10672,6 @@ public:
                                                                              shared_ptr<map<string, string>> headers,
                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateModelFeatureFGFeatureResponse updateModelFeatureFGFeature(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId, shared_ptr<UpdateModelFeatureFGFeatureRequest> request);
-  UpdateModelFeatureFGInfoResponse updateModelFeatureFGInfoWithOptions(shared_ptr<string> InstanceId,
-                                                                       shared_ptr<string> ModelFeatureId,
-                                                                       shared_ptr<UpdateModelFeatureFGInfoRequest> request,
-                                                                       shared_ptr<map<string, string>> headers,
-                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateModelFeatureFGInfoResponse updateModelFeatureFGInfo(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId, shared_ptr<UpdateModelFeatureFGInfoRequest> request);
   UpdateProjectResponse updateProjectWithOptions(shared_ptr<string> InstanceId,
                                                  shared_ptr<string> ProjectId,
                                                  shared_ptr<UpdateProjectRequest> request,
