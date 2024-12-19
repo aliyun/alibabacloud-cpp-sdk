@@ -15414,6 +15414,7 @@ public:
 };
 class DescribeSnapshotsResponseBodySnapshotsSnapshot : public Darabonba::Model {
 public:
+  shared_ptr<string> completedTime{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
   shared_ptr<long> encryptType{};
@@ -15439,6 +15440,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (completedTime) {
+      res["CompletedTime"] = boost::any(*completedTime);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -15485,6 +15489,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompletedTime") != m.end() && !m["CompletedTime"].empty()) {
+      completedTime = make_shared<string>(boost::any_cast<string>(m["CompletedTime"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
