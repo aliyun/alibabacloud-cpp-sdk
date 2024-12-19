@@ -20400,6 +20400,9 @@ StartImagePipelineExecutionResponse Alibabacloud_Ecs20140526::Client::startImage
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<StartImagePipelineExecutionRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<StartImagePipelineExecutionRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<StartImagePipelineExecutionRequestTemplateTag>>(request->templateTag)) {
     query->insert(pair<string, vector<StartImagePipelineExecutionRequestTemplateTag>>("TemplateTag", *request->templateTag));
   }
