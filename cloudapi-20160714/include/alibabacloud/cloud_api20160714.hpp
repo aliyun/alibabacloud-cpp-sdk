@@ -4112,6 +4112,7 @@ public:
 };
 class CreateLogConfigRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> createSlr{};
   shared_ptr<string> logType{};
   shared_ptr<string> securityToken{};
   shared_ptr<string> slsLogStore{};
@@ -4127,6 +4128,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (createSlr) {
+      res["CreateSlr"] = boost::any(*createSlr);
+    }
     if (logType) {
       res["LogType"] = boost::any(*logType);
     }
@@ -4143,6 +4147,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateSlr") != m.end() && !m["CreateSlr"].empty()) {
+      createSlr = make_shared<bool>(boost::any_cast<bool>(m["CreateSlr"]));
+    }
     if (m.find("LogType") != m.end() && !m["LogType"].empty()) {
       logType = make_shared<string>(boost::any_cast<string>(m["LogType"]));
     }
@@ -10330,6 +10337,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> roleArn{};
   shared_ptr<string> serviceName{};
+  shared_ptr<string> triggerName{};
 
   DescribeApiResponseBodyServiceConfigFunctionComputeConfig() {}
 
@@ -10377,6 +10385,9 @@ public:
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
     }
+    if (triggerName) {
+      res["TriggerName"] = boost::any(*triggerName);
+    }
     return res;
   }
 
@@ -10416,6 +10427,9 @@ public:
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("TriggerName") != m.end() && !m["TriggerName"].empty()) {
+      triggerName = make_shared<string>(boost::any_cast<string>(m["TriggerName"]));
     }
   }
 
@@ -12458,6 +12472,7 @@ public:
   shared_ptr<string> cmsMonitorGroup{};
   shared_ptr<string> compatibleFlags{};
   shared_ptr<string> createdTime{};
+  shared_ptr<string> customAppCodeConfig{};
   shared_ptr<DescribeApiGroupResponseBodyCustomDomains> customDomains{};
   shared_ptr<string> customTraceConfig{};
   shared_ptr<string> customerConfigs{};
@@ -12513,6 +12528,9 @@ public:
     }
     if (createdTime) {
       res["CreatedTime"] = boost::any(*createdTime);
+    }
+    if (customAppCodeConfig) {
+      res["CustomAppCodeConfig"] = boost::any(*customAppCodeConfig);
     }
     if (customDomains) {
       res["CustomDomains"] = customDomains ? boost::any(customDomains->toMap()) : boost::any(map<string,boost::any>({}));
@@ -12616,6 +12634,9 @@ public:
     }
     if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
       createdTime = make_shared<string>(boost::any_cast<string>(m["CreatedTime"]));
+    }
+    if (m.find("CustomAppCodeConfig") != m.end() && !m["CustomAppCodeConfig"].empty()) {
+      customAppCodeConfig = make_shared<string>(boost::any_cast<string>(m["CustomAppCodeConfig"]));
     }
     if (m.find("CustomDomains") != m.end() && !m["CustomDomains"].empty()) {
       if (typeid(map<string, boost::any>) == m["CustomDomains"].type()) {
@@ -23518,6 +23539,7 @@ public:
   shared_ptr<string> qualifier{};
   shared_ptr<string> roleArn{};
   shared_ptr<string> serviceName{};
+  shared_ptr<string> triggerName{};
 
   DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig() {}
 
@@ -23553,6 +23575,9 @@ public:
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
     }
+    if (triggerName) {
+      res["TriggerName"] = boost::any(*triggerName);
+    }
     return res;
   }
 
@@ -23580,6 +23605,9 @@ public:
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("TriggerName") != m.end() && !m["TriggerName"].empty()) {
+      triggerName = make_shared<string>(boost::any_cast<string>(m["TriggerName"]));
     }
   }
 
@@ -32737,6 +32765,7 @@ public:
   shared_ptr<string> maintainEndTime{};
   shared_ptr<string> maintainStartTime{};
   shared_ptr<DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes> networkInterfaceAttributes{};
+  shared_ptr<string> newVpcEgressAddress{};
   shared_ptr<DescribeInstancesResponseBodyInstancesInstanceAttributePrivateDnsList> privateDnsList{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
@@ -32850,6 +32879,9 @@ public:
     }
     if (networkInterfaceAttributes) {
       res["NetworkInterfaceAttributes"] = networkInterfaceAttributes ? boost::any(networkInterfaceAttributes->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (newVpcEgressAddress) {
+      res["NewVpcEgressAddress"] = boost::any(*newVpcEgressAddress);
     }
     if (privateDnsList) {
       res["PrivateDnsList"] = privateDnsList ? boost::any(privateDnsList->toMap()) : boost::any(map<string,boost::any>({}));
@@ -32991,6 +33023,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkInterfaceAttributes"]));
         networkInterfaceAttributes = make_shared<DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes>(model1);
       }
+    }
+    if (m.find("NewVpcEgressAddress") != m.end() && !m["NewVpcEgressAddress"].empty()) {
+      newVpcEgressAddress = make_shared<string>(boost::any_cast<string>(m["NewVpcEgressAddress"]));
     }
     if (m.find("PrivateDnsList") != m.end() && !m["PrivateDnsList"].empty()) {
       if (typeid(map<string, boost::any>) == m["PrivateDnsList"].type()) {
@@ -44161,6 +44196,7 @@ class ModifyApiGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> basePath{};
   shared_ptr<string> compatibleFlags{};
+  shared_ptr<string> customAppCodeConfig{};
   shared_ptr<string> customTraceConfig{};
   shared_ptr<string> customerConfigs{};
   shared_ptr<string> defaultDomain{};
@@ -44190,6 +44226,9 @@ public:
     }
     if (compatibleFlags) {
       res["CompatibleFlags"] = boost::any(*compatibleFlags);
+    }
+    if (customAppCodeConfig) {
+      res["CustomAppCodeConfig"] = boost::any(*customAppCodeConfig);
     }
     if (customTraceConfig) {
       res["CustomTraceConfig"] = boost::any(*customTraceConfig);
@@ -44243,6 +44282,9 @@ public:
     }
     if (m.find("CompatibleFlags") != m.end() && !m["CompatibleFlags"].empty()) {
       compatibleFlags = make_shared<string>(boost::any_cast<string>(m["CompatibleFlags"]));
+    }
+    if (m.find("CustomAppCodeConfig") != m.end() && !m["CustomAppCodeConfig"].empty()) {
+      customAppCodeConfig = make_shared<string>(boost::any_cast<string>(m["CustomAppCodeConfig"]));
     }
     if (m.find("CustomTraceConfig") != m.end() && !m["CustomTraceConfig"].empty()) {
       customTraceConfig = make_shared<string>(boost::any_cast<string>(m["CustomTraceConfig"]));
@@ -51307,9 +51349,11 @@ public:
   shared_ptr<string> certificateBody{};
   shared_ptr<string> certificateName{};
   shared_ptr<string> certificatePrivateKey{};
+  shared_ptr<bool> clientCertSDnPassThrough{};
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
   shared_ptr<string> securityToken{};
+  shared_ptr<bool> sslOcspEnable{};
   shared_ptr<string> sslVerifyDepth{};
 
   SetDomainCertificateRequest() {}
@@ -51334,6 +51378,9 @@ public:
     if (certificatePrivateKey) {
       res["CertificatePrivateKey"] = boost::any(*certificatePrivateKey);
     }
+    if (clientCertSDnPassThrough) {
+      res["ClientCertSDnPassThrough"] = boost::any(*clientCertSDnPassThrough);
+    }
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
     }
@@ -51342,6 +51389,9 @@ public:
     }
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (sslOcspEnable) {
+      res["SslOcspEnable"] = boost::any(*sslOcspEnable);
     }
     if (sslVerifyDepth) {
       res["SslVerifyDepth"] = boost::any(*sslVerifyDepth);
@@ -51362,6 +51412,9 @@ public:
     if (m.find("CertificatePrivateKey") != m.end() && !m["CertificatePrivateKey"].empty()) {
       certificatePrivateKey = make_shared<string>(boost::any_cast<string>(m["CertificatePrivateKey"]));
     }
+    if (m.find("ClientCertSDnPassThrough") != m.end() && !m["ClientCertSDnPassThrough"].empty()) {
+      clientCertSDnPassThrough = make_shared<bool>(boost::any_cast<bool>(m["ClientCertSDnPassThrough"]));
+    }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
     }
@@ -51370,6 +51423,9 @@ public:
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("SslOcspEnable") != m.end() && !m["SslOcspEnable"].empty()) {
+      sslOcspEnable = make_shared<bool>(boost::any_cast<bool>(m["SslOcspEnable"]));
     }
     if (m.find("SslVerifyDepth") != m.end() && !m["SslVerifyDepth"].empty()) {
       sslVerifyDepth = make_shared<string>(boost::any_cast<string>(m["SslVerifyDepth"]));

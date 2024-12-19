@@ -1091,6 +1091,9 @@ CreateIpControlResponse Alibabacloud_CloudAPI20160714::Client::createIpControl(s
 CreateLogConfigResponse Alibabacloud_CloudAPI20160714::Client::createLogConfigWithOptions(shared_ptr<CreateLogConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->createSlr)) {
+    query->insert(pair<string, bool>("CreateSlr", *request->createSlr));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->logType)) {
     query->insert(pair<string, string>("LogType", *request->logType));
   }
@@ -6351,6 +6354,9 @@ ModifyApiGroupResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupWith
   if (!Darabonba_Util::Client::isUnset<string>(request->compatibleFlags)) {
     query->insert(pair<string, string>("CompatibleFlags", *request->compatibleFlags));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customAppCodeConfig)) {
+    query->insert(pair<string, string>("CustomAppCodeConfig", *request->customAppCodeConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->customTraceConfig)) {
     query->insert(pair<string, string>("CustomTraceConfig", *request->customTraceConfig));
   }
@@ -8137,6 +8143,9 @@ SetDomainCertificateResponse Alibabacloud_CloudAPI20160714::Client::setDomainCer
   if (!Darabonba_Util::Client::isUnset<string>(request->certificatePrivateKey)) {
     query->insert(pair<string, string>("CertificatePrivateKey", *request->certificatePrivateKey));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->clientCertSDnPassThrough)) {
+    query->insert(pair<string, bool>("ClientCertSDnPassThrough", *request->clientCertSDnPassThrough));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
     query->insert(pair<string, string>("DomainName", *request->domainName));
   }
@@ -8145,6 +8154,9 @@ SetDomainCertificateResponse Alibabacloud_CloudAPI20160714::Client::setDomainCer
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->sslOcspEnable)) {
+    query->insert(pair<string, bool>("SslOcspEnable", *request->sslOcspEnable));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sslVerifyDepth)) {
     query->insert(pair<string, string>("SslVerifyDepth", *request->sslVerifyDepth));
