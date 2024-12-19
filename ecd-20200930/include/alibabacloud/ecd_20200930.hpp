@@ -24513,6 +24513,42 @@ public:
 
   virtual ~DescribeNASFileSystemsRequest() = default;
 };
+class DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups : public Darabonba::Model {
+public:
+  shared_ptr<string> appInstanceGroupId{};
+  shared_ptr<string> appInstanceGroupName{};
+
+  DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups() {}
+
+  explicit DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appInstanceGroupId) {
+      res["AppInstanceGroupId"] = boost::any(*appInstanceGroupId);
+    }
+    if (appInstanceGroupName) {
+      res["AppInstanceGroupName"] = boost::any(*appInstanceGroupName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppInstanceGroupId") != m.end() && !m["AppInstanceGroupId"].empty()) {
+      appInstanceGroupId = make_shared<string>(boost::any_cast<string>(m["AppInstanceGroupId"]));
+    }
+    if (m.find("AppInstanceGroupName") != m.end() && !m["AppInstanceGroupName"].empty()) {
+      appInstanceGroupName = make_shared<string>(boost::any_cast<string>(m["AppInstanceGroupName"]));
+    }
+  }
+
+
+  virtual ~DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups() = default;
+};
 class DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups : public Darabonba::Model {
 public:
   shared_ptr<string> desktopGroupId{};
@@ -24549,8 +24585,46 @@ public:
 
   virtual ~DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups() = default;
 };
+class DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites : public Darabonba::Model {
+public:
+  shared_ptr<string> officeSiteId{};
+  shared_ptr<string> officeSiteName{};
+
+  DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites() {}
+
+  explicit DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (officeSiteId) {
+      res["OfficeSiteId"] = boost::any(*officeSiteId);
+    }
+    if (officeSiteName) {
+      res["OfficeSiteName"] = boost::any(*officeSiteName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
+      officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
+    }
+    if (m.find("OfficeSiteName") != m.end() && !m["OfficeSiteName"].empty()) {
+      officeSiteName = make_shared<string>(boost::any_cast<string>(m["OfficeSiteName"]));
+    }
+  }
+
+
+  virtual ~DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites() = default;
+};
 class DescribeNASFileSystemsResponseBodyFileSystems : public Darabonba::Model {
 public:
+  shared_ptr<bool> allowOperateUserDrive{};
+  shared_ptr<vector<DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups>> appInstanceGroups{};
   shared_ptr<long> capacity{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
@@ -24565,8 +24639,10 @@ public:
   shared_ptr<string> mountTargetStatus{};
   shared_ptr<string> officeSiteId{};
   shared_ptr<string> officeSiteName{};
+  shared_ptr<vector<DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites>> officeSites{};
   shared_ptr<bool> profileCompatible{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> scene{};
   shared_ptr<string> storageType{};
   shared_ptr<bool> supportAcl{};
   shared_ptr<string> zoneId{};
@@ -24581,6 +24657,16 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowOperateUserDrive) {
+      res["AllowOperateUserDrive"] = boost::any(*allowOperateUserDrive);
+    }
+    if (appInstanceGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*appInstanceGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AppInstanceGroups"] = boost::any(temp1);
+    }
     if (capacity) {
       res["Capacity"] = boost::any(*capacity);
     }
@@ -24627,11 +24713,21 @@ public:
     if (officeSiteName) {
       res["OfficeSiteName"] = boost::any(*officeSiteName);
     }
+    if (officeSites) {
+      vector<boost::any> temp1;
+      for(auto item1:*officeSites){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OfficeSites"] = boost::any(temp1);
+    }
     if (profileCompatible) {
       res["ProfileCompatible"] = boost::any(*profileCompatible);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (scene) {
+      res["Scene"] = boost::any(*scene);
     }
     if (storageType) {
       res["StorageType"] = boost::any(*storageType);
@@ -24646,6 +24742,22 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowOperateUserDrive") != m.end() && !m["AllowOperateUserDrive"].empty()) {
+      allowOperateUserDrive = make_shared<bool>(boost::any_cast<bool>(m["AllowOperateUserDrive"]));
+    }
+    if (m.find("AppInstanceGroups") != m.end() && !m["AppInstanceGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["AppInstanceGroups"].type()) {
+        vector<DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AppInstanceGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        appInstanceGroups = make_shared<vector<DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups>>(expect1);
+      }
+    }
     if (m.find("Capacity") != m.end() && !m["Capacity"].empty()) {
       capacity = make_shared<long>(boost::any_cast<long>(m["Capacity"]));
     }
@@ -24698,11 +24810,27 @@ public:
     if (m.find("OfficeSiteName") != m.end() && !m["OfficeSiteName"].empty()) {
       officeSiteName = make_shared<string>(boost::any_cast<string>(m["OfficeSiteName"]));
     }
+    if (m.find("OfficeSites") != m.end() && !m["OfficeSites"].empty()) {
+      if (typeid(vector<boost::any>) == m["OfficeSites"].type()) {
+        vector<DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OfficeSites"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        officeSites = make_shared<vector<DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites>>(expect1);
+      }
+    }
     if (m.find("ProfileCompatible") != m.end() && !m["ProfileCompatible"].empty()) {
       profileCompatible = make_shared<bool>(boost::any_cast<bool>(m["ProfileCompatible"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
+      scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
     }
     if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
       storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
@@ -26442,6 +26570,8 @@ public:
   shared_ptr<long> cpuRateLimit{};
   shared_ptr<long> cpuSampleDuration{};
   shared_ptr<long> cpuSingleRateLimit{};
+  shared_ptr<long> desktopCount{};
+  shared_ptr<long> desktopGroupCount{};
   shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects>> deviceRedirects{};
   shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules>> deviceRules{};
   shared_ptr<string> displayMode{};
@@ -26463,6 +26593,8 @@ public:
   shared_ptr<long> memoryRateLimit{};
   shared_ptr<long> memorySampleDuration{};
   shared_ptr<long> memorySingleRateLimit{};
+  shared_ptr<string> mobileRestart{};
+  shared_ptr<string> mobileShutdown{};
   shared_ptr<string> name{};
   shared_ptr<string> netRedirect{};
   shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule>> netRedirectRule{};
@@ -26485,10 +26617,12 @@ public:
   shared_ptr<string> recordingUserNotify{};
   shared_ptr<string> recordingUserNotifyMessage{};
   shared_ptr<string> remoteCoordinate{};
+  shared_ptr<long> resourceGroupCount{};
   shared_ptr<string> resourceRegionId{};
   shared_ptr<string> scope{};
   shared_ptr<vector<string>> scopeValue{};
   shared_ptr<string> smoothEnhancement{};
+  shared_ptr<string> statusMonitor{};
   shared_ptr<string> streamingMode{};
   shared_ptr<long> targetFps{};
   shared_ptr<string> usbRedirect{};
@@ -26579,6 +26713,12 @@ public:
     if (cpuSingleRateLimit) {
       res["CpuSingleRateLimit"] = boost::any(*cpuSingleRateLimit);
     }
+    if (desktopCount) {
+      res["DesktopCount"] = boost::any(*desktopCount);
+    }
+    if (desktopGroupCount) {
+      res["DesktopGroupCount"] = boost::any(*desktopGroupCount);
+    }
     if (deviceRedirects) {
       vector<boost::any> temp1;
       for(auto item1:*deviceRedirects){
@@ -26654,6 +26794,12 @@ public:
     if (memorySingleRateLimit) {
       res["MemorySingleRateLimit"] = boost::any(*memorySingleRateLimit);
     }
+    if (mobileRestart) {
+      res["MobileRestart"] = boost::any(*mobileRestart);
+    }
+    if (mobileShutdown) {
+      res["MobileShutdown"] = boost::any(*mobileShutdown);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -26724,6 +26870,9 @@ public:
     if (remoteCoordinate) {
       res["RemoteCoordinate"] = boost::any(*remoteCoordinate);
     }
+    if (resourceGroupCount) {
+      res["ResourceGroupCount"] = boost::any(*resourceGroupCount);
+    }
     if (resourceRegionId) {
       res["ResourceRegionId"] = boost::any(*resourceRegionId);
     }
@@ -26735,6 +26884,9 @@ public:
     }
     if (smoothEnhancement) {
       res["SmoothEnhancement"] = boost::any(*smoothEnhancement);
+    }
+    if (statusMonitor) {
+      res["StatusMonitor"] = boost::any(*statusMonitor);
     }
     if (streamingMode) {
       res["StreamingMode"] = boost::any(*streamingMode);
@@ -26898,6 +27050,12 @@ public:
     if (m.find("CpuSingleRateLimit") != m.end() && !m["CpuSingleRateLimit"].empty()) {
       cpuSingleRateLimit = make_shared<long>(boost::any_cast<long>(m["CpuSingleRateLimit"]));
     }
+    if (m.find("DesktopCount") != m.end() && !m["DesktopCount"].empty()) {
+      desktopCount = make_shared<long>(boost::any_cast<long>(m["DesktopCount"]));
+    }
+    if (m.find("DesktopGroupCount") != m.end() && !m["DesktopGroupCount"].empty()) {
+      desktopGroupCount = make_shared<long>(boost::any_cast<long>(m["DesktopGroupCount"]));
+    }
     if (m.find("DeviceRedirects") != m.end() && !m["DeviceRedirects"].empty()) {
       if (typeid(vector<boost::any>) == m["DeviceRedirects"].type()) {
         vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects> expect1;
@@ -26998,6 +27156,12 @@ public:
     if (m.find("MemorySingleRateLimit") != m.end() && !m["MemorySingleRateLimit"].empty()) {
       memorySingleRateLimit = make_shared<long>(boost::any_cast<long>(m["MemorySingleRateLimit"]));
     }
+    if (m.find("MobileRestart") != m.end() && !m["MobileRestart"].empty()) {
+      mobileRestart = make_shared<string>(boost::any_cast<string>(m["MobileRestart"]));
+    }
+    if (m.find("MobileShutdown") != m.end() && !m["MobileShutdown"].empty()) {
+      mobileShutdown = make_shared<string>(boost::any_cast<string>(m["MobileShutdown"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -27081,6 +27245,9 @@ public:
     if (m.find("RemoteCoordinate") != m.end() && !m["RemoteCoordinate"].empty()) {
       remoteCoordinate = make_shared<string>(boost::any_cast<string>(m["RemoteCoordinate"]));
     }
+    if (m.find("ResourceGroupCount") != m.end() && !m["ResourceGroupCount"].empty()) {
+      resourceGroupCount = make_shared<long>(boost::any_cast<long>(m["ResourceGroupCount"]));
+    }
     if (m.find("ResourceRegionId") != m.end() && !m["ResourceRegionId"].empty()) {
       resourceRegionId = make_shared<string>(boost::any_cast<string>(m["ResourceRegionId"]));
     }
@@ -27099,6 +27266,9 @@ public:
     }
     if (m.find("SmoothEnhancement") != m.end() && !m["SmoothEnhancement"].empty()) {
       smoothEnhancement = make_shared<string>(boost::any_cast<string>(m["SmoothEnhancement"]));
+    }
+    if (m.find("StatusMonitor") != m.end() && !m["StatusMonitor"].empty()) {
+      statusMonitor = make_shared<string>(boost::any_cast<string>(m["StatusMonitor"]));
     }
     if (m.find("StreamingMode") != m.end() && !m["StreamingMode"].empty()) {
       streamingMode = make_shared<string>(boost::any_cast<string>(m["StreamingMode"]));
