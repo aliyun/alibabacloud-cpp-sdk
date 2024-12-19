@@ -14,6 +14,261 @@
 using namespace std;
 
 namespace Alibabacloud_Mssp20161228 {
+class ConfirmDjbhReportRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+
+  ConfirmDjbhReportRequest() {}
+
+  explicit ConfirmDjbhReportRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+  }
+
+
+  virtual ~ConfirmDjbhReportRequest() = default;
+};
+class ConfirmDjbhReportResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  ConfirmDjbhReportResponseBody() {}
+
+  explicit ConfirmDjbhReportResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<string>(boost::any_cast<string>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ConfirmDjbhReportResponseBody() = default;
+};
+class ConfirmDjbhReportResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ConfirmDjbhReportResponseBody> body{};
+
+  ConfirmDjbhReportResponse() {}
+
+  explicit ConfirmDjbhReportResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ConfirmDjbhReportResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ConfirmDjbhReportResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ConfirmDjbhReportResponse() = default;
+};
+class CreateServiceLinkedRoleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> lang{};
+  shared_ptr<string> regionId{};
+
+  CreateServiceLinkedRoleRequest() {}
+
+  explicit CreateServiceLinkedRoleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~CreateServiceLinkedRoleRequest() = default;
+};
+class CreateServiceLinkedRoleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateServiceLinkedRoleResponseBody() {}
+
+  explicit CreateServiceLinkedRoleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateServiceLinkedRoleResponseBody() = default;
+};
+class CreateServiceLinkedRoleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateServiceLinkedRoleResponseBody> body{};
+
+  CreateServiceLinkedRoleResponse() {}
+
+  explicit CreateServiceLinkedRoleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateServiceLinkedRoleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateServiceLinkedRoleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateServiceLinkedRoleResponse() = default;
+};
 class CreateServiceWorkOrderRequest : public Darabonba::Model {
 public:
   shared_ptr<string> creator{};
@@ -387,6 +642,268 @@ public:
 
 
   virtual ~CreateServiceWorkOrderResponse() = default;
+};
+class DeleteDjbhReportRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+
+  DeleteDjbhReportRequest() {}
+
+  explicit DeleteDjbhReportRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+  }
+
+
+  virtual ~DeleteDjbhReportRequest() = default;
+};
+class DeleteDjbhReportResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  DeleteDjbhReportResponseBody() {}
+
+  explicit DeleteDjbhReportResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<string>(boost::any_cast<string>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteDjbhReportResponseBody() = default;
+};
+class DeleteDjbhReportResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteDjbhReportResponseBody> body{};
+
+  DeleteDjbhReportResponse() {}
+
+  explicit DeleteDjbhReportResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDjbhReportResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDjbhReportResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDjbhReportResponse() = default;
+};
+class DescribeServiceLinkedRoleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> lang{};
+  shared_ptr<string> regionId{};
+
+  DescribeServiceLinkedRoleRequest() {}
+
+  explicit DescribeServiceLinkedRoleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceLinkedRoleRequest() = default;
+};
+class DescribeServiceLinkedRoleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> entityRoleGrant{};
+  shared_ptr<string> requestId{};
+
+  DescribeServiceLinkedRoleResponseBody() {}
+
+  explicit DescribeServiceLinkedRoleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entityRoleGrant) {
+      res["EntityRoleGrant"] = boost::any(*entityRoleGrant);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EntityRoleGrant") != m.end() && !m["EntityRoleGrant"].empty()) {
+      entityRoleGrant = make_shared<bool>(boost::any_cast<bool>(m["EntityRoleGrant"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceLinkedRoleResponseBody() = default;
+};
+class DescribeServiceLinkedRoleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeServiceLinkedRoleResponseBody> body{};
+
+  DescribeServiceLinkedRoleResponse() {}
+
+  explicit DescribeServiceLinkedRoleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeServiceLinkedRoleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeServiceLinkedRoleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeServiceLinkedRoleResponse() = default;
 };
 class DisposeServiceWorkOrderRequest : public Darabonba::Model {
 public:
@@ -2088,6 +2605,7 @@ public:
 class GetDocumentDownloadUrlRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
+  shared_ptr<string> reportType{};
 
   GetDocumentDownloadUrlRequest() {}
 
@@ -2102,12 +2620,18 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (reportType) {
+      res["ReportType"] = boost::any(*reportType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("ReportType") != m.end() && !m["ReportType"].empty()) {
+      reportType = make_shared<string>(boost::any_cast<string>(m["ReportType"]));
     }
   }
 
@@ -2300,6 +2824,7 @@ public:
   shared_ptr<string> documentName{};
   shared_ptr<string> documentType{};
   shared_ptr<long> id{};
+  shared_ptr<string> reportStatus{};
   shared_ptr<string> uploadTime{};
 
   GetDocumentPageResponseBodyData() {}
@@ -2324,6 +2849,9 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (reportStatus) {
+      res["ReportStatus"] = boost::any(*reportStatus);
+    }
     if (uploadTime) {
       res["UploadTime"] = boost::any(*uploadTime);
     }
@@ -2342,6 +2870,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("ReportStatus") != m.end() && !m["ReportStatus"].empty()) {
+      reportStatus = make_shared<string>(boost::any_cast<string>(m["ReportStatus"]));
     }
     if (m.find("UploadTime") != m.end() && !m["UploadTime"].empty()) {
       uploadTime = make_shared<string>(boost::any_cast<string>(m["UploadTime"]));
@@ -7152,8 +7683,16 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  ConfirmDjbhReportResponse confirmDjbhReportWithOptions(shared_ptr<ConfirmDjbhReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ConfirmDjbhReportResponse confirmDjbhReport(shared_ptr<ConfirmDjbhReportRequest> request);
+  CreateServiceLinkedRoleResponse createServiceLinkedRoleWithOptions(shared_ptr<CreateServiceLinkedRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateServiceLinkedRoleResponse createServiceLinkedRole(shared_ptr<CreateServiceLinkedRoleRequest> request);
   CreateServiceWorkOrderResponse createServiceWorkOrderWithOptions(shared_ptr<CreateServiceWorkOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateServiceWorkOrderResponse createServiceWorkOrder(shared_ptr<CreateServiceWorkOrderRequest> request);
+  DeleteDjbhReportResponse deleteDjbhReportWithOptions(shared_ptr<DeleteDjbhReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDjbhReportResponse deleteDjbhReport(shared_ptr<DeleteDjbhReportRequest> request);
+  DescribeServiceLinkedRoleResponse describeServiceLinkedRoleWithOptions(shared_ptr<DescribeServiceLinkedRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeServiceLinkedRoleResponse describeServiceLinkedRole(shared_ptr<DescribeServiceLinkedRoleRequest> request);
   DisposeServiceWorkOrderResponse disposeServiceWorkOrderWithOptions(shared_ptr<DisposeServiceWorkOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisposeServiceWorkOrderResponse disposeServiceWorkOrder(shared_ptr<DisposeServiceWorkOrderRequest> request);
   DisposeWorkTaskResponse disposeWorkTaskWithOptions(shared_ptr<DisposeWorkTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
