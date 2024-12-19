@@ -4725,9 +4725,11 @@ public:
   shared_ptr<long> attachedSystemPoliciesPerGroupQuota{};
   shared_ptr<long> attachedSystemPoliciesPerRoleQuota{};
   shared_ptr<long> attachedSystemPoliciesPerUserQuota{};
+  shared_ptr<long> conditionsPerAKPolicyQuota{};
   shared_ptr<long> groups{};
   shared_ptr<long> groupsPerUserQuota{};
   shared_ptr<long> groupsQuota{};
+  shared_ptr<long> IPItemsPerAKPolicyQuota{};
   shared_ptr<long> MFADevices{};
   shared_ptr<long> MFADevicesInUse{};
   shared_ptr<long> policies{};
@@ -4771,6 +4773,9 @@ public:
     if (attachedSystemPoliciesPerUserQuota) {
       res["AttachedSystemPoliciesPerUserQuota"] = boost::any(*attachedSystemPoliciesPerUserQuota);
     }
+    if (conditionsPerAKPolicyQuota) {
+      res["ConditionsPerAKPolicyQuota"] = boost::any(*conditionsPerAKPolicyQuota);
+    }
     if (groups) {
       res["Groups"] = boost::any(*groups);
     }
@@ -4779,6 +4784,9 @@ public:
     }
     if (groupsQuota) {
       res["GroupsQuota"] = boost::any(*groupsQuota);
+    }
+    if (IPItemsPerAKPolicyQuota) {
+      res["IPItemsPerAKPolicyQuota"] = boost::any(*IPItemsPerAKPolicyQuota);
     }
     if (MFADevices) {
       res["MFADevices"] = boost::any(*MFADevices);
@@ -4838,6 +4846,9 @@ public:
     if (m.find("AttachedSystemPoliciesPerUserQuota") != m.end() && !m["AttachedSystemPoliciesPerUserQuota"].empty()) {
       attachedSystemPoliciesPerUserQuota = make_shared<long>(boost::any_cast<long>(m["AttachedSystemPoliciesPerUserQuota"]));
     }
+    if (m.find("ConditionsPerAKPolicyQuota") != m.end() && !m["ConditionsPerAKPolicyQuota"].empty()) {
+      conditionsPerAKPolicyQuota = make_shared<long>(boost::any_cast<long>(m["ConditionsPerAKPolicyQuota"]));
+    }
     if (m.find("Groups") != m.end() && !m["Groups"].empty()) {
       groups = make_shared<long>(boost::any_cast<long>(m["Groups"]));
     }
@@ -4846,6 +4857,9 @@ public:
     }
     if (m.find("GroupsQuota") != m.end() && !m["GroupsQuota"].empty()) {
       groupsQuota = make_shared<long>(boost::any_cast<long>(m["GroupsQuota"]));
+    }
+    if (m.find("IPItemsPerAKPolicyQuota") != m.end() && !m["IPItemsPerAKPolicyQuota"].empty()) {
+      IPItemsPerAKPolicyQuota = make_shared<long>(boost::any_cast<long>(m["IPItemsPerAKPolicyQuota"]));
     }
     if (m.find("MFADevices") != m.end() && !m["MFADevices"].empty()) {
       MFADevices = make_shared<long>(boost::any_cast<long>(m["MFADevices"]));
@@ -6001,6 +6015,7 @@ public:
 };
 class GetLoginProfileResponseBodyLoginProfile : public Darabonba::Model {
 public:
+  shared_ptr<string> autoDisableLoginStatus{};
   shared_ptr<string> lastLoginTime{};
   shared_ptr<bool> MFABindRequired{};
   shared_ptr<bool> passwordResetRequired{};
@@ -6018,6 +6033,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoDisableLoginStatus) {
+      res["AutoDisableLoginStatus"] = boost::any(*autoDisableLoginStatus);
+    }
     if (lastLoginTime) {
       res["LastLoginTime"] = boost::any(*lastLoginTime);
     }
@@ -6040,6 +6058,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoDisableLoginStatus") != m.end() && !m["AutoDisableLoginStatus"].empty()) {
+      autoDisableLoginStatus = make_shared<string>(boost::any_cast<string>(m["AutoDisableLoginStatus"]));
+    }
     if (m.find("LastLoginTime") != m.end() && !m["LastLoginTime"].empty()) {
       lastLoginTime = make_shared<string>(boost::any_cast<string>(m["LastLoginTime"]));
     }
@@ -6873,6 +6894,42 @@ public:
 
   virtual ~GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference() = default;
 };
+class GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays : public Darabonba::Model {
+public:
+  shared_ptr<long> maxIdleDaysForAccessKeys{};
+  shared_ptr<long> maxIdleDaysForUsers{};
+
+  GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays() {}
+
+  explicit GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxIdleDaysForAccessKeys) {
+      res["MaxIdleDaysForAccessKeys"] = boost::any(*maxIdleDaysForAccessKeys);
+    }
+    if (maxIdleDaysForUsers) {
+      res["MaxIdleDaysForUsers"] = boost::any(*maxIdleDaysForUsers);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxIdleDaysForAccessKeys") != m.end() && !m["MaxIdleDaysForAccessKeys"].empty()) {
+      maxIdleDaysForAccessKeys = make_shared<long>(boost::any_cast<long>(m["MaxIdleDaysForAccessKeys"]));
+    }
+    if (m.find("MaxIdleDaysForUsers") != m.end() && !m["MaxIdleDaysForUsers"].empty()) {
+      maxIdleDaysForUsers = make_shared<long>(boost::any_cast<long>(m["MaxIdleDaysForUsers"]));
+    }
+  }
+
+
+  virtual ~GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays() = default;
+};
 class GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference : public Darabonba::Model {
 public:
   shared_ptr<bool> allowUserToManagePersonalDingTalk{};
@@ -6943,6 +7000,7 @@ public:
   shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference> accessKeyPreference{};
   shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference> loginProfilePreference{};
   shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference> MFAPreference{};
+  shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays> maxIdleDays{};
   shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference> personalInfoPreference{};
   shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference> verificationPreference{};
 
@@ -6964,6 +7022,9 @@ public:
     }
     if (MFAPreference) {
       res["MFAPreference"] = MFAPreference ? boost::any(MFAPreference->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (maxIdleDays) {
+      res["MaxIdleDays"] = maxIdleDays ? boost::any(maxIdleDays->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (personalInfoPreference) {
       res["PersonalInfoPreference"] = personalInfoPreference ? boost::any(personalInfoPreference->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6994,6 +7055,13 @@ public:
         GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MFAPreference"]));
         MFAPreference = make_shared<GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference>(model1);
+      }
+    }
+    if (m.find("MaxIdleDays") != m.end() && !m["MaxIdleDays"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MaxIdleDays"].type()) {
+        GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MaxIdleDays"]));
+        maxIdleDays = make_shared<GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays>(model1);
       }
     }
     if (m.find("PersonalInfoPreference") != m.end() && !m["PersonalInfoPreference"].empty()) {
@@ -12841,6 +12909,42 @@ public:
 
   virtual ~SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference() = default;
 };
+class SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays : public Darabonba::Model {
+public:
+  shared_ptr<long> maxIdleDaysForAccessKeys{};
+  shared_ptr<long> maxIdleDaysForUsers{};
+
+  SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays() {}
+
+  explicit SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxIdleDaysForAccessKeys) {
+      res["MaxIdleDaysForAccessKeys"] = boost::any(*maxIdleDaysForAccessKeys);
+    }
+    if (maxIdleDaysForUsers) {
+      res["MaxIdleDaysForUsers"] = boost::any(*maxIdleDaysForUsers);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxIdleDaysForAccessKeys") != m.end() && !m["MaxIdleDaysForAccessKeys"].empty()) {
+      maxIdleDaysForAccessKeys = make_shared<long>(boost::any_cast<long>(m["MaxIdleDaysForAccessKeys"]));
+    }
+    if (m.find("MaxIdleDaysForUsers") != m.end() && !m["MaxIdleDaysForUsers"].empty()) {
+      maxIdleDaysForUsers = make_shared<long>(boost::any_cast<long>(m["MaxIdleDaysForUsers"]));
+    }
+  }
+
+
+  virtual ~SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays() = default;
+};
 class SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference : public Darabonba::Model {
 public:
   shared_ptr<bool> allowUserToManagePersonalDingTalk{};
@@ -12911,6 +13015,7 @@ public:
   shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference> accessKeyPreference{};
   shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference> loginProfilePreference{};
   shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference> MFAPreference{};
+  shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays> maxIdleDays{};
   shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference> personalInfoPreference{};
   shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference> verificationPreference{};
 
@@ -12932,6 +13037,9 @@ public:
     }
     if (MFAPreference) {
       res["MFAPreference"] = MFAPreference ? boost::any(MFAPreference->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (maxIdleDays) {
+      res["MaxIdleDays"] = maxIdleDays ? boost::any(maxIdleDays->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (personalInfoPreference) {
       res["PersonalInfoPreference"] = personalInfoPreference ? boost::any(personalInfoPreference->toMap()) : boost::any(map<string,boost::any>({}));
@@ -12962,6 +13070,13 @@ public:
         SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MFAPreference"]));
         MFAPreference = make_shared<SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference>(model1);
+      }
+    }
+    if (m.find("MaxIdleDays") != m.end() && !m["MaxIdleDays"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MaxIdleDays"].type()) {
+        SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MaxIdleDays"]));
+        maxIdleDays = make_shared<SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays>(model1);
       }
     }
     if (m.find("PersonalInfoPreference") != m.end() && !m["PersonalInfoPreference"].empty()) {
@@ -14613,6 +14728,7 @@ public:
 };
 class UpdateLoginProfileResponseBodyLoginProfile : public Darabonba::Model {
 public:
+  shared_ptr<string> autoDisableLoginStatus{};
   shared_ptr<bool> MFABindRequired{};
   shared_ptr<bool> passwordResetRequired{};
   shared_ptr<string> status{};
@@ -14629,6 +14745,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoDisableLoginStatus) {
+      res["AutoDisableLoginStatus"] = boost::any(*autoDisableLoginStatus);
+    }
     if (MFABindRequired) {
       res["MFABindRequired"] = boost::any(*MFABindRequired);
     }
@@ -14648,6 +14767,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoDisableLoginStatus") != m.end() && !m["AutoDisableLoginStatus"].empty()) {
+      autoDisableLoginStatus = make_shared<string>(boost::any_cast<string>(m["AutoDisableLoginStatus"]));
+    }
     if (m.find("MFABindRequired") != m.end() && !m["MFABindRequired"].empty()) {
       MFABindRequired = make_shared<bool>(boost::any_cast<bool>(m["MFABindRequired"]));
     }
