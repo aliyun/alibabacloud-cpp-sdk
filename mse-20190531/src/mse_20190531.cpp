@@ -4926,6 +4926,9 @@ ImportServicesResponse Alibabacloud_Mse20190531::Client::importServicesWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceListShrink)) {
     query->insert(pair<string, string>("ServiceList", *request->serviceListShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sourceId)) {
+    query->insert(pair<string, long>("SourceId", *request->sourceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
     query->insert(pair<string, string>("SourceType", *request->sourceType));
   }
@@ -7217,6 +7220,9 @@ PullServicesResponse Alibabacloud_Mse20190531::Client::pullServicesWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sourceId)) {
+    query->insert(pair<string, long>("SourceId", *request->sourceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
     query->insert(pair<string, string>("SourceType", *request->sourceType));

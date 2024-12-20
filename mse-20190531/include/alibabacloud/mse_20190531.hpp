@@ -33453,6 +33453,7 @@ public:
   shared_ptr<string> fcVersion{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<vector<ImportServicesRequestServiceList>> serviceList{};
+  shared_ptr<long> sourceId{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> tlsSetting{};
 
@@ -33487,6 +33488,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ServiceList"] = boost::any(temp1);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
@@ -33526,6 +33530,9 @@ public:
         serviceList = make_shared<vector<ImportServicesRequestServiceList>>(expect1);
       }
     }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<long>(boost::any_cast<long>(m["SourceId"]));
+    }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
     }
@@ -33545,6 +33552,7 @@ public:
   shared_ptr<string> fcVersion{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> serviceListShrink{};
+  shared_ptr<long> sourceId{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> tlsSetting{};
 
@@ -33576,6 +33584,9 @@ public:
     if (serviceListShrink) {
       res["ServiceList"] = boost::any(*serviceListShrink);
     }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
     }
@@ -33603,6 +33614,9 @@ public:
     }
     if (m.find("ServiceList") != m.end() && !m["ServiceList"].empty()) {
       serviceListShrink = make_shared<string>(boost::any_cast<string>(m["ServiceList"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<long>(boost::any_cast<long>(m["SourceId"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
@@ -54560,6 +54574,7 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> namespace_{};
+  shared_ptr<long> sourceId{};
   shared_ptr<string> sourceType{};
 
   PullServicesRequest() {}
@@ -54581,6 +54596,9 @@ public:
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
     }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
     }
@@ -54597,6 +54615,9 @@ public:
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<long>(boost::any_cast<long>(m["SourceId"]));
+    }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
     }
@@ -54611,6 +54632,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> sourceId{};
+  shared_ptr<vector<long>> sourceIdList{};
   shared_ptr<string> sourceType{};
 
   PullServicesResponseBodyDataServices() {}
@@ -54635,6 +54657,9 @@ public:
     if (sourceId) {
       res["SourceId"] = boost::any(*sourceId);
     }
+    if (sourceIdList) {
+      res["SourceIdList"] = boost::any(*sourceIdList);
+    }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
     }
@@ -54653,6 +54678,16 @@ public:
     }
     if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
       sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
+    }
+    if (m.find("SourceIdList") != m.end() && !m["SourceIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["SourceIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SourceIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      sourceIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
