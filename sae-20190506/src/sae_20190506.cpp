@@ -250,8 +250,13 @@ ConfirmPipelineBatchResponse Alibabacloud_Sae20190506::Client::confirmPipelineBa
   return confirmPipelineBatchWithOptions(request, headers, runtime);
 }
 
-CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWithOptions(shared_ptr<CreateApplicationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWithOptions(shared_ptr<CreateApplicationRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateApplicationShrinkRequest> request = make_shared<CreateApplicationShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<SidecarContainerConfig>>(tmpReq->sidecarContainersConfig)) {
+    request->sidecarContainersConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sidecarContainersConfig, make_shared<string>("SidecarContainersConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acrAssumeRoleArn)) {
     query->insert(pair<string, string>("AcrAssumeRoleArn", *request->acrAssumeRoleArn));
@@ -388,6 +393,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->saeVersion)) {
     query->insert(pair<string, string>("SaeVersion", *request->saeVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->secretMountDesc)) {
+    query->insert(pair<string, string>("SecretMountDesc", *request->secretMountDesc));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
   }
@@ -428,6 +436,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->configMapMountDesc)) {
     body->insert(pair<string, string>("ConfigMapMountDesc", *request->configMapMountDesc));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableSidecarResourceIsolated)) {
+    body->insert(pair<string, bool>("EnableSidecarResourceIsolated", *request->enableSidecarResourceIsolated));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->microRegistrationConfig)) {
     body->insert(pair<string, string>("MicroRegistrationConfig", *request->microRegistrationConfig));
   }
@@ -448,6 +459,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceTags)) {
     body->insert(pair<string, string>("ServiceTags", *request->serviceTags));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sidecarContainersConfigShrink)) {
+    body->insert(pair<string, string>("SidecarContainersConfig", *request->sidecarContainersConfigShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1418,8 +1432,13 @@ DeleteWebCustomDomainResponse Alibabacloud_Sae20190506::Client::deleteWebCustomD
   return deleteWebCustomDomainWithOptions(DomainName, request, headers, runtime);
 }
 
-DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWithOptions(shared_ptr<DeployApplicationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWithOptions(shared_ptr<DeployApplicationRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeployApplicationShrinkRequest> request = make_shared<DeployApplicationShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<SidecarContainerConfig>>(tmpReq->sidecarContainersConfig)) {
+    request->sidecarContainersConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sidecarContainersConfig, make_shared<string>("SidecarContainersConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acrAssumeRoleArn)) {
     query->insert(pair<string, string>("AcrAssumeRoleArn", *request->acrAssumeRoleArn));
@@ -1556,6 +1575,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   if (!Darabonba_Util::Client::isUnset<long>(request->replicas)) {
     query->insert(pair<string, long>("Replicas", *request->replicas));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->secretMountDesc)) {
+    query->insert(pair<string, string>("SecretMountDesc", *request->secretMountDesc));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
   }
@@ -1593,6 +1615,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->configMapMountDesc)) {
     body->insert(pair<string, string>("ConfigMapMountDesc", *request->configMapMountDesc));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableSidecarResourceIsolated)) {
+    body->insert(pair<string, bool>("EnableSidecarResourceIsolated", *request->enableSidecarResourceIsolated));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->microRegistrationConfig)) {
     body->insert(pair<string, string>("MicroRegistrationConfig", *request->microRegistrationConfig));
   }
@@ -1613,6 +1638,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceTags)) {
     body->insert(pair<string, string>("ServiceTags", *request->serviceTags));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sidecarContainersConfigShrink)) {
+    body->insert(pair<string, string>("SidecarContainersConfig", *request->sidecarContainersConfigShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2170,6 +2198,9 @@ DescribeIngressResponse Alibabacloud_Sae20190506::Client::describeIngress(shared
 DescribeInstanceLogResponse Alibabacloud_Sae20190506::Client::describeInstanceLogWithOptions(shared_ptr<DescribeInstanceLogRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->containerId)) {
+    query->insert(pair<string, string>("ContainerId", *request->containerId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -3190,6 +3221,39 @@ GetWarningEventMetricResponse Alibabacloud_Sae20190506::Client::getWarningEventM
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getWarningEventMetricWithOptions(request, headers, runtime);
+}
+
+GetWebshellTokenResponse Alibabacloud_Sae20190506::Client::getWebshellTokenWithOptions(shared_ptr<GetWebshellTokenRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->podName)) {
+    query->insert(pair<string, string>("PodName", *request->podName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetWebshellToken"))},
+    {"version", boost::any(string("2019-05-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/pop/v1/sam/instance/webshellToken"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetWebshellTokenResponse(callApi(params, req, runtime));
+}
+
+GetWebshellTokenResponse Alibabacloud_Sae20190506::Client::getWebshellToken(shared_ptr<GetWebshellTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getWebshellTokenWithOptions(request, headers, runtime);
 }
 
 ListAppEventsResponse Alibabacloud_Sae20190506::Client::listAppEventsWithOptions(shared_ptr<ListAppEventsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
