@@ -648,6 +648,9 @@ DescribeAndroidInstancesResponse Alibabacloud_Eds-aic20230930::Client::describeA
   if (!Darabonba_Util::Client::isUnset<string>(request->androidInstanceName)) {
     query->insert(pair<string, string>("AndroidInstanceName", *request->androidInstanceName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
+    query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
     query->insert(pair<string, string>("ChargeType", *request->chargeType));
   }
@@ -674,6 +677,9 @@ DescribeAndroidInstancesResponse Alibabacloud_Eds-aic20230930::Client::describeA
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeAndroidInstancesRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<DescribeAndroidInstancesRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

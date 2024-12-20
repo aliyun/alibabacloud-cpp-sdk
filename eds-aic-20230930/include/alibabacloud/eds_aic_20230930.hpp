@@ -3112,10 +3112,47 @@ public:
 
   virtual ~DescribeAndroidInstanceGroupsResponse() = default;
 };
+class DescribeAndroidInstancesRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeAndroidInstancesRequestTag() {}
+
+  explicit DescribeAndroidInstancesRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeAndroidInstancesRequestTag() = default;
+};
 class DescribeAndroidInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIds{};
   shared_ptr<string> androidInstanceName{};
+  shared_ptr<string> bizRegionId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> instanceGroupId{};
   shared_ptr<vector<string>> instanceGroupIds{};
@@ -3125,6 +3162,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> saleMode{};
   shared_ptr<string> status{};
+  shared_ptr<vector<DescribeAndroidInstancesRequestTag>> tag{};
 
   DescribeAndroidInstancesRequest() {}
 
@@ -3141,6 +3179,9 @@ public:
     }
     if (androidInstanceName) {
       res["AndroidInstanceName"] = boost::any(*androidInstanceName);
+    }
+    if (bizRegionId) {
+      res["BizRegionId"] = boost::any(*bizRegionId);
     }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
@@ -3169,6 +3210,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -3185,6 +3233,9 @@ public:
     }
     if (m.find("AndroidInstanceName") != m.end() && !m["AndroidInstanceName"].empty()) {
       androidInstanceName = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceName"]));
+    }
+    if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
+      bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
     }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
@@ -3219,6 +3270,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeAndroidInstancesRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAndroidInstancesRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeAndroidInstancesRequestTag>>(expect1);
+      }
     }
   }
 
@@ -3261,6 +3325,42 @@ public:
 
   virtual ~DescribeAndroidInstancesResponseBodyInstanceModelDisks() = default;
 };
+class DescribeAndroidInstancesResponseBodyInstanceModelTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeAndroidInstancesResponseBodyInstanceModelTags() {}
+
+  explicit DescribeAndroidInstancesResponseBodyInstanceModelTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeAndroidInstancesResponseBodyInstanceModelTags() = default;
+};
 class DescribeAndroidInstancesResponseBodyInstanceModel : public Darabonba::Model {
 public:
   shared_ptr<string> androidInstanceGroupId{};
@@ -3289,6 +3389,7 @@ public:
   shared_ptr<long> rate{};
   shared_ptr<string> regionId{};
   shared_ptr<string> renderingType{};
+  shared_ptr<vector<DescribeAndroidInstancesResponseBodyInstanceModelTags>> tags{};
 
   DescribeAndroidInstancesResponseBodyInstanceModel() {}
 
@@ -3382,6 +3483,13 @@ public:
     if (renderingType) {
       res["RenderingType"] = boost::any(*renderingType);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -3473,6 +3581,19 @@ public:
     }
     if (m.find("RenderingType") != m.end() && !m["RenderingType"].empty()) {
       renderingType = make_shared<string>(boost::any_cast<string>(m["RenderingType"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeAndroidInstancesResponseBodyInstanceModelTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAndroidInstancesResponseBodyInstanceModelTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeAndroidInstancesResponseBodyInstanceModelTags>>(expect1);
+      }
     }
   }
 
