@@ -234,6 +234,9 @@ ListDomainsResponse Alibabacloud_Httpdns20160201::Client::listDomainsWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->search)) {
     query->insert(pair<string, string>("Search", *request->search));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->withoutMeteringData)) {
+    query->insert(pair<string, bool>("WithoutMeteringData", *request->withoutMeteringData));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

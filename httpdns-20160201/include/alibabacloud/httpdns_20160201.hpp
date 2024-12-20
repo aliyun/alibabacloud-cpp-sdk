@@ -492,6 +492,9 @@ public:
 class GetAccountInfoResponseBodyAccountInfo : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
+  shared_ptr<bool> dohEnabled{};
+  shared_ptr<bool> dohResolveAllEnabled{};
+  shared_ptr<long> monthDohResolveCount{};
   shared_ptr<long> monthFreeCount{};
   shared_ptr<long> monthHttpsResolveCount{};
   shared_ptr<long> monthResolveCount{};
@@ -514,6 +517,15 @@ public:
     map<string, boost::any> res;
     if (accountId) {
       res["AccountId"] = boost::any(*accountId);
+    }
+    if (dohEnabled) {
+      res["DohEnabled"] = boost::any(*dohEnabled);
+    }
+    if (dohResolveAllEnabled) {
+      res["DohResolveAllEnabled"] = boost::any(*dohResolveAllEnabled);
+    }
+    if (monthDohResolveCount) {
+      res["MonthDohResolveCount"] = boost::any(*monthDohResolveCount);
     }
     if (monthFreeCount) {
       res["MonthFreeCount"] = boost::any(*monthFreeCount);
@@ -548,6 +560,15 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
       accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+    if (m.find("DohEnabled") != m.end() && !m["DohEnabled"].empty()) {
+      dohEnabled = make_shared<bool>(boost::any_cast<bool>(m["DohEnabled"]));
+    }
+    if (m.find("DohResolveAllEnabled") != m.end() && !m["DohResolveAllEnabled"].empty()) {
+      dohResolveAllEnabled = make_shared<bool>(boost::any_cast<bool>(m["DohResolveAllEnabled"]));
+    }
+    if (m.find("MonthDohResolveCount") != m.end() && !m["MonthDohResolveCount"].empty()) {
+      monthDohResolveCount = make_shared<long>(boost::any_cast<long>(m["MonthDohResolveCount"]));
     }
     if (m.find("MonthFreeCount") != m.end() && !m["MonthFreeCount"].empty()) {
       monthFreeCount = make_shared<long>(boost::any_cast<long>(m["MonthFreeCount"]));
@@ -711,6 +732,7 @@ public:
 };
 class GetResolveCountSummaryResponseBodyResolveSummary : public Darabonba::Model {
 public:
+  shared_ptr<long> doh{};
   shared_ptr<long> http{};
   shared_ptr<long> http6{};
   shared_ptr<long> https{};
@@ -726,6 +748,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (doh) {
+      res["Doh"] = boost::any(*doh);
+    }
     if (http) {
       res["Http"] = boost::any(*http);
     }
@@ -742,6 +767,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Doh") != m.end() && !m["Doh"].empty()) {
+      doh = make_shared<long>(boost::any_cast<long>(m["Doh"]));
+    }
     if (m.find("Http") != m.end() && !m["Http"].empty()) {
       http = make_shared<long>(boost::any_cast<long>(m["Http"]));
     }
@@ -1077,6 +1105,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> search{};
+  shared_ptr<bool> withoutMeteringData{};
 
   ListDomainsRequest() {}
 
@@ -1097,6 +1126,9 @@ public:
     if (search) {
       res["Search"] = boost::any(*search);
     }
+    if (withoutMeteringData) {
+      res["WithoutMeteringData"] = boost::any(*withoutMeteringData);
+    }
     return res;
   }
 
@@ -1110,6 +1142,9 @@ public:
     if (m.find("Search") != m.end() && !m["Search"].empty()) {
       search = make_shared<string>(boost::any_cast<string>(m["Search"]));
     }
+    if (m.find("WithoutMeteringData") != m.end() && !m["WithoutMeteringData"].empty()) {
+      withoutMeteringData = make_shared<bool>(boost::any_cast<bool>(m["WithoutMeteringData"]));
+    }
   }
 
 
@@ -1120,6 +1155,7 @@ public:
   shared_ptr<string> domainName{};
   shared_ptr<long> resolved{};
   shared_ptr<long> resolved6{};
+  shared_ptr<long> resolvedDoh{};
   shared_ptr<long> resolvedHttps{};
   shared_ptr<long> resolvedHttps6{};
   shared_ptr<long> timeModified{};
@@ -1143,6 +1179,9 @@ public:
     if (resolved6) {
       res["Resolved6"] = boost::any(*resolved6);
     }
+    if (resolvedDoh) {
+      res["ResolvedDoh"] = boost::any(*resolvedDoh);
+    }
     if (resolvedHttps) {
       res["ResolvedHttps"] = boost::any(*resolvedHttps);
     }
@@ -1164,6 +1203,9 @@ public:
     }
     if (m.find("Resolved6") != m.end() && !m["Resolved6"].empty()) {
       resolved6 = make_shared<long>(boost::any_cast<long>(m["Resolved6"]));
+    }
+    if (m.find("ResolvedDoh") != m.end() && !m["ResolvedDoh"].empty()) {
+      resolvedDoh = make_shared<long>(boost::any_cast<long>(m["ResolvedDoh"]));
     }
     if (m.find("ResolvedHttps") != m.end() && !m["ResolvedHttps"].empty()) {
       resolvedHttps = make_shared<long>(boost::any_cast<long>(m["ResolvedHttps"]));
