@@ -37,6 +37,108 @@ string Alibabacloud_AiContent20240611::Client::getEndpoint(shared_ptr<string> pr
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+AITeacherExpansionPracticeTaskGenerateResponse Alibabacloud_AiContent20240611::Client::aITeacherExpansionPracticeTaskGenerateWithOptions(shared_ptr<AITeacherExpansionPracticeTaskGenerateRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->grade)) {
+    body->insert(pair<string, string>("grade", *request->grade));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->keySentences)) {
+    body->insert(pair<string, vector<string>>("keySentences", *request->keySentences));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->keyWords)) {
+    body->insert(pair<string, vector<string>>("keyWords", *request->keyWords));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->learningObject)) {
+    body->insert(pair<string, string>("learningObject", *request->learningObject));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->textContent)) {
+    body->insert(pair<string, string>("textContent", *request->textContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->textbook)) {
+    body->insert(pair<string, string>("textbook", *request->textbook));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topic)) {
+    body->insert(pair<string, string>("topic", *request->topic));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    body->insert(pair<string, string>("userId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AITeacherExpansionPracticeTaskGenerate"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/aiteacher/expansionPractice/generateTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AITeacherExpansionPracticeTaskGenerateResponse(callApi(params, req, runtime));
+}
+
+AITeacherExpansionPracticeTaskGenerateResponse Alibabacloud_AiContent20240611::Client::aITeacherExpansionPracticeTaskGenerate(shared_ptr<AITeacherExpansionPracticeTaskGenerateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return aITeacherExpansionPracticeTaskGenerateWithOptions(request, headers, runtime);
+}
+
+AITeacherSyncPracticeTaskGenerateResponse Alibabacloud_AiContent20240611::Client::aITeacherSyncPracticeTaskGenerateWithOptions(shared_ptr<AITeacherSyncPracticeTaskGenerateRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->grade)) {
+    body->insert(pair<string, string>("grade", *request->grade));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->keySentences)) {
+    body->insert(pair<string, vector<string>>("keySentences", *request->keySentences));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->keyWords)) {
+    body->insert(pair<string, vector<string>>("keyWords", *request->keyWords));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->learningObject)) {
+    body->insert(pair<string, string>("learningObject", *request->learningObject));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->textContent)) {
+    body->insert(pair<string, string>("textContent", *request->textContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->textbook)) {
+    body->insert(pair<string, string>("textbook", *request->textbook));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topic)) {
+    body->insert(pair<string, string>("topic", *request->topic));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    body->insert(pair<string, string>("userId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AITeacherSyncPracticeTaskGenerate"))},
+    {"version", boost::any(string("20240611"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/aiteacher/syncPractice/generateTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AITeacherSyncPracticeTaskGenerateResponse(callApi(params, req, runtime));
+}
+
+AITeacherSyncPracticeTaskGenerateResponse Alibabacloud_AiContent20240611::Client::aITeacherSyncPracticeTaskGenerate(shared_ptr<AITeacherSyncPracticeTaskGenerateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return aITeacherSyncPracticeTaskGenerateWithOptions(request, headers, runtime);
+}
+
 AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse Alibabacloud_AiContent20240611::Client::aliyunConsoleOpenApiQueryAliyunConsoleServcieListWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}

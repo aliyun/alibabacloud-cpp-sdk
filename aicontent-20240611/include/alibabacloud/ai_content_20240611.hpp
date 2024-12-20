@@ -643,6 +643,663 @@ public:
 
   virtual ~Personalizedtxt2imgModelTrainJobInfoDTO() = default;
 };
+class AITeacherExpansionPracticeTaskGenerateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> grade{};
+  shared_ptr<vector<string>> keySentences{};
+  shared_ptr<vector<string>> keyWords{};
+  shared_ptr<string> learningObject{};
+  shared_ptr<string> textContent{};
+  shared_ptr<string> textbook{};
+  shared_ptr<string> topic{};
+  shared_ptr<string> userId{};
+
+  AITeacherExpansionPracticeTaskGenerateRequest() {}
+
+  explicit AITeacherExpansionPracticeTaskGenerateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (grade) {
+      res["grade"] = boost::any(*grade);
+    }
+    if (keySentences) {
+      res["keySentences"] = boost::any(*keySentences);
+    }
+    if (keyWords) {
+      res["keyWords"] = boost::any(*keyWords);
+    }
+    if (learningObject) {
+      res["learningObject"] = boost::any(*learningObject);
+    }
+    if (textContent) {
+      res["textContent"] = boost::any(*textContent);
+    }
+    if (textbook) {
+      res["textbook"] = boost::any(*textbook);
+    }
+    if (topic) {
+      res["topic"] = boost::any(*topic);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("grade") != m.end() && !m["grade"].empty()) {
+      grade = make_shared<string>(boost::any_cast<string>(m["grade"]));
+    }
+    if (m.find("keySentences") != m.end() && !m["keySentences"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["keySentences"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["keySentences"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      keySentences = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("keyWords") != m.end() && !m["keyWords"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["keyWords"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["keyWords"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      keyWords = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("learningObject") != m.end() && !m["learningObject"].empty()) {
+      learningObject = make_shared<string>(boost::any_cast<string>(m["learningObject"]));
+    }
+    if (m.find("textContent") != m.end() && !m["textContent"].empty()) {
+      textContent = make_shared<string>(boost::any_cast<string>(m["textContent"]));
+    }
+    if (m.find("textbook") != m.end() && !m["textbook"].empty()) {
+      textbook = make_shared<string>(boost::any_cast<string>(m["textbook"]));
+    }
+    if (m.find("topic") != m.end() && !m["topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["topic"]));
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~AITeacherExpansionPracticeTaskGenerateRequest() = default;
+};
+class AITeacherExpansionPracticeTaskGenerateResponseBodyDataRoleSet : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> user{};
+
+  AITeacherExpansionPracticeTaskGenerateResponseBodyDataRoleSet() {}
+
+  explicit AITeacherExpansionPracticeTaskGenerateResponseBodyDataRoleSet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~AITeacherExpansionPracticeTaskGenerateResponseBodyDataRoleSet() = default;
+};
+class AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> user{};
+
+  AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent() {}
+
+  explicit AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent() = default;
+};
+class AITeacherExpansionPracticeTaskGenerateResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> backgroundDescription{};
+  shared_ptr<AITeacherExpansionPracticeTaskGenerateResponseBodyDataRoleSet> roleSet{};
+  shared_ptr<string> startSentence{};
+  shared_ptr<vector<AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent>> taskContent{};
+  shared_ptr<string> taskType{};
+
+  AITeacherExpansionPracticeTaskGenerateResponseBodyData() {}
+
+  explicit AITeacherExpansionPracticeTaskGenerateResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (backgroundDescription) {
+      res["backgroundDescription"] = boost::any(*backgroundDescription);
+    }
+    if (roleSet) {
+      res["roleSet"] = roleSet ? boost::any(roleSet->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startSentence) {
+      res["startSentence"] = boost::any(*startSentence);
+    }
+    if (taskContent) {
+      vector<boost::any> temp1;
+      for(auto item1:*taskContent){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["taskContent"] = boost::any(temp1);
+    }
+    if (taskType) {
+      res["taskType"] = boost::any(*taskType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("backgroundDescription") != m.end() && !m["backgroundDescription"].empty()) {
+      backgroundDescription = make_shared<string>(boost::any_cast<string>(m["backgroundDescription"]));
+    }
+    if (m.find("roleSet") != m.end() && !m["roleSet"].empty()) {
+      if (typeid(map<string, boost::any>) == m["roleSet"].type()) {
+        AITeacherExpansionPracticeTaskGenerateResponseBodyDataRoleSet model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["roleSet"]));
+        roleSet = make_shared<AITeacherExpansionPracticeTaskGenerateResponseBodyDataRoleSet>(model1);
+      }
+    }
+    if (m.find("startSentence") != m.end() && !m["startSentence"].empty()) {
+      startSentence = make_shared<string>(boost::any_cast<string>(m["startSentence"]));
+    }
+    if (m.find("taskContent") != m.end() && !m["taskContent"].empty()) {
+      if (typeid(vector<boost::any>) == m["taskContent"].type()) {
+        vector<AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["taskContent"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        taskContent = make_shared<vector<AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent>>(expect1);
+      }
+    }
+    if (m.find("taskType") != m.end() && !m["taskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["taskType"]));
+    }
+  }
+
+
+  virtual ~AITeacherExpansionPracticeTaskGenerateResponseBodyData() = default;
+};
+class AITeacherExpansionPracticeTaskGenerateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<AITeacherExpansionPracticeTaskGenerateResponseBodyData> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AITeacherExpansionPracticeTaskGenerateResponseBody() {}
+
+  explicit AITeacherExpansionPracticeTaskGenerateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        AITeacherExpansionPracticeTaskGenerateResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<AITeacherExpansionPracticeTaskGenerateResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~AITeacherExpansionPracticeTaskGenerateResponseBody() = default;
+};
+class AITeacherExpansionPracticeTaskGenerateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AITeacherExpansionPracticeTaskGenerateResponseBody> body{};
+
+  AITeacherExpansionPracticeTaskGenerateResponse() {}
+
+  explicit AITeacherExpansionPracticeTaskGenerateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AITeacherExpansionPracticeTaskGenerateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AITeacherExpansionPracticeTaskGenerateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AITeacherExpansionPracticeTaskGenerateResponse() = default;
+};
+class AITeacherSyncPracticeTaskGenerateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> grade{};
+  shared_ptr<vector<string>> keySentences{};
+  shared_ptr<vector<string>> keyWords{};
+  shared_ptr<string> learningObject{};
+  shared_ptr<string> textContent{};
+  shared_ptr<string> textbook{};
+  shared_ptr<string> topic{};
+  shared_ptr<string> userId{};
+
+  AITeacherSyncPracticeTaskGenerateRequest() {}
+
+  explicit AITeacherSyncPracticeTaskGenerateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (grade) {
+      res["grade"] = boost::any(*grade);
+    }
+    if (keySentences) {
+      res["keySentences"] = boost::any(*keySentences);
+    }
+    if (keyWords) {
+      res["keyWords"] = boost::any(*keyWords);
+    }
+    if (learningObject) {
+      res["learningObject"] = boost::any(*learningObject);
+    }
+    if (textContent) {
+      res["textContent"] = boost::any(*textContent);
+    }
+    if (textbook) {
+      res["textbook"] = boost::any(*textbook);
+    }
+    if (topic) {
+      res["topic"] = boost::any(*topic);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("grade") != m.end() && !m["grade"].empty()) {
+      grade = make_shared<string>(boost::any_cast<string>(m["grade"]));
+    }
+    if (m.find("keySentences") != m.end() && !m["keySentences"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["keySentences"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["keySentences"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      keySentences = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("keyWords") != m.end() && !m["keyWords"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["keyWords"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["keyWords"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      keyWords = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("learningObject") != m.end() && !m["learningObject"].empty()) {
+      learningObject = make_shared<string>(boost::any_cast<string>(m["learningObject"]));
+    }
+    if (m.find("textContent") != m.end() && !m["textContent"].empty()) {
+      textContent = make_shared<string>(boost::any_cast<string>(m["textContent"]));
+    }
+    if (m.find("textbook") != m.end() && !m["textbook"].empty()) {
+      textbook = make_shared<string>(boost::any_cast<string>(m["textbook"]));
+    }
+    if (m.find("topic") != m.end() && !m["topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["topic"]));
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~AITeacherSyncPracticeTaskGenerateRequest() = default;
+};
+class AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> user{};
+
+  AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent() {}
+
+  explicit AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent() = default;
+};
+class AITeacherSyncPracticeTaskGenerateResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent>> taskContent{};
+  shared_ptr<string> taskType{};
+
+  AITeacherSyncPracticeTaskGenerateResponseBodyData() {}
+
+  explicit AITeacherSyncPracticeTaskGenerateResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskContent) {
+      vector<boost::any> temp1;
+      for(auto item1:*taskContent){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["taskContent"] = boost::any(temp1);
+    }
+    if (taskType) {
+      res["taskType"] = boost::any(*taskType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("taskContent") != m.end() && !m["taskContent"].empty()) {
+      if (typeid(vector<boost::any>) == m["taskContent"].type()) {
+        vector<AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["taskContent"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        taskContent = make_shared<vector<AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent>>(expect1);
+      }
+    }
+    if (m.find("taskType") != m.end() && !m["taskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["taskType"]));
+    }
+  }
+
+
+  virtual ~AITeacherSyncPracticeTaskGenerateResponseBodyData() = default;
+};
+class AITeacherSyncPracticeTaskGenerateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<AITeacherSyncPracticeTaskGenerateResponseBodyData> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AITeacherSyncPracticeTaskGenerateResponseBody() {}
+
+  explicit AITeacherSyncPracticeTaskGenerateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        AITeacherSyncPracticeTaskGenerateResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<AITeacherSyncPracticeTaskGenerateResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~AITeacherSyncPracticeTaskGenerateResponseBody() = default;
+};
+class AITeacherSyncPracticeTaskGenerateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AITeacherSyncPracticeTaskGenerateResponseBody> body{};
+
+  AITeacherSyncPracticeTaskGenerateResponse() {}
+
+  explicit AITeacherSyncPracticeTaskGenerateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AITeacherSyncPracticeTaskGenerateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AITeacherSyncPracticeTaskGenerateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AITeacherSyncPracticeTaskGenerateResponse() = default;
+};
 class AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> freeConcurrencyCount{};
@@ -3033,6 +3690,10 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AITeacherExpansionPracticeTaskGenerateResponse aITeacherExpansionPracticeTaskGenerateWithOptions(shared_ptr<AITeacherExpansionPracticeTaskGenerateRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AITeacherExpansionPracticeTaskGenerateResponse aITeacherExpansionPracticeTaskGenerate(shared_ptr<AITeacherExpansionPracticeTaskGenerateRequest> request);
+  AITeacherSyncPracticeTaskGenerateResponse aITeacherSyncPracticeTaskGenerateWithOptions(shared_ptr<AITeacherSyncPracticeTaskGenerateRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AITeacherSyncPracticeTaskGenerateResponse aITeacherSyncPracticeTaskGenerate(shared_ptr<AITeacherSyncPracticeTaskGenerateRequest> request);
   AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse aliyunConsoleOpenApiQueryAliyunConsoleServcieListWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse aliyunConsoleOpenApiQueryAliyunConsoleServcieList();
   AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse aliyunConsoleOpenApiQueryAliyunConsoleServiceListWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
