@@ -460,6 +460,7 @@ public:
 class AnalyzeConversationRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<AnalyzeConversationRequestCategoryTags>> categoryTags{};
+  shared_ptr<string> customPrompt{};
   shared_ptr<AnalyzeConversationRequestDialogue> dialogue{};
   shared_ptr<vector<AnalyzeConversationRequestExamples>> examples{};
   shared_ptr<vector<AnalyzeConversationRequestFields>> fields{};
@@ -488,6 +489,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["categoryTags"] = boost::any(temp1);
+    }
+    if (customPrompt) {
+      res["customPrompt"] = boost::any(*customPrompt);
     }
     if (dialogue) {
       res["dialogue"] = dialogue ? boost::any(dialogue->toMap()) : boost::any(map<string,boost::any>({}));
@@ -550,6 +554,9 @@ public:
         }
         categoryTags = make_shared<vector<AnalyzeConversationRequestCategoryTags>>(expect1);
       }
+    }
+    if (m.find("customPrompt") != m.end() && !m["customPrompt"].empty()) {
+      customPrompt = make_shared<string>(boost::any_cast<string>(m["customPrompt"]));
     }
     if (m.find("dialogue") != m.end() && !m["dialogue"].empty()) {
       if (typeid(map<string, boost::any>) == m["dialogue"].type()) {

@@ -47,6 +47,9 @@ AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyz
   if (!Darabonba_Util::Client::isUnset<vector<AnalyzeConversationRequestCategoryTags>>(request->categoryTags)) {
     body->insert(pair<string, vector<AnalyzeConversationRequestCategoryTags>>("categoryTags", *request->categoryTags));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customPrompt)) {
+    body->insert(pair<string, string>("customPrompt", *request->customPrompt));
+  }
   if (!Darabonba_Util::Client::isUnset<AnalyzeConversationRequestDialogue>(request->dialogue)) {
     body->insert(pair<string, AnalyzeConversationRequestDialogue>("dialogue", *request->dialogue));
   }
