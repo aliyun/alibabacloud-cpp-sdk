@@ -101113,6 +101113,165 @@ public:
 
   virtual ~TerminateVirtualBorderRouterResponse() = default;
 };
+class TransformEipSegmentToPublicIpAddressPoolRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+
+  TransformEipSegmentToPublicIpAddressPoolRequest() {}
+
+  explicit TransformEipSegmentToPublicIpAddressPoolRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~TransformEipSegmentToPublicIpAddressPoolRequest() = default;
+};
+class TransformEipSegmentToPublicIpAddressPoolResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> publicIpAddressPoolId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
+
+  TransformEipSegmentToPublicIpAddressPoolResponseBody() {}
+
+  explicit TransformEipSegmentToPublicIpAddressPoolResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (publicIpAddressPoolId) {
+      res["PublicIpAddressPoolId"] = boost::any(*publicIpAddressPoolId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PublicIpAddressPoolId") != m.end() && !m["PublicIpAddressPoolId"].empty()) {
+      publicIpAddressPoolId = make_shared<string>(boost::any_cast<string>(m["PublicIpAddressPoolId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~TransformEipSegmentToPublicIpAddressPoolResponseBody() = default;
+};
+class TransformEipSegmentToPublicIpAddressPoolResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<TransformEipSegmentToPublicIpAddressPoolResponseBody> body{};
+
+  TransformEipSegmentToPublicIpAddressPoolResponse() {}
+
+  explicit TransformEipSegmentToPublicIpAddressPoolResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        TransformEipSegmentToPublicIpAddressPoolResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<TransformEipSegmentToPublicIpAddressPoolResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~TransformEipSegmentToPublicIpAddressPoolResponse() = default;
+};
 class UnTagResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> all{};
@@ -106589,6 +106748,8 @@ public:
   TerminatePhysicalConnectionResponse terminatePhysicalConnection(shared_ptr<TerminatePhysicalConnectionRequest> request);
   TerminateVirtualBorderRouterResponse terminateVirtualBorderRouterWithOptions(shared_ptr<TerminateVirtualBorderRouterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TerminateVirtualBorderRouterResponse terminateVirtualBorderRouter(shared_ptr<TerminateVirtualBorderRouterRequest> request);
+  TransformEipSegmentToPublicIpAddressPoolResponse transformEipSegmentToPublicIpAddressPoolWithOptions(shared_ptr<TransformEipSegmentToPublicIpAddressPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  TransformEipSegmentToPublicIpAddressPoolResponse transformEipSegmentToPublicIpAddressPool(shared_ptr<TransformEipSegmentToPublicIpAddressPoolRequest> request);
   UnTagResourcesResponse unTagResourcesWithOptions(shared_ptr<UnTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UnTagResourcesResponse unTagResources(shared_ptr<UnTagResourcesRequest> request);
   UnassociateEipAddressResponse unassociateEipAddressWithOptions(shared_ptr<UnassociateEipAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
