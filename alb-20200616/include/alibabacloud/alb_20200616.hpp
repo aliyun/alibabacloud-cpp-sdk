@@ -2260,6 +2260,8 @@ public:
   shared_ptr<string> XForwardedForClientSourceIpsTrusted{};
   shared_ptr<bool> XForwardedForClientSrcPortEnabled{};
   shared_ptr<bool> XForwardedForEnabled{};
+  shared_ptr<bool> XForwardedForHostEnabled{};
+  shared_ptr<string> XForwardedForProcessingMode{};
   shared_ptr<bool> XForwardedForProtoEnabled{};
   shared_ptr<bool> XForwardedForSLBIdEnabled{};
   shared_ptr<bool> XForwardedForSLBPortEnabled{};
@@ -2310,6 +2312,12 @@ public:
     if (XForwardedForEnabled) {
       res["XForwardedForEnabled"] = boost::any(*XForwardedForEnabled);
     }
+    if (XForwardedForHostEnabled) {
+      res["XForwardedForHostEnabled"] = boost::any(*XForwardedForHostEnabled);
+    }
+    if (XForwardedForProcessingMode) {
+      res["XForwardedForProcessingMode"] = boost::any(*XForwardedForProcessingMode);
+    }
     if (XForwardedForProtoEnabled) {
       res["XForwardedForProtoEnabled"] = boost::any(*XForwardedForProtoEnabled);
     }
@@ -2358,6 +2366,12 @@ public:
     }
     if (m.find("XForwardedForEnabled") != m.end() && !m["XForwardedForEnabled"].empty()) {
       XForwardedForEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForEnabled"]));
+    }
+    if (m.find("XForwardedForHostEnabled") != m.end() && !m["XForwardedForHostEnabled"].empty()) {
+      XForwardedForHostEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForHostEnabled"]));
+    }
+    if (m.find("XForwardedForProcessingMode") != m.end() && !m["XForwardedForProcessingMode"].empty()) {
+      XForwardedForProcessingMode = make_shared<string>(boost::any_cast<string>(m["XForwardedForProcessingMode"]));
     }
     if (m.find("XForwardedForProtoEnabled") != m.end() && !m["XForwardedForProtoEnabled"].empty()) {
       XForwardedForProtoEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForProtoEnabled"]));
@@ -10558,6 +10572,8 @@ public:
   shared_ptr<string> XForwardedForClientSourceIpsTrusted{};
   shared_ptr<bool> XForwardedForClientSrcPortEnabled{};
   shared_ptr<bool> XForwardedForEnabled{};
+  shared_ptr<bool> XForwardedForHostEnabled{};
+  shared_ptr<string> XForwardedForProcessingMode{};
   shared_ptr<bool> XForwardedForProtoEnabled{};
   shared_ptr<bool> XForwardedForSLBIdEnabled{};
   shared_ptr<bool> XForwardedForSLBPortEnabled{};
@@ -10608,6 +10624,12 @@ public:
     if (XForwardedForEnabled) {
       res["XForwardedForEnabled"] = boost::any(*XForwardedForEnabled);
     }
+    if (XForwardedForHostEnabled) {
+      res["XForwardedForHostEnabled"] = boost::any(*XForwardedForHostEnabled);
+    }
+    if (XForwardedForProcessingMode) {
+      res["XForwardedForProcessingMode"] = boost::any(*XForwardedForProcessingMode);
+    }
     if (XForwardedForProtoEnabled) {
       res["XForwardedForProtoEnabled"] = boost::any(*XForwardedForProtoEnabled);
     }
@@ -10656,6 +10678,12 @@ public:
     }
     if (m.find("XForwardedForEnabled") != m.end() && !m["XForwardedForEnabled"].empty()) {
       XForwardedForEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForEnabled"]));
+    }
+    if (m.find("XForwardedForHostEnabled") != m.end() && !m["XForwardedForHostEnabled"].empty()) {
+      XForwardedForHostEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForHostEnabled"]));
+    }
+    if (m.find("XForwardedForProcessingMode") != m.end() && !m["XForwardedForProcessingMode"].empty()) {
+      XForwardedForProcessingMode = make_shared<string>(boost::any_cast<string>(m["XForwardedForProcessingMode"]));
     }
     if (m.find("XForwardedForProtoEnabled") != m.end() && !m["XForwardedForProtoEnabled"].empty()) {
       XForwardedForProtoEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForProtoEnabled"]));
@@ -14781,6 +14809,8 @@ public:
   shared_ptr<string> XForwardedForClientSourceIpsTrusted{};
   shared_ptr<bool> XForwardedForClientSrcPortEnabled{};
   shared_ptr<bool> XForwardedForEnabled{};
+  shared_ptr<bool> XForwardedForHostEnabled{};
+  shared_ptr<string> XForwardedForProcessingMode{};
   shared_ptr<bool> XForwardedForProtoEnabled{};
   shared_ptr<bool> XForwardedForSLBIdEnabled{};
   shared_ptr<bool> XForwardedForSLBPortEnabled{};
@@ -14831,6 +14861,12 @@ public:
     if (XForwardedForEnabled) {
       res["XForwardedForEnabled"] = boost::any(*XForwardedForEnabled);
     }
+    if (XForwardedForHostEnabled) {
+      res["XForwardedForHostEnabled"] = boost::any(*XForwardedForHostEnabled);
+    }
+    if (XForwardedForProcessingMode) {
+      res["XForwardedForProcessingMode"] = boost::any(*XForwardedForProcessingMode);
+    }
     if (XForwardedForProtoEnabled) {
       res["XForwardedForProtoEnabled"] = boost::any(*XForwardedForProtoEnabled);
     }
@@ -14879,6 +14915,12 @@ public:
     }
     if (m.find("XForwardedForEnabled") != m.end() && !m["XForwardedForEnabled"].empty()) {
       XForwardedForEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForEnabled"]));
+    }
+    if (m.find("XForwardedForHostEnabled") != m.end() && !m["XForwardedForHostEnabled"].empty()) {
+      XForwardedForHostEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForHostEnabled"]));
+    }
+    if (m.find("XForwardedForProcessingMode") != m.end() && !m["XForwardedForProcessingMode"].empty()) {
+      XForwardedForProcessingMode = make_shared<string>(boost::any_cast<string>(m["XForwardedForProcessingMode"]));
     }
     if (m.find("XForwardedForProtoEnabled") != m.end() && !m["XForwardedForProtoEnabled"].empty()) {
       XForwardedForProtoEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForProtoEnabled"]));
@@ -22913,6 +22955,8 @@ public:
   shared_ptr<string> XForwardedForClientSourceIpsTrusted{};
   shared_ptr<bool> XForwardedForClientSrcPortEnabled{};
   shared_ptr<bool> XForwardedForEnabled{};
+  shared_ptr<bool> XForwardedForHostEnabled{};
+  shared_ptr<string> XForwardedForProcessingMode{};
   shared_ptr<bool> XForwardedForProtoEnabled{};
   shared_ptr<bool> XForwardedForSLBIdEnabled{};
   shared_ptr<bool> XForwardedForSLBPortEnabled{};
@@ -22963,6 +23007,12 @@ public:
     if (XForwardedForEnabled) {
       res["XForwardedForEnabled"] = boost::any(*XForwardedForEnabled);
     }
+    if (XForwardedForHostEnabled) {
+      res["XForwardedForHostEnabled"] = boost::any(*XForwardedForHostEnabled);
+    }
+    if (XForwardedForProcessingMode) {
+      res["XForwardedForProcessingMode"] = boost::any(*XForwardedForProcessingMode);
+    }
     if (XForwardedForProtoEnabled) {
       res["XForwardedForProtoEnabled"] = boost::any(*XForwardedForProtoEnabled);
     }
@@ -23011,6 +23061,12 @@ public:
     }
     if (m.find("XForwardedForEnabled") != m.end() && !m["XForwardedForEnabled"].empty()) {
       XForwardedForEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForEnabled"]));
+    }
+    if (m.find("XForwardedForHostEnabled") != m.end() && !m["XForwardedForHostEnabled"].empty()) {
+      XForwardedForHostEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForHostEnabled"]));
+    }
+    if (m.find("XForwardedForProcessingMode") != m.end() && !m["XForwardedForProcessingMode"].empty()) {
+      XForwardedForProcessingMode = make_shared<string>(boost::any_cast<string>(m["XForwardedForProcessingMode"]));
     }
     if (m.find("XForwardedForProtoEnabled") != m.end() && !m["XForwardedForProtoEnabled"].empty()) {
       XForwardedForProtoEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForProtoEnabled"]));
