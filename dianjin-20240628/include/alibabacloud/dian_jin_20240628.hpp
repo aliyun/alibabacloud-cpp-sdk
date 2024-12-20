@@ -6782,6 +6782,7 @@ public:
   shared_ptr<string> ruleDescription{};
   shared_ptr<string> ruleId{};
   shared_ptr<string> ruleType{};
+  shared_ptr<vector<boost::any>> subNodeCol{};
 
   GetQualityCheckTaskResultResponseBodyDataQualityCheckList() {}
 
@@ -6836,6 +6837,9 @@ public:
     if (ruleType) {
       res["ruleType"] = boost::any(*ruleType);
     }
+    if (subNodeCol) {
+      res["subNodeCol"] = boost::any(*subNodeCol);
+    }
     return res;
   }
 
@@ -6888,6 +6892,16 @@ public:
     }
     if (m.find("ruleType") != m.end() && !m["ruleType"].empty()) {
       ruleType = make_shared<string>(boost::any_cast<string>(m["ruleType"]));
+    }
+    if (m.find("subNodeCol") != m.end() && !m["subNodeCol"].empty()) {
+      vector<boost::any> toVec1;
+      if (typeid(vector<boost::any>) == m["subNodeCol"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["subNodeCol"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<boost::any>(item));
+        }
+      }
+      subNodeCol = make_shared<vector<boost::any>>(toVec1);
     }
   }
 
