@@ -1361,6 +1361,206 @@ public:
 
   virtual ~CreateJobResponse() = default;
 };
+class CreatePoolRequestResourceLimits : public Darabonba::Model {
+public:
+  shared_ptr<long> maxExectorNum{};
+
+  CreatePoolRequestResourceLimits() {}
+
+  explicit CreatePoolRequestResourceLimits(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxExectorNum) {
+      res["MaxExectorNum"] = boost::any(*maxExectorNum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxExectorNum") != m.end() && !m["MaxExectorNum"].empty()) {
+      maxExectorNum = make_shared<long>(boost::any_cast<long>(m["MaxExectorNum"]));
+    }
+  }
+
+
+  virtual ~CreatePoolRequestResourceLimits() = default;
+};
+class CreatePoolRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> poolName{};
+  shared_ptr<long> priority{};
+  shared_ptr<CreatePoolRequestResourceLimits> resourceLimits{};
+
+  CreatePoolRequest() {}
+
+  explicit CreatePoolRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (poolName) {
+      res["PoolName"] = boost::any(*poolName);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (resourceLimits) {
+      res["ResourceLimits"] = resourceLimits ? boost::any(resourceLimits->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PoolName") != m.end() && !m["PoolName"].empty()) {
+      poolName = make_shared<string>(boost::any_cast<string>(m["PoolName"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("ResourceLimits") != m.end() && !m["ResourceLimits"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceLimits"].type()) {
+        CreatePoolRequestResourceLimits model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceLimits"]));
+        resourceLimits = make_shared<CreatePoolRequestResourceLimits>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePoolRequest() = default;
+};
+class CreatePoolShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> poolName{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> resourceLimitsShrink{};
+
+  CreatePoolShrinkRequest() {}
+
+  explicit CreatePoolShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (poolName) {
+      res["PoolName"] = boost::any(*poolName);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (resourceLimitsShrink) {
+      res["ResourceLimits"] = boost::any(*resourceLimitsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PoolName") != m.end() && !m["PoolName"].empty()) {
+      poolName = make_shared<string>(boost::any_cast<string>(m["PoolName"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("ResourceLimits") != m.end() && !m["ResourceLimits"].empty()) {
+      resourceLimitsShrink = make_shared<string>(boost::any_cast<string>(m["ResourceLimits"]));
+    }
+  }
+
+
+  virtual ~CreatePoolShrinkRequest() = default;
+};
+class CreatePoolResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreatePoolResponseBody() {}
+
+  explicit CreatePoolResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreatePoolResponseBody() = default;
+};
+class CreatePoolResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreatePoolResponseBody> body{};
+
+  CreatePoolResponse() {}
+
+  explicit CreatePoolResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreatePoolResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreatePoolResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePoolResponse() = default;
+};
 class DeleteJobsRequestJobSpecTaskSpec : public Darabonba::Model {
 public:
   shared_ptr<vector<long>> arrayIndex{};
@@ -1627,6 +1827,116 @@ public:
 
 
   virtual ~DeleteJobsResponse() = default;
+};
+class DeletePoolRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> poolName{};
+
+  DeletePoolRequest() {}
+
+  explicit DeletePoolRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (poolName) {
+      res["PoolName"] = boost::any(*poolName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PoolName") != m.end() && !m["PoolName"].empty()) {
+      poolName = make_shared<string>(boost::any_cast<string>(m["PoolName"]));
+    }
+  }
+
+
+  virtual ~DeletePoolRequest() = default;
+};
+class DeletePoolResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeletePoolResponseBody() {}
+
+  explicit DeletePoolResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeletePoolResponseBody() = default;
+};
+class DeletePoolResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeletePoolResponseBody> body{};
+
+  DeletePoolResponse() {}
+
+  explicit DeletePoolResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeletePoolResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeletePoolResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeletePoolResponse() = default;
 };
 class DescribeJobMetricDataRequest : public Darabonba::Model {
 public:
@@ -3589,6 +3899,212 @@ public:
 
   virtual ~GetJobResponse() = default;
 };
+class GetPoolRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> poolName{};
+
+  GetPoolRequest() {}
+
+  explicit GetPoolRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (poolName) {
+      res["PoolName"] = boost::any(*poolName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PoolName") != m.end() && !m["PoolName"].empty()) {
+      poolName = make_shared<string>(boost::any_cast<string>(m["PoolName"]));
+    }
+  }
+
+
+  virtual ~GetPoolRequest() = default;
+};
+class GetPoolResponseBodyPoolInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<long> exectorUsage{};
+  shared_ptr<bool> isDefault{};
+  shared_ptr<long> maxExectorNum{};
+  shared_ptr<string> poolName{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> reason{};
+  shared_ptr<string> status{};
+  shared_ptr<string> updateTime{};
+
+  GetPoolResponseBodyPoolInfo() {}
+
+  explicit GetPoolResponseBodyPoolInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (exectorUsage) {
+      res["ExectorUsage"] = boost::any(*exectorUsage);
+    }
+    if (isDefault) {
+      res["IsDefault"] = boost::any(*isDefault);
+    }
+    if (maxExectorNum) {
+      res["MaxExectorNum"] = boost::any(*maxExectorNum);
+    }
+    if (poolName) {
+      res["PoolName"] = boost::any(*poolName);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("ExectorUsage") != m.end() && !m["ExectorUsage"].empty()) {
+      exectorUsage = make_shared<long>(boost::any_cast<long>(m["ExectorUsage"]));
+    }
+    if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
+      isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
+    }
+    if (m.find("MaxExectorNum") != m.end() && !m["MaxExectorNum"].empty()) {
+      maxExectorNum = make_shared<long>(boost::any_cast<long>(m["MaxExectorNum"]));
+    }
+    if (m.find("PoolName") != m.end() && !m["PoolName"].empty()) {
+      poolName = make_shared<string>(boost::any_cast<string>(m["PoolName"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+  }
+
+
+  virtual ~GetPoolResponseBodyPoolInfo() = default;
+};
+class GetPoolResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetPoolResponseBodyPoolInfo> poolInfo{};
+  shared_ptr<string> requestId{};
+
+  GetPoolResponseBody() {}
+
+  explicit GetPoolResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (poolInfo) {
+      res["PoolInfo"] = poolInfo ? boost::any(poolInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PoolInfo") != m.end() && !m["PoolInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PoolInfo"].type()) {
+        GetPoolResponseBodyPoolInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PoolInfo"]));
+        poolInfo = make_shared<GetPoolResponseBodyPoolInfo>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetPoolResponseBody() = default;
+};
+class GetPoolResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetPoolResponseBody> body{};
+
+  GetPoolResponse() {}
+
+  explicit GetPoolResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetPoolResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetPoolResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetPoolResponse() = default;
+};
 class ListExecutorsRequestFilter : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> executorIds{};
@@ -5514,6 +6030,340 @@ public:
 
   virtual ~ListJobsResponse() = default;
 };
+class ListPoolsRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> poolName{};
+  shared_ptr<vector<string>> status{};
+  shared_ptr<long> timeCreatedAfter{};
+  shared_ptr<long> timeCreatedBefore{};
+
+  ListPoolsRequestFilter() {}
+
+  explicit ListPoolsRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (poolName) {
+      res["PoolName"] = boost::any(*poolName);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (timeCreatedAfter) {
+      res["TimeCreatedAfter"] = boost::any(*timeCreatedAfter);
+    }
+    if (timeCreatedBefore) {
+      res["TimeCreatedBefore"] = boost::any(*timeCreatedBefore);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PoolName") != m.end() && !m["PoolName"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PoolName"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PoolName"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      poolName = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Status"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Status"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      status = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TimeCreatedAfter") != m.end() && !m["TimeCreatedAfter"].empty()) {
+      timeCreatedAfter = make_shared<long>(boost::any_cast<long>(m["TimeCreatedAfter"]));
+    }
+    if (m.find("TimeCreatedBefore") != m.end() && !m["TimeCreatedBefore"].empty()) {
+      timeCreatedBefore = make_shared<long>(boost::any_cast<long>(m["TimeCreatedBefore"]));
+    }
+  }
+
+
+  virtual ~ListPoolsRequestFilter() = default;
+};
+class ListPoolsRequest : public Darabonba::Model {
+public:
+  shared_ptr<ListPoolsRequestFilter> filter{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  ListPoolsRequest() {}
+
+  explicit ListPoolsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filter) {
+      res["Filter"] = filter ? boost::any(filter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Filter"].type()) {
+        ListPoolsRequestFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Filter"]));
+        filter = make_shared<ListPoolsRequestFilter>(model1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListPoolsRequest() = default;
+};
+class ListPoolsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterShrink{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  ListPoolsShrinkRequest() {}
+
+  explicit ListPoolsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterShrink) {
+      res["Filter"] = boost::any(*filterShrink);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filterShrink = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListPoolsShrinkRequest() = default;
+};
+class ListPoolsResponseBodyPoolList : public Darabonba::Model {
+public:
+  shared_ptr<bool> isDefault{};
+  shared_ptr<long> maxExectorNum{};
+  shared_ptr<string> poolName{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> status{};
+
+  ListPoolsResponseBodyPoolList() {}
+
+  explicit ListPoolsResponseBodyPoolList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isDefault) {
+      res["IsDefault"] = boost::any(*isDefault);
+    }
+    if (maxExectorNum) {
+      res["MaxExectorNum"] = boost::any(*maxExectorNum);
+    }
+    if (poolName) {
+      res["PoolName"] = boost::any(*poolName);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
+      isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
+    }
+    if (m.find("MaxExectorNum") != m.end() && !m["MaxExectorNum"].empty()) {
+      maxExectorNum = make_shared<long>(boost::any_cast<long>(m["MaxExectorNum"]));
+    }
+    if (m.find("PoolName") != m.end() && !m["PoolName"].empty()) {
+      poolName = make_shared<string>(boost::any_cast<string>(m["PoolName"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListPoolsResponseBodyPoolList() = default;
+};
+class ListPoolsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<ListPoolsResponseBodyPoolList>> poolList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListPoolsResponseBody() {}
+
+  explicit ListPoolsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (poolList) {
+      vector<boost::any> temp1;
+      for(auto item1:*poolList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PoolList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PoolList") != m.end() && !m["PoolList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PoolList"].type()) {
+        vector<ListPoolsResponseBodyPoolList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PoolList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPoolsResponseBodyPoolList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        poolList = make_shared<vector<ListPoolsResponseBodyPoolList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListPoolsResponseBody() = default;
+};
+class ListPoolsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListPoolsResponseBody> body{};
+
+  ListPoolsResponse() {}
+
+  explicit ListPoolsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListPoolsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListPoolsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListPoolsResponse() = default;
+};
 class ListTagResourcesRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -6270,6 +7120,206 @@ public:
 
   virtual ~UnTagResourcesResponse() = default;
 };
+class UpdatePoolRequestResourceLimits : public Darabonba::Model {
+public:
+  shared_ptr<long> maxExectorNum{};
+
+  UpdatePoolRequestResourceLimits() {}
+
+  explicit UpdatePoolRequestResourceLimits(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxExectorNum) {
+      res["MaxExectorNum"] = boost::any(*maxExectorNum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxExectorNum") != m.end() && !m["MaxExectorNum"].empty()) {
+      maxExectorNum = make_shared<long>(boost::any_cast<long>(m["MaxExectorNum"]));
+    }
+  }
+
+
+  virtual ~UpdatePoolRequestResourceLimits() = default;
+};
+class UpdatePoolRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> poolName{};
+  shared_ptr<long> priority{};
+  shared_ptr<UpdatePoolRequestResourceLimits> resourceLimits{};
+
+  UpdatePoolRequest() {}
+
+  explicit UpdatePoolRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (poolName) {
+      res["PoolName"] = boost::any(*poolName);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (resourceLimits) {
+      res["ResourceLimits"] = resourceLimits ? boost::any(resourceLimits->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PoolName") != m.end() && !m["PoolName"].empty()) {
+      poolName = make_shared<string>(boost::any_cast<string>(m["PoolName"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("ResourceLimits") != m.end() && !m["ResourceLimits"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceLimits"].type()) {
+        UpdatePoolRequestResourceLimits model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceLimits"]));
+        resourceLimits = make_shared<UpdatePoolRequestResourceLimits>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdatePoolRequest() = default;
+};
+class UpdatePoolShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> poolName{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> resourceLimitsShrink{};
+
+  UpdatePoolShrinkRequest() {}
+
+  explicit UpdatePoolShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (poolName) {
+      res["PoolName"] = boost::any(*poolName);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (resourceLimitsShrink) {
+      res["ResourceLimits"] = boost::any(*resourceLimitsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PoolName") != m.end() && !m["PoolName"].empty()) {
+      poolName = make_shared<string>(boost::any_cast<string>(m["PoolName"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("ResourceLimits") != m.end() && !m["ResourceLimits"].empty()) {
+      resourceLimitsShrink = make_shared<string>(boost::any_cast<string>(m["ResourceLimits"]));
+    }
+  }
+
+
+  virtual ~UpdatePoolShrinkRequest() = default;
+};
+class UpdatePoolResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdatePoolResponseBody() {}
+
+  explicit UpdatePoolResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdatePoolResponseBody() = default;
+};
+class UpdatePoolResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdatePoolResponseBody> body{};
+
+  UpdatePoolResponse() {}
+
+  explicit UpdatePoolResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdatePoolResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdatePoolResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdatePoolResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -6284,8 +7334,12 @@ public:
   AddImageResponse addImage(shared_ptr<AddImageRequest> request);
   CreateJobResponse createJobWithOptions(shared_ptr<CreateJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateJobResponse createJob(shared_ptr<CreateJobRequest> request);
+  CreatePoolResponse createPoolWithOptions(shared_ptr<CreatePoolRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePoolResponse createPool(shared_ptr<CreatePoolRequest> request);
   DeleteJobsResponse deleteJobsWithOptions(shared_ptr<DeleteJobsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteJobsResponse deleteJobs(shared_ptr<DeleteJobsRequest> request);
+  DeletePoolResponse deletePoolWithOptions(shared_ptr<DeletePoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeletePoolResponse deletePool(shared_ptr<DeletePoolRequest> request);
   DescribeJobMetricDataResponse describeJobMetricDataWithOptions(shared_ptr<DescribeJobMetricDataRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeJobMetricDataResponse describeJobMetricData(shared_ptr<DescribeJobMetricDataRequest> request);
   DescribeJobMetricLastResponse describeJobMetricLastWithOptions(shared_ptr<DescribeJobMetricLastRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6296,6 +7350,8 @@ public:
   GetImageResponse getImage(shared_ptr<GetImageRequest> request);
   GetJobResponse getJobWithOptions(shared_ptr<GetJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetJobResponse getJob(shared_ptr<GetJobRequest> request);
+  GetPoolResponse getPoolWithOptions(shared_ptr<GetPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetPoolResponse getPool(shared_ptr<GetPoolRequest> request);
   ListExecutorsResponse listExecutorsWithOptions(shared_ptr<ListExecutorsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListExecutorsResponse listExecutors(shared_ptr<ListExecutorsRequest> request);
   ListImagesResponse listImagesWithOptions(shared_ptr<ListImagesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6304,6 +7360,8 @@ public:
   ListJobExecutorsResponse listJobExecutors(shared_ptr<ListJobExecutorsRequest> request);
   ListJobsResponse listJobsWithOptions(shared_ptr<ListJobsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListJobsResponse listJobs(shared_ptr<ListJobsRequest> request);
+  ListPoolsResponse listPoolsWithOptions(shared_ptr<ListPoolsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListPoolsResponse listPools(shared_ptr<ListPoolsRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   RemoveImageResponse removeImageWithOptions(shared_ptr<RemoveImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6312,6 +7370,8 @@ public:
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   UnTagResourcesResponse unTagResourcesWithOptions(shared_ptr<UnTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UnTagResourcesResponse unTagResources(shared_ptr<UnTagResourcesRequest> request);
+  UpdatePoolResponse updatePoolWithOptions(shared_ptr<UpdatePoolRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdatePoolResponse updatePool(shared_ptr<UpdatePoolRequest> request);
 
   virtual ~Client() = default;
 };

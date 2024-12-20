@@ -136,6 +136,45 @@ CreateJobResponse Alibabacloud_EhpcInstant20230701::Client::createJob(shared_ptr
   return createJobWithOptions(request, runtime);
 }
 
+CreatePoolResponse Alibabacloud_EhpcInstant20230701::Client::createPoolWithOptions(shared_ptr<CreatePoolRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreatePoolShrinkRequest> request = make_shared<CreatePoolShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreatePoolRequestResourceLimits>(tmpReq->resourceLimits)) {
+    request->resourceLimitsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceLimits, make_shared<string>("ResourceLimits"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->poolName)) {
+    query->insert(pair<string, string>("PoolName", *request->poolName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->priority)) {
+    query->insert(pair<string, long>("Priority", *request->priority));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceLimitsShrink)) {
+    query->insert(pair<string, string>("ResourceLimits", *request->resourceLimitsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreatePool"))},
+    {"version", boost::any(string("2023-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreatePoolResponse(callApi(params, req, runtime));
+}
+
+CreatePoolResponse Alibabacloud_EhpcInstant20230701::Client::createPool(shared_ptr<CreatePoolRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createPoolWithOptions(request, runtime);
+}
+
 DeleteJobsResponse Alibabacloud_EhpcInstant20230701::Client::deleteJobsWithOptions(shared_ptr<DeleteJobsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<DeleteJobsShrinkRequest> request = make_shared<DeleteJobsShrinkRequest>();
@@ -173,6 +212,34 @@ DeleteJobsResponse Alibabacloud_EhpcInstant20230701::Client::deleteJobsWithOptio
 DeleteJobsResponse Alibabacloud_EhpcInstant20230701::Client::deleteJobs(shared_ptr<DeleteJobsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteJobsWithOptions(request, runtime);
+}
+
+DeletePoolResponse Alibabacloud_EhpcInstant20230701::Client::deletePoolWithOptions(shared_ptr<DeletePoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->poolName)) {
+    query->insert(pair<string, string>("PoolName", *request->poolName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeletePool"))},
+    {"version", boost::any(string("2023-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeletePoolResponse(callApi(params, req, runtime));
+}
+
+DeletePoolResponse Alibabacloud_EhpcInstant20230701::Client::deletePool(shared_ptr<DeletePoolRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deletePoolWithOptions(request, runtime);
 }
 
 DescribeJobMetricDataResponse Alibabacloud_EhpcInstant20230701::Client::describeJobMetricDataWithOptions(shared_ptr<DescribeJobMetricDataRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -358,6 +425,34 @@ GetJobResponse Alibabacloud_EhpcInstant20230701::Client::getJob(shared_ptr<GetJo
   return getJobWithOptions(request, runtime);
 }
 
+GetPoolResponse Alibabacloud_EhpcInstant20230701::Client::getPoolWithOptions(shared_ptr<GetPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->poolName)) {
+    query->insert(pair<string, string>("PoolName", *request->poolName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPool"))},
+    {"version", boost::any(string("2023-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPoolResponse(callApi(params, req, runtime));
+}
+
+GetPoolResponse Alibabacloud_EhpcInstant20230701::Client::getPool(shared_ptr<GetPoolRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getPoolWithOptions(request, runtime);
+}
+
 ListExecutorsResponse Alibabacloud_EhpcInstant20230701::Client::listExecutorsWithOptions(shared_ptr<ListExecutorsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ListExecutorsShrinkRequest> request = make_shared<ListExecutorsShrinkRequest>();
@@ -533,6 +628,45 @@ ListJobsResponse Alibabacloud_EhpcInstant20230701::Client::listJobs(shared_ptr<L
   return listJobsWithOptions(request, runtime);
 }
 
+ListPoolsResponse Alibabacloud_EhpcInstant20230701::Client::listPoolsWithOptions(shared_ptr<ListPoolsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListPoolsShrinkRequest> request = make_shared<ListPoolsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ListPoolsRequestFilter>(tmpReq->filter)) {
+    request->filterShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filter, make_shared<string>("Filter"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterShrink)) {
+    query->insert(pair<string, string>("Filter", *request->filterShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListPools"))},
+    {"version", boost::any(string("2023-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListPoolsResponse(callApi(params, req, runtime));
+}
+
+ListPoolsResponse Alibabacloud_EhpcInstant20230701::Client::listPools(shared_ptr<ListPoolsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listPoolsWithOptions(request, runtime);
+}
+
 ListTagResourcesResponse Alibabacloud_EhpcInstant20230701::Client::listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -673,5 +807,44 @@ UnTagResourcesResponse Alibabacloud_EhpcInstant20230701::Client::unTagResourcesW
 UnTagResourcesResponse Alibabacloud_EhpcInstant20230701::Client::unTagResources(shared_ptr<UnTagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return unTagResourcesWithOptions(request, runtime);
+}
+
+UpdatePoolResponse Alibabacloud_EhpcInstant20230701::Client::updatePoolWithOptions(shared_ptr<UpdatePoolRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdatePoolShrinkRequest> request = make_shared<UpdatePoolShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdatePoolRequestResourceLimits>(tmpReq->resourceLimits)) {
+    request->resourceLimitsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceLimits, make_shared<string>("ResourceLimits"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->poolName)) {
+    query->insert(pair<string, string>("PoolName", *request->poolName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->priority)) {
+    query->insert(pair<string, long>("Priority", *request->priority));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceLimitsShrink)) {
+    query->insert(pair<string, string>("ResourceLimits", *request->resourceLimitsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdatePool"))},
+    {"version", boost::any(string("2023-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdatePoolResponse(callApi(params, req, runtime));
+}
+
+UpdatePoolResponse Alibabacloud_EhpcInstant20230701::Client::updatePool(shared_ptr<UpdatePoolRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updatePoolWithOptions(request, runtime);
 }
 
