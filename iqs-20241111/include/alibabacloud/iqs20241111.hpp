@@ -280,6 +280,136 @@ public:
 
   virtual ~ScorePageItem() = default;
 };
+class QueryContextOriginalQuery : public Darabonba::Model {
+public:
+  shared_ptr<string> industry{};
+  shared_ptr<string> page{};
+  shared_ptr<string> query{};
+  shared_ptr<string> timeRange{};
+
+  QueryContextOriginalQuery() {}
+
+  explicit QueryContextOriginalQuery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (industry) {
+      res["industry"] = boost::any(*industry);
+    }
+    if (page) {
+      res["page"] = boost::any(*page);
+    }
+    if (query) {
+      res["query"] = boost::any(*query);
+    }
+    if (timeRange) {
+      res["timeRange"] = boost::any(*timeRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("industry") != m.end() && !m["industry"].empty()) {
+      industry = make_shared<string>(boost::any_cast<string>(m["industry"]));
+    }
+    if (m.find("page") != m.end() && !m["page"].empty()) {
+      page = make_shared<string>(boost::any_cast<string>(m["page"]));
+    }
+    if (m.find("query") != m.end() && !m["query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["query"]));
+    }
+    if (m.find("timeRange") != m.end() && !m["timeRange"].empty()) {
+      timeRange = make_shared<string>(boost::any_cast<string>(m["timeRange"]));
+    }
+  }
+
+
+  virtual ~QueryContextOriginalQuery() = default;
+};
+class QueryContextRewrite : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> timeRange{};
+
+  QueryContextRewrite() {}
+
+  explicit QueryContextRewrite(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    if (timeRange) {
+      res["timeRange"] = boost::any(*timeRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+    if (m.find("timeRange") != m.end() && !m["timeRange"].empty()) {
+      timeRange = make_shared<string>(boost::any_cast<string>(m["timeRange"]));
+    }
+  }
+
+
+  virtual ~QueryContextRewrite() = default;
+};
+class QueryContext : public Darabonba::Model {
+public:
+  shared_ptr<QueryContextOriginalQuery> originalQuery{};
+  shared_ptr<QueryContextRewrite> rewrite{};
+
+  QueryContext() {}
+
+  explicit QueryContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (originalQuery) {
+      res["originalQuery"] = originalQuery ? boost::any(originalQuery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rewrite) {
+      res["rewrite"] = rewrite ? boost::any(rewrite->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("originalQuery") != m.end() && !m["originalQuery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["originalQuery"].type()) {
+        QueryContextOriginalQuery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["originalQuery"]));
+        originalQuery = make_shared<QueryContextOriginalQuery>(model1);
+      }
+    }
+    if (m.find("rewrite") != m.end() && !m["rewrite"].empty()) {
+      if (typeid(map<string, boost::any>) == m["rewrite"].type()) {
+        QueryContextRewrite model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["rewrite"]));
+        rewrite = make_shared<QueryContextRewrite>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryContext() = default;
+};
 class SceneItem : public Darabonba::Model {
 public:
   shared_ptr<string> detail{};
@@ -433,6 +563,7 @@ public:
 class GenericSearchResult : public Darabonba::Model {
 public:
   shared_ptr<vector<ScorePageItem>> pageItems{};
+  shared_ptr<QueryContext> queryContext{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<SceneItem>> sceneItems{};
   shared_ptr<SearchInformation> searchInformation{};
@@ -454,6 +585,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["pageItems"] = boost::any(temp1);
+    }
+    if (queryContext) {
+      res["queryContext"] = queryContext ? boost::any(queryContext->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -490,6 +624,13 @@ public:
           }
         }
         pageItems = make_shared<vector<ScorePageItem>>(expect1);
+      }
+    }
+    if (m.find("queryContext") != m.end() && !m["queryContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["queryContext"].type()) {
+        QueryContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["queryContext"]));
+        queryContext = make_shared<QueryContext>(model1);
       }
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
@@ -590,10 +731,141 @@ public:
 
   virtual ~AiSearchRequest() = default;
 };
+class AiSearchResponseBodyHeaderQueryContextOriginalQuery : public Darabonba::Model {
+public:
+  shared_ptr<string> industry{};
+  shared_ptr<long> page{};
+  shared_ptr<string> query{};
+  shared_ptr<string> timeRange{};
+
+  AiSearchResponseBodyHeaderQueryContextOriginalQuery() {}
+
+  explicit AiSearchResponseBodyHeaderQueryContextOriginalQuery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (industry) {
+      res["industry"] = boost::any(*industry);
+    }
+    if (page) {
+      res["page"] = boost::any(*page);
+    }
+    if (query) {
+      res["query"] = boost::any(*query);
+    }
+    if (timeRange) {
+      res["timeRange"] = boost::any(*timeRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("industry") != m.end() && !m["industry"].empty()) {
+      industry = make_shared<string>(boost::any_cast<string>(m["industry"]));
+    }
+    if (m.find("page") != m.end() && !m["page"].empty()) {
+      page = make_shared<long>(boost::any_cast<long>(m["page"]));
+    }
+    if (m.find("query") != m.end() && !m["query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["query"]));
+    }
+    if (m.find("timeRange") != m.end() && !m["timeRange"].empty()) {
+      timeRange = make_shared<string>(boost::any_cast<string>(m["timeRange"]));
+    }
+  }
+
+
+  virtual ~AiSearchResponseBodyHeaderQueryContextOriginalQuery() = default;
+};
+class AiSearchResponseBodyHeaderQueryContextRewrite : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> timeRange{};
+
+  AiSearchResponseBodyHeaderQueryContextRewrite() {}
+
+  explicit AiSearchResponseBodyHeaderQueryContextRewrite(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    if (timeRange) {
+      res["timeRange"] = boost::any(*timeRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+    if (m.find("timeRange") != m.end() && !m["timeRange"].empty()) {
+      timeRange = make_shared<string>(boost::any_cast<string>(m["timeRange"]));
+    }
+  }
+
+
+  virtual ~AiSearchResponseBodyHeaderQueryContextRewrite() = default;
+};
+class AiSearchResponseBodyHeaderQueryContext : public Darabonba::Model {
+public:
+  shared_ptr<AiSearchResponseBodyHeaderQueryContextOriginalQuery> originalQuery{};
+  shared_ptr<AiSearchResponseBodyHeaderQueryContextRewrite> rewrite{};
+
+  AiSearchResponseBodyHeaderQueryContext() {}
+
+  explicit AiSearchResponseBodyHeaderQueryContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (originalQuery) {
+      res["originalQuery"] = originalQuery ? boost::any(originalQuery->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rewrite) {
+      res["rewrite"] = rewrite ? boost::any(rewrite->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("originalQuery") != m.end() && !m["originalQuery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["originalQuery"].type()) {
+        AiSearchResponseBodyHeaderQueryContextOriginalQuery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["originalQuery"]));
+        originalQuery = make_shared<AiSearchResponseBodyHeaderQueryContextOriginalQuery>(model1);
+      }
+    }
+    if (m.find("rewrite") != m.end() && !m["rewrite"].empty()) {
+      if (typeid(map<string, boost::any>) == m["rewrite"].type()) {
+        AiSearchResponseBodyHeaderQueryContextRewrite model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["rewrite"]));
+        rewrite = make_shared<AiSearchResponseBodyHeaderQueryContextRewrite>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AiSearchResponseBodyHeaderQueryContext() = default;
+};
 class AiSearchResponseBodyHeader : public Darabonba::Model {
 public:
   shared_ptr<string> event{};
   shared_ptr<string> eventId{};
+  shared_ptr<AiSearchResponseBodyHeaderQueryContext> queryContext{};
   shared_ptr<long> responseTime{};
 
   AiSearchResponseBodyHeader() {}
@@ -612,6 +884,9 @@ public:
     if (eventId) {
       res["eventId"] = boost::any(*eventId);
     }
+    if (queryContext) {
+      res["queryContext"] = queryContext ? boost::any(queryContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (responseTime) {
       res["responseTime"] = boost::any(*responseTime);
     }
@@ -624,6 +899,13 @@ public:
     }
     if (m.find("eventId") != m.end() && !m["eventId"].empty()) {
       eventId = make_shared<string>(boost::any_cast<string>(m["eventId"]));
+    }
+    if (m.find("queryContext") != m.end() && !m["queryContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["queryContext"].type()) {
+        AiSearchResponseBodyHeaderQueryContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["queryContext"]));
+        queryContext = make_shared<AiSearchResponseBodyHeaderQueryContext>(model1);
+      }
     }
     if (m.find("responseTime") != m.end() && !m["responseTime"].empty()) {
       responseTime = make_shared<long>(boost::any_cast<long>(m["responseTime"]));
