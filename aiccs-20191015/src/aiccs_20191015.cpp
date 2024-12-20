@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -3913,43 +3912,6 @@ ListOutboundPhoneNumberResponse Alibabacloud_Aiccs20191015::Client::listOutbound
   return listOutboundPhoneNumberWithOptions(request, runtime);
 }
 
-ListOuterOrderedNumbersResponse Alibabacloud_Aiccs20191015::Client::listOuterOrderedNumbersWithOptions(shared_ptr<ListOuterOrderedNumbersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
-    query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->prodCode)) {
-    query->insert(pair<string, string>("ProdCode", *request->prodCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
-    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
-    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListOuterOrderedNumbers"))},
-    {"version", boost::any(string("2019-10-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListOuterOrderedNumbersResponse(callApi(params, req, runtime));
-}
-
-ListOuterOrderedNumbersResponse Alibabacloud_Aiccs20191015::Client::listOuterOrderedNumbers(shared_ptr<ListOuterOrderedNumbersRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listOuterOrderedNumbersWithOptions(request, runtime);
-}
-
 ListRobotCallDialogResponse Alibabacloud_Aiccs20191015::Client::listRobotCallDialogWithOptions(shared_ptr<ListRobotCallDialogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4219,6 +4181,57 @@ ListTaskDetailResponse Alibabacloud_Aiccs20191015::Client::listTaskDetailWithOpt
 ListTaskDetailResponse Alibabacloud_Aiccs20191015::Client::listTaskDetail(shared_ptr<ListTaskDetailRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listTaskDetailWithOptions(request, runtime);
+}
+
+LlmSmartCallResponse Alibabacloud_Aiccs20191015::Client::llmSmartCallWithOptions(shared_ptr<LlmSmartCallRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<LlmSmartCallShrinkRequest> request = make_shared<LlmSmartCallShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->promptParam)) {
+    request->promptParamShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->promptParam, make_shared<string>("PromptParam"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->startWordParam)) {
+    request->startWordParamShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->startWordParam, make_shared<string>("StartWordParam"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->applicationCode)) {
+    query->insert(pair<string, string>("ApplicationCode", *request->applicationCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->calledNumber)) {
+    query->insert(pair<string, string>("CalledNumber", *request->calledNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callerNumber)) {
+    query->insert(pair<string, string>("CallerNumber", *request->callerNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
+    query->insert(pair<string, string>("OutId", *request->outId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->promptParamShrink)) {
+    query->insert(pair<string, string>("PromptParam", *request->promptParamShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startWordParamShrink)) {
+    query->insert(pair<string, string>("StartWordParam", *request->startWordParamShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("LlmSmartCall"))},
+    {"version", boost::any(string("2019-10-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return LlmSmartCallResponse(callApi(params, req, runtime));
+}
+
+LlmSmartCallResponse Alibabacloud_Aiccs20191015::Client::llmSmartCall(shared_ptr<LlmSmartCallRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return llmSmartCallWithOptions(request, runtime);
 }
 
 MakeCallResponse Alibabacloud_Aiccs20191015::Client::makeCallWithOptions(shared_ptr<MakeCallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
