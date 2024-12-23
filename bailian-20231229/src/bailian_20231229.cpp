@@ -173,6 +173,9 @@ CreateAndPulishAgentResponse Alibabacloud_Bailian20231229::Client::createAndPuli
   if (!Darabonba_Util::Client::isUnset<CreateAndPulishAgentRequestApplicationConfig>(tmpReq->applicationConfig)) {
     request->applicationConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->applicationConfig, make_shared<string>("applicationConfig"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateAndPulishAgentRequestSampleLibrary>(tmpReq->sampleLibrary)) {
+    request->sampleLibraryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sampleLibrary, make_shared<string>("sampleLibrary"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationConfigShrink)) {
     body->insert(pair<string, string>("applicationConfig", *request->applicationConfigShrink));
@@ -185,6 +188,9 @@ CreateAndPulishAgentResponse Alibabacloud_Bailian20231229::Client::createAndPuli
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sampleLibraryShrink)) {
+    body->insert(pair<string, string>("sampleLibrary", *request->sampleLibraryShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1373,6 +1379,9 @@ UpdateAndPublishAgentResponse Alibabacloud_Bailian20231229::Client::updateAndPub
   if (!Darabonba_Util::Client::isUnset<UpdateAndPublishAgentRequestApplicationConfig>(tmpReq->applicationConfig)) {
     request->applicationConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->applicationConfig, make_shared<string>("applicationConfig"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<UpdateAndPublishAgentRequestSampleLibrary>(tmpReq->sampleLibrary)) {
+    request->sampleLibraryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sampleLibrary, make_shared<string>("sampleLibrary"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationConfigShrink)) {
     body->insert(pair<string, string>("applicationConfig", *request->applicationConfigShrink));
@@ -1385,6 +1394,9 @@ UpdateAndPublishAgentResponse Alibabacloud_Bailian20231229::Client::updateAndPub
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sampleLibraryShrink)) {
+    body->insert(pair<string, string>("sampleLibrary", *request->sampleLibraryShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1408,6 +1420,60 @@ UpdateAndPublishAgentResponse Alibabacloud_Bailian20231229::Client::updateAndPub
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateAndPublishAgentWithOptions(workspaceId, appCode, request, headers, runtime);
+}
+
+UpdateAndPublishAgentSelectiveResponse Alibabacloud_Bailian20231229::Client::updateAndPublishAgentSelectiveWithOptions(shared_ptr<string> workspaceId,
+                                                                                                                       shared_ptr<string> appCode,
+                                                                                                                       shared_ptr<UpdateAndPublishAgentSelectiveRequest> tmpReq,
+                                                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateAndPublishAgentSelectiveShrinkRequest> request = make_shared<UpdateAndPublishAgentSelectiveShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateAndPublishAgentSelectiveRequestApplicationConfig>(tmpReq->applicationConfig)) {
+    request->applicationConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->applicationConfig, make_shared<string>("applicationConfig"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateAndPublishAgentSelectiveRequestSampleLibrary>(tmpReq->sampleLibrary)) {
+    request->sampleLibraryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sampleLibrary, make_shared<string>("sampleLibrary"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->applicationConfigShrink)) {
+    body->insert(pair<string, string>("applicationConfig", *request->applicationConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instructions)) {
+    body->insert(pair<string, string>("instructions", *request->instructions));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelId)) {
+    body->insert(pair<string, string>("modelId", *request->modelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sampleLibraryShrink)) {
+    body->insert(pair<string, string>("sampleLibrary", *request->sampleLibraryShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateAndPublishAgentSelective"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/application/agents/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appCode)) + string("/updateAndPublishAgentSelective"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateAndPublishAgentSelectiveResponse(callApi(params, req, runtime));
+}
+
+UpdateAndPublishAgentSelectiveResponse Alibabacloud_Bailian20231229::Client::updateAndPublishAgentSelective(shared_ptr<string> workspaceId, shared_ptr<string> appCode, shared_ptr<UpdateAndPublishAgentSelectiveRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateAndPublishAgentSelectiveWithOptions(workspaceId, appCode, request, headers, runtime);
 }
 
 UpdateFileTagResponse Alibabacloud_Bailian20231229::Client::updateFileTagWithOptions(shared_ptr<string> WorkspaceId,

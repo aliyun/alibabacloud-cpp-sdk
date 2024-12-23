@@ -860,9 +860,17 @@ public:
 };
 class CreateAndPulishAgentRequestApplicationConfigRagConfig : public Darabonba::Model {
 public:
+  shared_ptr<string> answerScope{};
   shared_ptr<bool> enableCitation{};
   shared_ptr<bool> enableSearch{};
+  shared_ptr<bool> enableWebSearch{};
+  shared_ptr<string> fixedReplyDetail{};
   shared_ptr<vector<string>> knowledgeBaseCodeList{};
+  shared_ptr<string> promptStrategy{};
+  shared_ptr<string> ragRejectType{};
+  shared_ptr<string> rejectFilterPrompt{};
+  shared_ptr<string> rejectFilterType{};
+  shared_ptr<long> retrieveMaxLength{};
   shared_ptr<long> topK{};
 
   CreateAndPulishAgentRequestApplicationConfigRagConfig() {}
@@ -875,14 +883,38 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (answerScope) {
+      res["answerScope"] = boost::any(*answerScope);
+    }
     if (enableCitation) {
       res["enableCitation"] = boost::any(*enableCitation);
     }
     if (enableSearch) {
       res["enableSearch"] = boost::any(*enableSearch);
     }
+    if (enableWebSearch) {
+      res["enableWebSearch"] = boost::any(*enableWebSearch);
+    }
+    if (fixedReplyDetail) {
+      res["fixedReplyDetail"] = boost::any(*fixedReplyDetail);
+    }
     if (knowledgeBaseCodeList) {
       res["knowledgeBaseCodeList"] = boost::any(*knowledgeBaseCodeList);
+    }
+    if (promptStrategy) {
+      res["promptStrategy"] = boost::any(*promptStrategy);
+    }
+    if (ragRejectType) {
+      res["ragRejectType"] = boost::any(*ragRejectType);
+    }
+    if (rejectFilterPrompt) {
+      res["rejectFilterPrompt"] = boost::any(*rejectFilterPrompt);
+    }
+    if (rejectFilterType) {
+      res["rejectFilterType"] = boost::any(*rejectFilterType);
+    }
+    if (retrieveMaxLength) {
+      res["retrieveMaxLength"] = boost::any(*retrieveMaxLength);
     }
     if (topK) {
       res["topK"] = boost::any(*topK);
@@ -891,11 +923,20 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("answerScope") != m.end() && !m["answerScope"].empty()) {
+      answerScope = make_shared<string>(boost::any_cast<string>(m["answerScope"]));
+    }
     if (m.find("enableCitation") != m.end() && !m["enableCitation"].empty()) {
       enableCitation = make_shared<bool>(boost::any_cast<bool>(m["enableCitation"]));
     }
     if (m.find("enableSearch") != m.end() && !m["enableSearch"].empty()) {
       enableSearch = make_shared<bool>(boost::any_cast<bool>(m["enableSearch"]));
+    }
+    if (m.find("enableWebSearch") != m.end() && !m["enableWebSearch"].empty()) {
+      enableWebSearch = make_shared<bool>(boost::any_cast<bool>(m["enableWebSearch"]));
+    }
+    if (m.find("fixedReplyDetail") != m.end() && !m["fixedReplyDetail"].empty()) {
+      fixedReplyDetail = make_shared<string>(boost::any_cast<string>(m["fixedReplyDetail"]));
     }
     if (m.find("knowledgeBaseCodeList") != m.end() && !m["knowledgeBaseCodeList"].empty()) {
       vector<string> toVec1;
@@ -906,6 +947,21 @@ public:
         }
       }
       knowledgeBaseCodeList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("promptStrategy") != m.end() && !m["promptStrategy"].empty()) {
+      promptStrategy = make_shared<string>(boost::any_cast<string>(m["promptStrategy"]));
+    }
+    if (m.find("ragRejectType") != m.end() && !m["ragRejectType"].empty()) {
+      ragRejectType = make_shared<string>(boost::any_cast<string>(m["ragRejectType"]));
+    }
+    if (m.find("rejectFilterPrompt") != m.end() && !m["rejectFilterPrompt"].empty()) {
+      rejectFilterPrompt = make_shared<string>(boost::any_cast<string>(m["rejectFilterPrompt"]));
+    }
+    if (m.find("rejectFilterType") != m.end() && !m["rejectFilterType"].empty()) {
+      rejectFilterType = make_shared<string>(boost::any_cast<string>(m["rejectFilterType"]));
+    }
+    if (m.find("retrieveMaxLength") != m.end() && !m["retrieveMaxLength"].empty()) {
+      retrieveMaxLength = make_shared<long>(boost::any_cast<long>(m["retrieveMaxLength"]));
     }
     if (m.find("topK") != m.end() && !m["topK"].empty()) {
       topK = make_shared<long>(boost::any_cast<long>(m["topK"]));
@@ -1121,12 +1177,63 @@ public:
 
   virtual ~CreateAndPulishAgentRequestApplicationConfig() = default;
 };
+class CreateAndPulishAgentRequestSampleLibrary : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableSample{};
+  shared_ptr<vector<string>> sampleLibraryIdList{};
+  shared_ptr<long> topK{};
+
+  CreateAndPulishAgentRequestSampleLibrary() {}
+
+  explicit CreateAndPulishAgentRequestSampleLibrary(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableSample) {
+      res["enableSample"] = boost::any(*enableSample);
+    }
+    if (sampleLibraryIdList) {
+      res["sampleLibraryIdList"] = boost::any(*sampleLibraryIdList);
+    }
+    if (topK) {
+      res["topK"] = boost::any(*topK);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enableSample") != m.end() && !m["enableSample"].empty()) {
+      enableSample = make_shared<bool>(boost::any_cast<bool>(m["enableSample"]));
+    }
+    if (m.find("sampleLibraryIdList") != m.end() && !m["sampleLibraryIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["sampleLibraryIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["sampleLibraryIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sampleLibraryIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("topK") != m.end() && !m["topK"].empty()) {
+      topK = make_shared<long>(boost::any_cast<long>(m["topK"]));
+    }
+  }
+
+
+  virtual ~CreateAndPulishAgentRequestSampleLibrary() = default;
+};
 class CreateAndPulishAgentRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateAndPulishAgentRequestApplicationConfig> applicationConfig{};
   shared_ptr<string> instructions{};
   shared_ptr<string> modelId{};
   shared_ptr<string> name{};
+  shared_ptr<CreateAndPulishAgentRequestSampleLibrary> sampleLibrary{};
 
   CreateAndPulishAgentRequest() {}
 
@@ -1150,6 +1257,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (sampleLibrary) {
+      res["sampleLibrary"] = sampleLibrary ? boost::any(sampleLibrary->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -1170,6 +1280,13 @@ public:
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
+    if (m.find("sampleLibrary") != m.end() && !m["sampleLibrary"].empty()) {
+      if (typeid(map<string, boost::any>) == m["sampleLibrary"].type()) {
+        CreateAndPulishAgentRequestSampleLibrary model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["sampleLibrary"]));
+        sampleLibrary = make_shared<CreateAndPulishAgentRequestSampleLibrary>(model1);
+      }
+    }
   }
 
 
@@ -1181,6 +1298,7 @@ public:
   shared_ptr<string> instructions{};
   shared_ptr<string> modelId{};
   shared_ptr<string> name{};
+  shared_ptr<string> sampleLibraryShrink{};
 
   CreateAndPulishAgentShrinkRequest() {}
 
@@ -1204,6 +1322,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (sampleLibraryShrink) {
+      res["sampleLibrary"] = boost::any(*sampleLibraryShrink);
+    }
     return res;
   }
 
@@ -1219,6 +1340,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("sampleLibrary") != m.end() && !m["sampleLibrary"].empty()) {
+      sampleLibraryShrink = make_shared<string>(boost::any_cast<string>(m["sampleLibrary"]));
     }
   }
 
@@ -8868,9 +8992,17 @@ public:
 };
 class UpdateAndPublishAgentRequestApplicationConfigRagConfig : public Darabonba::Model {
 public:
+  shared_ptr<string> answerScope{};
   shared_ptr<bool> enableCitation{};
   shared_ptr<bool> enableSearch{};
+  shared_ptr<bool> enableWebSearch{};
+  shared_ptr<string> fixedReplyDetail{};
   shared_ptr<vector<string>> knowledgeBaseCodeList{};
+  shared_ptr<string> promptStrategy{};
+  shared_ptr<string> ragRejectType{};
+  shared_ptr<string> rejectFilterPrompt{};
+  shared_ptr<string> rejectFilterType{};
+  shared_ptr<long> retrieveMaxLength{};
   shared_ptr<long> topK{};
 
   UpdateAndPublishAgentRequestApplicationConfigRagConfig() {}
@@ -8883,14 +9015,38 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (answerScope) {
+      res["answerScope"] = boost::any(*answerScope);
+    }
     if (enableCitation) {
       res["enableCitation"] = boost::any(*enableCitation);
     }
     if (enableSearch) {
       res["enableSearch"] = boost::any(*enableSearch);
     }
+    if (enableWebSearch) {
+      res["enableWebSearch"] = boost::any(*enableWebSearch);
+    }
+    if (fixedReplyDetail) {
+      res["fixedReplyDetail"] = boost::any(*fixedReplyDetail);
+    }
     if (knowledgeBaseCodeList) {
       res["knowledgeBaseCodeList"] = boost::any(*knowledgeBaseCodeList);
+    }
+    if (promptStrategy) {
+      res["promptStrategy"] = boost::any(*promptStrategy);
+    }
+    if (ragRejectType) {
+      res["ragRejectType"] = boost::any(*ragRejectType);
+    }
+    if (rejectFilterPrompt) {
+      res["rejectFilterPrompt"] = boost::any(*rejectFilterPrompt);
+    }
+    if (rejectFilterType) {
+      res["rejectFilterType"] = boost::any(*rejectFilterType);
+    }
+    if (retrieveMaxLength) {
+      res["retrieveMaxLength"] = boost::any(*retrieveMaxLength);
     }
     if (topK) {
       res["topK"] = boost::any(*topK);
@@ -8899,11 +9055,20 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("answerScope") != m.end() && !m["answerScope"].empty()) {
+      answerScope = make_shared<string>(boost::any_cast<string>(m["answerScope"]));
+    }
     if (m.find("enableCitation") != m.end() && !m["enableCitation"].empty()) {
       enableCitation = make_shared<bool>(boost::any_cast<bool>(m["enableCitation"]));
     }
     if (m.find("enableSearch") != m.end() && !m["enableSearch"].empty()) {
       enableSearch = make_shared<bool>(boost::any_cast<bool>(m["enableSearch"]));
+    }
+    if (m.find("enableWebSearch") != m.end() && !m["enableWebSearch"].empty()) {
+      enableWebSearch = make_shared<bool>(boost::any_cast<bool>(m["enableWebSearch"]));
+    }
+    if (m.find("fixedReplyDetail") != m.end() && !m["fixedReplyDetail"].empty()) {
+      fixedReplyDetail = make_shared<string>(boost::any_cast<string>(m["fixedReplyDetail"]));
     }
     if (m.find("knowledgeBaseCodeList") != m.end() && !m["knowledgeBaseCodeList"].empty()) {
       vector<string> toVec1;
@@ -8914,6 +9079,21 @@ public:
         }
       }
       knowledgeBaseCodeList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("promptStrategy") != m.end() && !m["promptStrategy"].empty()) {
+      promptStrategy = make_shared<string>(boost::any_cast<string>(m["promptStrategy"]));
+    }
+    if (m.find("ragRejectType") != m.end() && !m["ragRejectType"].empty()) {
+      ragRejectType = make_shared<string>(boost::any_cast<string>(m["ragRejectType"]));
+    }
+    if (m.find("rejectFilterPrompt") != m.end() && !m["rejectFilterPrompt"].empty()) {
+      rejectFilterPrompt = make_shared<string>(boost::any_cast<string>(m["rejectFilterPrompt"]));
+    }
+    if (m.find("rejectFilterType") != m.end() && !m["rejectFilterType"].empty()) {
+      rejectFilterType = make_shared<string>(boost::any_cast<string>(m["rejectFilterType"]));
+    }
+    if (m.find("retrieveMaxLength") != m.end() && !m["retrieveMaxLength"].empty()) {
+      retrieveMaxLength = make_shared<long>(boost::any_cast<long>(m["retrieveMaxLength"]));
     }
     if (m.find("topK") != m.end() && !m["topK"].empty()) {
       topK = make_shared<long>(boost::any_cast<long>(m["topK"]));
@@ -9129,12 +9309,63 @@ public:
 
   virtual ~UpdateAndPublishAgentRequestApplicationConfig() = default;
 };
+class UpdateAndPublishAgentRequestSampleLibrary : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableSample{};
+  shared_ptr<vector<string>> sampleLibraryIdList{};
+  shared_ptr<long> topK{};
+
+  UpdateAndPublishAgentRequestSampleLibrary() {}
+
+  explicit UpdateAndPublishAgentRequestSampleLibrary(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableSample) {
+      res["enableSample"] = boost::any(*enableSample);
+    }
+    if (sampleLibraryIdList) {
+      res["sampleLibraryIdList"] = boost::any(*sampleLibraryIdList);
+    }
+    if (topK) {
+      res["topK"] = boost::any(*topK);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enableSample") != m.end() && !m["enableSample"].empty()) {
+      enableSample = make_shared<bool>(boost::any_cast<bool>(m["enableSample"]));
+    }
+    if (m.find("sampleLibraryIdList") != m.end() && !m["sampleLibraryIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["sampleLibraryIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["sampleLibraryIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sampleLibraryIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("topK") != m.end() && !m["topK"].empty()) {
+      topK = make_shared<long>(boost::any_cast<long>(m["topK"]));
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentRequestSampleLibrary() = default;
+};
 class UpdateAndPublishAgentRequest : public Darabonba::Model {
 public:
   shared_ptr<UpdateAndPublishAgentRequestApplicationConfig> applicationConfig{};
   shared_ptr<string> instructions{};
   shared_ptr<string> modelId{};
   shared_ptr<string> name{};
+  shared_ptr<UpdateAndPublishAgentRequestSampleLibrary> sampleLibrary{};
 
   UpdateAndPublishAgentRequest() {}
 
@@ -9158,6 +9389,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (sampleLibrary) {
+      res["sampleLibrary"] = sampleLibrary ? boost::any(sampleLibrary->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -9178,6 +9412,13 @@ public:
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
+    if (m.find("sampleLibrary") != m.end() && !m["sampleLibrary"].empty()) {
+      if (typeid(map<string, boost::any>) == m["sampleLibrary"].type()) {
+        UpdateAndPublishAgentRequestSampleLibrary model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["sampleLibrary"]));
+        sampleLibrary = make_shared<UpdateAndPublishAgentRequestSampleLibrary>(model1);
+      }
+    }
   }
 
 
@@ -9189,6 +9430,7 @@ public:
   shared_ptr<string> instructions{};
   shared_ptr<string> modelId{};
   shared_ptr<string> name{};
+  shared_ptr<string> sampleLibraryShrink{};
 
   UpdateAndPublishAgentShrinkRequest() {}
 
@@ -9212,6 +9454,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (sampleLibraryShrink) {
+      res["sampleLibrary"] = boost::any(*sampleLibraryShrink);
+    }
     return res;
   }
 
@@ -9227,6 +9472,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("sampleLibrary") != m.end() && !m["sampleLibrary"].empty()) {
+      sampleLibraryShrink = make_shared<string>(boost::any_cast<string>(m["sampleLibrary"]));
     }
   }
 
@@ -9348,6 +9596,742 @@ public:
 
 
   virtual ~UpdateAndPublishAgentResponse() = default;
+};
+class UpdateAndPublishAgentSelectiveRequestApplicationConfigHistoryConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableAdbRecord{};
+  shared_ptr<bool> enableRecord{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> region{};
+  shared_ptr<string> storeCode{};
+
+  UpdateAndPublishAgentSelectiveRequestApplicationConfigHistoryConfig() {}
+
+  explicit UpdateAndPublishAgentSelectiveRequestApplicationConfigHistoryConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableAdbRecord) {
+      res["enableAdbRecord"] = boost::any(*enableAdbRecord);
+    }
+    if (enableRecord) {
+      res["enableRecord"] = boost::any(*enableRecord);
+    }
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (region) {
+      res["region"] = boost::any(*region);
+    }
+    if (storeCode) {
+      res["storeCode"] = boost::any(*storeCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enableAdbRecord") != m.end() && !m["enableAdbRecord"].empty()) {
+      enableAdbRecord = make_shared<bool>(boost::any_cast<bool>(m["enableAdbRecord"]));
+    }
+    if (m.find("enableRecord") != m.end() && !m["enableRecord"].empty()) {
+      enableRecord = make_shared<bool>(boost::any_cast<bool>(m["enableRecord"]));
+    }
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("region") != m.end() && !m["region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["region"]));
+    }
+    if (m.find("storeCode") != m.end() && !m["storeCode"].empty()) {
+      storeCode = make_shared<string>(boost::any_cast<string>(m["storeCode"]));
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentSelectiveRequestApplicationConfigHistoryConfig() = default;
+};
+class UpdateAndPublishAgentSelectiveRequestApplicationConfigLongTermMemory : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  UpdateAndPublishAgentSelectiveRequestApplicationConfigLongTermMemory() {}
+
+  explicit UpdateAndPublishAgentSelectiveRequestApplicationConfigLongTermMemory(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentSelectiveRequestApplicationConfigLongTermMemory() = default;
+};
+class UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters : public Darabonba::Model {
+public:
+  shared_ptr<long> dialogRound{};
+  shared_ptr<long> maxTokens{};
+  shared_ptr<double> temperature{};
+
+  UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters() {}
+
+  explicit UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dialogRound) {
+      res["dialogRound"] = boost::any(*dialogRound);
+    }
+    if (maxTokens) {
+      res["maxTokens"] = boost::any(*maxTokens);
+    }
+    if (temperature) {
+      res["temperature"] = boost::any(*temperature);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("dialogRound") != m.end() && !m["dialogRound"].empty()) {
+      dialogRound = make_shared<long>(boost::any_cast<long>(m["dialogRound"]));
+    }
+    if (m.find("maxTokens") != m.end() && !m["maxTokens"].empty()) {
+      maxTokens = make_shared<long>(boost::any_cast<long>(m["maxTokens"]));
+    }
+    if (m.find("temperature") != m.end() && !m["temperature"].empty()) {
+      temperature = make_shared<double>(boost::any_cast<double>(m["temperature"]));
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters() = default;
+};
+class UpdateAndPublishAgentSelectiveRequestApplicationConfigRagConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> answerScope{};
+  shared_ptr<bool> enableCitation{};
+  shared_ptr<bool> enableSearch{};
+  shared_ptr<string> enableWebSearch{};
+  shared_ptr<string> fixedReplyDetail{};
+  shared_ptr<vector<string>> knowledgeBaseCodeList{};
+  shared_ptr<string> promptStrategy{};
+  shared_ptr<string> ragRejectType{};
+  shared_ptr<string> rejectFilterPrompt{};
+  shared_ptr<string> rejectFilterType{};
+  shared_ptr<long> retrieveMaxLength{};
+  shared_ptr<long> topK{};
+
+  UpdateAndPublishAgentSelectiveRequestApplicationConfigRagConfig() {}
+
+  explicit UpdateAndPublishAgentSelectiveRequestApplicationConfigRagConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerScope) {
+      res["answerScope"] = boost::any(*answerScope);
+    }
+    if (enableCitation) {
+      res["enableCitation"] = boost::any(*enableCitation);
+    }
+    if (enableSearch) {
+      res["enableSearch"] = boost::any(*enableSearch);
+    }
+    if (enableWebSearch) {
+      res["enableWebSearch"] = boost::any(*enableWebSearch);
+    }
+    if (fixedReplyDetail) {
+      res["fixedReplyDetail"] = boost::any(*fixedReplyDetail);
+    }
+    if (knowledgeBaseCodeList) {
+      res["knowledgeBaseCodeList"] = boost::any(*knowledgeBaseCodeList);
+    }
+    if (promptStrategy) {
+      res["promptStrategy"] = boost::any(*promptStrategy);
+    }
+    if (ragRejectType) {
+      res["ragRejectType"] = boost::any(*ragRejectType);
+    }
+    if (rejectFilterPrompt) {
+      res["rejectFilterPrompt"] = boost::any(*rejectFilterPrompt);
+    }
+    if (rejectFilterType) {
+      res["rejectFilterType"] = boost::any(*rejectFilterType);
+    }
+    if (retrieveMaxLength) {
+      res["retrieveMaxLength"] = boost::any(*retrieveMaxLength);
+    }
+    if (topK) {
+      res["topK"] = boost::any(*topK);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("answerScope") != m.end() && !m["answerScope"].empty()) {
+      answerScope = make_shared<string>(boost::any_cast<string>(m["answerScope"]));
+    }
+    if (m.find("enableCitation") != m.end() && !m["enableCitation"].empty()) {
+      enableCitation = make_shared<bool>(boost::any_cast<bool>(m["enableCitation"]));
+    }
+    if (m.find("enableSearch") != m.end() && !m["enableSearch"].empty()) {
+      enableSearch = make_shared<bool>(boost::any_cast<bool>(m["enableSearch"]));
+    }
+    if (m.find("enableWebSearch") != m.end() && !m["enableWebSearch"].empty()) {
+      enableWebSearch = make_shared<string>(boost::any_cast<string>(m["enableWebSearch"]));
+    }
+    if (m.find("fixedReplyDetail") != m.end() && !m["fixedReplyDetail"].empty()) {
+      fixedReplyDetail = make_shared<string>(boost::any_cast<string>(m["fixedReplyDetail"]));
+    }
+    if (m.find("knowledgeBaseCodeList") != m.end() && !m["knowledgeBaseCodeList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["knowledgeBaseCodeList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["knowledgeBaseCodeList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      knowledgeBaseCodeList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("promptStrategy") != m.end() && !m["promptStrategy"].empty()) {
+      promptStrategy = make_shared<string>(boost::any_cast<string>(m["promptStrategy"]));
+    }
+    if (m.find("ragRejectType") != m.end() && !m["ragRejectType"].empty()) {
+      ragRejectType = make_shared<string>(boost::any_cast<string>(m["ragRejectType"]));
+    }
+    if (m.find("rejectFilterPrompt") != m.end() && !m["rejectFilterPrompt"].empty()) {
+      rejectFilterPrompt = make_shared<string>(boost::any_cast<string>(m["rejectFilterPrompt"]));
+    }
+    if (m.find("rejectFilterType") != m.end() && !m["rejectFilterType"].empty()) {
+      rejectFilterType = make_shared<string>(boost::any_cast<string>(m["rejectFilterType"]));
+    }
+    if (m.find("retrieveMaxLength") != m.end() && !m["retrieveMaxLength"].empty()) {
+      retrieveMaxLength = make_shared<long>(boost::any_cast<long>(m["retrieveMaxLength"]));
+    }
+    if (m.find("topK") != m.end() && !m["topK"].empty()) {
+      topK = make_shared<long>(boost::any_cast<long>(m["topK"]));
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentSelectiveRequestApplicationConfigRagConfig() = default;
+};
+class UpdateAndPublishAgentSelectiveRequestApplicationConfigSecurity : public Darabonba::Model {
+public:
+  shared_ptr<string> processingStrategy{};
+
+  UpdateAndPublishAgentSelectiveRequestApplicationConfigSecurity() {}
+
+  explicit UpdateAndPublishAgentSelectiveRequestApplicationConfigSecurity(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (processingStrategy) {
+      res["processingStrategy"] = boost::any(*processingStrategy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("processingStrategy") != m.end() && !m["processingStrategy"].empty()) {
+      processingStrategy = make_shared<string>(boost::any_cast<string>(m["processingStrategy"]));
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentSelectiveRequestApplicationConfigSecurity() = default;
+};
+class UpdateAndPublishAgentSelectiveRequestApplicationConfigTools : public Darabonba::Model {
+public:
+  shared_ptr<string> type{};
+
+  UpdateAndPublishAgentSelectiveRequestApplicationConfigTools() {}
+
+  explicit UpdateAndPublishAgentSelectiveRequestApplicationConfigTools(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentSelectiveRequestApplicationConfigTools() = default;
+};
+class UpdateAndPublishAgentSelectiveRequestApplicationConfigWorkFlows : public Darabonba::Model {
+public:
+  shared_ptr<string> type{};
+
+  UpdateAndPublishAgentSelectiveRequestApplicationConfigWorkFlows() {}
+
+  explicit UpdateAndPublishAgentSelectiveRequestApplicationConfigWorkFlows(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentSelectiveRequestApplicationConfigWorkFlows() = default;
+};
+class UpdateAndPublishAgentSelectiveRequestApplicationConfig : public Darabonba::Model {
+public:
+  shared_ptr<UpdateAndPublishAgentSelectiveRequestApplicationConfigHistoryConfig> historyConfig{};
+  shared_ptr<UpdateAndPublishAgentSelectiveRequestApplicationConfigLongTermMemory> longTermMemory{};
+  shared_ptr<UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters> parameters{};
+  shared_ptr<UpdateAndPublishAgentSelectiveRequestApplicationConfigRagConfig> ragConfig{};
+  shared_ptr<UpdateAndPublishAgentSelectiveRequestApplicationConfigSecurity> security{};
+  shared_ptr<vector<UpdateAndPublishAgentSelectiveRequestApplicationConfigTools>> tools{};
+  shared_ptr<vector<UpdateAndPublishAgentSelectiveRequestApplicationConfigWorkFlows>> workFlows{};
+
+  UpdateAndPublishAgentSelectiveRequestApplicationConfig() {}
+
+  explicit UpdateAndPublishAgentSelectiveRequestApplicationConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (historyConfig) {
+      res["historyConfig"] = historyConfig ? boost::any(historyConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (longTermMemory) {
+      res["longTermMemory"] = longTermMemory ? boost::any(longTermMemory->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (parameters) {
+      res["parameters"] = parameters ? boost::any(parameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ragConfig) {
+      res["ragConfig"] = ragConfig ? boost::any(ragConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (security) {
+      res["security"] = security ? boost::any(security->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tools) {
+      vector<boost::any> temp1;
+      for(auto item1:*tools){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tools"] = boost::any(temp1);
+    }
+    if (workFlows) {
+      vector<boost::any> temp1;
+      for(auto item1:*workFlows){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["workFlows"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("historyConfig") != m.end() && !m["historyConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["historyConfig"].type()) {
+        UpdateAndPublishAgentSelectiveRequestApplicationConfigHistoryConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["historyConfig"]));
+        historyConfig = make_shared<UpdateAndPublishAgentSelectiveRequestApplicationConfigHistoryConfig>(model1);
+      }
+    }
+    if (m.find("longTermMemory") != m.end() && !m["longTermMemory"].empty()) {
+      if (typeid(map<string, boost::any>) == m["longTermMemory"].type()) {
+        UpdateAndPublishAgentSelectiveRequestApplicationConfigLongTermMemory model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["longTermMemory"]));
+        longTermMemory = make_shared<UpdateAndPublishAgentSelectiveRequestApplicationConfigLongTermMemory>(model1);
+      }
+    }
+    if (m.find("parameters") != m.end() && !m["parameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["parameters"].type()) {
+        UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["parameters"]));
+        parameters = make_shared<UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters>(model1);
+      }
+    }
+    if (m.find("ragConfig") != m.end() && !m["ragConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ragConfig"].type()) {
+        UpdateAndPublishAgentSelectiveRequestApplicationConfigRagConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ragConfig"]));
+        ragConfig = make_shared<UpdateAndPublishAgentSelectiveRequestApplicationConfigRagConfig>(model1);
+      }
+    }
+    if (m.find("security") != m.end() && !m["security"].empty()) {
+      if (typeid(map<string, boost::any>) == m["security"].type()) {
+        UpdateAndPublishAgentSelectiveRequestApplicationConfigSecurity model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["security"]));
+        security = make_shared<UpdateAndPublishAgentSelectiveRequestApplicationConfigSecurity>(model1);
+      }
+    }
+    if (m.find("tools") != m.end() && !m["tools"].empty()) {
+      if (typeid(vector<boost::any>) == m["tools"].type()) {
+        vector<UpdateAndPublishAgentSelectiveRequestApplicationConfigTools> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tools"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAndPublishAgentSelectiveRequestApplicationConfigTools model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tools = make_shared<vector<UpdateAndPublishAgentSelectiveRequestApplicationConfigTools>>(expect1);
+      }
+    }
+    if (m.find("workFlows") != m.end() && !m["workFlows"].empty()) {
+      if (typeid(vector<boost::any>) == m["workFlows"].type()) {
+        vector<UpdateAndPublishAgentSelectiveRequestApplicationConfigWorkFlows> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["workFlows"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAndPublishAgentSelectiveRequestApplicationConfigWorkFlows model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        workFlows = make_shared<vector<UpdateAndPublishAgentSelectiveRequestApplicationConfigWorkFlows>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentSelectiveRequestApplicationConfig() = default;
+};
+class UpdateAndPublishAgentSelectiveRequestSampleLibrary : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableSample{};
+  shared_ptr<vector<string>> sampleLibraryIdList{};
+  shared_ptr<long> topK{};
+
+  UpdateAndPublishAgentSelectiveRequestSampleLibrary() {}
+
+  explicit UpdateAndPublishAgentSelectiveRequestSampleLibrary(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableSample) {
+      res["enableSample"] = boost::any(*enableSample);
+    }
+    if (sampleLibraryIdList) {
+      res["sampleLibraryIdList"] = boost::any(*sampleLibraryIdList);
+    }
+    if (topK) {
+      res["topK"] = boost::any(*topK);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enableSample") != m.end() && !m["enableSample"].empty()) {
+      enableSample = make_shared<bool>(boost::any_cast<bool>(m["enableSample"]));
+    }
+    if (m.find("sampleLibraryIdList") != m.end() && !m["sampleLibraryIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["sampleLibraryIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["sampleLibraryIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sampleLibraryIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("topK") != m.end() && !m["topK"].empty()) {
+      topK = make_shared<long>(boost::any_cast<long>(m["topK"]));
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentSelectiveRequestSampleLibrary() = default;
+};
+class UpdateAndPublishAgentSelectiveRequest : public Darabonba::Model {
+public:
+  shared_ptr<UpdateAndPublishAgentSelectiveRequestApplicationConfig> applicationConfig{};
+  shared_ptr<string> instructions{};
+  shared_ptr<string> modelId{};
+  shared_ptr<string> name{};
+  shared_ptr<UpdateAndPublishAgentSelectiveRequestSampleLibrary> sampleLibrary{};
+
+  UpdateAndPublishAgentSelectiveRequest() {}
+
+  explicit UpdateAndPublishAgentSelectiveRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationConfig) {
+      res["applicationConfig"] = applicationConfig ? boost::any(applicationConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instructions) {
+      res["instructions"] = boost::any(*instructions);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (sampleLibrary) {
+      res["sampleLibrary"] = sampleLibrary ? boost::any(sampleLibrary->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("applicationConfig") != m.end() && !m["applicationConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["applicationConfig"].type()) {
+        UpdateAndPublishAgentSelectiveRequestApplicationConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["applicationConfig"]));
+        applicationConfig = make_shared<UpdateAndPublishAgentSelectiveRequestApplicationConfig>(model1);
+      }
+    }
+    if (m.find("instructions") != m.end() && !m["instructions"].empty()) {
+      instructions = make_shared<string>(boost::any_cast<string>(m["instructions"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("sampleLibrary") != m.end() && !m["sampleLibrary"].empty()) {
+      if (typeid(map<string, boost::any>) == m["sampleLibrary"].type()) {
+        UpdateAndPublishAgentSelectiveRequestSampleLibrary model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["sampleLibrary"]));
+        sampleLibrary = make_shared<UpdateAndPublishAgentSelectiveRequestSampleLibrary>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentSelectiveRequest() = default;
+};
+class UpdateAndPublishAgentSelectiveShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationConfigShrink{};
+  shared_ptr<string> instructions{};
+  shared_ptr<string> modelId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> sampleLibraryShrink{};
+
+  UpdateAndPublishAgentSelectiveShrinkRequest() {}
+
+  explicit UpdateAndPublishAgentSelectiveShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationConfigShrink) {
+      res["applicationConfig"] = boost::any(*applicationConfigShrink);
+    }
+    if (instructions) {
+      res["instructions"] = boost::any(*instructions);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (sampleLibraryShrink) {
+      res["sampleLibrary"] = boost::any(*sampleLibraryShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("applicationConfig") != m.end() && !m["applicationConfig"].empty()) {
+      applicationConfigShrink = make_shared<string>(boost::any_cast<string>(m["applicationConfig"]));
+    }
+    if (m.find("instructions") != m.end() && !m["instructions"].empty()) {
+      instructions = make_shared<string>(boost::any_cast<string>(m["instructions"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("sampleLibrary") != m.end() && !m["sampleLibrary"].empty()) {
+      sampleLibraryShrink = make_shared<string>(boost::any_cast<string>(m["sampleLibrary"]));
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentSelectiveShrinkRequest() = default;
+};
+class UpdateAndPublishAgentSelectiveResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateAndPublishAgentSelectiveResponseBody() {}
+
+  explicit UpdateAndPublishAgentSelectiveResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["data"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentSelectiveResponseBody() = default;
+};
+class UpdateAndPublishAgentSelectiveResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateAndPublishAgentSelectiveResponseBody> body{};
+
+  UpdateAndPublishAgentSelectiveResponse() {}
+
+  explicit UpdateAndPublishAgentSelectiveResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateAndPublishAgentSelectiveResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateAndPublishAgentSelectiveResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAndPublishAgentSelectiveResponse() = default;
 };
 class UpdateFileTagRequest : public Darabonba::Model {
 public:
@@ -10091,6 +11075,12 @@ public:
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAndPublishAgentResponse updateAndPublishAgent(shared_ptr<string> workspaceId, shared_ptr<string> appCode, shared_ptr<UpdateAndPublishAgentRequest> request);
+  UpdateAndPublishAgentSelectiveResponse updateAndPublishAgentSelectiveWithOptions(shared_ptr<string> workspaceId,
+                                                                                   shared_ptr<string> appCode,
+                                                                                   shared_ptr<UpdateAndPublishAgentSelectiveRequest> tmpReq,
+                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateAndPublishAgentSelectiveResponse updateAndPublishAgentSelective(shared_ptr<string> workspaceId, shared_ptr<string> appCode, shared_ptr<UpdateAndPublishAgentSelectiveRequest> request);
   UpdateFileTagResponse updateFileTagWithOptions(shared_ptr<string> WorkspaceId,
                                                  shared_ptr<string> FileId,
                                                  shared_ptr<UpdateFileTagRequest> tmpReq,
