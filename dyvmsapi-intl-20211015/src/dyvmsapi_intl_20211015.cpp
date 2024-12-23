@@ -342,3 +342,154 @@ SignalCallResponse Alibabacloud_Dyvmsapi-intl20211015::Client::signalCall(shared
   return signalCallWithOptions(request, runtime);
 }
 
+VoiceGroupCallResponse Alibabacloud_Dyvmsapi-intl20211015::Client::voiceGroupCallWithOptions(shared_ptr<VoiceGroupCallRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<VoiceGroupCallShrinkRequest> request = make_shared<VoiceGroupCallShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->calledNumber)) {
+    request->calledNumberShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->calledNumber, make_shared<string>("CalledNumber"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->calledNumberShrink)) {
+    query->insert(pair<string, string>("CalledNumber", *request->calledNumberShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callerIdNumber)) {
+    query->insert(pair<string, string>("CallerIdNumber", *request->callerIdNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->countryId)) {
+    query->insert(pair<string, string>("CountryId", *request->countryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
+    query->insert(pair<string, string>("OutId", *request->outId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->playTimes)) {
+    query->insert(pair<string, long>("PlayTimes", *request->playTimes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sendType)) {
+    query->insert(pair<string, long>("SendType", *request->sendType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->speed)) {
+    query->insert(pair<string, long>("Speed", *request->speed));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskName)) {
+    query->insert(pair<string, string>("TaskName", *request->taskName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timingStart)) {
+    query->insert(pair<string, string>("TimingStart", *request->timingStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ttsCode)) {
+    query->insert(pair<string, string>("TtsCode", *request->ttsCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ttsParam)) {
+    query->insert(pair<string, string>("TtsParam", *request->ttsParam));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->voiceCode)) {
+    query->insert(pair<string, string>("VoiceCode", *request->voiceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->volume)) {
+    query->insert(pair<string, long>("Volume", *request->volume));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("VoiceGroupCall"))},
+    {"version", boost::any(string("2021-10-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return VoiceGroupCallResponse(callApi(params, req, runtime));
+}
+
+VoiceGroupCallResponse Alibabacloud_Dyvmsapi-intl20211015::Client::voiceGroupCall(shared_ptr<VoiceGroupCallRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return voiceGroupCallWithOptions(request, runtime);
+}
+
+VoiceSingleCallResponse Alibabacloud_Dyvmsapi-intl20211015::Client::voiceSingleCallWithOptions(shared_ptr<VoiceSingleCallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->calledNumber)) {
+    query->insert(pair<string, string>("CalledNumber", *request->calledNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callerIdNumber)) {
+    query->insert(pair<string, string>("CallerIdNumber", *request->callerIdNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->countryId)) {
+    query->insert(pair<string, string>("CountryId", *request->countryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
+    query->insert(pair<string, string>("OutId", *request->outId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->playTimes)) {
+    query->insert(pair<string, long>("PlayTimes", *request->playTimes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sendType)) {
+    query->insert(pair<string, long>("SendType", *request->sendType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->speed)) {
+    query->insert(pair<string, long>("Speed", *request->speed));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskName)) {
+    query->insert(pair<string, string>("TaskName", *request->taskName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timingStart)) {
+    query->insert(pair<string, string>("TimingStart", *request->timingStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ttsCode)) {
+    query->insert(pair<string, string>("TtsCode", *request->ttsCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ttsParam)) {
+    query->insert(pair<string, string>("TtsParam", *request->ttsParam));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->voiceCode)) {
+    query->insert(pair<string, string>("VoiceCode", *request->voiceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->volume)) {
+    query->insert(pair<string, long>("Volume", *request->volume));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("VoiceSingleCall"))},
+    {"version", boost::any(string("2021-10-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return VoiceSingleCallResponse(callApi(params, req, runtime));
+}
+
+VoiceSingleCallResponse Alibabacloud_Dyvmsapi-intl20211015::Client::voiceSingleCall(shared_ptr<VoiceSingleCallRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return voiceSingleCallWithOptions(request, runtime);
+}
+
