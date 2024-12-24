@@ -347,6 +347,7 @@ public:
   shared_ptr<string> instance{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> pod{};
+  shared_ptr<long> showPod{};
   shared_ptr<double> start{};
 
   GetAbnormalEventsCountRequest() {}
@@ -374,6 +375,9 @@ public:
     if (pod) {
       res["pod"] = boost::any(*pod);
     }
+    if (showPod) {
+      res["showPod"] = boost::any(*showPod);
+    }
     if (start) {
       res["start"] = boost::any(*start);
     }
@@ -395,6 +399,9 @@ public:
     }
     if (m.find("pod") != m.end() && !m["pod"].empty()) {
       pod = make_shared<string>(boost::any_cast<string>(m["pod"]));
+    }
+    if (m.find("showPod") != m.end() && !m["showPod"].empty()) {
+      showPod = make_shared<long>(boost::any_cast<long>(m["showPod"]));
     }
     if (m.find("start") != m.end() && !m["start"].empty()) {
       start = make_shared<double>(boost::any_cast<double>(m["start"]));

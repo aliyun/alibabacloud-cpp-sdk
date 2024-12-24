@@ -121,6 +121,9 @@ GetAbnormalEventsCountResponse Alibabacloud_SysOM20231230::Client::getAbnormalEv
   if (!Darabonba_Util::Client::isUnset<string>(request->pod)) {
     query->insert(pair<string, string>("pod", *request->pod));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->showPod)) {
+    query->insert(pair<string, long>("showPod", *request->showPod));
+  }
   if (!Darabonba_Util::Client::isUnset<double>(request->start)) {
     query->insert(pair<string, double>("start", *request->start));
   }
