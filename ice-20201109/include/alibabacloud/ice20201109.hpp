@@ -22280,6 +22280,7 @@ class GetSmartHandleJobResponseBodyJobResult : public Darabonba::Model {
 public:
   shared_ptr<string> aiResult{};
   shared_ptr<string> mediaId{};
+  shared_ptr<string> mediaUrl{};
   shared_ptr<string> usage{};
 
   GetSmartHandleJobResponseBodyJobResult() {}
@@ -22298,6 +22299,9 @@ public:
     if (mediaId) {
       res["MediaId"] = boost::any(*mediaId);
     }
+    if (mediaUrl) {
+      res["MediaUrl"] = boost::any(*mediaUrl);
+    }
     if (usage) {
       res["Usage"] = boost::any(*usage);
     }
@@ -22310,6 +22314,9 @@ public:
     }
     if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
       mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+    if (m.find("MediaUrl") != m.end() && !m["MediaUrl"].empty()) {
+      mediaUrl = make_shared<string>(boost::any_cast<string>(m["MediaUrl"]));
     }
     if (m.find("Usage") != m.end() && !m["Usage"].empty()) {
       usage = make_shared<string>(boost::any_cast<string>(m["Usage"]));
@@ -38186,8 +38193,52 @@ public:
 
   virtual ~ListSearchLibRequest() = default;
 };
+class ListSearchLibResponseBodySearchLibInfoListIndexInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> indexReadiness{};
+  shared_ptr<string> indexStatus{};
+  shared_ptr<string> indexType{};
+
+  ListSearchLibResponseBodySearchLibInfoListIndexInfo() {}
+
+  explicit ListSearchLibResponseBodySearchLibInfoListIndexInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (indexReadiness) {
+      res["IndexReadiness"] = boost::any(*indexReadiness);
+    }
+    if (indexStatus) {
+      res["IndexStatus"] = boost::any(*indexStatus);
+    }
+    if (indexType) {
+      res["IndexType"] = boost::any(*indexType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IndexReadiness") != m.end() && !m["IndexReadiness"].empty()) {
+      indexReadiness = make_shared<string>(boost::any_cast<string>(m["IndexReadiness"]));
+    }
+    if (m.find("IndexStatus") != m.end() && !m["IndexStatus"].empty()) {
+      indexStatus = make_shared<string>(boost::any_cast<string>(m["IndexStatus"]));
+    }
+    if (m.find("IndexType") != m.end() && !m["IndexType"].empty()) {
+      indexType = make_shared<string>(boost::any_cast<string>(m["IndexType"]));
+    }
+  }
+
+
+  virtual ~ListSearchLibResponseBodySearchLibInfoListIndexInfo() = default;
+};
 class ListSearchLibResponseBodySearchLibInfoList : public Darabonba::Model {
 public:
+  shared_ptr<vector<ListSearchLibResponseBodySearchLibInfoListIndexInfo>> indexInfo{};
   shared_ptr<string> searchLibName{};
   shared_ptr<string> status{};
 
@@ -38201,6 +38252,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (indexInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*indexInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IndexInfo"] = boost::any(temp1);
+    }
     if (searchLibName) {
       res["SearchLibName"] = boost::any(*searchLibName);
     }
@@ -38211,6 +38269,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("IndexInfo") != m.end() && !m["IndexInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["IndexInfo"].type()) {
+        vector<ListSearchLibResponseBodySearchLibInfoListIndexInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IndexInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSearchLibResponseBodySearchLibInfoListIndexInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        indexInfo = make_shared<vector<ListSearchLibResponseBodySearchLibInfoListIndexInfo>>(expect1);
+      }
+    }
     if (m.find("SearchLibName") != m.end() && !m["SearchLibName"].empty()) {
       searchLibName = make_shared<string>(boost::any_cast<string>(m["SearchLibName"]));
     }
@@ -45733,9 +45804,53 @@ public:
 
   virtual ~QuerySearchLibRequest() = default;
 };
+class QuerySearchLibResponseBodyIndexInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> indexReadiness{};
+  shared_ptr<string> indexStatus{};
+  shared_ptr<string> indexType{};
+
+  QuerySearchLibResponseBodyIndexInfo() {}
+
+  explicit QuerySearchLibResponseBodyIndexInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (indexReadiness) {
+      res["IndexReadiness"] = boost::any(*indexReadiness);
+    }
+    if (indexStatus) {
+      res["IndexStatus"] = boost::any(*indexStatus);
+    }
+    if (indexType) {
+      res["IndexType"] = boost::any(*indexType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IndexReadiness") != m.end() && !m["IndexReadiness"].empty()) {
+      indexReadiness = make_shared<string>(boost::any_cast<string>(m["IndexReadiness"]));
+    }
+    if (m.find("IndexStatus") != m.end() && !m["IndexStatus"].empty()) {
+      indexStatus = make_shared<string>(boost::any_cast<string>(m["IndexStatus"]));
+    }
+    if (m.find("IndexType") != m.end() && !m["IndexType"].empty()) {
+      indexType = make_shared<string>(boost::any_cast<string>(m["IndexType"]));
+    }
+  }
+
+
+  virtual ~QuerySearchLibResponseBodyIndexInfo() = default;
+};
 class QuerySearchLibResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<vector<QuerySearchLibResponseBodyIndexInfo>> indexInfo{};
   shared_ptr<string> requestId{};
   shared_ptr<string> searchLibName{};
   shared_ptr<string> status{};
@@ -45753,6 +45868,13 @@ public:
     map<string, boost::any> res;
     if (code) {
       res["Code"] = boost::any(*code);
+    }
+    if (indexInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*indexInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IndexInfo"] = boost::any(temp1);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -45772,6 +45894,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("IndexInfo") != m.end() && !m["IndexInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["IndexInfo"].type()) {
+        vector<QuerySearchLibResponseBodyIndexInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IndexInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QuerySearchLibResponseBodyIndexInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        indexInfo = make_shared<vector<QuerySearchLibResponseBodyIndexInfo>>(expect1);
+      }
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
