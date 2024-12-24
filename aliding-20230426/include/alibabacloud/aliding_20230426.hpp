@@ -16591,6 +16591,312 @@ public:
 
   virtual ~CreateScheduleConferenceShrinkHeaders() = default;
 };
+class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting : public Darabonba::Model {
+public:
+  shared_ptr<bool> isFollowHost{};
+  shared_ptr<string> mode{};
+  shared_ptr<long> recordAutoStart{};
+  shared_ptr<long> recordAutoStartType{};
+
+  CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting() {}
+
+  explicit CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isFollowHost) {
+      res["IsFollowHost"] = boost::any(*isFollowHost);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (recordAutoStart) {
+      res["RecordAutoStart"] = boost::any(*recordAutoStart);
+    }
+    if (recordAutoStartType) {
+      res["RecordAutoStartType"] = boost::any(*recordAutoStartType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsFollowHost") != m.end() && !m["IsFollowHost"].empty()) {
+      isFollowHost = make_shared<bool>(boost::any_cast<bool>(m["IsFollowHost"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("RecordAutoStart") != m.end() && !m["RecordAutoStart"].empty()) {
+      recordAutoStart = make_shared<long>(boost::any_cast<long>(m["RecordAutoStart"]));
+    }
+    if (m.find("RecordAutoStartType") != m.end() && !m["RecordAutoStartType"].empty()) {
+      recordAutoStartType = make_shared<long>(boost::any_cast<long>(m["RecordAutoStartType"]));
+    }
+  }
+
+
+  virtual ~CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting() = default;
+};
+class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings : public Darabonba::Model {
+public:
+  shared_ptr<long> autoOpenMode{};
+  shared_ptr<string> coolAppCode{};
+  shared_ptr<string> extensionAppBizData{};
+
+  CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings() {}
+
+  explicit CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoOpenMode) {
+      res["AutoOpenMode"] = boost::any(*autoOpenMode);
+    }
+    if (coolAppCode) {
+      res["CoolAppCode"] = boost::any(*coolAppCode);
+    }
+    if (extensionAppBizData) {
+      res["ExtensionAppBizData"] = boost::any(*extensionAppBizData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoOpenMode") != m.end() && !m["AutoOpenMode"].empty()) {
+      autoOpenMode = make_shared<long>(boost::any_cast<long>(m["AutoOpenMode"]));
+    }
+    if (m.find("CoolAppCode") != m.end() && !m["CoolAppCode"].empty()) {
+      coolAppCode = make_shared<string>(boost::any_cast<string>(m["CoolAppCode"]));
+    }
+    if (m.find("ExtensionAppBizData") != m.end() && !m["ExtensionAppBizData"].empty()) {
+      extensionAppBizData = make_shared<string>(boost::any_cast<string>(m["ExtensionAppBizData"]));
+    }
+  }
+
+
+  virtual ~CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings() = default;
+};
+class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting : public Darabonba::Model {
+public:
+  shared_ptr<string> cloudRecordOwnerUserId{};
+  shared_ptr<long> enableChat{};
+  shared_ptr<bool> enableWebAnonymousJoin{};
+  shared_ptr<long> joinBeforeHost{};
+  shared_ptr<long> lockMediaStatusMicMute{};
+  shared_ptr<long> lockNick{};
+  shared_ptr<string> minutesOwnerUserId{};
+  shared_ptr<vector<CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings>> moziConfExtensionAppSettings{};
+  shared_ptr<bool> pushAllMeetingRecords{};
+  shared_ptr<bool> pushCloudRecordCard{};
+  shared_ptr<bool> pushMinutesCard{};
+  shared_ptr<long> waitingRoom{};
+
+  CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting() {}
+
+  explicit CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cloudRecordOwnerUserId) {
+      res["CloudRecordOwnerUserId"] = boost::any(*cloudRecordOwnerUserId);
+    }
+    if (enableChat) {
+      res["EnableChat"] = boost::any(*enableChat);
+    }
+    if (enableWebAnonymousJoin) {
+      res["EnableWebAnonymousJoin"] = boost::any(*enableWebAnonymousJoin);
+    }
+    if (joinBeforeHost) {
+      res["JoinBeforeHost"] = boost::any(*joinBeforeHost);
+    }
+    if (lockMediaStatusMicMute) {
+      res["LockMediaStatusMicMute"] = boost::any(*lockMediaStatusMicMute);
+    }
+    if (lockNick) {
+      res["LockNick"] = boost::any(*lockNick);
+    }
+    if (minutesOwnerUserId) {
+      res["MinutesOwnerUserId"] = boost::any(*minutesOwnerUserId);
+    }
+    if (moziConfExtensionAppSettings) {
+      vector<boost::any> temp1;
+      for(auto item1:*moziConfExtensionAppSettings){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MoziConfExtensionAppSettings"] = boost::any(temp1);
+    }
+    if (pushAllMeetingRecords) {
+      res["PushAllMeetingRecords"] = boost::any(*pushAllMeetingRecords);
+    }
+    if (pushCloudRecordCard) {
+      res["PushCloudRecordCard"] = boost::any(*pushCloudRecordCard);
+    }
+    if (pushMinutesCard) {
+      res["PushMinutesCard"] = boost::any(*pushMinutesCard);
+    }
+    if (waitingRoom) {
+      res["WaitingRoom"] = boost::any(*waitingRoom);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CloudRecordOwnerUserId") != m.end() && !m["CloudRecordOwnerUserId"].empty()) {
+      cloudRecordOwnerUserId = make_shared<string>(boost::any_cast<string>(m["CloudRecordOwnerUserId"]));
+    }
+    if (m.find("EnableChat") != m.end() && !m["EnableChat"].empty()) {
+      enableChat = make_shared<long>(boost::any_cast<long>(m["EnableChat"]));
+    }
+    if (m.find("EnableWebAnonymousJoin") != m.end() && !m["EnableWebAnonymousJoin"].empty()) {
+      enableWebAnonymousJoin = make_shared<bool>(boost::any_cast<bool>(m["EnableWebAnonymousJoin"]));
+    }
+    if (m.find("JoinBeforeHost") != m.end() && !m["JoinBeforeHost"].empty()) {
+      joinBeforeHost = make_shared<long>(boost::any_cast<long>(m["JoinBeforeHost"]));
+    }
+    if (m.find("LockMediaStatusMicMute") != m.end() && !m["LockMediaStatusMicMute"].empty()) {
+      lockMediaStatusMicMute = make_shared<long>(boost::any_cast<long>(m["LockMediaStatusMicMute"]));
+    }
+    if (m.find("LockNick") != m.end() && !m["LockNick"].empty()) {
+      lockNick = make_shared<long>(boost::any_cast<long>(m["LockNick"]));
+    }
+    if (m.find("MinutesOwnerUserId") != m.end() && !m["MinutesOwnerUserId"].empty()) {
+      minutesOwnerUserId = make_shared<string>(boost::any_cast<string>(m["MinutesOwnerUserId"]));
+    }
+    if (m.find("MoziConfExtensionAppSettings") != m.end() && !m["MoziConfExtensionAppSettings"].empty()) {
+      if (typeid(vector<boost::any>) == m["MoziConfExtensionAppSettings"].type()) {
+        vector<CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MoziConfExtensionAppSettings"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        moziConfExtensionAppSettings = make_shared<vector<CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings>>(expect1);
+      }
+    }
+    if (m.find("PushAllMeetingRecords") != m.end() && !m["PushAllMeetingRecords"].empty()) {
+      pushAllMeetingRecords = make_shared<bool>(boost::any_cast<bool>(m["PushAllMeetingRecords"]));
+    }
+    if (m.find("PushCloudRecordCard") != m.end() && !m["PushCloudRecordCard"].empty()) {
+      pushCloudRecordCard = make_shared<bool>(boost::any_cast<bool>(m["PushCloudRecordCard"]));
+    }
+    if (m.find("PushMinutesCard") != m.end() && !m["PushMinutesCard"].empty()) {
+      pushMinutesCard = make_shared<bool>(boost::any_cast<bool>(m["PushMinutesCard"]));
+    }
+    if (m.find("WaitingRoom") != m.end() && !m["WaitingRoom"].empty()) {
+      waitingRoom = make_shared<long>(boost::any_cast<long>(m["WaitingRoom"]));
+    }
+  }
+
+
+  virtual ~CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting() = default;
+};
+class CreateScheduleConferenceRequestScheduleConfSettingModel : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> cohostUserIds{};
+  shared_ptr<string> confAllowedCorpId{};
+  shared_ptr<string> hostUserId{};
+  shared_ptr<long> lockRoom{};
+  shared_ptr<CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting> moziConfOpenRecordSetting{};
+  shared_ptr<CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting> moziConfVirtualExtraSetting{};
+  shared_ptr<long> muteOnJoin{};
+  shared_ptr<long> screenShareForbidden{};
+
+  CreateScheduleConferenceRequestScheduleConfSettingModel() {}
+
+  explicit CreateScheduleConferenceRequestScheduleConfSettingModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cohostUserIds) {
+      res["CohostUserIds"] = boost::any(*cohostUserIds);
+    }
+    if (confAllowedCorpId) {
+      res["ConfAllowedCorpId"] = boost::any(*confAllowedCorpId);
+    }
+    if (hostUserId) {
+      res["HostUserId"] = boost::any(*hostUserId);
+    }
+    if (lockRoom) {
+      res["LockRoom"] = boost::any(*lockRoom);
+    }
+    if (moziConfOpenRecordSetting) {
+      res["MoziConfOpenRecordSetting"] = moziConfOpenRecordSetting ? boost::any(moziConfOpenRecordSetting->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (moziConfVirtualExtraSetting) {
+      res["MoziConfVirtualExtraSetting"] = moziConfVirtualExtraSetting ? boost::any(moziConfVirtualExtraSetting->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (muteOnJoin) {
+      res["MuteOnJoin"] = boost::any(*muteOnJoin);
+    }
+    if (screenShareForbidden) {
+      res["ScreenShareForbidden"] = boost::any(*screenShareForbidden);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CohostUserIds") != m.end() && !m["CohostUserIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CohostUserIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CohostUserIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cohostUserIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ConfAllowedCorpId") != m.end() && !m["ConfAllowedCorpId"].empty()) {
+      confAllowedCorpId = make_shared<string>(boost::any_cast<string>(m["ConfAllowedCorpId"]));
+    }
+    if (m.find("HostUserId") != m.end() && !m["HostUserId"].empty()) {
+      hostUserId = make_shared<string>(boost::any_cast<string>(m["HostUserId"]));
+    }
+    if (m.find("LockRoom") != m.end() && !m["LockRoom"].empty()) {
+      lockRoom = make_shared<long>(boost::any_cast<long>(m["LockRoom"]));
+    }
+    if (m.find("MoziConfOpenRecordSetting") != m.end() && !m["MoziConfOpenRecordSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MoziConfOpenRecordSetting"].type()) {
+        CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MoziConfOpenRecordSetting"]));
+        moziConfOpenRecordSetting = make_shared<CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting>(model1);
+      }
+    }
+    if (m.find("MoziConfVirtualExtraSetting") != m.end() && !m["MoziConfVirtualExtraSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MoziConfVirtualExtraSetting"].type()) {
+        CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MoziConfVirtualExtraSetting"]));
+        moziConfVirtualExtraSetting = make_shared<CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting>(model1);
+      }
+    }
+    if (m.find("MuteOnJoin") != m.end() && !m["MuteOnJoin"].empty()) {
+      muteOnJoin = make_shared<long>(boost::any_cast<long>(m["MuteOnJoin"]));
+    }
+    if (m.find("ScreenShareForbidden") != m.end() && !m["ScreenShareForbidden"].empty()) {
+      screenShareForbidden = make_shared<long>(boost::any_cast<long>(m["ScreenShareForbidden"]));
+    }
+  }
+
+
+  virtual ~CreateScheduleConferenceRequestScheduleConfSettingModel() = default;
+};
 class CreateScheduleConferenceRequestTenantContext : public Darabonba::Model {
 public:
   shared_ptr<string> tenantId{};
@@ -16623,6 +16929,7 @@ public:
 class CreateScheduleConferenceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> endTime{};
+  shared_ptr<CreateScheduleConferenceRequestScheduleConfSettingModel> scheduleConfSettingModel{};
   shared_ptr<long> startTime{};
   shared_ptr<CreateScheduleConferenceRequestTenantContext> tenantContext{};
   shared_ptr<string> title{};
@@ -16640,6 +16947,9 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (scheduleConfSettingModel) {
+      res["ScheduleConfSettingModel"] = scheduleConfSettingModel ? boost::any(scheduleConfSettingModel->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -16655,6 +16965,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("ScheduleConfSettingModel") != m.end() && !m["ScheduleConfSettingModel"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ScheduleConfSettingModel"].type()) {
+        CreateScheduleConferenceRequestScheduleConfSettingModel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ScheduleConfSettingModel"]));
+        scheduleConfSettingModel = make_shared<CreateScheduleConferenceRequestScheduleConfSettingModel>(model1);
+      }
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -16677,6 +16994,7 @@ public:
 class CreateScheduleConferenceShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<long> endTime{};
+  shared_ptr<string> scheduleConfSettingModelShrink{};
   shared_ptr<long> startTime{};
   shared_ptr<string> tenantContextShrink{};
   shared_ptr<string> title{};
@@ -16694,6 +17012,9 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (scheduleConfSettingModelShrink) {
+      res["ScheduleConfSettingModel"] = boost::any(*scheduleConfSettingModelShrink);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -16709,6 +17030,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("ScheduleConfSettingModel") != m.end() && !m["ScheduleConfSettingModel"].empty()) {
+      scheduleConfSettingModelShrink = make_shared<string>(boost::any_cast<string>(m["ScheduleConfSettingModel"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -44534,6 +44858,7 @@ public:
 class GetOrgLiveListResponseBodyResultNewLiveLiveList : public Darabonba::Model {
 public:
   shared_ptr<string> anchorNickname{};
+  shared_ptr<string> anchorUnionId{};
   shared_ptr<string> anchorUserId{};
   shared_ptr<long> liveEndTime{};
   shared_ptr<long> liveStartTime{};
@@ -44553,6 +44878,9 @@ public:
     map<string, boost::any> res;
     if (anchorNickname) {
       res["AnchorNickname"] = boost::any(*anchorNickname);
+    }
+    if (anchorUnionId) {
+      res["AnchorUnionId"] = boost::any(*anchorUnionId);
     }
     if (anchorUserId) {
       res["AnchorUserId"] = boost::any(*anchorUserId);
@@ -44578,6 +44906,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AnchorNickname") != m.end() && !m["AnchorNickname"].empty()) {
       anchorNickname = make_shared<string>(boost::any_cast<string>(m["AnchorNickname"]));
+    }
+    if (m.find("AnchorUnionId") != m.end() && !m["AnchorUnionId"].empty()) {
+      anchorUnionId = make_shared<string>(boost::any_cast<string>(m["AnchorUnionId"]));
     }
     if (m.find("AnchorUserId") != m.end() && !m["AnchorUserId"].empty()) {
       anchorUserId = make_shared<string>(boost::any_cast<string>(m["AnchorUserId"]));
@@ -44683,6 +45014,7 @@ public:
 class GetOrgLiveListResponseBodyResultUpdateLiveLiveList : public Darabonba::Model {
 public:
   shared_ptr<string> anchorNickname{};
+  shared_ptr<string> anchorUnionId{};
   shared_ptr<string> anchorUserId{};
   shared_ptr<long> liveEndTime{};
   shared_ptr<long> liveStartTime{};
@@ -44701,6 +45033,9 @@ public:
     map<string, boost::any> res;
     if (anchorNickname) {
       res["AnchorNickname"] = boost::any(*anchorNickname);
+    }
+    if (anchorUnionId) {
+      res["AnchorUnionId"] = boost::any(*anchorUnionId);
     }
     if (anchorUserId) {
       res["AnchorUserId"] = boost::any(*anchorUserId);
@@ -44723,6 +45058,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AnchorNickname") != m.end() && !m["AnchorNickname"].empty()) {
       anchorNickname = make_shared<string>(boost::any_cast<string>(m["AnchorNickname"]));
+    }
+    if (m.find("AnchorUnionId") != m.end() && !m["AnchorUnionId"].empty()) {
+      anchorUnionId = make_shared<string>(boost::any_cast<string>(m["AnchorUnionId"]));
     }
     if (m.find("AnchorUserId") != m.end() && !m["AnchorUserId"].empty()) {
       anchorUserId = make_shared<string>(boost::any_cast<string>(m["AnchorUserId"]));
@@ -44964,6 +45302,356 @@ public:
 
 
   virtual ~GetOrgLiveListResponse() = default;
+};
+class GetOrgOrWebOpenDocContentTaskIdHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  GetOrgOrWebOpenDocContentTaskIdHeadersAccountContext() {}
+
+  explicit GetOrgOrWebOpenDocContentTaskIdHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~GetOrgOrWebOpenDocContentTaskIdHeadersAccountContext() = default;
+};
+class GetOrgOrWebOpenDocContentTaskIdHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<GetOrgOrWebOpenDocContentTaskIdHeadersAccountContext> accountContext{};
+
+  GetOrgOrWebOpenDocContentTaskIdHeaders() {}
+
+  explicit GetOrgOrWebOpenDocContentTaskIdHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        GetOrgOrWebOpenDocContentTaskIdHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<GetOrgOrWebOpenDocContentTaskIdHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetOrgOrWebOpenDocContentTaskIdHeaders() = default;
+};
+class GetOrgOrWebOpenDocContentTaskIdShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  GetOrgOrWebOpenDocContentTaskIdShrinkHeaders() {}
+
+  explicit GetOrgOrWebOpenDocContentTaskIdShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~GetOrgOrWebOpenDocContentTaskIdShrinkHeaders() = default;
+};
+class GetOrgOrWebOpenDocContentTaskIdRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  GetOrgOrWebOpenDocContentTaskIdRequestTenantContext() {}
+
+  explicit GetOrgOrWebOpenDocContentTaskIdRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~GetOrgOrWebOpenDocContentTaskIdRequestTenantContext() = default;
+};
+class GetOrgOrWebOpenDocContentTaskIdRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dentryUuid{};
+  shared_ptr<bool> generateCp{};
+  shared_ptr<string> targetFormat{};
+  shared_ptr<GetOrgOrWebOpenDocContentTaskIdRequestTenantContext> tenantContext{};
+
+  GetOrgOrWebOpenDocContentTaskIdRequest() {}
+
+  explicit GetOrgOrWebOpenDocContentTaskIdRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dentryUuid) {
+      res["DentryUuid"] = boost::any(*dentryUuid);
+    }
+    if (generateCp) {
+      res["GenerateCp"] = boost::any(*generateCp);
+    }
+    if (targetFormat) {
+      res["TargetFormat"] = boost::any(*targetFormat);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DentryUuid") != m.end() && !m["DentryUuid"].empty()) {
+      dentryUuid = make_shared<string>(boost::any_cast<string>(m["DentryUuid"]));
+    }
+    if (m.find("GenerateCp") != m.end() && !m["GenerateCp"].empty()) {
+      generateCp = make_shared<bool>(boost::any_cast<bool>(m["GenerateCp"]));
+    }
+    if (m.find("TargetFormat") != m.end() && !m["TargetFormat"].empty()) {
+      targetFormat = make_shared<string>(boost::any_cast<string>(m["TargetFormat"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        GetOrgOrWebOpenDocContentTaskIdRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<GetOrgOrWebOpenDocContentTaskIdRequestTenantContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetOrgOrWebOpenDocContentTaskIdRequest() = default;
+};
+class GetOrgOrWebOpenDocContentTaskIdShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dentryUuid{};
+  shared_ptr<bool> generateCp{};
+  shared_ptr<string> targetFormat{};
+  shared_ptr<string> tenantContextShrink{};
+
+  GetOrgOrWebOpenDocContentTaskIdShrinkRequest() {}
+
+  explicit GetOrgOrWebOpenDocContentTaskIdShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dentryUuid) {
+      res["DentryUuid"] = boost::any(*dentryUuid);
+    }
+    if (generateCp) {
+      res["GenerateCp"] = boost::any(*generateCp);
+    }
+    if (targetFormat) {
+      res["TargetFormat"] = boost::any(*targetFormat);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DentryUuid") != m.end() && !m["DentryUuid"].empty()) {
+      dentryUuid = make_shared<string>(boost::any_cast<string>(m["DentryUuid"]));
+    }
+    if (m.find("GenerateCp") != m.end() && !m["GenerateCp"].empty()) {
+      generateCp = make_shared<bool>(boost::any_cast<bool>(m["GenerateCp"]));
+    }
+    if (m.find("TargetFormat") != m.end() && !m["TargetFormat"].empty()) {
+      targetFormat = make_shared<string>(boost::any_cast<string>(m["TargetFormat"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+  }
+
+
+  virtual ~GetOrgOrWebOpenDocContentTaskIdShrinkRequest() = default;
+};
+class GetOrgOrWebOpenDocContentTaskIdResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> taskId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  GetOrgOrWebOpenDocContentTaskIdResponseBody() {}
+
+  explicit GetOrgOrWebOpenDocContentTaskIdResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<long>(boost::any_cast<long>(m["taskId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~GetOrgOrWebOpenDocContentTaskIdResponseBody() = default;
+};
+class GetOrgOrWebOpenDocContentTaskIdResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetOrgOrWebOpenDocContentTaskIdResponseBody> body{};
+
+  GetOrgOrWebOpenDocContentTaskIdResponse() {}
+
+  explicit GetOrgOrWebOpenDocContentTaskIdResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetOrgOrWebOpenDocContentTaskIdResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetOrgOrWebOpenDocContentTaskIdResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetOrgOrWebOpenDocContentTaskIdResponse() = default;
 };
 class GetProcessDefinitionHeadersAccountContext : public Darabonba::Model {
 public:
@@ -70135,6 +70823,504 @@ public:
 
 
   virtual ~QueryConferenceInfoResponse() = default;
+};
+class QueryConferenceInfoByRoomCodeHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  QueryConferenceInfoByRoomCodeHeadersAccountContext() {}
+
+  explicit QueryConferenceInfoByRoomCodeHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~QueryConferenceInfoByRoomCodeHeadersAccountContext() = default;
+};
+class QueryConferenceInfoByRoomCodeHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<QueryConferenceInfoByRoomCodeHeadersAccountContext> accountContext{};
+
+  QueryConferenceInfoByRoomCodeHeaders() {}
+
+  explicit QueryConferenceInfoByRoomCodeHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        QueryConferenceInfoByRoomCodeHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<QueryConferenceInfoByRoomCodeHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryConferenceInfoByRoomCodeHeaders() = default;
+};
+class QueryConferenceInfoByRoomCodeShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  QueryConferenceInfoByRoomCodeShrinkHeaders() {}
+
+  explicit QueryConferenceInfoByRoomCodeShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~QueryConferenceInfoByRoomCodeShrinkHeaders() = default;
+};
+class QueryConferenceInfoByRoomCodeRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  QueryConferenceInfoByRoomCodeRequestTenantContext() {}
+
+  explicit QueryConferenceInfoByRoomCodeRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~QueryConferenceInfoByRoomCodeRequestTenantContext() = default;
+};
+class QueryConferenceInfoByRoomCodeRequest : public Darabonba::Model {
+public:
+  shared_ptr<QueryConferenceInfoByRoomCodeRequestTenantContext> tenantContext{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> roomCode{};
+
+  QueryConferenceInfoByRoomCodeRequest() {}
+
+  explicit QueryConferenceInfoByRoomCodeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (maxResults) {
+      res["maxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    if (roomCode) {
+      res["roomCode"] = boost::any(*roomCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        QueryConferenceInfoByRoomCodeRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<QueryConferenceInfoByRoomCodeRequestTenantContext>(model1);
+      }
+    }
+    if (m.find("maxResults") != m.end() && !m["maxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["maxResults"]));
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("roomCode") != m.end() && !m["roomCode"].empty()) {
+      roomCode = make_shared<string>(boost::any_cast<string>(m["roomCode"]));
+    }
+  }
+
+
+  virtual ~QueryConferenceInfoByRoomCodeRequest() = default;
+};
+class QueryConferenceInfoByRoomCodeShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantContextShrink{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> roomCode{};
+
+  QueryConferenceInfoByRoomCodeShrinkRequest() {}
+
+  explicit QueryConferenceInfoByRoomCodeShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    if (maxResults) {
+      res["maxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    if (roomCode) {
+      res["roomCode"] = boost::any(*roomCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+    if (m.find("maxResults") != m.end() && !m["maxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["maxResults"]));
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("roomCode") != m.end() && !m["roomCode"].empty()) {
+      roomCode = make_shared<string>(boost::any_cast<string>(m["roomCode"]));
+    }
+  }
+
+
+  virtual ~QueryConferenceInfoByRoomCodeShrinkRequest() = default;
+};
+class QueryConferenceInfoByRoomCodeResponseBodyConferenceList : public Darabonba::Model {
+public:
+  shared_ptr<string> bizType{};
+  shared_ptr<long> confDuration{};
+  shared_ptr<string> conferenceId{};
+  shared_ptr<string> creatorId{};
+  shared_ptr<string> creatorNick{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> externalLinkUrl{};
+  shared_ptr<string> roomCode{};
+  shared_ptr<string> scheduleConferenceId{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> status{};
+  shared_ptr<string> title{};
+
+  QueryConferenceInfoByRoomCodeResponseBodyConferenceList() {}
+
+  explicit QueryConferenceInfoByRoomCodeResponseBodyConferenceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizType) {
+      res["BizType"] = boost::any(*bizType);
+    }
+    if (confDuration) {
+      res["ConfDuration"] = boost::any(*confDuration);
+    }
+    if (conferenceId) {
+      res["ConferenceId"] = boost::any(*conferenceId);
+    }
+    if (creatorId) {
+      res["CreatorId"] = boost::any(*creatorId);
+    }
+    if (creatorNick) {
+      res["CreatorNick"] = boost::any(*creatorNick);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (externalLinkUrl) {
+      res["ExternalLinkUrl"] = boost::any(*externalLinkUrl);
+    }
+    if (roomCode) {
+      res["RoomCode"] = boost::any(*roomCode);
+    }
+    if (scheduleConferenceId) {
+      res["ScheduleConferenceId"] = boost::any(*scheduleConferenceId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
+      bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
+    }
+    if (m.find("ConfDuration") != m.end() && !m["ConfDuration"].empty()) {
+      confDuration = make_shared<long>(boost::any_cast<long>(m["ConfDuration"]));
+    }
+    if (m.find("ConferenceId") != m.end() && !m["ConferenceId"].empty()) {
+      conferenceId = make_shared<string>(boost::any_cast<string>(m["ConferenceId"]));
+    }
+    if (m.find("CreatorId") != m.end() && !m["CreatorId"].empty()) {
+      creatorId = make_shared<string>(boost::any_cast<string>(m["CreatorId"]));
+    }
+    if (m.find("CreatorNick") != m.end() && !m["CreatorNick"].empty()) {
+      creatorNick = make_shared<string>(boost::any_cast<string>(m["CreatorNick"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("ExternalLinkUrl") != m.end() && !m["ExternalLinkUrl"].empty()) {
+      externalLinkUrl = make_shared<string>(boost::any_cast<string>(m["ExternalLinkUrl"]));
+    }
+    if (m.find("RoomCode") != m.end() && !m["RoomCode"].empty()) {
+      roomCode = make_shared<string>(boost::any_cast<string>(m["RoomCode"]));
+    }
+    if (m.find("ScheduleConferenceId") != m.end() && !m["ScheduleConferenceId"].empty()) {
+      scheduleConferenceId = make_shared<string>(boost::any_cast<string>(m["ScheduleConferenceId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~QueryConferenceInfoByRoomCodeResponseBodyConferenceList() = default;
+};
+class QueryConferenceInfoByRoomCodeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<QueryConferenceInfoByRoomCodeResponseBodyConferenceList>> conferenceList{};
+  shared_ptr<string> dingtalkRequestId{};
+  shared_ptr<bool> hasMore{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  QueryConferenceInfoByRoomCodeResponseBody() {}
+
+  explicit QueryConferenceInfoByRoomCodeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conferenceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*conferenceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["conferenceList"] = boost::any(temp1);
+    }
+    if (dingtalkRequestId) {
+      res["dingtalkRequestId"] = boost::any(*dingtalkRequestId);
+    }
+    if (hasMore) {
+      res["hasMore"] = boost::any(*hasMore);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["totalCount"] = boost::any(*totalCount);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("conferenceList") != m.end() && !m["conferenceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["conferenceList"].type()) {
+        vector<QueryConferenceInfoByRoomCodeResponseBodyConferenceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["conferenceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryConferenceInfoByRoomCodeResponseBodyConferenceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conferenceList = make_shared<vector<QueryConferenceInfoByRoomCodeResponseBodyConferenceList>>(expect1);
+      }
+    }
+    if (m.find("dingtalkRequestId") != m.end() && !m["dingtalkRequestId"].empty()) {
+      dingtalkRequestId = make_shared<string>(boost::any_cast<string>(m["dingtalkRequestId"]));
+    }
+    if (m.find("hasMore") != m.end() && !m["hasMore"].empty()) {
+      hasMore = make_shared<bool>(boost::any_cast<bool>(m["hasMore"]));
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("totalCount") != m.end() && !m["totalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["totalCount"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~QueryConferenceInfoByRoomCodeResponseBody() = default;
+};
+class QueryConferenceInfoByRoomCodeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryConferenceInfoByRoomCodeResponseBody> body{};
+
+  QueryConferenceInfoByRoomCodeResponse() {}
+
+  explicit QueryConferenceInfoByRoomCodeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryConferenceInfoByRoomCodeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryConferenceInfoByRoomCodeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryConferenceInfoByRoomCodeResponse() = default;
 };
 class QueryConferenceMembersHeadersAccountContext : public Darabonba::Model {
 public:
@@ -95442,6 +96628,99 @@ public:
 
   virtual ~UpdateScheduleConfSettingsShrinkHeaders() = default;
 };
+class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting : public Darabonba::Model {
+public:
+  shared_ptr<bool> isFollowHost{};
+  shared_ptr<string> mode{};
+  shared_ptr<long> recordAutoStart{};
+  shared_ptr<long> recordAutoStartType{};
+
+  UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting() {}
+
+  explicit UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isFollowHost) {
+      res["IsFollowHost"] = boost::any(*isFollowHost);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (recordAutoStart) {
+      res["RecordAutoStart"] = boost::any(*recordAutoStart);
+    }
+    if (recordAutoStartType) {
+      res["RecordAutoStartType"] = boost::any(*recordAutoStartType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsFollowHost") != m.end() && !m["IsFollowHost"].empty()) {
+      isFollowHost = make_shared<bool>(boost::any_cast<bool>(m["IsFollowHost"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("RecordAutoStart") != m.end() && !m["RecordAutoStart"].empty()) {
+      recordAutoStart = make_shared<long>(boost::any_cast<long>(m["RecordAutoStart"]));
+    }
+    if (m.find("RecordAutoStartType") != m.end() && !m["RecordAutoStartType"].empty()) {
+      recordAutoStartType = make_shared<long>(boost::any_cast<long>(m["RecordAutoStartType"]));
+    }
+  }
+
+
+  virtual ~UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting() = default;
+};
+class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings : public Darabonba::Model {
+public:
+  shared_ptr<long> autoOpenMode{};
+  shared_ptr<string> coolAppCode{};
+  shared_ptr<string> extensionAppBizData{};
+
+  UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings() {}
+
+  explicit UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoOpenMode) {
+      res["AutoOpenMode"] = boost::any(*autoOpenMode);
+    }
+    if (coolAppCode) {
+      res["CoolAppCode"] = boost::any(*coolAppCode);
+    }
+    if (extensionAppBizData) {
+      res["ExtensionAppBizData"] = boost::any(*extensionAppBizData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoOpenMode") != m.end() && !m["AutoOpenMode"].empty()) {
+      autoOpenMode = make_shared<long>(boost::any_cast<long>(m["AutoOpenMode"]));
+    }
+    if (m.find("CoolAppCode") != m.end() && !m["CoolAppCode"].empty()) {
+      coolAppCode = make_shared<string>(boost::any_cast<string>(m["CoolAppCode"]));
+    }
+    if (m.find("ExtensionAppBizData") != m.end() && !m["ExtensionAppBizData"].empty()) {
+      extensionAppBizData = make_shared<string>(boost::any_cast<string>(m["ExtensionAppBizData"]));
+    }
+  }
+
+
+  virtual ~UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings() = default;
+};
 class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting : public Darabonba::Model {
 public:
   shared_ptr<string> cloudRecordOwnerUserId{};
@@ -95451,6 +96730,7 @@ public:
   shared_ptr<long> lockMediaStatusMicMute{};
   shared_ptr<long> lockNick{};
   shared_ptr<string> minutesOwnerUserId{};
+  shared_ptr<vector<UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings>> moziConfExtensionAppSettings{};
   shared_ptr<bool> pushAllMeetingRecords{};
   shared_ptr<bool> pushCloudRecordCard{};
   shared_ptr<bool> pushMinutesCard{};
@@ -95486,6 +96766,13 @@ public:
     }
     if (minutesOwnerUserId) {
       res["MinutesOwnerUserId"] = boost::any(*minutesOwnerUserId);
+    }
+    if (moziConfExtensionAppSettings) {
+      vector<boost::any> temp1;
+      for(auto item1:*moziConfExtensionAppSettings){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MoziConfExtensionAppSettings"] = boost::any(temp1);
     }
     if (pushAllMeetingRecords) {
       res["PushAllMeetingRecords"] = boost::any(*pushAllMeetingRecords);
@@ -95524,6 +96811,19 @@ public:
     if (m.find("MinutesOwnerUserId") != m.end() && !m["MinutesOwnerUserId"].empty()) {
       minutesOwnerUserId = make_shared<string>(boost::any_cast<string>(m["MinutesOwnerUserId"]));
     }
+    if (m.find("MoziConfExtensionAppSettings") != m.end() && !m["MoziConfExtensionAppSettings"].empty()) {
+      if (typeid(vector<boost::any>) == m["MoziConfExtensionAppSettings"].type()) {
+        vector<UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MoziConfExtensionAppSettings"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        moziConfExtensionAppSettings = make_shared<vector<UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings>>(expect1);
+      }
+    }
     if (m.find("PushAllMeetingRecords") != m.end() && !m["PushAllMeetingRecords"].empty()) {
       pushAllMeetingRecords = make_shared<bool>(boost::any_cast<bool>(m["PushAllMeetingRecords"]));
     }
@@ -95547,6 +96847,7 @@ public:
   shared_ptr<string> confAllowedCorpId{};
   shared_ptr<string> hostUserId{};
   shared_ptr<long> lockRoom{};
+  shared_ptr<UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting> moziConfOpenRecordSetting{};
   shared_ptr<UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting> moziConfVirtualExtraSetting{};
   shared_ptr<long> muteOnJoin{};
   shared_ptr<long> screenShareForbidden{};
@@ -95572,6 +96873,9 @@ public:
     }
     if (lockRoom) {
       res["LockRoom"] = boost::any(*lockRoom);
+    }
+    if (moziConfOpenRecordSetting) {
+      res["MoziConfOpenRecordSetting"] = moziConfOpenRecordSetting ? boost::any(moziConfOpenRecordSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (moziConfVirtualExtraSetting) {
       res["MoziConfVirtualExtraSetting"] = moziConfVirtualExtraSetting ? boost::any(moziConfVirtualExtraSetting->toMap()) : boost::any(map<string,boost::any>({}));
@@ -95604,6 +96908,13 @@ public:
     }
     if (m.find("LockRoom") != m.end() && !m["LockRoom"].empty()) {
       lockRoom = make_shared<long>(boost::any_cast<long>(m["LockRoom"]));
+    }
+    if (m.find("MoziConfOpenRecordSetting") != m.end() && !m["MoziConfOpenRecordSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MoziConfOpenRecordSetting"].type()) {
+        UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MoziConfOpenRecordSetting"]));
+        moziConfOpenRecordSetting = make_shared<UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting>(model1);
+      }
     }
     if (m.find("MoziConfVirtualExtraSetting") != m.end() && !m["MoziConfVirtualExtraSetting"].empty()) {
       if (typeid(map<string, boost::any>) == m["MoziConfVirtualExtraSetting"].type()) {
@@ -100112,6 +101423,8 @@ public:
   GetOperationRecordsResponse getOperationRecords(shared_ptr<GetOperationRecordsRequest> request);
   GetOrgLiveListResponse getOrgLiveListWithOptions(shared_ptr<GetOrgLiveListRequest> tmpReq, shared_ptr<GetOrgLiveListHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetOrgLiveListResponse getOrgLiveList(shared_ptr<GetOrgLiveListRequest> request);
+  GetOrgOrWebOpenDocContentTaskIdResponse getOrgOrWebOpenDocContentTaskIdWithOptions(shared_ptr<GetOrgOrWebOpenDocContentTaskIdRequest> tmpReq, shared_ptr<GetOrgOrWebOpenDocContentTaskIdHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetOrgOrWebOpenDocContentTaskIdResponse getOrgOrWebOpenDocContentTaskId(shared_ptr<GetOrgOrWebOpenDocContentTaskIdRequest> request);
   GetProcessDefinitionResponse getProcessDefinitionWithOptions(shared_ptr<GetProcessDefinitionRequest> request, shared_ptr<GetProcessDefinitionHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetProcessDefinitionResponse getProcessDefinition(shared_ptr<GetProcessDefinitionRequest> request);
   GetRangeResponse getRangeWithOptions(shared_ptr<GetRangeRequest> tmpReq, shared_ptr<GetRangeHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -100206,6 +101519,8 @@ public:
   QueryCloudRecordVideoPlayInfoResponse queryCloudRecordVideoPlayInfo(shared_ptr<QueryCloudRecordVideoPlayInfoRequest> request);
   QueryConferenceInfoResponse queryConferenceInfoWithOptions(shared_ptr<QueryConferenceInfoRequest> request, shared_ptr<QueryConferenceInfoHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryConferenceInfoResponse queryConferenceInfo(shared_ptr<QueryConferenceInfoRequest> request);
+  QueryConferenceInfoByRoomCodeResponse queryConferenceInfoByRoomCodeWithOptions(shared_ptr<QueryConferenceInfoByRoomCodeRequest> tmpReq, shared_ptr<QueryConferenceInfoByRoomCodeHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryConferenceInfoByRoomCodeResponse queryConferenceInfoByRoomCode(shared_ptr<QueryConferenceInfoByRoomCodeRequest> request);
   QueryConferenceMembersResponse queryConferenceMembersWithOptions(shared_ptr<QueryConferenceMembersRequest> tmpReq, shared_ptr<QueryConferenceMembersHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryConferenceMembersResponse queryConferenceMembers(shared_ptr<QueryConferenceMembersRequest> request);
   QueryDentryResponse queryDentryWithOptions(shared_ptr<QueryDentryRequest> tmpReq, shared_ptr<QueryDentryHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
