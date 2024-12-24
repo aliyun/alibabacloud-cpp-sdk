@@ -397,6 +397,7 @@ class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList : publi
 public:
   shared_ptr<string> componentType{};
   shared_ptr<long> cuNum{};
+  shared_ptr<long> cuRatio{};
   shared_ptr<long> diskSize{};
   shared_ptr<string> diskType{};
   shared_ptr<long> replica{};
@@ -417,6 +418,9 @@ public:
     if (cuNum) {
       res["CuNum"] = boost::any(*cuNum);
     }
+    if (cuRatio) {
+      res["CuRatio"] = boost::any(*cuRatio);
+    }
     if (diskSize) {
       res["DiskSize"] = boost::any(*diskSize);
     }
@@ -435,6 +439,9 @@ public:
     }
     if (m.find("CuNum") != m.end() && !m["CuNum"].empty()) {
       cuNum = make_shared<long>(boost::any_cast<long>(m["CuNum"]));
+    }
+    if (m.find("CuRatio") != m.end() && !m["CuRatio"].empty()) {
+      cuRatio = make_shared<long>(boost::any_cast<long>(m["CuRatio"]));
     }
     if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
       diskSize = make_shared<long>(boost::any_cast<long>(m["DiskSize"]));
@@ -649,10 +656,12 @@ public:
   shared_ptr<string> bucketPath{};
   shared_ptr<GetInstanceDetailResponseBodyDataClusterInfo> clusterInfo{};
   shared_ptr<string> clusterName{};
+  shared_ptr<bool> enableHa{};
   shared_ptr<long> expireTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceStatus{};
   shared_ptr<GetInstanceDetailResponseBodyDataMeasureConfig> measureConfig{};
+  shared_ptr<string> nodeType{};
   shared_ptr<bool> openPublicNet{};
   shared_ptr<string> packageType{};
   shared_ptr<long> payType{};
@@ -696,6 +705,9 @@ public:
     if (clusterName) {
       res["ClusterName"] = boost::any(*clusterName);
     }
+    if (enableHa) {
+      res["EnableHa"] = boost::any(*enableHa);
+    }
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
     }
@@ -707,6 +719,9 @@ public:
     }
     if (measureConfig) {
       res["MeasureConfig"] = measureConfig ? boost::any(measureConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (nodeType) {
+      res["NodeType"] = boost::any(*nodeType);
     }
     if (openPublicNet) {
       res["OpenPublicNet"] = boost::any(*openPublicNet);
@@ -776,6 +791,9 @@ public:
     if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
       clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
     }
+    if (m.find("EnableHa") != m.end() && !m["EnableHa"].empty()) {
+      enableHa = make_shared<bool>(boost::any_cast<bool>(m["EnableHa"]));
+    }
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<long>(boost::any_cast<long>(m["ExpireTime"]));
     }
@@ -791,6 +809,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MeasureConfig"]));
         measureConfig = make_shared<GetInstanceDetailResponseBodyDataMeasureConfig>(model1);
       }
+    }
+    if (m.find("NodeType") != m.end() && !m["NodeType"].empty()) {
+      nodeType = make_shared<string>(boost::any_cast<string>(m["NodeType"]));
     }
     if (m.find("OpenPublicNet") != m.end() && !m["OpenPublicNet"].empty()) {
       openPublicNet = make_shared<bool>(boost::any_cast<bool>(m["OpenPublicNet"]));
@@ -1180,6 +1201,7 @@ public:
   shared_ptr<long> expireTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceStatus{};
+  shared_ptr<string> nodeType{};
   shared_ptr<bool> openPublicNet{};
   shared_ptr<string> packageType{};
   shared_ptr<long> payType{};
@@ -1219,6 +1241,9 @@ public:
     }
     if (instanceStatus) {
       res["InstanceStatus"] = boost::any(*instanceStatus);
+    }
+    if (nodeType) {
+      res["NodeType"] = boost::any(*nodeType);
     }
     if (openPublicNet) {
       res["OpenPublicNet"] = boost::any(*openPublicNet);
@@ -1278,6 +1303,9 @@ public:
     }
     if (m.find("InstanceStatus") != m.end() && !m["InstanceStatus"].empty()) {
       instanceStatus = make_shared<string>(boost::any_cast<string>(m["InstanceStatus"]));
+    }
+    if (m.find("NodeType") != m.end() && !m["NodeType"].empty()) {
+      nodeType = make_shared<string>(boost::any_cast<string>(m["NodeType"]));
     }
     if (m.find("OpenPublicNet") != m.end() && !m["OpenPublicNet"].empty()) {
       openPublicNet = make_shared<bool>(boost::any_cast<bool>(m["OpenPublicNet"]));
