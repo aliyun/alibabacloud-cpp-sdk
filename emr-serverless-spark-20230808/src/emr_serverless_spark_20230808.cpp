@@ -109,6 +109,98 @@ CancelJobRunResponse Alibabacloud_Emr-serverless-spark20230808::Client::cancelJo
   return cancelJobRunWithOptions(workspaceId, jobRunId, request, headers, runtime);
 }
 
+CreateProcessDefinitionWithScheduleResponse Alibabacloud_Emr-serverless-spark20230808::Client::createProcessDefinitionWithScheduleWithOptions(shared_ptr<string> bizId,
+                                                                                                                                              shared_ptr<CreateProcessDefinitionWithScheduleRequest> tmpReq,
+                                                                                                                                              shared_ptr<map<string, string>> headers,
+                                                                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateProcessDefinitionWithScheduleShrinkRequest> request = make_shared<CreateProcessDefinitionWithScheduleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateProcessDefinitionWithScheduleRequestSchedule>(tmpReq->schedule)) {
+    request->scheduleShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->schedule, make_shared<string>("schedule"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateProcessDefinitionWithScheduleRequestTaskDefinitionJson>>(tmpReq->taskDefinitionJson)) {
+    request->taskDefinitionJsonShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->taskDefinitionJson, make_shared<string>("taskDefinitionJson"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateProcessDefinitionWithScheduleRequestTaskRelationJson>>(tmpReq->taskRelationJson)) {
+    request->taskRelationJsonShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->taskRelationJson, make_shared<string>("taskRelationJson"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertEmailAddress)) {
+    query->insert(pair<string, string>("alertEmailAddress", *request->alertEmailAddress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->executionType)) {
+    query->insert(pair<string, string>("executionType", *request->executionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productNamespace)) {
+    query->insert(pair<string, string>("productNamespace", *request->productNamespace));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->publish)) {
+    query->insert(pair<string, bool>("publish", *request->publish));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceQueue)) {
+    query->insert(pair<string, string>("resourceQueue", *request->resourceQueue));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->retryTimes)) {
+    query->insert(pair<string, long>("retryTimes", *request->retryTimes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->runAs)) {
+    query->insert(pair<string, string>("runAs", *request->runAs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleShrink)) {
+    query->insert(pair<string, string>("schedule", *request->scheduleShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("tags", *request->tagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskDefinitionJsonShrink)) {
+    query->insert(pair<string, string>("taskDefinitionJson", *request->taskDefinitionJsonShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->taskParallelism)) {
+    query->insert(pair<string, long>("taskParallelism", *request->taskParallelism));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskRelationJsonShrink)) {
+    query->insert(pair<string, string>("taskRelationJson", *request->taskRelationJsonShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->timeout)) {
+    query->insert(pair<string, long>("timeout", *request->timeout));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateProcessDefinitionWithSchedule"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dolphinscheduler/projects/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(bizId)) + string("/process-definition"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateProcessDefinitionWithScheduleResponse(callApi(params, req, runtime));
+}
+
+CreateProcessDefinitionWithScheduleResponse Alibabacloud_Emr-serverless-spark20230808::Client::createProcessDefinitionWithSchedule(shared_ptr<string> bizId, shared_ptr<CreateProcessDefinitionWithScheduleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createProcessDefinitionWithScheduleWithOptions(bizId, request, headers, runtime);
+}
+
 CreateSqlStatementResponse Alibabacloud_Emr-serverless-spark20230808::Client::createSqlStatementWithOptions(shared_ptr<string> workspaceId,
                                                                                                             shared_ptr<CreateSqlStatementRequest> request,
                                                                                                             shared_ptr<map<string, string>> headers,
@@ -696,6 +788,57 @@ StartJobRunResponse Alibabacloud_Emr-serverless-spark20230808::Client::startJobR
   return startJobRunWithOptions(workspaceId, request, headers, runtime);
 }
 
+StartProcessInstanceResponse Alibabacloud_Emr-serverless-spark20230808::Client::startProcessInstanceWithOptions(shared_ptr<string> bizId,
+                                                                                                                shared_ptr<StartProcessInstanceRequest> request,
+                                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isProd)) {
+    query->insert(pair<string, bool>("isProd", *request->isProd));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->processDefinitionCode)) {
+    query->insert(pair<string, long>("processDefinitionCode", *request->processDefinitionCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productNamespace)) {
+    query->insert(pair<string, string>("productNamespace", *request->productNamespace));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->runtimeQueue)) {
+    query->insert(pair<string, string>("runtimeQueue", *request->runtimeQueue));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->versionHashCode)) {
+    query->insert(pair<string, string>("versionHashCode", *request->versionHashCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->versionNumber)) {
+    query->insert(pair<string, long>("versionNumber", *request->versionNumber));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartProcessInstance"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dolphinscheduler/projects/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(bizId)) + string("/executors/start-process-instance"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartProcessInstanceResponse(callApi(params, req, runtime));
+}
+
+StartProcessInstanceResponse Alibabacloud_Emr-serverless-spark20230808::Client::startProcessInstance(shared_ptr<string> bizId, shared_ptr<StartProcessInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return startProcessInstanceWithOptions(bizId, request, headers, runtime);
+}
+
 StartSessionClusterResponse Alibabacloud_Emr-serverless-spark20230808::Client::startSessionClusterWithOptions(shared_ptr<string> workspaceId,
                                                                                                               shared_ptr<StartSessionClusterRequest> request,
                                                                                                               shared_ptr<map<string, string>> headers,
@@ -810,5 +953,101 @@ TerminateSqlStatementResponse Alibabacloud_Emr-serverless-spark20230808::Client:
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return terminateSqlStatementWithOptions(workspaceId, statementId, request, headers, runtime);
+}
+
+UpdateProcessDefinitionWithScheduleResponse Alibabacloud_Emr-serverless-spark20230808::Client::updateProcessDefinitionWithScheduleWithOptions(shared_ptr<string> bizId,
+                                                                                                                                              shared_ptr<string> code,
+                                                                                                                                              shared_ptr<UpdateProcessDefinitionWithScheduleRequest> tmpReq,
+                                                                                                                                              shared_ptr<map<string, string>> headers,
+                                                                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateProcessDefinitionWithScheduleShrinkRequest> request = make_shared<UpdateProcessDefinitionWithScheduleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateProcessDefinitionWithScheduleRequestSchedule>(tmpReq->schedule)) {
+    request->scheduleShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->schedule, make_shared<string>("schedule"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson>>(tmpReq->taskDefinitionJson)) {
+    request->taskDefinitionJsonShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->taskDefinitionJson, make_shared<string>("taskDefinitionJson"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateProcessDefinitionWithScheduleRequestTaskRelationJson>>(tmpReq->taskRelationJson)) {
+    request->taskRelationJsonShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->taskRelationJson, make_shared<string>("taskRelationJson"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertEmailAddress)) {
+    query->insert(pair<string, string>("alertEmailAddress", *request->alertEmailAddress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->executionType)) {
+    query->insert(pair<string, string>("executionType", *request->executionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productNamespace)) {
+    query->insert(pair<string, string>("productNamespace", *request->productNamespace));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->publish)) {
+    query->insert(pair<string, bool>("publish", *request->publish));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->releaseState)) {
+    query->insert(pair<string, string>("releaseState", *request->releaseState));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceQueue)) {
+    query->insert(pair<string, string>("resourceQueue", *request->resourceQueue));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->retryTimes)) {
+    query->insert(pair<string, long>("retryTimes", *request->retryTimes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->runAs)) {
+    query->insert(pair<string, string>("runAs", *request->runAs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleShrink)) {
+    query->insert(pair<string, string>("schedule", *request->scheduleShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("tags", *request->tagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskDefinitionJsonShrink)) {
+    query->insert(pair<string, string>("taskDefinitionJson", *request->taskDefinitionJsonShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->taskParallelism)) {
+    query->insert(pair<string, long>("taskParallelism", *request->taskParallelism));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskRelationJsonShrink)) {
+    query->insert(pair<string, string>("taskRelationJson", *request->taskRelationJsonShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->timeout)) {
+    query->insert(pair<string, long>("timeout", *request->timeout));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateProcessDefinitionWithSchedule"))},
+    {"version", boost::any(string("2023-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dolphinscheduler/projects/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(bizId)) + string("/process-definition/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(code)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateProcessDefinitionWithScheduleResponse(callApi(params, req, runtime));
+}
+
+UpdateProcessDefinitionWithScheduleResponse Alibabacloud_Emr-serverless-spark20230808::Client::updateProcessDefinitionWithSchedule(shared_ptr<string> bizId, shared_ptr<string> code, shared_ptr<UpdateProcessDefinitionWithScheduleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateProcessDefinitionWithScheduleWithOptions(bizId, code, request, headers, runtime);
 }
 

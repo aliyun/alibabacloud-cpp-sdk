@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_EMR-SERVERLESS-SPARK20230808_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1979,6 +1980,866 @@ public:
 
 
   virtual ~CancelJobRunResponse() = default;
+};
+class CreateProcessDefinitionWithScheduleRequestSchedule : public Darabonba::Model {
+public:
+  shared_ptr<string> crontab{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> timezoneId{};
+
+  CreateProcessDefinitionWithScheduleRequestSchedule() {}
+
+  explicit CreateProcessDefinitionWithScheduleRequestSchedule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (crontab) {
+      res["crontab"] = boost::any(*crontab);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (timezoneId) {
+      res["timezoneId"] = boost::any(*timezoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("crontab") != m.end() && !m["crontab"].empty()) {
+      crontab = make_shared<string>(boost::any_cast<string>(m["crontab"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+    if (m.find("timezoneId") != m.end() && !m["timezoneId"].empty()) {
+      timezoneId = make_shared<string>(boost::any_cast<string>(m["timezoneId"]));
+    }
+  }
+
+
+  virtual ~CreateProcessDefinitionWithScheduleRequestSchedule() = default;
+};
+class CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf() {}
+
+  explicit CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["key"] = boost::any(*key);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf() = default;
+};
+class CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams : public Darabonba::Model {
+public:
+  shared_ptr<string> displaySparkVersion{};
+  shared_ptr<string> environmentId{};
+  shared_ptr<bool> fusion{};
+  shared_ptr<string> resourceQueueId{};
+  shared_ptr<vector<CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf>> sparkConf{};
+  shared_ptr<long> sparkDriverCores{};
+  shared_ptr<long> sparkDriverMemory{};
+  shared_ptr<long> sparkExecutorCores{};
+  shared_ptr<long> sparkExecutorMemory{};
+  shared_ptr<string> sparkLogLevel{};
+  shared_ptr<string> sparkLogPath{};
+  shared_ptr<string> sparkVersion{};
+  shared_ptr<string> taskBizId{};
+  shared_ptr<string> type{};
+  shared_ptr<string> workspaceBizId{};
+
+  CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams() {}
+
+  explicit CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (displaySparkVersion) {
+      res["displaySparkVersion"] = boost::any(*displaySparkVersion);
+    }
+    if (environmentId) {
+      res["environmentId"] = boost::any(*environmentId);
+    }
+    if (fusion) {
+      res["fusion"] = boost::any(*fusion);
+    }
+    if (resourceQueueId) {
+      res["resourceQueueId"] = boost::any(*resourceQueueId);
+    }
+    if (sparkConf) {
+      vector<boost::any> temp1;
+      for(auto item1:*sparkConf){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["sparkConf"] = boost::any(temp1);
+    }
+    if (sparkDriverCores) {
+      res["sparkDriverCores"] = boost::any(*sparkDriverCores);
+    }
+    if (sparkDriverMemory) {
+      res["sparkDriverMemory"] = boost::any(*sparkDriverMemory);
+    }
+    if (sparkExecutorCores) {
+      res["sparkExecutorCores"] = boost::any(*sparkExecutorCores);
+    }
+    if (sparkExecutorMemory) {
+      res["sparkExecutorMemory"] = boost::any(*sparkExecutorMemory);
+    }
+    if (sparkLogLevel) {
+      res["sparkLogLevel"] = boost::any(*sparkLogLevel);
+    }
+    if (sparkLogPath) {
+      res["sparkLogPath"] = boost::any(*sparkLogPath);
+    }
+    if (sparkVersion) {
+      res["sparkVersion"] = boost::any(*sparkVersion);
+    }
+    if (taskBizId) {
+      res["taskBizId"] = boost::any(*taskBizId);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (workspaceBizId) {
+      res["workspaceBizId"] = boost::any(*workspaceBizId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("displaySparkVersion") != m.end() && !m["displaySparkVersion"].empty()) {
+      displaySparkVersion = make_shared<string>(boost::any_cast<string>(m["displaySparkVersion"]));
+    }
+    if (m.find("environmentId") != m.end() && !m["environmentId"].empty()) {
+      environmentId = make_shared<string>(boost::any_cast<string>(m["environmentId"]));
+    }
+    if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
+      fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
+    }
+    if (m.find("resourceQueueId") != m.end() && !m["resourceQueueId"].empty()) {
+      resourceQueueId = make_shared<string>(boost::any_cast<string>(m["resourceQueueId"]));
+    }
+    if (m.find("sparkConf") != m.end() && !m["sparkConf"].empty()) {
+      if (typeid(vector<boost::any>) == m["sparkConf"].type()) {
+        vector<CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["sparkConf"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sparkConf = make_shared<vector<CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf>>(expect1);
+      }
+    }
+    if (m.find("sparkDriverCores") != m.end() && !m["sparkDriverCores"].empty()) {
+      sparkDriverCores = make_shared<long>(boost::any_cast<long>(m["sparkDriverCores"]));
+    }
+    if (m.find("sparkDriverMemory") != m.end() && !m["sparkDriverMemory"].empty()) {
+      sparkDriverMemory = make_shared<long>(boost::any_cast<long>(m["sparkDriverMemory"]));
+    }
+    if (m.find("sparkExecutorCores") != m.end() && !m["sparkExecutorCores"].empty()) {
+      sparkExecutorCores = make_shared<long>(boost::any_cast<long>(m["sparkExecutorCores"]));
+    }
+    if (m.find("sparkExecutorMemory") != m.end() && !m["sparkExecutorMemory"].empty()) {
+      sparkExecutorMemory = make_shared<long>(boost::any_cast<long>(m["sparkExecutorMemory"]));
+    }
+    if (m.find("sparkLogLevel") != m.end() && !m["sparkLogLevel"].empty()) {
+      sparkLogLevel = make_shared<string>(boost::any_cast<string>(m["sparkLogLevel"]));
+    }
+    if (m.find("sparkLogPath") != m.end() && !m["sparkLogPath"].empty()) {
+      sparkLogPath = make_shared<string>(boost::any_cast<string>(m["sparkLogPath"]));
+    }
+    if (m.find("sparkVersion") != m.end() && !m["sparkVersion"].empty()) {
+      sparkVersion = make_shared<string>(boost::any_cast<string>(m["sparkVersion"]));
+    }
+    if (m.find("taskBizId") != m.end() && !m["taskBizId"].empty()) {
+      taskBizId = make_shared<string>(boost::any_cast<string>(m["taskBizId"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("workspaceBizId") != m.end() && !m["workspaceBizId"].empty()) {
+      workspaceBizId = make_shared<string>(boost::any_cast<string>(m["workspaceBizId"]));
+    }
+  }
+
+
+  virtual ~CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams() = default;
+};
+class CreateProcessDefinitionWithScheduleRequestTaskDefinitionJson : public Darabonba::Model {
+public:
+  shared_ptr<string> alertEmailAddress{};
+  shared_ptr<long> code{};
+  shared_ptr<string> description{};
+  shared_ptr<bool> failAlertEnable{};
+  shared_ptr<long> failRetryTimes{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> startAlertEnable{};
+  shared_ptr<map<string, string>> tags{};
+  shared_ptr<CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams> taskParams{};
+  shared_ptr<string> taskType{};
+  shared_ptr<long> timeout{};
+
+  CreateProcessDefinitionWithScheduleRequestTaskDefinitionJson() {}
+
+  explicit CreateProcessDefinitionWithScheduleRequestTaskDefinitionJson(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertEmailAddress) {
+      res["alertEmailAddress"] = boost::any(*alertEmailAddress);
+    }
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (failAlertEnable) {
+      res["failAlertEnable"] = boost::any(*failAlertEnable);
+    }
+    if (failRetryTimes) {
+      res["failRetryTimes"] = boost::any(*failRetryTimes);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (startAlertEnable) {
+      res["startAlertEnable"] = boost::any(*startAlertEnable);
+    }
+    if (tags) {
+      res["tags"] = boost::any(*tags);
+    }
+    if (taskParams) {
+      res["taskParams"] = taskParams ? boost::any(taskParams->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (taskType) {
+      res["taskType"] = boost::any(*taskType);
+    }
+    if (timeout) {
+      res["timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("alertEmailAddress") != m.end() && !m["alertEmailAddress"].empty()) {
+      alertEmailAddress = make_shared<string>(boost::any_cast<string>(m["alertEmailAddress"]));
+    }
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("failAlertEnable") != m.end() && !m["failAlertEnable"].empty()) {
+      failAlertEnable = make_shared<bool>(boost::any_cast<bool>(m["failAlertEnable"]));
+    }
+    if (m.find("failRetryTimes") != m.end() && !m["failRetryTimes"].empty()) {
+      failRetryTimes = make_shared<long>(boost::any_cast<long>(m["failRetryTimes"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("startAlertEnable") != m.end() && !m["startAlertEnable"].empty()) {
+      startAlertEnable = make_shared<bool>(boost::any_cast<bool>(m["startAlertEnable"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["tags"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("taskParams") != m.end() && !m["taskParams"].empty()) {
+      if (typeid(map<string, boost::any>) == m["taskParams"].type()) {
+        CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["taskParams"]));
+        taskParams = make_shared<CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams>(model1);
+      }
+    }
+    if (m.find("taskType") != m.end() && !m["taskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["taskType"]));
+    }
+    if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
+    }
+  }
+
+
+  virtual ~CreateProcessDefinitionWithScheduleRequestTaskDefinitionJson() = default;
+};
+class CreateProcessDefinitionWithScheduleRequestTaskRelationJson : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<long> postTaskCode{};
+  shared_ptr<long> postTaskVersion{};
+  shared_ptr<long> preTaskCode{};
+  shared_ptr<long> preTaskVersion{};
+
+  CreateProcessDefinitionWithScheduleRequestTaskRelationJson() {}
+
+  explicit CreateProcessDefinitionWithScheduleRequestTaskRelationJson(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (postTaskCode) {
+      res["postTaskCode"] = boost::any(*postTaskCode);
+    }
+    if (postTaskVersion) {
+      res["postTaskVersion"] = boost::any(*postTaskVersion);
+    }
+    if (preTaskCode) {
+      res["preTaskCode"] = boost::any(*preTaskCode);
+    }
+    if (preTaskVersion) {
+      res["preTaskVersion"] = boost::any(*preTaskVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("postTaskCode") != m.end() && !m["postTaskCode"].empty()) {
+      postTaskCode = make_shared<long>(boost::any_cast<long>(m["postTaskCode"]));
+    }
+    if (m.find("postTaskVersion") != m.end() && !m["postTaskVersion"].empty()) {
+      postTaskVersion = make_shared<long>(boost::any_cast<long>(m["postTaskVersion"]));
+    }
+    if (m.find("preTaskCode") != m.end() && !m["preTaskCode"].empty()) {
+      preTaskCode = make_shared<long>(boost::any_cast<long>(m["preTaskCode"]));
+    }
+    if (m.find("preTaskVersion") != m.end() && !m["preTaskVersion"].empty()) {
+      preTaskVersion = make_shared<long>(boost::any_cast<long>(m["preTaskVersion"]));
+    }
+  }
+
+
+  virtual ~CreateProcessDefinitionWithScheduleRequestTaskRelationJson() = default;
+};
+class CreateProcessDefinitionWithScheduleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> alertEmailAddress{};
+  shared_ptr<string> description{};
+  shared_ptr<string> executionType{};
+  shared_ptr<string> name{};
+  shared_ptr<string> productNamespace{};
+  shared_ptr<bool> publish{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceQueue{};
+  shared_ptr<long> retryTimes{};
+  shared_ptr<string> runAs{};
+  shared_ptr<CreateProcessDefinitionWithScheduleRequestSchedule> schedule{};
+  shared_ptr<map<string, string>> tags{};
+  shared_ptr<vector<CreateProcessDefinitionWithScheduleRequestTaskDefinitionJson>> taskDefinitionJson{};
+  shared_ptr<long> taskParallelism{};
+  shared_ptr<vector<CreateProcessDefinitionWithScheduleRequestTaskRelationJson>> taskRelationJson{};
+  shared_ptr<long> timeout{};
+
+  CreateProcessDefinitionWithScheduleRequest() {}
+
+  explicit CreateProcessDefinitionWithScheduleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertEmailAddress) {
+      res["alertEmailAddress"] = boost::any(*alertEmailAddress);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (executionType) {
+      res["executionType"] = boost::any(*executionType);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (productNamespace) {
+      res["productNamespace"] = boost::any(*productNamespace);
+    }
+    if (publish) {
+      res["publish"] = boost::any(*publish);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    if (resourceQueue) {
+      res["resourceQueue"] = boost::any(*resourceQueue);
+    }
+    if (retryTimes) {
+      res["retryTimes"] = boost::any(*retryTimes);
+    }
+    if (runAs) {
+      res["runAs"] = boost::any(*runAs);
+    }
+    if (schedule) {
+      res["schedule"] = schedule ? boost::any(schedule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tags) {
+      res["tags"] = boost::any(*tags);
+    }
+    if (taskDefinitionJson) {
+      vector<boost::any> temp1;
+      for(auto item1:*taskDefinitionJson){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["taskDefinitionJson"] = boost::any(temp1);
+    }
+    if (taskParallelism) {
+      res["taskParallelism"] = boost::any(*taskParallelism);
+    }
+    if (taskRelationJson) {
+      vector<boost::any> temp1;
+      for(auto item1:*taskRelationJson){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["taskRelationJson"] = boost::any(temp1);
+    }
+    if (timeout) {
+      res["timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("alertEmailAddress") != m.end() && !m["alertEmailAddress"].empty()) {
+      alertEmailAddress = make_shared<string>(boost::any_cast<string>(m["alertEmailAddress"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("executionType") != m.end() && !m["executionType"].empty()) {
+      executionType = make_shared<string>(boost::any_cast<string>(m["executionType"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("productNamespace") != m.end() && !m["productNamespace"].empty()) {
+      productNamespace = make_shared<string>(boost::any_cast<string>(m["productNamespace"]));
+    }
+    if (m.find("publish") != m.end() && !m["publish"].empty()) {
+      publish = make_shared<bool>(boost::any_cast<bool>(m["publish"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+    if (m.find("resourceQueue") != m.end() && !m["resourceQueue"].empty()) {
+      resourceQueue = make_shared<string>(boost::any_cast<string>(m["resourceQueue"]));
+    }
+    if (m.find("retryTimes") != m.end() && !m["retryTimes"].empty()) {
+      retryTimes = make_shared<long>(boost::any_cast<long>(m["retryTimes"]));
+    }
+    if (m.find("runAs") != m.end() && !m["runAs"].empty()) {
+      runAs = make_shared<string>(boost::any_cast<string>(m["runAs"]));
+    }
+    if (m.find("schedule") != m.end() && !m["schedule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["schedule"].type()) {
+        CreateProcessDefinitionWithScheduleRequestSchedule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["schedule"]));
+        schedule = make_shared<CreateProcessDefinitionWithScheduleRequestSchedule>(model1);
+      }
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["tags"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("taskDefinitionJson") != m.end() && !m["taskDefinitionJson"].empty()) {
+      if (typeid(vector<boost::any>) == m["taskDefinitionJson"].type()) {
+        vector<CreateProcessDefinitionWithScheduleRequestTaskDefinitionJson> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["taskDefinitionJson"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProcessDefinitionWithScheduleRequestTaskDefinitionJson model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        taskDefinitionJson = make_shared<vector<CreateProcessDefinitionWithScheduleRequestTaskDefinitionJson>>(expect1);
+      }
+    }
+    if (m.find("taskParallelism") != m.end() && !m["taskParallelism"].empty()) {
+      taskParallelism = make_shared<long>(boost::any_cast<long>(m["taskParallelism"]));
+    }
+    if (m.find("taskRelationJson") != m.end() && !m["taskRelationJson"].empty()) {
+      if (typeid(vector<boost::any>) == m["taskRelationJson"].type()) {
+        vector<CreateProcessDefinitionWithScheduleRequestTaskRelationJson> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["taskRelationJson"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProcessDefinitionWithScheduleRequestTaskRelationJson model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        taskRelationJson = make_shared<vector<CreateProcessDefinitionWithScheduleRequestTaskRelationJson>>(expect1);
+      }
+    }
+    if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
+    }
+  }
+
+
+  virtual ~CreateProcessDefinitionWithScheduleRequest() = default;
+};
+class CreateProcessDefinitionWithScheduleShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> alertEmailAddress{};
+  shared_ptr<string> description{};
+  shared_ptr<string> executionType{};
+  shared_ptr<string> name{};
+  shared_ptr<string> productNamespace{};
+  shared_ptr<bool> publish{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceQueue{};
+  shared_ptr<long> retryTimes{};
+  shared_ptr<string> runAs{};
+  shared_ptr<string> scheduleShrink{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> taskDefinitionJsonShrink{};
+  shared_ptr<long> taskParallelism{};
+  shared_ptr<string> taskRelationJsonShrink{};
+  shared_ptr<long> timeout{};
+
+  CreateProcessDefinitionWithScheduleShrinkRequest() {}
+
+  explicit CreateProcessDefinitionWithScheduleShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertEmailAddress) {
+      res["alertEmailAddress"] = boost::any(*alertEmailAddress);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (executionType) {
+      res["executionType"] = boost::any(*executionType);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (productNamespace) {
+      res["productNamespace"] = boost::any(*productNamespace);
+    }
+    if (publish) {
+      res["publish"] = boost::any(*publish);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    if (resourceQueue) {
+      res["resourceQueue"] = boost::any(*resourceQueue);
+    }
+    if (retryTimes) {
+      res["retryTimes"] = boost::any(*retryTimes);
+    }
+    if (runAs) {
+      res["runAs"] = boost::any(*runAs);
+    }
+    if (scheduleShrink) {
+      res["schedule"] = boost::any(*scheduleShrink);
+    }
+    if (tagsShrink) {
+      res["tags"] = boost::any(*tagsShrink);
+    }
+    if (taskDefinitionJsonShrink) {
+      res["taskDefinitionJson"] = boost::any(*taskDefinitionJsonShrink);
+    }
+    if (taskParallelism) {
+      res["taskParallelism"] = boost::any(*taskParallelism);
+    }
+    if (taskRelationJsonShrink) {
+      res["taskRelationJson"] = boost::any(*taskRelationJsonShrink);
+    }
+    if (timeout) {
+      res["timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("alertEmailAddress") != m.end() && !m["alertEmailAddress"].empty()) {
+      alertEmailAddress = make_shared<string>(boost::any_cast<string>(m["alertEmailAddress"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("executionType") != m.end() && !m["executionType"].empty()) {
+      executionType = make_shared<string>(boost::any_cast<string>(m["executionType"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("productNamespace") != m.end() && !m["productNamespace"].empty()) {
+      productNamespace = make_shared<string>(boost::any_cast<string>(m["productNamespace"]));
+    }
+    if (m.find("publish") != m.end() && !m["publish"].empty()) {
+      publish = make_shared<bool>(boost::any_cast<bool>(m["publish"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+    if (m.find("resourceQueue") != m.end() && !m["resourceQueue"].empty()) {
+      resourceQueue = make_shared<string>(boost::any_cast<string>(m["resourceQueue"]));
+    }
+    if (m.find("retryTimes") != m.end() && !m["retryTimes"].empty()) {
+      retryTimes = make_shared<long>(boost::any_cast<long>(m["retryTimes"]));
+    }
+    if (m.find("runAs") != m.end() && !m["runAs"].empty()) {
+      runAs = make_shared<string>(boost::any_cast<string>(m["runAs"]));
+    }
+    if (m.find("schedule") != m.end() && !m["schedule"].empty()) {
+      scheduleShrink = make_shared<string>(boost::any_cast<string>(m["schedule"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["tags"]));
+    }
+    if (m.find("taskDefinitionJson") != m.end() && !m["taskDefinitionJson"].empty()) {
+      taskDefinitionJsonShrink = make_shared<string>(boost::any_cast<string>(m["taskDefinitionJson"]));
+    }
+    if (m.find("taskParallelism") != m.end() && !m["taskParallelism"].empty()) {
+      taskParallelism = make_shared<long>(boost::any_cast<long>(m["taskParallelism"]));
+    }
+    if (m.find("taskRelationJson") != m.end() && !m["taskRelationJson"].empty()) {
+      taskRelationJsonShrink = make_shared<string>(boost::any_cast<string>(m["taskRelationJson"]));
+    }
+    if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
+    }
+  }
+
+
+  virtual ~CreateProcessDefinitionWithScheduleShrinkRequest() = default;
+};
+class CreateProcessDefinitionWithScheduleResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<long> id{};
+
+  CreateProcessDefinitionWithScheduleResponseBodyData() {}
+
+  explicit CreateProcessDefinitionWithScheduleResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+  }
+
+
+  virtual ~CreateProcessDefinitionWithScheduleResponseBodyData() = default;
+};
+class CreateProcessDefinitionWithScheduleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<CreateProcessDefinitionWithScheduleResponseBodyData> data{};
+  shared_ptr<string> failed{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> msg{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  CreateProcessDefinitionWithScheduleResponseBody() {}
+
+  explicit CreateProcessDefinitionWithScheduleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (failed) {
+      res["failed"] = boost::any(*failed);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (msg) {
+      res["msg"] = boost::any(*msg);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        CreateProcessDefinitionWithScheduleResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<CreateProcessDefinitionWithScheduleResponseBodyData>(model1);
+      }
+    }
+    if (m.find("failed") != m.end() && !m["failed"].empty()) {
+      failed = make_shared<string>(boost::any_cast<string>(m["failed"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("msg") != m.end() && !m["msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["msg"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["success"]));
+    }
+  }
+
+
+  virtual ~CreateProcessDefinitionWithScheduleResponseBody() = default;
+};
+class CreateProcessDefinitionWithScheduleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateProcessDefinitionWithScheduleResponseBody> body{};
+
+  CreateProcessDefinitionWithScheduleResponse() {}
+
+  explicit CreateProcessDefinitionWithScheduleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateProcessDefinitionWithScheduleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateProcessDefinitionWithScheduleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateProcessDefinitionWithScheduleResponse() = default;
 };
 class CreateSqlStatementRequest : public Darabonba::Model {
 public:
@@ -6377,6 +7238,200 @@ public:
 
   virtual ~StartJobRunResponse() = default;
 };
+class StartProcessInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> isProd{};
+  shared_ptr<long> processDefinitionCode{};
+  shared_ptr<string> productNamespace{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> runtimeQueue{};
+  shared_ptr<string> versionHashCode{};
+  shared_ptr<long> versionNumber{};
+
+  StartProcessInstanceRequest() {}
+
+  explicit StartProcessInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isProd) {
+      res["isProd"] = boost::any(*isProd);
+    }
+    if (processDefinitionCode) {
+      res["processDefinitionCode"] = boost::any(*processDefinitionCode);
+    }
+    if (productNamespace) {
+      res["productNamespace"] = boost::any(*productNamespace);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    if (runtimeQueue) {
+      res["runtimeQueue"] = boost::any(*runtimeQueue);
+    }
+    if (versionHashCode) {
+      res["versionHashCode"] = boost::any(*versionHashCode);
+    }
+    if (versionNumber) {
+      res["versionNumber"] = boost::any(*versionNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("isProd") != m.end() && !m["isProd"].empty()) {
+      isProd = make_shared<bool>(boost::any_cast<bool>(m["isProd"]));
+    }
+    if (m.find("processDefinitionCode") != m.end() && !m["processDefinitionCode"].empty()) {
+      processDefinitionCode = make_shared<long>(boost::any_cast<long>(m["processDefinitionCode"]));
+    }
+    if (m.find("productNamespace") != m.end() && !m["productNamespace"].empty()) {
+      productNamespace = make_shared<string>(boost::any_cast<string>(m["productNamespace"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+    if (m.find("runtimeQueue") != m.end() && !m["runtimeQueue"].empty()) {
+      runtimeQueue = make_shared<string>(boost::any_cast<string>(m["runtimeQueue"]));
+    }
+    if (m.find("versionHashCode") != m.end() && !m["versionHashCode"].empty()) {
+      versionHashCode = make_shared<string>(boost::any_cast<string>(m["versionHashCode"]));
+    }
+    if (m.find("versionNumber") != m.end() && !m["versionNumber"].empty()) {
+      versionNumber = make_shared<long>(boost::any_cast<long>(m["versionNumber"]));
+    }
+  }
+
+
+  virtual ~StartProcessInstanceRequest() = default;
+};
+class StartProcessInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<boost::any> data{};
+  shared_ptr<bool> failed{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> msg{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  StartProcessInstanceResponseBody() {}
+
+  explicit StartProcessInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (failed) {
+      res["failed"] = boost::any(*failed);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (msg) {
+      res["msg"] = boost::any(*msg);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["data"]));
+    }
+    if (m.find("failed") != m.end() && !m["failed"].empty()) {
+      failed = make_shared<bool>(boost::any_cast<bool>(m["failed"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("msg") != m.end() && !m["msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["msg"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~StartProcessInstanceResponseBody() = default;
+};
+class StartProcessInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartProcessInstanceResponseBody> body{};
+
+  StartProcessInstanceResponse() {}
+
+  explicit StartProcessInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartProcessInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartProcessInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartProcessInstanceResponse() = default;
+};
 class StartSessionClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> queueName{};
@@ -6749,6 +7804,999 @@ public:
 
   virtual ~TerminateSqlStatementResponse() = default;
 };
+class UpdateProcessDefinitionWithScheduleRequestSchedule : public Darabonba::Model {
+public:
+  shared_ptr<string> crontab{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> timezoneId{};
+
+  UpdateProcessDefinitionWithScheduleRequestSchedule() {}
+
+  explicit UpdateProcessDefinitionWithScheduleRequestSchedule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (crontab) {
+      res["crontab"] = boost::any(*crontab);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (timezoneId) {
+      res["timezoneId"] = boost::any(*timezoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("crontab") != m.end() && !m["crontab"].empty()) {
+      crontab = make_shared<string>(boost::any_cast<string>(m["crontab"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+    if (m.find("timezoneId") != m.end() && !m["timezoneId"].empty()) {
+      timezoneId = make_shared<string>(boost::any_cast<string>(m["timezoneId"]));
+    }
+  }
+
+
+  virtual ~UpdateProcessDefinitionWithScheduleRequestSchedule() = default;
+};
+class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf() {}
+
+  explicit UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["key"] = boost::any(*key);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf() = default;
+};
+class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams : public Darabonba::Model {
+public:
+  shared_ptr<string> displaySparkVersion{};
+  shared_ptr<string> environmentId{};
+  shared_ptr<bool> fusion{};
+  shared_ptr<string> resourceQueueId{};
+  shared_ptr<vector<UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf>> sparkConf{};
+  shared_ptr<long> sparkDriverCores{};
+  shared_ptr<long> sparkDriverMemory{};
+  shared_ptr<long> sparkExecutorCores{};
+  shared_ptr<long> sparkExecutorMemory{};
+  shared_ptr<string> sparkLogLevel{};
+  shared_ptr<string> sparkLogPath{};
+  shared_ptr<string> sparkVersion{};
+  shared_ptr<string> taskBizId{};
+  shared_ptr<string> type{};
+  shared_ptr<string> workspaceBizId{};
+
+  UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams() {}
+
+  explicit UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (displaySparkVersion) {
+      res["displaySparkVersion"] = boost::any(*displaySparkVersion);
+    }
+    if (environmentId) {
+      res["environmentId"] = boost::any(*environmentId);
+    }
+    if (fusion) {
+      res["fusion"] = boost::any(*fusion);
+    }
+    if (resourceQueueId) {
+      res["resourceQueueId"] = boost::any(*resourceQueueId);
+    }
+    if (sparkConf) {
+      vector<boost::any> temp1;
+      for(auto item1:*sparkConf){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["sparkConf"] = boost::any(temp1);
+    }
+    if (sparkDriverCores) {
+      res["sparkDriverCores"] = boost::any(*sparkDriverCores);
+    }
+    if (sparkDriverMemory) {
+      res["sparkDriverMemory"] = boost::any(*sparkDriverMemory);
+    }
+    if (sparkExecutorCores) {
+      res["sparkExecutorCores"] = boost::any(*sparkExecutorCores);
+    }
+    if (sparkExecutorMemory) {
+      res["sparkExecutorMemory"] = boost::any(*sparkExecutorMemory);
+    }
+    if (sparkLogLevel) {
+      res["sparkLogLevel"] = boost::any(*sparkLogLevel);
+    }
+    if (sparkLogPath) {
+      res["sparkLogPath"] = boost::any(*sparkLogPath);
+    }
+    if (sparkVersion) {
+      res["sparkVersion"] = boost::any(*sparkVersion);
+    }
+    if (taskBizId) {
+      res["taskBizId"] = boost::any(*taskBizId);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (workspaceBizId) {
+      res["workspaceBizId"] = boost::any(*workspaceBizId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("displaySparkVersion") != m.end() && !m["displaySparkVersion"].empty()) {
+      displaySparkVersion = make_shared<string>(boost::any_cast<string>(m["displaySparkVersion"]));
+    }
+    if (m.find("environmentId") != m.end() && !m["environmentId"].empty()) {
+      environmentId = make_shared<string>(boost::any_cast<string>(m["environmentId"]));
+    }
+    if (m.find("fusion") != m.end() && !m["fusion"].empty()) {
+      fusion = make_shared<bool>(boost::any_cast<bool>(m["fusion"]));
+    }
+    if (m.find("resourceQueueId") != m.end() && !m["resourceQueueId"].empty()) {
+      resourceQueueId = make_shared<string>(boost::any_cast<string>(m["resourceQueueId"]));
+    }
+    if (m.find("sparkConf") != m.end() && !m["sparkConf"].empty()) {
+      if (typeid(vector<boost::any>) == m["sparkConf"].type()) {
+        vector<UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["sparkConf"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sparkConf = make_shared<vector<UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf>>(expect1);
+      }
+    }
+    if (m.find("sparkDriverCores") != m.end() && !m["sparkDriverCores"].empty()) {
+      sparkDriverCores = make_shared<long>(boost::any_cast<long>(m["sparkDriverCores"]));
+    }
+    if (m.find("sparkDriverMemory") != m.end() && !m["sparkDriverMemory"].empty()) {
+      sparkDriverMemory = make_shared<long>(boost::any_cast<long>(m["sparkDriverMemory"]));
+    }
+    if (m.find("sparkExecutorCores") != m.end() && !m["sparkExecutorCores"].empty()) {
+      sparkExecutorCores = make_shared<long>(boost::any_cast<long>(m["sparkExecutorCores"]));
+    }
+    if (m.find("sparkExecutorMemory") != m.end() && !m["sparkExecutorMemory"].empty()) {
+      sparkExecutorMemory = make_shared<long>(boost::any_cast<long>(m["sparkExecutorMemory"]));
+    }
+    if (m.find("sparkLogLevel") != m.end() && !m["sparkLogLevel"].empty()) {
+      sparkLogLevel = make_shared<string>(boost::any_cast<string>(m["sparkLogLevel"]));
+    }
+    if (m.find("sparkLogPath") != m.end() && !m["sparkLogPath"].empty()) {
+      sparkLogPath = make_shared<string>(boost::any_cast<string>(m["sparkLogPath"]));
+    }
+    if (m.find("sparkVersion") != m.end() && !m["sparkVersion"].empty()) {
+      sparkVersion = make_shared<string>(boost::any_cast<string>(m["sparkVersion"]));
+    }
+    if (m.find("taskBizId") != m.end() && !m["taskBizId"].empty()) {
+      taskBizId = make_shared<string>(boost::any_cast<string>(m["taskBizId"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("workspaceBizId") != m.end() && !m["workspaceBizId"].empty()) {
+      workspaceBizId = make_shared<string>(boost::any_cast<string>(m["workspaceBizId"]));
+    }
+  }
+
+
+  virtual ~UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams() = default;
+};
+class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson : public Darabonba::Model {
+public:
+  shared_ptr<string> alertEmailAddress{};
+  shared_ptr<long> code{};
+  shared_ptr<string> description{};
+  shared_ptr<bool> failAlertEnable{};
+  shared_ptr<long> failRetryTimes{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> startAlertEnable{};
+  shared_ptr<map<string, string>> tags{};
+  shared_ptr<UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams> taskParams{};
+  shared_ptr<string> taskType{};
+  shared_ptr<long> timeout{};
+
+  UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson() {}
+
+  explicit UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertEmailAddress) {
+      res["alertEmailAddress"] = boost::any(*alertEmailAddress);
+    }
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (failAlertEnable) {
+      res["failAlertEnable"] = boost::any(*failAlertEnable);
+    }
+    if (failRetryTimes) {
+      res["failRetryTimes"] = boost::any(*failRetryTimes);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (startAlertEnable) {
+      res["startAlertEnable"] = boost::any(*startAlertEnable);
+    }
+    if (tags) {
+      res["tags"] = boost::any(*tags);
+    }
+    if (taskParams) {
+      res["taskParams"] = taskParams ? boost::any(taskParams->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (taskType) {
+      res["taskType"] = boost::any(*taskType);
+    }
+    if (timeout) {
+      res["timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("alertEmailAddress") != m.end() && !m["alertEmailAddress"].empty()) {
+      alertEmailAddress = make_shared<string>(boost::any_cast<string>(m["alertEmailAddress"]));
+    }
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("failAlertEnable") != m.end() && !m["failAlertEnable"].empty()) {
+      failAlertEnable = make_shared<bool>(boost::any_cast<bool>(m["failAlertEnable"]));
+    }
+    if (m.find("failRetryTimes") != m.end() && !m["failRetryTimes"].empty()) {
+      failRetryTimes = make_shared<long>(boost::any_cast<long>(m["failRetryTimes"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("startAlertEnable") != m.end() && !m["startAlertEnable"].empty()) {
+      startAlertEnable = make_shared<bool>(boost::any_cast<bool>(m["startAlertEnable"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["tags"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("taskParams") != m.end() && !m["taskParams"].empty()) {
+      if (typeid(map<string, boost::any>) == m["taskParams"].type()) {
+        UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["taskParams"]));
+        taskParams = make_shared<UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams>(model1);
+      }
+    }
+    if (m.find("taskType") != m.end() && !m["taskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["taskType"]));
+    }
+    if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
+    }
+  }
+
+
+  virtual ~UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson() = default;
+};
+class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<long> postTaskCode{};
+  shared_ptr<long> postTaskVersion{};
+  shared_ptr<long> preTaskCode{};
+  shared_ptr<long> preTaskVersion{};
+
+  UpdateProcessDefinitionWithScheduleRequestTaskRelationJson() {}
+
+  explicit UpdateProcessDefinitionWithScheduleRequestTaskRelationJson(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (postTaskCode) {
+      res["postTaskCode"] = boost::any(*postTaskCode);
+    }
+    if (postTaskVersion) {
+      res["postTaskVersion"] = boost::any(*postTaskVersion);
+    }
+    if (preTaskCode) {
+      res["preTaskCode"] = boost::any(*preTaskCode);
+    }
+    if (preTaskVersion) {
+      res["preTaskVersion"] = boost::any(*preTaskVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("postTaskCode") != m.end() && !m["postTaskCode"].empty()) {
+      postTaskCode = make_shared<long>(boost::any_cast<long>(m["postTaskCode"]));
+    }
+    if (m.find("postTaskVersion") != m.end() && !m["postTaskVersion"].empty()) {
+      postTaskVersion = make_shared<long>(boost::any_cast<long>(m["postTaskVersion"]));
+    }
+    if (m.find("preTaskCode") != m.end() && !m["preTaskCode"].empty()) {
+      preTaskCode = make_shared<long>(boost::any_cast<long>(m["preTaskCode"]));
+    }
+    if (m.find("preTaskVersion") != m.end() && !m["preTaskVersion"].empty()) {
+      preTaskVersion = make_shared<long>(boost::any_cast<long>(m["preTaskVersion"]));
+    }
+  }
+
+
+  virtual ~UpdateProcessDefinitionWithScheduleRequestTaskRelationJson() = default;
+};
+class UpdateProcessDefinitionWithScheduleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> alertEmailAddress{};
+  shared_ptr<string> description{};
+  shared_ptr<string> executionType{};
+  shared_ptr<string> name{};
+  shared_ptr<string> productNamespace{};
+  shared_ptr<bool> publish{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> releaseState{};
+  shared_ptr<string> resourceQueue{};
+  shared_ptr<long> retryTimes{};
+  shared_ptr<string> runAs{};
+  shared_ptr<UpdateProcessDefinitionWithScheduleRequestSchedule> schedule{};
+  shared_ptr<map<string, string>> tags{};
+  shared_ptr<vector<UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson>> taskDefinitionJson{};
+  shared_ptr<long> taskParallelism{};
+  shared_ptr<vector<UpdateProcessDefinitionWithScheduleRequestTaskRelationJson>> taskRelationJson{};
+  shared_ptr<long> timeout{};
+
+  UpdateProcessDefinitionWithScheduleRequest() {}
+
+  explicit UpdateProcessDefinitionWithScheduleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertEmailAddress) {
+      res["alertEmailAddress"] = boost::any(*alertEmailAddress);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (executionType) {
+      res["executionType"] = boost::any(*executionType);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (productNamespace) {
+      res["productNamespace"] = boost::any(*productNamespace);
+    }
+    if (publish) {
+      res["publish"] = boost::any(*publish);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    if (releaseState) {
+      res["releaseState"] = boost::any(*releaseState);
+    }
+    if (resourceQueue) {
+      res["resourceQueue"] = boost::any(*resourceQueue);
+    }
+    if (retryTimes) {
+      res["retryTimes"] = boost::any(*retryTimes);
+    }
+    if (runAs) {
+      res["runAs"] = boost::any(*runAs);
+    }
+    if (schedule) {
+      res["schedule"] = schedule ? boost::any(schedule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tags) {
+      res["tags"] = boost::any(*tags);
+    }
+    if (taskDefinitionJson) {
+      vector<boost::any> temp1;
+      for(auto item1:*taskDefinitionJson){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["taskDefinitionJson"] = boost::any(temp1);
+    }
+    if (taskParallelism) {
+      res["taskParallelism"] = boost::any(*taskParallelism);
+    }
+    if (taskRelationJson) {
+      vector<boost::any> temp1;
+      for(auto item1:*taskRelationJson){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["taskRelationJson"] = boost::any(temp1);
+    }
+    if (timeout) {
+      res["timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("alertEmailAddress") != m.end() && !m["alertEmailAddress"].empty()) {
+      alertEmailAddress = make_shared<string>(boost::any_cast<string>(m["alertEmailAddress"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("executionType") != m.end() && !m["executionType"].empty()) {
+      executionType = make_shared<string>(boost::any_cast<string>(m["executionType"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("productNamespace") != m.end() && !m["productNamespace"].empty()) {
+      productNamespace = make_shared<string>(boost::any_cast<string>(m["productNamespace"]));
+    }
+    if (m.find("publish") != m.end() && !m["publish"].empty()) {
+      publish = make_shared<bool>(boost::any_cast<bool>(m["publish"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+    if (m.find("releaseState") != m.end() && !m["releaseState"].empty()) {
+      releaseState = make_shared<string>(boost::any_cast<string>(m["releaseState"]));
+    }
+    if (m.find("resourceQueue") != m.end() && !m["resourceQueue"].empty()) {
+      resourceQueue = make_shared<string>(boost::any_cast<string>(m["resourceQueue"]));
+    }
+    if (m.find("retryTimes") != m.end() && !m["retryTimes"].empty()) {
+      retryTimes = make_shared<long>(boost::any_cast<long>(m["retryTimes"]));
+    }
+    if (m.find("runAs") != m.end() && !m["runAs"].empty()) {
+      runAs = make_shared<string>(boost::any_cast<string>(m["runAs"]));
+    }
+    if (m.find("schedule") != m.end() && !m["schedule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["schedule"].type()) {
+        UpdateProcessDefinitionWithScheduleRequestSchedule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["schedule"]));
+        schedule = make_shared<UpdateProcessDefinitionWithScheduleRequestSchedule>(model1);
+      }
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["tags"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("taskDefinitionJson") != m.end() && !m["taskDefinitionJson"].empty()) {
+      if (typeid(vector<boost::any>) == m["taskDefinitionJson"].type()) {
+        vector<UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["taskDefinitionJson"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        taskDefinitionJson = make_shared<vector<UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson>>(expect1);
+      }
+    }
+    if (m.find("taskParallelism") != m.end() && !m["taskParallelism"].empty()) {
+      taskParallelism = make_shared<long>(boost::any_cast<long>(m["taskParallelism"]));
+    }
+    if (m.find("taskRelationJson") != m.end() && !m["taskRelationJson"].empty()) {
+      if (typeid(vector<boost::any>) == m["taskRelationJson"].type()) {
+        vector<UpdateProcessDefinitionWithScheduleRequestTaskRelationJson> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["taskRelationJson"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateProcessDefinitionWithScheduleRequestTaskRelationJson model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        taskRelationJson = make_shared<vector<UpdateProcessDefinitionWithScheduleRequestTaskRelationJson>>(expect1);
+      }
+    }
+    if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
+    }
+  }
+
+
+  virtual ~UpdateProcessDefinitionWithScheduleRequest() = default;
+};
+class UpdateProcessDefinitionWithScheduleShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> alertEmailAddress{};
+  shared_ptr<string> description{};
+  shared_ptr<string> executionType{};
+  shared_ptr<string> name{};
+  shared_ptr<string> productNamespace{};
+  shared_ptr<bool> publish{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> releaseState{};
+  shared_ptr<string> resourceQueue{};
+  shared_ptr<long> retryTimes{};
+  shared_ptr<string> runAs{};
+  shared_ptr<string> scheduleShrink{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> taskDefinitionJsonShrink{};
+  shared_ptr<long> taskParallelism{};
+  shared_ptr<string> taskRelationJsonShrink{};
+  shared_ptr<long> timeout{};
+
+  UpdateProcessDefinitionWithScheduleShrinkRequest() {}
+
+  explicit UpdateProcessDefinitionWithScheduleShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertEmailAddress) {
+      res["alertEmailAddress"] = boost::any(*alertEmailAddress);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (executionType) {
+      res["executionType"] = boost::any(*executionType);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (productNamespace) {
+      res["productNamespace"] = boost::any(*productNamespace);
+    }
+    if (publish) {
+      res["publish"] = boost::any(*publish);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    if (releaseState) {
+      res["releaseState"] = boost::any(*releaseState);
+    }
+    if (resourceQueue) {
+      res["resourceQueue"] = boost::any(*resourceQueue);
+    }
+    if (retryTimes) {
+      res["retryTimes"] = boost::any(*retryTimes);
+    }
+    if (runAs) {
+      res["runAs"] = boost::any(*runAs);
+    }
+    if (scheduleShrink) {
+      res["schedule"] = boost::any(*scheduleShrink);
+    }
+    if (tagsShrink) {
+      res["tags"] = boost::any(*tagsShrink);
+    }
+    if (taskDefinitionJsonShrink) {
+      res["taskDefinitionJson"] = boost::any(*taskDefinitionJsonShrink);
+    }
+    if (taskParallelism) {
+      res["taskParallelism"] = boost::any(*taskParallelism);
+    }
+    if (taskRelationJsonShrink) {
+      res["taskRelationJson"] = boost::any(*taskRelationJsonShrink);
+    }
+    if (timeout) {
+      res["timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("alertEmailAddress") != m.end() && !m["alertEmailAddress"].empty()) {
+      alertEmailAddress = make_shared<string>(boost::any_cast<string>(m["alertEmailAddress"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("executionType") != m.end() && !m["executionType"].empty()) {
+      executionType = make_shared<string>(boost::any_cast<string>(m["executionType"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("productNamespace") != m.end() && !m["productNamespace"].empty()) {
+      productNamespace = make_shared<string>(boost::any_cast<string>(m["productNamespace"]));
+    }
+    if (m.find("publish") != m.end() && !m["publish"].empty()) {
+      publish = make_shared<bool>(boost::any_cast<bool>(m["publish"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+    if (m.find("releaseState") != m.end() && !m["releaseState"].empty()) {
+      releaseState = make_shared<string>(boost::any_cast<string>(m["releaseState"]));
+    }
+    if (m.find("resourceQueue") != m.end() && !m["resourceQueue"].empty()) {
+      resourceQueue = make_shared<string>(boost::any_cast<string>(m["resourceQueue"]));
+    }
+    if (m.find("retryTimes") != m.end() && !m["retryTimes"].empty()) {
+      retryTimes = make_shared<long>(boost::any_cast<long>(m["retryTimes"]));
+    }
+    if (m.find("runAs") != m.end() && !m["runAs"].empty()) {
+      runAs = make_shared<string>(boost::any_cast<string>(m["runAs"]));
+    }
+    if (m.find("schedule") != m.end() && !m["schedule"].empty()) {
+      scheduleShrink = make_shared<string>(boost::any_cast<string>(m["schedule"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["tags"]));
+    }
+    if (m.find("taskDefinitionJson") != m.end() && !m["taskDefinitionJson"].empty()) {
+      taskDefinitionJsonShrink = make_shared<string>(boost::any_cast<string>(m["taskDefinitionJson"]));
+    }
+    if (m.find("taskParallelism") != m.end() && !m["taskParallelism"].empty()) {
+      taskParallelism = make_shared<long>(boost::any_cast<long>(m["taskParallelism"]));
+    }
+    if (m.find("taskRelationJson") != m.end() && !m["taskRelationJson"].empty()) {
+      taskRelationJsonShrink = make_shared<string>(boost::any_cast<string>(m["taskRelationJson"]));
+    }
+    if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
+    }
+  }
+
+
+  virtual ~UpdateProcessDefinitionWithScheduleShrinkRequest() = default;
+};
+class UpdateProcessDefinitionWithScheduleResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> alertEmailAddress{};
+  shared_ptr<string> bizId{};
+  shared_ptr<string> code{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> crontab{};
+  shared_ptr<string> description{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> executionType{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> releaseState{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> timezoneId{};
+  shared_ptr<string> updateTime{};
+  shared_ptr<string> userId{};
+  shared_ptr<string> userName{};
+  shared_ptr<long> version{};
+  shared_ptr<string> versionHashCode{};
+
+  UpdateProcessDefinitionWithScheduleResponseBodyData() {}
+
+  explicit UpdateProcessDefinitionWithScheduleResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertEmailAddress) {
+      res["alertEmailAddress"] = boost::any(*alertEmailAddress);
+    }
+    if (bizId) {
+      res["bizId"] = boost::any(*bizId);
+    }
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
+    }
+    if (crontab) {
+      res["crontab"] = boost::any(*crontab);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (executionType) {
+      res["executionType"] = boost::any(*executionType);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (projectName) {
+      res["projectName"] = boost::any(*projectName);
+    }
+    if (releaseState) {
+      res["releaseState"] = boost::any(*releaseState);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (timezoneId) {
+      res["timezoneId"] = boost::any(*timezoneId);
+    }
+    if (updateTime) {
+      res["updateTime"] = boost::any(*updateTime);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    if (userName) {
+      res["userName"] = boost::any(*userName);
+    }
+    if (version) {
+      res["version"] = boost::any(*version);
+    }
+    if (versionHashCode) {
+      res["versionHashCode"] = boost::any(*versionHashCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("alertEmailAddress") != m.end() && !m["alertEmailAddress"].empty()) {
+      alertEmailAddress = make_shared<string>(boost::any_cast<string>(m["alertEmailAddress"]));
+    }
+    if (m.find("bizId") != m.end() && !m["bizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["bizId"]));
+    }
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
+    }
+    if (m.find("crontab") != m.end() && !m["crontab"].empty()) {
+      crontab = make_shared<string>(boost::any_cast<string>(m["crontab"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("executionType") != m.end() && !m["executionType"].empty()) {
+      executionType = make_shared<string>(boost::any_cast<string>(m["executionType"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("projectName") != m.end() && !m["projectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["projectName"]));
+    }
+    if (m.find("releaseState") != m.end() && !m["releaseState"].empty()) {
+      releaseState = make_shared<string>(boost::any_cast<string>(m["releaseState"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+    if (m.find("timezoneId") != m.end() && !m["timezoneId"].empty()) {
+      timezoneId = make_shared<string>(boost::any_cast<string>(m["timezoneId"]));
+    }
+    if (m.find("updateTime") != m.end() && !m["updateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["updateTime"]));
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+    if (m.find("userName") != m.end() && !m["userName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["userName"]));
+    }
+    if (m.find("version") != m.end() && !m["version"].empty()) {
+      version = make_shared<long>(boost::any_cast<long>(m["version"]));
+    }
+    if (m.find("versionHashCode") != m.end() && !m["versionHashCode"].empty()) {
+      versionHashCode = make_shared<string>(boost::any_cast<string>(m["versionHashCode"]));
+    }
+  }
+
+
+  virtual ~UpdateProcessDefinitionWithScheduleResponseBodyData() = default;
+};
+class UpdateProcessDefinitionWithScheduleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<UpdateProcessDefinitionWithScheduleResponseBodyData> data{};
+  shared_ptr<string> failed{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> msg{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  UpdateProcessDefinitionWithScheduleResponseBody() {}
+
+  explicit UpdateProcessDefinitionWithScheduleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (failed) {
+      res["failed"] = boost::any(*failed);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (msg) {
+      res["msg"] = boost::any(*msg);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        UpdateProcessDefinitionWithScheduleResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<UpdateProcessDefinitionWithScheduleResponseBodyData>(model1);
+      }
+    }
+    if (m.find("failed") != m.end() && !m["failed"].empty()) {
+      failed = make_shared<string>(boost::any_cast<string>(m["failed"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("msg") != m.end() && !m["msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["msg"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["success"]));
+    }
+  }
+
+
+  virtual ~UpdateProcessDefinitionWithScheduleResponseBody() = default;
+};
+class UpdateProcessDefinitionWithScheduleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateProcessDefinitionWithScheduleResponseBody> body{};
+
+  UpdateProcessDefinitionWithScheduleResponse() {}
+
+  explicit UpdateProcessDefinitionWithScheduleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateProcessDefinitionWithScheduleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateProcessDefinitionWithScheduleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateProcessDefinitionWithScheduleResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -6767,6 +8815,11 @@ public:
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelJobRunResponse cancelJobRun(shared_ptr<string> workspaceId, shared_ptr<string> jobRunId, shared_ptr<CancelJobRunRequest> request);
+  CreateProcessDefinitionWithScheduleResponse createProcessDefinitionWithScheduleWithOptions(shared_ptr<string> bizId,
+                                                                                             shared_ptr<CreateProcessDefinitionWithScheduleRequest> tmpReq,
+                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateProcessDefinitionWithScheduleResponse createProcessDefinitionWithSchedule(shared_ptr<string> bizId, shared_ptr<CreateProcessDefinitionWithScheduleRequest> request);
   CreateSqlStatementResponse createSqlStatementWithOptions(shared_ptr<string> workspaceId,
                                                            shared_ptr<CreateSqlStatementRequest> request,
                                                            shared_ptr<map<string, string>> headers,
@@ -6826,6 +8879,11 @@ public:
                                              shared_ptr<map<string, string>> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartJobRunResponse startJobRun(shared_ptr<string> workspaceId, shared_ptr<StartJobRunRequest> request);
+  StartProcessInstanceResponse startProcessInstanceWithOptions(shared_ptr<string> bizId,
+                                                               shared_ptr<StartProcessInstanceRequest> request,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartProcessInstanceResponse startProcessInstance(shared_ptr<string> bizId, shared_ptr<StartProcessInstanceRequest> request);
   StartSessionClusterResponse startSessionClusterWithOptions(shared_ptr<string> workspaceId,
                                                              shared_ptr<StartSessionClusterRequest> request,
                                                              shared_ptr<map<string, string>> headers,
@@ -6842,6 +8900,12 @@ public:
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TerminateSqlStatementResponse terminateSqlStatement(shared_ptr<string> workspaceId, shared_ptr<string> statementId, shared_ptr<TerminateSqlStatementRequest> request);
+  UpdateProcessDefinitionWithScheduleResponse updateProcessDefinitionWithScheduleWithOptions(shared_ptr<string> bizId,
+                                                                                             shared_ptr<string> code,
+                                                                                             shared_ptr<UpdateProcessDefinitionWithScheduleRequest> tmpReq,
+                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateProcessDefinitionWithScheduleResponse updateProcessDefinitionWithSchedule(shared_ptr<string> bizId, shared_ptr<string> code, shared_ptr<UpdateProcessDefinitionWithScheduleRequest> request);
 
   virtual ~Client() = default;
 };
