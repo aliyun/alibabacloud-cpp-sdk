@@ -719,6 +719,9 @@ RunDataAnalysisResponse Alibabacloud_DataAnalysisGBI20240823::Client::runDataAna
                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->dataRole)) {
+    body->insert(pair<string, vector<string>>("dataRole", *request->dataRole));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->generateSqlOnly)) {
     body->insert(pair<string, bool>("generateSqlOnly", *request->generateSqlOnly));
   }
@@ -730,6 +733,9 @@ RunDataAnalysisResponse Alibabacloud_DataAnalysisGBI20240823::Client::runDataAna
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->specificationType)) {
     body->insert(pair<string, string>("specificationType", *request->specificationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->userParams)) {
+    body->insert(pair<string, map<string, boost::any>>("userParams", *request->userParams));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -753,6 +759,88 @@ RunDataAnalysisResponse Alibabacloud_DataAnalysisGBI20240823::Client::runDataAna
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return runDataAnalysisWithOptions(workspaceId, request, headers, runtime);
+}
+
+RunDataResultAnalysisResponse Alibabacloud_DataAnalysisGBI20240823::Client::runDataResultAnalysisWithOptions(shared_ptr<RunDataResultAnalysisRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    query->insert(pair<string, string>("workspaceId", *request->workspaceId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->analysisMode)) {
+    body->insert(pair<string, string>("analysisMode", *request->analysisMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
+    body->insert(pair<string, string>("requestId", *request->requestId));
+  }
+  if (!Darabonba_Util::Client::isUnset<RunDataResultAnalysisRequestSqlData>(request->sqlData)) {
+    body->insert(pair<string, RunDataResultAnalysisRequestSqlData>("sqlData", *request->sqlData));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunDataResultAnalysis"))},
+    {"version", boost::any(string("2024-08-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/gbi/runDataResultAnalysis"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunDataResultAnalysisResponse(callApi(params, req, runtime));
+}
+
+RunDataResultAnalysisResponse Alibabacloud_DataAnalysisGBI20240823::Client::runDataResultAnalysis(shared_ptr<RunDataResultAnalysisRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runDataResultAnalysisWithOptions(request, headers, runtime);
+}
+
+RunSqlGenerationResponse Alibabacloud_DataAnalysisGBI20240823::Client::runSqlGenerationWithOptions(shared_ptr<RunSqlGenerationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    query->insert(pair<string, string>("workspaceId", *request->workspaceId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
+    body->insert(pair<string, string>("query", *request->query));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("sessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->specificationType)) {
+    body->insert(pair<string, string>("specificationType", *request->specificationType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunSqlGeneration"))},
+    {"version", boost::any(string("2024-08-23"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/gbi/runSqlGeneration"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunSqlGenerationResponse(callApi(params, req, runtime));
+}
+
+RunSqlGenerationResponse Alibabacloud_DataAnalysisGBI20240823::Client::runSqlGeneration(shared_ptr<RunSqlGenerationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runSqlGenerationWithOptions(request, headers, runtime);
 }
 
 SaveVirtualDatasourceDdlResponse Alibabacloud_DataAnalysisGBI20240823::Client::saveVirtualDatasourceDdlWithOptions(shared_ptr<SaveVirtualDatasourceDdlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
