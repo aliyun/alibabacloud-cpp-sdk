@@ -108,6 +108,41 @@ BatchGetProjectTaskResponse Alibabacloud_IntelligentCreation20240313::Client::ba
   return batchGetProjectTaskWithOptions(request, headers, runtime);
 }
 
+BatchQueryIndividuationTextResponse Alibabacloud_IntelligentCreation20240313::Client::batchQueryIndividuationTextWithOptions(shared_ptr<BatchQueryIndividuationTextRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<BatchQueryIndividuationTextShrinkRequest> request = make_shared<BatchQueryIndividuationTextShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->textIdList)) {
+    request->textIdListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->textIdList, make_shared<string>("textIdList"), make_shared<string>("simple")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->textIdListShrink)) {
+    query->insert(pair<string, string>("textIdList", *request->textIdListShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchQueryIndividuationText"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/individuationText/batchQueryText"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchQueryIndividuationTextResponse(callApi(params, req, runtime));
+}
+
+BatchQueryIndividuationTextResponse Alibabacloud_IntelligentCreation20240313::Client::batchQueryIndividuationText(shared_ptr<BatchQueryIndividuationTextRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return batchQueryIndividuationTextWithOptions(request, headers, runtime);
+}
+
 CheckSessionResponse Alibabacloud_IntelligentCreation20240313::Client::checkSessionWithOptions(shared_ptr<CheckSessionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -213,6 +248,42 @@ CountTextResponse Alibabacloud_IntelligentCreation20240313::Client::countText(sh
   return countTextWithOptions(request, headers, runtime);
 }
 
+CreateAICoachTaskResponse Alibabacloud_IntelligentCreation20240313::Client::createAICoachTaskWithOptions(shared_ptr<CreateAICoachTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
+    body->insert(pair<string, string>("requestId", *request->requestId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scriptRecordId)) {
+    body->insert(pair<string, string>("scriptRecordId", *request->scriptRecordId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->studentId)) {
+    body->insert(pair<string, string>("studentId", *request->studentId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateAICoachTask"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/aicoach/createTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateAICoachTaskResponse(callApi(params, req, runtime));
+}
+
+CreateAICoachTaskResponse Alibabacloud_IntelligentCreation20240313::Client::createAICoachTask(shared_ptr<CreateAICoachTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createAICoachTaskWithOptions(request, headers, runtime);
+}
+
 CreateAICoachTaskSessionResponse Alibabacloud_IntelligentCreation20240313::Client::createAICoachTaskSessionWithOptions(shared_ptr<CreateAICoachTaskSessionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -246,6 +317,48 @@ CreateAICoachTaskSessionResponse Alibabacloud_IntelligentCreation20240313::Clien
   return createAICoachTaskSessionWithOptions(request, headers, runtime);
 }
 
+CreateAnchorResponse Alibabacloud_IntelligentCreation20240313::Client::createAnchorWithOptions(shared_ptr<CreateAnchorRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->anchorMaterialName)) {
+    body->insert(pair<string, string>("anchorMaterialName", *request->anchorMaterialName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->coverUrl)) {
+    body->insert(pair<string, string>("coverUrl", *request->coverUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->digitalHumanType)) {
+    body->insert(pair<string, string>("digitalHumanType", *request->digitalHumanType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gender)) {
+    body->insert(pair<string, string>("gender", *request->gender));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->useScene)) {
+    body->insert(pair<string, string>("useScene", *request->useScene));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateAnchor"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/digitalHuman/anchorOpen/createAnchor"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateAnchorResponse(callApi(params, req, runtime));
+}
+
+CreateAnchorResponse Alibabacloud_IntelligentCreation20240313::Client::createAnchor(shared_ptr<CreateAnchorRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createAnchorWithOptions(request, headers, runtime);
+}
+
 CreateIllustrationTaskResponse Alibabacloud_IntelligentCreation20240313::Client::createIllustrationTaskWithOptions(shared_ptr<string> textId,
                                                                                                                    shared_ptr<CreateIllustrationTaskRequest> request,
                                                                                                                    shared_ptr<map<string, string>> headers,
@@ -273,6 +386,81 @@ CreateIllustrationTaskResponse Alibabacloud_IntelligentCreation20240313::Client:
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return createIllustrationTaskWithOptions(textId, request, headers, runtime);
+}
+
+CreateIndividuationProjectResponse Alibabacloud_IntelligentCreation20240313::Client::createIndividuationProjectWithOptions(shared_ptr<CreateIndividuationProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectInfo)) {
+    body->insert(pair<string, string>("projectInfo", *request->projectInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    body->insert(pair<string, string>("projectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->purpose)) {
+    body->insert(pair<string, string>("purpose", *request->purpose));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneId)) {
+    body->insert(pair<string, string>("sceneId", *request->sceneId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateIndividuationProject"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/individuationText/createProject"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateIndividuationProjectResponse(callApi(params, req, runtime));
+}
+
+CreateIndividuationProjectResponse Alibabacloud_IntelligentCreation20240313::Client::createIndividuationProject(shared_ptr<CreateIndividuationProjectRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createIndividuationProjectWithOptions(request, headers, runtime);
+}
+
+CreateIndividuationTextTaskResponse Alibabacloud_IntelligentCreation20240313::Client::createIndividuationTextTaskWithOptions(shared_ptr<CreateIndividuationTextTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<vector<string>>>(request->crowdPack)) {
+    body->insert(pair<string, vector<vector<string>>>("crowdPack", *request->crowdPack));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
+    body->insert(pair<string, string>("projectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskName)) {
+    body->insert(pair<string, string>("taskName", *request->taskName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateIndividuationTextTask"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/individuationText/createTextTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateIndividuationTextTaskResponse(callApi(params, req, runtime));
+}
+
+CreateIndividuationTextTaskResponse Alibabacloud_IntelligentCreation20240313::Client::createIndividuationTextTask(shared_ptr<CreateIndividuationTextTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createIndividuationTextTaskWithOptions(request, headers, runtime);
 }
 
 CreateRealisticPortraitResponse Alibabacloud_IntelligentCreation20240313::Client::createRealisticPortraitWithOptions(shared_ptr<CreateRealisticPortraitRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -370,6 +558,66 @@ CreateTextTaskResponse Alibabacloud_IntelligentCreation20240313::Client::createT
   return createTextTaskWithOptions(request, headers, runtime);
 }
 
+DeleteIndividuationProjectResponse Alibabacloud_IntelligentCreation20240313::Client::deleteIndividuationProjectWithOptions(shared_ptr<DeleteIndividuationProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
+    body->insert(pair<string, string>("projectId", *request->projectId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteIndividuationProject"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/individuationText/deleteProject"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteIndividuationProjectResponse(callApi(params, req, runtime));
+}
+
+DeleteIndividuationProjectResponse Alibabacloud_IntelligentCreation20240313::Client::deleteIndividuationProject(shared_ptr<DeleteIndividuationProjectRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteIndividuationProjectWithOptions(request, headers, runtime);
+}
+
+DeleteIndividuationTextResponse Alibabacloud_IntelligentCreation20240313::Client::deleteIndividuationTextWithOptions(shared_ptr<DeleteIndividuationTextRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->textIdList)) {
+    body->insert(pair<string, vector<string>>("textIdList", *request->textIdList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteIndividuationText"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/individuationText/deleteText"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteIndividuationTextResponse(callApi(params, req, runtime));
+}
+
+DeleteIndividuationTextResponse Alibabacloud_IntelligentCreation20240313::Client::deleteIndividuationText(shared_ptr<DeleteIndividuationTextRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteIndividuationTextWithOptions(request, headers, runtime);
+}
+
 FinishAICoachTaskSessionResponse Alibabacloud_IntelligentCreation20240313::Client::finishAICoachTaskSessionWithOptions(shared_ptr<FinishAICoachTaskSessionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -406,6 +654,12 @@ FinishAICoachTaskSessionResponse Alibabacloud_IntelligentCreation20240313::Clien
 GetAICoachTaskSessionHistoryResponse Alibabacloud_IntelligentCreation20240313::Client::getAICoachTaskSessionHistoryWithOptions(shared_ptr<GetAICoachTaskSessionHistoryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     query->insert(pair<string, string>("sessionId", *request->sessionId));
   }
@@ -703,6 +957,42 @@ InteractTextResponse Alibabacloud_IntelligentCreation20240313::Client::interactT
   return interactTextWithOptions(request, headers, runtime);
 }
 
+ListAICoachScriptPageResponse Alibabacloud_IntelligentCreation20240313::Client::listAICoachScriptPageWithOptions(shared_ptr<ListAICoachScriptPageRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
+    query->insert(pair<string, long>("status", *request->status));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListAICoachScriptPage"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/aicoach/pageScript"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListAICoachScriptPageResponse(callApi(params, req, runtime));
+}
+
+ListAICoachScriptPageResponse Alibabacloud_IntelligentCreation20240313::Client::listAICoachScriptPage(shared_ptr<ListAICoachScriptPageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listAICoachScriptPageWithOptions(request, headers, runtime);
+}
+
 ListAICoachTaskPageResponse Alibabacloud_IntelligentCreation20240313::Client::listAICoachTaskPageWithOptions(shared_ptr<ListAICoachTaskPageRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -748,6 +1038,9 @@ ListAICoachTaskPageResponse Alibabacloud_IntelligentCreation20240313::Client::li
 ListAnchorResponse Alibabacloud_IntelligentCreation20240313::Client::listAnchorWithOptions(shared_ptr<ListAnchorRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->anchorCategory)) {
+    query->insert(pair<string, string>("anchorCategory", *request->anchorCategory));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->anchorType)) {
     query->insert(pair<string, string>("anchorType", *request->anchorType));
   }
@@ -1050,6 +1343,36 @@ QueryAvatarResourceResponse Alibabacloud_IntelligentCreation20240313::Client::qu
   return queryAvatarResourceWithOptions(request, headers, runtime);
 }
 
+QueryIndividuationTextTaskResponse Alibabacloud_IntelligentCreation20240313::Client::queryIndividuationTextTaskWithOptions(shared_ptr<QueryIndividuationTextTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryIndividuationTextTask"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/individuationText/queryTextTask"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryIndividuationTextTaskResponse(callApi(params, req, runtime));
+}
+
+QueryIndividuationTextTaskResponse Alibabacloud_IntelligentCreation20240313::Client::queryIndividuationTextTask(shared_ptr<QueryIndividuationTextTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryIndividuationTextTaskWithOptions(request, headers, runtime);
+}
+
 QuerySessionInfoResponse Alibabacloud_IntelligentCreation20240313::Client::querySessionInfoWithOptions(shared_ptr<QuerySessionInfoRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<QuerySessionInfoShrinkRequest> request = make_shared<QuerySessionInfoShrinkRequest>();
@@ -1218,6 +1541,45 @@ SelectResourceResponse Alibabacloud_IntelligentCreation20240313::Client::selectR
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return selectResourceWithOptions(request, headers, runtime);
+}
+
+SendSdkMessageResponse Alibabacloud_IntelligentCreation20240313::Client::sendSdkMessageWithOptions(shared_ptr<SendSdkMessageRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->data)) {
+    body->insert(pair<string, string>("data", *request->data));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->moduleName)) {
+    body->insert(pair<string, string>("moduleName", *request->moduleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operationName)) {
+    body->insert(pair<string, string>("operationName", *request->operationName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    body->insert(pair<string, string>("userId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SendSdkMessage"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/sdk/sendMessage"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SendSdkMessageResponse(callApi(params, req, runtime));
+}
+
+SendSdkMessageResponse Alibabacloud_IntelligentCreation20240313::Client::sendSdkMessage(shared_ptr<SendSdkMessageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return sendSdkMessageWithOptions(request, headers, runtime);
 }
 
 SendTextMsgResponse Alibabacloud_IntelligentCreation20240313::Client::sendTextMsgWithOptions(shared_ptr<SendTextMsgRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
