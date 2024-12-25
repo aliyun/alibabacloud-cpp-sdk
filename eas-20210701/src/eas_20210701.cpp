@@ -1368,6 +1368,33 @@ DescribeGroupResponse Alibabacloud_Eas20210701::Client::describeGroup(shared_ptr
   return describeGroupWithOptions(ClusterId, GroupName, headers, runtime);
 }
 
+DescribeGroupEndpointsResponse Alibabacloud_Eas20210701::Client::describeGroupEndpointsWithOptions(shared_ptr<string> ClusterId,
+                                                                                                   shared_ptr<string> GroupName,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeGroupEndpoints"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/groups/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(GroupName)) + string("/endpoints"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeGroupEndpointsResponse(callApi(params, req, runtime));
+}
+
+DescribeGroupEndpointsResponse Alibabacloud_Eas20210701::Client::describeGroupEndpoints(shared_ptr<string> ClusterId, shared_ptr<string> GroupName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return describeGroupEndpointsWithOptions(ClusterId, GroupName, headers, runtime);
+}
+
 DescribeResourceResponse Alibabacloud_Eas20210701::Client::describeResourceWithOptions(shared_ptr<string> ClusterId,
                                                                                        shared_ptr<string> ResourceId,
                                                                                        shared_ptr<map<string, string>> headers,
@@ -1555,6 +1582,33 @@ DescribeServiceDiagnosisResponse Alibabacloud_Eas20210701::Client::describeServi
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return describeServiceDiagnosisWithOptions(ClusterId, ServiceName, headers, runtime);
+}
+
+DescribeServiceEndpointsResponse Alibabacloud_Eas20210701::Client::describeServiceEndpointsWithOptions(shared_ptr<string> ClusterId,
+                                                                                                       shared_ptr<string> ServiceName,
+                                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeServiceEndpoints"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/services/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ServiceName)) + string("/endpoints"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeServiceEndpointsResponse(callApi(params, req, runtime));
+}
+
+DescribeServiceEndpointsResponse Alibabacloud_Eas20210701::Client::describeServiceEndpoints(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return describeServiceEndpointsWithOptions(ClusterId, ServiceName, headers, runtime);
 }
 
 DescribeServiceEventResponse Alibabacloud_Eas20210701::Client::describeServiceEventWithOptions(shared_ptr<string> ClusterId,

@@ -6862,6 +6862,190 @@ public:
 
   virtual ~DescribeGroupResponse() = default;
 };
+class DescribeGroupEndpointsResponseBodyEndpoints : public Darabonba::Model {
+public:
+  shared_ptr<string> backendId{};
+  shared_ptr<string> endpointType{};
+  shared_ptr<vector<string>> internetEndpoints{};
+  shared_ptr<vector<string>> intranetEndpoints{};
+  shared_ptr<string> pathType{};
+  shared_ptr<long> port{};
+
+  DescribeGroupEndpointsResponseBodyEndpoints() {}
+
+  explicit DescribeGroupEndpointsResponseBodyEndpoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (backendId) {
+      res["BackendId"] = boost::any(*backendId);
+    }
+    if (endpointType) {
+      res["EndpointType"] = boost::any(*endpointType);
+    }
+    if (internetEndpoints) {
+      res["InternetEndpoints"] = boost::any(*internetEndpoints);
+    }
+    if (intranetEndpoints) {
+      res["IntranetEndpoints"] = boost::any(*intranetEndpoints);
+    }
+    if (pathType) {
+      res["PathType"] = boost::any(*pathType);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackendId") != m.end() && !m["BackendId"].empty()) {
+      backendId = make_shared<string>(boost::any_cast<string>(m["BackendId"]));
+    }
+    if (m.find("EndpointType") != m.end() && !m["EndpointType"].empty()) {
+      endpointType = make_shared<string>(boost::any_cast<string>(m["EndpointType"]));
+    }
+    if (m.find("InternetEndpoints") != m.end() && !m["InternetEndpoints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InternetEndpoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InternetEndpoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      internetEndpoints = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IntranetEndpoints") != m.end() && !m["IntranetEndpoints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IntranetEndpoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IntranetEndpoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      intranetEndpoints = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PathType") != m.end() && !m["PathType"].empty()) {
+      pathType = make_shared<string>(boost::any_cast<string>(m["PathType"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+  }
+
+
+  virtual ~DescribeGroupEndpointsResponseBodyEndpoints() = default;
+};
+class DescribeGroupEndpointsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessToken{};
+  shared_ptr<DescribeGroupEndpointsResponseBodyEndpoints> endpoints{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DescribeGroupEndpointsResponseBody() {}
+
+  explicit DescribeGroupEndpointsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessToken) {
+      res["AccessToken"] = boost::any(*accessToken);
+    }
+    if (endpoints) {
+      res["Endpoints"] = endpoints ? boost::any(endpoints->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessToken") != m.end() && !m["AccessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["AccessToken"]));
+    }
+    if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Endpoints"].type()) {
+        DescribeGroupEndpointsResponseBodyEndpoints model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Endpoints"]));
+        endpoints = make_shared<DescribeGroupEndpointsResponseBodyEndpoints>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeGroupEndpointsResponseBody() = default;
+};
+class DescribeGroupEndpointsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeGroupEndpointsResponseBody> body{};
+
+  DescribeGroupEndpointsResponse() {}
+
+  explicit DescribeGroupEndpointsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeGroupEndpointsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeGroupEndpointsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeGroupEndpointsResponse() = default;
+};
 class DescribeResourceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -7954,6 +8138,190 @@ public:
 
 
   virtual ~DescribeServiceDiagnosisResponse() = default;
+};
+class DescribeServiceEndpointsResponseBodyEndpoints : public Darabonba::Model {
+public:
+  shared_ptr<string> backendId{};
+  shared_ptr<string> endpointType{};
+  shared_ptr<vector<string>> internetEndpoints{};
+  shared_ptr<vector<string>> intranetEndpoints{};
+  shared_ptr<string> pathType{};
+  shared_ptr<long> port{};
+
+  DescribeServiceEndpointsResponseBodyEndpoints() {}
+
+  explicit DescribeServiceEndpointsResponseBodyEndpoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (backendId) {
+      res["BackendId"] = boost::any(*backendId);
+    }
+    if (endpointType) {
+      res["EndpointType"] = boost::any(*endpointType);
+    }
+    if (internetEndpoints) {
+      res["InternetEndpoints"] = boost::any(*internetEndpoints);
+    }
+    if (intranetEndpoints) {
+      res["IntranetEndpoints"] = boost::any(*intranetEndpoints);
+    }
+    if (pathType) {
+      res["PathType"] = boost::any(*pathType);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackendId") != m.end() && !m["BackendId"].empty()) {
+      backendId = make_shared<string>(boost::any_cast<string>(m["BackendId"]));
+    }
+    if (m.find("EndpointType") != m.end() && !m["EndpointType"].empty()) {
+      endpointType = make_shared<string>(boost::any_cast<string>(m["EndpointType"]));
+    }
+    if (m.find("InternetEndpoints") != m.end() && !m["InternetEndpoints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InternetEndpoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InternetEndpoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      internetEndpoints = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IntranetEndpoints") != m.end() && !m["IntranetEndpoints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IntranetEndpoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IntranetEndpoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      intranetEndpoints = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PathType") != m.end() && !m["PathType"].empty()) {
+      pathType = make_shared<string>(boost::any_cast<string>(m["PathType"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceEndpointsResponseBodyEndpoints() = default;
+};
+class DescribeServiceEndpointsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessToken{};
+  shared_ptr<DescribeServiceEndpointsResponseBodyEndpoints> endpoints{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DescribeServiceEndpointsResponseBody() {}
+
+  explicit DescribeServiceEndpointsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessToken) {
+      res["AccessToken"] = boost::any(*accessToken);
+    }
+    if (endpoints) {
+      res["Endpoints"] = endpoints ? boost::any(endpoints->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessToken") != m.end() && !m["AccessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["AccessToken"]));
+    }
+    if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Endpoints"].type()) {
+        DescribeServiceEndpointsResponseBodyEndpoints model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Endpoints"]));
+        endpoints = make_shared<DescribeServiceEndpointsResponseBodyEndpoints>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceEndpointsResponseBody() = default;
+};
+class DescribeServiceEndpointsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeServiceEndpointsResponseBody> body{};
+
+  DescribeServiceEndpointsResponse() {}
+
+  explicit DescribeServiceEndpointsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeServiceEndpointsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeServiceEndpointsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeServiceEndpointsResponse() = default;
 };
 class DescribeServiceEventRequest : public Darabonba::Model {
 public:
@@ -16346,6 +16714,11 @@ public:
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeGroupResponse describeGroup(shared_ptr<string> ClusterId, shared_ptr<string> GroupName);
+  DescribeGroupEndpointsResponse describeGroupEndpointsWithOptions(shared_ptr<string> ClusterId,
+                                                                   shared_ptr<string> GroupName,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeGroupEndpointsResponse describeGroupEndpoints(shared_ptr<string> ClusterId, shared_ptr<string> GroupName);
   DescribeResourceResponse describeResourceWithOptions(shared_ptr<string> ClusterId,
                                                        shared_ptr<string> ResourceId,
                                                        shared_ptr<map<string, string>> headers,
@@ -16381,6 +16754,11 @@ public:
                                                                        shared_ptr<map<string, string>> headers,
                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeServiceDiagnosisResponse describeServiceDiagnosis(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  DescribeServiceEndpointsResponse describeServiceEndpointsWithOptions(shared_ptr<string> ClusterId,
+                                                                       shared_ptr<string> ServiceName,
+                                                                       shared_ptr<map<string, string>> headers,
+                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeServiceEndpointsResponse describeServiceEndpoints(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
   DescribeServiceEventResponse describeServiceEventWithOptions(shared_ptr<string> ClusterId,
                                                                shared_ptr<string> ServiceName,
                                                                shared_ptr<DescribeServiceEventRequest> request,
