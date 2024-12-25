@@ -152,6 +152,43 @@ BackupFileResponse Alibabacloud_Eds-aic20230930::Client::backupFile(shared_ptr<B
   return backupFileWithOptions(request, runtime);
 }
 
+BatchGetAcpConnectionTicketResponse Alibabacloud_Eds-aic20230930::Client::batchGetAcpConnectionTicketWithOptions(shared_ptr<BatchGetAcpConnectionTicketRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endUserId)) {
+    query->insert(pair<string, string>("EndUserId", *request->endUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceGroupId)) {
+    query->insert(pair<string, string>("InstanceGroupId", *request->instanceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
+    query->insert(pair<string, vector<string>>("InstanceIds", *request->instanceIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<BatchGetAcpConnectionTicketRequestInstanceTasks>>(request->instanceTasks)) {
+    query->insert(pair<string, vector<BatchGetAcpConnectionTicketRequestInstanceTasks>>("InstanceTasks", *request->instanceTasks));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchGetAcpConnectionTicket"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchGetAcpConnectionTicketResponse(callApi(params, req, runtime));
+}
+
+BatchGetAcpConnectionTicketResponse Alibabacloud_Eds-aic20230930::Client::batchGetAcpConnectionTicket(shared_ptr<BatchGetAcpConnectionTicketRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return batchGetAcpConnectionTicketWithOptions(request, runtime);
+}
+
 CheckResourceStockResponse Alibabacloud_Eds-aic20230930::Client::checkResourceStockWithOptions(shared_ptr<CheckResourceStockRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

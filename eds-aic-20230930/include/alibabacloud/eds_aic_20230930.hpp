@@ -637,6 +637,272 @@ public:
 
   virtual ~BackupFileResponse() = default;
 };
+class BatchGetAcpConnectionTicketRequestInstanceTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> taskId{};
+
+  BatchGetAcpConnectionTicketRequestInstanceTasks() {}
+
+  explicit BatchGetAcpConnectionTicketRequestInstanceTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~BatchGetAcpConnectionTicketRequestInstanceTasks() = default;
+};
+class BatchGetAcpConnectionTicketRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endUserId{};
+  shared_ptr<string> instanceGroupId{};
+  shared_ptr<vector<string>> instanceIds{};
+  shared_ptr<vector<BatchGetAcpConnectionTicketRequestInstanceTasks>> instanceTasks{};
+
+  BatchGetAcpConnectionTicketRequest() {}
+
+  explicit BatchGetAcpConnectionTicketRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endUserId) {
+      res["EndUserId"] = boost::any(*endUserId);
+    }
+    if (instanceGroupId) {
+      res["InstanceGroupId"] = boost::any(*instanceGroupId);
+    }
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    if (instanceTasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*instanceTasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InstanceTasks"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
+      endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
+    }
+    if (m.find("InstanceGroupId") != m.end() && !m["InstanceGroupId"].empty()) {
+      instanceGroupId = make_shared<string>(boost::any_cast<string>(m["InstanceGroupId"]));
+    }
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceTasks") != m.end() && !m["InstanceTasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["InstanceTasks"].type()) {
+        vector<BatchGetAcpConnectionTicketRequestInstanceTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InstanceTasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchGetAcpConnectionTicketRequestInstanceTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        instanceTasks = make_shared<vector<BatchGetAcpConnectionTicketRequestInstanceTasks>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~BatchGetAcpConnectionTicketRequest() = default;
+};
+class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels : public Darabonba::Model {
+public:
+  shared_ptr<string> appInstanceGroupId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskStatus{};
+  shared_ptr<string> ticket{};
+
+  BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels() {}
+
+  explicit BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appInstanceGroupId) {
+      res["AppInstanceGroupId"] = boost::any(*appInstanceGroupId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskStatus) {
+      res["TaskStatus"] = boost::any(*taskStatus);
+    }
+    if (ticket) {
+      res["Ticket"] = boost::any(*ticket);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppInstanceGroupId") != m.end() && !m["AppInstanceGroupId"].empty()) {
+      appInstanceGroupId = make_shared<string>(boost::any_cast<string>(m["AppInstanceGroupId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskStatus") != m.end() && !m["TaskStatus"].empty()) {
+      taskStatus = make_shared<string>(boost::any_cast<string>(m["TaskStatus"]));
+    }
+    if (m.find("Ticket") != m.end() && !m["Ticket"].empty()) {
+      ticket = make_shared<string>(boost::any_cast<string>(m["Ticket"]));
+    }
+  }
+
+
+  virtual ~BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels() = default;
+};
+class BatchGetAcpConnectionTicketResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels>> instanceConnectionModels{};
+  shared_ptr<string> requestId{};
+
+  BatchGetAcpConnectionTicketResponseBody() {}
+
+  explicit BatchGetAcpConnectionTicketResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceConnectionModels) {
+      vector<boost::any> temp1;
+      for(auto item1:*instanceConnectionModels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InstanceConnectionModels"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceConnectionModels") != m.end() && !m["InstanceConnectionModels"].empty()) {
+      if (typeid(vector<boost::any>) == m["InstanceConnectionModels"].type()) {
+        vector<BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InstanceConnectionModels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        instanceConnectionModels = make_shared<vector<BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~BatchGetAcpConnectionTicketResponseBody() = default;
+};
+class BatchGetAcpConnectionTicketResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchGetAcpConnectionTicketResponseBody> body{};
+
+  BatchGetAcpConnectionTicketResponse() {}
+
+  explicit BatchGetAcpConnectionTicketResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchGetAcpConnectionTicketResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchGetAcpConnectionTicketResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchGetAcpConnectionTicketResponse() = default;
+};
 class CheckResourceStockRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acpSpecId{};
@@ -9952,6 +10218,8 @@ public:
   AuthorizeAndroidInstanceResponse authorizeAndroidInstance(shared_ptr<AuthorizeAndroidInstanceRequest> request);
   BackupFileResponse backupFileWithOptions(shared_ptr<BackupFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BackupFileResponse backupFile(shared_ptr<BackupFileRequest> request);
+  BatchGetAcpConnectionTicketResponse batchGetAcpConnectionTicketWithOptions(shared_ptr<BatchGetAcpConnectionTicketRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchGetAcpConnectionTicketResponse batchGetAcpConnectionTicket(shared_ptr<BatchGetAcpConnectionTicketRequest> request);
   CheckResourceStockResponse checkResourceStockWithOptions(shared_ptr<CheckResourceStockRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckResourceStockResponse checkResourceStock(shared_ptr<CheckResourceStockRequest> request);
   CreateAndroidInstanceGroupResponse createAndroidInstanceGroupWithOptions(shared_ptr<CreateAndroidInstanceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
