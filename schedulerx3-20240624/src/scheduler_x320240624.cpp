@@ -151,6 +151,9 @@ CreateJobResponse Alibabacloud_SchedulerX320240624::Client::createJobWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->executorBlockStrategy)) {
+    body->insert(pair<string, long>("ExecutorBlockStrategy", *request->executorBlockStrategy));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobHandler)) {
     body->insert(pair<string, string>("JobHandler", *request->jobHandler));
   }
@@ -1244,6 +1247,9 @@ UpdateJobResponse Alibabacloud_SchedulerX320240624::Client::updateJobWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->executorBlockStrategy)) {
+    body->insert(pair<string, long>("ExecutorBlockStrategy", *request->executorBlockStrategy));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobHandler)) {
     body->insert(pair<string, string>("JobHandler", *request->jobHandler));

@@ -667,6 +667,7 @@ public:
   shared_ptr<string> calendar{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> description{};
+  shared_ptr<long> executorBlockStrategy{};
   shared_ptr<string> jobHandler{};
   shared_ptr<string> jobType{};
   shared_ptr<long> maxAttempt{};
@@ -707,6 +708,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (executorBlockStrategy) {
+      res["ExecutorBlockStrategy"] = boost::any(*executorBlockStrategy);
     }
     if (jobHandler) {
       res["JobHandler"] = boost::any(*jobHandler);
@@ -775,6 +779,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ExecutorBlockStrategy") != m.end() && !m["ExecutorBlockStrategy"].empty()) {
+      executorBlockStrategy = make_shared<long>(boost::any_cast<long>(m["ExecutorBlockStrategy"]));
     }
     if (m.find("JobHandler") != m.end() && !m["JobHandler"].empty()) {
       jobHandler = make_shared<string>(boost::any_cast<string>(m["JobHandler"]));
@@ -847,6 +854,7 @@ public:
   shared_ptr<string> calendar{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> description{};
+  shared_ptr<long> executorBlockStrategy{};
   shared_ptr<string> jobHandler{};
   shared_ptr<string> jobType{};
   shared_ptr<long> maxAttempt{};
@@ -887,6 +895,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (executorBlockStrategy) {
+      res["ExecutorBlockStrategy"] = boost::any(*executorBlockStrategy);
     }
     if (jobHandler) {
       res["JobHandler"] = boost::any(*jobHandler);
@@ -951,6 +962,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ExecutorBlockStrategy") != m.end() && !m["ExecutorBlockStrategy"].empty()) {
+      executorBlockStrategy = make_shared<long>(boost::any_cast<long>(m["ExecutorBlockStrategy"]));
     }
     if (m.find("JobHandler") != m.end() && !m["JobHandler"].empty()) {
       jobHandler = make_shared<string>(boost::any_cast<string>(m["JobHandler"]));
@@ -5668,11 +5682,15 @@ public:
   shared_ptr<string> calendar{};
   shared_ptr<string> cleanMode{};
   shared_ptr<string> creator{};
+  shared_ptr<long> currentExecuteStatus{};
   shared_ptr<long> dataOffset{};
   shared_ptr<string> description{};
+  shared_ptr<string> executorBlockStrategy{};
   shared_ptr<string> jobHandler{};
   shared_ptr<long> jobId{};
   shared_ptr<string> jobType{};
+  shared_ptr<string> lastExecuteEndTime{};
+  shared_ptr<long> lastExecuteStatus{};
   shared_ptr<long> maxAttempt{};
   shared_ptr<long> maxConcurrency{};
   shared_ptr<string> name{};
@@ -5714,11 +5732,17 @@ public:
     if (creator) {
       res["Creator"] = boost::any(*creator);
     }
+    if (currentExecuteStatus) {
+      res["CurrentExecuteStatus"] = boost::any(*currentExecuteStatus);
+    }
     if (dataOffset) {
       res["DataOffset"] = boost::any(*dataOffset);
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (executorBlockStrategy) {
+      res["ExecutorBlockStrategy"] = boost::any(*executorBlockStrategy);
     }
     if (jobHandler) {
       res["JobHandler"] = boost::any(*jobHandler);
@@ -5728,6 +5752,12 @@ public:
     }
     if (jobType) {
       res["JobType"] = boost::any(*jobType);
+    }
+    if (lastExecuteEndTime) {
+      res["LastExecuteEndTime"] = boost::any(*lastExecuteEndTime);
+    }
+    if (lastExecuteStatus) {
+      res["LastExecuteStatus"] = boost::any(*lastExecuteStatus);
     }
     if (maxAttempt) {
       res["MaxAttempt"] = boost::any(*maxAttempt);
@@ -5793,11 +5823,17 @@ public:
     if (m.find("Creator") != m.end() && !m["Creator"].empty()) {
       creator = make_shared<string>(boost::any_cast<string>(m["Creator"]));
     }
+    if (m.find("CurrentExecuteStatus") != m.end() && !m["CurrentExecuteStatus"].empty()) {
+      currentExecuteStatus = make_shared<long>(boost::any_cast<long>(m["CurrentExecuteStatus"]));
+    }
     if (m.find("DataOffset") != m.end() && !m["DataOffset"].empty()) {
       dataOffset = make_shared<long>(boost::any_cast<long>(m["DataOffset"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ExecutorBlockStrategy") != m.end() && !m["ExecutorBlockStrategy"].empty()) {
+      executorBlockStrategy = make_shared<string>(boost::any_cast<string>(m["ExecutorBlockStrategy"]));
     }
     if (m.find("JobHandler") != m.end() && !m["JobHandler"].empty()) {
       jobHandler = make_shared<string>(boost::any_cast<string>(m["JobHandler"]));
@@ -5807,6 +5843,12 @@ public:
     }
     if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
       jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
+    }
+    if (m.find("LastExecuteEndTime") != m.end() && !m["LastExecuteEndTime"].empty()) {
+      lastExecuteEndTime = make_shared<string>(boost::any_cast<string>(m["LastExecuteEndTime"]));
+    }
+    if (m.find("LastExecuteStatus") != m.end() && !m["LastExecuteStatus"].empty()) {
+      lastExecuteStatus = make_shared<long>(boost::any_cast<long>(m["LastExecuteStatus"]));
     }
     if (m.find("MaxAttempt") != m.end() && !m["MaxAttempt"].empty()) {
       maxAttempt = make_shared<long>(boost::any_cast<long>(m["MaxAttempt"]));
@@ -8952,6 +8994,7 @@ public:
   shared_ptr<string> calendar{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> description{};
+  shared_ptr<long> executorBlockStrategy{};
   shared_ptr<string> jobHandler{};
   shared_ptr<long> jobId{};
   shared_ptr<long> maxAttempt{};
@@ -8991,6 +9034,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (executorBlockStrategy) {
+      res["ExecutorBlockStrategy"] = boost::any(*executorBlockStrategy);
     }
     if (jobHandler) {
       res["JobHandler"] = boost::any(*jobHandler);
@@ -9056,6 +9102,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ExecutorBlockStrategy") != m.end() && !m["ExecutorBlockStrategy"].empty()) {
+      executorBlockStrategy = make_shared<long>(boost::any_cast<long>(m["ExecutorBlockStrategy"]));
     }
     if (m.find("JobHandler") != m.end() && !m["JobHandler"].empty()) {
       jobHandler = make_shared<string>(boost::any_cast<string>(m["JobHandler"]));
@@ -9125,6 +9174,7 @@ public:
   shared_ptr<string> calendar{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> description{};
+  shared_ptr<long> executorBlockStrategy{};
   shared_ptr<string> jobHandler{};
   shared_ptr<long> jobId{};
   shared_ptr<long> maxAttempt{};
@@ -9164,6 +9214,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (executorBlockStrategy) {
+      res["ExecutorBlockStrategy"] = boost::any(*executorBlockStrategy);
     }
     if (jobHandler) {
       res["JobHandler"] = boost::any(*jobHandler);
@@ -9225,6 +9278,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ExecutorBlockStrategy") != m.end() && !m["ExecutorBlockStrategy"].empty()) {
+      executorBlockStrategy = make_shared<long>(boost::any_cast<long>(m["ExecutorBlockStrategy"]));
     }
     if (m.find("JobHandler") != m.end() && !m["JobHandler"].empty()) {
       jobHandler = make_shared<string>(boost::any_cast<string>(m["JobHandler"]));
