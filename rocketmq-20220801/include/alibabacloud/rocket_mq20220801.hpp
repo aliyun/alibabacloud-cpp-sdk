@@ -57,6 +57,243 @@ public:
 
   virtual ~DataTopicLagMapValue() = default;
 };
+class AddDisasterRecoveryItemRequestTopics : public Darabonba::Model {
+public:
+  shared_ptr<string> consumerGroupId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> topicName{};
+
+  AddDisasterRecoveryItemRequestTopics() {}
+
+  explicit AddDisasterRecoveryItemRequestTopics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (consumerGroupId) {
+      res["consumerGroupId"] = boost::any(*consumerGroupId);
+    }
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["instanceType"] = boost::any(*instanceType);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    if (topicName) {
+      res["topicName"] = boost::any(*topicName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("consumerGroupId") != m.end() && !m["consumerGroupId"].empty()) {
+      consumerGroupId = make_shared<string>(boost::any_cast<string>(m["consumerGroupId"]));
+    }
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("instanceType") != m.end() && !m["instanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["instanceType"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+    if (m.find("topicName") != m.end() && !m["topicName"].empty()) {
+      topicName = make_shared<string>(boost::any_cast<string>(m["topicName"]));
+    }
+  }
+
+
+  virtual ~AddDisasterRecoveryItemRequestTopics() = default;
+};
+class AddDisasterRecoveryItemRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<AddDisasterRecoveryItemRequestTopics>> topics{};
+
+  AddDisasterRecoveryItemRequest() {}
+
+  explicit AddDisasterRecoveryItemRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (topics) {
+      vector<boost::any> temp1;
+      for(auto item1:*topics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["topics"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("topics") != m.end() && !m["topics"].empty()) {
+      if (typeid(vector<boost::any>) == m["topics"].type()) {
+        vector<AddDisasterRecoveryItemRequestTopics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["topics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddDisasterRecoveryItemRequestTopics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        topics = make_shared<vector<AddDisasterRecoveryItemRequestTopics>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~AddDisasterRecoveryItemRequest() = default;
+};
+class AddDisasterRecoveryItemResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<long> data{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AddDisasterRecoveryItemResponseBody() {}
+
+  explicit AddDisasterRecoveryItemResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["accessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (dynamicCode) {
+      res["dynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["dynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessDeniedDetail") != m.end() && !m["accessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["accessDeniedDetail"]));
+    }
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["data"]));
+    }
+    if (m.find("dynamicCode") != m.end() && !m["dynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["dynamicCode"]));
+    }
+    if (m.find("dynamicMessage") != m.end() && !m["dynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["dynamicMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~AddDisasterRecoveryItemResponseBody() = default;
+};
+class AddDisasterRecoveryItemResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddDisasterRecoveryItemResponseBody> body{};
+
+  AddDisasterRecoveryItemResponse() {}
+
+  explicit AddDisasterRecoveryItemResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddDisasterRecoveryItemResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddDisasterRecoveryItemResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddDisasterRecoveryItemResponse() = default;
+};
 class ChangeResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -284,6 +521,7 @@ class CreateConsumerGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateConsumerGroupRequestConsumeRetryPolicy> consumeRetryPolicy{};
   shared_ptr<string> deliveryOrderType{};
+  shared_ptr<long> maxReceiveTps{};
   shared_ptr<string> remark{};
 
   CreateConsumerGroupRequest() {}
@@ -302,6 +540,9 @@ public:
     if (deliveryOrderType) {
       res["deliveryOrderType"] = boost::any(*deliveryOrderType);
     }
+    if (maxReceiveTps) {
+      res["maxReceiveTps"] = boost::any(*maxReceiveTps);
+    }
     if (remark) {
       res["remark"] = boost::any(*remark);
     }
@@ -318,6 +559,9 @@ public:
     }
     if (m.find("deliveryOrderType") != m.end() && !m["deliveryOrderType"].empty()) {
       deliveryOrderType = make_shared<string>(boost::any_cast<string>(m["deliveryOrderType"]));
+    }
+    if (m.find("maxReceiveTps") != m.end() && !m["maxReceiveTps"].empty()) {
+      maxReceiveTps = make_shared<long>(boost::any_cast<long>(m["maxReceiveTps"]));
     }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
@@ -659,6 +903,8 @@ public:
   shared_ptr<long> messageRetentionTime{};
   shared_ptr<string> msgProcessSpec{};
   shared_ptr<double> sendReceiveRatio{};
+  shared_ptr<bool> storageEncryption{};
+  shared_ptr<string> storageSecretKey{};
 
   CreateInstanceRequestProductInfo() {}
 
@@ -688,6 +934,12 @@ public:
     if (sendReceiveRatio) {
       res["sendReceiveRatio"] = boost::any(*sendReceiveRatio);
     }
+    if (storageEncryption) {
+      res["storageEncryption"] = boost::any(*storageEncryption);
+    }
+    if (storageSecretKey) {
+      res["storageSecretKey"] = boost::any(*storageSecretKey);
+    }
     return res;
   }
 
@@ -709,6 +961,12 @@ public:
     }
     if (m.find("sendReceiveRatio") != m.end() && !m["sendReceiveRatio"].empty()) {
       sendReceiveRatio = make_shared<double>(boost::any_cast<double>(m["sendReceiveRatio"]));
+    }
+    if (m.find("storageEncryption") != m.end() && !m["storageEncryption"].empty()) {
+      storageEncryption = make_shared<bool>(boost::any_cast<bool>(m["storageEncryption"]));
+    }
+    if (m.find("storageSecretKey") != m.end() && !m["storageSecretKey"].empty()) {
+      storageSecretKey = make_shared<string>(boost::any_cast<string>(m["storageSecretKey"]));
     }
   }
 
@@ -1529,6 +1787,7 @@ public:
 };
 class CreateTopicRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> maxSendTps{};
   shared_ptr<string> messageType{};
   shared_ptr<string> remark{};
 
@@ -1542,6 +1801,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (maxSendTps) {
+      res["maxSendTps"] = boost::any(*maxSendTps);
+    }
     if (messageType) {
       res["messageType"] = boost::any(*messageType);
     }
@@ -1552,6 +1814,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("maxSendTps") != m.end() && !m["maxSendTps"].empty()) {
+      maxSendTps = make_shared<long>(boost::any_cast<long>(m["maxSendTps"]));
+    }
     if (m.find("messageType") != m.end() && !m["messageType"].empty()) {
       messageType = make_shared<string>(boost::any_cast<string>(m["messageType"]));
     }
@@ -3009,6 +3274,7 @@ class GetConsumerGroupLagResponseBodyDataTotalLag : public Darabonba::Model {
 public:
   shared_ptr<long> deliveryDuration{};
   shared_ptr<long> inflightCount{};
+  shared_ptr<long> lastConsumeTimestamp{};
   shared_ptr<long> readyCount{};
 
   GetConsumerGroupLagResponseBodyDataTotalLag() {}
@@ -3027,6 +3293,9 @@ public:
     if (inflightCount) {
       res["inflightCount"] = boost::any(*inflightCount);
     }
+    if (lastConsumeTimestamp) {
+      res["lastConsumeTimestamp"] = boost::any(*lastConsumeTimestamp);
+    }
     if (readyCount) {
       res["readyCount"] = boost::any(*readyCount);
     }
@@ -3040,6 +3309,9 @@ public:
     if (m.find("inflightCount") != m.end() && !m["inflightCount"].empty()) {
       inflightCount = make_shared<long>(boost::any_cast<long>(m["inflightCount"]));
     }
+    if (m.find("lastConsumeTimestamp") != m.end() && !m["lastConsumeTimestamp"].empty()) {
+      lastConsumeTimestamp = make_shared<long>(boost::any_cast<long>(m["lastConsumeTimestamp"]));
+    }
     if (m.find("readyCount") != m.end() && !m["readyCount"].empty()) {
       readyCount = make_shared<long>(boost::any_cast<long>(m["readyCount"]));
     }
@@ -3051,12 +3323,10 @@ public:
 class GetConsumerGroupLagResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> consumerGroupId{};
-  shared_ptr<string> createTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<map<string, DataTopicLagMapValue>> topicLagMap{};
   shared_ptr<GetConsumerGroupLagResponseBodyDataTotalLag> totalLag{};
-  shared_ptr<string> updateTime{};
 
   GetConsumerGroupLagResponseBodyData() {}
 
@@ -3070,9 +3340,6 @@ public:
     map<string, boost::any> res;
     if (consumerGroupId) {
       res["consumerGroupId"] = boost::any(*consumerGroupId);
-    }
-    if (createTime) {
-      res["createTime"] = boost::any(*createTime);
     }
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
@@ -3090,18 +3357,12 @@ public:
     if (totalLag) {
       res["totalLag"] = totalLag ? boost::any(totalLag->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (updateTime) {
-      res["updateTime"] = boost::any(*updateTime);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("consumerGroupId") != m.end() && !m["consumerGroupId"].empty()) {
       consumerGroupId = make_shared<string>(boost::any_cast<string>(m["consumerGroupId"]));
-    }
-    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
-      createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
     }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
@@ -3128,9 +3389,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["totalLag"]));
         totalLag = make_shared<GetConsumerGroupLagResponseBodyDataTotalLag>(model1);
       }
-    }
-    if (m.find("updateTime") != m.end() && !m["updateTime"].empty()) {
-      updateTime = make_shared<string>(boost::any_cast<string>(m["updateTime"]));
     }
   }
 
@@ -4349,6 +4607,8 @@ public:
   shared_ptr<long> messageRetentionTime{};
   shared_ptr<string> msgProcessSpec{};
   shared_ptr<double> sendReceiveRatio{};
+  shared_ptr<bool> storageEncryption{};
+  shared_ptr<string> storageSecretKey{};
   shared_ptr<bool> supportAutoScaling{};
   shared_ptr<bool> traceOn{};
 
@@ -4374,6 +4634,12 @@ public:
     if (sendReceiveRatio) {
       res["sendReceiveRatio"] = boost::any(*sendReceiveRatio);
     }
+    if (storageEncryption) {
+      res["storageEncryption"] = boost::any(*storageEncryption);
+    }
+    if (storageSecretKey) {
+      res["storageSecretKey"] = boost::any(*storageSecretKey);
+    }
     if (supportAutoScaling) {
       res["supportAutoScaling"] = boost::any(*supportAutoScaling);
     }
@@ -4395,6 +4661,12 @@ public:
     }
     if (m.find("sendReceiveRatio") != m.end() && !m["sendReceiveRatio"].empty()) {
       sendReceiveRatio = make_shared<double>(boost::any_cast<double>(m["sendReceiveRatio"]));
+    }
+    if (m.find("storageEncryption") != m.end() && !m["storageEncryption"].empty()) {
+      storageEncryption = make_shared<bool>(boost::any_cast<bool>(m["storageEncryption"]));
+    }
+    if (m.find("storageSecretKey") != m.end() && !m["storageSecretKey"].empty()) {
+      storageSecretKey = make_shared<string>(boost::any_cast<string>(m["storageSecretKey"]));
     }
     if (m.find("supportAutoScaling") != m.end() && !m["supportAutoScaling"].empty()) {
       supportAutoScaling = make_shared<bool>(boost::any_cast<bool>(m["supportAutoScaling"]));
@@ -5378,6 +5650,7 @@ class GetTopicResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
   shared_ptr<string> instanceId{};
+  shared_ptr<long> maxSendTps{};
   shared_ptr<string> messageType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> remark{};
@@ -5400,6 +5673,9 @@ public:
     }
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
+    }
+    if (maxSendTps) {
+      res["maxSendTps"] = boost::any(*maxSendTps);
     }
     if (messageType) {
       res["messageType"] = boost::any(*messageType);
@@ -5428,6 +5704,9 @@ public:
     }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("maxSendTps") != m.end() && !m["maxSendTps"].empty()) {
+      maxSendTps = make_shared<long>(boost::any_cast<long>(m["maxSendTps"]));
     }
     if (m.find("messageType") != m.end() && !m["messageType"].empty()) {
       messageType = make_shared<string>(boost::any_cast<string>(m["messageType"]));
@@ -5937,7 +6216,6 @@ public:
   shared_ptr<string> messageTag{};
   shared_ptr<string> messageType{};
   shared_ptr<string> regionId{};
-  shared_ptr<bool> setted{};
   shared_ptr<string> storeHost{};
   shared_ptr<string> storeTime{};
   shared_ptr<string> topicName{};
@@ -5983,9 +6261,6 @@ public:
     }
     if (regionId) {
       res["regionId"] = boost::any(*regionId);
-    }
-    if (setted) {
-      res["setted"] = boost::any(*setted);
     }
     if (storeHost) {
       res["storeHost"] = boost::any(*storeHost);
@@ -6042,9 +6317,6 @@ public:
     }
     if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
-    }
-    if (m.find("setted") != m.end() && !m["setted"].empty()) {
-      setted = make_shared<bool>(boost::any_cast<bool>(m["setted"]));
     }
     if (m.find("storeHost") != m.end() && !m["storeHost"].empty()) {
       storeHost = make_shared<string>(boost::any_cast<string>(m["storeHost"]));
@@ -7156,6 +7428,7 @@ public:
   shared_ptr<string> consumerGroupId{};
   shared_ptr<string> createTime{};
   shared_ptr<string> instanceId{};
+  shared_ptr<long> maxReceiveTps{};
   shared_ptr<string> regionId{};
   shared_ptr<string> remark{};
   shared_ptr<string> status{};
@@ -7179,6 +7452,9 @@ public:
     }
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
+    }
+    if (maxReceiveTps) {
+      res["maxReceiveTps"] = boost::any(*maxReceiveTps);
     }
     if (regionId) {
       res["regionId"] = boost::any(*regionId);
@@ -7204,6 +7480,9 @@ public:
     }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("maxReceiveTps") != m.end() && !m["maxReceiveTps"].empty()) {
+      maxReceiveTps = make_shared<long>(boost::any_cast<long>(m["maxReceiveTps"]));
     }
     if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
@@ -8334,6 +8613,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<string>> seriesCodes{};
+  shared_ptr<string> storageSecretKey{};
   shared_ptr<string> tags{};
 
   ListInstancesRequest() {}
@@ -8360,6 +8640,9 @@ public:
     }
     if (seriesCodes) {
       res["seriesCodes"] = boost::any(*seriesCodes);
+    }
+    if (storageSecretKey) {
+      res["storageSecretKey"] = boost::any(*storageSecretKey);
     }
     if (tags) {
       res["tags"] = boost::any(*tags);
@@ -8390,6 +8673,9 @@ public:
       }
       seriesCodes = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("storageSecretKey") != m.end() && !m["storageSecretKey"].empty()) {
+      storageSecretKey = make_shared<string>(boost::any_cast<string>(m["storageSecretKey"]));
+    }
     if (m.find("tags") != m.end() && !m["tags"].empty()) {
       tags = make_shared<string>(boost::any_cast<string>(m["tags"]));
     }
@@ -8405,6 +8691,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> seriesCodesShrink{};
+  shared_ptr<string> storageSecretKey{};
   shared_ptr<string> tags{};
 
   ListInstancesShrinkRequest() {}
@@ -8432,6 +8719,9 @@ public:
     if (seriesCodesShrink) {
       res["seriesCodes"] = boost::any(*seriesCodesShrink);
     }
+    if (storageSecretKey) {
+      res["storageSecretKey"] = boost::any(*storageSecretKey);
+    }
     if (tags) {
       res["tags"] = boost::any(*tags);
     }
@@ -8453,6 +8743,9 @@ public:
     }
     if (m.find("seriesCodes") != m.end() && !m["seriesCodes"].empty()) {
       seriesCodesShrink = make_shared<string>(boost::any_cast<string>(m["seriesCodes"]));
+    }
+    if (m.find("storageSecretKey") != m.end() && !m["storageSecretKey"].empty()) {
+      storageSecretKey = make_shared<string>(boost::any_cast<string>(m["storageSecretKey"]));
     }
     if (m.find("tags") != m.end() && !m["tags"].empty()) {
       tags = make_shared<string>(boost::any_cast<string>(m["tags"]));
@@ -10244,6 +10537,7 @@ class ListTopicsResponseBodyDataList : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
   shared_ptr<string> instanceId{};
+  shared_ptr<long> maxSendTps{};
   shared_ptr<string> messageType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> remark{};
@@ -10266,6 +10560,9 @@ public:
     }
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
+    }
+    if (maxSendTps) {
+      res["maxSendTps"] = boost::any(*maxSendTps);
     }
     if (messageType) {
       res["messageType"] = boost::any(*messageType);
@@ -10294,6 +10591,9 @@ public:
     }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("maxSendTps") != m.end() && !m["maxSendTps"].empty()) {
+      maxSendTps = make_shared<long>(boost::any_cast<long>(m["maxSendTps"]));
     }
     if (m.find("messageType") != m.end() && !m["messageType"].empty()) {
       messageType = make_shared<string>(boost::any_cast<string>(m["messageType"]));
@@ -11436,6 +11736,7 @@ class UpdateConsumerGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<UpdateConsumerGroupRequestConsumeRetryPolicy> consumeRetryPolicy{};
   shared_ptr<string> deliveryOrderType{};
+  shared_ptr<long> maxReceiveTps{};
   shared_ptr<string> remark{};
 
   UpdateConsumerGroupRequest() {}
@@ -11454,6 +11755,9 @@ public:
     if (deliveryOrderType) {
       res["deliveryOrderType"] = boost::any(*deliveryOrderType);
     }
+    if (maxReceiveTps) {
+      res["maxReceiveTps"] = boost::any(*maxReceiveTps);
+    }
     if (remark) {
       res["remark"] = boost::any(*remark);
     }
@@ -11470,6 +11774,9 @@ public:
     }
     if (m.find("deliveryOrderType") != m.end() && !m["deliveryOrderType"].empty()) {
       deliveryOrderType = make_shared<string>(boost::any_cast<string>(m["deliveryOrderType"]));
+    }
+    if (m.find("maxReceiveTps") != m.end() && !m["maxReceiveTps"].empty()) {
+      maxReceiveTps = make_shared<long>(boost::any_cast<long>(m["maxReceiveTps"]));
     }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
@@ -12346,6 +12653,7 @@ public:
 };
 class UpdateTopicRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> maxSendTps{};
   shared_ptr<string> remark{};
 
   UpdateTopicRequest() {}
@@ -12358,6 +12666,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (maxSendTps) {
+      res["maxSendTps"] = boost::any(*maxSendTps);
+    }
     if (remark) {
       res["remark"] = boost::any(*remark);
     }
@@ -12365,6 +12676,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("maxSendTps") != m.end() && !m["maxSendTps"].empty()) {
+      maxSendTps = make_shared<long>(boost::any_cast<long>(m["maxSendTps"]));
+    }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
     }
@@ -12852,6 +13166,11 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AddDisasterRecoveryItemResponse addDisasterRecoveryItemWithOptions(shared_ptr<string> planId,
+                                                                     shared_ptr<AddDisasterRecoveryItemRequest> request,
+                                                                     shared_ptr<map<string, string>> headers,
+                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddDisasterRecoveryItemResponse addDisasterRecoveryItem(shared_ptr<string> planId, shared_ptr<AddDisasterRecoveryItemRequest> request);
   ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
   CreateConsumerGroupResponse createConsumerGroupWithOptions(shared_ptr<string> instanceId,

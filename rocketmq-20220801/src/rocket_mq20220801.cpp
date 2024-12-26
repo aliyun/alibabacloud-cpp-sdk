@@ -37,6 +37,39 @@ string Alibabacloud_RocketMQ20220801::Client::getEndpoint(shared_ptr<string> pro
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+AddDisasterRecoveryItemResponse Alibabacloud_RocketMQ20220801::Client::addDisasterRecoveryItemWithOptions(shared_ptr<string> planId,
+                                                                                                          shared_ptr<AddDisasterRecoveryItemRequest> request,
+                                                                                                          shared_ptr<map<string, string>> headers,
+                                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<AddDisasterRecoveryItemRequestTopics>>(request->topics)) {
+    body->insert(pair<string, vector<AddDisasterRecoveryItemRequestTopics>>("topics", *request->topics));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddDisasterRecoveryItem"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/disaster_recovery/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(planId)) + string("/items"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddDisasterRecoveryItemResponse(callApi(params, req, runtime));
+}
+
+AddDisasterRecoveryItemResponse Alibabacloud_RocketMQ20220801::Client::addDisasterRecoveryItem(shared_ptr<string> planId, shared_ptr<AddDisasterRecoveryItemRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return addDisasterRecoveryItemWithOptions(planId, request, headers, runtime);
+}
+
 ChangeResourceGroupResponse Alibabacloud_RocketMQ20220801::Client::changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -88,6 +121,9 @@ CreateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::createConsume
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deliveryOrderType)) {
     body->insert(pair<string, string>("deliveryOrderType", *request->deliveryOrderType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxReceiveTps)) {
+    body->insert(pair<string, long>("maxReceiveTps", *request->maxReceiveTps));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
     body->insert(pair<string, string>("remark", *request->remark));
@@ -312,6 +348,9 @@ CreateTopicResponse Alibabacloud_RocketMQ20220801::Client::createTopicWithOption
                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxSendTps)) {
+    body->insert(pair<string, long>("maxSendTps", *request->maxSendTps));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->messageType)) {
     body->insert(pair<string, string>("messageType", *request->messageType));
   }
@@ -1076,6 +1115,9 @@ ListInstancesResponse Alibabacloud_RocketMQ20220801::Client::listInstancesWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->seriesCodesShrink)) {
     query->insert(pair<string, string>("seriesCodes", *request->seriesCodesShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageSecretKey)) {
+    query->insert(pair<string, string>("storageSecretKey", *request->storageSecretKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tags)) {
     query->insert(pair<string, string>("tags", *request->tags));
   }
@@ -1485,6 +1527,9 @@ UpdateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::updateConsume
   if (!Darabonba_Util::Client::isUnset<string>(request->deliveryOrderType)) {
     body->insert(pair<string, string>("deliveryOrderType", *request->deliveryOrderType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxReceiveTps)) {
+    body->insert(pair<string, long>("maxReceiveTps", *request->maxReceiveTps));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
     body->insert(pair<string, string>("remark", *request->remark));
   }
@@ -1647,6 +1692,9 @@ UpdateTopicResponse Alibabacloud_RocketMQ20220801::Client::updateTopicWithOption
                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxSendTps)) {
+    body->insert(pair<string, long>("maxSendTps", *request->maxSendTps));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
     body->insert(pair<string, string>("remark", *request->remark));
   }
