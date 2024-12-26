@@ -36,6 +36,117 @@ string Alibabacloud_AIMath20241114::Client::getEndpoint(shared_ptr<string> produ
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+ChatMessageResponse Alibabacloud_AIMath20241114::Client::chatMessageWithOptions(shared_ptr<ChatMessageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    body->insert(pair<string, string>("Content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->conversationId)) {
+    body->insert(pair<string, string>("ConversationId", *request->conversationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    body->insert(pair<string, string>("UserId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ChatMessage"))},
+    {"version", boost::any(string("2024-11-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ChatMessageResponse(callApi(params, req, runtime));
+}
+
+ChatMessageResponse Alibabacloud_AIMath20241114::Client::chatMessage(shared_ptr<ChatMessageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return chatMessageWithOptions(request, runtime);
+}
+
+CreateConversationResponse Alibabacloud_AIMath20241114::Client::createConversationWithOptions(shared_ptr<CreateConversationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->exerciseAnalysis)) {
+    body->insert(pair<string, string>("ExerciseAnalysis", *request->exerciseAnalysis));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->exerciseAnswer)) {
+    body->insert(pair<string, string>("ExerciseAnswer", *request->exerciseAnswer));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->exerciseContent)) {
+    body->insert(pair<string, string>("ExerciseContent", *request->exerciseContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->exerciseType)) {
+    body->insert(pair<string, string>("ExerciseType", *request->exerciseType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outerBizId)) {
+    body->insert(pair<string, string>("OuterBizId", *request->outerBizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    body->insert(pair<string, string>("UserId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateConversation"))},
+    {"version", boost::any(string("2024-11-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateConversationResponse(callApi(params, req, runtime));
+}
+
+CreateConversationResponse Alibabacloud_AIMath20241114::Client::createConversation(shared_ptr<CreateConversationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createConversationWithOptions(request, runtime);
+}
+
+CreateRelatedConversationResponse Alibabacloud_AIMath20241114::Client::createRelatedConversationWithOptions(shared_ptr<CreateRelatedConversationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->exerciseCode)) {
+    body->insert(pair<string, string>("ExerciseCode", *request->exerciseCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outerBizId)) {
+    body->insert(pair<string, string>("OuterBizId", *request->outerBizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    body->insert(pair<string, string>("UserId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateRelatedConversation"))},
+    {"version", boost::any(string("2024-11-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateRelatedConversationResponse(callApi(params, req, runtime));
+}
+
+CreateRelatedConversationResponse Alibabacloud_AIMath20241114::Client::createRelatedConversation(shared_ptr<CreateRelatedConversationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createRelatedConversationWithOptions(request, runtime);
+}
+
 GenAnalysisResponse Alibabacloud_AIMath20241114::Client::genAnalysisWithOptions(shared_ptr<GenAnalysisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
