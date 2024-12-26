@@ -285,6 +285,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->customHostAlias)) {
     query->insert(pair<string, string>("CustomHostAlias", *request->customHostAlias));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customImageNetworkType)) {
+    query->insert(pair<string, string>("CustomImageNetworkType", *request->customImageNetworkType));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->deploy)) {
     query->insert(pair<string, bool>("Deploy", *request->deploy));
   }
@@ -1467,6 +1470,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->customHostAlias)) {
     query->insert(pair<string, string>("CustomHostAlias", *request->customHostAlias));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customImageNetworkType)) {
+    query->insert(pair<string, string>("CustomImageNetworkType", *request->customImageNetworkType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->deploy)) {
     query->insert(pair<string, string>("Deploy", *request->deploy));
   }
@@ -1828,6 +1834,9 @@ DescribeApplicationInstancesResponse Alibabacloud_Sae20190506::Client::describeA
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));

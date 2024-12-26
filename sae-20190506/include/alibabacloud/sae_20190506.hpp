@@ -13750,6 +13750,7 @@ public:
   shared_ptr<string> configMapMountDesc{};
   shared_ptr<long> cpu{};
   shared_ptr<string> customHostAlias{};
+  shared_ptr<string> customImageNetworkType{};
   shared_ptr<bool> deploy{};
   shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
@@ -13854,6 +13855,9 @@ public:
     }
     if (customHostAlias) {
       res["CustomHostAlias"] = boost::any(*customHostAlias);
+    }
+    if (customImageNetworkType) {
+      res["CustomImageNetworkType"] = boost::any(*customImageNetworkType);
     }
     if (deploy) {
       res["Deploy"] = boost::any(*deploy);
@@ -14067,6 +14071,9 @@ public:
     if (m.find("CustomHostAlias") != m.end() && !m["CustomHostAlias"].empty()) {
       customHostAlias = make_shared<string>(boost::any_cast<string>(m["CustomHostAlias"]));
     }
+    if (m.find("CustomImageNetworkType") != m.end() && !m["CustomImageNetworkType"].empty()) {
+      customImageNetworkType = make_shared<string>(boost::any_cast<string>(m["CustomImageNetworkType"]));
+    }
     if (m.find("Deploy") != m.end() && !m["Deploy"].empty()) {
       deploy = make_shared<bool>(boost::any_cast<bool>(m["Deploy"]));
     }
@@ -14262,6 +14269,7 @@ public:
   shared_ptr<string> configMapMountDesc{};
   shared_ptr<long> cpu{};
   shared_ptr<string> customHostAlias{};
+  shared_ptr<string> customImageNetworkType{};
   shared_ptr<bool> deploy{};
   shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
@@ -14366,6 +14374,9 @@ public:
     }
     if (customHostAlias) {
       res["CustomHostAlias"] = boost::any(*customHostAlias);
+    }
+    if (customImageNetworkType) {
+      res["CustomImageNetworkType"] = boost::any(*customImageNetworkType);
     }
     if (deploy) {
       res["Deploy"] = boost::any(*deploy);
@@ -14574,6 +14585,9 @@ public:
     }
     if (m.find("CustomHostAlias") != m.end() && !m["CustomHostAlias"].empty()) {
       customHostAlias = make_shared<string>(boost::any_cast<string>(m["CustomHostAlias"]));
+    }
+    if (m.find("CustomImageNetworkType") != m.end() && !m["CustomImageNetworkType"].empty()) {
+      customImageNetworkType = make_shared<string>(boost::any_cast<string>(m["CustomImageNetworkType"]));
     }
     if (m.find("Deploy") != m.end() && !m["Deploy"].empty()) {
       deploy = make_shared<bool>(boost::any_cast<bool>(m["Deploy"]));
@@ -19273,6 +19287,7 @@ public:
   shared_ptr<string> configMapMountDesc{};
   shared_ptr<long> cpu{};
   shared_ptr<string> customHostAlias{};
+  shared_ptr<string> customImageNetworkType{};
   shared_ptr<string> deploy{};
   shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
@@ -19374,6 +19389,9 @@ public:
     }
     if (customHostAlias) {
       res["CustomHostAlias"] = boost::any(*customHostAlias);
+    }
+    if (customImageNetworkType) {
+      res["CustomImageNetworkType"] = boost::any(*customImageNetworkType);
     }
     if (deploy) {
       res["Deploy"] = boost::any(*deploy);
@@ -19584,6 +19602,9 @@ public:
     if (m.find("CustomHostAlias") != m.end() && !m["CustomHostAlias"].empty()) {
       customHostAlias = make_shared<string>(boost::any_cast<string>(m["CustomHostAlias"]));
     }
+    if (m.find("CustomImageNetworkType") != m.end() && !m["CustomImageNetworkType"].empty()) {
+      customImageNetworkType = make_shared<string>(boost::any_cast<string>(m["CustomImageNetworkType"]));
+    }
     if (m.find("Deploy") != m.end() && !m["Deploy"].empty()) {
       deploy = make_shared<string>(boost::any_cast<string>(m["Deploy"]));
     }
@@ -19778,6 +19799,7 @@ public:
   shared_ptr<string> configMapMountDesc{};
   shared_ptr<long> cpu{};
   shared_ptr<string> customHostAlias{};
+  shared_ptr<string> customImageNetworkType{};
   shared_ptr<string> deploy{};
   shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
@@ -19879,6 +19901,9 @@ public:
     }
     if (customHostAlias) {
       res["CustomHostAlias"] = boost::any(*customHostAlias);
+    }
+    if (customImageNetworkType) {
+      res["CustomImageNetworkType"] = boost::any(*customImageNetworkType);
     }
     if (deploy) {
       res["Deploy"] = boost::any(*deploy);
@@ -20084,6 +20109,9 @@ public:
     }
     if (m.find("CustomHostAlias") != m.end() && !m["CustomHostAlias"].empty()) {
       customHostAlias = make_shared<string>(boost::any_cast<string>(m["CustomHostAlias"]));
+    }
+    if (m.find("CustomImageNetworkType") != m.end() && !m["CustomImageNetworkType"].empty()) {
+      customImageNetworkType = make_shared<string>(boost::any_cast<string>(m["CustomImageNetworkType"]));
     }
     if (m.find("Deploy") != m.end() && !m["Deploy"].empty()) {
       deploy = make_shared<string>(boost::any_cast<string>(m["Deploy"]));
@@ -21418,6 +21446,7 @@ public:
   shared_ptr<vector<DescribeApplicationConfigResponseBodyDataConfigMapMountDesc>> configMapMountDesc{};
   shared_ptr<long> cpu{};
   shared_ptr<string> customHostAlias{};
+  shared_ptr<string> customImageNetworkType{};
   shared_ptr<string> dotnet{};
   shared_ptr<string> edasContainerVersion{};
   shared_ptr<string> enableAhas{};
@@ -21532,6 +21561,9 @@ public:
     }
     if (customHostAlias) {
       res["CustomHostAlias"] = boost::any(*customHostAlias);
+    }
+    if (customImageNetworkType) {
+      res["CustomImageNetworkType"] = boost::any(*customImageNetworkType);
     }
     if (dotnet) {
       res["Dotnet"] = boost::any(*dotnet);
@@ -21788,6 +21820,9 @@ public:
     }
     if (m.find("CustomHostAlias") != m.end() && !m["CustomHostAlias"].empty()) {
       customHostAlias = make_shared<string>(boost::any_cast<string>(m["CustomHostAlias"]));
+    }
+    if (m.find("CustomImageNetworkType") != m.end() && !m["CustomImageNetworkType"].empty()) {
+      customImageNetworkType = make_shared<string>(boost::any_cast<string>(m["CustomImageNetworkType"]));
     }
     if (m.find("Dotnet") != m.end() && !m["Dotnet"].empty()) {
       dotnet = make_shared<string>(boost::any_cast<string>(m["Dotnet"]));
@@ -22691,6 +22726,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> instanceId{};
   shared_ptr<long> pageSize{};
   shared_ptr<bool> reverse{};
 
@@ -22713,6 +22749,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
@@ -22731,6 +22770,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
@@ -22799,8 +22841,10 @@ public:
   shared_ptr<string> instanceContainerStatus{};
   shared_ptr<string> instanceHealthStatus{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mainContainerStatus{};
   shared_ptr<string> packageVersion{};
   shared_ptr<vector<DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus>> sidecarContainersStatus{};
+  shared_ptr<string> unhealthyMessage{};
   shared_ptr<string> vSwitchId{};
 
   DescribeApplicationInstancesResponseBodyDataInstances() {}
@@ -22846,6 +22890,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (mainContainerStatus) {
+      res["MainContainerStatus"] = boost::any(*mainContainerStatus);
+    }
     if (packageVersion) {
       res["PackageVersion"] = boost::any(*packageVersion);
     }
@@ -22855,6 +22902,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["SidecarContainersStatus"] = boost::any(temp1);
+    }
+    if (unhealthyMessage) {
+      res["UnhealthyMessage"] = boost::any(*unhealthyMessage);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -22896,6 +22946,9 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("MainContainerStatus") != m.end() && !m["MainContainerStatus"].empty()) {
+      mainContainerStatus = make_shared<string>(boost::any_cast<string>(m["MainContainerStatus"]));
+    }
     if (m.find("PackageVersion") != m.end() && !m["PackageVersion"].empty()) {
       packageVersion = make_shared<string>(boost::any_cast<string>(m["PackageVersion"]));
     }
@@ -22911,6 +22964,9 @@ public:
         }
         sidecarContainersStatus = make_shared<vector<DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus>>(expect1);
       }
+    }
+    if (m.find("UnhealthyMessage") != m.end() && !m["UnhealthyMessage"].empty()) {
+      unhealthyMessage = make_shared<string>(boost::any_cast<string>(m["UnhealthyMessage"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
