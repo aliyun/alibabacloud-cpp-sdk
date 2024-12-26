@@ -2066,6 +2066,8 @@ public:
   shared_ptr<string> sourceResourceId{};
   shared_ptr<string> standbyAZ{};
   shared_ptr<string> storageAutoScale{};
+  shared_ptr<bool> storageEncryption{};
+  shared_ptr<string> storageEncryptionKey{};
   shared_ptr<string> storagePayType{};
   shared_ptr<long> storageSpace{};
   shared_ptr<string> storageType{};
@@ -2220,6 +2222,12 @@ public:
     }
     if (storageAutoScale) {
       res["StorageAutoScale"] = boost::any(*storageAutoScale);
+    }
+    if (storageEncryption) {
+      res["StorageEncryption"] = boost::any(*storageEncryption);
+    }
+    if (storageEncryptionKey) {
+      res["StorageEncryptionKey"] = boost::any(*storageEncryptionKey);
     }
     if (storagePayType) {
       res["StoragePayType"] = boost::any(*storagePayType);
@@ -2396,6 +2404,12 @@ public:
     }
     if (m.find("StorageAutoScale") != m.end() && !m["StorageAutoScale"].empty()) {
       storageAutoScale = make_shared<string>(boost::any_cast<string>(m["StorageAutoScale"]));
+    }
+    if (m.find("StorageEncryption") != m.end() && !m["StorageEncryption"].empty()) {
+      storageEncryption = make_shared<bool>(boost::any_cast<bool>(m["StorageEncryption"]));
+    }
+    if (m.find("StorageEncryptionKey") != m.end() && !m["StorageEncryptionKey"].empty()) {
+      storageEncryptionKey = make_shared<string>(boost::any_cast<string>(m["StorageEncryptionKey"]));
     }
     if (m.find("StoragePayType") != m.end() && !m["StoragePayType"].empty()) {
       storagePayType = make_shared<string>(boost::any_cast<string>(m["StoragePayType"]));
@@ -14524,6 +14538,7 @@ public:
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> encryptNewTables{};
   shared_ptr<string> encryptionKey{};
+  shared_ptr<string> encryptionKeyStatus{};
   shared_ptr<string> requestId{};
   shared_ptr<string> rotationInterval{};
   shared_ptr<string> TDERegion{};
@@ -14550,6 +14565,9 @@ public:
     }
     if (encryptionKey) {
       res["EncryptionKey"] = boost::any(*encryptionKey);
+    }
+    if (encryptionKeyStatus) {
+      res["EncryptionKeyStatus"] = boost::any(*encryptionKeyStatus);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -14578,6 +14596,9 @@ public:
     }
     if (m.find("EncryptionKey") != m.end() && !m["EncryptionKey"].empty()) {
       encryptionKey = make_shared<string>(boost::any_cast<string>(m["EncryptionKey"]));
+    }
+    if (m.find("EncryptionKeyStatus") != m.end() && !m["EncryptionKeyStatus"].empty()) {
+      encryptionKeyStatus = make_shared<string>(boost::any_cast<string>(m["EncryptionKeyStatus"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));

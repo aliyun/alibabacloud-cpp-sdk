@@ -774,6 +774,12 @@ CreateDBClusterResponse Alibabacloud_Polardb20170801::Client::createDBClusterWit
   if (!Darabonba_Util::Client::isUnset<string>(request->storageAutoScale)) {
     query->insert(pair<string, string>("StorageAutoScale", *request->storageAutoScale));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->storageEncryption)) {
+    query->insert(pair<string, bool>("StorageEncryption", *request->storageEncryption));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageEncryptionKey)) {
+    query->insert(pair<string, string>("StorageEncryptionKey", *request->storageEncryptionKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->storagePayType)) {
     query->insert(pair<string, string>("StoragePayType", *request->storagePayType));
   }
