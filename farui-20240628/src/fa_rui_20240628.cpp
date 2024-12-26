@@ -296,3 +296,133 @@ RunLegalAdviceConsultationResponse Alibabacloud_FaRui20240628::Client::runLegalA
   return runLegalAdviceConsultationWithOptions(workspaceId, request, headers, runtime);
 }
 
+RunSearchCaseFullTextResponse Alibabacloud_FaRui20240628::Client::runSearchCaseFullTextWithOptions(shared_ptr<string> workspaceId,
+                                                                                                   shared_ptr<RunSearchCaseFullTextRequest> tmpReq,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<RunSearchCaseFullTextShrinkRequest> request = make_shared<RunSearchCaseFullTextShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<RunSearchCaseFullTextRequestFilterCondition>(tmpReq->filterCondition)) {
+    request->filterConditionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filterCondition, make_shared<string>("filterCondition"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<RunSearchCaseFullTextRequestPageParam>(tmpReq->pageParam)) {
+    request->pageParamShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->pageParam, make_shared<string>("pageParam"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->queryKeywords)) {
+    request->queryKeywordsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->queryKeywords, make_shared<string>("queryKeywords"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->sortKeyAndDirection)) {
+    request->sortKeyAndDirectionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sortKeyAndDirection, make_shared<string>("sortKeyAndDirection"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<RunSearchCaseFullTextRequestThread>(tmpReq->thread)) {
+    request->threadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->thread, make_shared<string>("thread"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    body->insert(pair<string, string>("appId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterConditionShrink)) {
+    body->insert(pair<string, string>("filterCondition", *request->filterConditionShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageParamShrink)) {
+    body->insert(pair<string, string>("pageParam", *request->pageParamShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
+    body->insert(pair<string, string>("query", *request->query));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->queryKeywordsShrink)) {
+    body->insert(pair<string, string>("queryKeywords", *request->queryKeywordsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortKeyAndDirectionShrink)) {
+    body->insert(pair<string, string>("sortKeyAndDirection", *request->sortKeyAndDirectionShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->threadShrink)) {
+    body->insert(pair<string, string>("thread", *request->threadShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunSearchCaseFullText"))},
+    {"version", boost::any(string("2024-06-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/farui/search/case/fulltext"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunSearchCaseFullTextResponse(callApi(params, req, runtime));
+}
+
+RunSearchCaseFullTextResponse Alibabacloud_FaRui20240628::Client::runSearchCaseFullText(shared_ptr<string> workspaceId, shared_ptr<RunSearchCaseFullTextRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runSearchCaseFullTextWithOptions(workspaceId, request, headers, runtime);
+}
+
+RunSearchLawQueryResponse Alibabacloud_FaRui20240628::Client::runSearchLawQueryWithOptions(shared_ptr<string> workspaceId,
+                                                                                           shared_ptr<RunSearchLawQueryRequest> tmpReq,
+                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<RunSearchLawQueryShrinkRequest> request = make_shared<RunSearchLawQueryShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<RunSearchLawQueryRequestFilterCondition>(tmpReq->filterCondition)) {
+    request->filterConditionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filterCondition, make_shared<string>("filterCondition"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<RunSearchLawQueryRequestPageParam>(tmpReq->pageParam)) {
+    request->pageParamShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->pageParam, make_shared<string>("pageParam"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->queryKeywords)) {
+    request->queryKeywordsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->queryKeywords, make_shared<string>("queryKeywords"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<RunSearchLawQueryRequestThread>(tmpReq->thread)) {
+    request->threadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->thread, make_shared<string>("thread"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    body->insert(pair<string, string>("appId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterConditionShrink)) {
+    body->insert(pair<string, string>("filterCondition", *request->filterConditionShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageParamShrink)) {
+    body->insert(pair<string, string>("pageParam", *request->pageParamShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
+    body->insert(pair<string, string>("query", *request->query));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->queryKeywordsShrink)) {
+    body->insert(pair<string, string>("queryKeywords", *request->queryKeywordsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->threadShrink)) {
+    body->insert(pair<string, string>("thread", *request->threadShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunSearchLawQuery"))},
+    {"version", boost::any(string("2024-06-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/farui/search/law/query"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunSearchLawQueryResponse(callApi(params, req, runtime));
+}
+
+RunSearchLawQueryResponse Alibabacloud_FaRui20240628::Client::runSearchLawQuery(shared_ptr<string> workspaceId, shared_ptr<RunSearchLawQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runSearchLawQueryWithOptions(workspaceId, request, headers, runtime);
+}
+
