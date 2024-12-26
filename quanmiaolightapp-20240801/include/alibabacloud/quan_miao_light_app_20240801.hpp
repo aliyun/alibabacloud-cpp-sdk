@@ -394,6 +394,319 @@ public:
 
   virtual ~GenerateBroadcastNewsResponse() = default;
 };
+class GenerateOutputFormatRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagDefinePrompt{};
+  shared_ptr<string> tagName{};
+
+  GenerateOutputFormatRequestTags() {}
+
+  explicit GenerateOutputFormatRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagDefinePrompt) {
+      res["tagDefinePrompt"] = boost::any(*tagDefinePrompt);
+    }
+    if (tagName) {
+      res["tagName"] = boost::any(*tagName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tagDefinePrompt") != m.end() && !m["tagDefinePrompt"].empty()) {
+      tagDefinePrompt = make_shared<string>(boost::any_cast<string>(m["tagDefinePrompt"]));
+    }
+    if (m.find("tagName") != m.end() && !m["tagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["tagName"]));
+    }
+  }
+
+
+  virtual ~GenerateOutputFormatRequestTags() = default;
+};
+class GenerateOutputFormatRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessType{};
+  shared_ptr<string> content{};
+  shared_ptr<string> extraInfo{};
+  shared_ptr<vector<GenerateOutputFormatRequestTags>> tags{};
+  shared_ptr<string> taskDescription{};
+
+  GenerateOutputFormatRequest() {}
+
+  explicit GenerateOutputFormatRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessType) {
+      res["businessType"] = boost::any(*businessType);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (extraInfo) {
+      res["extraInfo"] = boost::any(*extraInfo);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
+    }
+    if (taskDescription) {
+      res["taskDescription"] = boost::any(*taskDescription);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("businessType") != m.end() && !m["businessType"].empty()) {
+      businessType = make_shared<string>(boost::any_cast<string>(m["businessType"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("extraInfo") != m.end() && !m["extraInfo"].empty()) {
+      extraInfo = make_shared<string>(boost::any_cast<string>(m["extraInfo"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<GenerateOutputFormatRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GenerateOutputFormatRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GenerateOutputFormatRequestTags>>(expect1);
+      }
+    }
+    if (m.find("taskDescription") != m.end() && !m["taskDescription"].empty()) {
+      taskDescription = make_shared<string>(boost::any_cast<string>(m["taskDescription"]));
+    }
+  }
+
+
+  virtual ~GenerateOutputFormatRequest() = default;
+};
+class GenerateOutputFormatShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessType{};
+  shared_ptr<string> content{};
+  shared_ptr<string> extraInfo{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> taskDescription{};
+
+  GenerateOutputFormatShrinkRequest() {}
+
+  explicit GenerateOutputFormatShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessType) {
+      res["businessType"] = boost::any(*businessType);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (extraInfo) {
+      res["extraInfo"] = boost::any(*extraInfo);
+    }
+    if (tagsShrink) {
+      res["tags"] = boost::any(*tagsShrink);
+    }
+    if (taskDescription) {
+      res["taskDescription"] = boost::any(*taskDescription);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("businessType") != m.end() && !m["businessType"].empty()) {
+      businessType = make_shared<string>(boost::any_cast<string>(m["businessType"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("extraInfo") != m.end() && !m["extraInfo"].empty()) {
+      extraInfo = make_shared<string>(boost::any_cast<string>(m["extraInfo"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["tags"]));
+    }
+    if (m.find("taskDescription") != m.end() && !m["taskDescription"].empty()) {
+      taskDescription = make_shared<string>(boost::any_cast<string>(m["taskDescription"]));
+    }
+  }
+
+
+  virtual ~GenerateOutputFormatShrinkRequest() = default;
+};
+class GenerateOutputFormatResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> outputFormat{};
+
+  GenerateOutputFormatResponseBodyData() {}
+
+  explicit GenerateOutputFormatResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (outputFormat) {
+      res["outputFormat"] = boost::any(*outputFormat);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("outputFormat") != m.end() && !m["outputFormat"].empty()) {
+      outputFormat = make_shared<string>(boost::any_cast<string>(m["outputFormat"]));
+    }
+  }
+
+
+  virtual ~GenerateOutputFormatResponseBodyData() = default;
+};
+class GenerateOutputFormatResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GenerateOutputFormatResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GenerateOutputFormatResponseBody() {}
+
+  explicit GenerateOutputFormatResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        GenerateOutputFormatResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<GenerateOutputFormatResponseBodyData>(model1);
+      }
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~GenerateOutputFormatResponseBody() = default;
+};
+class GenerateOutputFormatResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GenerateOutputFormatResponseBody> body{};
+
+  GenerateOutputFormatResponse() {}
+
+  explicit GenerateOutputFormatResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GenerateOutputFormatResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GenerateOutputFormatResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateOutputFormatResponse() = default;
+};
 class ListHotTopicSummariesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
@@ -4223,6 +4536,481 @@ public:
 
   virtual ~RunStyleWritingResponse() = default;
 };
+class RunTagMiningAnalysisRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagDefinePrompt{};
+  shared_ptr<string> tagName{};
+
+  RunTagMiningAnalysisRequestTags() {}
+
+  explicit RunTagMiningAnalysisRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagDefinePrompt) {
+      res["tagDefinePrompt"] = boost::any(*tagDefinePrompt);
+    }
+    if (tagName) {
+      res["tagName"] = boost::any(*tagName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tagDefinePrompt") != m.end() && !m["tagDefinePrompt"].empty()) {
+      tagDefinePrompt = make_shared<string>(boost::any_cast<string>(m["tagDefinePrompt"]));
+    }
+    if (m.find("tagName") != m.end() && !m["tagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["tagName"]));
+    }
+  }
+
+
+  virtual ~RunTagMiningAnalysisRequestTags() = default;
+};
+class RunTagMiningAnalysisRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessType{};
+  shared_ptr<string> content{};
+  shared_ptr<string> extraInfo{};
+  shared_ptr<string> modelId{};
+  shared_ptr<string> outputFormat{};
+  shared_ptr<vector<RunTagMiningAnalysisRequestTags>> tags{};
+  shared_ptr<string> taskDescription{};
+
+  RunTagMiningAnalysisRequest() {}
+
+  explicit RunTagMiningAnalysisRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessType) {
+      res["businessType"] = boost::any(*businessType);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (extraInfo) {
+      res["extraInfo"] = boost::any(*extraInfo);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (outputFormat) {
+      res["outputFormat"] = boost::any(*outputFormat);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
+    }
+    if (taskDescription) {
+      res["taskDescription"] = boost::any(*taskDescription);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("businessType") != m.end() && !m["businessType"].empty()) {
+      businessType = make_shared<string>(boost::any_cast<string>(m["businessType"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("extraInfo") != m.end() && !m["extraInfo"].empty()) {
+      extraInfo = make_shared<string>(boost::any_cast<string>(m["extraInfo"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("outputFormat") != m.end() && !m["outputFormat"].empty()) {
+      outputFormat = make_shared<string>(boost::any_cast<string>(m["outputFormat"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<RunTagMiningAnalysisRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunTagMiningAnalysisRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<RunTagMiningAnalysisRequestTags>>(expect1);
+      }
+    }
+    if (m.find("taskDescription") != m.end() && !m["taskDescription"].empty()) {
+      taskDescription = make_shared<string>(boost::any_cast<string>(m["taskDescription"]));
+    }
+  }
+
+
+  virtual ~RunTagMiningAnalysisRequest() = default;
+};
+class RunTagMiningAnalysisShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessType{};
+  shared_ptr<string> content{};
+  shared_ptr<string> extraInfo{};
+  shared_ptr<string> modelId{};
+  shared_ptr<string> outputFormat{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> taskDescription{};
+
+  RunTagMiningAnalysisShrinkRequest() {}
+
+  explicit RunTagMiningAnalysisShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessType) {
+      res["businessType"] = boost::any(*businessType);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (extraInfo) {
+      res["extraInfo"] = boost::any(*extraInfo);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (outputFormat) {
+      res["outputFormat"] = boost::any(*outputFormat);
+    }
+    if (tagsShrink) {
+      res["tags"] = boost::any(*tagsShrink);
+    }
+    if (taskDescription) {
+      res["taskDescription"] = boost::any(*taskDescription);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("businessType") != m.end() && !m["businessType"].empty()) {
+      businessType = make_shared<string>(boost::any_cast<string>(m["businessType"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("extraInfo") != m.end() && !m["extraInfo"].empty()) {
+      extraInfo = make_shared<string>(boost::any_cast<string>(m["extraInfo"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("outputFormat") != m.end() && !m["outputFormat"].empty()) {
+      outputFormat = make_shared<string>(boost::any_cast<string>(m["outputFormat"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["tags"]));
+    }
+    if (m.find("taskDescription") != m.end() && !m["taskDescription"].empty()) {
+      taskDescription = make_shared<string>(boost::any_cast<string>(m["taskDescription"]));
+    }
+  }
+
+
+  virtual ~RunTagMiningAnalysisShrinkRequest() = default;
+};
+class RunTagMiningAnalysisResponseBodyHeader : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> event{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> traceId{};
+
+  RunTagMiningAnalysisResponseBodyHeader() {}
+
+  explicit RunTagMiningAnalysisResponseBodyHeader(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (event) {
+      res["event"] = boost::any(*event);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("event") != m.end() && !m["event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["event"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~RunTagMiningAnalysisResponseBodyHeader() = default;
+};
+class RunTagMiningAnalysisResponseBodyPayloadOutput : public Darabonba::Model {
+public:
+  shared_ptr<string> text{};
+
+  RunTagMiningAnalysisResponseBodyPayloadOutput() {}
+
+  explicit RunTagMiningAnalysisResponseBodyPayloadOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+  }
+
+
+  virtual ~RunTagMiningAnalysisResponseBodyPayloadOutput() = default;
+};
+class RunTagMiningAnalysisResponseBodyPayloadUsage : public Darabonba::Model {
+public:
+  shared_ptr<long> inputTokens{};
+  shared_ptr<long> outputTokens{};
+  shared_ptr<long> totalTokens{};
+
+  RunTagMiningAnalysisResponseBodyPayloadUsage() {}
+
+  explicit RunTagMiningAnalysisResponseBodyPayloadUsage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inputTokens) {
+      res["inputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["outputTokens"] = boost::any(*outputTokens);
+    }
+    if (totalTokens) {
+      res["totalTokens"] = boost::any(*totalTokens);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("inputTokens") != m.end() && !m["inputTokens"].empty()) {
+      inputTokens = make_shared<long>(boost::any_cast<long>(m["inputTokens"]));
+    }
+    if (m.find("outputTokens") != m.end() && !m["outputTokens"].empty()) {
+      outputTokens = make_shared<long>(boost::any_cast<long>(m["outputTokens"]));
+    }
+    if (m.find("totalTokens") != m.end() && !m["totalTokens"].empty()) {
+      totalTokens = make_shared<long>(boost::any_cast<long>(m["totalTokens"]));
+    }
+  }
+
+
+  virtual ~RunTagMiningAnalysisResponseBodyPayloadUsage() = default;
+};
+class RunTagMiningAnalysisResponseBodyPayload : public Darabonba::Model {
+public:
+  shared_ptr<RunTagMiningAnalysisResponseBodyPayloadOutput> output{};
+  shared_ptr<RunTagMiningAnalysisResponseBodyPayloadUsage> usage{};
+
+  RunTagMiningAnalysisResponseBodyPayload() {}
+
+  explicit RunTagMiningAnalysisResponseBodyPayload(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (output) {
+      res["output"] = output ? boost::any(output->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (usage) {
+      res["usage"] = usage ? boost::any(usage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("output") != m.end() && !m["output"].empty()) {
+      if (typeid(map<string, boost::any>) == m["output"].type()) {
+        RunTagMiningAnalysisResponseBodyPayloadOutput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["output"]));
+        output = make_shared<RunTagMiningAnalysisResponseBodyPayloadOutput>(model1);
+      }
+    }
+    if (m.find("usage") != m.end() && !m["usage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["usage"].type()) {
+        RunTagMiningAnalysisResponseBodyPayloadUsage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["usage"]));
+        usage = make_shared<RunTagMiningAnalysisResponseBodyPayloadUsage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunTagMiningAnalysisResponseBodyPayload() = default;
+};
+class RunTagMiningAnalysisResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<RunTagMiningAnalysisResponseBodyHeader> header{};
+  shared_ptr<RunTagMiningAnalysisResponseBodyPayload> payload{};
+  shared_ptr<string> requestId{};
+
+  RunTagMiningAnalysisResponseBody() {}
+
+  explicit RunTagMiningAnalysisResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (header) {
+      res["header"] = header ? boost::any(header->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (payload) {
+      res["payload"] = payload ? boost::any(payload->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("header") != m.end() && !m["header"].empty()) {
+      if (typeid(map<string, boost::any>) == m["header"].type()) {
+        RunTagMiningAnalysisResponseBodyHeader model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["header"]));
+        header = make_shared<RunTagMiningAnalysisResponseBodyHeader>(model1);
+      }
+    }
+    if (m.find("payload") != m.end() && !m["payload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["payload"].type()) {
+        RunTagMiningAnalysisResponseBodyPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["payload"]));
+        payload = make_shared<RunTagMiningAnalysisResponseBodyPayload>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~RunTagMiningAnalysisResponseBody() = default;
+};
+class RunTagMiningAnalysisResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RunTagMiningAnalysisResponseBody> body{};
+
+  RunTagMiningAnalysisResponse() {}
+
+  explicit RunTagMiningAnalysisResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RunTagMiningAnalysisResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RunTagMiningAnalysisResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunTagMiningAnalysisResponse() = default;
+};
 class RunVideoAnalysisRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> generateOptions{};
@@ -5462,6 +6250,11 @@ public:
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateBroadcastNewsResponse generateBroadcastNews(shared_ptr<string> workspaceId, shared_ptr<GenerateBroadcastNewsRequest> request);
+  GenerateOutputFormatResponse generateOutputFormatWithOptions(shared_ptr<string> workspaceId,
+                                                               shared_ptr<GenerateOutputFormatRequest> tmpReq,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateOutputFormatResponse generateOutputFormat(shared_ptr<string> workspaceId, shared_ptr<GenerateOutputFormatRequest> request);
   ListHotTopicSummariesResponse listHotTopicSummariesWithOptions(shared_ptr<string> workspaceId,
                                                                  shared_ptr<ListHotTopicSummariesRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
@@ -5502,6 +6295,11 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunStyleWritingResponse runStyleWriting(shared_ptr<string> workspaceId, shared_ptr<RunStyleWritingRequest> request);
+  RunTagMiningAnalysisResponse runTagMiningAnalysisWithOptions(shared_ptr<string> workspaceId,
+                                                               shared_ptr<RunTagMiningAnalysisRequest> tmpReq,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RunTagMiningAnalysisResponse runTagMiningAnalysis(shared_ptr<string> workspaceId, shared_ptr<RunTagMiningAnalysisRequest> request);
   RunVideoAnalysisResponse runVideoAnalysisWithOptions(shared_ptr<string> workspaceId,
                                                        shared_ptr<RunVideoAnalysisRequest> tmpReq,
                                                        shared_ptr<map<string, string>> headers,
