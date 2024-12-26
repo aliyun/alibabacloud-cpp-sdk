@@ -7615,6 +7615,2482 @@ public:
 
   virtual ~DescribeInstanceDasProResponse() = default;
 };
+class DescribeSlowLogHistogramAsyncRequestFilters : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeSlowLogHistogramAsyncRequestFilters() {}
+
+  explicit DescribeSlowLogHistogramAsyncRequestFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogHistogramAsyncRequestFilters() = default;
+};
+class DescribeSlowLogHistogramAsyncRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<vector<DescribeSlowLogHistogramAsyncRequestFilters>> filters{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> nodeId{};
+  shared_ptr<long> startTime{};
+
+  DescribeSlowLogHistogramAsyncRequest() {}
+
+  explicit DescribeSlowLogHistogramAsyncRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (filters) {
+      vector<boost::any> temp1;
+      for(auto item1:*filters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filters"] = boost::any(temp1);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filters"].type()) {
+        vector<DescribeSlowLogHistogramAsyncRequestFilters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSlowLogHistogramAsyncRequestFilters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filters = make_shared<vector<DescribeSlowLogHistogramAsyncRequestFilters>>(expect1);
+      }
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogHistogramAsyncRequest() = default;
+};
+class DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> count{};
+  shared_ptr<string> insId{};
+  shared_ptr<string> insRole{};
+
+  DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems() {}
+
+  explicit DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (insId) {
+      res["InsId"] = boost::any(*insId);
+    }
+    if (insRole) {
+      res["InsRole"] = boost::any(*insRole);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Count"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Count"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      count = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("InsId") != m.end() && !m["InsId"].empty()) {
+      insId = make_shared<string>(boost::any_cast<string>(m["InsId"]));
+    }
+    if (m.find("InsRole") != m.end() && !m["InsRole"].empty()) {
+      insRole = make_shared<string>(boost::any_cast<string>(m["InsRole"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems() = default;
+};
+class DescribeSlowLogHistogramAsyncResponseBodyDataDataItem : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> count{};
+  shared_ptr<vector<DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems>> insItems{};
+  shared_ptr<string> nodeId{};
+
+  DescribeSlowLogHistogramAsyncResponseBodyDataDataItem() {}
+
+  explicit DescribeSlowLogHistogramAsyncResponseBodyDataDataItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (insItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*insItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InsItems"] = boost::any(temp1);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Count"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Count"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      count = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("InsItems") != m.end() && !m["InsItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["InsItems"].type()) {
+        vector<DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InsItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        insItems = make_shared<vector<DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems>>(expect1);
+      }
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogHistogramAsyncResponseBodyDataDataItem() = default;
+};
+class DescribeSlowLogHistogramAsyncResponseBodyDataData : public Darabonba::Model {
+public:
+  shared_ptr<vector<double>> avgCPUTime{};
+  shared_ptr<vector<double>> avgDocExamined{};
+  shared_ptr<vector<double>> avgIOWrites{};
+  shared_ptr<vector<double>> avgKeysExamined{};
+  shared_ptr<vector<double>> avgLastRowsCountAffected{};
+  shared_ptr<vector<double>> avgLockTime{};
+  shared_ptr<vector<double>> avgLogicalIOReads{};
+  shared_ptr<vector<double>> avgPhysicalIOReads{};
+  shared_ptr<vector<double>> avgReturnNum{};
+  shared_ptr<vector<double>> avgRowsCountAffected{};
+  shared_ptr<vector<double>> avgRowsExamined{};
+  shared_ptr<vector<double>> avgRowsSent{};
+  shared_ptr<vector<double>> avgRt{};
+  shared_ptr<vector<double>> CPUTime{};
+  shared_ptr<vector<long>> count{};
+  shared_ptr<vector<long>> docExamined{};
+  shared_ptr<vector<long>> IOWrites{};
+  shared_ptr<vector<DescribeSlowLogHistogramAsyncResponseBodyDataDataItem>> item{};
+  shared_ptr<vector<long>> keysExamined{};
+  shared_ptr<vector<long>> lastRowsCountAffected{};
+  shared_ptr<vector<double>> lockTime{};
+  shared_ptr<vector<long>> logicalIOReads{};
+  shared_ptr<vector<double>> maxCPUTime{};
+  shared_ptr<vector<long>> maxDocExamined{};
+  shared_ptr<vector<long>> maxIOWrites{};
+  shared_ptr<vector<long>> maxKeysExamined{};
+  shared_ptr<vector<long>> maxLastRowsCountAffected{};
+  shared_ptr<vector<double>> maxLockTime{};
+  shared_ptr<vector<long>> maxLogicalIOReads{};
+  shared_ptr<vector<long>> maxPhysicalIOReads{};
+  shared_ptr<vector<long>> maxReturnNum{};
+  shared_ptr<vector<long>> maxRowsCountAffected{};
+  shared_ptr<vector<long>> maxRowsExamined{};
+  shared_ptr<vector<long>> maxRowsSent{};
+  shared_ptr<vector<double>> maxRt{};
+  shared_ptr<vector<long>> physicalIOReads{};
+  shared_ptr<vector<long>> returnNum{};
+  shared_ptr<vector<long>> rowsCountAffected{};
+  shared_ptr<vector<long>> rowsExamined{};
+  shared_ptr<vector<long>> rowsSent{};
+  shared_ptr<vector<double>> rt{};
+  shared_ptr<long> total{};
+  shared_ptr<vector<long>> ts{};
+  shared_ptr<vector<long>> tsEnd{};
+
+  DescribeSlowLogHistogramAsyncResponseBodyDataData() {}
+
+  explicit DescribeSlowLogHistogramAsyncResponseBodyDataData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (avgCPUTime) {
+      res["AvgCPUTime"] = boost::any(*avgCPUTime);
+    }
+    if (avgDocExamined) {
+      res["AvgDocExamined"] = boost::any(*avgDocExamined);
+    }
+    if (avgIOWrites) {
+      res["AvgIOWrites"] = boost::any(*avgIOWrites);
+    }
+    if (avgKeysExamined) {
+      res["AvgKeysExamined"] = boost::any(*avgKeysExamined);
+    }
+    if (avgLastRowsCountAffected) {
+      res["AvgLastRowsCountAffected"] = boost::any(*avgLastRowsCountAffected);
+    }
+    if (avgLockTime) {
+      res["AvgLockTime"] = boost::any(*avgLockTime);
+    }
+    if (avgLogicalIOReads) {
+      res["AvgLogicalIOReads"] = boost::any(*avgLogicalIOReads);
+    }
+    if (avgPhysicalIOReads) {
+      res["AvgPhysicalIOReads"] = boost::any(*avgPhysicalIOReads);
+    }
+    if (avgReturnNum) {
+      res["AvgReturnNum"] = boost::any(*avgReturnNum);
+    }
+    if (avgRowsCountAffected) {
+      res["AvgRowsCountAffected"] = boost::any(*avgRowsCountAffected);
+    }
+    if (avgRowsExamined) {
+      res["AvgRowsExamined"] = boost::any(*avgRowsExamined);
+    }
+    if (avgRowsSent) {
+      res["AvgRowsSent"] = boost::any(*avgRowsSent);
+    }
+    if (avgRt) {
+      res["AvgRt"] = boost::any(*avgRt);
+    }
+    if (CPUTime) {
+      res["CPUTime"] = boost::any(*CPUTime);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (docExamined) {
+      res["DocExamined"] = boost::any(*docExamined);
+    }
+    if (IOWrites) {
+      res["IOWrites"] = boost::any(*IOWrites);
+    }
+    if (item) {
+      vector<boost::any> temp1;
+      for(auto item1:*item){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Item"] = boost::any(temp1);
+    }
+    if (keysExamined) {
+      res["KeysExamined"] = boost::any(*keysExamined);
+    }
+    if (lastRowsCountAffected) {
+      res["LastRowsCountAffected"] = boost::any(*lastRowsCountAffected);
+    }
+    if (lockTime) {
+      res["LockTime"] = boost::any(*lockTime);
+    }
+    if (logicalIOReads) {
+      res["LogicalIOReads"] = boost::any(*logicalIOReads);
+    }
+    if (maxCPUTime) {
+      res["MaxCPUTime"] = boost::any(*maxCPUTime);
+    }
+    if (maxDocExamined) {
+      res["MaxDocExamined"] = boost::any(*maxDocExamined);
+    }
+    if (maxIOWrites) {
+      res["MaxIOWrites"] = boost::any(*maxIOWrites);
+    }
+    if (maxKeysExamined) {
+      res["MaxKeysExamined"] = boost::any(*maxKeysExamined);
+    }
+    if (maxLastRowsCountAffected) {
+      res["MaxLastRowsCountAffected"] = boost::any(*maxLastRowsCountAffected);
+    }
+    if (maxLockTime) {
+      res["MaxLockTime"] = boost::any(*maxLockTime);
+    }
+    if (maxLogicalIOReads) {
+      res["MaxLogicalIOReads"] = boost::any(*maxLogicalIOReads);
+    }
+    if (maxPhysicalIOReads) {
+      res["MaxPhysicalIOReads"] = boost::any(*maxPhysicalIOReads);
+    }
+    if (maxReturnNum) {
+      res["MaxReturnNum"] = boost::any(*maxReturnNum);
+    }
+    if (maxRowsCountAffected) {
+      res["MaxRowsCountAffected"] = boost::any(*maxRowsCountAffected);
+    }
+    if (maxRowsExamined) {
+      res["MaxRowsExamined"] = boost::any(*maxRowsExamined);
+    }
+    if (maxRowsSent) {
+      res["MaxRowsSent"] = boost::any(*maxRowsSent);
+    }
+    if (maxRt) {
+      res["MaxRt"] = boost::any(*maxRt);
+    }
+    if (physicalIOReads) {
+      res["PhysicalIOReads"] = boost::any(*physicalIOReads);
+    }
+    if (returnNum) {
+      res["ReturnNum"] = boost::any(*returnNum);
+    }
+    if (rowsCountAffected) {
+      res["RowsCountAffected"] = boost::any(*rowsCountAffected);
+    }
+    if (rowsExamined) {
+      res["RowsExamined"] = boost::any(*rowsExamined);
+    }
+    if (rowsSent) {
+      res["RowsSent"] = boost::any(*rowsSent);
+    }
+    if (rt) {
+      res["Rt"] = boost::any(*rt);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    if (tsEnd) {
+      res["TsEnd"] = boost::any(*tsEnd);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AvgCPUTime") != m.end() && !m["AvgCPUTime"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgCPUTime"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgCPUTime"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgCPUTime = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgDocExamined") != m.end() && !m["AvgDocExamined"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgDocExamined"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgDocExamined"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgDocExamined = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgIOWrites") != m.end() && !m["AvgIOWrites"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgIOWrites"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgIOWrites"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgIOWrites = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgKeysExamined") != m.end() && !m["AvgKeysExamined"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgKeysExamined"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgKeysExamined"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgKeysExamined = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgLastRowsCountAffected") != m.end() && !m["AvgLastRowsCountAffected"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgLastRowsCountAffected"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgLastRowsCountAffected"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgLastRowsCountAffected = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgLockTime") != m.end() && !m["AvgLockTime"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgLockTime"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgLockTime"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgLockTime = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgLogicalIOReads") != m.end() && !m["AvgLogicalIOReads"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgLogicalIOReads"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgLogicalIOReads"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgLogicalIOReads = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgPhysicalIOReads") != m.end() && !m["AvgPhysicalIOReads"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgPhysicalIOReads"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgPhysicalIOReads"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgPhysicalIOReads = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgReturnNum") != m.end() && !m["AvgReturnNum"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgReturnNum"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgReturnNum"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgReturnNum = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgRowsCountAffected") != m.end() && !m["AvgRowsCountAffected"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgRowsCountAffected"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgRowsCountAffected"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgRowsCountAffected = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgRowsExamined") != m.end() && !m["AvgRowsExamined"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgRowsExamined"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgRowsExamined"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgRowsExamined = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgRowsSent") != m.end() && !m["AvgRowsSent"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgRowsSent"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgRowsSent"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgRowsSent = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgRt") != m.end() && !m["AvgRt"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgRt"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgRt"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgRt = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("CPUTime") != m.end() && !m["CPUTime"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["CPUTime"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CPUTime"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      CPUTime = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Count"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Count"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      count = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("DocExamined") != m.end() && !m["DocExamined"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["DocExamined"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DocExamined"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      docExamined = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("IOWrites") != m.end() && !m["IOWrites"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["IOWrites"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IOWrites"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      IOWrites = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Item") != m.end() && !m["Item"].empty()) {
+      if (typeid(vector<boost::any>) == m["Item"].type()) {
+        vector<DescribeSlowLogHistogramAsyncResponseBodyDataDataItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Item"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSlowLogHistogramAsyncResponseBodyDataDataItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        item = make_shared<vector<DescribeSlowLogHistogramAsyncResponseBodyDataDataItem>>(expect1);
+      }
+    }
+    if (m.find("KeysExamined") != m.end() && !m["KeysExamined"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["KeysExamined"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["KeysExamined"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      keysExamined = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("LastRowsCountAffected") != m.end() && !m["LastRowsCountAffected"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["LastRowsCountAffected"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LastRowsCountAffected"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      lastRowsCountAffected = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("LockTime") != m.end() && !m["LockTime"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["LockTime"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LockTime"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      lockTime = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("LogicalIOReads") != m.end() && !m["LogicalIOReads"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["LogicalIOReads"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LogicalIOReads"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      logicalIOReads = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaxCPUTime") != m.end() && !m["MaxCPUTime"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxCPUTime"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxCPUTime"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      maxCPUTime = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("MaxDocExamined") != m.end() && !m["MaxDocExamined"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxDocExamined"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxDocExamined"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxDocExamined = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaxIOWrites") != m.end() && !m["MaxIOWrites"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxIOWrites"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxIOWrites"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxIOWrites = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaxKeysExamined") != m.end() && !m["MaxKeysExamined"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxKeysExamined"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxKeysExamined"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxKeysExamined = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaxLastRowsCountAffected") != m.end() && !m["MaxLastRowsCountAffected"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxLastRowsCountAffected"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxLastRowsCountAffected"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxLastRowsCountAffected = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaxLockTime") != m.end() && !m["MaxLockTime"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxLockTime"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxLockTime"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      maxLockTime = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("MaxLogicalIOReads") != m.end() && !m["MaxLogicalIOReads"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxLogicalIOReads"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxLogicalIOReads"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxLogicalIOReads = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaxPhysicalIOReads") != m.end() && !m["MaxPhysicalIOReads"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxPhysicalIOReads"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxPhysicalIOReads"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxPhysicalIOReads = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaxReturnNum") != m.end() && !m["MaxReturnNum"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxReturnNum"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxReturnNum"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxReturnNum = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaxRowsCountAffected") != m.end() && !m["MaxRowsCountAffected"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxRowsCountAffected"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxRowsCountAffected"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxRowsCountAffected = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaxRowsExamined") != m.end() && !m["MaxRowsExamined"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxRowsExamined"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxRowsExamined"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxRowsExamined = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaxRowsSent") != m.end() && !m["MaxRowsSent"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxRowsSent"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxRowsSent"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxRowsSent = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaxRt") != m.end() && !m["MaxRt"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxRt"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxRt"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      maxRt = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("PhysicalIOReads") != m.end() && !m["PhysicalIOReads"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["PhysicalIOReads"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PhysicalIOReads"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      physicalIOReads = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("ReturnNum") != m.end() && !m["ReturnNum"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["ReturnNum"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ReturnNum"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      returnNum = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RowsCountAffected") != m.end() && !m["RowsCountAffected"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RowsCountAffected"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RowsCountAffected"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      rowsCountAffected = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RowsExamined") != m.end() && !m["RowsExamined"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RowsExamined"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RowsExamined"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      rowsExamined = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RowsSent") != m.end() && !m["RowsSent"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RowsSent"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RowsSent"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      rowsSent = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Rt") != m.end() && !m["Rt"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Rt"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Rt"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      rt = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Ts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      ts = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TsEnd") != m.end() && !m["TsEnd"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["TsEnd"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TsEnd"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      tsEnd = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeSlowLogHistogramAsyncResponseBodyDataData() = default;
+};
+class DescribeSlowLogHistogramAsyncResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<DescribeSlowLogHistogramAsyncResponseBodyDataData> data{};
+  shared_ptr<long> errorCode{};
+  shared_ptr<bool> isFinish{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestKey{};
+  shared_ptr<string> resultId{};
+  shared_ptr<string> state{};
+  shared_ptr<long> timestamp{};
+
+  DescribeSlowLogHistogramAsyncResponseBodyData() {}
+
+  explicit DescribeSlowLogHistogramAsyncResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (isFinish) {
+      res["IsFinish"] = boost::any(*isFinish);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestKey) {
+      res["RequestKey"] = boost::any(*requestKey);
+    }
+    if (resultId) {
+      res["ResultId"] = boost::any(*resultId);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeSlowLogHistogramAsyncResponseBodyDataData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeSlowLogHistogramAsyncResponseBodyDataData>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<long>(boost::any_cast<long>(m["ErrorCode"]));
+    }
+    if (m.find("IsFinish") != m.end() && !m["IsFinish"].empty()) {
+      isFinish = make_shared<bool>(boost::any_cast<bool>(m["IsFinish"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestKey") != m.end() && !m["RequestKey"].empty()) {
+      requestKey = make_shared<string>(boost::any_cast<string>(m["RequestKey"]));
+    }
+    if (m.find("ResultId") != m.end() && !m["ResultId"].empty()) {
+      resultId = make_shared<string>(boost::any_cast<string>(m["ResultId"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogHistogramAsyncResponseBodyData() = default;
+};
+class DescribeSlowLogHistogramAsyncResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<DescribeSlowLogHistogramAsyncResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  DescribeSlowLogHistogramAsyncResponseBody() {}
+
+  explicit DescribeSlowLogHistogramAsyncResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeSlowLogHistogramAsyncResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeSlowLogHistogramAsyncResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogHistogramAsyncResponseBody() = default;
+};
+class DescribeSlowLogHistogramAsyncResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSlowLogHistogramAsyncResponseBody> body{};
+
+  DescribeSlowLogHistogramAsyncResponse() {}
+
+  explicit DescribeSlowLogHistogramAsyncResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSlowLogHistogramAsyncResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSlowLogHistogramAsyncResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSlowLogHistogramAsyncResponse() = default;
+};
+class DescribeSlowLogStatisticRequestFilters : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeSlowLogStatisticRequestFilters() {}
+
+  explicit DescribeSlowLogStatisticRequestFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogStatisticRequestFilters() = default;
+};
+class DescribeSlowLogStatisticRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> asc{};
+  shared_ptr<long> endTime{};
+  shared_ptr<vector<DescribeSlowLogStatisticRequestFilters>> filters{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> nodeId{};
+  shared_ptr<string> orderBy{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> type{};
+
+  DescribeSlowLogStatisticRequest() {}
+
+  explicit DescribeSlowLogStatisticRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (asc) {
+      res["Asc"] = boost::any(*asc);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (filters) {
+      vector<boost::any> temp1;
+      for(auto item1:*filters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filters"] = boost::any(temp1);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Asc") != m.end() && !m["Asc"].empty()) {
+      asc = make_shared<bool>(boost::any_cast<bool>(m["Asc"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filters"].type()) {
+        vector<DescribeSlowLogStatisticRequestFilters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSlowLogStatisticRequestFilters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filters = make_shared<vector<DescribeSlowLogStatisticRequestFilters>>(expect1);
+      }
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogStatisticRequest() = default;
+};
+class DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> count{};
+  shared_ptr<string> nodeId{};
+
+  DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem() {}
+
+  explicit DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Count"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Count"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      count = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem() = default;
+};
+class DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram : public Darabonba::Model {
+public:
+  shared_ptr<vector<double>> avgLockTime{};
+  shared_ptr<vector<double>> avgRowsExamined{};
+  shared_ptr<vector<double>> avgRowsSent{};
+  shared_ptr<vector<double>> avgRt{};
+  shared_ptr<vector<long>> count{};
+  shared_ptr<vector<DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem>> item{};
+  shared_ptr<vector<double>> lockTime{};
+  shared_ptr<vector<double>> maxLockTime{};
+  shared_ptr<vector<long>> maxRowsExamined{};
+  shared_ptr<vector<long>> maxRowsSent{};
+  shared_ptr<vector<double>> maxRt{};
+  shared_ptr<vector<long>> rowsExamined{};
+  shared_ptr<vector<long>> rowsSent{};
+  shared_ptr<vector<double>> rt{};
+  shared_ptr<long> total{};
+  shared_ptr<vector<long>> ts{};
+  shared_ptr<vector<long>> tsEnd{};
+
+  DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram() {}
+
+  explicit DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (avgLockTime) {
+      res["AvgLockTime"] = boost::any(*avgLockTime);
+    }
+    if (avgRowsExamined) {
+      res["AvgRowsExamined"] = boost::any(*avgRowsExamined);
+    }
+    if (avgRowsSent) {
+      res["AvgRowsSent"] = boost::any(*avgRowsSent);
+    }
+    if (avgRt) {
+      res["AvgRt"] = boost::any(*avgRt);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (item) {
+      vector<boost::any> temp1;
+      for(auto item1:*item){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Item"] = boost::any(temp1);
+    }
+    if (lockTime) {
+      res["LockTime"] = boost::any(*lockTime);
+    }
+    if (maxLockTime) {
+      res["MaxLockTime"] = boost::any(*maxLockTime);
+    }
+    if (maxRowsExamined) {
+      res["MaxRowsExamined"] = boost::any(*maxRowsExamined);
+    }
+    if (maxRowsSent) {
+      res["MaxRowsSent"] = boost::any(*maxRowsSent);
+    }
+    if (maxRt) {
+      res["MaxRt"] = boost::any(*maxRt);
+    }
+    if (rowsExamined) {
+      res["RowsExamined"] = boost::any(*rowsExamined);
+    }
+    if (rowsSent) {
+      res["RowsSent"] = boost::any(*rowsSent);
+    }
+    if (rt) {
+      res["Rt"] = boost::any(*rt);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    if (ts) {
+      res["Ts"] = boost::any(*ts);
+    }
+    if (tsEnd) {
+      res["TsEnd"] = boost::any(*tsEnd);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AvgLockTime") != m.end() && !m["AvgLockTime"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgLockTime"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgLockTime"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgLockTime = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgRowsExamined") != m.end() && !m["AvgRowsExamined"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgRowsExamined"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgRowsExamined"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgRowsExamined = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgRowsSent") != m.end() && !m["AvgRowsSent"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgRowsSent"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgRowsSent"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgRowsSent = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgRt") != m.end() && !m["AvgRt"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgRt"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgRt"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgRt = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Count"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Count"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      count = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Item") != m.end() && !m["Item"].empty()) {
+      if (typeid(vector<boost::any>) == m["Item"].type()) {
+        vector<DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Item"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        item = make_shared<vector<DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem>>(expect1);
+      }
+    }
+    if (m.find("LockTime") != m.end() && !m["LockTime"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["LockTime"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LockTime"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      lockTime = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("MaxLockTime") != m.end() && !m["MaxLockTime"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxLockTime"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxLockTime"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      maxLockTime = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("MaxRowsExamined") != m.end() && !m["MaxRowsExamined"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxRowsExamined"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxRowsExamined"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxRowsExamined = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaxRowsSent") != m.end() && !m["MaxRowsSent"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxRowsSent"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxRowsSent"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxRowsSent = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MaxRt") != m.end() && !m["MaxRt"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxRt"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxRt"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      maxRt = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("RowsExamined") != m.end() && !m["RowsExamined"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RowsExamined"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RowsExamined"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      rowsExamined = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RowsSent") != m.end() && !m["RowsSent"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RowsSent"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RowsSent"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      rowsSent = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Rt") != m.end() && !m["Rt"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Rt"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Rt"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      rt = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+    if (m.find("Ts") != m.end() && !m["Ts"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Ts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      ts = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TsEnd") != m.end() && !m["TsEnd"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["TsEnd"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TsEnd"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      tsEnd = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram() = default;
+};
+class DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag : public Darabonba::Model {
+public:
+  shared_ptr<string> comments{};
+  shared_ptr<string> sqlId{};
+  shared_ptr<string> tags{};
+
+  DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag() {}
+
+  explicit DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comments) {
+      res["Comments"] = boost::any(*comments);
+    }
+    if (sqlId) {
+      res["SqlId"] = boost::any(*sqlId);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comments") != m.end() && !m["Comments"].empty()) {
+      comments = make_shared<string>(boost::any_cast<string>(m["Comments"]));
+    }
+    if (m.find("SqlId") != m.end() && !m["SqlId"].empty()) {
+      sqlId = make_shared<string>(boost::any_cast<string>(m["SqlId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag() = default;
+};
+class DescribeSlowLogStatisticResponseBodyDataDataLogsTrend : public Darabonba::Model {
+public:
+  shared_ptr<long> timestamp{};
+  shared_ptr<boost::any> value{};
+
+  DescribeSlowLogStatisticResponseBodyDataDataLogsTrend() {}
+
+  explicit DescribeSlowLogStatisticResponseBodyDataDataLogsTrend(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<boost::any>(boost::any_cast<boost::any>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogStatisticResponseBodyDataDataLogsTrend() = default;
+};
+class DescribeSlowLogStatisticResponseBodyDataDataLogs : public Darabonba::Model {
+public:
+  shared_ptr<string> accountName{};
+  shared_ptr<double> avgCPUTime{};
+  shared_ptr<double> avgDocExamined{};
+  shared_ptr<double> avgIOWrites{};
+  shared_ptr<double> avgKeysExamined{};
+  shared_ptr<double> avgLastRowsCountAffected{};
+  shared_ptr<double> avgLockTime{};
+  shared_ptr<double> avgLockTimeSeconds{};
+  shared_ptr<double> avgLogicalIOReads{};
+  shared_ptr<double> avgPhysicalIOReads{};
+  shared_ptr<double> avgQueryTime{};
+  shared_ptr<double> avgQueryTimeSeconds{};
+  shared_ptr<double> avgReturnNum{};
+  shared_ptr<double> avgRowsCountAffected{};
+  shared_ptr<double> avgRowsExamined{};
+  shared_ptr<double> avgRowsSent{};
+  shared_ptr<double> CPUTime{};
+  shared_ptr<string> command{};
+  shared_ptr<long> count{};
+  shared_ptr<double> countRate{};
+  shared_ptr<string> DBName{};
+  shared_ptr<string> database{};
+  shared_ptr<string> dbInstanceName{};
+  shared_ptr<long> docExamined{};
+  shared_ptr<long> docsExamined{};
+  shared_ptr<DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram> histogram{};
+  shared_ptr<string> hostAddress{};
+  shared_ptr<string> hostInsId{};
+  shared_ptr<long> IOWrites{};
+  shared_ptr<string> insName{};
+  shared_ptr<string> insRole{};
+  shared_ptr<long> keysExamined{};
+  shared_ptr<long> lastRowsCountAffected{};
+  shared_ptr<double> lockTime{};
+  shared_ptr<double> lockTimeSeconds{};
+  shared_ptr<long> logicalIOReads{};
+  shared_ptr<double> maxCPUTime{};
+  shared_ptr<long> maxDocExamined{};
+  shared_ptr<long> maxIOWrites{};
+  shared_ptr<long> maxKeysExamined{};
+  shared_ptr<long> maxLastRowsCountAffected{};
+  shared_ptr<double> maxLockTime{};
+  shared_ptr<double> maxLockTimeSeconds{};
+  shared_ptr<long> maxLogicalIOReads{};
+  shared_ptr<long> maxPhysicalIOReads{};
+  shared_ptr<double> maxQueryTime{};
+  shared_ptr<double> maxQueryTimeSeconds{};
+  shared_ptr<long> maxReturnNum{};
+  shared_ptr<long> maxRowsCountAffected{};
+  shared_ptr<long> maxRowsExamined{};
+  shared_ptr<long> maxRowsSent{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> nodeType{};
+  shared_ptr<string> opType{};
+  shared_ptr<string> originAlias{};
+  shared_ptr<long> physicalIOReads{};
+  shared_ptr<string> psql{};
+  shared_ptr<string> queryId{};
+  shared_ptr<string> queryStartTime{};
+  shared_ptr<long> queryTime{};
+  shared_ptr<double> queryTimeRate{};
+  shared_ptr<double> queryTimeSeconds{};
+  shared_ptr<string> returnItemNumbers{};
+  shared_ptr<long> returnNum{};
+  shared_ptr<long> rowsCountAffected{};
+  shared_ptr<long> rowsExamined{};
+  shared_ptr<long> rowsSent{};
+  shared_ptr<string> SQLText{};
+  shared_ptr<string> scheme{};
+  shared_ptr<string> sqlId{};
+  shared_ptr<DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag> sqlTag{};
+  shared_ptr<string> sqlType{};
+  shared_ptr<string> subInstanceId{};
+  shared_ptr<string> tableName{};
+  shared_ptr<string> threadId{};
+  shared_ptr<long> timestamp{};
+  shared_ptr<vector<DescribeSlowLogStatisticResponseBodyDataDataLogsTrend>> trend{};
+  shared_ptr<string> user{};
+
+  DescribeSlowLogStatisticResponseBodyDataDataLogs() {}
+
+  explicit DescribeSlowLogStatisticResponseBodyDataDataLogs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountName) {
+      res["AccountName"] = boost::any(*accountName);
+    }
+    if (avgCPUTime) {
+      res["AvgCPUTime"] = boost::any(*avgCPUTime);
+    }
+    if (avgDocExamined) {
+      res["AvgDocExamined"] = boost::any(*avgDocExamined);
+    }
+    if (avgIOWrites) {
+      res["AvgIOWrites"] = boost::any(*avgIOWrites);
+    }
+    if (avgKeysExamined) {
+      res["AvgKeysExamined"] = boost::any(*avgKeysExamined);
+    }
+    if (avgLastRowsCountAffected) {
+      res["AvgLastRowsCountAffected"] = boost::any(*avgLastRowsCountAffected);
+    }
+    if (avgLockTime) {
+      res["AvgLockTime"] = boost::any(*avgLockTime);
+    }
+    if (avgLockTimeSeconds) {
+      res["AvgLockTimeSeconds"] = boost::any(*avgLockTimeSeconds);
+    }
+    if (avgLogicalIOReads) {
+      res["AvgLogicalIOReads"] = boost::any(*avgLogicalIOReads);
+    }
+    if (avgPhysicalIOReads) {
+      res["AvgPhysicalIOReads"] = boost::any(*avgPhysicalIOReads);
+    }
+    if (avgQueryTime) {
+      res["AvgQueryTime"] = boost::any(*avgQueryTime);
+    }
+    if (avgQueryTimeSeconds) {
+      res["AvgQueryTimeSeconds"] = boost::any(*avgQueryTimeSeconds);
+    }
+    if (avgReturnNum) {
+      res["AvgReturnNum"] = boost::any(*avgReturnNum);
+    }
+    if (avgRowsCountAffected) {
+      res["AvgRowsCountAffected"] = boost::any(*avgRowsCountAffected);
+    }
+    if (avgRowsExamined) {
+      res["AvgRowsExamined"] = boost::any(*avgRowsExamined);
+    }
+    if (avgRowsSent) {
+      res["AvgRowsSent"] = boost::any(*avgRowsSent);
+    }
+    if (CPUTime) {
+      res["CPUTime"] = boost::any(*CPUTime);
+    }
+    if (command) {
+      res["Command"] = boost::any(*command);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (countRate) {
+      res["CountRate"] = boost::any(*countRate);
+    }
+    if (DBName) {
+      res["DBName"] = boost::any(*DBName);
+    }
+    if (database) {
+      res["Database"] = boost::any(*database);
+    }
+    if (dbInstanceName) {
+      res["DbInstanceName"] = boost::any(*dbInstanceName);
+    }
+    if (docExamined) {
+      res["DocExamined"] = boost::any(*docExamined);
+    }
+    if (docsExamined) {
+      res["DocsExamined"] = boost::any(*docsExamined);
+    }
+    if (histogram) {
+      res["Histogram"] = histogram ? boost::any(histogram->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (hostAddress) {
+      res["HostAddress"] = boost::any(*hostAddress);
+    }
+    if (hostInsId) {
+      res["HostInsId"] = boost::any(*hostInsId);
+    }
+    if (IOWrites) {
+      res["IOWrites"] = boost::any(*IOWrites);
+    }
+    if (insName) {
+      res["InsName"] = boost::any(*insName);
+    }
+    if (insRole) {
+      res["InsRole"] = boost::any(*insRole);
+    }
+    if (keysExamined) {
+      res["KeysExamined"] = boost::any(*keysExamined);
+    }
+    if (lastRowsCountAffected) {
+      res["LastRowsCountAffected"] = boost::any(*lastRowsCountAffected);
+    }
+    if (lockTime) {
+      res["LockTime"] = boost::any(*lockTime);
+    }
+    if (lockTimeSeconds) {
+      res["LockTimeSeconds"] = boost::any(*lockTimeSeconds);
+    }
+    if (logicalIOReads) {
+      res["LogicalIOReads"] = boost::any(*logicalIOReads);
+    }
+    if (maxCPUTime) {
+      res["MaxCPUTime"] = boost::any(*maxCPUTime);
+    }
+    if (maxDocExamined) {
+      res["MaxDocExamined"] = boost::any(*maxDocExamined);
+    }
+    if (maxIOWrites) {
+      res["MaxIOWrites"] = boost::any(*maxIOWrites);
+    }
+    if (maxKeysExamined) {
+      res["MaxKeysExamined"] = boost::any(*maxKeysExamined);
+    }
+    if (maxLastRowsCountAffected) {
+      res["MaxLastRowsCountAffected"] = boost::any(*maxLastRowsCountAffected);
+    }
+    if (maxLockTime) {
+      res["MaxLockTime"] = boost::any(*maxLockTime);
+    }
+    if (maxLockTimeSeconds) {
+      res["MaxLockTimeSeconds"] = boost::any(*maxLockTimeSeconds);
+    }
+    if (maxLogicalIOReads) {
+      res["MaxLogicalIOReads"] = boost::any(*maxLogicalIOReads);
+    }
+    if (maxPhysicalIOReads) {
+      res["MaxPhysicalIOReads"] = boost::any(*maxPhysicalIOReads);
+    }
+    if (maxQueryTime) {
+      res["MaxQueryTime"] = boost::any(*maxQueryTime);
+    }
+    if (maxQueryTimeSeconds) {
+      res["MaxQueryTimeSeconds"] = boost::any(*maxQueryTimeSeconds);
+    }
+    if (maxReturnNum) {
+      res["MaxReturnNum"] = boost::any(*maxReturnNum);
+    }
+    if (maxRowsCountAffected) {
+      res["MaxRowsCountAffected"] = boost::any(*maxRowsCountAffected);
+    }
+    if (maxRowsExamined) {
+      res["MaxRowsExamined"] = boost::any(*maxRowsExamined);
+    }
+    if (maxRowsSent) {
+      res["MaxRowsSent"] = boost::any(*maxRowsSent);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (nodeType) {
+      res["NodeType"] = boost::any(*nodeType);
+    }
+    if (opType) {
+      res["OpType"] = boost::any(*opType);
+    }
+    if (originAlias) {
+      res["OriginAlias"] = boost::any(*originAlias);
+    }
+    if (physicalIOReads) {
+      res["PhysicalIOReads"] = boost::any(*physicalIOReads);
+    }
+    if (psql) {
+      res["Psql"] = boost::any(*psql);
+    }
+    if (queryId) {
+      res["QueryId"] = boost::any(*queryId);
+    }
+    if (queryStartTime) {
+      res["QueryStartTime"] = boost::any(*queryStartTime);
+    }
+    if (queryTime) {
+      res["QueryTime"] = boost::any(*queryTime);
+    }
+    if (queryTimeRate) {
+      res["QueryTimeRate"] = boost::any(*queryTimeRate);
+    }
+    if (queryTimeSeconds) {
+      res["QueryTimeSeconds"] = boost::any(*queryTimeSeconds);
+    }
+    if (returnItemNumbers) {
+      res["ReturnItemNumbers"] = boost::any(*returnItemNumbers);
+    }
+    if (returnNum) {
+      res["ReturnNum"] = boost::any(*returnNum);
+    }
+    if (rowsCountAffected) {
+      res["RowsCountAffected"] = boost::any(*rowsCountAffected);
+    }
+    if (rowsExamined) {
+      res["RowsExamined"] = boost::any(*rowsExamined);
+    }
+    if (rowsSent) {
+      res["RowsSent"] = boost::any(*rowsSent);
+    }
+    if (SQLText) {
+      res["SQLText"] = boost::any(*SQLText);
+    }
+    if (scheme) {
+      res["Scheme"] = boost::any(*scheme);
+    }
+    if (sqlId) {
+      res["SqlId"] = boost::any(*sqlId);
+    }
+    if (sqlTag) {
+      res["SqlTag"] = sqlTag ? boost::any(sqlTag->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sqlType) {
+      res["SqlType"] = boost::any(*sqlType);
+    }
+    if (subInstanceId) {
+      res["SubInstanceId"] = boost::any(*subInstanceId);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (threadId) {
+      res["ThreadId"] = boost::any(*threadId);
+    }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
+    if (trend) {
+      vector<boost::any> temp1;
+      for(auto item1:*trend){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Trend"] = boost::any(temp1);
+    }
+    if (user) {
+      res["User"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
+      accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
+    if (m.find("AvgCPUTime") != m.end() && !m["AvgCPUTime"].empty()) {
+      avgCPUTime = make_shared<double>(boost::any_cast<double>(m["AvgCPUTime"]));
+    }
+    if (m.find("AvgDocExamined") != m.end() && !m["AvgDocExamined"].empty()) {
+      avgDocExamined = make_shared<double>(boost::any_cast<double>(m["AvgDocExamined"]));
+    }
+    if (m.find("AvgIOWrites") != m.end() && !m["AvgIOWrites"].empty()) {
+      avgIOWrites = make_shared<double>(boost::any_cast<double>(m["AvgIOWrites"]));
+    }
+    if (m.find("AvgKeysExamined") != m.end() && !m["AvgKeysExamined"].empty()) {
+      avgKeysExamined = make_shared<double>(boost::any_cast<double>(m["AvgKeysExamined"]));
+    }
+    if (m.find("AvgLastRowsCountAffected") != m.end() && !m["AvgLastRowsCountAffected"].empty()) {
+      avgLastRowsCountAffected = make_shared<double>(boost::any_cast<double>(m["AvgLastRowsCountAffected"]));
+    }
+    if (m.find("AvgLockTime") != m.end() && !m["AvgLockTime"].empty()) {
+      avgLockTime = make_shared<double>(boost::any_cast<double>(m["AvgLockTime"]));
+    }
+    if (m.find("AvgLockTimeSeconds") != m.end() && !m["AvgLockTimeSeconds"].empty()) {
+      avgLockTimeSeconds = make_shared<double>(boost::any_cast<double>(m["AvgLockTimeSeconds"]));
+    }
+    if (m.find("AvgLogicalIOReads") != m.end() && !m["AvgLogicalIOReads"].empty()) {
+      avgLogicalIOReads = make_shared<double>(boost::any_cast<double>(m["AvgLogicalIOReads"]));
+    }
+    if (m.find("AvgPhysicalIOReads") != m.end() && !m["AvgPhysicalIOReads"].empty()) {
+      avgPhysicalIOReads = make_shared<double>(boost::any_cast<double>(m["AvgPhysicalIOReads"]));
+    }
+    if (m.find("AvgQueryTime") != m.end() && !m["AvgQueryTime"].empty()) {
+      avgQueryTime = make_shared<double>(boost::any_cast<double>(m["AvgQueryTime"]));
+    }
+    if (m.find("AvgQueryTimeSeconds") != m.end() && !m["AvgQueryTimeSeconds"].empty()) {
+      avgQueryTimeSeconds = make_shared<double>(boost::any_cast<double>(m["AvgQueryTimeSeconds"]));
+    }
+    if (m.find("AvgReturnNum") != m.end() && !m["AvgReturnNum"].empty()) {
+      avgReturnNum = make_shared<double>(boost::any_cast<double>(m["AvgReturnNum"]));
+    }
+    if (m.find("AvgRowsCountAffected") != m.end() && !m["AvgRowsCountAffected"].empty()) {
+      avgRowsCountAffected = make_shared<double>(boost::any_cast<double>(m["AvgRowsCountAffected"]));
+    }
+    if (m.find("AvgRowsExamined") != m.end() && !m["AvgRowsExamined"].empty()) {
+      avgRowsExamined = make_shared<double>(boost::any_cast<double>(m["AvgRowsExamined"]));
+    }
+    if (m.find("AvgRowsSent") != m.end() && !m["AvgRowsSent"].empty()) {
+      avgRowsSent = make_shared<double>(boost::any_cast<double>(m["AvgRowsSent"]));
+    }
+    if (m.find("CPUTime") != m.end() && !m["CPUTime"].empty()) {
+      CPUTime = make_shared<double>(boost::any_cast<double>(m["CPUTime"]));
+    }
+    if (m.find("Command") != m.end() && !m["Command"].empty()) {
+      command = make_shared<string>(boost::any_cast<string>(m["Command"]));
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("CountRate") != m.end() && !m["CountRate"].empty()) {
+      countRate = make_shared<double>(boost::any_cast<double>(m["CountRate"]));
+    }
+    if (m.find("DBName") != m.end() && !m["DBName"].empty()) {
+      DBName = make_shared<string>(boost::any_cast<string>(m["DBName"]));
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["Database"]));
+    }
+    if (m.find("DbInstanceName") != m.end() && !m["DbInstanceName"].empty()) {
+      dbInstanceName = make_shared<string>(boost::any_cast<string>(m["DbInstanceName"]));
+    }
+    if (m.find("DocExamined") != m.end() && !m["DocExamined"].empty()) {
+      docExamined = make_shared<long>(boost::any_cast<long>(m["DocExamined"]));
+    }
+    if (m.find("DocsExamined") != m.end() && !m["DocsExamined"].empty()) {
+      docsExamined = make_shared<long>(boost::any_cast<long>(m["DocsExamined"]));
+    }
+    if (m.find("Histogram") != m.end() && !m["Histogram"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Histogram"].type()) {
+        DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Histogram"]));
+        histogram = make_shared<DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram>(model1);
+      }
+    }
+    if (m.find("HostAddress") != m.end() && !m["HostAddress"].empty()) {
+      hostAddress = make_shared<string>(boost::any_cast<string>(m["HostAddress"]));
+    }
+    if (m.find("HostInsId") != m.end() && !m["HostInsId"].empty()) {
+      hostInsId = make_shared<string>(boost::any_cast<string>(m["HostInsId"]));
+    }
+    if (m.find("IOWrites") != m.end() && !m["IOWrites"].empty()) {
+      IOWrites = make_shared<long>(boost::any_cast<long>(m["IOWrites"]));
+    }
+    if (m.find("InsName") != m.end() && !m["InsName"].empty()) {
+      insName = make_shared<string>(boost::any_cast<string>(m["InsName"]));
+    }
+    if (m.find("InsRole") != m.end() && !m["InsRole"].empty()) {
+      insRole = make_shared<string>(boost::any_cast<string>(m["InsRole"]));
+    }
+    if (m.find("KeysExamined") != m.end() && !m["KeysExamined"].empty()) {
+      keysExamined = make_shared<long>(boost::any_cast<long>(m["KeysExamined"]));
+    }
+    if (m.find("LastRowsCountAffected") != m.end() && !m["LastRowsCountAffected"].empty()) {
+      lastRowsCountAffected = make_shared<long>(boost::any_cast<long>(m["LastRowsCountAffected"]));
+    }
+    if (m.find("LockTime") != m.end() && !m["LockTime"].empty()) {
+      lockTime = make_shared<double>(boost::any_cast<double>(m["LockTime"]));
+    }
+    if (m.find("LockTimeSeconds") != m.end() && !m["LockTimeSeconds"].empty()) {
+      lockTimeSeconds = make_shared<double>(boost::any_cast<double>(m["LockTimeSeconds"]));
+    }
+    if (m.find("LogicalIOReads") != m.end() && !m["LogicalIOReads"].empty()) {
+      logicalIOReads = make_shared<long>(boost::any_cast<long>(m["LogicalIOReads"]));
+    }
+    if (m.find("MaxCPUTime") != m.end() && !m["MaxCPUTime"].empty()) {
+      maxCPUTime = make_shared<double>(boost::any_cast<double>(m["MaxCPUTime"]));
+    }
+    if (m.find("MaxDocExamined") != m.end() && !m["MaxDocExamined"].empty()) {
+      maxDocExamined = make_shared<long>(boost::any_cast<long>(m["MaxDocExamined"]));
+    }
+    if (m.find("MaxIOWrites") != m.end() && !m["MaxIOWrites"].empty()) {
+      maxIOWrites = make_shared<long>(boost::any_cast<long>(m["MaxIOWrites"]));
+    }
+    if (m.find("MaxKeysExamined") != m.end() && !m["MaxKeysExamined"].empty()) {
+      maxKeysExamined = make_shared<long>(boost::any_cast<long>(m["MaxKeysExamined"]));
+    }
+    if (m.find("MaxLastRowsCountAffected") != m.end() && !m["MaxLastRowsCountAffected"].empty()) {
+      maxLastRowsCountAffected = make_shared<long>(boost::any_cast<long>(m["MaxLastRowsCountAffected"]));
+    }
+    if (m.find("MaxLockTime") != m.end() && !m["MaxLockTime"].empty()) {
+      maxLockTime = make_shared<double>(boost::any_cast<double>(m["MaxLockTime"]));
+    }
+    if (m.find("MaxLockTimeSeconds") != m.end() && !m["MaxLockTimeSeconds"].empty()) {
+      maxLockTimeSeconds = make_shared<double>(boost::any_cast<double>(m["MaxLockTimeSeconds"]));
+    }
+    if (m.find("MaxLogicalIOReads") != m.end() && !m["MaxLogicalIOReads"].empty()) {
+      maxLogicalIOReads = make_shared<long>(boost::any_cast<long>(m["MaxLogicalIOReads"]));
+    }
+    if (m.find("MaxPhysicalIOReads") != m.end() && !m["MaxPhysicalIOReads"].empty()) {
+      maxPhysicalIOReads = make_shared<long>(boost::any_cast<long>(m["MaxPhysicalIOReads"]));
+    }
+    if (m.find("MaxQueryTime") != m.end() && !m["MaxQueryTime"].empty()) {
+      maxQueryTime = make_shared<double>(boost::any_cast<double>(m["MaxQueryTime"]));
+    }
+    if (m.find("MaxQueryTimeSeconds") != m.end() && !m["MaxQueryTimeSeconds"].empty()) {
+      maxQueryTimeSeconds = make_shared<double>(boost::any_cast<double>(m["MaxQueryTimeSeconds"]));
+    }
+    if (m.find("MaxReturnNum") != m.end() && !m["MaxReturnNum"].empty()) {
+      maxReturnNum = make_shared<long>(boost::any_cast<long>(m["MaxReturnNum"]));
+    }
+    if (m.find("MaxRowsCountAffected") != m.end() && !m["MaxRowsCountAffected"].empty()) {
+      maxRowsCountAffected = make_shared<long>(boost::any_cast<long>(m["MaxRowsCountAffected"]));
+    }
+    if (m.find("MaxRowsExamined") != m.end() && !m["MaxRowsExamined"].empty()) {
+      maxRowsExamined = make_shared<long>(boost::any_cast<long>(m["MaxRowsExamined"]));
+    }
+    if (m.find("MaxRowsSent") != m.end() && !m["MaxRowsSent"].empty()) {
+      maxRowsSent = make_shared<long>(boost::any_cast<long>(m["MaxRowsSent"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NodeType") != m.end() && !m["NodeType"].empty()) {
+      nodeType = make_shared<string>(boost::any_cast<string>(m["NodeType"]));
+    }
+    if (m.find("OpType") != m.end() && !m["OpType"].empty()) {
+      opType = make_shared<string>(boost::any_cast<string>(m["OpType"]));
+    }
+    if (m.find("OriginAlias") != m.end() && !m["OriginAlias"].empty()) {
+      originAlias = make_shared<string>(boost::any_cast<string>(m["OriginAlias"]));
+    }
+    if (m.find("PhysicalIOReads") != m.end() && !m["PhysicalIOReads"].empty()) {
+      physicalIOReads = make_shared<long>(boost::any_cast<long>(m["PhysicalIOReads"]));
+    }
+    if (m.find("Psql") != m.end() && !m["Psql"].empty()) {
+      psql = make_shared<string>(boost::any_cast<string>(m["Psql"]));
+    }
+    if (m.find("QueryId") != m.end() && !m["QueryId"].empty()) {
+      queryId = make_shared<string>(boost::any_cast<string>(m["QueryId"]));
+    }
+    if (m.find("QueryStartTime") != m.end() && !m["QueryStartTime"].empty()) {
+      queryStartTime = make_shared<string>(boost::any_cast<string>(m["QueryStartTime"]));
+    }
+    if (m.find("QueryTime") != m.end() && !m["QueryTime"].empty()) {
+      queryTime = make_shared<long>(boost::any_cast<long>(m["QueryTime"]));
+    }
+    if (m.find("QueryTimeRate") != m.end() && !m["QueryTimeRate"].empty()) {
+      queryTimeRate = make_shared<double>(boost::any_cast<double>(m["QueryTimeRate"]));
+    }
+    if (m.find("QueryTimeSeconds") != m.end() && !m["QueryTimeSeconds"].empty()) {
+      queryTimeSeconds = make_shared<double>(boost::any_cast<double>(m["QueryTimeSeconds"]));
+    }
+    if (m.find("ReturnItemNumbers") != m.end() && !m["ReturnItemNumbers"].empty()) {
+      returnItemNumbers = make_shared<string>(boost::any_cast<string>(m["ReturnItemNumbers"]));
+    }
+    if (m.find("ReturnNum") != m.end() && !m["ReturnNum"].empty()) {
+      returnNum = make_shared<long>(boost::any_cast<long>(m["ReturnNum"]));
+    }
+    if (m.find("RowsCountAffected") != m.end() && !m["RowsCountAffected"].empty()) {
+      rowsCountAffected = make_shared<long>(boost::any_cast<long>(m["RowsCountAffected"]));
+    }
+    if (m.find("RowsExamined") != m.end() && !m["RowsExamined"].empty()) {
+      rowsExamined = make_shared<long>(boost::any_cast<long>(m["RowsExamined"]));
+    }
+    if (m.find("RowsSent") != m.end() && !m["RowsSent"].empty()) {
+      rowsSent = make_shared<long>(boost::any_cast<long>(m["RowsSent"]));
+    }
+    if (m.find("SQLText") != m.end() && !m["SQLText"].empty()) {
+      SQLText = make_shared<string>(boost::any_cast<string>(m["SQLText"]));
+    }
+    if (m.find("Scheme") != m.end() && !m["Scheme"].empty()) {
+      scheme = make_shared<string>(boost::any_cast<string>(m["Scheme"]));
+    }
+    if (m.find("SqlId") != m.end() && !m["SqlId"].empty()) {
+      sqlId = make_shared<string>(boost::any_cast<string>(m["SqlId"]));
+    }
+    if (m.find("SqlTag") != m.end() && !m["SqlTag"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SqlTag"].type()) {
+        DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SqlTag"]));
+        sqlTag = make_shared<DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag>(model1);
+      }
+    }
+    if (m.find("SqlType") != m.end() && !m["SqlType"].empty()) {
+      sqlType = make_shared<string>(boost::any_cast<string>(m["SqlType"]));
+    }
+    if (m.find("SubInstanceId") != m.end() && !m["SubInstanceId"].empty()) {
+      subInstanceId = make_shared<string>(boost::any_cast<string>(m["SubInstanceId"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("ThreadId") != m.end() && !m["ThreadId"].empty()) {
+      threadId = make_shared<string>(boost::any_cast<string>(m["ThreadId"]));
+    }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
+    }
+    if (m.find("Trend") != m.end() && !m["Trend"].empty()) {
+      if (typeid(vector<boost::any>) == m["Trend"].type()) {
+        vector<DescribeSlowLogStatisticResponseBodyDataDataLogsTrend> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Trend"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSlowLogStatisticResponseBodyDataDataLogsTrend model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        trend = make_shared<vector<DescribeSlowLogStatisticResponseBodyDataDataLogsTrend>>(expect1);
+      }
+    }
+    if (m.find("User") != m.end() && !m["User"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["User"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogStatisticResponseBodyDataDataLogs() = default;
+};
+class DescribeSlowLogStatisticResponseBodyDataData : public Darabonba::Model {
+public:
+  shared_ptr<long> dbInstanceId{};
+  shared_ptr<string> dbInstanceName{};
+  shared_ptr<string> endTime{};
+  shared_ptr<long> itemsNumbers{};
+  shared_ptr<vector<DescribeSlowLogStatisticResponseBodyDataDataLogs>> logs{};
+  shared_ptr<long> maxRecordsPerPage{};
+  shared_ptr<string> nodeId{};
+  shared_ptr<long> pageNumbers{};
+  shared_ptr<string> startTime{};
+  shared_ptr<long> totalRecords{};
+
+  DescribeSlowLogStatisticResponseBodyDataData() {}
+
+  explicit DescribeSlowLogStatisticResponseBodyDataData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbInstanceId) {
+      res["DbInstanceId"] = boost::any(*dbInstanceId);
+    }
+    if (dbInstanceName) {
+      res["DbInstanceName"] = boost::any(*dbInstanceName);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (itemsNumbers) {
+      res["ItemsNumbers"] = boost::any(*itemsNumbers);
+    }
+    if (logs) {
+      vector<boost::any> temp1;
+      for(auto item1:*logs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Logs"] = boost::any(temp1);
+    }
+    if (maxRecordsPerPage) {
+      res["MaxRecordsPerPage"] = boost::any(*maxRecordsPerPage);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
+    }
+    if (pageNumbers) {
+      res["PageNumbers"] = boost::any(*pageNumbers);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (totalRecords) {
+      res["TotalRecords"] = boost::any(*totalRecords);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbInstanceId") != m.end() && !m["DbInstanceId"].empty()) {
+      dbInstanceId = make_shared<long>(boost::any_cast<long>(m["DbInstanceId"]));
+    }
+    if (m.find("DbInstanceName") != m.end() && !m["DbInstanceName"].empty()) {
+      dbInstanceName = make_shared<string>(boost::any_cast<string>(m["DbInstanceName"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("ItemsNumbers") != m.end() && !m["ItemsNumbers"].empty()) {
+      itemsNumbers = make_shared<long>(boost::any_cast<long>(m["ItemsNumbers"]));
+    }
+    if (m.find("Logs") != m.end() && !m["Logs"].empty()) {
+      if (typeid(vector<boost::any>) == m["Logs"].type()) {
+        vector<DescribeSlowLogStatisticResponseBodyDataDataLogs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Logs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSlowLogStatisticResponseBodyDataDataLogs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        logs = make_shared<vector<DescribeSlowLogStatisticResponseBodyDataDataLogs>>(expect1);
+      }
+    }
+    if (m.find("MaxRecordsPerPage") != m.end() && !m["MaxRecordsPerPage"].empty()) {
+      maxRecordsPerPage = make_shared<long>(boost::any_cast<long>(m["MaxRecordsPerPage"]));
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+    if (m.find("PageNumbers") != m.end() && !m["PageNumbers"].empty()) {
+      pageNumbers = make_shared<long>(boost::any_cast<long>(m["PageNumbers"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("TotalRecords") != m.end() && !m["TotalRecords"].empty()) {
+      totalRecords = make_shared<long>(boost::any_cast<long>(m["TotalRecords"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogStatisticResponseBodyDataData() = default;
+};
+class DescribeSlowLogStatisticResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<DescribeSlowLogStatisticResponseBodyDataData> data{};
+  shared_ptr<long> errorCode{};
+  shared_ptr<bool> isFinish{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestKey{};
+  shared_ptr<string> resultId{};
+  shared_ptr<string> state{};
+  shared_ptr<long> timestamp{};
+
+  DescribeSlowLogStatisticResponseBodyData() {}
+
+  explicit DescribeSlowLogStatisticResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (isFinish) {
+      res["IsFinish"] = boost::any(*isFinish);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestKey) {
+      res["RequestKey"] = boost::any(*requestKey);
+    }
+    if (resultId) {
+      res["ResultId"] = boost::any(*resultId);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeSlowLogStatisticResponseBodyDataData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeSlowLogStatisticResponseBodyDataData>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<long>(boost::any_cast<long>(m["ErrorCode"]));
+    }
+    if (m.find("IsFinish") != m.end() && !m["IsFinish"].empty()) {
+      isFinish = make_shared<bool>(boost::any_cast<bool>(m["IsFinish"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestKey") != m.end() && !m["RequestKey"].empty()) {
+      requestKey = make_shared<string>(boost::any_cast<string>(m["RequestKey"]));
+    }
+    if (m.find("ResultId") != m.end() && !m["ResultId"].empty()) {
+      resultId = make_shared<string>(boost::any_cast<string>(m["ResultId"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogStatisticResponseBodyData() = default;
+};
+class DescribeSlowLogStatisticResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<DescribeSlowLogStatisticResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  DescribeSlowLogStatisticResponseBody() {}
+
+  explicit DescribeSlowLogStatisticResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeSlowLogStatisticResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeSlowLogStatisticResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DescribeSlowLogStatisticResponseBody() = default;
+};
+class DescribeSlowLogStatisticResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSlowLogStatisticResponseBody> body{};
+
+  DescribeSlowLogStatisticResponse() {}
+
+  explicit DescribeSlowLogStatisticResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSlowLogStatisticResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSlowLogStatisticResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSlowLogStatisticResponse() = default;
+};
 class DescribeSqlLogConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -32522,6 +34998,10 @@ public:
   DescribeHotKeysResponse describeHotKeys(shared_ptr<DescribeHotKeysRequest> request);
   DescribeInstanceDasProResponse describeInstanceDasProWithOptions(shared_ptr<DescribeInstanceDasProRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstanceDasProResponse describeInstanceDasPro(shared_ptr<DescribeInstanceDasProRequest> request);
+  DescribeSlowLogHistogramAsyncResponse describeSlowLogHistogramAsyncWithOptions(shared_ptr<DescribeSlowLogHistogramAsyncRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSlowLogHistogramAsyncResponse describeSlowLogHistogramAsync(shared_ptr<DescribeSlowLogHistogramAsyncRequest> request);
+  DescribeSlowLogStatisticResponse describeSlowLogStatisticWithOptions(shared_ptr<DescribeSlowLogStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSlowLogStatisticResponse describeSlowLogStatistic(shared_ptr<DescribeSlowLogStatisticRequest> request);
   DescribeSqlLogConfigResponse describeSqlLogConfigWithOptions(shared_ptr<DescribeSqlLogConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSqlLogConfigResponse describeSqlLogConfig(shared_ptr<DescribeSqlLogConfigRequest> request);
   DescribeSqlLogRecordsResponse describeSqlLogRecordsWithOptions(shared_ptr<DescribeSqlLogRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
