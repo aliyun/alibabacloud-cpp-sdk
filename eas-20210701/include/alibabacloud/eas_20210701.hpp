@@ -201,6 +201,7 @@ public:
   shared_ptr<string> innerIP{};
   shared_ptr<string> instanceName{};
   shared_ptr<long> instancePort{};
+  shared_ptr<string> instanceType{};
   shared_ptr<bool> isSpot{};
   shared_ptr<bool> isolated{};
   shared_ptr<vector<map<string, boost::any>>> lastState{};
@@ -252,6 +253,9 @@ public:
     }
     if (instancePort) {
       res["InstancePort"] = boost::any(*instancePort);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
     }
     if (isSpot) {
       res["IsSpot"] = boost::any(*isSpot);
@@ -331,6 +335,9 @@ public:
     }
     if (m.find("InstancePort") != m.end() && !m["InstancePort"].empty()) {
       instancePort = make_shared<long>(boost::any_cast<long>(m["InstancePort"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
     if (m.find("IsSpot") != m.end() && !m["IsSpot"].empty()) {
       isSpot = make_shared<bool>(boost::any_cast<bool>(m["IsSpot"]));
@@ -9012,6 +9019,137 @@ public:
 
   virtual ~DescribeServiceMirrorResponse() = default;
 };
+class DescribeServiceSignedUrlRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> expire{};
+  shared_ptr<bool> internal{};
+  shared_ptr<string> type{};
+
+  DescribeServiceSignedUrlRequest() {}
+
+  explicit DescribeServiceSignedUrlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expire) {
+      res["Expire"] = boost::any(*expire);
+    }
+    if (internal) {
+      res["Internal"] = boost::any(*internal);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Expire") != m.end() && !m["Expire"].empty()) {
+      expire = make_shared<long>(boost::any_cast<long>(m["Expire"]));
+    }
+    if (m.find("Internal") != m.end() && !m["Internal"].empty()) {
+      internal = make_shared<bool>(boost::any_cast<bool>(m["Internal"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceSignedUrlRequest() = default;
+};
+class DescribeServiceSignedUrlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> signedUrl{};
+
+  DescribeServiceSignedUrlResponseBody() {}
+
+  explicit DescribeServiceSignedUrlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (signedUrl) {
+      res["SignedUrl"] = boost::any(*signedUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SignedUrl") != m.end() && !m["SignedUrl"].empty()) {
+      signedUrl = make_shared<string>(boost::any_cast<string>(m["SignedUrl"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceSignedUrlResponseBody() = default;
+};
+class DescribeServiceSignedUrlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeServiceSignedUrlResponseBody> body{};
+
+  DescribeServiceSignedUrlResponse() {}
+
+  explicit DescribeServiceSignedUrlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeServiceSignedUrlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeServiceSignedUrlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeServiceSignedUrlResponse() = default;
+};
 class DescribeSpotDiscountHistoryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -16782,6 +16920,12 @@ public:
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeServiceMirrorResponse describeServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  DescribeServiceSignedUrlResponse describeServiceSignedUrlWithOptions(shared_ptr<string> ClusterId,
+                                                                       shared_ptr<string> ServiceName,
+                                                                       shared_ptr<DescribeServiceSignedUrlRequest> request,
+                                                                       shared_ptr<map<string, string>> headers,
+                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeServiceSignedUrlResponse describeServiceSignedUrl(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DescribeServiceSignedUrlRequest> request);
   DescribeSpotDiscountHistoryResponse describeSpotDiscountHistoryWithOptions(shared_ptr<DescribeSpotDiscountHistoryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSpotDiscountHistoryResponse describeSpotDiscountHistory(shared_ptr<DescribeSpotDiscountHistoryRequest> request);
   DescribeVirtualResourceResponse describeVirtualResourceWithOptions(shared_ptr<string> ClusterId,
