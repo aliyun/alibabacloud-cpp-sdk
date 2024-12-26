@@ -1272,6 +1272,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> replicaRole{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> storageType{};
   shared_ptr<string> suspendReason{};
   shared_ptr<vector<GetInstanceResponseBodyInstanceTags>> tags{};
   shared_ptr<string> version{};
@@ -1365,6 +1366,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
     }
     if (suspendReason) {
       res["SuspendReason"] = boost::any(*suspendReason);
@@ -1470,6 +1474,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
     }
     if (m.find("SuspendReason") != m.end() && !m["SuspendReason"].empty()) {
       suspendReason = make_shared<string>(boost::any_cast<string>(m["SuspendReason"]));
@@ -2353,6 +2360,7 @@ public:
   shared_ptr<string> leaderInstanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> storageType{};
   shared_ptr<string> suspendReason{};
   shared_ptr<vector<ListInstancesResponseBodyInstanceListTags>> tags{};
   shared_ptr<string> version{};
@@ -2410,6 +2418,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
     }
     if (suspendReason) {
       res["SuspendReason"] = boost::any(*suspendReason);
@@ -2479,6 +2490,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
     }
     if (m.find("SuspendReason") != m.end() && !m["SuspendReason"].empty()) {
       suspendReason = make_shared<string>(boost::any_cast<string>(m["SuspendReason"]));
