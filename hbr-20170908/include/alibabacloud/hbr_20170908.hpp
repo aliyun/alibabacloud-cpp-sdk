@@ -5385,6 +5385,194 @@ public:
 
   virtual ~CreateVaultResponse() = default;
 };
+class DeleteAirEcsInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ecsInstanceId{};
+  shared_ptr<vector<string>> uninstallClientSourceTypes{};
+
+  DeleteAirEcsInstanceRequest() {}
+
+  explicit DeleteAirEcsInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ecsInstanceId) {
+      res["EcsInstanceId"] = boost::any(*ecsInstanceId);
+    }
+    if (uninstallClientSourceTypes) {
+      res["UninstallClientSourceTypes"] = boost::any(*uninstallClientSourceTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EcsInstanceId") != m.end() && !m["EcsInstanceId"].empty()) {
+      ecsInstanceId = make_shared<string>(boost::any_cast<string>(m["EcsInstanceId"]));
+    }
+    if (m.find("UninstallClientSourceTypes") != m.end() && !m["UninstallClientSourceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UninstallClientSourceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UninstallClientSourceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      uninstallClientSourceTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DeleteAirEcsInstanceRequest() = default;
+};
+class DeleteAirEcsInstanceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ecsInstanceId{};
+  shared_ptr<string> uninstallClientSourceTypesShrink{};
+
+  DeleteAirEcsInstanceShrinkRequest() {}
+
+  explicit DeleteAirEcsInstanceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ecsInstanceId) {
+      res["EcsInstanceId"] = boost::any(*ecsInstanceId);
+    }
+    if (uninstallClientSourceTypesShrink) {
+      res["UninstallClientSourceTypes"] = boost::any(*uninstallClientSourceTypesShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EcsInstanceId") != m.end() && !m["EcsInstanceId"].empty()) {
+      ecsInstanceId = make_shared<string>(boost::any_cast<string>(m["EcsInstanceId"]));
+    }
+    if (m.find("UninstallClientSourceTypes") != m.end() && !m["UninstallClientSourceTypes"].empty()) {
+      uninstallClientSourceTypesShrink = make_shared<string>(boost::any_cast<string>(m["UninstallClientSourceTypes"]));
+    }
+  }
+
+
+  virtual ~DeleteAirEcsInstanceShrinkRequest() = default;
+};
+class DeleteAirEcsInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> taskId{};
+
+  DeleteAirEcsInstanceResponseBody() {}
+
+  explicit DeleteAirEcsInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~DeleteAirEcsInstanceResponseBody() = default;
+};
+class DeleteAirEcsInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAirEcsInstanceResponseBody> body{};
+
+  DeleteAirEcsInstanceResponse() {}
+
+  explicit DeleteAirEcsInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAirEcsInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAirEcsInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAirEcsInstanceResponse() = default;
+};
 class DeleteBackupClientRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientId{};
@@ -24864,6 +25052,8 @@ public:
   CreateTempFileUploadUrlResponse createTempFileUploadUrl(shared_ptr<CreateTempFileUploadUrlRequest> request);
   CreateVaultResponse createVaultWithOptions(shared_ptr<CreateVaultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateVaultResponse createVault(shared_ptr<CreateVaultRequest> request);
+  DeleteAirEcsInstanceResponse deleteAirEcsInstanceWithOptions(shared_ptr<DeleteAirEcsInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAirEcsInstanceResponse deleteAirEcsInstance(shared_ptr<DeleteAirEcsInstanceRequest> request);
   DeleteBackupClientResponse deleteBackupClientWithOptions(shared_ptr<DeleteBackupClientRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteBackupClientResponse deleteBackupClient(shared_ptr<DeleteBackupClientRequest> request);
   DeleteBackupClientResourceResponse deleteBackupClientResourceWithOptions(shared_ptr<DeleteBackupClientResourceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

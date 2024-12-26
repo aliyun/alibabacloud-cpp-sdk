@@ -1026,6 +1026,42 @@ CreateVaultResponse Alibabacloud_Hbr20170908::Client::createVault(shared_ptr<Cre
   return createVaultWithOptions(request, runtime);
 }
 
+DeleteAirEcsInstanceResponse Alibabacloud_Hbr20170908::Client::deleteAirEcsInstanceWithOptions(shared_ptr<DeleteAirEcsInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteAirEcsInstanceShrinkRequest> request = make_shared<DeleteAirEcsInstanceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->uninstallClientSourceTypes)) {
+    request->uninstallClientSourceTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->uninstallClientSourceTypes, make_shared<string>("UninstallClientSourceTypes"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecsInstanceId)) {
+    query->insert(pair<string, string>("EcsInstanceId", *request->ecsInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uninstallClientSourceTypesShrink)) {
+    query->insert(pair<string, string>("UninstallClientSourceTypes", *request->uninstallClientSourceTypesShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteAirEcsInstance"))},
+    {"version", boost::any(string("2017-09-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteAirEcsInstanceResponse(callApi(params, req, runtime));
+}
+
+DeleteAirEcsInstanceResponse Alibabacloud_Hbr20170908::Client::deleteAirEcsInstance(shared_ptr<DeleteAirEcsInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteAirEcsInstanceWithOptions(request, runtime);
+}
+
 DeleteBackupClientResponse Alibabacloud_Hbr20170908::Client::deleteBackupClientWithOptions(shared_ptr<DeleteBackupClientRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
