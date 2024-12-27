@@ -3348,6 +3348,74 @@ RunAbbreviationContentResponse Alibabacloud_AiMiaoBi20230801::Client::runAbbrevi
   return runAbbreviationContentWithOptions(request, runtime);
 }
 
+RunBookIntroductionResponse Alibabacloud_AiMiaoBi20230801::Client::runBookIntroductionWithOptions(shared_ptr<RunBookIntroductionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->docId)) {
+    body->insert(pair<string, string>("DocId", *request->docId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunBookIntroduction"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunBookIntroductionResponse(callApi(params, req, runtime));
+}
+
+RunBookIntroductionResponse Alibabacloud_AiMiaoBi20230801::Client::runBookIntroduction(shared_ptr<RunBookIntroductionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return runBookIntroductionWithOptions(request, runtime);
+}
+
+RunBookSmartCardResponse Alibabacloud_AiMiaoBi20230801::Client::runBookSmartCardWithOptions(shared_ptr<RunBookSmartCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->docId)) {
+    body->insert(pair<string, string>("DocId", *request->docId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunBookSmartCard"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunBookSmartCardResponse(callApi(params, req, runtime));
+}
+
+RunBookSmartCardResponse Alibabacloud_AiMiaoBi20230801::Client::runBookSmartCard(shared_ptr<RunBookSmartCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return runBookSmartCardWithOptions(request, runtime);
+}
+
 RunContinueContentResponse Alibabacloud_AiMiaoBi20230801::Client::runContinueContentWithOptions(shared_ptr<RunContinueContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3606,6 +3674,40 @@ RunDocQaResponse Alibabacloud_AiMiaoBi20230801::Client::runDocQaWithOptions(shar
 RunDocQaResponse Alibabacloud_AiMiaoBi20230801::Client::runDocQa(shared_ptr<RunDocQaRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return runDocQaWithOptions(request, runtime);
+}
+
+RunDocSmartCardResponse Alibabacloud_AiMiaoBi20230801::Client::runDocSmartCardWithOptions(shared_ptr<RunDocSmartCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->docId)) {
+    body->insert(pair<string, string>("DocId", *request->docId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunDocSmartCard"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunDocSmartCardResponse(callApi(params, req, runtime));
+}
+
+RunDocSmartCardResponse Alibabacloud_AiMiaoBi20230801::Client::runDocSmartCard(shared_ptr<RunDocSmartCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return runDocSmartCardWithOptions(request, runtime);
 }
 
 RunDocSummaryResponse Alibabacloud_AiMiaoBi20230801::Client::runDocSummaryWithOptions(shared_ptr<RunDocSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4996,6 +5098,45 @@ UpdateMaterialDocumentResponse Alibabacloud_AiMiaoBi20230801::Client::updateMate
 UpdateMaterialDocumentResponse Alibabacloud_AiMiaoBi20230801::Client::updateMaterialDocument(shared_ptr<UpdateMaterialDocumentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateMaterialDocumentWithOptions(request, runtime);
+}
+
+UploadBookResponse Alibabacloud_AiMiaoBi20230801::Client::uploadBookWithOptions(shared_ptr<UploadBookRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UploadBookShrinkRequest> request = make_shared<UploadBookShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<UploadBookRequestDocs>>(tmpReq->docs)) {
+    request->docsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->docs, make_shared<string>("Docs"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->categoryId)) {
+    body->insert(pair<string, string>("CategoryId", *request->categoryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->docsShrink)) {
+    body->insert(pair<string, string>("Docs", *request->docsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UploadBook"))},
+    {"version", boost::any(string("2023-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UploadBookResponse(callApi(params, req, runtime));
+}
+
+UploadBookResponse Alibabacloud_AiMiaoBi20230801::Client::uploadBook(shared_ptr<UploadBookRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return uploadBookWithOptions(request, runtime);
 }
 
 UploadDocResponse Alibabacloud_AiMiaoBi20230801::Client::uploadDocWithOptions(shared_ptr<UploadDocRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
