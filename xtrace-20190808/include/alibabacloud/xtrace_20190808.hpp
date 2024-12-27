@@ -518,6 +518,8 @@ public:
 class GetTraceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appType{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<string> pageSize{};
   shared_ptr<string> regionId{};
   shared_ptr<string> traceID{};
 
@@ -534,6 +536,12 @@ public:
     if (appType) {
       res["AppType"] = boost::any(*appType);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -546,6 +554,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
       appType = make_shared<string>(boost::any_cast<string>(m["AppType"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -811,6 +825,7 @@ public:
   shared_ptr<string> serviceIp{};
   shared_ptr<string> serviceName{};
   shared_ptr<string> spanId{};
+  shared_ptr<long> statusCode{};
   shared_ptr<GetTraceResponseBodySpansSpanTagEntryList> tagEntryList{};
   shared_ptr<long> timestamp{};
   shared_ptr<string> traceID{};
@@ -854,6 +869,9 @@ public:
     }
     if (spanId) {
       res["SpanId"] = boost::any(*spanId);
+    }
+    if (statusCode) {
+      res["StatusCode"] = boost::any(*statusCode);
     }
     if (tagEntryList) {
       res["TagEntryList"] = tagEntryList ? boost::any(tagEntryList->toMap()) : boost::any(map<string,boost::any>({}));
@@ -901,6 +919,9 @@ public:
     }
     if (m.find("SpanId") != m.end() && !m["SpanId"].empty()) {
       spanId = make_shared<string>(boost::any_cast<string>(m["SpanId"]));
+    }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["StatusCode"]));
     }
     if (m.find("TagEntryList") != m.end() && !m["TagEntryList"].empty()) {
       if (typeid(map<string, boost::any>) == m["TagEntryList"].type()) {
@@ -2049,6 +2070,7 @@ public:
   shared_ptr<string> serviceIp{};
   shared_ptr<string> serviceName{};
   shared_ptr<long> startTime{};
+  shared_ptr<string> statusCode{};
   shared_ptr<vector<SearchTracesRequestTag>> tag{};
 
   SearchTracesRequest() {}
@@ -2094,6 +2116,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (statusCode) {
+      res["StatusCode"] = boost::any(*statusCode);
+    }
     if (tag) {
       vector<boost::any> temp1;
       for(auto item1:*tag){
@@ -2138,6 +2163,9 @@ public:
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      statusCode = make_shared<string>(boost::any_cast<string>(m["StatusCode"]));
+    }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
         vector<SearchTracesRequestTag> expect1;
@@ -2162,6 +2190,7 @@ public:
   shared_ptr<string> operationName{};
   shared_ptr<string> serviceIp{};
   shared_ptr<string> serviceName{};
+  shared_ptr<long> statusCode{};
   shared_ptr<map<string, boost::any>> tagMap{};
   shared_ptr<long> timestamp{};
   shared_ptr<string> traceID{};
@@ -2188,6 +2217,9 @@ public:
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
     }
+    if (statusCode) {
+      res["StatusCode"] = boost::any(*statusCode);
+    }
     if (tagMap) {
       res["TagMap"] = boost::any(*tagMap);
     }
@@ -2212,6 +2244,9 @@ public:
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["StatusCode"]));
     }
     if (m.find("TagMap") != m.end() && !m["TagMap"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["TagMap"]);

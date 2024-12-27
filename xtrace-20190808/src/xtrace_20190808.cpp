@@ -157,6 +157,12 @@ GetTraceResponse Alibabacloud_Xtrace20190808::Client::getTraceWithOptions(shared
   if (!Darabonba_Util::Client::isUnset<string>(request->appType)) {
     query->insert(pair<string, string>("AppType", *request->appType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -411,6 +417,9 @@ SearchTracesResponse Alibabacloud_Xtrace20190808::Client::searchTracesWithOption
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statusCode)) {
+    query->insert(pair<string, string>("StatusCode", *request->statusCode));
   }
   if (!Darabonba_Util::Client::isUnset<vector<SearchTracesRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<SearchTracesRequestTag>>("Tag", *request->tag));
