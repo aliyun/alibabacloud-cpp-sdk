@@ -1660,6 +1660,2878 @@ public:
 
   virtual ~AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse() = default;
 };
+class ExecuteAITeacherExpansionDialogueRequestDialogueTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> assistantTranslate{};
+  shared_ptr<long> order{};
+  shared_ptr<string> user{};
+
+  ExecuteAITeacherExpansionDialogueRequestDialogueTasks() {}
+
+  explicit ExecuteAITeacherExpansionDialogueRequestDialogueTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (assistantTranslate) {
+      res["assistantTranslate"] = boost::any(*assistantTranslate);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("assistantTranslate") != m.end() && !m["assistantTranslate"].empty()) {
+      assistantTranslate = make_shared<string>(boost::any_cast<string>(m["assistantTranslate"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueRequestDialogueTasks() = default;
+};
+class ExecuteAITeacherExpansionDialogueRequestRecords : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<bool> isOffTopicControl{};
+  shared_ptr<bool> isOnTopic{};
+  shared_ptr<long> order{};
+  shared_ptr<string> role{};
+
+  ExecuteAITeacherExpansionDialogueRequestRecords() {}
+
+  explicit ExecuteAITeacherExpansionDialogueRequestRecords(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (isOffTopicControl) {
+      res["isOffTopicControl"] = boost::any(*isOffTopicControl);
+    }
+    if (isOnTopic) {
+      res["isOnTopic"] = boost::any(*isOnTopic);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("isOffTopicControl") != m.end() && !m["isOffTopicControl"].empty()) {
+      isOffTopicControl = make_shared<bool>(boost::any_cast<bool>(m["isOffTopicControl"]));
+    }
+    if (m.find("isOnTopic") != m.end() && !m["isOnTopic"].empty()) {
+      isOnTopic = make_shared<bool>(boost::any_cast<bool>(m["isOnTopic"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueRequestRecords() = default;
+};
+class ExecuteAITeacherExpansionDialogueRequestRoleInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> user{};
+
+  ExecuteAITeacherExpansionDialogueRequestRoleInfo() {}
+
+  explicit ExecuteAITeacherExpansionDialogueRequestRoleInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueRequestRoleInfo() = default;
+};
+class ExecuteAITeacherExpansionDialogueRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> background{};
+  shared_ptr<vector<ExecuteAITeacherExpansionDialogueRequestDialogueTasks>> dialogueTasks{};
+  shared_ptr<string> languageCode{};
+  shared_ptr<vector<ExecuteAITeacherExpansionDialogueRequestRecords>> records{};
+  shared_ptr<ExecuteAITeacherExpansionDialogueRequestRoleInfo> roleInfo{};
+  shared_ptr<string> startSentence{};
+  shared_ptr<string> topic{};
+  shared_ptr<string> userId{};
+
+  ExecuteAITeacherExpansionDialogueRequest() {}
+
+  explicit ExecuteAITeacherExpansionDialogueRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (background) {
+      res["background"] = boost::any(*background);
+    }
+    if (dialogueTasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*dialogueTasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["dialogueTasks"] = boost::any(temp1);
+    }
+    if (languageCode) {
+      res["languageCode"] = boost::any(*languageCode);
+    }
+    if (records) {
+      vector<boost::any> temp1;
+      for(auto item1:*records){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["records"] = boost::any(temp1);
+    }
+    if (roleInfo) {
+      res["roleInfo"] = roleInfo ? boost::any(roleInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startSentence) {
+      res["startSentence"] = boost::any(*startSentence);
+    }
+    if (topic) {
+      res["topic"] = boost::any(*topic);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("background") != m.end() && !m["background"].empty()) {
+      background = make_shared<string>(boost::any_cast<string>(m["background"]));
+    }
+    if (m.find("dialogueTasks") != m.end() && !m["dialogueTasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["dialogueTasks"].type()) {
+        vector<ExecuteAITeacherExpansionDialogueRequestDialogueTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["dialogueTasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExecuteAITeacherExpansionDialogueRequestDialogueTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dialogueTasks = make_shared<vector<ExecuteAITeacherExpansionDialogueRequestDialogueTasks>>(expect1);
+      }
+    }
+    if (m.find("languageCode") != m.end() && !m["languageCode"].empty()) {
+      languageCode = make_shared<string>(boost::any_cast<string>(m["languageCode"]));
+    }
+    if (m.find("records") != m.end() && !m["records"].empty()) {
+      if (typeid(vector<boost::any>) == m["records"].type()) {
+        vector<ExecuteAITeacherExpansionDialogueRequestRecords> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["records"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExecuteAITeacherExpansionDialogueRequestRecords model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        records = make_shared<vector<ExecuteAITeacherExpansionDialogueRequestRecords>>(expect1);
+      }
+    }
+    if (m.find("roleInfo") != m.end() && !m["roleInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["roleInfo"].type()) {
+        ExecuteAITeacherExpansionDialogueRequestRoleInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["roleInfo"]));
+        roleInfo = make_shared<ExecuteAITeacherExpansionDialogueRequestRoleInfo>(model1);
+      }
+    }
+    if (m.find("startSentence") != m.end() && !m["startSentence"].empty()) {
+      startSentence = make_shared<string>(boost::any_cast<string>(m["startSentence"]));
+    }
+    if (m.find("topic") != m.end() && !m["topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["topic"]));
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueRequest() = default;
+};
+class ExecuteAITeacherExpansionDialogueResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> chineseResult{};
+  shared_ptr<string> englishResult{};
+  shared_ptr<bool> isFinish{};
+  shared_ptr<bool> isOffTopicControl{};
+  shared_ptr<bool> isOnTopic{};
+  shared_ptr<long> questionIndex{};
+
+  ExecuteAITeacherExpansionDialogueResponseBodyData() {}
+
+  explicit ExecuteAITeacherExpansionDialogueResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (chineseResult) {
+      res["chineseResult"] = boost::any(*chineseResult);
+    }
+    if (englishResult) {
+      res["englishResult"] = boost::any(*englishResult);
+    }
+    if (isFinish) {
+      res["isFinish"] = boost::any(*isFinish);
+    }
+    if (isOffTopicControl) {
+      res["isOffTopicControl"] = boost::any(*isOffTopicControl);
+    }
+    if (isOnTopic) {
+      res["isOnTopic"] = boost::any(*isOnTopic);
+    }
+    if (questionIndex) {
+      res["questionIndex"] = boost::any(*questionIndex);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("chineseResult") != m.end() && !m["chineseResult"].empty()) {
+      chineseResult = make_shared<string>(boost::any_cast<string>(m["chineseResult"]));
+    }
+    if (m.find("englishResult") != m.end() && !m["englishResult"].empty()) {
+      englishResult = make_shared<string>(boost::any_cast<string>(m["englishResult"]));
+    }
+    if (m.find("isFinish") != m.end() && !m["isFinish"].empty()) {
+      isFinish = make_shared<bool>(boost::any_cast<bool>(m["isFinish"]));
+    }
+    if (m.find("isOffTopicControl") != m.end() && !m["isOffTopicControl"].empty()) {
+      isOffTopicControl = make_shared<bool>(boost::any_cast<bool>(m["isOffTopicControl"]));
+    }
+    if (m.find("isOnTopic") != m.end() && !m["isOnTopic"].empty()) {
+      isOnTopic = make_shared<bool>(boost::any_cast<bool>(m["isOnTopic"]));
+    }
+    if (m.find("questionIndex") != m.end() && !m["questionIndex"].empty()) {
+      questionIndex = make_shared<long>(boost::any_cast<long>(m["questionIndex"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueResponseBodyData() = default;
+};
+class ExecuteAITeacherExpansionDialogueResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ExecuteAITeacherExpansionDialogueResponseBodyData> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ExecuteAITeacherExpansionDialogueResponseBody() {}
+
+  explicit ExecuteAITeacherExpansionDialogueResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        ExecuteAITeacherExpansionDialogueResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<ExecuteAITeacherExpansionDialogueResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueResponseBody() = default;
+};
+class ExecuteAITeacherExpansionDialogueResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExecuteAITeacherExpansionDialogueResponseBody> body{};
+
+  ExecuteAITeacherExpansionDialogueResponse() {}
+
+  explicit ExecuteAITeacherExpansionDialogueResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExecuteAITeacherExpansionDialogueResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExecuteAITeacherExpansionDialogueResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueResponse() = default;
+};
+class ExecuteAITeacherExpansionDialogueRefineRequestDialogueTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> assistantTranslate{};
+  shared_ptr<long> order{};
+  shared_ptr<string> user{};
+
+  ExecuteAITeacherExpansionDialogueRefineRequestDialogueTasks() {}
+
+  explicit ExecuteAITeacherExpansionDialogueRefineRequestDialogueTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (assistantTranslate) {
+      res["assistantTranslate"] = boost::any(*assistantTranslate);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("assistantTranslate") != m.end() && !m["assistantTranslate"].empty()) {
+      assistantTranslate = make_shared<string>(boost::any_cast<string>(m["assistantTranslate"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueRefineRequestDialogueTasks() = default;
+};
+class ExecuteAITeacherExpansionDialogueRefineRequestRecords : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<bool> isOffTopicControl{};
+  shared_ptr<bool> isOnTopic{};
+  shared_ptr<long> order{};
+  shared_ptr<string> role{};
+
+  ExecuteAITeacherExpansionDialogueRefineRequestRecords() {}
+
+  explicit ExecuteAITeacherExpansionDialogueRefineRequestRecords(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (isOffTopicControl) {
+      res["isOffTopicControl"] = boost::any(*isOffTopicControl);
+    }
+    if (isOnTopic) {
+      res["isOnTopic"] = boost::any(*isOnTopic);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("isOffTopicControl") != m.end() && !m["isOffTopicControl"].empty()) {
+      isOffTopicControl = make_shared<bool>(boost::any_cast<bool>(m["isOffTopicControl"]));
+    }
+    if (m.find("isOnTopic") != m.end() && !m["isOnTopic"].empty()) {
+      isOnTopic = make_shared<bool>(boost::any_cast<bool>(m["isOnTopic"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueRefineRequestRecords() = default;
+};
+class ExecuteAITeacherExpansionDialogueRefineRequestRoleInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> user{};
+
+  ExecuteAITeacherExpansionDialogueRefineRequestRoleInfo() {}
+
+  explicit ExecuteAITeacherExpansionDialogueRefineRequestRoleInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueRefineRequestRoleInfo() = default;
+};
+class ExecuteAITeacherExpansionDialogueRefineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> background{};
+  shared_ptr<vector<ExecuteAITeacherExpansionDialogueRefineRequestDialogueTasks>> dialogueTasks{};
+  shared_ptr<string> languageCode{};
+  shared_ptr<vector<ExecuteAITeacherExpansionDialogueRefineRequestRecords>> records{};
+  shared_ptr<ExecuteAITeacherExpansionDialogueRefineRequestRoleInfo> roleInfo{};
+  shared_ptr<string> startSentence{};
+  shared_ptr<string> topic{};
+  shared_ptr<string> userId{};
+
+  ExecuteAITeacherExpansionDialogueRefineRequest() {}
+
+  explicit ExecuteAITeacherExpansionDialogueRefineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (background) {
+      res["background"] = boost::any(*background);
+    }
+    if (dialogueTasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*dialogueTasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["dialogueTasks"] = boost::any(temp1);
+    }
+    if (languageCode) {
+      res["languageCode"] = boost::any(*languageCode);
+    }
+    if (records) {
+      vector<boost::any> temp1;
+      for(auto item1:*records){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["records"] = boost::any(temp1);
+    }
+    if (roleInfo) {
+      res["roleInfo"] = roleInfo ? boost::any(roleInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startSentence) {
+      res["startSentence"] = boost::any(*startSentence);
+    }
+    if (topic) {
+      res["topic"] = boost::any(*topic);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("background") != m.end() && !m["background"].empty()) {
+      background = make_shared<string>(boost::any_cast<string>(m["background"]));
+    }
+    if (m.find("dialogueTasks") != m.end() && !m["dialogueTasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["dialogueTasks"].type()) {
+        vector<ExecuteAITeacherExpansionDialogueRefineRequestDialogueTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["dialogueTasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExecuteAITeacherExpansionDialogueRefineRequestDialogueTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dialogueTasks = make_shared<vector<ExecuteAITeacherExpansionDialogueRefineRequestDialogueTasks>>(expect1);
+      }
+    }
+    if (m.find("languageCode") != m.end() && !m["languageCode"].empty()) {
+      languageCode = make_shared<string>(boost::any_cast<string>(m["languageCode"]));
+    }
+    if (m.find("records") != m.end() && !m["records"].empty()) {
+      if (typeid(vector<boost::any>) == m["records"].type()) {
+        vector<ExecuteAITeacherExpansionDialogueRefineRequestRecords> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["records"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExecuteAITeacherExpansionDialogueRefineRequestRecords model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        records = make_shared<vector<ExecuteAITeacherExpansionDialogueRefineRequestRecords>>(expect1);
+      }
+    }
+    if (m.find("roleInfo") != m.end() && !m["roleInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["roleInfo"].type()) {
+        ExecuteAITeacherExpansionDialogueRefineRequestRoleInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["roleInfo"]));
+        roleInfo = make_shared<ExecuteAITeacherExpansionDialogueRefineRequestRoleInfo>(model1);
+      }
+    }
+    if (m.find("startSentence") != m.end() && !m["startSentence"].empty()) {
+      startSentence = make_shared<string>(boost::any_cast<string>(m["startSentence"]));
+    }
+    if (m.find("topic") != m.end() && !m["topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["topic"]));
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueRefineRequest() = default;
+};
+class ExecuteAITeacherExpansionDialogueRefineResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> result{};
+
+  ExecuteAITeacherExpansionDialogueRefineResponseBodyData() {}
+
+  explicit ExecuteAITeacherExpansionDialogueRefineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (result) {
+      res["result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["result"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueRefineResponseBodyData() = default;
+};
+class ExecuteAITeacherExpansionDialogueRefineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ExecuteAITeacherExpansionDialogueRefineResponseBodyData> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ExecuteAITeacherExpansionDialogueRefineResponseBody() {}
+
+  explicit ExecuteAITeacherExpansionDialogueRefineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        ExecuteAITeacherExpansionDialogueRefineResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<ExecuteAITeacherExpansionDialogueRefineResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueRefineResponseBody() = default;
+};
+class ExecuteAITeacherExpansionDialogueRefineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExecuteAITeacherExpansionDialogueRefineResponseBody> body{};
+
+  ExecuteAITeacherExpansionDialogueRefineResponse() {}
+
+  explicit ExecuteAITeacherExpansionDialogueRefineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExecuteAITeacherExpansionDialogueRefineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExecuteAITeacherExpansionDialogueRefineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueRefineResponse() = default;
+};
+class ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> assistantTranslate{};
+  shared_ptr<long> order{};
+  shared_ptr<string> user{};
+
+  ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks() {}
+
+  explicit ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (assistantTranslate) {
+      res["assistantTranslate"] = boost::any(*assistantTranslate);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("assistantTranslate") != m.end() && !m["assistantTranslate"].empty()) {
+      assistantTranslate = make_shared<string>(boost::any_cast<string>(m["assistantTranslate"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks() = default;
+};
+class ExecuteAITeacherExpansionDialogueTranslateRequestRecords : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<bool> isOffTopicControl{};
+  shared_ptr<bool> isOnTopic{};
+  shared_ptr<long> order{};
+  shared_ptr<string> role{};
+
+  ExecuteAITeacherExpansionDialogueTranslateRequestRecords() {}
+
+  explicit ExecuteAITeacherExpansionDialogueTranslateRequestRecords(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (isOffTopicControl) {
+      res["isOffTopicControl"] = boost::any(*isOffTopicControl);
+    }
+    if (isOnTopic) {
+      res["isOnTopic"] = boost::any(*isOnTopic);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("isOffTopicControl") != m.end() && !m["isOffTopicControl"].empty()) {
+      isOffTopicControl = make_shared<bool>(boost::any_cast<bool>(m["isOffTopicControl"]));
+    }
+    if (m.find("isOnTopic") != m.end() && !m["isOnTopic"].empty()) {
+      isOnTopic = make_shared<bool>(boost::any_cast<bool>(m["isOnTopic"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueTranslateRequestRecords() = default;
+};
+class ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> user{};
+
+  ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo() {}
+
+  explicit ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo() = default;
+};
+class ExecuteAITeacherExpansionDialogueTranslateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> background{};
+  shared_ptr<vector<ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks>> dialogueTasks{};
+  shared_ptr<vector<ExecuteAITeacherExpansionDialogueTranslateRequestRecords>> records{};
+  shared_ptr<ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo> roleInfo{};
+  shared_ptr<string> startSentence{};
+  shared_ptr<string> topic{};
+  shared_ptr<string> userId{};
+
+  ExecuteAITeacherExpansionDialogueTranslateRequest() {}
+
+  explicit ExecuteAITeacherExpansionDialogueTranslateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (background) {
+      res["background"] = boost::any(*background);
+    }
+    if (dialogueTasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*dialogueTasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["dialogueTasks"] = boost::any(temp1);
+    }
+    if (records) {
+      vector<boost::any> temp1;
+      for(auto item1:*records){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["records"] = boost::any(temp1);
+    }
+    if (roleInfo) {
+      res["roleInfo"] = roleInfo ? boost::any(roleInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startSentence) {
+      res["startSentence"] = boost::any(*startSentence);
+    }
+    if (topic) {
+      res["topic"] = boost::any(*topic);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("background") != m.end() && !m["background"].empty()) {
+      background = make_shared<string>(boost::any_cast<string>(m["background"]));
+    }
+    if (m.find("dialogueTasks") != m.end() && !m["dialogueTasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["dialogueTasks"].type()) {
+        vector<ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["dialogueTasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dialogueTasks = make_shared<vector<ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks>>(expect1);
+      }
+    }
+    if (m.find("records") != m.end() && !m["records"].empty()) {
+      if (typeid(vector<boost::any>) == m["records"].type()) {
+        vector<ExecuteAITeacherExpansionDialogueTranslateRequestRecords> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["records"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExecuteAITeacherExpansionDialogueTranslateRequestRecords model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        records = make_shared<vector<ExecuteAITeacherExpansionDialogueTranslateRequestRecords>>(expect1);
+      }
+    }
+    if (m.find("roleInfo") != m.end() && !m["roleInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["roleInfo"].type()) {
+        ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["roleInfo"]));
+        roleInfo = make_shared<ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo>(model1);
+      }
+    }
+    if (m.find("startSentence") != m.end() && !m["startSentence"].empty()) {
+      startSentence = make_shared<string>(boost::any_cast<string>(m["startSentence"]));
+    }
+    if (m.find("topic") != m.end() && !m["topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["topic"]));
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueTranslateRequest() = default;
+};
+class ExecuteAITeacherExpansionDialogueTranslateResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> result{};
+
+  ExecuteAITeacherExpansionDialogueTranslateResponseBodyData() {}
+
+  explicit ExecuteAITeacherExpansionDialogueTranslateResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (result) {
+      res["result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["result"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueTranslateResponseBodyData() = default;
+};
+class ExecuteAITeacherExpansionDialogueTranslateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ExecuteAITeacherExpansionDialogueTranslateResponseBodyData> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ExecuteAITeacherExpansionDialogueTranslateResponseBody() {}
+
+  explicit ExecuteAITeacherExpansionDialogueTranslateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        ExecuteAITeacherExpansionDialogueTranslateResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<ExecuteAITeacherExpansionDialogueTranslateResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueTranslateResponseBody() = default;
+};
+class ExecuteAITeacherExpansionDialogueTranslateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExecuteAITeacherExpansionDialogueTranslateResponseBody> body{};
+
+  ExecuteAITeacherExpansionDialogueTranslateResponse() {}
+
+  explicit ExecuteAITeacherExpansionDialogueTranslateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExecuteAITeacherExpansionDialogueTranslateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExecuteAITeacherExpansionDialogueTranslateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherExpansionDialogueTranslateResponse() = default;
+};
+class ExecuteAITeacherGrammarCheckRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> userId{};
+
+  ExecuteAITeacherGrammarCheckRequest() {}
+
+  explicit ExecuteAITeacherGrammarCheckRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherGrammarCheckRequest() = default;
+};
+class ExecuteAITeacherGrammarCheckResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> analysis{};
+  shared_ptr<string> correction{};
+  shared_ptr<string> correctionStatus{};
+  shared_ptr<string> errorReason{};
+
+  ExecuteAITeacherGrammarCheckResponseBodyData() {}
+
+  explicit ExecuteAITeacherGrammarCheckResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (analysis) {
+      res["analysis"] = boost::any(*analysis);
+    }
+    if (correction) {
+      res["correction"] = boost::any(*correction);
+    }
+    if (correctionStatus) {
+      res["correctionStatus"] = boost::any(*correctionStatus);
+    }
+    if (errorReason) {
+      res["errorReason"] = boost::any(*errorReason);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("analysis") != m.end() && !m["analysis"].empty()) {
+      analysis = make_shared<string>(boost::any_cast<string>(m["analysis"]));
+    }
+    if (m.find("correction") != m.end() && !m["correction"].empty()) {
+      correction = make_shared<string>(boost::any_cast<string>(m["correction"]));
+    }
+    if (m.find("correctionStatus") != m.end() && !m["correctionStatus"].empty()) {
+      correctionStatus = make_shared<string>(boost::any_cast<string>(m["correctionStatus"]));
+    }
+    if (m.find("errorReason") != m.end() && !m["errorReason"].empty()) {
+      errorReason = make_shared<string>(boost::any_cast<string>(m["errorReason"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherGrammarCheckResponseBodyData() = default;
+};
+class ExecuteAITeacherGrammarCheckResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ExecuteAITeacherGrammarCheckResponseBodyData> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ExecuteAITeacherGrammarCheckResponseBody() {}
+
+  explicit ExecuteAITeacherGrammarCheckResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        ExecuteAITeacherGrammarCheckResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<ExecuteAITeacherGrammarCheckResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherGrammarCheckResponseBody() = default;
+};
+class ExecuteAITeacherGrammarCheckResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExecuteAITeacherGrammarCheckResponseBody> body{};
+
+  ExecuteAITeacherGrammarCheckResponse() {}
+
+  explicit ExecuteAITeacherGrammarCheckResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExecuteAITeacherGrammarCheckResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExecuteAITeacherGrammarCheckResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherGrammarCheckResponse() = default;
+};
+class ExecuteAITeacherSyncDialogueRequestDialogueTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> assistantTranslate{};
+  shared_ptr<long> order{};
+  shared_ptr<string> user{};
+
+  ExecuteAITeacherSyncDialogueRequestDialogueTasks() {}
+
+  explicit ExecuteAITeacherSyncDialogueRequestDialogueTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (assistantTranslate) {
+      res["assistantTranslate"] = boost::any(*assistantTranslate);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("assistantTranslate") != m.end() && !m["assistantTranslate"].empty()) {
+      assistantTranslate = make_shared<string>(boost::any_cast<string>(m["assistantTranslate"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherSyncDialogueRequestDialogueTasks() = default;
+};
+class ExecuteAITeacherSyncDialogueRequestRecords : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<bool> isOffTopicControl{};
+  shared_ptr<bool> isOnTopic{};
+  shared_ptr<long> order{};
+  shared_ptr<string> role{};
+
+  ExecuteAITeacherSyncDialogueRequestRecords() {}
+
+  explicit ExecuteAITeacherSyncDialogueRequestRecords(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (isOffTopicControl) {
+      res["isOffTopicControl"] = boost::any(*isOffTopicControl);
+    }
+    if (isOnTopic) {
+      res["isOnTopic"] = boost::any(*isOnTopic);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("isOffTopicControl") != m.end() && !m["isOffTopicControl"].empty()) {
+      isOffTopicControl = make_shared<bool>(boost::any_cast<bool>(m["isOffTopicControl"]));
+    }
+    if (m.find("isOnTopic") != m.end() && !m["isOnTopic"].empty()) {
+      isOnTopic = make_shared<bool>(boost::any_cast<bool>(m["isOnTopic"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherSyncDialogueRequestRecords() = default;
+};
+class ExecuteAITeacherSyncDialogueRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<ExecuteAITeacherSyncDialogueRequestDialogueTasks>> dialogueTasks{};
+  shared_ptr<string> languageCode{};
+  shared_ptr<vector<ExecuteAITeacherSyncDialogueRequestRecords>> records{};
+  shared_ptr<string> userId{};
+
+  ExecuteAITeacherSyncDialogueRequest() {}
+
+  explicit ExecuteAITeacherSyncDialogueRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dialogueTasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*dialogueTasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["dialogueTasks"] = boost::any(temp1);
+    }
+    if (languageCode) {
+      res["languageCode"] = boost::any(*languageCode);
+    }
+    if (records) {
+      vector<boost::any> temp1;
+      for(auto item1:*records){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["records"] = boost::any(temp1);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("dialogueTasks") != m.end() && !m["dialogueTasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["dialogueTasks"].type()) {
+        vector<ExecuteAITeacherSyncDialogueRequestDialogueTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["dialogueTasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExecuteAITeacherSyncDialogueRequestDialogueTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dialogueTasks = make_shared<vector<ExecuteAITeacherSyncDialogueRequestDialogueTasks>>(expect1);
+      }
+    }
+    if (m.find("languageCode") != m.end() && !m["languageCode"].empty()) {
+      languageCode = make_shared<string>(boost::any_cast<string>(m["languageCode"]));
+    }
+    if (m.find("records") != m.end() && !m["records"].empty()) {
+      if (typeid(vector<boost::any>) == m["records"].type()) {
+        vector<ExecuteAITeacherSyncDialogueRequestRecords> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["records"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExecuteAITeacherSyncDialogueRequestRecords model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        records = make_shared<vector<ExecuteAITeacherSyncDialogueRequestRecords>>(expect1);
+      }
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherSyncDialogueRequest() = default;
+};
+class ExecuteAITeacherSyncDialogueResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> englishResult{};
+  shared_ptr<bool> isFinish{};
+  shared_ptr<bool> isOnTopic{};
+  shared_ptr<long> questionIndex{};
+
+  ExecuteAITeacherSyncDialogueResponseBodyData() {}
+
+  explicit ExecuteAITeacherSyncDialogueResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (englishResult) {
+      res["englishResult"] = boost::any(*englishResult);
+    }
+    if (isFinish) {
+      res["isFinish"] = boost::any(*isFinish);
+    }
+    if (isOnTopic) {
+      res["isOnTopic"] = boost::any(*isOnTopic);
+    }
+    if (questionIndex) {
+      res["questionIndex"] = boost::any(*questionIndex);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("englishResult") != m.end() && !m["englishResult"].empty()) {
+      englishResult = make_shared<string>(boost::any_cast<string>(m["englishResult"]));
+    }
+    if (m.find("isFinish") != m.end() && !m["isFinish"].empty()) {
+      isFinish = make_shared<bool>(boost::any_cast<bool>(m["isFinish"]));
+    }
+    if (m.find("isOnTopic") != m.end() && !m["isOnTopic"].empty()) {
+      isOnTopic = make_shared<bool>(boost::any_cast<bool>(m["isOnTopic"]));
+    }
+    if (m.find("questionIndex") != m.end() && !m["questionIndex"].empty()) {
+      questionIndex = make_shared<long>(boost::any_cast<long>(m["questionIndex"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherSyncDialogueResponseBodyData() = default;
+};
+class ExecuteAITeacherSyncDialogueResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ExecuteAITeacherSyncDialogueResponseBodyData> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ExecuteAITeacherSyncDialogueResponseBody() {}
+
+  explicit ExecuteAITeacherSyncDialogueResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        ExecuteAITeacherSyncDialogueResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<ExecuteAITeacherSyncDialogueResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherSyncDialogueResponseBody() = default;
+};
+class ExecuteAITeacherSyncDialogueResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExecuteAITeacherSyncDialogueResponseBody> body{};
+
+  ExecuteAITeacherSyncDialogueResponse() {}
+
+  explicit ExecuteAITeacherSyncDialogueResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExecuteAITeacherSyncDialogueResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExecuteAITeacherSyncDialogueResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherSyncDialogueResponse() = default;
+};
+class ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> assistantTranslate{};
+  shared_ptr<long> order{};
+  shared_ptr<string> user{};
+
+  ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks() {}
+
+  explicit ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (assistantTranslate) {
+      res["assistantTranslate"] = boost::any(*assistantTranslate);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("assistantTranslate") != m.end() && !m["assistantTranslate"].empty()) {
+      assistantTranslate = make_shared<string>(boost::any_cast<string>(m["assistantTranslate"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks() = default;
+};
+class ExecuteAITeacherSyncDialogueTranslateRequestRecords : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<bool> isOffTopicControl{};
+  shared_ptr<bool> isOnTopic{};
+  shared_ptr<long> order{};
+  shared_ptr<string> role{};
+
+  ExecuteAITeacherSyncDialogueTranslateRequestRecords() {}
+
+  explicit ExecuteAITeacherSyncDialogueTranslateRequestRecords(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (isOffTopicControl) {
+      res["isOffTopicControl"] = boost::any(*isOffTopicControl);
+    }
+    if (isOnTopic) {
+      res["isOnTopic"] = boost::any(*isOnTopic);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("isOffTopicControl") != m.end() && !m["isOffTopicControl"].empty()) {
+      isOffTopicControl = make_shared<bool>(boost::any_cast<bool>(m["isOffTopicControl"]));
+    }
+    if (m.find("isOnTopic") != m.end() && !m["isOnTopic"].empty()) {
+      isOnTopic = make_shared<bool>(boost::any_cast<bool>(m["isOnTopic"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherSyncDialogueTranslateRequestRecords() = default;
+};
+class ExecuteAITeacherSyncDialogueTranslateRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks>> dialogueTasks{};
+  shared_ptr<vector<ExecuteAITeacherSyncDialogueTranslateRequestRecords>> records{};
+  shared_ptr<string> userId{};
+
+  ExecuteAITeacherSyncDialogueTranslateRequest() {}
+
+  explicit ExecuteAITeacherSyncDialogueTranslateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dialogueTasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*dialogueTasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["dialogueTasks"] = boost::any(temp1);
+    }
+    if (records) {
+      vector<boost::any> temp1;
+      for(auto item1:*records){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["records"] = boost::any(temp1);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("dialogueTasks") != m.end() && !m["dialogueTasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["dialogueTasks"].type()) {
+        vector<ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["dialogueTasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dialogueTasks = make_shared<vector<ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks>>(expect1);
+      }
+    }
+    if (m.find("records") != m.end() && !m["records"].empty()) {
+      if (typeid(vector<boost::any>) == m["records"].type()) {
+        vector<ExecuteAITeacherSyncDialogueTranslateRequestRecords> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["records"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExecuteAITeacherSyncDialogueTranslateRequestRecords model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        records = make_shared<vector<ExecuteAITeacherSyncDialogueTranslateRequestRecords>>(expect1);
+      }
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherSyncDialogueTranslateRequest() = default;
+};
+class ExecuteAITeacherSyncDialogueTranslateResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> result{};
+
+  ExecuteAITeacherSyncDialogueTranslateResponseBodyData() {}
+
+  explicit ExecuteAITeacherSyncDialogueTranslateResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (result) {
+      res["result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["result"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherSyncDialogueTranslateResponseBodyData() = default;
+};
+class ExecuteAITeacherSyncDialogueTranslateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ExecuteAITeacherSyncDialogueTranslateResponseBodyData> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ExecuteAITeacherSyncDialogueTranslateResponseBody() {}
+
+  explicit ExecuteAITeacherSyncDialogueTranslateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        ExecuteAITeacherSyncDialogueTranslateResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<ExecuteAITeacherSyncDialogueTranslateResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherSyncDialogueTranslateResponseBody() = default;
+};
+class ExecuteAITeacherSyncDialogueTranslateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExecuteAITeacherSyncDialogueTranslateResponseBody> body{};
+
+  ExecuteAITeacherSyncDialogueTranslateResponse() {}
+
+  explicit ExecuteAITeacherSyncDialogueTranslateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExecuteAITeacherSyncDialogueTranslateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExecuteAITeacherSyncDialogueTranslateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExecuteAITeacherSyncDialogueTranslateResponse() = default;
+};
+class GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> assistantTranslate{};
+  shared_ptr<long> order{};
+  shared_ptr<string> user{};
+
+  GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks() {}
+
+  explicit GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (assistantTranslate) {
+      res["assistantTranslate"] = boost::any(*assistantTranslate);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("assistantTranslate") != m.end() && !m["assistantTranslate"].empty()) {
+      assistantTranslate = make_shared<string>(boost::any_cast<string>(m["assistantTranslate"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks() = default;
+};
+class GetAITeacherExpansionDialogueSuggestionRequestRecords : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<bool> isOffTopicControl{};
+  shared_ptr<bool> isOnTopic{};
+  shared_ptr<long> order{};
+  shared_ptr<string> role{};
+
+  GetAITeacherExpansionDialogueSuggestionRequestRecords() {}
+
+  explicit GetAITeacherExpansionDialogueSuggestionRequestRecords(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (isOffTopicControl) {
+      res["isOffTopicControl"] = boost::any(*isOffTopicControl);
+    }
+    if (isOnTopic) {
+      res["isOnTopic"] = boost::any(*isOnTopic);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("isOffTopicControl") != m.end() && !m["isOffTopicControl"].empty()) {
+      isOffTopicControl = make_shared<bool>(boost::any_cast<bool>(m["isOffTopicControl"]));
+    }
+    if (m.find("isOnTopic") != m.end() && !m["isOnTopic"].empty()) {
+      isOnTopic = make_shared<bool>(boost::any_cast<bool>(m["isOnTopic"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+  }
+
+
+  virtual ~GetAITeacherExpansionDialogueSuggestionRequestRecords() = default;
+};
+class GetAITeacherExpansionDialogueSuggestionRequestRoleInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> user{};
+
+  GetAITeacherExpansionDialogueSuggestionRequestRoleInfo() {}
+
+  explicit GetAITeacherExpansionDialogueSuggestionRequestRoleInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~GetAITeacherExpansionDialogueSuggestionRequestRoleInfo() = default;
+};
+class GetAITeacherExpansionDialogueSuggestionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> background{};
+  shared_ptr<vector<GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks>> dialogueTasks{};
+  shared_ptr<string> languageCode{};
+  shared_ptr<vector<GetAITeacherExpansionDialogueSuggestionRequestRecords>> records{};
+  shared_ptr<GetAITeacherExpansionDialogueSuggestionRequestRoleInfo> roleInfo{};
+  shared_ptr<string> startSentence{};
+  shared_ptr<string> topic{};
+  shared_ptr<string> userId{};
+
+  GetAITeacherExpansionDialogueSuggestionRequest() {}
+
+  explicit GetAITeacherExpansionDialogueSuggestionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (background) {
+      res["background"] = boost::any(*background);
+    }
+    if (dialogueTasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*dialogueTasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["dialogueTasks"] = boost::any(temp1);
+    }
+    if (languageCode) {
+      res["languageCode"] = boost::any(*languageCode);
+    }
+    if (records) {
+      vector<boost::any> temp1;
+      for(auto item1:*records){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["records"] = boost::any(temp1);
+    }
+    if (roleInfo) {
+      res["roleInfo"] = roleInfo ? boost::any(roleInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startSentence) {
+      res["startSentence"] = boost::any(*startSentence);
+    }
+    if (topic) {
+      res["topic"] = boost::any(*topic);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("background") != m.end() && !m["background"].empty()) {
+      background = make_shared<string>(boost::any_cast<string>(m["background"]));
+    }
+    if (m.find("dialogueTasks") != m.end() && !m["dialogueTasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["dialogueTasks"].type()) {
+        vector<GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["dialogueTasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dialogueTasks = make_shared<vector<GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks>>(expect1);
+      }
+    }
+    if (m.find("languageCode") != m.end() && !m["languageCode"].empty()) {
+      languageCode = make_shared<string>(boost::any_cast<string>(m["languageCode"]));
+    }
+    if (m.find("records") != m.end() && !m["records"].empty()) {
+      if (typeid(vector<boost::any>) == m["records"].type()) {
+        vector<GetAITeacherExpansionDialogueSuggestionRequestRecords> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["records"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAITeacherExpansionDialogueSuggestionRequestRecords model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        records = make_shared<vector<GetAITeacherExpansionDialogueSuggestionRequestRecords>>(expect1);
+      }
+    }
+    if (m.find("roleInfo") != m.end() && !m["roleInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["roleInfo"].type()) {
+        GetAITeacherExpansionDialogueSuggestionRequestRoleInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["roleInfo"]));
+        roleInfo = make_shared<GetAITeacherExpansionDialogueSuggestionRequestRoleInfo>(model1);
+      }
+    }
+    if (m.find("startSentence") != m.end() && !m["startSentence"].empty()) {
+      startSentence = make_shared<string>(boost::any_cast<string>(m["startSentence"]));
+    }
+    if (m.find("topic") != m.end() && !m["topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["topic"]));
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~GetAITeacherExpansionDialogueSuggestionRequest() = default;
+};
+class GetAITeacherExpansionDialogueSuggestionResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> chineseResult{};
+  shared_ptr<string> englishResult{};
+
+  GetAITeacherExpansionDialogueSuggestionResponseBodyData() {}
+
+  explicit GetAITeacherExpansionDialogueSuggestionResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (chineseResult) {
+      res["chineseResult"] = boost::any(*chineseResult);
+    }
+    if (englishResult) {
+      res["englishResult"] = boost::any(*englishResult);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("chineseResult") != m.end() && !m["chineseResult"].empty()) {
+      chineseResult = make_shared<string>(boost::any_cast<string>(m["chineseResult"]));
+    }
+    if (m.find("englishResult") != m.end() && !m["englishResult"].empty()) {
+      englishResult = make_shared<string>(boost::any_cast<string>(m["englishResult"]));
+    }
+  }
+
+
+  virtual ~GetAITeacherExpansionDialogueSuggestionResponseBodyData() = default;
+};
+class GetAITeacherExpansionDialogueSuggestionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetAITeacherExpansionDialogueSuggestionResponseBodyData> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetAITeacherExpansionDialogueSuggestionResponseBody() {}
+
+  explicit GetAITeacherExpansionDialogueSuggestionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        GetAITeacherExpansionDialogueSuggestionResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<GetAITeacherExpansionDialogueSuggestionResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~GetAITeacherExpansionDialogueSuggestionResponseBody() = default;
+};
+class GetAITeacherExpansionDialogueSuggestionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAITeacherExpansionDialogueSuggestionResponseBody> body{};
+
+  GetAITeacherExpansionDialogueSuggestionResponse() {}
+
+  explicit GetAITeacherExpansionDialogueSuggestionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAITeacherExpansionDialogueSuggestionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAITeacherExpansionDialogueSuggestionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAITeacherExpansionDialogueSuggestionResponse() = default;
+};
+class GetAITeacherSyncDialogueSuggestionRequestDialogueTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> assistant{};
+  shared_ptr<string> assistantTranslate{};
+  shared_ptr<long> order{};
+  shared_ptr<string> user{};
+
+  GetAITeacherSyncDialogueSuggestionRequestDialogueTasks() {}
+
+  explicit GetAITeacherSyncDialogueSuggestionRequestDialogueTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistant) {
+      res["assistant"] = boost::any(*assistant);
+    }
+    if (assistantTranslate) {
+      res["assistantTranslate"] = boost::any(*assistantTranslate);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistant") != m.end() && !m["assistant"].empty()) {
+      assistant = make_shared<string>(boost::any_cast<string>(m["assistant"]));
+    }
+    if (m.find("assistantTranslate") != m.end() && !m["assistantTranslate"].empty()) {
+      assistantTranslate = make_shared<string>(boost::any_cast<string>(m["assistantTranslate"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~GetAITeacherSyncDialogueSuggestionRequestDialogueTasks() = default;
+};
+class GetAITeacherSyncDialogueSuggestionRequestRecords : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<bool> isOffTopicControl{};
+  shared_ptr<bool> isOnTopic{};
+  shared_ptr<long> order{};
+  shared_ptr<string> role{};
+
+  GetAITeacherSyncDialogueSuggestionRequestRecords() {}
+
+  explicit GetAITeacherSyncDialogueSuggestionRequestRecords(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (isOffTopicControl) {
+      res["isOffTopicControl"] = boost::any(*isOffTopicControl);
+    }
+    if (isOnTopic) {
+      res["isOnTopic"] = boost::any(*isOnTopic);
+    }
+    if (order) {
+      res["order"] = boost::any(*order);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("isOffTopicControl") != m.end() && !m["isOffTopicControl"].empty()) {
+      isOffTopicControl = make_shared<bool>(boost::any_cast<bool>(m["isOffTopicControl"]));
+    }
+    if (m.find("isOnTopic") != m.end() && !m["isOnTopic"].empty()) {
+      isOnTopic = make_shared<bool>(boost::any_cast<bool>(m["isOnTopic"]));
+    }
+    if (m.find("order") != m.end() && !m["order"].empty()) {
+      order = make_shared<long>(boost::any_cast<long>(m["order"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+  }
+
+
+  virtual ~GetAITeacherSyncDialogueSuggestionRequestRecords() = default;
+};
+class GetAITeacherSyncDialogueSuggestionRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetAITeacherSyncDialogueSuggestionRequestDialogueTasks>> dialogueTasks{};
+  shared_ptr<string> languageCode{};
+  shared_ptr<vector<GetAITeacherSyncDialogueSuggestionRequestRecords>> records{};
+  shared_ptr<string> userId{};
+
+  GetAITeacherSyncDialogueSuggestionRequest() {}
+
+  explicit GetAITeacherSyncDialogueSuggestionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dialogueTasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*dialogueTasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["dialogueTasks"] = boost::any(temp1);
+    }
+    if (languageCode) {
+      res["languageCode"] = boost::any(*languageCode);
+    }
+    if (records) {
+      vector<boost::any> temp1;
+      for(auto item1:*records){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["records"] = boost::any(temp1);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("dialogueTasks") != m.end() && !m["dialogueTasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["dialogueTasks"].type()) {
+        vector<GetAITeacherSyncDialogueSuggestionRequestDialogueTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["dialogueTasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAITeacherSyncDialogueSuggestionRequestDialogueTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dialogueTasks = make_shared<vector<GetAITeacherSyncDialogueSuggestionRequestDialogueTasks>>(expect1);
+      }
+    }
+    if (m.find("languageCode") != m.end() && !m["languageCode"].empty()) {
+      languageCode = make_shared<string>(boost::any_cast<string>(m["languageCode"]));
+    }
+    if (m.find("records") != m.end() && !m["records"].empty()) {
+      if (typeid(vector<boost::any>) == m["records"].type()) {
+        vector<GetAITeacherSyncDialogueSuggestionRequestRecords> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["records"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAITeacherSyncDialogueSuggestionRequestRecords model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        records = make_shared<vector<GetAITeacherSyncDialogueSuggestionRequestRecords>>(expect1);
+      }
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~GetAITeacherSyncDialogueSuggestionRequest() = default;
+};
+class GetAITeacherSyncDialogueSuggestionResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> englishResult{};
+  shared_ptr<string> englishResult1{};
+
+  GetAITeacherSyncDialogueSuggestionResponseBodyData() {}
+
+  explicit GetAITeacherSyncDialogueSuggestionResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (englishResult) {
+      res["englishResult"] = boost::any(*englishResult);
+    }
+    if (englishResult1) {
+      res["englishResult1"] = boost::any(*englishResult1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("englishResult") != m.end() && !m["englishResult"].empty()) {
+      englishResult = make_shared<string>(boost::any_cast<string>(m["englishResult"]));
+    }
+    if (m.find("englishResult1") != m.end() && !m["englishResult1"].empty()) {
+      englishResult1 = make_shared<string>(boost::any_cast<string>(m["englishResult1"]));
+    }
+  }
+
+
+  virtual ~GetAITeacherSyncDialogueSuggestionResponseBodyData() = default;
+};
+class GetAITeacherSyncDialogueSuggestionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetAITeacherSyncDialogueSuggestionResponseBodyData> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetAITeacherSyncDialogueSuggestionResponseBody() {}
+
+  explicit GetAITeacherSyncDialogueSuggestionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["errMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        GetAITeacherSyncDialogueSuggestionResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<GetAITeacherSyncDialogueSuggestionResponseBodyData>(model1);
+      }
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("errMessage") != m.end() && !m["errMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["errMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~GetAITeacherSyncDialogueSuggestionResponseBody() = default;
+};
+class GetAITeacherSyncDialogueSuggestionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAITeacherSyncDialogueSuggestionResponseBody> body{};
+
+  GetAITeacherSyncDialogueSuggestionResponse() {}
+
+  explicit GetAITeacherSyncDialogueSuggestionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAITeacherSyncDialogueSuggestionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAITeacherSyncDialogueSuggestionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAITeacherSyncDialogueSuggestionResponse() = default;
+};
 class PersonalizedTextToImageAddInferenceJobRequest : public Darabonba::Model {
 public:
   shared_ptr<long> imageNumber{};
@@ -3698,6 +6570,22 @@ public:
   AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse aliyunConsoleOpenApiQueryAliyunConsoleServcieList();
   AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse aliyunConsoleOpenApiQueryAliyunConsoleServiceListWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse aliyunConsoleOpenApiQueryAliyunConsoleServiceList();
+  ExecuteAITeacherExpansionDialogueResponse executeAITeacherExpansionDialogueWithOptions(shared_ptr<ExecuteAITeacherExpansionDialogueRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExecuteAITeacherExpansionDialogueResponse executeAITeacherExpansionDialogue(shared_ptr<ExecuteAITeacherExpansionDialogueRequest> request);
+  ExecuteAITeacherExpansionDialogueRefineResponse executeAITeacherExpansionDialogueRefineWithOptions(shared_ptr<ExecuteAITeacherExpansionDialogueRefineRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExecuteAITeacherExpansionDialogueRefineResponse executeAITeacherExpansionDialogueRefine(shared_ptr<ExecuteAITeacherExpansionDialogueRefineRequest> request);
+  ExecuteAITeacherExpansionDialogueTranslateResponse executeAITeacherExpansionDialogueTranslateWithOptions(shared_ptr<ExecuteAITeacherExpansionDialogueTranslateRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExecuteAITeacherExpansionDialogueTranslateResponse executeAITeacherExpansionDialogueTranslate(shared_ptr<ExecuteAITeacherExpansionDialogueTranslateRequest> request);
+  ExecuteAITeacherGrammarCheckResponse executeAITeacherGrammarCheckWithOptions(shared_ptr<ExecuteAITeacherGrammarCheckRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExecuteAITeacherGrammarCheckResponse executeAITeacherGrammarCheck(shared_ptr<ExecuteAITeacherGrammarCheckRequest> request);
+  ExecuteAITeacherSyncDialogueResponse executeAITeacherSyncDialogueWithOptions(shared_ptr<ExecuteAITeacherSyncDialogueRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExecuteAITeacherSyncDialogueResponse executeAITeacherSyncDialogue(shared_ptr<ExecuteAITeacherSyncDialogueRequest> request);
+  ExecuteAITeacherSyncDialogueTranslateResponse executeAITeacherSyncDialogueTranslateWithOptions(shared_ptr<ExecuteAITeacherSyncDialogueTranslateRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExecuteAITeacherSyncDialogueTranslateResponse executeAITeacherSyncDialogueTranslate(shared_ptr<ExecuteAITeacherSyncDialogueTranslateRequest> request);
+  GetAITeacherExpansionDialogueSuggestionResponse getAITeacherExpansionDialogueSuggestionWithOptions(shared_ptr<GetAITeacherExpansionDialogueSuggestionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAITeacherExpansionDialogueSuggestionResponse getAITeacherExpansionDialogueSuggestion(shared_ptr<GetAITeacherExpansionDialogueSuggestionRequest> request);
+  GetAITeacherSyncDialogueSuggestionResponse getAITeacherSyncDialogueSuggestionWithOptions(shared_ptr<GetAITeacherSyncDialogueSuggestionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAITeacherSyncDialogueSuggestionResponse getAITeacherSyncDialogueSuggestion(shared_ptr<GetAITeacherSyncDialogueSuggestionRequest> request);
   PersonalizedTextToImageAddInferenceJobResponse personalizedTextToImageAddInferenceJobWithOptions(shared_ptr<PersonalizedTextToImageAddInferenceJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PersonalizedTextToImageAddInferenceJobResponse personalizedTextToImageAddInferenceJob(shared_ptr<PersonalizedTextToImageAddInferenceJobRequest> request);
   PersonalizedTextToImageQueryImageAssetResponse personalizedTextToImageQueryImageAssetWithOptions(shared_ptr<PersonalizedTextToImageQueryImageAssetRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
