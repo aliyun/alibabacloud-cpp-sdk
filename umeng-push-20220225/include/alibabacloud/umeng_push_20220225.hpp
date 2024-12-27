@@ -498,6 +498,7 @@ class ChannelProperties : public Darabonba::Model {
 public:
   shared_ptr<string> channelActivity{};
   shared_ptr<string> channelFcm{};
+  shared_ptr<string> harmonyChannelCategory{};
   shared_ptr<string> huaweiChannelCategory{};
   shared_ptr<string> huaweiChannelImportance{};
   shared_ptr<string> huaweiMessageUrgency{};
@@ -527,6 +528,9 @@ public:
     }
     if (channelFcm) {
       res["channelFcm"] = boost::any(*channelFcm);
+    }
+    if (harmonyChannelCategory) {
+      res["harmonyChannelCategory"] = boost::any(*harmonyChannelCategory);
     }
     if (huaweiChannelCategory) {
       res["huaweiChannelCategory"] = boost::any(*huaweiChannelCategory);
@@ -577,6 +581,9 @@ public:
     if (m.find("channelFcm") != m.end() && !m["channelFcm"].empty()) {
       channelFcm = make_shared<string>(boost::any_cast<string>(m["channelFcm"]));
     }
+    if (m.find("harmonyChannelCategory") != m.end() && !m["harmonyChannelCategory"].empty()) {
+      harmonyChannelCategory = make_shared<string>(boost::any_cast<string>(m["harmonyChannelCategory"]));
+    }
     if (m.find("huaweiChannelCategory") != m.end() && !m["huaweiChannelCategory"].empty()) {
       huaweiChannelCategory = make_shared<string>(boost::any_cast<string>(m["huaweiChannelCategory"]));
     }
@@ -620,6 +627,150 @@ public:
 
 
   virtual ~ChannelProperties() = default;
+};
+class HarmonyBody : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<long> addBadge{};
+  shared_ptr<string> afterOpen{};
+  shared_ptr<string> bigBody{};
+  shared_ptr<string> custom{};
+  shared_ptr<string> img{};
+  shared_ptr<string> largeIcon{};
+  shared_ptr<string> text{};
+  shared_ptr<string> title{};
+  shared_ptr<string> uri{};
+
+  HarmonyBody() {}
+
+  explicit HarmonyBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["action"] = boost::any(*action);
+    }
+    if (addBadge) {
+      res["addBadge"] = boost::any(*addBadge);
+    }
+    if (afterOpen) {
+      res["afterOpen"] = boost::any(*afterOpen);
+    }
+    if (bigBody) {
+      res["bigBody"] = boost::any(*bigBody);
+    }
+    if (custom) {
+      res["custom"] = boost::any(*custom);
+    }
+    if (img) {
+      res["img"] = boost::any(*img);
+    }
+    if (largeIcon) {
+      res["largeIcon"] = boost::any(*largeIcon);
+    }
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    if (uri) {
+      res["uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("action") != m.end() && !m["action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["action"]));
+    }
+    if (m.find("addBadge") != m.end() && !m["addBadge"].empty()) {
+      addBadge = make_shared<long>(boost::any_cast<long>(m["addBadge"]));
+    }
+    if (m.find("afterOpen") != m.end() && !m["afterOpen"].empty()) {
+      afterOpen = make_shared<string>(boost::any_cast<string>(m["afterOpen"]));
+    }
+    if (m.find("bigBody") != m.end() && !m["bigBody"].empty()) {
+      bigBody = make_shared<string>(boost::any_cast<string>(m["bigBody"]));
+    }
+    if (m.find("custom") != m.end() && !m["custom"].empty()) {
+      custom = make_shared<string>(boost::any_cast<string>(m["custom"]));
+    }
+    if (m.find("img") != m.end() && !m["img"].empty()) {
+      img = make_shared<string>(boost::any_cast<string>(m["img"]));
+    }
+    if (m.find("largeIcon") != m.end() && !m["largeIcon"].empty()) {
+      largeIcon = make_shared<string>(boost::any_cast<string>(m["largeIcon"]));
+    }
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+    if (m.find("uri") != m.end() && !m["uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["uri"]));
+    }
+  }
+
+
+  virtual ~HarmonyBody() = default;
+};
+class HarmonyPayload : public Darabonba::Model {
+public:
+  shared_ptr<string> displayType{};
+  shared_ptr<map<string, boost::any>> extra{};
+  shared_ptr<HarmonyBody> harmonyBody{};
+
+  HarmonyPayload() {}
+
+  explicit HarmonyPayload(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (displayType) {
+      res["displayType"] = boost::any(*displayType);
+    }
+    if (extra) {
+      res["extra"] = boost::any(*extra);
+    }
+    if (harmonyBody) {
+      res["harmonyBody"] = harmonyBody ? boost::any(harmonyBody->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("displayType") != m.end() && !m["displayType"].empty()) {
+      displayType = make_shared<string>(boost::any_cast<string>(m["displayType"]));
+    }
+    if (m.find("extra") != m.end() && !m["extra"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["extra"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      extra = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("harmonyBody") != m.end() && !m["harmonyBody"].empty()) {
+      if (typeid(map<string, boost::any>) == m["harmonyBody"].type()) {
+        HarmonyBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["harmonyBody"]));
+        harmonyBody = make_shared<HarmonyBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~HarmonyPayload() = default;
 };
 class IosPayload : public Darabonba::Model {
 public:
@@ -668,6 +819,7 @@ public:
 };
 class Policy : public Darabonba::Model {
 public:
+  shared_ptr<map<string, string>> channelStrategy{};
   shared_ptr<string> expireTime{};
   shared_ptr<string> outerBizNo{};
   shared_ptr<long> speed{};
@@ -683,6 +835,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (channelStrategy) {
+      res["channelStrategy"] = boost::any(*channelStrategy);
+    }
     if (expireTime) {
       res["expireTime"] = boost::any(*expireTime);
     }
@@ -699,6 +854,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("channelStrategy") != m.end() && !m["channelStrategy"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["channelStrategy"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      channelStrategy = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("expireTime") != m.end() && !m["expireTime"].empty()) {
       expireTime = make_shared<string>(boost::any_cast<string>(m["expireTime"]));
     }
@@ -1129,6 +1292,7 @@ public:
   shared_ptr<AndroidShortPayload> androidShortPayload{};
   shared_ptr<ChannelProperties> channelProperties{};
   shared_ptr<string> description{};
+  shared_ptr<HarmonyPayload> harmonyPayload{};
   shared_ptr<IosPayload> iosPayload{};
   shared_ptr<Policy> policy{};
   shared_ptr<bool> productionMode{};
@@ -1164,6 +1328,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (harmonyPayload) {
+      res["HarmonyPayload"] = harmonyPayload ? boost::any(harmonyPayload->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (iosPayload) {
       res["IosPayload"] = iosPayload ? boost::any(iosPayload->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1220,6 +1387,13 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("HarmonyPayload") != m.end() && !m["HarmonyPayload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HarmonyPayload"].type()) {
+        HarmonyPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HarmonyPayload"]));
+        harmonyPayload = make_shared<HarmonyPayload>(model1);
+      }
+    }
     if (m.find("IosPayload") != m.end() && !m["IosPayload"].empty()) {
       if (typeid(map<string, boost::any>) == m["IosPayload"].type()) {
         IosPayload model1;
@@ -1262,6 +1436,7 @@ public:
   shared_ptr<string> androidShortPayloadShrink{};
   shared_ptr<string> channelPropertiesShrink{};
   shared_ptr<string> description{};
+  shared_ptr<string> harmonyPayloadShrink{};
   shared_ptr<string> iosPayloadShrink{};
   shared_ptr<string> policyShrink{};
   shared_ptr<bool> productionMode{};
@@ -1297,6 +1472,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (harmonyPayloadShrink) {
+      res["HarmonyPayload"] = boost::any(*harmonyPayloadShrink);
     }
     if (iosPayloadShrink) {
       res["IosPayload"] = boost::any(*iosPayloadShrink);
@@ -1340,6 +1518,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("HarmonyPayload") != m.end() && !m["HarmonyPayload"].empty()) {
+      harmonyPayloadShrink = make_shared<string>(boost::any_cast<string>(m["HarmonyPayload"]));
     }
     if (m.find("IosPayload") != m.end() && !m["IosPayload"].empty()) {
       iosPayloadShrink = make_shared<string>(boost::any_cast<string>(m["IosPayload"]));
@@ -1524,6 +1705,7 @@ public:
   shared_ptr<ChannelProperties> channelProperties{};
   shared_ptr<string> description{};
   shared_ptr<string> fileId{};
+  shared_ptr<HarmonyPayload> harmonyPayload{};
   shared_ptr<IosPayload> iosPayload{};
   shared_ptr<Policy> policy{};
   shared_ptr<bool> productionMode{};
@@ -1559,6 +1741,9 @@ public:
     }
     if (fileId) {
       res["FileId"] = boost::any(*fileId);
+    }
+    if (harmonyPayload) {
+      res["HarmonyPayload"] = harmonyPayload ? boost::any(harmonyPayload->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (iosPayload) {
       res["IosPayload"] = iosPayload ? boost::any(iosPayload->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1615,6 +1800,13 @@ public:
     if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
       fileId = make_shared<string>(boost::any_cast<string>(m["FileId"]));
     }
+    if (m.find("HarmonyPayload") != m.end() && !m["HarmonyPayload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HarmonyPayload"].type()) {
+        HarmonyPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HarmonyPayload"]));
+        harmonyPayload = make_shared<HarmonyPayload>(model1);
+      }
+    }
     if (m.find("IosPayload") != m.end() && !m["IosPayload"].empty()) {
       if (typeid(map<string, boost::any>) == m["IosPayload"].type()) {
         IosPayload model1;
@@ -1657,6 +1849,7 @@ public:
   shared_ptr<string> channelPropertiesShrink{};
   shared_ptr<string> description{};
   shared_ptr<string> fileId{};
+  shared_ptr<string> harmonyPayloadShrink{};
   shared_ptr<string> iosPayloadShrink{};
   shared_ptr<string> policyShrink{};
   shared_ptr<bool> productionMode{};
@@ -1692,6 +1885,9 @@ public:
     }
     if (fileId) {
       res["FileId"] = boost::any(*fileId);
+    }
+    if (harmonyPayloadShrink) {
+      res["HarmonyPayload"] = boost::any(*harmonyPayloadShrink);
     }
     if (iosPayloadShrink) {
       res["IosPayload"] = boost::any(*iosPayloadShrink);
@@ -1735,6 +1931,9 @@ public:
     }
     if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
       fileId = make_shared<string>(boost::any_cast<string>(m["FileId"]));
+    }
+    if (m.find("HarmonyPayload") != m.end() && !m["HarmonyPayload"].empty()) {
+      harmonyPayloadShrink = make_shared<string>(boost::any_cast<string>(m["HarmonyPayload"]));
     }
     if (m.find("IosPayload") != m.end() && !m["IosPayload"].empty()) {
       iosPayloadShrink = make_shared<string>(boost::any_cast<string>(m["IosPayload"]));
@@ -1917,6 +2116,7 @@ public:
   shared_ptr<AndroidShortPayload> androidShortPayload{};
   shared_ptr<ChannelProperties> channelProperties{};
   shared_ptr<string> description{};
+  shared_ptr<HarmonyPayload> harmonyPayload{};
   shared_ptr<IosPayload> iosPayload{};
   shared_ptr<Policy> policy{};
   shared_ptr<bool> productionMode{};
@@ -1946,6 +2146,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (harmonyPayload) {
+      res["HarmonyPayload"] = harmonyPayload ? boost::any(harmonyPayload->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (iosPayload) {
       res["IosPayload"] = iosPayload ? boost::any(iosPayload->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1996,6 +2199,13 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("HarmonyPayload") != m.end() && !m["HarmonyPayload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HarmonyPayload"].type()) {
+        HarmonyPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HarmonyPayload"]));
+        harmonyPayload = make_shared<HarmonyPayload>(model1);
+      }
+    }
     if (m.find("IosPayload") != m.end() && !m["IosPayload"].empty()) {
       if (typeid(map<string, boost::any>) == m["IosPayload"].type()) {
         IosPayload model1;
@@ -2036,6 +2246,7 @@ public:
   shared_ptr<string> androidShortPayloadShrink{};
   shared_ptr<string> channelPropertiesShrink{};
   shared_ptr<string> description{};
+  shared_ptr<string> harmonyPayloadShrink{};
   shared_ptr<string> iosPayloadShrink{};
   shared_ptr<string> policyShrink{};
   shared_ptr<bool> productionMode{};
@@ -2065,6 +2276,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (harmonyPayloadShrink) {
+      res["HarmonyPayload"] = boost::any(*harmonyPayloadShrink);
     }
     if (iosPayloadShrink) {
       res["IosPayload"] = boost::any(*iosPayloadShrink);
@@ -2102,6 +2316,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("HarmonyPayload") != m.end() && !m["HarmonyPayload"].empty()) {
+      harmonyPayloadShrink = make_shared<string>(boost::any_cast<string>(m["HarmonyPayload"]));
     }
     if (m.find("IosPayload") != m.end() && !m["IosPayload"].empty()) {
       iosPayloadShrink = make_shared<string>(boost::any_cast<string>(m["IosPayload"]));
@@ -2285,6 +2502,7 @@ public:
   shared_ptr<ChannelProperties> channelProperties{};
   shared_ptr<string> description{};
   shared_ptr<string> deviceTokens{};
+  shared_ptr<HarmonyPayload> harmonyPayload{};
   shared_ptr<IosPayload> iosPayload{};
   shared_ptr<Policy> policy{};
   shared_ptr<bool> productionMode{};
@@ -2317,6 +2535,9 @@ public:
     }
     if (deviceTokens) {
       res["DeviceTokens"] = boost::any(*deviceTokens);
+    }
+    if (harmonyPayload) {
+      res["HarmonyPayload"] = harmonyPayload ? boost::any(harmonyPayload->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (iosPayload) {
       res["IosPayload"] = iosPayload ? boost::any(iosPayload->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2370,6 +2591,13 @@ public:
     if (m.find("DeviceTokens") != m.end() && !m["DeviceTokens"].empty()) {
       deviceTokens = make_shared<string>(boost::any_cast<string>(m["DeviceTokens"]));
     }
+    if (m.find("HarmonyPayload") != m.end() && !m["HarmonyPayload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HarmonyPayload"].type()) {
+        HarmonyPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HarmonyPayload"]));
+        harmonyPayload = make_shared<HarmonyPayload>(model1);
+      }
+    }
     if (m.find("IosPayload") != m.end() && !m["IosPayload"].empty()) {
       if (typeid(map<string, boost::any>) == m["IosPayload"].type()) {
         IosPayload model1;
@@ -2411,6 +2639,7 @@ public:
   shared_ptr<string> channelPropertiesShrink{};
   shared_ptr<string> description{};
   shared_ptr<string> deviceTokens{};
+  shared_ptr<string> harmonyPayloadShrink{};
   shared_ptr<string> iosPayloadShrink{};
   shared_ptr<string> policyShrink{};
   shared_ptr<bool> productionMode{};
@@ -2443,6 +2672,9 @@ public:
     }
     if (deviceTokens) {
       res["DeviceTokens"] = boost::any(*deviceTokens);
+    }
+    if (harmonyPayloadShrink) {
+      res["HarmonyPayload"] = boost::any(*harmonyPayloadShrink);
     }
     if (iosPayloadShrink) {
       res["IosPayload"] = boost::any(*iosPayloadShrink);
@@ -2483,6 +2715,9 @@ public:
     }
     if (m.find("DeviceTokens") != m.end() && !m["DeviceTokens"].empty()) {
       deviceTokens = make_shared<string>(boost::any_cast<string>(m["DeviceTokens"]));
+    }
+    if (m.find("HarmonyPayload") != m.end() && !m["HarmonyPayload"].empty()) {
+      harmonyPayloadShrink = make_shared<string>(boost::any_cast<string>(m["HarmonyPayload"]));
     }
     if (m.find("IosPayload") != m.end() && !m["IosPayload"].empty()) {
       iosPayloadShrink = make_shared<string>(boost::any_cast<string>(m["IosPayload"]));
@@ -2666,6 +2901,7 @@ public:
   shared_ptr<ChannelProperties> channelProperties{};
   shared_ptr<string> description{};
   shared_ptr<string> fileId{};
+  shared_ptr<HarmonyPayload> harmonyPayload{};
   shared_ptr<IosPayload> iosPayload{};
   shared_ptr<Policy> policy{};
   shared_ptr<bool> productionMode{};
@@ -2698,6 +2934,9 @@ public:
     }
     if (fileId) {
       res["FileId"] = boost::any(*fileId);
+    }
+    if (harmonyPayload) {
+      res["HarmonyPayload"] = harmonyPayload ? boost::any(harmonyPayload->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (iosPayload) {
       res["IosPayload"] = iosPayload ? boost::any(iosPayload->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2751,6 +2990,13 @@ public:
     if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
       fileId = make_shared<string>(boost::any_cast<string>(m["FileId"]));
     }
+    if (m.find("HarmonyPayload") != m.end() && !m["HarmonyPayload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HarmonyPayload"].type()) {
+        HarmonyPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HarmonyPayload"]));
+        harmonyPayload = make_shared<HarmonyPayload>(model1);
+      }
+    }
     if (m.find("IosPayload") != m.end() && !m["IosPayload"].empty()) {
       if (typeid(map<string, boost::any>) == m["IosPayload"].type()) {
         IosPayload model1;
@@ -2792,6 +3038,7 @@ public:
   shared_ptr<string> channelPropertiesShrink{};
   shared_ptr<string> description{};
   shared_ptr<string> fileId{};
+  shared_ptr<string> harmonyPayloadShrink{};
   shared_ptr<string> iosPayloadShrink{};
   shared_ptr<string> policyShrink{};
   shared_ptr<bool> productionMode{};
@@ -2824,6 +3071,9 @@ public:
     }
     if (fileId) {
       res["FileId"] = boost::any(*fileId);
+    }
+    if (harmonyPayloadShrink) {
+      res["HarmonyPayload"] = boost::any(*harmonyPayloadShrink);
     }
     if (iosPayloadShrink) {
       res["IosPayload"] = boost::any(*iosPayloadShrink);
@@ -2864,6 +3114,9 @@ public:
     }
     if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
       fileId = make_shared<string>(boost::any_cast<string>(m["FileId"]));
+    }
+    if (m.find("HarmonyPayload") != m.end() && !m["HarmonyPayload"].empty()) {
+      harmonyPayloadShrink = make_shared<string>(boost::any_cast<string>(m["HarmonyPayload"]));
     }
     if (m.find("IosPayload") != m.end() && !m["IosPayload"].empty()) {
       iosPayloadShrink = make_shared<string>(boost::any_cast<string>(m["IosPayload"]));
@@ -3047,6 +3300,7 @@ public:
   shared_ptr<ChannelProperties> channelProperties{};
   shared_ptr<string> description{};
   shared_ptr<string> filter{};
+  shared_ptr<HarmonyPayload> harmonyPayload{};
   shared_ptr<IosPayload> iosPayload{};
   shared_ptr<Policy> policy{};
   shared_ptr<bool> productionMode{};
@@ -3079,6 +3333,9 @@ public:
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
+    }
+    if (harmonyPayload) {
+      res["HarmonyPayload"] = harmonyPayload ? boost::any(harmonyPayload->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (iosPayload) {
       res["IosPayload"] = iosPayload ? boost::any(iosPayload->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3132,6 +3389,13 @@ public:
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
+    if (m.find("HarmonyPayload") != m.end() && !m["HarmonyPayload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HarmonyPayload"].type()) {
+        HarmonyPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HarmonyPayload"]));
+        harmonyPayload = make_shared<HarmonyPayload>(model1);
+      }
+    }
     if (m.find("IosPayload") != m.end() && !m["IosPayload"].empty()) {
       if (typeid(map<string, boost::any>) == m["IosPayload"].type()) {
         IosPayload model1;
@@ -3173,6 +3437,7 @@ public:
   shared_ptr<string> channelPropertiesShrink{};
   shared_ptr<string> description{};
   shared_ptr<string> filter{};
+  shared_ptr<string> harmonyPayloadShrink{};
   shared_ptr<string> iosPayloadShrink{};
   shared_ptr<string> policyShrink{};
   shared_ptr<bool> productionMode{};
@@ -3205,6 +3470,9 @@ public:
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
+    }
+    if (harmonyPayloadShrink) {
+      res["HarmonyPayload"] = boost::any(*harmonyPayloadShrink);
     }
     if (iosPayloadShrink) {
       res["IosPayload"] = boost::any(*iosPayloadShrink);
@@ -3249,6 +3517,9 @@ public:
     }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("HarmonyPayload") != m.end() && !m["HarmonyPayload"].empty()) {
+      harmonyPayloadShrink = make_shared<string>(boost::any_cast<string>(m["HarmonyPayload"]));
     }
     if (m.find("IosPayload") != m.end() && !m["IosPayload"].empty()) {
       iosPayloadShrink = make_shared<string>(boost::any_cast<string>(m["IosPayload"]));

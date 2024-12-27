@@ -109,6 +109,9 @@ SendByAliasResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasWithOpti
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
     request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<HarmonyPayload>(tmpReq->harmonyPayload)) {
+    request->harmonyPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->harmonyPayload, make_shared<string>("HarmonyPayload"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<IosPayload>(tmpReq->iosPayload)) {
     request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->iosPayload, make_shared<string>("IosPayload"), make_shared<string>("json")));
   }
@@ -133,6 +136,9 @@ SendByAliasResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasWithOpti
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyPayloadShrink)) {
+    body->insert(pair<string, string>("HarmonyPayload", *request->harmonyPayloadShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->iosPayloadShrink)) {
     body->insert(pair<string, string>("IosPayload", *request->iosPayloadShrink));
@@ -192,6 +198,9 @@ SendByAliasFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasFi
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
     request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<HarmonyPayload>(tmpReq->harmonyPayload)) {
+    request->harmonyPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->harmonyPayload, make_shared<string>("HarmonyPayload"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<IosPayload>(tmpReq->iosPayload)) {
     request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->iosPayload, make_shared<string>("IosPayload"), make_shared<string>("json")));
   }
@@ -216,6 +225,9 @@ SendByAliasFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasFi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileId)) {
     body->insert(pair<string, string>("FileId", *request->fileId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyPayloadShrink)) {
+    body->insert(pair<string, string>("HarmonyPayload", *request->harmonyPayloadShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->iosPayloadShrink)) {
     body->insert(pair<string, string>("IosPayload", *request->iosPayloadShrink));
@@ -275,6 +287,9 @@ SendByAppResponse Alibabacloud_Umeng-push20220225::Client::sendByAppWithOptions(
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
     request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<HarmonyPayload>(tmpReq->harmonyPayload)) {
+    request->harmonyPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->harmonyPayload, make_shared<string>("HarmonyPayload"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<IosPayload>(tmpReq->iosPayload)) {
     request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->iosPayload, make_shared<string>("IosPayload"), make_shared<string>("json")));
   }
@@ -293,6 +308,9 @@ SendByAppResponse Alibabacloud_Umeng-push20220225::Client::sendByAppWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyPayloadShrink)) {
+    body->insert(pair<string, string>("HarmonyPayload", *request->harmonyPayloadShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->iosPayloadShrink)) {
     body->insert(pair<string, string>("IosPayload", *request->iosPayloadShrink));
@@ -352,6 +370,9 @@ SendByDeviceResponse Alibabacloud_Umeng-push20220225::Client::sendByDeviceWithOp
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
     request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<HarmonyPayload>(tmpReq->harmonyPayload)) {
+    request->harmonyPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->harmonyPayload, make_shared<string>("HarmonyPayload"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<IosPayload>(tmpReq->iosPayload)) {
     request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->iosPayload, make_shared<string>("IosPayload"), make_shared<string>("json")));
   }
@@ -373,6 +394,9 @@ SendByDeviceResponse Alibabacloud_Umeng-push20220225::Client::sendByDeviceWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deviceTokens)) {
     body->insert(pair<string, string>("DeviceTokens", *request->deviceTokens));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyPayloadShrink)) {
+    body->insert(pair<string, string>("HarmonyPayload", *request->harmonyPayloadShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->iosPayloadShrink)) {
     body->insert(pair<string, string>("IosPayload", *request->iosPayloadShrink));
@@ -432,6 +456,9 @@ SendByDeviceFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByDevice
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
     request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<HarmonyPayload>(tmpReq->harmonyPayload)) {
+    request->harmonyPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->harmonyPayload, make_shared<string>("HarmonyPayload"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<IosPayload>(tmpReq->iosPayload)) {
     request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->iosPayload, make_shared<string>("IosPayload"), make_shared<string>("json")));
   }
@@ -453,6 +480,9 @@ SendByDeviceFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByDevice
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileId)) {
     body->insert(pair<string, string>("FileId", *request->fileId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyPayloadShrink)) {
+    body->insert(pair<string, string>("HarmonyPayload", *request->harmonyPayloadShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->iosPayloadShrink)) {
     body->insert(pair<string, string>("IosPayload", *request->iosPayloadShrink));
@@ -509,6 +539,9 @@ SendByFilterResponse Alibabacloud_Umeng-push20220225::Client::sendByFilterWithOp
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
     request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<HarmonyPayload>(tmpReq->harmonyPayload)) {
+    request->harmonyPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->harmonyPayload, make_shared<string>("HarmonyPayload"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<IosPayload>(tmpReq->iosPayload)) {
     request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->iosPayload, make_shared<string>("IosPayload"), make_shared<string>("json")));
   }
@@ -530,6 +563,9 @@ SendByFilterResponse Alibabacloud_Umeng-push20220225::Client::sendByFilterWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     body->insert(pair<string, string>("Filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyPayloadShrink)) {
+    body->insert(pair<string, string>("HarmonyPayload", *request->harmonyPayloadShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->iosPayloadShrink)) {
     body->insert(pair<string, string>("IosPayload", *request->iosPayloadShrink));
