@@ -423,6 +423,100 @@ CompareImageFacesResponse Alibabacloud_Imm20200930::Client::compareImageFaces(sh
   return compareImageFacesWithOptions(request, runtime);
 }
 
+ContextualAnswerResponse Alibabacloud_Imm20200930::Client::contextualAnswerWithOptions(shared_ptr<ContextualAnswerRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ContextualAnswerShrinkRequest> request = make_shared<ContextualAnswerShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ContextualFile>>(tmpReq->files)) {
+    request->filesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->files, make_shared<string>("Files"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ContextualMessage>>(tmpReq->messages)) {
+    request->messagesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->messages, make_shared<string>("Messages"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    query->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->filesShrink)) {
+    body->insert(pair<string, string>("Files", *request->filesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->messagesShrink)) {
+    body->insert(pair<string, string>("Messages", *request->messagesShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ContextualAnswer"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ContextualAnswerResponse(callApi(params, req, runtime));
+}
+
+ContextualAnswerResponse Alibabacloud_Imm20200930::Client::contextualAnswer(shared_ptr<ContextualAnswerRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return contextualAnswerWithOptions(request, runtime);
+}
+
+ContextualRetrievalResponse Alibabacloud_Imm20200930::Client::contextualRetrievalWithOptions(shared_ptr<ContextualRetrievalRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ContextualRetrievalShrinkRequest> request = make_shared<ContextualRetrievalShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ContextualMessage>>(tmpReq->messages)) {
+    request->messagesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->messages, make_shared<string>("Messages"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->smartClusterIds)) {
+    request->smartClusterIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->smartClusterIds, make_shared<string>("SmartClusterIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
+    query->insert(pair<string, string>("DatasetName", *request->datasetName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    query->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->recallOnly)) {
+    query->insert(pair<string, bool>("RecallOnly", *request->recallOnly));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->messagesShrink)) {
+    body->insert(pair<string, string>("Messages", *request->messagesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->smartClusterIdsShrink)) {
+    body->insert(pair<string, string>("SmartClusterIds", *request->smartClusterIdsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ContextualRetrieval"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ContextualRetrievalResponse(callApi(params, req, runtime));
+}
+
+ContextualRetrievalResponse Alibabacloud_Imm20200930::Client::contextualRetrieval(shared_ptr<ContextualRetrievalRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return contextualRetrievalWithOptions(request, runtime);
+}
+
 CreateArchiveFileInspectionTaskResponse Alibabacloud_Imm20200930::Client::createArchiveFileInspectionTaskWithOptions(shared_ptr<CreateArchiveFileInspectionTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateArchiveFileInspectionTaskShrinkRequest> request = make_shared<CreateArchiveFileInspectionTaskShrinkRequest>();
@@ -1440,6 +1534,9 @@ CreateOfficeConversionTaskResponse Alibabacloud_Imm20200930::Client::createOffic
   if (!Darabonba_Util::Client::isUnset<Notification>(tmpReq->notification)) {
     request->notificationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->notification, make_shared<string>("Notification"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateOfficeConversionTaskRequestSources>>(tmpReq->sources)) {
+    request->sourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sources, make_shared<string>("Sources"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->tags)) {
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
   }
@@ -1540,8 +1637,13 @@ CreateOfficeConversionTaskResponse Alibabacloud_Imm20200930::Client::createOffic
   if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
     query->insert(pair<string, string>("UserData", *request->userData));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourcesShrink)) {
+    body->insert(pair<string, string>("Sources", *request->sourcesShrink));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateOfficeConversionTask"))},
@@ -4273,9 +4375,6 @@ SemanticQueryResponse Alibabacloud_Imm20200930::Client::semanticQueryWithOptions
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->mediaTypes)) {
     request->mediaTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->mediaTypes, make_shared<string>("MediaTypes"), make_shared<string>("json")));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->smartClusterIds)) {
-    request->smartClusterIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->smartClusterIds, make_shared<string>("SmartClusterIds"), make_shared<string>("json")));
-  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->withFields)) {
     request->withFieldsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->withFields, make_shared<string>("WithFields"), make_shared<string>("json")));
   }
@@ -4297,9 +4396,6 @@ SemanticQueryResponse Alibabacloud_Imm20200930::Client::semanticQueryWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
     query->insert(pair<string, string>("Query", *request->query));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->smartClusterIdsShrink)) {
-    query->insert(pair<string, string>("SmartClusterIds", *request->smartClusterIdsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->withFieldsShrink)) {
     query->insert(pair<string, string>("WithFields", *request->withFieldsShrink));
