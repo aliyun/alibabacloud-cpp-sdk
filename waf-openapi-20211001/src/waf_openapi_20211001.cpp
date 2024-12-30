@@ -2603,8 +2603,14 @@ DescribeDefenseResourceTemplatesResponse Alibabacloud_Waf-openapi20211001::Clien
   if (!Darabonba_Util::Client::isUnset<long>(request->ruleId)) {
     query->insert(pair<string, long>("RuleId", *request->ruleId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
+    query->insert(pair<string, string>("RuleName", *request->ruleName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ruleType)) {
     query->insert(pair<string, string>("RuleType", *request->ruleType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
+    query->insert(pair<string, string>("TemplateName", *request->templateName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2878,6 +2884,12 @@ DescribeDefenseTemplatesResponse Alibabacloud_Waf-openapi20211001::Client::descr
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->templateId)) {
     query->insert(pair<string, long>("TemplateId", *request->templateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateIds)) {
+    query->insert(pair<string, string>("TemplateIds", *request->templateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
+    query->insert(pair<string, string>("TemplateName", *request->templateName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateType)) {
     query->insert(pair<string, string>("TemplateType", *request->templateType));
@@ -6402,6 +6414,12 @@ ModifyHybridCloudClusterBypassStatusResponse Alibabacloud_Waf-openapi20211001::C
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
+    query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ruleStatus)) {
     query->insert(pair<string, string>("RuleStatus", *request->ruleStatus));

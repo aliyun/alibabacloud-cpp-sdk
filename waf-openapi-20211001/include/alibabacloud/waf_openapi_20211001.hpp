@@ -12435,7 +12435,9 @@ public:
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<string> resourceType{};
   shared_ptr<long> ruleId{};
+  shared_ptr<string> ruleName{};
   shared_ptr<string> ruleType{};
+  shared_ptr<string> templateName{};
 
   DescribeDefenseResourceTemplatesRequest() {}
 
@@ -12465,8 +12467,14 @@ public:
     if (ruleId) {
       res["RuleId"] = boost::any(*ruleId);
     }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
     if (ruleType) {
       res["RuleType"] = boost::any(*ruleType);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
     }
     return res;
   }
@@ -12490,8 +12498,14 @@ public:
     if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
       ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
     }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
     if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
       ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
     }
   }
 
@@ -13965,6 +13979,8 @@ public:
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<string> resourceType{};
   shared_ptr<long> templateId{};
+  shared_ptr<string> templateIds{};
+  shared_ptr<string> templateName{};
   shared_ptr<string> templateType{};
 
   DescribeDefenseTemplatesRequest() {}
@@ -14007,6 +14023,12 @@ public:
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
     }
+    if (templateIds) {
+      res["TemplateIds"] = boost::any(*templateIds);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
     if (templateType) {
       res["TemplateType"] = boost::any(*templateType);
     }
@@ -14043,6 +14065,12 @@ public:
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+    if (m.find("TemplateIds") != m.end() && !m["TemplateIds"].empty()) {
+      templateIds = make_shared<string>(boost::any_cast<string>(m["TemplateIds"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
     }
     if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
       templateType = make_shared<string>(boost::any_cast<string>(m["TemplateType"]));
@@ -33083,6 +33111,8 @@ class ModifyHybridCloudClusterBypassStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterResourceId{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<string> ruleStatus{};
 
   ModifyHybridCloudClusterBypassStatusRequest() {}
@@ -33101,6 +33131,12 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
     if (ruleStatus) {
       res["RuleStatus"] = boost::any(*ruleStatus);
     }
@@ -33113,6 +33149,12 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
     }
     if (m.find("RuleStatus") != m.end() && !m["RuleStatus"].empty()) {
       ruleStatus = make_shared<string>(boost::any_cast<string>(m["RuleStatus"]));
