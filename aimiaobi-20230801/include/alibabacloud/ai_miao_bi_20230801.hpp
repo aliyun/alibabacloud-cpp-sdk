@@ -38584,6 +38584,7 @@ public:
   shared_ptr<RunStepByStepWritingRequestWritingConfigPromptTag> promptTag{};
   shared_ptr<string> scene{};
   shared_ptr<string> step{};
+  shared_ptr<string> summaryReturnType{};
   shared_ptr<vector<RunStepByStepWritingRequestWritingConfigTags>> tags{};
   shared_ptr<bool> useSearch{};
 
@@ -38611,6 +38612,9 @@ public:
     }
     if (step) {
       res["Step"] = boost::any(*step);
+    }
+    if (summaryReturnType) {
+      res["SummaryReturnType"] = boost::any(*summaryReturnType);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -38651,6 +38655,9 @@ public:
     }
     if (m.find("Step") != m.end() && !m["Step"].empty()) {
       step = make_shared<string>(boost::any_cast<string>(m["Step"]));
+    }
+    if (m.find("SummaryReturnType") != m.end() && !m["SummaryReturnType"].empty()) {
+      summaryReturnType = make_shared<string>(boost::any_cast<string>(m["SummaryReturnType"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
