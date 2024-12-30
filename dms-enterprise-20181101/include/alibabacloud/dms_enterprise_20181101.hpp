@@ -282,7 +282,7 @@ public:
   shared_ptr<string> deserializerClass{};
   shared_ptr<string> name{};
   shared_ptr<map<string, boost::any>> parameters{};
-  shared_ptr<string> serdeType{};
+  shared_ptr<long> serdeType{};
   shared_ptr<string> serializationLib{};
   shared_ptr<string> serializerClass{};
 
@@ -339,7 +339,7 @@ public:
       parameters = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("SerdeType") != m.end() && !m["SerdeType"].empty()) {
-      serdeType = make_shared<string>(boost::any_cast<string>(m["SerdeType"]));
+      serdeType = make_shared<long>(boost::any_cast<long>(m["SerdeType"]));
     }
     if (m.find("SerializationLib") != m.end() && !m["SerializationLib"].empty()) {
       serializationLib = make_shared<string>(boost::any_cast<string>(m["SerializationLib"]));
@@ -588,6 +588,173 @@ public:
 
 
   virtual ~DLStorageDescriptor() = default;
+};
+class DLPartition : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<long> createTime{};
+  shared_ptr<string> dbName{};
+  shared_ptr<long> lastAccessTime{};
+  shared_ptr<map<string, string>> parameters{};
+  shared_ptr<DLStorageDescriptor> sd{};
+  shared_ptr<string> tableName{};
+  shared_ptr<vector<string>> values{};
+
+  DLPartition() {}
+
+  explicit DLPartition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (lastAccessTime) {
+      res["LastAccessTime"] = boost::any(*lastAccessTime);
+    }
+    if (parameters) {
+      res["Parameters"] = boost::any(*parameters);
+    }
+    if (sd) {
+      res["Sd"] = sd ? boost::any(sd->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("LastAccessTime") != m.end() && !m["LastAccessTime"].empty()) {
+      lastAccessTime = make_shared<long>(boost::any_cast<long>(m["LastAccessTime"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Parameters"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      parameters = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Sd") != m.end() && !m["Sd"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Sd"].type()) {
+        DLStorageDescriptor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Sd"]));
+        sd = make_shared<DLStorageDescriptor>(model1);
+      }
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DLPartition() = default;
+};
+class DLPartitionInput : public Darabonba::Model {
+public:
+  shared_ptr<long> createTime{};
+  shared_ptr<long> lastAccessTime{};
+  shared_ptr<map<string, string>> parameters{};
+  shared_ptr<DLStorageDescriptor> storageDescriptor{};
+  shared_ptr<vector<string>> values{};
+
+  DLPartitionInput() {}
+
+  explicit DLPartitionInput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (lastAccessTime) {
+      res["LastAccessTime"] = boost::any(*lastAccessTime);
+    }
+    if (parameters) {
+      res["Parameters"] = boost::any(*parameters);
+    }
+    if (storageDescriptor) {
+      res["StorageDescriptor"] = storageDescriptor ? boost::any(storageDescriptor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("LastAccessTime") != m.end() && !m["LastAccessTime"].empty()) {
+      lastAccessTime = make_shared<long>(boost::any_cast<long>(m["LastAccessTime"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Parameters"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      parameters = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("StorageDescriptor") != m.end() && !m["StorageDescriptor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StorageDescriptor"].type()) {
+        DLStorageDescriptor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StorageDescriptor"]));
+        storageDescriptor = make_shared<DLStorageDescriptor>(model1);
+      }
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DLPartitionInput() = default;
 };
 class DLTable : public Darabonba::Model {
 public:
@@ -1239,6 +1406,49 @@ public:
 
   virtual ~ImportMasterKeyVO() = default;
 };
+class PartitionError : public Darabonba::Model {
+public:
+  shared_ptr<string> errorDetail{};
+  shared_ptr<vector<string>> values{};
+
+  PartitionError() {}
+
+  explicit PartitionError(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorDetail) {
+      res["ErrorDetail"] = boost::any(*errorDetail);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorDetail") != m.end() && !m["ErrorDetail"].empty()) {
+      errorDetail = make_shared<string>(boost::any_cast<string>(m["ErrorDetail"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~PartitionError() = default;
+};
 class StsApplyVO : public Darabonba::Model {
 public:
   shared_ptr<string> aliyunId{};
@@ -1550,6 +1760,163 @@ public:
 
 
   virtual ~UsersDetailsVO() = default;
+};
+class OpenStructDLTableInput : public Darabonba::Model {
+public:
+  shared_ptr<long> createTime{};
+  shared_ptr<long> creatorId{};
+  shared_ptr<string> description{};
+  shared_ptr<long> lastAccessTime{};
+  shared_ptr<string> location{};
+  shared_ptr<long> modifierId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> owner{};
+  shared_ptr<string> ownerType{};
+  shared_ptr<map<string, string>> parameters{};
+  shared_ptr<vector<DLColumn>> partitionKeys{};
+  shared_ptr<long> retention{};
+  shared_ptr<DLStorageDescriptor> storageDescriptor{};
+  shared_ptr<string> tableType{};
+  shared_ptr<string> viewExpandedText{};
+  shared_ptr<string> viewOriginalText{};
+
+  OpenStructDLTableInput() {}
+
+  explicit OpenStructDLTableInput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (creatorId) {
+      res["CreatorId"] = boost::any(*creatorId);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (lastAccessTime) {
+      res["LastAccessTime"] = boost::any(*lastAccessTime);
+    }
+    if (location) {
+      res["Location"] = boost::any(*location);
+    }
+    if (modifierId) {
+      res["ModifierId"] = boost::any(*modifierId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (ownerType) {
+      res["OwnerType"] = boost::any(*ownerType);
+    }
+    if (parameters) {
+      res["Parameters"] = boost::any(*parameters);
+    }
+    if (partitionKeys) {
+      vector<boost::any> temp1;
+      for(auto item1:*partitionKeys){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PartitionKeys"] = boost::any(temp1);
+    }
+    if (retention) {
+      res["Retention"] = boost::any(*retention);
+    }
+    if (storageDescriptor) {
+      res["StorageDescriptor"] = storageDescriptor ? boost::any(storageDescriptor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tableType) {
+      res["TableType"] = boost::any(*tableType);
+    }
+    if (viewExpandedText) {
+      res["ViewExpandedText"] = boost::any(*viewExpandedText);
+    }
+    if (viewOriginalText) {
+      res["ViewOriginalText"] = boost::any(*viewOriginalText);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("CreatorId") != m.end() && !m["CreatorId"].empty()) {
+      creatorId = make_shared<long>(boost::any_cast<long>(m["CreatorId"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("LastAccessTime") != m.end() && !m["LastAccessTime"].empty()) {
+      lastAccessTime = make_shared<long>(boost::any_cast<long>(m["LastAccessTime"]));
+    }
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["Location"]));
+    }
+    if (m.find("ModifierId") != m.end() && !m["ModifierId"].empty()) {
+      modifierId = make_shared<long>(boost::any_cast<long>(m["ModifierId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("OwnerType") != m.end() && !m["OwnerType"].empty()) {
+      ownerType = make_shared<string>(boost::any_cast<string>(m["OwnerType"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Parameters"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      parameters = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("PartitionKeys") != m.end() && !m["PartitionKeys"].empty()) {
+      if (typeid(vector<boost::any>) == m["PartitionKeys"].type()) {
+        vector<DLColumn> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PartitionKeys"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DLColumn model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        partitionKeys = make_shared<vector<DLColumn>>(expect1);
+      }
+    }
+    if (m.find("Retention") != m.end() && !m["Retention"].empty()) {
+      retention = make_shared<long>(boost::any_cast<long>(m["Retention"]));
+    }
+    if (m.find("StorageDescriptor") != m.end() && !m["StorageDescriptor"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StorageDescriptor"].type()) {
+        DLStorageDescriptor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StorageDescriptor"]));
+        storageDescriptor = make_shared<DLStorageDescriptor>(model1);
+      }
+    }
+    if (m.find("TableType") != m.end() && !m["TableType"].empty()) {
+      tableType = make_shared<string>(boost::any_cast<string>(m["TableType"]));
+    }
+    if (m.find("ViewExpandedText") != m.end() && !m["ViewExpandedText"].empty()) {
+      viewExpandedText = make_shared<string>(boost::any_cast<string>(m["ViewExpandedText"]));
+    }
+    if (m.find("ViewOriginalText") != m.end() && !m["ViewOriginalText"].empty()) {
+      viewOriginalText = make_shared<string>(boost::any_cast<string>(m["ViewOriginalText"]));
+    }
+  }
+
+
+  virtual ~OpenStructDLTableInput() = default;
 };
 class AddAuthorityTemplateItemsRequestItems : public Darabonba::Model {
 public:
@@ -3963,6 +4330,772 @@ public:
 
 
   virtual ~BackFillResponse() = default;
+};
+class BatchCreateDataLakePartitionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<bool> ifNotExists{};
+  shared_ptr<bool> needResult{};
+  shared_ptr<vector<DLPartitionInput>> partitionInputs{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  BatchCreateDataLakePartitionsRequest() {}
+
+  explicit BatchCreateDataLakePartitionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (ifNotExists) {
+      res["IfNotExists"] = boost::any(*ifNotExists);
+    }
+    if (needResult) {
+      res["NeedResult"] = boost::any(*needResult);
+    }
+    if (partitionInputs) {
+      vector<boost::any> temp1;
+      for(auto item1:*partitionInputs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PartitionInputs"] = boost::any(temp1);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("IfNotExists") != m.end() && !m["IfNotExists"].empty()) {
+      ifNotExists = make_shared<bool>(boost::any_cast<bool>(m["IfNotExists"]));
+    }
+    if (m.find("NeedResult") != m.end() && !m["NeedResult"].empty()) {
+      needResult = make_shared<bool>(boost::any_cast<bool>(m["NeedResult"]));
+    }
+    if (m.find("PartitionInputs") != m.end() && !m["PartitionInputs"].empty()) {
+      if (typeid(vector<boost::any>) == m["PartitionInputs"].type()) {
+        vector<DLPartitionInput> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PartitionInputs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DLPartitionInput model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        partitionInputs = make_shared<vector<DLPartitionInput>>(expect1);
+      }
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~BatchCreateDataLakePartitionsRequest() = default;
+};
+class BatchCreateDataLakePartitionsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<bool> ifNotExists{};
+  shared_ptr<bool> needResult{};
+  shared_ptr<string> partitionInputsShrink{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  BatchCreateDataLakePartitionsShrinkRequest() {}
+
+  explicit BatchCreateDataLakePartitionsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (ifNotExists) {
+      res["IfNotExists"] = boost::any(*ifNotExists);
+    }
+    if (needResult) {
+      res["NeedResult"] = boost::any(*needResult);
+    }
+    if (partitionInputsShrink) {
+      res["PartitionInputs"] = boost::any(*partitionInputsShrink);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("IfNotExists") != m.end() && !m["IfNotExists"].empty()) {
+      ifNotExists = make_shared<bool>(boost::any_cast<bool>(m["IfNotExists"]));
+    }
+    if (m.find("NeedResult") != m.end() && !m["NeedResult"].empty()) {
+      needResult = make_shared<bool>(boost::any_cast<bool>(m["NeedResult"]));
+    }
+    if (m.find("PartitionInputs") != m.end() && !m["PartitionInputs"].empty()) {
+      partitionInputsShrink = make_shared<string>(boost::any_cast<string>(m["PartitionInputs"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~BatchCreateDataLakePartitionsShrinkRequest() = default;
+};
+class BatchCreateDataLakePartitionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<vector<DLPartition>> partitions{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  BatchCreateDataLakePartitionsResponseBody() {}
+
+  explicit BatchCreateDataLakePartitionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (partitions) {
+      vector<boost::any> temp1;
+      for(auto item1:*partitions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Partitions"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Partitions") != m.end() && !m["Partitions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Partitions"].type()) {
+        vector<DLPartition> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Partitions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DLPartition model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        partitions = make_shared<vector<DLPartition>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BatchCreateDataLakePartitionsResponseBody() = default;
+};
+class BatchCreateDataLakePartitionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchCreateDataLakePartitionsResponseBody> body{};
+
+  BatchCreateDataLakePartitionsResponse() {}
+
+  explicit BatchCreateDataLakePartitionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchCreateDataLakePartitionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchCreateDataLakePartitionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchCreateDataLakePartitionsResponse() = default;
+};
+class BatchDeleteDataLakePartitionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<bool> ifExists{};
+  shared_ptr<vector<vector<string>>> partitionValuesList{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  BatchDeleteDataLakePartitionsRequest() {}
+
+  explicit BatchDeleteDataLakePartitionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (ifExists) {
+      res["IfExists"] = boost::any(*ifExists);
+    }
+    if (partitionValuesList) {
+      res["PartitionValuesList"] = boost::any(*partitionValuesList);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("IfExists") != m.end() && !m["IfExists"].empty()) {
+      ifExists = make_shared<bool>(boost::any_cast<bool>(m["IfExists"]));
+    }
+    if (m.find("PartitionValuesList") != m.end() && !m["PartitionValuesList"].empty()) {
+      vector<vector<string>> toVec1;
+      if (typeid(vector<boost::any>) == m["PartitionValuesList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PartitionValuesList"]);
+        for (auto item:vec1) {
+          vector<string> toVec2;
+          if (typeid(vector<boost::any>) == item.type()) {
+            vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item);
+            for (auto item:vec2) {
+               toVec2.push_back(boost::any_cast<string>(item));
+            }
+          }
+           toVec1 = toVec2;
+        }
+      }
+      partitionValuesList = make_shared<vector<vector<string>>>(toVec1);
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~BatchDeleteDataLakePartitionsRequest() = default;
+};
+class BatchDeleteDataLakePartitionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<vector<PartitionError>> partitionErrors{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  BatchDeleteDataLakePartitionsResponseBody() {}
+
+  explicit BatchDeleteDataLakePartitionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (partitionErrors) {
+      vector<boost::any> temp1;
+      for(auto item1:*partitionErrors){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PartitionErrors"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("PartitionErrors") != m.end() && !m["PartitionErrors"].empty()) {
+      if (typeid(vector<boost::any>) == m["PartitionErrors"].type()) {
+        vector<PartitionError> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PartitionErrors"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PartitionError model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        partitionErrors = make_shared<vector<PartitionError>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BatchDeleteDataLakePartitionsResponseBody() = default;
+};
+class BatchDeleteDataLakePartitionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchDeleteDataLakePartitionsResponseBody> body{};
+
+  BatchDeleteDataLakePartitionsResponse() {}
+
+  explicit BatchDeleteDataLakePartitionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchDeleteDataLakePartitionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchDeleteDataLakePartitionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchDeleteDataLakePartitionsResponse() = default;
+};
+class BatchUpdateDataLakePartitionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<vector<DLPartitionInput>> partitionInputs{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  BatchUpdateDataLakePartitionsRequest() {}
+
+  explicit BatchUpdateDataLakePartitionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (partitionInputs) {
+      vector<boost::any> temp1;
+      for(auto item1:*partitionInputs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PartitionInputs"] = boost::any(temp1);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("PartitionInputs") != m.end() && !m["PartitionInputs"].empty()) {
+      if (typeid(vector<boost::any>) == m["PartitionInputs"].type()) {
+        vector<DLPartitionInput> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PartitionInputs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DLPartitionInput model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        partitionInputs = make_shared<vector<DLPartitionInput>>(expect1);
+      }
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~BatchUpdateDataLakePartitionsRequest() = default;
+};
+class BatchUpdateDataLakePartitionsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> partitionInputsShrink{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  BatchUpdateDataLakePartitionsShrinkRequest() {}
+
+  explicit BatchUpdateDataLakePartitionsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (partitionInputsShrink) {
+      res["PartitionInputs"] = boost::any(*partitionInputsShrink);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("PartitionInputs") != m.end() && !m["PartitionInputs"].empty()) {
+      partitionInputsShrink = make_shared<string>(boost::any_cast<string>(m["PartitionInputs"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~BatchUpdateDataLakePartitionsShrinkRequest() = default;
+};
+class BatchUpdateDataLakePartitionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<vector<PartitionError>> partitionErrors{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  BatchUpdateDataLakePartitionsResponseBody() {}
+
+  explicit BatchUpdateDataLakePartitionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (partitionErrors) {
+      vector<boost::any> temp1;
+      for(auto item1:*partitionErrors){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PartitionErrors"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("PartitionErrors") != m.end() && !m["PartitionErrors"].empty()) {
+      if (typeid(vector<boost::any>) == m["PartitionErrors"].type()) {
+        vector<PartitionError> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PartitionErrors"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PartitionError model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        partitionErrors = make_shared<vector<PartitionError>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BatchUpdateDataLakePartitionsResponseBody() = default;
+};
+class BatchUpdateDataLakePartitionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchUpdateDataLakePartitionsResponseBody> body{};
+
+  BatchUpdateDataLakePartitionsResponse() {}
+
+  explicit BatchUpdateDataLakePartitionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchUpdateDataLakePartitionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchUpdateDataLakePartitionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchUpdateDataLakePartitionsResponse() = default;
 };
 class BuyPayAsYouGoOrderRequest : public Darabonba::Model {
 public:
@@ -7474,6 +8607,759 @@ public:
 
 
   virtual ~CreateDataImportOrderResponse() = default;
+};
+class CreateDataLakeDatabaseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> description{};
+  shared_ptr<string> location{};
+  shared_ptr<map<string, string>> parameters{};
+  shared_ptr<long> tid{};
+
+  CreateDataLakeDatabaseRequest() {}
+
+  explicit CreateDataLakeDatabaseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (location) {
+      res["Location"] = boost::any(*location);
+    }
+    if (parameters) {
+      res["Parameters"] = boost::any(*parameters);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["Location"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Parameters"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      parameters = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~CreateDataLakeDatabaseRequest() = default;
+};
+class CreateDataLakeDatabaseShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> description{};
+  shared_ptr<string> location{};
+  shared_ptr<string> parametersShrink{};
+  shared_ptr<long> tid{};
+
+  CreateDataLakeDatabaseShrinkRequest() {}
+
+  explicit CreateDataLakeDatabaseShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (location) {
+      res["Location"] = boost::any(*location);
+    }
+    if (parametersShrink) {
+      res["Parameters"] = boost::any(*parametersShrink);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["Location"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      parametersShrink = make_shared<string>(boost::any_cast<string>(m["Parameters"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~CreateDataLakeDatabaseShrinkRequest() = default;
+};
+class CreateDataLakeDatabaseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateDataLakeDatabaseResponseBody() {}
+
+  explicit CreateDataLakeDatabaseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateDataLakeDatabaseResponseBody() = default;
+};
+class CreateDataLakeDatabaseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDataLakeDatabaseResponseBody> body{};
+
+  CreateDataLakeDatabaseResponse() {}
+
+  explicit CreateDataLakeDatabaseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDataLakeDatabaseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDataLakeDatabaseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDataLakeDatabaseResponse() = default;
+};
+class CreateDataLakePartitionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<bool> ifNotExists{};
+  shared_ptr<bool> needResult{};
+  shared_ptr<DLPartitionInput> partitionInput{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  CreateDataLakePartitionRequest() {}
+
+  explicit CreateDataLakePartitionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (ifNotExists) {
+      res["IfNotExists"] = boost::any(*ifNotExists);
+    }
+    if (needResult) {
+      res["NeedResult"] = boost::any(*needResult);
+    }
+    if (partitionInput) {
+      res["PartitionInput"] = partitionInput ? boost::any(partitionInput->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("IfNotExists") != m.end() && !m["IfNotExists"].empty()) {
+      ifNotExists = make_shared<bool>(boost::any_cast<bool>(m["IfNotExists"]));
+    }
+    if (m.find("NeedResult") != m.end() && !m["NeedResult"].empty()) {
+      needResult = make_shared<bool>(boost::any_cast<bool>(m["NeedResult"]));
+    }
+    if (m.find("PartitionInput") != m.end() && !m["PartitionInput"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PartitionInput"].type()) {
+        DLPartitionInput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PartitionInput"]));
+        partitionInput = make_shared<DLPartitionInput>(model1);
+      }
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~CreateDataLakePartitionRequest() = default;
+};
+class CreateDataLakePartitionShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<bool> ifNotExists{};
+  shared_ptr<bool> needResult{};
+  shared_ptr<string> partitionInputShrink{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  CreateDataLakePartitionShrinkRequest() {}
+
+  explicit CreateDataLakePartitionShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (ifNotExists) {
+      res["IfNotExists"] = boost::any(*ifNotExists);
+    }
+    if (needResult) {
+      res["NeedResult"] = boost::any(*needResult);
+    }
+    if (partitionInputShrink) {
+      res["PartitionInput"] = boost::any(*partitionInputShrink);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("IfNotExists") != m.end() && !m["IfNotExists"].empty()) {
+      ifNotExists = make_shared<bool>(boost::any_cast<bool>(m["IfNotExists"]));
+    }
+    if (m.find("NeedResult") != m.end() && !m["NeedResult"].empty()) {
+      needResult = make_shared<bool>(boost::any_cast<bool>(m["NeedResult"]));
+    }
+    if (m.find("PartitionInput") != m.end() && !m["PartitionInput"].empty()) {
+      partitionInputShrink = make_shared<string>(boost::any_cast<string>(m["PartitionInput"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~CreateDataLakePartitionShrinkRequest() = default;
+};
+class CreateDataLakePartitionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<DLPartition> partition{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateDataLakePartitionResponseBody() {}
+
+  explicit CreateDataLakePartitionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (partition) {
+      res["Partition"] = partition ? boost::any(partition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Partition") != m.end() && !m["Partition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Partition"].type()) {
+        DLPartition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Partition"]));
+        partition = make_shared<DLPartition>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateDataLakePartitionResponseBody() = default;
+};
+class CreateDataLakePartitionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDataLakePartitionResponseBody> body{};
+
+  CreateDataLakePartitionResponse() {}
+
+  explicit CreateDataLakePartitionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDataLakePartitionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDataLakePartitionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDataLakePartitionResponse() = default;
+};
+class CreateDataLakeTableRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<OpenStructDLTableInput> tableInput{};
+  shared_ptr<long> tid{};
+
+  CreateDataLakeTableRequest() {}
+
+  explicit CreateDataLakeTableRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (tableInput) {
+      res["TableInput"] = tableInput ? boost::any(tableInput->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("TableInput") != m.end() && !m["TableInput"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TableInput"].type()) {
+        OpenStructDLTableInput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TableInput"]));
+        tableInput = make_shared<OpenStructDLTableInput>(model1);
+      }
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~CreateDataLakeTableRequest() = default;
+};
+class CreateDataLakeTableShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> tableInputShrink{};
+  shared_ptr<long> tid{};
+
+  CreateDataLakeTableShrinkRequest() {}
+
+  explicit CreateDataLakeTableShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (tableInputShrink) {
+      res["TableInput"] = boost::any(*tableInputShrink);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("TableInput") != m.end() && !m["TableInput"].empty()) {
+      tableInputShrink = make_shared<string>(boost::any_cast<string>(m["TableInput"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~CreateDataLakeTableShrinkRequest() = default;
+};
+class CreateDataLakeTableResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<DLTable> table{};
+
+  CreateDataLakeTableResponseBody() {}
+
+  explicit CreateDataLakeTableResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (table) {
+      res["Table"] = table ? boost::any(table->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Table") != m.end() && !m["Table"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Table"].type()) {
+        DLTable model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Table"]));
+        table = make_shared<DLTable>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDataLakeTableResponseBody() = default;
+};
+class CreateDataLakeTableResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDataLakeTableResponseBody> body{};
+
+  CreateDataLakeTableResponse() {}
+
+  explicit CreateDataLakeTableResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDataLakeTableResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDataLakeTableResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDataLakeTableResponse() = default;
 };
 class CreateDataTrackOrderRequestParam : public Darabonba::Model {
 public:
@@ -12447,6 +14333,568 @@ public:
 
 
   virtual ~DeleteAuthorityTemplateResponse() = default;
+};
+class DeleteDataLakeDatabaseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<long> tid{};
+
+  DeleteDataLakeDatabaseRequest() {}
+
+  explicit DeleteDataLakeDatabaseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~DeleteDataLakeDatabaseRequest() = default;
+};
+class DeleteDataLakeDatabaseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteDataLakeDatabaseResponseBody() {}
+
+  explicit DeleteDataLakeDatabaseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteDataLakeDatabaseResponseBody() = default;
+};
+class DeleteDataLakeDatabaseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteDataLakeDatabaseResponseBody> body{};
+
+  DeleteDataLakeDatabaseResponse() {}
+
+  explicit DeleteDataLakeDatabaseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDataLakeDatabaseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDataLakeDatabaseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDataLakeDatabaseResponse() = default;
+};
+class DeleteDataLakePartitionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<bool> ifExists{};
+  shared_ptr<vector<string>> partitionValues{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  DeleteDataLakePartitionRequest() {}
+
+  explicit DeleteDataLakePartitionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (ifExists) {
+      res["IfExists"] = boost::any(*ifExists);
+    }
+    if (partitionValues) {
+      res["PartitionValues"] = boost::any(*partitionValues);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("IfExists") != m.end() && !m["IfExists"].empty()) {
+      ifExists = make_shared<bool>(boost::any_cast<bool>(m["IfExists"]));
+    }
+    if (m.find("PartitionValues") != m.end() && !m["PartitionValues"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PartitionValues"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PartitionValues"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      partitionValues = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~DeleteDataLakePartitionRequest() = default;
+};
+class DeleteDataLakePartitionShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<bool> ifExists{};
+  shared_ptr<string> partitionValuesShrink{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  DeleteDataLakePartitionShrinkRequest() {}
+
+  explicit DeleteDataLakePartitionShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (ifExists) {
+      res["IfExists"] = boost::any(*ifExists);
+    }
+    if (partitionValuesShrink) {
+      res["PartitionValues"] = boost::any(*partitionValuesShrink);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("IfExists") != m.end() && !m["IfExists"].empty()) {
+      ifExists = make_shared<bool>(boost::any_cast<bool>(m["IfExists"]));
+    }
+    if (m.find("PartitionValues") != m.end() && !m["PartitionValues"].empty()) {
+      partitionValuesShrink = make_shared<string>(boost::any_cast<string>(m["PartitionValues"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~DeleteDataLakePartitionShrinkRequest() = default;
+};
+class DeleteDataLakePartitionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteDataLakePartitionResponseBody() {}
+
+  explicit DeleteDataLakePartitionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteDataLakePartitionResponseBody() = default;
+};
+class DeleteDataLakePartitionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteDataLakePartitionResponseBody> body{};
+
+  DeleteDataLakePartitionResponse() {}
+
+  explicit DeleteDataLakePartitionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDataLakePartitionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDataLakePartitionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDataLakePartitionResponse() = default;
+};
+class DeleteDataLakeTableRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  DeleteDataLakeTableRequest() {}
+
+  explicit DeleteDataLakeTableRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~DeleteDataLakeTableRequest() = default;
+};
+class DeleteDataLakeTableResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteDataLakeTableResponseBody() {}
+
+  explicit DeleteDataLakeTableResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteDataLakeTableResponseBody() = default;
+};
+class DeleteDataLakeTableResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteDataLakeTableResponseBody> body{};
+
+  DeleteDataLakeTableResponse() {}
+
+  explicit DeleteDataLakeTableResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDataLakeTableResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDataLakeTableResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDataLakeTableResponse() = default;
 };
 class DeleteInstanceRequest : public Darabonba::Model {
 public:
@@ -22684,6 +25132,254 @@ public:
 
 
   virtual ~GetDataLakeDatabaseResponse() = default;
+};
+class GetDataLakePartitionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<vector<string>> partitionValues{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  GetDataLakePartitionRequest() {}
+
+  explicit GetDataLakePartitionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (partitionValues) {
+      res["PartitionValues"] = boost::any(*partitionValues);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("PartitionValues") != m.end() && !m["PartitionValues"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PartitionValues"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PartitionValues"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      partitionValues = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetDataLakePartitionRequest() = default;
+};
+class GetDataLakePartitionShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> partitionValuesShrink{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  GetDataLakePartitionShrinkRequest() {}
+
+  explicit GetDataLakePartitionShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (partitionValuesShrink) {
+      res["PartitionValues"] = boost::any(*partitionValuesShrink);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("PartitionValues") != m.end() && !m["PartitionValues"].empty()) {
+      partitionValuesShrink = make_shared<string>(boost::any_cast<string>(m["PartitionValues"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetDataLakePartitionShrinkRequest() = default;
+};
+class GetDataLakePartitionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<DLPartition> partition{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetDataLakePartitionResponseBody() {}
+
+  explicit GetDataLakePartitionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (partition) {
+      res["Partition"] = partition ? boost::any(partition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Partition") != m.end() && !m["Partition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Partition"].type()) {
+        DLPartition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Partition"]));
+        partition = make_shared<DLPartition>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetDataLakePartitionResponseBody() = default;
+};
+class GetDataLakePartitionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDataLakePartitionResponseBody> body{};
+
+  GetDataLakePartitionResponse() {}
+
+  explicit GetDataLakePartitionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDataLakePartitionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDataLakePartitionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDataLakePartitionResponse() = default;
 };
 class GetDataLakeTableRequest : public Darabonba::Model {
 public:
@@ -40278,52 +42974,9 @@ public:
 
   virtual ~ListDataLakeCatalogRequest() = default;
 };
-class ListDataLakeCatalogResponseBodyCataLogList : public Darabonba::Model {
-public:
-  shared_ptr<vector<DLCatalog>> catalog{};
-
-  ListDataLakeCatalogResponseBodyCataLogList() {}
-
-  explicit ListDataLakeCatalogResponseBodyCataLogList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (catalog) {
-      vector<boost::any> temp1;
-      for(auto item1:*catalog){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Catalog"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Catalog") != m.end() && !m["Catalog"].empty()) {
-      if (typeid(vector<boost::any>) == m["Catalog"].type()) {
-        vector<DLCatalog> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Catalog"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DLCatalog model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        catalog = make_shared<vector<DLCatalog>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~ListDataLakeCatalogResponseBodyCataLogList() = default;
-};
 class ListDataLakeCatalogResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<ListDataLakeCatalogResponseBodyCataLogList> cataLogList{};
+  shared_ptr<vector<DLCatalog>> cataLogList{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
   shared_ptr<string> requestId{};
@@ -40340,7 +42993,11 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (cataLogList) {
-      res["CataLogList"] = cataLogList ? boost::any(cataLogList->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*cataLogList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CataLogList"] = boost::any(temp1);
     }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
@@ -40359,10 +43016,16 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CataLogList") != m.end() && !m["CataLogList"].empty()) {
-      if (typeid(map<string, boost::any>) == m["CataLogList"].type()) {
-        ListDataLakeCatalogResponseBodyCataLogList model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CataLogList"]));
-        cataLogList = make_shared<ListDataLakeCatalogResponseBodyCataLogList>(model1);
+      if (typeid(vector<boost::any>) == m["CataLogList"].type()) {
+        vector<DLCatalog> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CataLogList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DLCatalog model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cataLogList = make_shared<vector<DLCatalog>>(expect1);
       }
     }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
@@ -40498,52 +43161,9 @@ public:
 
   virtual ~ListDataLakeDatabaseRequest() = default;
 };
-class ListDataLakeDatabaseResponseBodyDatabaseList : public Darabonba::Model {
-public:
-  shared_ptr<vector<DLDatabase>> database{};
-
-  ListDataLakeDatabaseResponseBodyDatabaseList() {}
-
-  explicit ListDataLakeDatabaseResponseBodyDatabaseList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (database) {
-      vector<boost::any> temp1;
-      for(auto item1:*database){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Database"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Database") != m.end() && !m["Database"].empty()) {
-      if (typeid(vector<boost::any>) == m["Database"].type()) {
-        vector<DLDatabase> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Database"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DLDatabase model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        database = make_shared<vector<DLDatabase>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~ListDataLakeDatabaseResponseBodyDatabaseList() = default;
-};
 class ListDataLakeDatabaseResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<ListDataLakeDatabaseResponseBodyDatabaseList> databaseList{};
+  shared_ptr<vector<DLDatabase>> databaseList{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
   shared_ptr<long> maxResults{};
@@ -40562,7 +43182,11 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (databaseList) {
-      res["DatabaseList"] = databaseList ? boost::any(databaseList->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*databaseList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DatabaseList"] = boost::any(temp1);
     }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
@@ -40587,10 +43211,16 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DatabaseList") != m.end() && !m["DatabaseList"].empty()) {
-      if (typeid(map<string, boost::any>) == m["DatabaseList"].type()) {
-        ListDataLakeDatabaseResponseBodyDatabaseList model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DatabaseList"]));
-        databaseList = make_shared<ListDataLakeDatabaseResponseBodyDatabaseList>(model1);
+      if (typeid(vector<boost::any>) == m["DatabaseList"].type()) {
+        vector<DLDatabase> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DatabaseList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DLDatabase model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        databaseList = make_shared<vector<DLDatabase>>(expect1);
       }
     }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
@@ -40668,6 +43298,1145 @@ public:
 
   virtual ~ListDataLakeDatabaseResponse() = default;
 };
+class ListDataLakePartitionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<string>> partNames{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  ListDataLakePartitionRequest() {}
+
+  explicit ListDataLakePartitionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (partNames) {
+      res["PartNames"] = boost::any(*partNames);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PartNames") != m.end() && !m["PartNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PartNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PartNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      partNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~ListDataLakePartitionRequest() = default;
+};
+class ListDataLakePartitionShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> partNamesShrink{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  ListDataLakePartitionShrinkRequest() {}
+
+  explicit ListDataLakePartitionShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (partNamesShrink) {
+      res["PartNames"] = boost::any(*partNamesShrink);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PartNames") != m.end() && !m["PartNames"].empty()) {
+      partNamesShrink = make_shared<string>(boost::any_cast<string>(m["PartNames"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~ListDataLakePartitionShrinkRequest() = default;
+};
+class ListDataLakePartitionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<DLPartition>> partitionList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListDataLakePartitionResponseBody() {}
+
+  explicit ListDataLakePartitionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (partitionList) {
+      vector<boost::any> temp1;
+      for(auto item1:*partitionList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PartitionList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PartitionList") != m.end() && !m["PartitionList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PartitionList"].type()) {
+        vector<DLPartition> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PartitionList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DLPartition model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        partitionList = make_shared<vector<DLPartition>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListDataLakePartitionResponseBody() = default;
+};
+class ListDataLakePartitionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListDataLakePartitionResponseBody> body{};
+
+  ListDataLakePartitionResponse() {}
+
+  explicit ListDataLakePartitionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDataLakePartitionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDataLakePartitionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDataLakePartitionResponse() = default;
+};
+class ListDataLakePartitionByFilterRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> filter{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  ListDataLakePartitionByFilterRequest() {}
+
+  explicit ListDataLakePartitionByFilterRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (filter) {
+      res["Filter"] = boost::any(*filter);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~ListDataLakePartitionByFilterRequest() = default;
+};
+class ListDataLakePartitionByFilterResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<DLPartition>> partitionList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListDataLakePartitionByFilterResponseBody() {}
+
+  explicit ListDataLakePartitionByFilterResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (partitionList) {
+      vector<boost::any> temp1;
+      for(auto item1:*partitionList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PartitionList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PartitionList") != m.end() && !m["PartitionList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PartitionList"].type()) {
+        vector<DLPartition> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PartitionList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DLPartition model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        partitionList = make_shared<vector<DLPartition>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListDataLakePartitionByFilterResponseBody() = default;
+};
+class ListDataLakePartitionByFilterResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListDataLakePartitionByFilterResponseBody> body{};
+
+  ListDataLakePartitionByFilterResponse() {}
+
+  explicit ListDataLakePartitionByFilterResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDataLakePartitionByFilterResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDataLakePartitionByFilterResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDataLakePartitionByFilterResponse() = default;
+};
+class ListDataLakePartitionNameRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  ListDataLakePartitionNameRequest() {}
+
+  explicit ListDataLakePartitionNameRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~ListDataLakePartitionNameRequest() = default;
+};
+class ListDataLakePartitionNameResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<string>> partitionNameList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListDataLakePartitionNameResponseBody() {}
+
+  explicit ListDataLakePartitionNameResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (partitionNameList) {
+      res["PartitionNameList"] = boost::any(*partitionNameList);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PartitionNameList") != m.end() && !m["PartitionNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PartitionNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PartitionNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      partitionNameList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListDataLakePartitionNameResponseBody() = default;
+};
+class ListDataLakePartitionNameResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListDataLakePartitionNameResponseBody> body{};
+
+  ListDataLakePartitionNameResponse() {}
+
+  explicit ListDataLakePartitionNameResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDataLakePartitionNameResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDataLakePartitionNameResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDataLakePartitionNameResponse() = default;
+};
+class ListDataLakeTableRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> tableNamePattern{};
+  shared_ptr<string> tableType{};
+  shared_ptr<long> tid{};
+
+  ListDataLakeTableRequest() {}
+
+  explicit ListDataLakeTableRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (tableNamePattern) {
+      res["TableNamePattern"] = boost::any(*tableNamePattern);
+    }
+    if (tableType) {
+      res["TableType"] = boost::any(*tableType);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("TableNamePattern") != m.end() && !m["TableNamePattern"].empty()) {
+      tableNamePattern = make_shared<string>(boost::any_cast<string>(m["TableNamePattern"]));
+    }
+    if (m.find("TableType") != m.end() && !m["TableType"].empty()) {
+      tableType = make_shared<string>(boost::any_cast<string>(m["TableType"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~ListDataLakeTableRequest() = default;
+};
+class ListDataLakeTableResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<vector<DLTable>> tableList{};
+
+  ListDataLakeTableResponseBody() {}
+
+  explicit ListDataLakeTableResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (tableList) {
+      vector<boost::any> temp1;
+      for(auto item1:*tableList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TableList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TableList") != m.end() && !m["TableList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TableList"].type()) {
+        vector<DLTable> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TableList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DLTable model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tableList = make_shared<vector<DLTable>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListDataLakeTableResponseBody() = default;
+};
+class ListDataLakeTableResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListDataLakeTableResponseBody> body{};
+
+  ListDataLakeTableResponse() {}
+
+  explicit ListDataLakeTableResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDataLakeTableResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDataLakeTableResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDataLakeTableResponse() = default;
+};
+class ListDataLakeTableNameRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> tableNamePattern{};
+  shared_ptr<string> tableType{};
+  shared_ptr<long> tid{};
+
+  ListDataLakeTableNameRequest() {}
+
+  explicit ListDataLakeTableNameRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (tableNamePattern) {
+      res["TableNamePattern"] = boost::any(*tableNamePattern);
+    }
+    if (tableType) {
+      res["TableType"] = boost::any(*tableType);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("TableNamePattern") != m.end() && !m["TableNamePattern"].empty()) {
+      tableNamePattern = make_shared<string>(boost::any_cast<string>(m["TableNamePattern"]));
+    }
+    if (m.find("TableType") != m.end() && !m["TableType"].empty()) {
+      tableType = make_shared<string>(boost::any_cast<string>(m["TableType"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~ListDataLakeTableNameRequest() = default;
+};
+class ListDataLakeTableNameResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<vector<string>> tableNameList{};
+
+  ListDataLakeTableNameResponseBody() {}
+
+  explicit ListDataLakeTableNameResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (tableNameList) {
+      res["TableNameList"] = boost::any(*tableNameList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TableNameList") != m.end() && !m["TableNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TableNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TableNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tableNameList = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListDataLakeTableNameResponseBody() = default;
+};
+class ListDataLakeTableNameResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListDataLakeTableNameResponseBody> body{};
+
+  ListDataLakeTableNameResponse() {}
+
+  explicit ListDataLakeTableNameResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDataLakeTableNameResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDataLakeTableNameResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDataLakeTableNameResponse() = default;
+};
 class ListDataLakeTablebaseInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> catalogName{};
@@ -40739,56 +44508,13 @@ public:
 
   virtual ~ListDataLakeTablebaseInfoRequest() = default;
 };
-class ListDataLakeTablebaseInfoResponseBodyTablebaseInfoList : public Darabonba::Model {
-public:
-  shared_ptr<vector<DLTablebaseInfo>> tablebaseInfo{};
-
-  ListDataLakeTablebaseInfoResponseBodyTablebaseInfoList() {}
-
-  explicit ListDataLakeTablebaseInfoResponseBodyTablebaseInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (tablebaseInfo) {
-      vector<boost::any> temp1;
-      for(auto item1:*tablebaseInfo){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["TablebaseInfo"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("TablebaseInfo") != m.end() && !m["TablebaseInfo"].empty()) {
-      if (typeid(vector<boost::any>) == m["TablebaseInfo"].type()) {
-        vector<DLTablebaseInfo> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["TablebaseInfo"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DLTablebaseInfo model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        tablebaseInfo = make_shared<vector<DLTablebaseInfo>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~ListDataLakeTablebaseInfoResponseBodyTablebaseInfoList() = default;
-};
 class ListDataLakeTablebaseInfoResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
-  shared_ptr<ListDataLakeTablebaseInfoResponseBodyTablebaseInfoList> tablebaseInfoList{};
+  shared_ptr<vector<DLTablebaseInfo>> tablebaseInfoList{};
   shared_ptr<string> totalCount{};
 
   ListDataLakeTablebaseInfoResponseBody() {}
@@ -40814,7 +44540,11 @@ public:
       res["Success"] = boost::any(*success);
     }
     if (tablebaseInfoList) {
-      res["TablebaseInfoList"] = tablebaseInfoList ? boost::any(tablebaseInfoList->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*tablebaseInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TablebaseInfoList"] = boost::any(temp1);
     }
     if (totalCount) {
       res["TotalCount"] = boost::any(*totalCount);
@@ -40836,10 +44566,16 @@ public:
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
     if (m.find("TablebaseInfoList") != m.end() && !m["TablebaseInfoList"].empty()) {
-      if (typeid(map<string, boost::any>) == m["TablebaseInfoList"].type()) {
-        ListDataLakeTablebaseInfoResponseBodyTablebaseInfoList model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TablebaseInfoList"]));
-        tablebaseInfoList = make_shared<ListDataLakeTablebaseInfoResponseBodyTablebaseInfoList>(model1);
+      if (typeid(vector<boost::any>) == m["TablebaseInfoList"].type()) {
+        vector<DLTablebaseInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TablebaseInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DLTablebaseInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tablebaseInfoList = make_shared<vector<DLTablebaseInfo>>(expect1);
       }
     }
     if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
@@ -62316,6 +66052,731 @@ public:
 
   virtual ~UpdateAuthorityTemplateResponse() = default;
 };
+class UpdateDataLakeDatabaseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> description{};
+  shared_ptr<string> location{};
+  shared_ptr<map<string, string>> parameters{};
+  shared_ptr<long> tid{};
+
+  UpdateDataLakeDatabaseRequest() {}
+
+  explicit UpdateDataLakeDatabaseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (location) {
+      res["Location"] = boost::any(*location);
+    }
+    if (parameters) {
+      res["Parameters"] = boost::any(*parameters);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["Location"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Parameters"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      parameters = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~UpdateDataLakeDatabaseRequest() = default;
+};
+class UpdateDataLakeDatabaseShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> description{};
+  shared_ptr<string> location{};
+  shared_ptr<string> parametersShrink{};
+  shared_ptr<long> tid{};
+
+  UpdateDataLakeDatabaseShrinkRequest() {}
+
+  explicit UpdateDataLakeDatabaseShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (location) {
+      res["Location"] = boost::any(*location);
+    }
+    if (parametersShrink) {
+      res["Parameters"] = boost::any(*parametersShrink);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["Location"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      parametersShrink = make_shared<string>(boost::any_cast<string>(m["Parameters"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~UpdateDataLakeDatabaseShrinkRequest() = default;
+};
+class UpdateDataLakeDatabaseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DLDatabase> database{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateDataLakeDatabaseResponseBody() {}
+
+  explicit UpdateDataLakeDatabaseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (database) {
+      res["Database"] = database ? boost::any(database->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Database"].type()) {
+        DLDatabase model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Database"]));
+        database = make_shared<DLDatabase>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateDataLakeDatabaseResponseBody() = default;
+};
+class UpdateDataLakeDatabaseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateDataLakeDatabaseResponseBody> body{};
+
+  UpdateDataLakeDatabaseResponse() {}
+
+  explicit UpdateDataLakeDatabaseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateDataLakeDatabaseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateDataLakeDatabaseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateDataLakeDatabaseResponse() = default;
+};
+class UpdateDataLakePartitionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<DLPartitionInput> partitionInput{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  UpdateDataLakePartitionRequest() {}
+
+  explicit UpdateDataLakePartitionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (partitionInput) {
+      res["PartitionInput"] = partitionInput ? boost::any(partitionInput->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("PartitionInput") != m.end() && !m["PartitionInput"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PartitionInput"].type()) {
+        DLPartitionInput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PartitionInput"]));
+        partitionInput = make_shared<DLPartitionInput>(model1);
+      }
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~UpdateDataLakePartitionRequest() = default;
+};
+class UpdateDataLakePartitionShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> partitionInputShrink{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  UpdateDataLakePartitionShrinkRequest() {}
+
+  explicit UpdateDataLakePartitionShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (partitionInputShrink) {
+      res["PartitionInput"] = boost::any(*partitionInputShrink);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("PartitionInput") != m.end() && !m["PartitionInput"].empty()) {
+      partitionInputShrink = make_shared<string>(boost::any_cast<string>(m["PartitionInput"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~UpdateDataLakePartitionShrinkRequest() = default;
+};
+class UpdateDataLakePartitionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateDataLakePartitionResponseBody() {}
+
+  explicit UpdateDataLakePartitionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateDataLakePartitionResponseBody() = default;
+};
+class UpdateDataLakePartitionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateDataLakePartitionResponseBody> body{};
+
+  UpdateDataLakePartitionResponse() {}
+
+  explicit UpdateDataLakePartitionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateDataLakePartitionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateDataLakePartitionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateDataLakePartitionResponse() = default;
+};
+class UpdateDataLakeTableRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<OpenStructDLTableInput> tableInput{};
+  shared_ptr<long> tid{};
+
+  UpdateDataLakeTableRequest() {}
+
+  explicit UpdateDataLakeTableRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (tableInput) {
+      res["TableInput"] = tableInput ? boost::any(tableInput->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("TableInput") != m.end() && !m["TableInput"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TableInput"].type()) {
+        OpenStructDLTableInput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TableInput"]));
+        tableInput = make_shared<OpenStructDLTableInput>(model1);
+      }
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~UpdateDataLakeTableRequest() = default;
+};
+class UpdateDataLakeTableShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dataRegion{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> tableInputShrink{};
+  shared_ptr<long> tid{};
+
+  UpdateDataLakeTableShrinkRequest() {}
+
+  explicit UpdateDataLakeTableShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dataRegion) {
+      res["DataRegion"] = boost::any(*dataRegion);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (tableInputShrink) {
+      res["TableInput"] = boost::any(*tableInputShrink);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DataRegion") != m.end() && !m["DataRegion"].empty()) {
+      dataRegion = make_shared<string>(boost::any_cast<string>(m["DataRegion"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("TableInput") != m.end() && !m["TableInput"].empty()) {
+      tableInputShrink = make_shared<string>(boost::any_cast<string>(m["TableInput"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~UpdateDataLakeTableShrinkRequest() = default;
+};
+class UpdateDataLakeTableResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<DLTable> table{};
+
+  UpdateDataLakeTableResponseBody() {}
+
+  explicit UpdateDataLakeTableResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (table) {
+      res["Table"] = table ? boost::any(table->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Table") != m.end() && !m["Table"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Table"].type()) {
+        DLTable model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Table"]));
+        table = make_shared<DLTable>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateDataLakeTableResponseBody() = default;
+};
+class UpdateDataLakeTableResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateDataLakeTableResponseBody> body{};
+
+  UpdateDataLakeTableResponse() {}
+
+  explicit UpdateDataLakeTableResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateDataLakeTableResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateDataLakeTableResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateDataLakeTableResponse() = default;
+};
 class UpdateInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dataLinkName{};
@@ -65890,6 +70351,12 @@ public:
   ApproveOrderResponse approveOrder(shared_ptr<ApproveOrderRequest> request);
   BackFillResponse backFillWithOptions(shared_ptr<BackFillRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BackFillResponse backFill(shared_ptr<BackFillRequest> request);
+  BatchCreateDataLakePartitionsResponse batchCreateDataLakePartitionsWithOptions(shared_ptr<BatchCreateDataLakePartitionsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchCreateDataLakePartitionsResponse batchCreateDataLakePartitions(shared_ptr<BatchCreateDataLakePartitionsRequest> request);
+  BatchDeleteDataLakePartitionsResponse batchDeleteDataLakePartitionsWithOptions(shared_ptr<BatchDeleteDataLakePartitionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchDeleteDataLakePartitionsResponse batchDeleteDataLakePartitions(shared_ptr<BatchDeleteDataLakePartitionsRequest> request);
+  BatchUpdateDataLakePartitionsResponse batchUpdateDataLakePartitionsWithOptions(shared_ptr<BatchUpdateDataLakePartitionsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchUpdateDataLakePartitionsResponse batchUpdateDataLakePartitions(shared_ptr<BatchUpdateDataLakePartitionsRequest> request);
   BuyPayAsYouGoOrderResponse buyPayAsYouGoOrderWithOptions(shared_ptr<BuyPayAsYouGoOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BuyPayAsYouGoOrderResponse buyPayAsYouGoOrder(shared_ptr<BuyPayAsYouGoOrderRequest> request);
   ChangeColumnSecLevelResponse changeColumnSecLevelWithOptions(shared_ptr<ChangeColumnSecLevelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -65916,6 +70383,12 @@ public:
   CreateDataExportOrderResponse createDataExportOrder(shared_ptr<CreateDataExportOrderRequest> request);
   CreateDataImportOrderResponse createDataImportOrderWithOptions(shared_ptr<CreateDataImportOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDataImportOrderResponse createDataImportOrder(shared_ptr<CreateDataImportOrderRequest> request);
+  CreateDataLakeDatabaseResponse createDataLakeDatabaseWithOptions(shared_ptr<CreateDataLakeDatabaseRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDataLakeDatabaseResponse createDataLakeDatabase(shared_ptr<CreateDataLakeDatabaseRequest> request);
+  CreateDataLakePartitionResponse createDataLakePartitionWithOptions(shared_ptr<CreateDataLakePartitionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDataLakePartitionResponse createDataLakePartition(shared_ptr<CreateDataLakePartitionRequest> request);
+  CreateDataLakeTableResponse createDataLakeTableWithOptions(shared_ptr<CreateDataLakeTableRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDataLakeTableResponse createDataLakeTable(shared_ptr<CreateDataLakeTableRequest> request);
   CreateDataTrackOrderResponse createDataTrackOrderWithOptions(shared_ptr<CreateDataTrackOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDataTrackOrderResponse createDataTrackOrder(shared_ptr<CreateDataTrackOrderRequest> request);
   CreateDatabaseExportOrderResponse createDatabaseExportOrderWithOptions(shared_ptr<CreateDatabaseExportOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -65958,6 +70431,12 @@ public:
   DeleteAbacPolicyResponse deleteAbacPolicy(shared_ptr<DeleteAbacPolicyRequest> request);
   DeleteAuthorityTemplateResponse deleteAuthorityTemplateWithOptions(shared_ptr<DeleteAuthorityTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAuthorityTemplateResponse deleteAuthorityTemplate(shared_ptr<DeleteAuthorityTemplateRequest> request);
+  DeleteDataLakeDatabaseResponse deleteDataLakeDatabaseWithOptions(shared_ptr<DeleteDataLakeDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDataLakeDatabaseResponse deleteDataLakeDatabase(shared_ptr<DeleteDataLakeDatabaseRequest> request);
+  DeleteDataLakePartitionResponse deleteDataLakePartitionWithOptions(shared_ptr<DeleteDataLakePartitionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDataLakePartitionResponse deleteDataLakePartition(shared_ptr<DeleteDataLakePartitionRequest> request);
+  DeleteDataLakeTableResponse deleteDataLakeTableWithOptions(shared_ptr<DeleteDataLakeTableRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDataLakeTableResponse deleteDataLakeTable(shared_ptr<DeleteDataLakeTableRequest> request);
   DeleteInstanceResponse deleteInstanceWithOptions(shared_ptr<DeleteInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteInstanceResponse deleteInstance(shared_ptr<DeleteInstanceRequest> request);
   DeleteLakeHouseSpaceResponse deleteLakeHouseSpaceWithOptions(shared_ptr<DeleteLakeHouseSpaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -66044,6 +70523,8 @@ public:
   GetDataLakeCatalogResponse getDataLakeCatalog(shared_ptr<GetDataLakeCatalogRequest> request);
   GetDataLakeDatabaseResponse getDataLakeDatabaseWithOptions(shared_ptr<GetDataLakeDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDataLakeDatabaseResponse getDataLakeDatabase(shared_ptr<GetDataLakeDatabaseRequest> request);
+  GetDataLakePartitionResponse getDataLakePartitionWithOptions(shared_ptr<GetDataLakePartitionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDataLakePartitionResponse getDataLakePartition(shared_ptr<GetDataLakePartitionRequest> request);
   GetDataLakeTableResponse getDataLakeTableWithOptions(shared_ptr<GetDataLakeTableRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDataLakeTableResponse getDataLakeTable(shared_ptr<GetDataLakeTableRequest> request);
   GetDataTrackJobDegreeResponse getDataTrackJobDegreeWithOptions(shared_ptr<GetDataTrackJobDegreeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -66172,6 +70653,16 @@ public:
   ListDataLakeCatalogResponse listDataLakeCatalog(shared_ptr<ListDataLakeCatalogRequest> request);
   ListDataLakeDatabaseResponse listDataLakeDatabaseWithOptions(shared_ptr<ListDataLakeDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDataLakeDatabaseResponse listDataLakeDatabase(shared_ptr<ListDataLakeDatabaseRequest> request);
+  ListDataLakePartitionResponse listDataLakePartitionWithOptions(shared_ptr<ListDataLakePartitionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDataLakePartitionResponse listDataLakePartition(shared_ptr<ListDataLakePartitionRequest> request);
+  ListDataLakePartitionByFilterResponse listDataLakePartitionByFilterWithOptions(shared_ptr<ListDataLakePartitionByFilterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDataLakePartitionByFilterResponse listDataLakePartitionByFilter(shared_ptr<ListDataLakePartitionByFilterRequest> request);
+  ListDataLakePartitionNameResponse listDataLakePartitionNameWithOptions(shared_ptr<ListDataLakePartitionNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDataLakePartitionNameResponse listDataLakePartitionName(shared_ptr<ListDataLakePartitionNameRequest> request);
+  ListDataLakeTableResponse listDataLakeTableWithOptions(shared_ptr<ListDataLakeTableRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDataLakeTableResponse listDataLakeTable(shared_ptr<ListDataLakeTableRequest> request);
+  ListDataLakeTableNameResponse listDataLakeTableNameWithOptions(shared_ptr<ListDataLakeTableNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDataLakeTableNameResponse listDataLakeTableName(shared_ptr<ListDataLakeTableNameRequest> request);
   ListDataLakeTablebaseInfoResponse listDataLakeTablebaseInfoWithOptions(shared_ptr<ListDataLakeTablebaseInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDataLakeTablebaseInfoResponse listDataLakeTablebaseInfo(shared_ptr<ListDataLakeTablebaseInfoRequest> request);
   ListDatabaseUserPermssionsResponse listDatabaseUserPermssionsWithOptions(shared_ptr<ListDatabaseUserPermssionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -66332,6 +70823,12 @@ public:
   UpdateAbacPolicyResponse updateAbacPolicy(shared_ptr<UpdateAbacPolicyRequest> request);
   UpdateAuthorityTemplateResponse updateAuthorityTemplateWithOptions(shared_ptr<UpdateAuthorityTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAuthorityTemplateResponse updateAuthorityTemplate(shared_ptr<UpdateAuthorityTemplateRequest> request);
+  UpdateDataLakeDatabaseResponse updateDataLakeDatabaseWithOptions(shared_ptr<UpdateDataLakeDatabaseRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateDataLakeDatabaseResponse updateDataLakeDatabase(shared_ptr<UpdateDataLakeDatabaseRequest> request);
+  UpdateDataLakePartitionResponse updateDataLakePartitionWithOptions(shared_ptr<UpdateDataLakePartitionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateDataLakePartitionResponse updateDataLakePartition(shared_ptr<UpdateDataLakePartitionRequest> request);
+  UpdateDataLakeTableResponse updateDataLakeTableWithOptions(shared_ptr<UpdateDataLakeTableRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateDataLakeTableResponse updateDataLakeTable(shared_ptr<UpdateDataLakeTableRequest> request);
   UpdateInstanceResponse updateInstanceWithOptions(shared_ptr<UpdateInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateInstanceResponse updateInstance(shared_ptr<UpdateInstanceRequest> request);
   UpdateSLARulesResponse updateSLARulesWithOptions(shared_ptr<UpdateSLARulesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
