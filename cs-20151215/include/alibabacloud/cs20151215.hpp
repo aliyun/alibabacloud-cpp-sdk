@@ -23791,6 +23791,7 @@ public:
   shared_ptr<string> state{};
   shared_ptr<string> targetId{};
   shared_ptr<string> targetType{};
+  shared_ptr<string> taskId{};
   shared_ptr<string> type{};
 
   ListOperationPlansResponseBodyPlans() {}
@@ -23827,6 +23828,9 @@ public:
     if (targetType) {
       res["target_type"] = boost::any(*targetType);
     }
+    if (taskId) {
+      res["task_id"] = boost::any(*taskId);
+    }
     if (type) {
       res["type"] = boost::any(*type);
     }
@@ -23857,6 +23861,9 @@ public:
     }
     if (m.find("target_type") != m.end() && !m["target_type"].empty()) {
       targetType = make_shared<string>(boost::any_cast<string>(m["target_type"]));
+    }
+    if (m.find("task_id") != m.end() && !m["task_id"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["task_id"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
