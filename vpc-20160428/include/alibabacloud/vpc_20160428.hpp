@@ -45932,6 +45932,7 @@ public:
 class DescribeNatGatewayAssociateNetworkInterfacesResponseBody : public Darabonba::Model {
 public:
   shared_ptr<DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces> associateNetworkInterfaces{};
+  shared_ptr<long> count{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> natGatewayId{};
   shared_ptr<string> nextToken{};
@@ -45950,6 +45951,9 @@ public:
     map<string, boost::any> res;
     if (associateNetworkInterfaces) {
       res["AssociateNetworkInterfaces"] = associateNetworkInterfaces ? boost::any(associateNetworkInterfaces->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -45976,6 +45980,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AssociateNetworkInterfaces"]));
         associateNetworkInterfaces = make_shared<DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces>(model1);
       }
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
