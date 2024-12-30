@@ -1017,6 +1017,190 @@ public:
 
   virtual ~AppInfoDTO() = default;
 };
+class ChannelOutPutConfigList : public Darabonba::Model {
+public:
+  shared_ptr<string> channelName{};
+  shared_ptr<string> format{};
+  shared_ptr<string> manifestName{};
+  shared_ptr<string> manifestSettings{};
+  shared_ptr<string> playbackUrl{};
+  shared_ptr<string> sourceGroupName{};
+
+  ChannelOutPutConfigList() {}
+
+  explicit ChannelOutPutConfigList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channelName) {
+      res["ChannelName"] = boost::any(*channelName);
+    }
+    if (format) {
+      res["Format"] = boost::any(*format);
+    }
+    if (manifestName) {
+      res["ManifestName"] = boost::any(*manifestName);
+    }
+    if (manifestSettings) {
+      res["ManifestSettings"] = boost::any(*manifestSettings);
+    }
+    if (playbackUrl) {
+      res["PlaybackUrl"] = boost::any(*playbackUrl);
+    }
+    if (sourceGroupName) {
+      res["SourceGroupName"] = boost::any(*sourceGroupName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChannelName") != m.end() && !m["ChannelName"].empty()) {
+      channelName = make_shared<string>(boost::any_cast<string>(m["ChannelName"]));
+    }
+    if (m.find("Format") != m.end() && !m["Format"].empty()) {
+      format = make_shared<string>(boost::any_cast<string>(m["Format"]));
+    }
+    if (m.find("ManifestName") != m.end() && !m["ManifestName"].empty()) {
+      manifestName = make_shared<string>(boost::any_cast<string>(m["ManifestName"]));
+    }
+    if (m.find("ManifestSettings") != m.end() && !m["ManifestSettings"].empty()) {
+      manifestSettings = make_shared<string>(boost::any_cast<string>(m["ManifestSettings"]));
+    }
+    if (m.find("PlaybackUrl") != m.end() && !m["PlaybackUrl"].empty()) {
+      playbackUrl = make_shared<string>(boost::any_cast<string>(m["PlaybackUrl"]));
+    }
+    if (m.find("SourceGroupName") != m.end() && !m["SourceGroupName"].empty()) {
+      sourceGroupName = make_shared<string>(boost::any_cast<string>(m["SourceGroupName"]));
+    }
+  }
+
+
+  virtual ~ChannelOutPutConfigList() = default;
+};
+class Channel : public Darabonba::Model {
+public:
+  shared_ptr<bool> accessPolicy{};
+  shared_ptr<string> accessToken{};
+  shared_ptr<string> arn{};
+  shared_ptr<string> channelName{};
+  shared_ptr<string> channelTier{};
+  shared_ptr<string> fillerSourceLocationName{};
+  shared_ptr<string> fillerSourceName{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<vector<ChannelOutPutConfigList>> outPutConfigList{};
+  shared_ptr<string> playbackMode{};
+  shared_ptr<long> state{};
+
+  Channel() {}
+
+  explicit Channel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessPolicy) {
+      res["AccessPolicy"] = boost::any(*accessPolicy);
+    }
+    if (accessToken) {
+      res["AccessToken"] = boost::any(*accessToken);
+    }
+    if (arn) {
+      res["Arn"] = boost::any(*arn);
+    }
+    if (channelName) {
+      res["ChannelName"] = boost::any(*channelName);
+    }
+    if (channelTier) {
+      res["ChannelTier"] = boost::any(*channelTier);
+    }
+    if (fillerSourceLocationName) {
+      res["FillerSourceLocationName"] = boost::any(*fillerSourceLocationName);
+    }
+    if (fillerSourceName) {
+      res["FillerSourceName"] = boost::any(*fillerSourceName);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (outPutConfigList) {
+      vector<boost::any> temp1;
+      for(auto item1:*outPutConfigList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OutPutConfigList"] = boost::any(temp1);
+    }
+    if (playbackMode) {
+      res["PlaybackMode"] = boost::any(*playbackMode);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessPolicy") != m.end() && !m["AccessPolicy"].empty()) {
+      accessPolicy = make_shared<bool>(boost::any_cast<bool>(m["AccessPolicy"]));
+    }
+    if (m.find("AccessToken") != m.end() && !m["AccessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["AccessToken"]));
+    }
+    if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
+      arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+    if (m.find("ChannelName") != m.end() && !m["ChannelName"].empty()) {
+      channelName = make_shared<string>(boost::any_cast<string>(m["ChannelName"]));
+    }
+    if (m.find("ChannelTier") != m.end() && !m["ChannelTier"].empty()) {
+      channelTier = make_shared<string>(boost::any_cast<string>(m["ChannelTier"]));
+    }
+    if (m.find("FillerSourceLocationName") != m.end() && !m["FillerSourceLocationName"].empty()) {
+      fillerSourceLocationName = make_shared<string>(boost::any_cast<string>(m["FillerSourceLocationName"]));
+    }
+    if (m.find("FillerSourceName") != m.end() && !m["FillerSourceName"].empty()) {
+      fillerSourceName = make_shared<string>(boost::any_cast<string>(m["FillerSourceName"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("OutPutConfigList") != m.end() && !m["OutPutConfigList"].empty()) {
+      if (typeid(vector<boost::any>) == m["OutPutConfigList"].type()) {
+        vector<ChannelOutPutConfigList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OutPutConfigList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ChannelOutPutConfigList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        outPutConfigList = make_shared<vector<ChannelOutPutConfigList>>(expect1);
+      }
+    }
+    if (m.find("PlaybackMode") != m.end() && !m["PlaybackMode"].empty()) {
+      playbackMode = make_shared<string>(boost::any_cast<string>(m["PlaybackMode"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<long>(boost::any_cast<long>(m["State"]));
+    }
+  }
+
+
+  virtual ~Channel() = default;
+};
 class LicenseInstanceAppDTOLicenseConfigs : public Darabonba::Model {
 public:
   shared_ptr<string> businessType{};
@@ -1200,6 +1384,502 @@ public:
 
 
   virtual ~LicenseInstanceAppDTO() = default;
+};
+class ProgramAdBreaks : public Darabonba::Model {
+public:
+  shared_ptr<string> channelName{};
+  shared_ptr<string> messageType{};
+  shared_ptr<long> offsetMillis{};
+  shared_ptr<string> programName{};
+  shared_ptr<string> sourceLocationName{};
+  shared_ptr<string> sourceName{};
+  shared_ptr<string> spliceInsertSettings{};
+  shared_ptr<string> timeSignalSettings{};
+
+  ProgramAdBreaks() {}
+
+  explicit ProgramAdBreaks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channelName) {
+      res["ChannelName"] = boost::any(*channelName);
+    }
+    if (messageType) {
+      res["MessageType"] = boost::any(*messageType);
+    }
+    if (offsetMillis) {
+      res["OffsetMillis"] = boost::any(*offsetMillis);
+    }
+    if (programName) {
+      res["ProgramName"] = boost::any(*programName);
+    }
+    if (sourceLocationName) {
+      res["SourceLocationName"] = boost::any(*sourceLocationName);
+    }
+    if (sourceName) {
+      res["SourceName"] = boost::any(*sourceName);
+    }
+    if (spliceInsertSettings) {
+      res["SpliceInsertSettings"] = boost::any(*spliceInsertSettings);
+    }
+    if (timeSignalSettings) {
+      res["TimeSignalSettings"] = boost::any(*timeSignalSettings);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChannelName") != m.end() && !m["ChannelName"].empty()) {
+      channelName = make_shared<string>(boost::any_cast<string>(m["ChannelName"]));
+    }
+    if (m.find("MessageType") != m.end() && !m["MessageType"].empty()) {
+      messageType = make_shared<string>(boost::any_cast<string>(m["MessageType"]));
+    }
+    if (m.find("OffsetMillis") != m.end() && !m["OffsetMillis"].empty()) {
+      offsetMillis = make_shared<long>(boost::any_cast<long>(m["OffsetMillis"]));
+    }
+    if (m.find("ProgramName") != m.end() && !m["ProgramName"].empty()) {
+      programName = make_shared<string>(boost::any_cast<string>(m["ProgramName"]));
+    }
+    if (m.find("SourceLocationName") != m.end() && !m["SourceLocationName"].empty()) {
+      sourceLocationName = make_shared<string>(boost::any_cast<string>(m["SourceLocationName"]));
+    }
+    if (m.find("SourceName") != m.end() && !m["SourceName"].empty()) {
+      sourceName = make_shared<string>(boost::any_cast<string>(m["SourceName"]));
+    }
+    if (m.find("SpliceInsertSettings") != m.end() && !m["SpliceInsertSettings"].empty()) {
+      spliceInsertSettings = make_shared<string>(boost::any_cast<string>(m["SpliceInsertSettings"]));
+    }
+    if (m.find("TimeSignalSettings") != m.end() && !m["TimeSignalSettings"].empty()) {
+      timeSignalSettings = make_shared<string>(boost::any_cast<string>(m["TimeSignalSettings"]));
+    }
+  }
+
+
+  virtual ~ProgramAdBreaks() = default;
+};
+class Program : public Darabonba::Model {
+public:
+  shared_ptr<vector<ProgramAdBreaks>> adBreaks{};
+  shared_ptr<string> arn{};
+  shared_ptr<string> channelName{};
+  shared_ptr<string> clipRange{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<string> programName{};
+  shared_ptr<string> sourceLocationName{};
+  shared_ptr<string> sourceName{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> transition{};
+
+  Program() {}
+
+  explicit Program(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adBreaks) {
+      vector<boost::any> temp1;
+      for(auto item1:*adBreaks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AdBreaks"] = boost::any(temp1);
+    }
+    if (arn) {
+      res["Arn"] = boost::any(*arn);
+    }
+    if (channelName) {
+      res["ChannelName"] = boost::any(*channelName);
+    }
+    if (clipRange) {
+      res["ClipRange"] = boost::any(*clipRange);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (programName) {
+      res["ProgramName"] = boost::any(*programName);
+    }
+    if (sourceLocationName) {
+      res["SourceLocationName"] = boost::any(*sourceLocationName);
+    }
+    if (sourceName) {
+      res["SourceName"] = boost::any(*sourceName);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (transition) {
+      res["Transition"] = boost::any(*transition);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdBreaks") != m.end() && !m["AdBreaks"].empty()) {
+      if (typeid(vector<boost::any>) == m["AdBreaks"].type()) {
+        vector<ProgramAdBreaks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AdBreaks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ProgramAdBreaks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        adBreaks = make_shared<vector<ProgramAdBreaks>>(expect1);
+      }
+    }
+    if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
+      arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+    if (m.find("ChannelName") != m.end() && !m["ChannelName"].empty()) {
+      channelName = make_shared<string>(boost::any_cast<string>(m["ChannelName"]));
+    }
+    if (m.find("ClipRange") != m.end() && !m["ClipRange"].empty()) {
+      clipRange = make_shared<string>(boost::any_cast<string>(m["ClipRange"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("ProgramName") != m.end() && !m["ProgramName"].empty()) {
+      programName = make_shared<string>(boost::any_cast<string>(m["ProgramName"]));
+    }
+    if (m.find("SourceLocationName") != m.end() && !m["SourceLocationName"].empty()) {
+      sourceLocationName = make_shared<string>(boost::any_cast<string>(m["SourceLocationName"]));
+    }
+    if (m.find("SourceName") != m.end() && !m["SourceName"].empty()) {
+      sourceName = make_shared<string>(boost::any_cast<string>(m["SourceName"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Transition") != m.end() && !m["Transition"].empty()) {
+      transition = make_shared<string>(boost::any_cast<string>(m["Transition"]));
+    }
+  }
+
+
+  virtual ~Program() = default;
+};
+class ScheduleDataAdBreaks : public Darabonba::Model {
+public:
+  shared_ptr<string> messageType{};
+  shared_ptr<string> offsetMillis{};
+  shared_ptr<string> sourceLocationName{};
+  shared_ptr<string> sourceName{};
+  shared_ptr<string> spliceInsertSettings{};
+  shared_ptr<string> timeSignalSettings{};
+
+  ScheduleDataAdBreaks() {}
+
+  explicit ScheduleDataAdBreaks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (messageType) {
+      res["MessageType"] = boost::any(*messageType);
+    }
+    if (offsetMillis) {
+      res["OffsetMillis"] = boost::any(*offsetMillis);
+    }
+    if (sourceLocationName) {
+      res["SourceLocationName"] = boost::any(*sourceLocationName);
+    }
+    if (sourceName) {
+      res["SourceName"] = boost::any(*sourceName);
+    }
+    if (spliceInsertSettings) {
+      res["SpliceInsertSettings"] = boost::any(*spliceInsertSettings);
+    }
+    if (timeSignalSettings) {
+      res["TimeSignalSettings"] = boost::any(*timeSignalSettings);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MessageType") != m.end() && !m["MessageType"].empty()) {
+      messageType = make_shared<string>(boost::any_cast<string>(m["MessageType"]));
+    }
+    if (m.find("OffsetMillis") != m.end() && !m["OffsetMillis"].empty()) {
+      offsetMillis = make_shared<string>(boost::any_cast<string>(m["OffsetMillis"]));
+    }
+    if (m.find("SourceLocationName") != m.end() && !m["SourceLocationName"].empty()) {
+      sourceLocationName = make_shared<string>(boost::any_cast<string>(m["SourceLocationName"]));
+    }
+    if (m.find("SourceName") != m.end() && !m["SourceName"].empty()) {
+      sourceName = make_shared<string>(boost::any_cast<string>(m["SourceName"]));
+    }
+    if (m.find("SpliceInsertSettings") != m.end() && !m["SpliceInsertSettings"].empty()) {
+      spliceInsertSettings = make_shared<string>(boost::any_cast<string>(m["SpliceInsertSettings"]));
+    }
+    if (m.find("TimeSignalSettings") != m.end() && !m["TimeSignalSettings"].empty()) {
+      timeSignalSettings = make_shared<string>(boost::any_cast<string>(m["TimeSignalSettings"]));
+    }
+  }
+
+
+  virtual ~ScheduleDataAdBreaks() = default;
+};
+class ScheduleData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ScheduleDataAdBreaks>> adBreaks{};
+  shared_ptr<long> approximateDurationSeconds{};
+  shared_ptr<string> approximateStartTime{};
+  shared_ptr<string> entryType{};
+  shared_ptr<string> programName{};
+  shared_ptr<string> sourceLocationName{};
+  shared_ptr<string> sourceName{};
+  shared_ptr<string> sourceType{};
+
+  ScheduleData() {}
+
+  explicit ScheduleData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adBreaks) {
+      vector<boost::any> temp1;
+      for(auto item1:*adBreaks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AdBreaks"] = boost::any(temp1);
+    }
+    if (approximateDurationSeconds) {
+      res["ApproximateDurationSeconds"] = boost::any(*approximateDurationSeconds);
+    }
+    if (approximateStartTime) {
+      res["ApproximateStartTime"] = boost::any(*approximateStartTime);
+    }
+    if (entryType) {
+      res["EntryType"] = boost::any(*entryType);
+    }
+    if (programName) {
+      res["ProgramName"] = boost::any(*programName);
+    }
+    if (sourceLocationName) {
+      res["SourceLocationName"] = boost::any(*sourceLocationName);
+    }
+    if (sourceName) {
+      res["SourceName"] = boost::any(*sourceName);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdBreaks") != m.end() && !m["AdBreaks"].empty()) {
+      if (typeid(vector<boost::any>) == m["AdBreaks"].type()) {
+        vector<ScheduleDataAdBreaks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AdBreaks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ScheduleDataAdBreaks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        adBreaks = make_shared<vector<ScheduleDataAdBreaks>>(expect1);
+      }
+    }
+    if (m.find("ApproximateDurationSeconds") != m.end() && !m["ApproximateDurationSeconds"].empty()) {
+      approximateDurationSeconds = make_shared<long>(boost::any_cast<long>(m["ApproximateDurationSeconds"]));
+    }
+    if (m.find("ApproximateStartTime") != m.end() && !m["ApproximateStartTime"].empty()) {
+      approximateStartTime = make_shared<string>(boost::any_cast<string>(m["ApproximateStartTime"]));
+    }
+    if (m.find("EntryType") != m.end() && !m["EntryType"].empty()) {
+      entryType = make_shared<string>(boost::any_cast<string>(m["EntryType"]));
+    }
+    if (m.find("ProgramName") != m.end() && !m["ProgramName"].empty()) {
+      programName = make_shared<string>(boost::any_cast<string>(m["ProgramName"]));
+    }
+    if (m.find("SourceLocationName") != m.end() && !m["SourceLocationName"].empty()) {
+      sourceLocationName = make_shared<string>(boost::any_cast<string>(m["SourceLocationName"]));
+    }
+    if (m.find("SourceName") != m.end() && !m["SourceName"].empty()) {
+      sourceName = make_shared<string>(boost::any_cast<string>(m["SourceName"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+  }
+
+
+  virtual ~ScheduleData() = default;
+};
+class Source : public Darabonba::Model {
+public:
+  shared_ptr<string> arn{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<string> httpPackageConfigurations{};
+  shared_ptr<string> sourceLocationName{};
+  shared_ptr<string> sourceName{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<long> state{};
+
+  Source() {}
+
+  explicit Source(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arn) {
+      res["Arn"] = boost::any(*arn);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (httpPackageConfigurations) {
+      res["HttpPackageConfigurations"] = boost::any(*httpPackageConfigurations);
+    }
+    if (sourceLocationName) {
+      res["SourceLocationName"] = boost::any(*sourceLocationName);
+    }
+    if (sourceName) {
+      res["SourceName"] = boost::any(*sourceName);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
+      arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("HttpPackageConfigurations") != m.end() && !m["HttpPackageConfigurations"].empty()) {
+      httpPackageConfigurations = make_shared<string>(boost::any_cast<string>(m["HttpPackageConfigurations"]));
+    }
+    if (m.find("SourceLocationName") != m.end() && !m["SourceLocationName"].empty()) {
+      sourceLocationName = make_shared<string>(boost::any_cast<string>(m["SourceLocationName"]));
+    }
+    if (m.find("SourceName") != m.end() && !m["SourceName"].empty()) {
+      sourceName = make_shared<string>(boost::any_cast<string>(m["SourceName"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<long>(boost::any_cast<long>(m["State"]));
+    }
+  }
+
+
+  virtual ~Source() = default;
+};
+class SourceLocation : public Darabonba::Model {
+public:
+  shared_ptr<string> arn{};
+  shared_ptr<string> baseUrl{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<string> segmentDeliveryConfigurations{};
+  shared_ptr<string> sourceLocationName{};
+  shared_ptr<long> state{};
+
+  SourceLocation() {}
+
+  explicit SourceLocation(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arn) {
+      res["Arn"] = boost::any(*arn);
+    }
+    if (baseUrl) {
+      res["BaseUrl"] = boost::any(*baseUrl);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (segmentDeliveryConfigurations) {
+      res["SegmentDeliveryConfigurations"] = boost::any(*segmentDeliveryConfigurations);
+    }
+    if (sourceLocationName) {
+      res["SourceLocationName"] = boost::any(*sourceLocationName);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
+      arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+    if (m.find("BaseUrl") != m.end() && !m["BaseUrl"].empty()) {
+      baseUrl = make_shared<string>(boost::any_cast<string>(m["BaseUrl"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("SegmentDeliveryConfigurations") != m.end() && !m["SegmentDeliveryConfigurations"].empty()) {
+      segmentDeliveryConfigurations = make_shared<string>(boost::any_cast<string>(m["SegmentDeliveryConfigurations"]));
+    }
+    if (m.find("SourceLocationName") != m.end() && !m["SourceLocationName"].empty()) {
+      sourceLocationName = make_shared<string>(boost::any_cast<string>(m["SourceLocationName"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<long>(boost::any_cast<long>(m["State"]));
+    }
+  }
+
+
+  virtual ~SourceLocation() = default;
 };
 class AddCategoryRequest : public Darabonba::Model {
 public:
@@ -57726,6 +58406,7 @@ class SubmitMediaAiAnalysisJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> analysisParams{};
   shared_ptr<string> input{};
+  shared_ptr<string> userData{};
 
   SubmitMediaAiAnalysisJobRequest() {}
 
@@ -57743,6 +58424,9 @@ public:
     if (input) {
       res["Input"] = boost::any(*input);
     }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
     return res;
   }
 
@@ -57752,6 +58436,9 @@ public:
     }
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       input = make_shared<string>(boost::any_cast<string>(m["Input"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
   }
 
