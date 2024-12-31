@@ -1213,6 +1213,7 @@ public:
 class CreateFixedPriceSelectedOrderResponseBodyModule : public Darabonba::Model {
 public:
   shared_ptr<string> domain{};
+  shared_ptr<vector<string>> domainBlockTrade{};
   shared_ptr<string> orderNo{};
   shared_ptr<long> price{};
 
@@ -1229,6 +1230,9 @@ public:
     if (domain) {
       res["Domain"] = boost::any(*domain);
     }
+    if (domainBlockTrade) {
+      res["DomainBlockTrade"] = boost::any(*domainBlockTrade);
+    }
     if (orderNo) {
       res["OrderNo"] = boost::any(*orderNo);
     }
@@ -1241,6 +1245,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("DomainBlockTrade") != m.end() && !m["DomainBlockTrade"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DomainBlockTrade"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DomainBlockTrade"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      domainBlockTrade = make_shared<vector<string>>(toVec1);
     }
     if (m.find("OrderNo") != m.end() && !m["OrderNo"].empty()) {
       orderNo = make_shared<string>(boost::any_cast<string>(m["OrderNo"]));
