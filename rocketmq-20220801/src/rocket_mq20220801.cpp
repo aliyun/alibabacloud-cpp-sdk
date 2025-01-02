@@ -201,6 +201,9 @@ CreateInstanceResponse Alibabacloud_RocketMQ20220801::Client::createInstanceWith
   if (!Darabonba_Util::Client::isUnset<string>(request->subSeriesCode)) {
     body->insert(pair<string, string>("subSeriesCode", *request->subSeriesCode));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateInstanceRequestTags>>(request->tags)) {
+    body->insert(pair<string, vector<CreateInstanceRequestTags>>("tags", *request->tags));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},

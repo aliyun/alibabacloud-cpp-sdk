@@ -980,6 +980,42 @@ public:
 
   virtual ~CreateInstanceRequestProductInfo() = default;
 };
+class CreateInstanceRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateInstanceRequestTags() {}
+
+  explicit CreateInstanceRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["key"] = boost::any(*key);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~CreateInstanceRequestTags() = default;
+};
 class CreateInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRenew{};
@@ -996,6 +1032,7 @@ public:
   shared_ptr<string> seriesCode{};
   shared_ptr<string> serviceCode{};
   shared_ptr<string> subSeriesCode{};
+  shared_ptr<vector<CreateInstanceRequestTags>> tags{};
   shared_ptr<string> clientToken{};
 
   CreateInstanceRequest() {}
@@ -1049,6 +1086,13 @@ public:
     }
     if (subSeriesCode) {
       res["subSeriesCode"] = boost::any(*subSeriesCode);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
     }
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
@@ -1106,6 +1150,19 @@ public:
     }
     if (m.find("subSeriesCode") != m.end() && !m["subSeriesCode"].empty()) {
       subSeriesCode = make_shared<string>(boost::any_cast<string>(m["subSeriesCode"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<CreateInstanceRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateInstanceRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateInstanceRequestTags>>(expect1);
+      }
     }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
