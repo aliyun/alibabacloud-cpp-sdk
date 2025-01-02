@@ -299,6 +299,9 @@ CreateDownloadTaskResponse Alibabacloud_Cloudfw20171207::Client::createDownloadT
   if (!Darabonba_Util::Client::isUnset<string>(request->taskData)) {
     query->insert(pair<string, string>("TaskData", *request->taskData));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskType)) {
+    query->insert(pair<string, string>("TaskType", *request->taskType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->timeZone)) {
     query->insert(pair<string, string>("TimeZone", *request->timeZone));
   }
@@ -2536,6 +2539,9 @@ DescribeRiskEventGroupResponse Alibabacloud_Cloudfw20171207::Client::describeRis
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->firewallType)) {
     query->insert(pair<string, string>("FirewallType", *request->firewallType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isOnlyPrivateAssoc)) {
+    query->insert(pair<string, string>("IsOnlyPrivateAssoc", *request->isOnlyPrivateAssoc));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
