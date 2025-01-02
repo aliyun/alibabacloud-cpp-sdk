@@ -2023,7 +2023,7 @@ class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvokeNode 
 public:
   shared_ptr<string> creationTime{};
   shared_ptr<long> dropped{};
-  shared_ptr<bool> errorCode{};
+  shared_ptr<string> errorCode{};
   shared_ptr<string> errorInfo{};
   shared_ptr<long> exitCode{};
   shared_ptr<string> finishTime{};
@@ -2103,7 +2103,7 @@ public:
       dropped = make_shared<long>(boost::any_cast<long>(m["Dropped"]));
     }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<bool>(boost::any_cast<bool>(m["ErrorCode"]));
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
     }
     if (m.find("ErrorInfo") != m.end() && !m["ErrorInfo"].empty()) {
       errorInfo = make_shared<string>(boost::any_cast<string>(m["ErrorInfo"]));
