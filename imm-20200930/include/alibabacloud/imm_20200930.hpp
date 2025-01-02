@@ -6483,6 +6483,35 @@ public:
 
   virtual ~Story() = default;
 };
+class StreamOptions : public Darabonba::Model {
+public:
+  shared_ptr<bool> incrementalOutput{};
+
+  StreamOptions() {}
+
+  explicit StreamOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (incrementalOutput) {
+      res["IncrementalOutput"] = boost::any(*incrementalOutput);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IncrementalOutput") != m.end() && !m["IncrementalOutput"].empty()) {
+      incrementalOutput = make_shared<bool>(boost::any_cast<bool>(m["IncrementalOutput"]));
+    }
+  }
+
+
+  virtual ~StreamOptions() = default;
+};
 class TargetAudioFilterAudio : public Darabonba::Model {
 public:
   shared_ptr<bool> mixing{};
@@ -10145,6 +10174,8 @@ public:
 class ContextualAnswerResponseBody : public Darabonba::Model {
 public:
   shared_ptr<Answer> answer{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   ContextualAnswerResponseBody() {}
@@ -10160,6 +10191,12 @@ public:
     if (answer) {
       res["Answer"] = answer ? boost::any(answer->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -10173,6 +10210,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Answer"]));
         answer = make_shared<Answer>(model1);
       }
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
