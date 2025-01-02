@@ -45916,6 +45916,203 @@ public:
 
   virtual ~SubmitEnterpriseVocAnalysisTaskResponse() = default;
 };
+class SubmitSmartClipTaskRequestEditingConfigBackgroundMusicConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> style{};
+  shared_ptr<double> volume{};
+
+  SubmitSmartClipTaskRequestEditingConfigBackgroundMusicConfig() {}
+
+  explicit SubmitSmartClipTaskRequestEditingConfigBackgroundMusicConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (style) {
+      res["Style"] = boost::any(*style);
+    }
+    if (volume) {
+      res["Volume"] = boost::any(*volume);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Style") != m.end() && !m["Style"].empty()) {
+      style = make_shared<string>(boost::any_cast<string>(m["Style"]));
+    }
+    if (m.find("Volume") != m.end() && !m["Volume"].empty()) {
+      volume = make_shared<double>(boost::any_cast<double>(m["Volume"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskRequestEditingConfigBackgroundMusicConfig() = default;
+};
+class SubmitSmartClipTaskRequestEditingConfigMediaConfig : public Darabonba::Model {
+public:
+  shared_ptr<double> volume{};
+
+  SubmitSmartClipTaskRequestEditingConfigMediaConfig() {}
+
+  explicit SubmitSmartClipTaskRequestEditingConfigMediaConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (volume) {
+      res["Volume"] = boost::any(*volume);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Volume") != m.end() && !m["Volume"].empty()) {
+      volume = make_shared<double>(boost::any_cast<double>(m["Volume"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskRequestEditingConfigMediaConfig() = default;
+};
+class SubmitSmartClipTaskRequestEditingConfigSpeechConfigAsrConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> alignment{};
+  shared_ptr<string> font{};
+  shared_ptr<string> fontColor{};
+  shared_ptr<string> fontSize{};
+  shared_ptr<string> spacing{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  SubmitSmartClipTaskRequestEditingConfigSpeechConfigAsrConfig() {}
+
+  explicit SubmitSmartClipTaskRequestEditingConfigSpeechConfigAsrConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alignment) {
+      res["Alignment"] = boost::any(*alignment);
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fontColor) {
+      res["FontColor"] = boost::any(*fontColor);
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (spacing) {
+      res["Spacing"] = boost::any(*spacing);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alignment") != m.end() && !m["Alignment"].empty()) {
+      alignment = make_shared<string>(boost::any_cast<string>(m["Alignment"]));
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<string>(boost::any_cast<string>(m["Font"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      fontColor = make_shared<string>(boost::any_cast<string>(m["FontColor"]));
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<string>(boost::any_cast<string>(m["FontSize"]));
+    }
+    if (m.find("Spacing") != m.end() && !m["Spacing"].empty()) {
+      spacing = make_shared<string>(boost::any_cast<string>(m["Spacing"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskRequestEditingConfigSpeechConfigAsrConfig() = default;
+};
+class SubmitSmartClipTaskRequestEditingConfigSpeechConfig : public Darabonba::Model {
+public:
+  shared_ptr<SubmitSmartClipTaskRequestEditingConfigSpeechConfigAsrConfig> asrConfig{};
+  shared_ptr<double> speechRate{};
+  shared_ptr<string> style{};
+  shared_ptr<string> voice{};
+  shared_ptr<double> volume{};
+
+  SubmitSmartClipTaskRequestEditingConfigSpeechConfig() {}
+
+  explicit SubmitSmartClipTaskRequestEditingConfigSpeechConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (asrConfig) {
+      res["AsrConfig"] = asrConfig ? boost::any(asrConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (speechRate) {
+      res["SpeechRate"] = boost::any(*speechRate);
+    }
+    if (style) {
+      res["Style"] = boost::any(*style);
+    }
+    if (voice) {
+      res["Voice"] = boost::any(*voice);
+    }
+    if (volume) {
+      res["Volume"] = boost::any(*volume);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AsrConfig") != m.end() && !m["AsrConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AsrConfig"].type()) {
+        SubmitSmartClipTaskRequestEditingConfigSpeechConfigAsrConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AsrConfig"]));
+        asrConfig = make_shared<SubmitSmartClipTaskRequestEditingConfigSpeechConfigAsrConfig>(model1);
+      }
+    }
+    if (m.find("SpeechRate") != m.end() && !m["SpeechRate"].empty()) {
+      speechRate = make_shared<double>(boost::any_cast<double>(m["SpeechRate"]));
+    }
+    if (m.find("Style") != m.end() && !m["Style"].empty()) {
+      style = make_shared<string>(boost::any_cast<string>(m["Style"]));
+    }
+    if (m.find("Voice") != m.end() && !m["Voice"].empty()) {
+      voice = make_shared<string>(boost::any_cast<string>(m["Voice"]));
+    }
+    if (m.find("Volume") != m.end() && !m["Volume"].empty()) {
+      volume = make_shared<double>(boost::any_cast<double>(m["Volume"]));
+    }
+  }
+
+
+  virtual ~SubmitSmartClipTaskRequestEditingConfigSpeechConfig() = default;
+};
 class SubmitSmartClipTaskRequestEditingConfigTitleConfig : public Darabonba::Model {
 public:
   shared_ptr<string> alignment{};
@@ -45975,6 +46172,9 @@ public:
 };
 class SubmitSmartClipTaskRequestEditingConfig : public Darabonba::Model {
 public:
+  shared_ptr<SubmitSmartClipTaskRequestEditingConfigBackgroundMusicConfig> backgroundMusicConfig{};
+  shared_ptr<SubmitSmartClipTaskRequestEditingConfigMediaConfig> mediaConfig{};
+  shared_ptr<SubmitSmartClipTaskRequestEditingConfigSpeechConfig> speechConfig{};
   shared_ptr<SubmitSmartClipTaskRequestEditingConfigTitleConfig> titleConfig{};
 
   SubmitSmartClipTaskRequestEditingConfig() {}
@@ -45987,6 +46187,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (backgroundMusicConfig) {
+      res["BackgroundMusicConfig"] = backgroundMusicConfig ? boost::any(backgroundMusicConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mediaConfig) {
+      res["MediaConfig"] = mediaConfig ? boost::any(mediaConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (speechConfig) {
+      res["SpeechConfig"] = speechConfig ? boost::any(speechConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (titleConfig) {
       res["TitleConfig"] = titleConfig ? boost::any(titleConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -45994,6 +46203,27 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackgroundMusicConfig") != m.end() && !m["BackgroundMusicConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BackgroundMusicConfig"].type()) {
+        SubmitSmartClipTaskRequestEditingConfigBackgroundMusicConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BackgroundMusicConfig"]));
+        backgroundMusicConfig = make_shared<SubmitSmartClipTaskRequestEditingConfigBackgroundMusicConfig>(model1);
+      }
+    }
+    if (m.find("MediaConfig") != m.end() && !m["MediaConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MediaConfig"].type()) {
+        SubmitSmartClipTaskRequestEditingConfigMediaConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MediaConfig"]));
+        mediaConfig = make_shared<SubmitSmartClipTaskRequestEditingConfigMediaConfig>(model1);
+      }
+    }
+    if (m.find("SpeechConfig") != m.end() && !m["SpeechConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SpeechConfig"].type()) {
+        SubmitSmartClipTaskRequestEditingConfigSpeechConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SpeechConfig"]));
+        speechConfig = make_shared<SubmitSmartClipTaskRequestEditingConfigSpeechConfig>(model1);
+      }
+    }
     if (m.find("TitleConfig") != m.end() && !m["TitleConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["TitleConfig"].type()) {
         SubmitSmartClipTaskRequestEditingConfigTitleConfig model1;
@@ -46355,6 +46585,7 @@ public:
 class SubmitSmartClipTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<SubmitSmartClipTaskRequestEditingConfig> editingConfig{};
+  shared_ptr<string> extendParam{};
   shared_ptr<SubmitSmartClipTaskRequestInputConfig> inputConfig{};
   shared_ptr<SubmitSmartClipTaskRequestOutputConfig> outputConfig{};
   shared_ptr<string> workspaceId{};
@@ -46371,6 +46602,9 @@ public:
     map<string, boost::any> res;
     if (editingConfig) {
       res["EditingConfig"] = editingConfig ? boost::any(editingConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (extendParam) {
+      res["ExtendParam"] = boost::any(*extendParam);
     }
     if (inputConfig) {
       res["InputConfig"] = inputConfig ? boost::any(inputConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -46391,6 +46625,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EditingConfig"]));
         editingConfig = make_shared<SubmitSmartClipTaskRequestEditingConfig>(model1);
       }
+    }
+    if (m.find("ExtendParam") != m.end() && !m["ExtendParam"].empty()) {
+      extendParam = make_shared<string>(boost::any_cast<string>(m["ExtendParam"]));
     }
     if (m.find("InputConfig") != m.end() && !m["InputConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["InputConfig"].type()) {
@@ -46417,6 +46654,7 @@ public:
 class SubmitSmartClipTaskShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> editingConfigShrink{};
+  shared_ptr<string> extendParam{};
   shared_ptr<string> inputConfigShrink{};
   shared_ptr<string> outputConfigShrink{};
   shared_ptr<string> workspaceId{};
@@ -46434,6 +46672,9 @@ public:
     if (editingConfigShrink) {
       res["EditingConfig"] = boost::any(*editingConfigShrink);
     }
+    if (extendParam) {
+      res["ExtendParam"] = boost::any(*extendParam);
+    }
     if (inputConfigShrink) {
       res["InputConfig"] = boost::any(*inputConfigShrink);
     }
@@ -46449,6 +46690,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EditingConfig") != m.end() && !m["EditingConfig"].empty()) {
       editingConfigShrink = make_shared<string>(boost::any_cast<string>(m["EditingConfig"]));
+    }
+    if (m.find("ExtendParam") != m.end() && !m["ExtendParam"].empty()) {
+      extendParam = make_shared<string>(boost::any_cast<string>(m["ExtendParam"]));
     }
     if (m.find("InputConfig") != m.end() && !m["InputConfig"].empty()) {
       inputConfigShrink = make_shared<string>(boost::any_cast<string>(m["InputConfig"]));

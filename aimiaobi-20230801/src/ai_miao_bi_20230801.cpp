@@ -4763,6 +4763,9 @@ SubmitSmartClipTaskResponse Alibabacloud_AiMiaoBi20230801::Client::submitSmartCl
   if (!Darabonba_Util::Client::isUnset<string>(request->editingConfigShrink)) {
     body->insert(pair<string, string>("EditingConfig", *request->editingConfigShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extendParam)) {
+    body->insert(pair<string, string>("ExtendParam", *request->extendParam));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputConfigShrink)) {
     body->insert(pair<string, string>("InputConfig", *request->inputConfigShrink));
   }
