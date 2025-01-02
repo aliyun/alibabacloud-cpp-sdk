@@ -1,3 +1,6 @@
+2025-01-02 Version: 1.0.10
+- Generated cpp 2022-01-04 for MaxCompute.
+
 2024-06-24 Version: 1.0.9
 - Generated cpp 2022-01-04 for MaxCompute.
 
