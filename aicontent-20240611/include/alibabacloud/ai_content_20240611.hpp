@@ -4378,8 +4378,8 @@ public:
 };
 class GetAITeacherSyncDialogueSuggestionResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> chineseResult{};
   shared_ptr<string> englishResult{};
-  shared_ptr<string> englishResult1{};
 
   GetAITeacherSyncDialogueSuggestionResponseBodyData() {}
 
@@ -4391,21 +4391,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (chineseResult) {
+      res["chineseResult"] = boost::any(*chineseResult);
+    }
     if (englishResult) {
       res["englishResult"] = boost::any(*englishResult);
-    }
-    if (englishResult1) {
-      res["englishResult1"] = boost::any(*englishResult1);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("chineseResult") != m.end() && !m["chineseResult"].empty()) {
+      chineseResult = make_shared<string>(boost::any_cast<string>(m["chineseResult"]));
+    }
     if (m.find("englishResult") != m.end() && !m["englishResult"].empty()) {
       englishResult = make_shared<string>(boost::any_cast<string>(m["englishResult"]));
-    }
-    if (m.find("englishResult1") != m.end() && !m["englishResult1"].empty()) {
-      englishResult1 = make_shared<string>(boost::any_cast<string>(m["englishResult1"]));
     }
   }
 
