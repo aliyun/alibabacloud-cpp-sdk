@@ -179,6 +179,51 @@ CreateClusterResponse Alibabacloud_Eflo-controller20221215::Client::createCluste
   return createClusterWithOptions(request, runtime);
 }
 
+CreateDiagnosticTaskResponse Alibabacloud_Eflo-controller20221215::Client::createDiagnosticTaskWithOptions(shared_ptr<CreateDiagnosticTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDiagnosticTaskShrinkRequest> request = make_shared<CreateDiagnosticTaskShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateDiagnosticTaskRequestAiJobLogInfo>(tmpReq->aiJobLogInfo)) {
+    request->aiJobLogInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->aiJobLogInfo, make_shared<string>("AiJobLogInfo"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->nodeIds)) {
+    request->nodeIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->nodeIds, make_shared<string>("NodeIds"), make_shared<string>("simple")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aiJobLogInfoShrink)) {
+    body->insert(pair<string, string>("AiJobLogInfo", *request->aiJobLogInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    body->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->diagnosticType)) {
+    body->insert(pair<string, string>("DiagnosticType", *request->diagnosticType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeIdsShrink)) {
+    body->insert(pair<string, string>("NodeIds", *request->nodeIdsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDiagnosticTask"))},
+    {"version", boost::any(string("2022-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDiagnosticTaskResponse(callApi(params, req, runtime));
+}
+
+CreateDiagnosticTaskResponse Alibabacloud_Eflo-controller20221215::Client::createDiagnosticTask(shared_ptr<CreateDiagnosticTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDiagnosticTaskWithOptions(request, runtime);
+}
+
 DeleteClusterResponse Alibabacloud_Eflo-controller20221215::Client::deleteClusterWithOptions(shared_ptr<DeleteClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -718,6 +763,9 @@ RunCommandResponse Alibabacloud_Eflo-controller20221215::Client::runCommandWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->commandContent)) {
     body->insert(pair<string, string>("CommandContent", *request->commandContent));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->commandId)) {
+    body->insert(pair<string, string>("CommandId", *request->commandId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->contentEncoding)) {
     body->insert(pair<string, string>("ContentEncoding", *request->contentEncoding));
   }
@@ -730,6 +778,9 @@ RunCommandResponse Alibabacloud_Eflo-controller20221215::Client::runCommandWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->frequency)) {
     body->insert(pair<string, string>("Frequency", *request->frequency));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->launcher)) {
+    body->insert(pair<string, string>("Launcher", *request->launcher));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
   }
@@ -741,6 +792,9 @@ RunCommandResponse Alibabacloud_Eflo-controller20221215::Client::runCommandWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->repeatMode)) {
     body->insert(pair<string, string>("RepeatMode", *request->repeatMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->terminationMode)) {
+    body->insert(pair<string, string>("TerminationMode", *request->terminationMode));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->timeout)) {
     body->insert(pair<string, long>("Timeout", *request->timeout));
