@@ -150,7 +150,7 @@ public:
   shared_ptr<ThirdAppOidcSsoConfigEndpoints> endpoints{};
   shared_ptr<vector<string>> grantScopes{};
   shared_ptr<vector<string>> grantTypes{};
-  shared_ptr<long> idTokenAlgorithmType{};
+  shared_ptr<string> idTokenAlgorithmType{};
   shared_ptr<long> idTokenEffectiveTime{};
   shared_ptr<vector<string>> redirectUris{};
   shared_ptr<long> refreshTokenEffective{};
@@ -236,7 +236,7 @@ public:
       grantTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("IdTokenAlgorithmType") != m.end() && !m["IdTokenAlgorithmType"].empty()) {
-      idTokenAlgorithmType = make_shared<long>(boost::any_cast<long>(m["IdTokenAlgorithmType"]));
+      idTokenAlgorithmType = make_shared<string>(boost::any_cast<string>(m["IdTokenAlgorithmType"]));
     }
     if (m.find("IdTokenEffectiveTime") != m.end() && !m["IdTokenEffectiveTime"].empty()) {
       idTokenEffectiveTime = make_shared<long>(boost::any_cast<long>(m["IdTokenEffectiveTime"]));
@@ -2266,6 +2266,7 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<map<string, bool>> filterWithAssignedResources{};
   shared_ptr<string> groupId{};
+  shared_ptr<bool> isQueryAllSubOrgs{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> orgId{};
@@ -2299,6 +2300,9 @@ public:
     }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
+    }
+    if (isQueryAllSubOrgs) {
+      res["IsQueryAllSubOrgs"] = boost::any(*isQueryAllSubOrgs);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -2356,6 +2360,9 @@ public:
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
     }
+    if (m.find("IsQueryAllSubOrgs") != m.end() && !m["IsQueryAllSubOrgs"].empty()) {
+      isQueryAllSubOrgs = make_shared<bool>(boost::any_cast<bool>(m["IsQueryAllSubOrgs"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -2389,6 +2396,7 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<string> filterWithAssignedResourcesShrink{};
   shared_ptr<string> groupId{};
+  shared_ptr<bool> isQueryAllSubOrgs{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> orgId{};
@@ -2422,6 +2430,9 @@ public:
     }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
+    }
+    if (isQueryAllSubOrgs) {
+      res["IsQueryAllSubOrgs"] = boost::any(*isQueryAllSubOrgs);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -2473,6 +2484,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("IsQueryAllSubOrgs") != m.end() && !m["IsQueryAllSubOrgs"].empty()) {
+      isQueryAllSubOrgs = make_shared<bool>(boost::any_cast<bool>(m["IsQueryAllSubOrgs"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));

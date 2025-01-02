@@ -379,6 +379,9 @@ DescribeUsersResponse Alibabacloud_Eds-user20210308::Client::describeUsersWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     body->insert(pair<string, string>("GroupId", *request->groupId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isQueryAllSubOrgs)) {
+    body->insert(pair<string, bool>("IsQueryAllSubOrgs", *request->isQueryAllSubOrgs));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
     body->insert(pair<string, string>("OrgId", *request->orgId));
   }
