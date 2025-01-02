@@ -21454,6 +21454,7 @@ public:
   shared_ptr<bool> enableGreyTagRoute{};
   shared_ptr<bool> enableIdle{};
   shared_ptr<bool> enableNewArms{};
+  shared_ptr<bool> enabledle{};
   shared_ptr<string> envs{};
   shared_ptr<string> imagePullSecrets{};
   shared_ptr<string> imageUrl{};
@@ -21585,6 +21586,9 @@ public:
     }
     if (enableNewArms) {
       res["EnableNewArms"] = boost::any(*enableNewArms);
+    }
+    if (enabledle) {
+      res["Enabledle"] = boost::any(*enabledle);
     }
     if (envs) {
       res["Envs"] = boost::any(*envs);
@@ -21844,6 +21848,9 @@ public:
     }
     if (m.find("EnableNewArms") != m.end() && !m["EnableNewArms"].empty()) {
       enableNewArms = make_shared<bool>(boost::any_cast<bool>(m["EnableNewArms"]));
+    }
+    if (m.find("Enabledle") != m.end() && !m["Enabledle"].empty()) {
+      enabledle = make_shared<bool>(boost::any_cast<bool>(m["Enabledle"]));
     }
     if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
       envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
@@ -35372,6 +35379,7 @@ public:
 class GetWebshellTokenRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> containerName{};
   shared_ptr<string> podName{};
 
   GetWebshellTokenRequest() {}
@@ -35387,6 +35395,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (containerName) {
+      res["ContainerName"] = boost::any(*containerName);
+    }
     if (podName) {
       res["PodName"] = boost::any(*podName);
     }
@@ -35396,6 +35407,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ContainerName") != m.end() && !m["ContainerName"].empty()) {
+      containerName = make_shared<string>(boost::any_cast<string>(m["ContainerName"]));
     }
     if (m.find("PodName") != m.end() && !m["PodName"].empty()) {
       podName = make_shared<string>(boost::any_cast<string>(m["PodName"]));

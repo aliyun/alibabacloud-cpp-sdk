@@ -3238,6 +3238,9 @@ GetWebshellTokenResponse Alibabacloud_Sae20190506::Client::getWebshellTokenWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->containerName)) {
+    query->insert(pair<string, string>("ContainerName", *request->containerName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->podName)) {
     query->insert(pair<string, string>("PodName", *request->podName));
   }
