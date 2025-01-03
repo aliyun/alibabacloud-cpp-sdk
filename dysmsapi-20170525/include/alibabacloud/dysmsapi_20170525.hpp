@@ -4258,6 +4258,7 @@ public:
   shared_ptr<string> message{};
   shared_ptr<string> orderId{};
   shared_ptr<long> qualificationId{};
+  shared_ptr<long> registerResult{};
   shared_ptr<string> remark{};
   shared_ptr<string> requestId{};
   shared_ptr<string> signCode{};
@@ -4300,6 +4301,9 @@ public:
     }
     if (qualificationId) {
       res["QualificationId"] = boost::any(*qualificationId);
+    }
+    if (registerResult) {
+      res["RegisterResult"] = boost::any(*registerResult);
     }
     if (remark) {
       res["Remark"] = boost::any(*remark);
@@ -4363,6 +4367,9 @@ public:
     }
     if (m.find("QualificationId") != m.end() && !m["QualificationId"].empty()) {
       qualificationId = make_shared<long>(boost::any_cast<long>(m["QualificationId"]));
+    }
+    if (m.find("RegisterResult") != m.end() && !m["RegisterResult"].empty()) {
+      registerResult = make_shared<long>(boost::any_cast<long>(m["RegisterResult"]));
     }
     if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
