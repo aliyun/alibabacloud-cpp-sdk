@@ -216,6 +216,7 @@ public:
 class AddFileRequest : public Darabonba::Model {
 public:
   shared_ptr<string> categoryId{};
+  shared_ptr<string> categoryType{};
   shared_ptr<string> leaseId{};
   shared_ptr<string> parser{};
   shared_ptr<vector<string>> tags{};
@@ -233,6 +234,9 @@ public:
     if (categoryId) {
       res["CategoryId"] = boost::any(*categoryId);
     }
+    if (categoryType) {
+      res["CategoryType"] = boost::any(*categoryType);
+    }
     if (leaseId) {
       res["LeaseId"] = boost::any(*leaseId);
     }
@@ -248,6 +252,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
       categoryId = make_shared<string>(boost::any_cast<string>(m["CategoryId"]));
+    }
+    if (m.find("CategoryType") != m.end() && !m["CategoryType"].empty()) {
+      categoryType = make_shared<string>(boost::any_cast<string>(m["CategoryType"]));
     }
     if (m.find("LeaseId") != m.end() && !m["LeaseId"].empty()) {
       leaseId = make_shared<string>(boost::any_cast<string>(m["LeaseId"]));
@@ -273,6 +280,7 @@ public:
 class AddFileShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> categoryId{};
+  shared_ptr<string> categoryType{};
   shared_ptr<string> leaseId{};
   shared_ptr<string> parser{};
   shared_ptr<string> tagsShrink{};
@@ -290,6 +298,9 @@ public:
     if (categoryId) {
       res["CategoryId"] = boost::any(*categoryId);
     }
+    if (categoryType) {
+      res["CategoryType"] = boost::any(*categoryType);
+    }
     if (leaseId) {
       res["LeaseId"] = boost::any(*leaseId);
     }
@@ -305,6 +316,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
       categoryId = make_shared<string>(boost::any_cast<string>(m["CategoryId"]));
+    }
+    if (m.find("CategoryType") != m.end() && !m["CategoryType"].empty()) {
+      categoryType = make_shared<string>(boost::any_cast<string>(m["CategoryType"]));
     }
     if (m.find("LeaseId") != m.end() && !m["LeaseId"].empty()) {
       leaseId = make_shared<string>(boost::any_cast<string>(m["LeaseId"]));
@@ -478,6 +492,7 @@ public:
 };
 class ApplyFileUploadLeaseRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> categoryType{};
   shared_ptr<string> fileName{};
   shared_ptr<string> md5{};
   shared_ptr<string> sizeInBytes{};
@@ -492,6 +507,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (categoryType) {
+      res["CategoryType"] = boost::any(*categoryType);
+    }
     if (fileName) {
       res["FileName"] = boost::any(*fileName);
     }
@@ -505,6 +523,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryType") != m.end() && !m["CategoryType"].empty()) {
+      categoryType = make_shared<string>(boost::any_cast<string>(m["CategoryType"]));
+    }
     if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
       fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
     }
@@ -1697,6 +1718,7 @@ public:
   shared_ptr<string> sinkType{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> structureType{};
+  shared_ptr<bool> enableHeaders{};
   shared_ptr<vector<CreateIndexRequestMetaExtractColumns>> metaExtractColumns{};
 
   CreateIndexRequest() {}
@@ -1763,6 +1785,9 @@ public:
     }
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
+    }
+    if (enableHeaders) {
+      res["enableHeaders"] = boost::any(*enableHeaders);
     }
     if (metaExtractColumns) {
       vector<boost::any> temp1;
@@ -1854,6 +1879,9 @@ public:
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
     }
+    if (m.find("enableHeaders") != m.end() && !m["enableHeaders"].empty()) {
+      enableHeaders = make_shared<bool>(boost::any_cast<bool>(m["enableHeaders"]));
+    }
     if (m.find("metaExtractColumns") != m.end() && !m["metaExtractColumns"].empty()) {
       if (typeid(vector<boost::any>) == m["metaExtractColumns"].type()) {
         vector<CreateIndexRequestMetaExtractColumns> expect1;
@@ -1891,6 +1919,7 @@ public:
   shared_ptr<string> sinkType{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> structureType{};
+  shared_ptr<bool> enableHeaders{};
   shared_ptr<string> metaExtractColumnsShrink{};
 
   CreateIndexShrinkRequest() {}
@@ -1954,6 +1983,9 @@ public:
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
     }
+    if (enableHeaders) {
+      res["enableHeaders"] = boost::any(*enableHeaders);
+    }
     if (metaExtractColumnsShrink) {
       res["metaExtractColumns"] = boost::any(*metaExtractColumnsShrink);
     }
@@ -2011,6 +2043,9 @@ public:
     }
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
+    }
+    if (m.find("enableHeaders") != m.end() && !m["enableHeaders"].empty()) {
+      enableHeaders = make_shared<bool>(boost::any_cast<bool>(m["enableHeaders"]));
     }
     if (m.find("metaExtractColumns") != m.end() && !m["metaExtractColumns"].empty()) {
       metaExtractColumnsShrink = make_shared<string>(boost::any_cast<string>(m["metaExtractColumns"]));

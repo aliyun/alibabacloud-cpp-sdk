@@ -90,6 +90,9 @@ AddFileResponse Alibabacloud_Bailian20231229::Client::addFileWithOptions(shared_
   if (!Darabonba_Util::Client::isUnset<string>(request->categoryId)) {
     body->insert(pair<string, string>("CategoryId", *request->categoryId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->categoryType)) {
+    body->insert(pair<string, string>("CategoryType", *request->categoryType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->leaseId)) {
     body->insert(pair<string, string>("LeaseId", *request->leaseId));
   }
@@ -130,6 +133,9 @@ ApplyFileUploadLeaseResponse Alibabacloud_Bailian20231229::Client::applyFileUplo
                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->categoryType)) {
+    body->insert(pair<string, string>("CategoryType", *request->categoryType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
     body->insert(pair<string, string>("FileName", *request->fileName));
   }
@@ -289,6 +295,9 @@ CreateIndexResponse Alibabacloud_Bailian20231229::Client::createIndexWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->structureType)) {
     query->insert(pair<string, string>("StructureType", *request->structureType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableHeaders)) {
+    query->insert(pair<string, bool>("enableHeaders", *request->enableHeaders));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->metaExtractColumnsShrink)) {
     query->insert(pair<string, string>("metaExtractColumns", *request->metaExtractColumnsShrink));
