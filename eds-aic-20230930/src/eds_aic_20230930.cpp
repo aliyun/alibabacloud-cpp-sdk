@@ -109,6 +109,9 @@ BackupFileResponse Alibabacloud_Eds-aic20230930::Client::backupFileWithOptions(s
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->androidInstanceIdList)) {
     query->insert(pair<string, vector<string>>("AndroidInstanceIdList", *request->androidInstanceIdList));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->backupAll)) {
+    query->insert(pair<string, bool>("BackupAll", *request->backupAll));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->backupFileName)) {
     query->insert(pair<string, string>("BackupFileName", *request->backupFileName));
   }
@@ -797,6 +800,9 @@ DescribeBackupFilesResponse Alibabacloud_Eds-aic20230930::Client::describeBackup
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->androidInstanceName)) {
     query->insert(pair<string, string>("AndroidInstanceName", *request->androidInstanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->backupAll)) {
+    query->insert(pair<string, bool>("BackupAll", *request->backupAll));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->backupFileId)) {
     query->insert(pair<string, string>("BackupFileId", *request->backupFileId));
@@ -1600,6 +1606,9 @@ RecoveryFileResponse Alibabacloud_Eds-aic20230930::Client::recoveryFileWithOptio
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->androidInstanceIdList)) {
     query->insert(pair<string, vector<string>>("AndroidInstanceIdList", *request->androidInstanceIdList));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->backupAll)) {
+    query->insert(pair<string, bool>("BackupAll", *request->backupAll));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->backupFileId)) {
     query->insert(pair<string, string>("BackupFileId", *request->backupFileId));

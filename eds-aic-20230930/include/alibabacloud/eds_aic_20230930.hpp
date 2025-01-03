@@ -375,6 +375,7 @@ public:
 class BackupFileRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIdList{};
+  shared_ptr<bool> backupAll{};
   shared_ptr<string> backupFileName{};
   shared_ptr<string> backupFilePath{};
   shared_ptr<string> description{};
@@ -395,6 +396,9 @@ public:
     map<string, boost::any> res;
     if (androidInstanceIdList) {
       res["AndroidInstanceIdList"] = boost::any(*androidInstanceIdList);
+    }
+    if (backupAll) {
+      res["BackupAll"] = boost::any(*backupAll);
     }
     if (backupFileName) {
       res["BackupFileName"] = boost::any(*backupFileName);
@@ -430,6 +434,9 @@ public:
         }
       }
       androidInstanceIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BackupAll") != m.end() && !m["BackupAll"].empty()) {
+      backupAll = make_shared<bool>(boost::any_cast<bool>(m["BackupAll"]));
     }
     if (m.find("BackupFileName") != m.end() && !m["BackupFileName"].empty()) {
       backupFileName = make_shared<string>(boost::any_cast<string>(m["BackupFileName"]));
@@ -3645,6 +3652,7 @@ public:
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtExpired{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<string> imageVersion{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> keyPairId{};
   shared_ptr<long> memory{};
@@ -3652,6 +3660,7 @@ public:
   shared_ptr<string> officeSiteId{};
   shared_ptr<string> persistentAppInstanceId{};
   shared_ptr<string> policyGroupId{};
+  shared_ptr<string> publicIpAddress{};
   shared_ptr<long> rate{};
   shared_ptr<string> regionId{};
   shared_ptr<string> renderingType{};
@@ -3719,6 +3728,9 @@ public:
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
     }
+    if (imageVersion) {
+      res["ImageVersion"] = boost::any(*imageVersion);
+    }
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
     }
@@ -3739,6 +3751,9 @@ public:
     }
     if (policyGroupId) {
       res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (publicIpAddress) {
+      res["PublicIpAddress"] = boost::any(*publicIpAddress);
     }
     if (rate) {
       res["Rate"] = boost::any(*rate);
@@ -3818,6 +3833,9 @@ public:
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
     }
+    if (m.find("ImageVersion") != m.end() && !m["ImageVersion"].empty()) {
+      imageVersion = make_shared<string>(boost::any_cast<string>(m["ImageVersion"]));
+    }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
@@ -3838,6 +3856,9 @@ public:
     }
     if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
       policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("PublicIpAddress") != m.end() && !m["PublicIpAddress"].empty()) {
+      publicIpAddress = make_shared<string>(boost::any_cast<string>(m["PublicIpAddress"]));
     }
     if (m.find("Rate") != m.end() && !m["Rate"].empty()) {
       rate = make_shared<long>(boost::any_cast<long>(m["Rate"]));
@@ -4314,6 +4335,7 @@ class DescribeBackupFilesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> androidInstanceId{};
   shared_ptr<string> androidInstanceName{};
+  shared_ptr<bool> backupAll{};
   shared_ptr<string> backupFileId{};
   shared_ptr<string> backupFileName{};
   shared_ptr<string> description{};
@@ -4340,6 +4362,9 @@ public:
     }
     if (androidInstanceName) {
       res["AndroidInstanceName"] = boost::any(*androidInstanceName);
+    }
+    if (backupAll) {
+      res["BackupAll"] = boost::any(*backupAll);
     }
     if (backupFileId) {
       res["BackupFileId"] = boost::any(*backupFileId);
@@ -4380,6 +4405,9 @@ public:
     }
     if (m.find("AndroidInstanceName") != m.end() && !m["AndroidInstanceName"].empty()) {
       androidInstanceName = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceName"]));
+    }
+    if (m.find("BackupAll") != m.end() && !m["BackupAll"].empty()) {
+      backupAll = make_shared<bool>(boost::any_cast<bool>(m["BackupAll"]));
     }
     if (m.find("BackupFileId") != m.end() && !m["BackupFileId"].empty()) {
       backupFileId = make_shared<string>(boost::any_cast<string>(m["BackupFileId"]));
@@ -4427,6 +4455,7 @@ class DescribeBackupFilesResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> androidInstanceId{};
   shared_ptr<string> androidInstanceName{};
+  shared_ptr<bool> backupAll{};
   shared_ptr<string> backupFileId{};
   shared_ptr<string> backupFileName{};
   shared_ptr<string> backupFilePath{};
@@ -4459,6 +4488,9 @@ public:
     }
     if (androidInstanceName) {
       res["AndroidInstanceName"] = boost::any(*androidInstanceName);
+    }
+    if (backupAll) {
+      res["BackupAll"] = boost::any(*backupAll);
     }
     if (backupFileId) {
       res["BackupFileId"] = boost::any(*backupFileId);
@@ -4517,6 +4549,9 @@ public:
     }
     if (m.find("AndroidInstanceName") != m.end() && !m["AndroidInstanceName"].empty()) {
       androidInstanceName = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceName"]));
+    }
+    if (m.find("BackupAll") != m.end() && !m["BackupAll"].empty()) {
+      backupAll = make_shared<bool>(boost::any_cast<bool>(m["BackupAll"]));
     }
     if (m.find("BackupFileId") != m.end() && !m["BackupFileId"].empty()) {
       backupFileId = make_shared<string>(boost::any_cast<string>(m["BackupFileId"]));
@@ -6035,6 +6070,7 @@ public:
   shared_ptr<string> finishTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
+  shared_ptr<string> instanceStatus{};
   shared_ptr<string> invokeId{};
   shared_ptr<long> level{};
   shared_ptr<string> operator_{};
@@ -6078,6 +6114,9 @@ public:
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (instanceStatus) {
+      res["InstanceStatus"] = boost::any(*instanceStatus);
     }
     if (invokeId) {
       res["InvokeId"] = boost::any(*invokeId);
@@ -6145,6 +6184,9 @@ public:
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("InstanceStatus") != m.end() && !m["InstanceStatus"].empty()) {
+      instanceStatus = make_shared<string>(boost::any_cast<string>(m["InstanceStatus"]));
     }
     if (m.find("InvokeId") != m.end() && !m["InvokeId"].empty()) {
       invokeId = make_shared<string>(boost::any_cast<string>(m["InvokeId"]));
@@ -8739,6 +8781,7 @@ public:
 class RecoveryFileRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIdList{};
+  shared_ptr<bool> backupAll{};
   shared_ptr<string> backupFileId{};
   shared_ptr<string> backupFilePath{};
   shared_ptr<string> uploadEndpoint{};
@@ -8756,6 +8799,9 @@ public:
     map<string, boost::any> res;
     if (androidInstanceIdList) {
       res["AndroidInstanceIdList"] = boost::any(*androidInstanceIdList);
+    }
+    if (backupAll) {
+      res["BackupAll"] = boost::any(*backupAll);
     }
     if (backupFileId) {
       res["BackupFileId"] = boost::any(*backupFileId);
@@ -8782,6 +8828,9 @@ public:
         }
       }
       androidInstanceIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BackupAll") != m.end() && !m["BackupAll"].empty()) {
+      backupAll = make_shared<bool>(boost::any_cast<bool>(m["BackupAll"]));
     }
     if (m.find("BackupFileId") != m.end() && !m["BackupFileId"].empty()) {
       backupFileId = make_shared<string>(boost::any_cast<string>(m["BackupFileId"]));
