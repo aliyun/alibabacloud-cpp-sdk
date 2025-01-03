@@ -10153,6 +10153,7 @@ public:
 };
 class GetInstanceResponseBodyResult : public Darabonba::Model {
 public:
+  shared_ptr<string> bsVersion{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> commodityCode{};
   shared_ptr<string> createTime{};
@@ -10183,6 +10184,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bsVersion) {
+      res["bsVersion"] = boost::any(*bsVersion);
+    }
     if (chargeType) {
       res["chargeType"] = boost::any(*chargeType);
     }
@@ -10248,6 +10252,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("bsVersion") != m.end() && !m["bsVersion"].empty()) {
+      bsVersion = make_shared<string>(boost::any_cast<string>(m["bsVersion"]));
+    }
     if (m.find("chargeType") != m.end() && !m["chargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["chargeType"]));
     }
@@ -11810,6 +11817,8 @@ public:
   shared_ptr<string> dataSourceName{};
   shared_ptr<string> indexName{};
   shared_ptr<bool> newMode{};
+  shared_ptr<string> pageNumber{};
+  shared_ptr<string> pageSize{};
   shared_ptr<string> type{};
 
   ListAdvanceConfigsRequest() {}
@@ -11831,6 +11840,12 @@ public:
     if (newMode) {
       res["newMode"] = boost::any(*newMode);
     }
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
     if (type) {
       res["type"] = boost::any(*type);
     }
@@ -11846,6 +11861,12 @@ public:
     }
     if (m.find("newMode") != m.end() && !m["newMode"].empty()) {
       newMode = make_shared<bool>(boost::any_cast<bool>(m["newMode"]));
+    }
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<string>(boost::any_cast<string>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["pageSize"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));

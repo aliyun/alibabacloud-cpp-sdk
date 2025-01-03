@@ -1670,6 +1670,12 @@ ListAdvanceConfigsResponse Alibabacloud_Searchengine20211025::Client::listAdvanc
   if (!Darabonba_Util::Client::isUnset<bool>(request->newMode)) {
     query->insert(pair<string, bool>("newMode", *request->newMode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageNumber)) {
+    query->insert(pair<string, string>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("pageSize", *request->pageSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("type", *request->type));
   }
