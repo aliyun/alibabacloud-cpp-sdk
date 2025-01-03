@@ -1073,6 +1073,9 @@ DescribeEventsResponse Alibabacloud_Ebs20210730::Client::describeEventsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventLevel)) {
+    query->insert(pair<string, string>("EventLevel", *request->eventLevel));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->eventName)) {
     query->insert(pair<string, string>("EventName", *request->eventName));
   }
@@ -1124,6 +1127,9 @@ DescribeLensMonitorDisksResponse Alibabacloud_Ebs20210730::Client::describeLensM
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->diskCategory)) {
     query->insert(pair<string, string>("DiskCategory", *request->diskCategory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->diskIdPattern)) {
+    query->insert(pair<string, string>("DiskIdPattern", *request->diskIdPattern));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->diskIds)) {
     query->insert(pair<string, vector<string>>("DiskIds", *request->diskIds));

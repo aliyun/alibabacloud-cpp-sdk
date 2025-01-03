@@ -6503,6 +6503,7 @@ public:
 class DescribeEventsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
+  shared_ptr<string> eventLevel{};
   shared_ptr<string> eventName{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -6524,6 +6525,9 @@ public:
     map<string, boost::any> res;
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (eventLevel) {
+      res["EventLevel"] = boost::any(*eventLevel);
     }
     if (eventName) {
       res["EventName"] = boost::any(*eventName);
@@ -6555,6 +6559,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("EventLevel") != m.end() && !m["EventLevel"].empty()) {
+      eventLevel = make_shared<string>(boost::any_cast<string>(m["EventLevel"]));
     }
     if (m.find("EventName") != m.end() && !m["EventName"].empty()) {
       eventName = make_shared<string>(boost::any_cast<string>(m["EventName"]));
@@ -6592,6 +6599,7 @@ public:
   shared_ptr<string> eventLevel{};
   shared_ptr<string> eventName{};
   shared_ptr<string> eventType{};
+  shared_ptr<string> extraAttributes{};
   shared_ptr<string> recommendAction{};
   shared_ptr<string> recommendParams{};
   shared_ptr<string> resourceId{};
@@ -6623,6 +6631,9 @@ public:
     }
     if (eventType) {
       res["EventType"] = boost::any(*eventType);
+    }
+    if (extraAttributes) {
+      res["ExtraAttributes"] = boost::any(*extraAttributes);
     }
     if (recommendAction) {
       res["RecommendAction"] = boost::any(*recommendAction);
@@ -6660,6 +6671,9 @@ public:
     }
     if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
       eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
+    }
+    if (m.find("ExtraAttributes") != m.end() && !m["ExtraAttributes"].empty()) {
+      extraAttributes = make_shared<string>(boost::any_cast<string>(m["ExtraAttributes"]));
     }
     if (m.find("RecommendAction") != m.end() && !m["RecommendAction"].empty()) {
       recommendAction = make_shared<string>(boost::any_cast<string>(m["RecommendAction"]));
@@ -6803,6 +6817,7 @@ public:
 class DescribeLensMonitorDisksRequest : public Darabonba::Model {
 public:
   shared_ptr<string> diskCategory{};
+  shared_ptr<string> diskIdPattern{};
   shared_ptr<vector<string>> diskIds{};
   shared_ptr<vector<string>> lensTags{};
   shared_ptr<long> maxResults{};
@@ -6821,6 +6836,9 @@ public:
     map<string, boost::any> res;
     if (diskCategory) {
       res["DiskCategory"] = boost::any(*diskCategory);
+    }
+    if (diskIdPattern) {
+      res["DiskIdPattern"] = boost::any(*diskIdPattern);
     }
     if (diskIds) {
       res["DiskIds"] = boost::any(*diskIds);
@@ -6843,6 +6861,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DiskCategory") != m.end() && !m["DiskCategory"].empty()) {
       diskCategory = make_shared<string>(boost::any_cast<string>(m["DiskCategory"]));
+    }
+    if (m.find("DiskIdPattern") != m.end() && !m["DiskIdPattern"].empty()) {
+      diskIdPattern = make_shared<string>(boost::any_cast<string>(m["DiskIdPattern"]));
     }
     if (m.find("DiskIds") != m.end() && !m["DiskIds"].empty()) {
       vector<string> toVec1;
