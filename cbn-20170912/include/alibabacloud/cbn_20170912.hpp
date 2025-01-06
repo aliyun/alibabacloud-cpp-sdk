@@ -4981,6 +4981,35 @@ public:
 
   virtual ~CreateTransitRouterEcrAttachmentResponse() = default;
 };
+class CreateTransitRouterMulticastDomainRequestOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> igmpv2Support{};
+
+  CreateTransitRouterMulticastDomainRequestOptions() {}
+
+  explicit CreateTransitRouterMulticastDomainRequestOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (igmpv2Support) {
+      res["Igmpv2Support"] = boost::any(*igmpv2Support);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Igmpv2Support") != m.end() && !m["Igmpv2Support"].empty()) {
+      igmpv2Support = make_shared<string>(boost::any_cast<string>(m["Igmpv2Support"]));
+    }
+  }
+
+
+  virtual ~CreateTransitRouterMulticastDomainRequestOptions() = default;
+};
 class CreateTransitRouterMulticastDomainRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -5022,6 +5051,7 @@ public:
   shared_ptr<string> cenId{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
+  shared_ptr<CreateTransitRouterMulticastDomainRequestOptions> options{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -5050,6 +5080,9 @@ public:
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
+    }
+    if (options) {
+      res["Options"] = options ? boost::any(options->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -5094,6 +5127,13 @@ public:
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Options"].type()) {
+        CreateTransitRouterMulticastDomainRequestOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Options"]));
+        options = make_shared<CreateTransitRouterMulticastDomainRequestOptions>(model1);
+      }
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -26059,6 +26099,35 @@ public:
 
   virtual ~ListTransitRouterMulticastDomainsRequest() = default;
 };
+class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> igmpv2Support{};
+
+  ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsOptions() {}
+
+  explicit ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (igmpv2Support) {
+      res["Igmpv2Support"] = boost::any(*igmpv2Support);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Igmpv2Support") != m.end() && !m["Igmpv2Support"].empty()) {
+      igmpv2Support = make_shared<string>(boost::any_cast<string>(m["Igmpv2Support"]));
+    }
+  }
+
+
+  virtual ~ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsOptions() = default;
+};
 class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -26098,6 +26167,7 @@ public:
 class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomains : public Darabonba::Model {
 public:
   shared_ptr<string> cenId{};
+  shared_ptr<ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsOptions> options{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
   shared_ptr<vector<ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsTags>> tags{};
@@ -26118,6 +26188,9 @@ public:
     map<string, boost::any> res;
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
+    }
+    if (options) {
+      res["Options"] = options ? boost::any(options->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -26150,6 +26223,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Options"].type()) {
+        ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Options"]));
+        options = make_shared<ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsOptions>(model1);
+      }
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -32671,10 +32751,40 @@ public:
 
   virtual ~ModifyTransitRouterCidrResponse() = default;
 };
+class ModifyTransitRouterMulticastDomainRequestOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> igmpv2Support{};
+
+  ModifyTransitRouterMulticastDomainRequestOptions() {}
+
+  explicit ModifyTransitRouterMulticastDomainRequestOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (igmpv2Support) {
+      res["Igmpv2Support"] = boost::any(*igmpv2Support);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Igmpv2Support") != m.end() && !m["Igmpv2Support"].empty()) {
+      igmpv2Support = make_shared<string>(boost::any_cast<string>(m["Igmpv2Support"]));
+    }
+  }
+
+
+  virtual ~ModifyTransitRouterMulticastDomainRequestOptions() = default;
+};
 class ModifyTransitRouterMulticastDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
+  shared_ptr<ModifyTransitRouterMulticastDomainRequestOptions> options{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -32698,6 +32808,9 @@ public:
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
+    }
+    if (options) {
+      res["Options"] = options ? boost::any(options->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -32729,6 +32842,13 @@ public:
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Options"].type()) {
+        ModifyTransitRouterMulticastDomainRequestOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Options"]));
+        options = make_shared<ModifyTransitRouterMulticastDomainRequestOptions>(model1);
+      }
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));

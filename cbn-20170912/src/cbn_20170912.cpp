@@ -1311,6 +1311,9 @@ CreateTransitRouterMulticastDomainResponse Alibabacloud_Cbn20170912::Client::cre
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateTransitRouterMulticastDomainRequestOptions>(request->options)) {
+    query->insert(pair<string, CreateTransitRouterMulticastDomainRequestOptions>("Options", *request->options));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -6678,6 +6681,9 @@ ModifyTransitRouterMulticastDomainResponse Alibabacloud_Cbn20170912::Client::mod
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<ModifyTransitRouterMulticastDomainRequestOptions>(request->options)) {
+    query->insert(pair<string, ModifyTransitRouterMulticastDomainRequestOptions>("Options", *request->options));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
