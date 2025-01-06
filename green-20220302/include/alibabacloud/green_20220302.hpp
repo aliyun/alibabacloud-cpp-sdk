@@ -4820,6 +4820,8 @@ public:
 class TextModerationResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
+  shared_ptr<string> dataId{};
+  shared_ptr<string> descriptions{};
   shared_ptr<string> deviceId{};
   shared_ptr<string> labels{};
   shared_ptr<string> reason{};
@@ -4837,6 +4839,12 @@ public:
     if (accountId) {
       res["accountId"] = boost::any(*accountId);
     }
+    if (dataId) {
+      res["dataId"] = boost::any(*dataId);
+    }
+    if (descriptions) {
+      res["descriptions"] = boost::any(*descriptions);
+    }
     if (deviceId) {
       res["deviceId"] = boost::any(*deviceId);
     }
@@ -4852,6 +4860,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
       accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+    if (m.find("dataId") != m.end() && !m["dataId"].empty()) {
+      dataId = make_shared<string>(boost::any_cast<string>(m["dataId"]));
+    }
+    if (m.find("descriptions") != m.end() && !m["descriptions"].empty()) {
+      descriptions = make_shared<string>(boost::any_cast<string>(m["descriptions"]));
     }
     if (m.find("deviceId") != m.end() && !m["deviceId"].empty()) {
       deviceId = make_shared<string>(boost::any_cast<string>(m["deviceId"]));
@@ -5162,6 +5176,7 @@ public:
 class TextModerationPlusResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<TextModerationPlusResponseBodyDataAdvice>> advice{};
+  shared_ptr<string> dataId{};
   shared_ptr<vector<TextModerationPlusResponseBodyDataResult>> result{};
   shared_ptr<string> riskLevel{};
   shared_ptr<double> score{};
@@ -5182,6 +5197,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Advice"] = boost::any(temp1);
+    }
+    if (dataId) {
+      res["DataId"] = boost::any(*dataId);
     }
     if (result) {
       vector<boost::any> temp1;
@@ -5212,6 +5230,9 @@ public:
         }
         advice = make_shared<vector<TextModerationPlusResponseBodyDataAdvice>>(expect1);
       }
+    }
+    if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
+      dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(vector<boost::any>) == m["Result"].type()) {
