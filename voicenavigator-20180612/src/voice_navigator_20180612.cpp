@@ -1152,6 +1152,9 @@ ModifyAsrConfigResponse Alibabacloud_VoiceNavigator20180612::Client::modifyAsrCo
   if (!Darabonba_Util::Client::isUnset<long>(request->configLevel)) {
     query->insert(pair<string, long>("ConfigLevel", *request->configLevel));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
+    query->insert(pair<string, string>("Engine", *request->engine));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->entryId)) {
     query->insert(pair<string, string>("EntryId", *request->entryId));
   }

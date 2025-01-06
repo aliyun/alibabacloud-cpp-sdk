@@ -4408,6 +4408,8 @@ public:
   shared_ptr<string> asrClassVocabularyId{};
   shared_ptr<string> asrCustomizationId{};
   shared_ptr<string> asrVocabularyId{};
+  shared_ptr<string> engine{};
+  shared_ptr<string> engineXufei{};
 
   GetAsrConfigResponseBodyData() {}
 
@@ -4431,6 +4433,12 @@ public:
     if (asrVocabularyId) {
       res["AsrVocabularyId"] = boost::any(*asrVocabularyId);
     }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
+    }
+    if (engineXufei) {
+      res["EngineXufei"] = boost::any(*engineXufei);
+    }
     return res;
   }
 
@@ -4446,6 +4454,12 @@ public:
     }
     if (m.find("AsrVocabularyId") != m.end() && !m["AsrVocabularyId"].empty()) {
       asrVocabularyId = make_shared<string>(boost::any_cast<string>(m["AsrVocabularyId"]));
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("EngineXufei") != m.end() && !m["EngineXufei"].empty()) {
+      engineXufei = make_shared<string>(boost::any_cast<string>(m["EngineXufei"]));
     }
   }
 
@@ -6195,6 +6209,7 @@ public:
   shared_ptr<string> asrCustomizationId{};
   shared_ptr<string> asrVocabularyId{};
   shared_ptr<long> configLevel{};
+  shared_ptr<string> engine{};
   shared_ptr<string> entryId{};
 
   ModifyAsrConfigRequest() {}
@@ -6222,6 +6237,9 @@ public:
     if (configLevel) {
       res["ConfigLevel"] = boost::any(*configLevel);
     }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
+    }
     if (entryId) {
       res["EntryId"] = boost::any(*entryId);
     }
@@ -6243,6 +6261,9 @@ public:
     }
     if (m.find("ConfigLevel") != m.end() && !m["ConfigLevel"].empty()) {
       configLevel = make_shared<long>(boost::any_cast<long>(m["ConfigLevel"]));
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
     }
     if (m.find("EntryId") != m.end() && !m["EntryId"].empty()) {
       entryId = make_shared<string>(boost::any_cast<string>(m["EntryId"]));
