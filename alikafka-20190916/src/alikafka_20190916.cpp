@@ -80,6 +80,9 @@ ConvertPostPayOrderResponse Alibabacloud_Alikafka20190916::Client::convertPostPa
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->paidType)) {
+    query->insert(pair<string, long>("PaidType", *request->paidType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }

@@ -170,6 +170,7 @@ class ConvertPostPayOrderRequest : public Darabonba::Model {
 public:
   shared_ptr<long> duration{};
   shared_ptr<string> instanceId{};
+  shared_ptr<long> paidType{};
   shared_ptr<string> regionId{};
 
   ConvertPostPayOrderRequest() {}
@@ -188,6 +189,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (paidType) {
+      res["PaidType"] = boost::any(*paidType);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -200,6 +204,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PaidType") != m.end() && !m["PaidType"].empty()) {
+      paidType = make_shared<long>(boost::any_cast<long>(m["PaidType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
