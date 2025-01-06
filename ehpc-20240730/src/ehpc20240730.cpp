@@ -1455,6 +1455,9 @@ UpdateClusterResponse Alibabacloud_EHPC20240730::Client::updateClusterWithOption
   if (!Darabonba_Util::Client::isUnset<UpdateClusterRequestMonitorSpec>(tmpReq->monitorSpec)) {
     request->monitorSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->monitorSpec, make_shared<string>("MonitorSpec"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<UpdateClusterRequestSchedulerSpec>(tmpReq->schedulerSpec)) {
+    request->schedulerSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->schedulerSpec, make_shared<string>("SchedulerSpec"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientVersion)) {
     query->insert(pair<string, string>("ClientVersion", *request->clientVersion));
@@ -1494,6 +1497,9 @@ UpdateClusterResponse Alibabacloud_EHPC20240730::Client::updateClusterWithOption
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->monitorSpecShrink)) {
     query->insert(pair<string, string>("MonitorSpec", *request->monitorSpecShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->schedulerSpecShrink)) {
+    query->insert(pair<string, string>("SchedulerSpec", *request->schedulerSpecShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

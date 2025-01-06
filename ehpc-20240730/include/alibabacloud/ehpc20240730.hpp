@@ -5214,6 +5214,35 @@ public:
 
   virtual ~GetClusterResponseBodyMonitorSpec() = default;
 };
+class GetClusterResponseBodySchedulerSpec : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableTopologyAwareness{};
+
+  GetClusterResponseBodySchedulerSpec() {}
+
+  explicit GetClusterResponseBodySchedulerSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableTopologyAwareness) {
+      res["EnableTopologyAwareness"] = boost::any(*enableTopologyAwareness);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableTopologyAwareness") != m.end() && !m["EnableTopologyAwareness"].empty()) {
+      enableTopologyAwareness = make_shared<bool>(boost::any_cast<bool>(m["EnableTopologyAwareness"]));
+    }
+  }
+
+
+  virtual ~GetClusterResponseBodySchedulerSpec() = default;
+};
 class GetClusterResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> clientVersion{};
@@ -5239,6 +5268,7 @@ public:
   shared_ptr<GetClusterResponseBodyMonitorSpec> monitorSpec{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<GetClusterResponseBodySchedulerSpec> schedulerSpec{};
   shared_ptr<string> securityGroupId{};
 
   GetClusterResponseBody() {}
@@ -5319,6 +5349,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (schedulerSpec) {
+      res["SchedulerSpec"] = schedulerSpec ? boost::any(schedulerSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
@@ -5407,6 +5440,13 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SchedulerSpec") != m.end() && !m["SchedulerSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SchedulerSpec"].type()) {
+        GetClusterResponseBodySchedulerSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SchedulerSpec"]));
+        schedulerSpec = make_shared<GetClusterResponseBodySchedulerSpec>(model1);
+      }
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
@@ -13258,6 +13298,35 @@ public:
 
   virtual ~UpdateClusterRequestMonitorSpec() = default;
 };
+class UpdateClusterRequestSchedulerSpec : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableTopologyAwareness{};
+
+  UpdateClusterRequestSchedulerSpec() {}
+
+  explicit UpdateClusterRequestSchedulerSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableTopologyAwareness) {
+      res["EnableTopologyAwareness"] = boost::any(*enableTopologyAwareness);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableTopologyAwareness") != m.end() && !m["EnableTopologyAwareness"].empty()) {
+      enableTopologyAwareness = make_shared<bool>(boost::any_cast<bool>(m["EnableTopologyAwareness"]));
+    }
+  }
+
+
+  virtual ~UpdateClusterRequestSchedulerSpec() = default;
+};
 class UpdateClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientVersion{};
@@ -13273,6 +13342,7 @@ public:
   shared_ptr<long> maxCoreCount{};
   shared_ptr<long> maxCount{};
   shared_ptr<UpdateClusterRequestMonitorSpec> monitorSpec{};
+  shared_ptr<UpdateClusterRequestSchedulerSpec> schedulerSpec{};
 
   UpdateClusterRequest() {}
 
@@ -13322,6 +13392,9 @@ public:
     }
     if (monitorSpec) {
       res["MonitorSpec"] = monitorSpec ? boost::any(monitorSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (schedulerSpec) {
+      res["SchedulerSpec"] = schedulerSpec ? boost::any(schedulerSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -13374,6 +13447,13 @@ public:
         monitorSpec = make_shared<UpdateClusterRequestMonitorSpec>(model1);
       }
     }
+    if (m.find("SchedulerSpec") != m.end() && !m["SchedulerSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SchedulerSpec"].type()) {
+        UpdateClusterRequestSchedulerSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SchedulerSpec"]));
+        schedulerSpec = make_shared<UpdateClusterRequestSchedulerSpec>(model1);
+      }
+    }
   }
 
 
@@ -13394,6 +13474,7 @@ public:
   shared_ptr<long> maxCoreCount{};
   shared_ptr<long> maxCount{};
   shared_ptr<string> monitorSpecShrink{};
+  shared_ptr<string> schedulerSpecShrink{};
 
   UpdateClusterShrinkRequest() {}
 
@@ -13444,6 +13525,9 @@ public:
     if (monitorSpecShrink) {
       res["MonitorSpec"] = boost::any(*monitorSpecShrink);
     }
+    if (schedulerSpecShrink) {
+      res["SchedulerSpec"] = boost::any(*schedulerSpecShrink);
+    }
     return res;
   }
 
@@ -13486,6 +13570,9 @@ public:
     }
     if (m.find("MonitorSpec") != m.end() && !m["MonitorSpec"].empty()) {
       monitorSpecShrink = make_shared<string>(boost::any_cast<string>(m["MonitorSpec"]));
+    }
+    if (m.find("SchedulerSpec") != m.end() && !m["SchedulerSpec"].empty()) {
+      schedulerSpecShrink = make_shared<string>(boost::any_cast<string>(m["SchedulerSpec"]));
     }
   }
 
