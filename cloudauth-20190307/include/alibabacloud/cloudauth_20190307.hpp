@@ -5293,6 +5293,198 @@ public:
 
   virtual ~DetectFaceAttributesResponse() = default;
 };
+class Id2MetaPeriodVerifyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identifyNum{};
+  shared_ptr<string> paramType{};
+  shared_ptr<string> userName{};
+  shared_ptr<string> validityEndDate{};
+  shared_ptr<string> validityStartDate{};
+
+  Id2MetaPeriodVerifyRequest() {}
+
+  explicit Id2MetaPeriodVerifyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identifyNum) {
+      res["IdentifyNum"] = boost::any(*identifyNum);
+    }
+    if (paramType) {
+      res["ParamType"] = boost::any(*paramType);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    if (validityEndDate) {
+      res["ValidityEndDate"] = boost::any(*validityEndDate);
+    }
+    if (validityStartDate) {
+      res["ValidityStartDate"] = boost::any(*validityStartDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentifyNum") != m.end() && !m["IdentifyNum"].empty()) {
+      identifyNum = make_shared<string>(boost::any_cast<string>(m["IdentifyNum"]));
+    }
+    if (m.find("ParamType") != m.end() && !m["ParamType"].empty()) {
+      paramType = make_shared<string>(boost::any_cast<string>(m["ParamType"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+    if (m.find("ValidityEndDate") != m.end() && !m["ValidityEndDate"].empty()) {
+      validityEndDate = make_shared<string>(boost::any_cast<string>(m["ValidityEndDate"]));
+    }
+    if (m.find("ValidityStartDate") != m.end() && !m["ValidityStartDate"].empty()) {
+      validityStartDate = make_shared<string>(boost::any_cast<string>(m["ValidityStartDate"]));
+    }
+  }
+
+
+  virtual ~Id2MetaPeriodVerifyRequest() = default;
+};
+class Id2MetaPeriodVerifyResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> bizCode{};
+
+  Id2MetaPeriodVerifyResponseBodyResultObject() {}
+
+  explicit Id2MetaPeriodVerifyResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizCode) {
+      res["BizCode"] = boost::any(*bizCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizCode") != m.end() && !m["BizCode"].empty()) {
+      bizCode = make_shared<string>(boost::any_cast<string>(m["BizCode"]));
+    }
+  }
+
+
+  virtual ~Id2MetaPeriodVerifyResponseBodyResultObject() = default;
+};
+class Id2MetaPeriodVerifyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<Id2MetaPeriodVerifyResponseBodyResultObject> resultObject{};
+
+  Id2MetaPeriodVerifyResponseBody() {}
+
+  explicit Id2MetaPeriodVerifyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        Id2MetaPeriodVerifyResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<Id2MetaPeriodVerifyResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Id2MetaPeriodVerifyResponseBody() = default;
+};
+class Id2MetaPeriodVerifyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<Id2MetaPeriodVerifyResponseBody> body{};
+
+  Id2MetaPeriodVerifyResponse() {}
+
+  explicit Id2MetaPeriodVerifyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        Id2MetaPeriodVerifyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<Id2MetaPeriodVerifyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Id2MetaPeriodVerifyResponse() = default;
+};
 class Id2MetaStandardVerifyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> identifyNum{};
@@ -6514,6 +6706,205 @@ public:
 
   virtual ~LivenessFaceVerifyResponse() = default;
 };
+class Mobile3MetaDetailStandardVerifyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identifyNum{};
+  shared_ptr<string> mobile{};
+  shared_ptr<string> paramType{};
+  shared_ptr<string> userName{};
+
+  Mobile3MetaDetailStandardVerifyRequest() {}
+
+  explicit Mobile3MetaDetailStandardVerifyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identifyNum) {
+      res["IdentifyNum"] = boost::any(*identifyNum);
+    }
+    if (mobile) {
+      res["Mobile"] = boost::any(*mobile);
+    }
+    if (paramType) {
+      res["ParamType"] = boost::any(*paramType);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentifyNum") != m.end() && !m["IdentifyNum"].empty()) {
+      identifyNum = make_shared<string>(boost::any_cast<string>(m["IdentifyNum"]));
+    }
+    if (m.find("Mobile") != m.end() && !m["Mobile"].empty()) {
+      mobile = make_shared<string>(boost::any_cast<string>(m["Mobile"]));
+    }
+    if (m.find("ParamType") != m.end() && !m["ParamType"].empty()) {
+      paramType = make_shared<string>(boost::any_cast<string>(m["ParamType"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~Mobile3MetaDetailStandardVerifyRequest() = default;
+};
+class Mobile3MetaDetailStandardVerifyResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> bizCode{};
+  shared_ptr<string> ispName{};
+  shared_ptr<string> subCode{};
+
+  Mobile3MetaDetailStandardVerifyResponseBodyResultObject() {}
+
+  explicit Mobile3MetaDetailStandardVerifyResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizCode) {
+      res["BizCode"] = boost::any(*bizCode);
+    }
+    if (ispName) {
+      res["IspName"] = boost::any(*ispName);
+    }
+    if (subCode) {
+      res["SubCode"] = boost::any(*subCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizCode") != m.end() && !m["BizCode"].empty()) {
+      bizCode = make_shared<string>(boost::any_cast<string>(m["BizCode"]));
+    }
+    if (m.find("IspName") != m.end() && !m["IspName"].empty()) {
+      ispName = make_shared<string>(boost::any_cast<string>(m["IspName"]));
+    }
+    if (m.find("SubCode") != m.end() && !m["SubCode"].empty()) {
+      subCode = make_shared<string>(boost::any_cast<string>(m["SubCode"]));
+    }
+  }
+
+
+  virtual ~Mobile3MetaDetailStandardVerifyResponseBodyResultObject() = default;
+};
+class Mobile3MetaDetailStandardVerifyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<Mobile3MetaDetailStandardVerifyResponseBodyResultObject> resultObject{};
+
+  Mobile3MetaDetailStandardVerifyResponseBody() {}
+
+  explicit Mobile3MetaDetailStandardVerifyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        Mobile3MetaDetailStandardVerifyResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<Mobile3MetaDetailStandardVerifyResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Mobile3MetaDetailStandardVerifyResponseBody() = default;
+};
+class Mobile3MetaDetailStandardVerifyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<Mobile3MetaDetailStandardVerifyResponseBody> body{};
+
+  Mobile3MetaDetailStandardVerifyResponse() {}
+
+  explicit Mobile3MetaDetailStandardVerifyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        Mobile3MetaDetailStandardVerifyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<Mobile3MetaDetailStandardVerifyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Mobile3MetaDetailStandardVerifyResponse() = default;
+};
 class Mobile3MetaDetailVerifyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> identifyNum{};
@@ -6712,6 +7103,198 @@ public:
 
 
   virtual ~Mobile3MetaDetailVerifyResponse() = default;
+};
+class Mobile3MetaSimpleStandardVerifyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identifyNum{};
+  shared_ptr<string> mobile{};
+  shared_ptr<string> paramType{};
+  shared_ptr<string> userName{};
+
+  Mobile3MetaSimpleStandardVerifyRequest() {}
+
+  explicit Mobile3MetaSimpleStandardVerifyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identifyNum) {
+      res["IdentifyNum"] = boost::any(*identifyNum);
+    }
+    if (mobile) {
+      res["Mobile"] = boost::any(*mobile);
+    }
+    if (paramType) {
+      res["ParamType"] = boost::any(*paramType);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IdentifyNum") != m.end() && !m["IdentifyNum"].empty()) {
+      identifyNum = make_shared<string>(boost::any_cast<string>(m["IdentifyNum"]));
+    }
+    if (m.find("Mobile") != m.end() && !m["Mobile"].empty()) {
+      mobile = make_shared<string>(boost::any_cast<string>(m["Mobile"]));
+    }
+    if (m.find("ParamType") != m.end() && !m["ParamType"].empty()) {
+      paramType = make_shared<string>(boost::any_cast<string>(m["ParamType"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~Mobile3MetaSimpleStandardVerifyRequest() = default;
+};
+class Mobile3MetaSimpleStandardVerifyResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> bizCode{};
+  shared_ptr<string> ispName{};
+
+  Mobile3MetaSimpleStandardVerifyResponseBodyResultObject() {}
+
+  explicit Mobile3MetaSimpleStandardVerifyResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizCode) {
+      res["BizCode"] = boost::any(*bizCode);
+    }
+    if (ispName) {
+      res["IspName"] = boost::any(*ispName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizCode") != m.end() && !m["BizCode"].empty()) {
+      bizCode = make_shared<string>(boost::any_cast<string>(m["BizCode"]));
+    }
+    if (m.find("IspName") != m.end() && !m["IspName"].empty()) {
+      ispName = make_shared<string>(boost::any_cast<string>(m["IspName"]));
+    }
+  }
+
+
+  virtual ~Mobile3MetaSimpleStandardVerifyResponseBodyResultObject() = default;
+};
+class Mobile3MetaSimpleStandardVerifyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<Mobile3MetaSimpleStandardVerifyResponseBodyResultObject> resultObject{};
+
+  Mobile3MetaSimpleStandardVerifyResponseBody() {}
+
+  explicit Mobile3MetaSimpleStandardVerifyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        Mobile3MetaSimpleStandardVerifyResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<Mobile3MetaSimpleStandardVerifyResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Mobile3MetaSimpleStandardVerifyResponseBody() = default;
+};
+class Mobile3MetaSimpleStandardVerifyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<Mobile3MetaSimpleStandardVerifyResponseBody> body{};
+
+  Mobile3MetaSimpleStandardVerifyResponse() {}
+
+  explicit Mobile3MetaSimpleStandardVerifyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        Mobile3MetaSimpleStandardVerifyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<Mobile3MetaSimpleStandardVerifyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Mobile3MetaSimpleStandardVerifyResponse() = default;
 };
 class Mobile3MetaSimpleVerifyRequest : public Darabonba::Model {
 public:
@@ -9603,6 +10186,8 @@ public:
   DescribeVerifyTokenResponse describeVerifyToken(shared_ptr<DescribeVerifyTokenRequest> request);
   DetectFaceAttributesResponse detectFaceAttributesWithOptions(shared_ptr<DetectFaceAttributesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectFaceAttributesResponse detectFaceAttributes(shared_ptr<DetectFaceAttributesRequest> request);
+  Id2MetaPeriodVerifyResponse id2MetaPeriodVerifyWithOptions(shared_ptr<Id2MetaPeriodVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  Id2MetaPeriodVerifyResponse id2MetaPeriodVerify(shared_ptr<Id2MetaPeriodVerifyRequest> request);
   Id2MetaStandardVerifyResponse id2MetaStandardVerifyWithOptions(shared_ptr<Id2MetaStandardVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   Id2MetaStandardVerifyResponse id2MetaStandardVerify(shared_ptr<Id2MetaStandardVerifyRequest> request);
   Id2MetaVerifyResponse id2MetaVerifyWithOptions(shared_ptr<Id2MetaVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9613,8 +10198,12 @@ public:
   InsertWhiteListSettingResponse insertWhiteListSetting(shared_ptr<InsertWhiteListSettingRequest> request);
   LivenessFaceVerifyResponse livenessFaceVerifyWithOptions(shared_ptr<LivenessFaceVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   LivenessFaceVerifyResponse livenessFaceVerify(shared_ptr<LivenessFaceVerifyRequest> request);
+  Mobile3MetaDetailStandardVerifyResponse mobile3MetaDetailStandardVerifyWithOptions(shared_ptr<Mobile3MetaDetailStandardVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  Mobile3MetaDetailStandardVerifyResponse mobile3MetaDetailStandardVerify(shared_ptr<Mobile3MetaDetailStandardVerifyRequest> request);
   Mobile3MetaDetailVerifyResponse mobile3MetaDetailVerifyWithOptions(shared_ptr<Mobile3MetaDetailVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   Mobile3MetaDetailVerifyResponse mobile3MetaDetailVerify(shared_ptr<Mobile3MetaDetailVerifyRequest> request);
+  Mobile3MetaSimpleStandardVerifyResponse mobile3MetaSimpleStandardVerifyWithOptions(shared_ptr<Mobile3MetaSimpleStandardVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  Mobile3MetaSimpleStandardVerifyResponse mobile3MetaSimpleStandardVerify(shared_ptr<Mobile3MetaSimpleStandardVerifyRequest> request);
   Mobile3MetaSimpleVerifyResponse mobile3MetaSimpleVerifyWithOptions(shared_ptr<Mobile3MetaSimpleVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   Mobile3MetaSimpleVerifyResponse mobile3MetaSimpleVerify(shared_ptr<Mobile3MetaSimpleVerifyRequest> request);
   MobileDetectResponse mobileDetectWithOptions(shared_ptr<MobileDetectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
