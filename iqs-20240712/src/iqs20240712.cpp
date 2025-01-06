@@ -261,6 +261,9 @@ GeoCodeResponse Alibabacloud_IQS20240712::Client::geoCode(shared_ptr<GeoCodeRequ
 NearbySearchNovaResponse Alibabacloud_IQS20240712::Client::nearbySearchNovaWithOptions(shared_ptr<NearbySearchNovaRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->cityLimit)) {
+    query->insert(pair<string, bool>("cityLimit", *request->cityLimit));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->keywords)) {
     query->insert(pair<string, string>("keywords", *request->keywords));
   }
@@ -309,6 +312,9 @@ NearbySearchNovaResponse Alibabacloud_IQS20240712::Client::nearbySearchNova(shar
 PlaceSearchNovaResponse Alibabacloud_IQS20240712::Client::placeSearchNovaWithOptions(shared_ptr<PlaceSearchNovaRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->cityLimit)) {
+    query->insert(pair<string, bool>("cityLimit", *request->cityLimit));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->keywords)) {
     query->insert(pair<string, string>("keywords", *request->keywords));
   }

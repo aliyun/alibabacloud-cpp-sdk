@@ -2726,6 +2726,7 @@ public:
 };
 class NearbySearchNovaRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> cityLimit{};
   shared_ptr<string> keywords{};
   shared_ptr<string> latitude{};
   shared_ptr<string> longitude{};
@@ -2744,6 +2745,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cityLimit) {
+      res["cityLimit"] = boost::any(*cityLimit);
+    }
     if (keywords) {
       res["keywords"] = boost::any(*keywords);
     }
@@ -2769,6 +2773,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("cityLimit") != m.end() && !m["cityLimit"].empty()) {
+      cityLimit = make_shared<bool>(boost::any_cast<bool>(m["cityLimit"]));
+    }
     if (m.find("keywords") != m.end() && !m["keywords"].empty()) {
       keywords = make_shared<string>(boost::any_cast<string>(m["keywords"]));
     }
@@ -3186,6 +3193,7 @@ public:
 };
 class PlaceSearchNovaRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> cityLimit{};
   shared_ptr<string> keywords{};
   shared_ptr<long> page{};
   shared_ptr<string> region{};
@@ -3202,6 +3210,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cityLimit) {
+      res["cityLimit"] = boost::any(*cityLimit);
+    }
     if (keywords) {
       res["keywords"] = boost::any(*keywords);
     }
@@ -3221,6 +3232,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("cityLimit") != m.end() && !m["cityLimit"].empty()) {
+      cityLimit = make_shared<bool>(boost::any_cast<bool>(m["cityLimit"]));
+    }
     if (m.find("keywords") != m.end() && !m["keywords"].empty()) {
       keywords = make_shared<string>(boost::any_cast<string>(m["keywords"]));
     }
