@@ -2588,6 +2588,71 @@ DescribeDDoSAllEventListResponse Alibabacloud_ESA20240910::Client::describeDDoSA
   return describeDDoSAllEventListWithOptions(request, runtime);
 }
 
+DescribeDDoSBpsListResponse Alibabacloud_ESA20240910::Client::describeDDoSBpsListWithOptions(shared_ptr<DescribeDDoSBpsListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDDoSBpsList"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDDoSBpsListResponse(callApi(params, req, runtime));
+}
+
+DescribeDDoSBpsListResponse Alibabacloud_ESA20240910::Client::describeDDoSBpsList(shared_ptr<DescribeDDoSBpsListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDDoSBpsListWithOptions(request, runtime);
+}
+
+DescribeDDoSL7QpsListResponse Alibabacloud_ESA20240910::Client::describeDDoSL7QpsListWithOptions(shared_ptr<DescribeDDoSL7QpsListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->interval)) {
+    query->insert(pair<string, long>("Interval", *request->interval));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->recordId)) {
+    query->insert(pair<string, long>("RecordId", *request->recordId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
+    query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDDoSL7QpsList"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDDoSL7QpsListResponse(callApi(params, req, runtime));
+}
+
+DescribeDDoSL7QpsListResponse Alibabacloud_ESA20240910::Client::describeDDoSL7QpsList(shared_ptr<DescribeDDoSL7QpsListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDDoSL7QpsListWithOptions(request, runtime);
+}
+
 DescribeHttpDDoSAttackIntelligentProtectionResponse Alibabacloud_ESA20240910::Client::describeHttpDDoSAttackIntelligentProtectionWithOptions(shared_ptr<DescribeHttpDDoSAttackIntelligentProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
