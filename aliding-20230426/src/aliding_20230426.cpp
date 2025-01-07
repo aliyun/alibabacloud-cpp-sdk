@@ -6178,6 +6178,9 @@ GetOrgOrWebOpenDocContentTaskIdResponse Alibabacloud_Aliding20230426::Client::ge
   if (!Darabonba_Util::Client::isUnset<bool>(request->generateCp)) {
     body->insert(pair<string, bool>("GenerateCp", *request->generateCp));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->scopeType)) {
+    body->insert(pair<string, long>("ScopeType", *request->scopeType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->targetFormat)) {
     body->insert(pair<string, string>("TargetFormat", *request->targetFormat));
   }

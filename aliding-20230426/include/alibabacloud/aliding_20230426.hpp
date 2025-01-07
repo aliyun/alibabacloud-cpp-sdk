@@ -45451,6 +45451,7 @@ class GetOrgOrWebOpenDocContentTaskIdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dentryUuid{};
   shared_ptr<bool> generateCp{};
+  shared_ptr<long> scopeType{};
   shared_ptr<string> targetFormat{};
   shared_ptr<GetOrgOrWebOpenDocContentTaskIdRequestTenantContext> tenantContext{};
 
@@ -45470,6 +45471,9 @@ public:
     if (generateCp) {
       res["GenerateCp"] = boost::any(*generateCp);
     }
+    if (scopeType) {
+      res["ScopeType"] = boost::any(*scopeType);
+    }
     if (targetFormat) {
       res["TargetFormat"] = boost::any(*targetFormat);
     }
@@ -45485,6 +45489,9 @@ public:
     }
     if (m.find("GenerateCp") != m.end() && !m["GenerateCp"].empty()) {
       generateCp = make_shared<bool>(boost::any_cast<bool>(m["GenerateCp"]));
+    }
+    if (m.find("ScopeType") != m.end() && !m["ScopeType"].empty()) {
+      scopeType = make_shared<long>(boost::any_cast<long>(m["ScopeType"]));
     }
     if (m.find("TargetFormat") != m.end() && !m["TargetFormat"].empty()) {
       targetFormat = make_shared<string>(boost::any_cast<string>(m["TargetFormat"]));
@@ -45505,6 +45512,7 @@ class GetOrgOrWebOpenDocContentTaskIdShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dentryUuid{};
   shared_ptr<bool> generateCp{};
+  shared_ptr<long> scopeType{};
   shared_ptr<string> targetFormat{};
   shared_ptr<string> tenantContextShrink{};
 
@@ -45524,6 +45532,9 @@ public:
     if (generateCp) {
       res["GenerateCp"] = boost::any(*generateCp);
     }
+    if (scopeType) {
+      res["ScopeType"] = boost::any(*scopeType);
+    }
     if (targetFormat) {
       res["TargetFormat"] = boost::any(*targetFormat);
     }
@@ -45539,6 +45550,9 @@ public:
     }
     if (m.find("GenerateCp") != m.end() && !m["GenerateCp"].empty()) {
       generateCp = make_shared<bool>(boost::any_cast<bool>(m["GenerateCp"]));
+    }
+    if (m.find("ScopeType") != m.end() && !m["ScopeType"].empty()) {
+      scopeType = make_shared<long>(boost::any_cast<long>(m["ScopeType"]));
     }
     if (m.find("TargetFormat") != m.end() && !m["TargetFormat"].empty()) {
       targetFormat = make_shared<string>(boost::any_cast<string>(m["TargetFormat"]));
