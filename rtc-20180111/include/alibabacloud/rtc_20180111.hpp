@@ -4439,12 +4439,12 @@ public:
 };
 class DescribeAppRecordTemplatesResponseBodyTemplates : public Darabonba::Model {
 public:
-  shared_ptr<vector<uint8_t>> createTime{};
+  shared_ptr<string> createTime{};
   shared_ptr<long> delayStopTime{};
   shared_ptr<string> filePrefix{};
   shared_ptr<long> fileSplitInterval{};
   shared_ptr<vector<string>> formats{};
-  shared_ptr<vector<long>> layoutIds{};
+  shared_ptr<vector<string>> layoutIds{};
   shared_ptr<long> mediaEncode{};
   shared_ptr<string> name{};
   shared_ptr<string> templateId{};
@@ -4491,7 +4491,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
-      createTime = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["CreateTime"]));
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
     if (m.find("DelayStopTime") != m.end() && !m["DelayStopTime"].empty()) {
       delayStopTime = make_shared<long>(boost::any_cast<long>(m["DelayStopTime"]));
@@ -4513,14 +4513,14 @@ public:
       formats = make_shared<vector<string>>(toVec1);
     }
     if (m.find("LayoutIds") != m.end() && !m["LayoutIds"].empty()) {
-      vector<long> toVec1;
+      vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["LayoutIds"].type()) {
         vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LayoutIds"]);
         for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<long>(item));
+           toVec1.push_back(boost::any_cast<string>(item));
         }
       }
-      layoutIds = make_shared<vector<long>>(toVec1);
+      layoutIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("MediaEncode") != m.end() && !m["MediaEncode"].empty()) {
       mediaEncode = make_shared<long>(boost::any_cast<long>(m["MediaEncode"]));
