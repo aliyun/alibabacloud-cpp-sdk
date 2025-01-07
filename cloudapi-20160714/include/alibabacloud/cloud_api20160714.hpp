@@ -12946,6 +12946,7 @@ public:
 };
 class DescribeApiGroupsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> basePath{};
   shared_ptr<bool> enableTagAuth{};
   shared_ptr<string> groupId{};
   shared_ptr<string> groupName{};
@@ -12966,6 +12967,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (basePath) {
+      res["BasePath"] = boost::any(*basePath);
+    }
     if (enableTagAuth) {
       res["EnableTagAuth"] = boost::any(*enableTagAuth);
     }
@@ -13001,6 +13005,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BasePath") != m.end() && !m["BasePath"].empty()) {
+      basePath = make_shared<string>(boost::any_cast<string>(m["BasePath"]));
+    }
     if (m.find("EnableTagAuth") != m.end() && !m["EnableTagAuth"].empty()) {
       enableTagAuth = make_shared<bool>(boost::any_cast<bool>(m["EnableTagAuth"]));
     }
@@ -46173,6 +46180,151 @@ public:
 
   virtual ~ModifyInstanceSpecResponse() = default;
 };
+class ModifyInstanceVpcAttributeForConsoleRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> deleteVpcAccess{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> token{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<long> vpcOwnerId{};
+  shared_ptr<string> vswitchId{};
+
+  ModifyInstanceVpcAttributeForConsoleRequest() {}
+
+  explicit ModifyInstanceVpcAttributeForConsoleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deleteVpcAccess) {
+      res["DeleteVpcAccess"] = boost::any(*deleteVpcAccess);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (token) {
+      res["Token"] = boost::any(*token);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    if (vpcOwnerId) {
+      res["VpcOwnerId"] = boost::any(*vpcOwnerId);
+    }
+    if (vswitchId) {
+      res["VswitchId"] = boost::any(*vswitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeleteVpcAccess") != m.end() && !m["DeleteVpcAccess"].empty()) {
+      deleteVpcAccess = make_shared<bool>(boost::any_cast<bool>(m["DeleteVpcAccess"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Token") != m.end() && !m["Token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("VpcOwnerId") != m.end() && !m["VpcOwnerId"].empty()) {
+      vpcOwnerId = make_shared<long>(boost::any_cast<long>(m["VpcOwnerId"]));
+    }
+    if (m.find("VswitchId") != m.end() && !m["VswitchId"].empty()) {
+      vswitchId = make_shared<string>(boost::any_cast<string>(m["VswitchId"]));
+    }
+  }
+
+
+  virtual ~ModifyInstanceVpcAttributeForConsoleRequest() = default;
+};
+class ModifyInstanceVpcAttributeForConsoleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyInstanceVpcAttributeForConsoleResponseBody() {}
+
+  explicit ModifyInstanceVpcAttributeForConsoleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyInstanceVpcAttributeForConsoleResponseBody() = default;
+};
+class ModifyInstanceVpcAttributeForConsoleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyInstanceVpcAttributeForConsoleResponseBody> body{};
+
+  ModifyInstanceVpcAttributeForConsoleResponse() {}
+
+  explicit ModifyInstanceVpcAttributeForConsoleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyInstanceVpcAttributeForConsoleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyInstanceVpcAttributeForConsoleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyInstanceVpcAttributeForConsoleResponse() = default;
+};
 class ModifyIntranetDomainPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
@@ -53735,6 +53887,8 @@ public:
   ModifyInstanceAttributeResponse modifyInstanceAttribute(shared_ptr<ModifyInstanceAttributeRequest> request);
   ModifyInstanceSpecResponse modifyInstanceSpecWithOptions(shared_ptr<ModifyInstanceSpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyInstanceSpecResponse modifyInstanceSpec(shared_ptr<ModifyInstanceSpecRequest> request);
+  ModifyInstanceVpcAttributeForConsoleResponse modifyInstanceVpcAttributeForConsoleWithOptions(shared_ptr<ModifyInstanceVpcAttributeForConsoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyInstanceVpcAttributeForConsoleResponse modifyInstanceVpcAttributeForConsole(shared_ptr<ModifyInstanceVpcAttributeForConsoleRequest> request);
   ModifyIntranetDomainPolicyResponse modifyIntranetDomainPolicyWithOptions(shared_ptr<ModifyIntranetDomainPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyIntranetDomainPolicyResponse modifyIntranetDomainPolicy(shared_ptr<ModifyIntranetDomainPolicyRequest> request);
   ModifyIpControlResponse modifyIpControlWithOptions(shared_ptr<ModifyIpControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
