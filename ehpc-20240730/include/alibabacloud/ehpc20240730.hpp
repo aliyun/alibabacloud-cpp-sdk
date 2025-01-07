@@ -269,9 +269,11 @@ class NodeTemplateDataDisks : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
   shared_ptr<bool> deleteWithInstance{};
+  shared_ptr<string> device{};
   shared_ptr<string> level{};
   shared_ptr<string> mountDir{};
   shared_ptr<long> size{};
+  shared_ptr<string> snapshotId{};
 
   NodeTemplateDataDisks() {}
 
@@ -289,6 +291,9 @@ public:
     if (deleteWithInstance) {
       res["DeleteWithInstance"] = boost::any(*deleteWithInstance);
     }
+    if (device) {
+      res["Device"] = boost::any(*device);
+    }
     if (level) {
       res["Level"] = boost::any(*level);
     }
@@ -297,6 +302,9 @@ public:
     }
     if (size) {
       res["Size"] = boost::any(*size);
+    }
+    if (snapshotId) {
+      res["SnapshotId"] = boost::any(*snapshotId);
     }
     return res;
   }
@@ -308,6 +316,9 @@ public:
     if (m.find("DeleteWithInstance") != m.end() && !m["DeleteWithInstance"].empty()) {
       deleteWithInstance = make_shared<bool>(boost::any_cast<bool>(m["DeleteWithInstance"]));
     }
+    if (m.find("Device") != m.end() && !m["Device"].empty()) {
+      device = make_shared<string>(boost::any_cast<string>(m["Device"]));
+    }
     if (m.find("Level") != m.end() && !m["Level"].empty()) {
       level = make_shared<string>(boost::any_cast<string>(m["Level"]));
     }
@@ -316,6 +327,9 @@ public:
     }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
+      snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
     }
   }
 
