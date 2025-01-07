@@ -187,11 +187,17 @@ CreateInstanceResponse Alibabacloud_Amqp-open20191212::Client::createInstanceWit
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->encryptedInstance)) {
+    query->insert(pair<string, bool>("EncryptedInstance", *request->encryptedInstance));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     query->insert(pair<string, string>("InstanceName", *request->instanceName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
     query->insert(pair<string, string>("InstanceType", *request->instanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kmsKeyId)) {
+    query->insert(pair<string, string>("KmsKeyId", *request->kmsKeyId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxConnections)) {
     query->insert(pair<string, long>("MaxConnections", *request->maxConnections));
@@ -219,6 +225,9 @@ CreateInstanceResponse Alibabacloud_Amqp-open20191212::Client::createInstanceWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->renewalDurationUnit)) {
     query->insert(pair<string, string>("RenewalDurationUnit", *request->renewalDurationUnit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serverlessChargeType)) {
     query->insert(pair<string, string>("ServerlessChargeType", *request->serverlessChargeType));
@@ -519,6 +528,31 @@ DeleteVirtualHostResponse Alibabacloud_Amqp-open20191212::Client::deleteVirtualH
   return deleteVirtualHostWithOptions(request, runtime);
 }
 
+GetInstanceResponse Alibabacloud_Amqp-open20191212::Client::getInstanceWithOptions(shared_ptr<GetInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetInstance"))},
+    {"version", boost::any(string("2019-12-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetInstanceResponse(callApi(params, req, runtime));
+}
+
+GetInstanceResponse Alibabacloud_Amqp-open20191212::Client::getInstance(shared_ptr<GetInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getInstanceWithOptions(request, runtime);
+}
+
 GetMetadataAmountResponse Alibabacloud_Amqp-open20191212::Client::getMetadataAmountWithOptions(shared_ptr<GetMetadataAmountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -803,11 +837,17 @@ UpdateInstanceResponse Alibabacloud_Amqp-open20191212::Client::updateInstanceWit
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->encryptedInstance)) {
+    query->insert(pair<string, bool>("EncryptedInstance", *request->encryptedInstance));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
     query->insert(pair<string, string>("InstanceType", *request->instanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kmsKeyId)) {
+    query->insert(pair<string, string>("KmsKeyId", *request->kmsKeyId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxConnections)) {
     query->insert(pair<string, long>("MaxConnections", *request->maxConnections));

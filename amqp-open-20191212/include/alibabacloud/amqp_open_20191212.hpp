@@ -642,8 +642,10 @@ public:
   shared_ptr<bool> autoRenew{};
   shared_ptr<long> autoRenewPeriod{};
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> encryptedInstance{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> instanceType{};
+  shared_ptr<string> kmsKeyId{};
   shared_ptr<long> maxConnections{};
   shared_ptr<long> maxEipTps{};
   shared_ptr<long> maxPrivateTps{};
@@ -653,6 +655,7 @@ public:
   shared_ptr<long> queueCapacity{};
   shared_ptr<string> renewStatus{};
   shared_ptr<string> renewalDurationUnit{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serverlessChargeType{};
   shared_ptr<long> storageSize{};
   shared_ptr<bool> supportEip{};
@@ -678,11 +681,17 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (encryptedInstance) {
+      res["EncryptedInstance"] = boost::any(*encryptedInstance);
+    }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
     }
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (kmsKeyId) {
+      res["KmsKeyId"] = boost::any(*kmsKeyId);
     }
     if (maxConnections) {
       res["MaxConnections"] = boost::any(*maxConnections);
@@ -710,6 +719,9 @@ public:
     }
     if (renewalDurationUnit) {
       res["RenewalDurationUnit"] = boost::any(*renewalDurationUnit);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (serverlessChargeType) {
       res["ServerlessChargeType"] = boost::any(*serverlessChargeType);
@@ -739,11 +751,17 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("EncryptedInstance") != m.end() && !m["EncryptedInstance"].empty()) {
+      encryptedInstance = make_shared<bool>(boost::any_cast<bool>(m["EncryptedInstance"]));
+    }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
     }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("KmsKeyId") != m.end() && !m["KmsKeyId"].empty()) {
+      kmsKeyId = make_shared<string>(boost::any_cast<string>(m["KmsKeyId"]));
     }
     if (m.find("MaxConnections") != m.end() && !m["MaxConnections"].empty()) {
       maxConnections = make_shared<long>(boost::any_cast<long>(m["MaxConnections"]));
@@ -771,6 +789,9 @@ public:
     }
     if (m.find("RenewalDurationUnit") != m.end() && !m["RenewalDurationUnit"].empty()) {
       renewalDurationUnit = make_shared<string>(boost::any_cast<string>(m["RenewalDurationUnit"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ServerlessChargeType") != m.end() && !m["ServerlessChargeType"].empty()) {
       serverlessChargeType = make_shared<string>(boost::any_cast<string>(m["ServerlessChargeType"]));
@@ -1852,6 +1873,367 @@ public:
 
 
   virtual ~DeleteVirtualHostResponse() = default;
+};
+class GetInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  GetInstanceRequest() {}
+
+  explicit GetInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GetInstanceRequest() = default;
+};
+class GetInstanceResponseBodyDataTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetInstanceResponseBodyDataTags() {}
+
+  explicit GetInstanceResponseBodyDataTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetInstanceResponseBodyDataTags() = default;
+};
+class GetInstanceResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoRenewInstance{};
+  shared_ptr<string> classicEndpoint{};
+  shared_ptr<bool> encryptedInstance{};
+  shared_ptr<long> expireTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> kmsKeyId{};
+  shared_ptr<long> maxConnections{};
+  shared_ptr<long> maxEipTps{};
+  shared_ptr<long> maxQueue{};
+  shared_ptr<long> maxTps{};
+  shared_ptr<long> maxVhost{};
+  shared_ptr<long> orderCreateTime{};
+  shared_ptr<string> orderType{};
+  shared_ptr<string> privateEndpoint{};
+  shared_ptr<string> publicEndpoint{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> status{};
+  shared_ptr<long> storageSize{};
+  shared_ptr<bool> supportEIP{};
+  shared_ptr<bool> supportTracing{};
+  shared_ptr<vector<GetInstanceResponseBodyDataTags>> tags{};
+  shared_ptr<long> tracingStorageTime{};
+
+  GetInstanceResponseBodyData() {}
+
+  explicit GetInstanceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoRenewInstance) {
+      res["AutoRenewInstance"] = boost::any(*autoRenewInstance);
+    }
+    if (classicEndpoint) {
+      res["ClassicEndpoint"] = boost::any(*classicEndpoint);
+    }
+    if (encryptedInstance) {
+      res["EncryptedInstance"] = boost::any(*encryptedInstance);
+    }
+    if (expireTime) {
+      res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (kmsKeyId) {
+      res["KmsKeyId"] = boost::any(*kmsKeyId);
+    }
+    if (maxConnections) {
+      res["MaxConnections"] = boost::any(*maxConnections);
+    }
+    if (maxEipTps) {
+      res["MaxEipTps"] = boost::any(*maxEipTps);
+    }
+    if (maxQueue) {
+      res["MaxQueue"] = boost::any(*maxQueue);
+    }
+    if (maxTps) {
+      res["MaxTps"] = boost::any(*maxTps);
+    }
+    if (maxVhost) {
+      res["MaxVhost"] = boost::any(*maxVhost);
+    }
+    if (orderCreateTime) {
+      res["OrderCreateTime"] = boost::any(*orderCreateTime);
+    }
+    if (orderType) {
+      res["OrderType"] = boost::any(*orderType);
+    }
+    if (privateEndpoint) {
+      res["PrivateEndpoint"] = boost::any(*privateEndpoint);
+    }
+    if (publicEndpoint) {
+      res["PublicEndpoint"] = boost::any(*publicEndpoint);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (storageSize) {
+      res["StorageSize"] = boost::any(*storageSize);
+    }
+    if (supportEIP) {
+      res["SupportEIP"] = boost::any(*supportEIP);
+    }
+    if (supportTracing) {
+      res["SupportTracing"] = boost::any(*supportTracing);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    if (tracingStorageTime) {
+      res["TracingStorageTime"] = boost::any(*tracingStorageTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoRenewInstance") != m.end() && !m["AutoRenewInstance"].empty()) {
+      autoRenewInstance = make_shared<bool>(boost::any_cast<bool>(m["AutoRenewInstance"]));
+    }
+    if (m.find("ClassicEndpoint") != m.end() && !m["ClassicEndpoint"].empty()) {
+      classicEndpoint = make_shared<string>(boost::any_cast<string>(m["ClassicEndpoint"]));
+    }
+    if (m.find("EncryptedInstance") != m.end() && !m["EncryptedInstance"].empty()) {
+      encryptedInstance = make_shared<bool>(boost::any_cast<bool>(m["EncryptedInstance"]));
+    }
+    if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
+      expireTime = make_shared<long>(boost::any_cast<long>(m["ExpireTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("KmsKeyId") != m.end() && !m["KmsKeyId"].empty()) {
+      kmsKeyId = make_shared<string>(boost::any_cast<string>(m["KmsKeyId"]));
+    }
+    if (m.find("MaxConnections") != m.end() && !m["MaxConnections"].empty()) {
+      maxConnections = make_shared<long>(boost::any_cast<long>(m["MaxConnections"]));
+    }
+    if (m.find("MaxEipTps") != m.end() && !m["MaxEipTps"].empty()) {
+      maxEipTps = make_shared<long>(boost::any_cast<long>(m["MaxEipTps"]));
+    }
+    if (m.find("MaxQueue") != m.end() && !m["MaxQueue"].empty()) {
+      maxQueue = make_shared<long>(boost::any_cast<long>(m["MaxQueue"]));
+    }
+    if (m.find("MaxTps") != m.end() && !m["MaxTps"].empty()) {
+      maxTps = make_shared<long>(boost::any_cast<long>(m["MaxTps"]));
+    }
+    if (m.find("MaxVhost") != m.end() && !m["MaxVhost"].empty()) {
+      maxVhost = make_shared<long>(boost::any_cast<long>(m["MaxVhost"]));
+    }
+    if (m.find("OrderCreateTime") != m.end() && !m["OrderCreateTime"].empty()) {
+      orderCreateTime = make_shared<long>(boost::any_cast<long>(m["OrderCreateTime"]));
+    }
+    if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
+      orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
+    }
+    if (m.find("PrivateEndpoint") != m.end() && !m["PrivateEndpoint"].empty()) {
+      privateEndpoint = make_shared<string>(boost::any_cast<string>(m["PrivateEndpoint"]));
+    }
+    if (m.find("PublicEndpoint") != m.end() && !m["PublicEndpoint"].empty()) {
+      publicEndpoint = make_shared<string>(boost::any_cast<string>(m["PublicEndpoint"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageSize") != m.end() && !m["StorageSize"].empty()) {
+      storageSize = make_shared<long>(boost::any_cast<long>(m["StorageSize"]));
+    }
+    if (m.find("SupportEIP") != m.end() && !m["SupportEIP"].empty()) {
+      supportEIP = make_shared<bool>(boost::any_cast<bool>(m["SupportEIP"]));
+    }
+    if (m.find("SupportTracing") != m.end() && !m["SupportTracing"].empty()) {
+      supportTracing = make_shared<bool>(boost::any_cast<bool>(m["SupportTracing"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetInstanceResponseBodyDataTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetInstanceResponseBodyDataTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetInstanceResponseBodyDataTags>>(expect1);
+      }
+    }
+    if (m.find("TracingStorageTime") != m.end() && !m["TracingStorageTime"].empty()) {
+      tracingStorageTime = make_shared<long>(boost::any_cast<long>(m["TracingStorageTime"]));
+    }
+  }
+
+
+  virtual ~GetInstanceResponseBodyData() = default;
+};
+class GetInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetInstanceResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  GetInstanceResponseBody() {}
+
+  explicit GetInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetInstanceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetInstanceResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetInstanceResponseBody() = default;
+};
+class GetInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetInstanceResponseBody> body{};
+
+  GetInstanceResponse() {}
+
+  explicit GetInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetInstanceResponse() = default;
 };
 class GetMetadataAmountRequest : public Darabonba::Model {
 public:
@@ -3296,6 +3678,7 @@ class ListInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> resourceGroupId{};
 
   ListInstancesRequest() {}
 
@@ -3313,6 +3696,9 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -3322,6 +3708,9 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -3368,10 +3757,12 @@ class ListInstancesResponseBodyDataInstances : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRenewInstance{};
   shared_ptr<string> classicEndpoint{};
+  shared_ptr<bool> encryptedInstance{};
   shared_ptr<long> expireTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> instanceType{};
+  shared_ptr<string> kmsKeyId{};
   shared_ptr<long> maxEipTps{};
   shared_ptr<long> maxQueue{};
   shared_ptr<long> maxTps{};
@@ -3380,6 +3771,7 @@ public:
   shared_ptr<string> orderType{};
   shared_ptr<string> privateEndpoint{};
   shared_ptr<string> publicEndpoint{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
   shared_ptr<long> storageSize{};
   shared_ptr<bool> supportEIP{};
@@ -3401,6 +3793,9 @@ public:
     if (classicEndpoint) {
       res["ClassicEndpoint"] = boost::any(*classicEndpoint);
     }
+    if (encryptedInstance) {
+      res["EncryptedInstance"] = boost::any(*encryptedInstance);
+    }
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
     }
@@ -3412,6 +3807,9 @@ public:
     }
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (kmsKeyId) {
+      res["KmsKeyId"] = boost::any(*kmsKeyId);
     }
     if (maxEipTps) {
       res["MaxEipTps"] = boost::any(*maxEipTps);
@@ -3436,6 +3834,9 @@ public:
     }
     if (publicEndpoint) {
       res["PublicEndpoint"] = boost::any(*publicEndpoint);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -3463,6 +3864,9 @@ public:
     if (m.find("ClassicEndpoint") != m.end() && !m["ClassicEndpoint"].empty()) {
       classicEndpoint = make_shared<string>(boost::any_cast<string>(m["ClassicEndpoint"]));
     }
+    if (m.find("EncryptedInstance") != m.end() && !m["EncryptedInstance"].empty()) {
+      encryptedInstance = make_shared<bool>(boost::any_cast<bool>(m["EncryptedInstance"]));
+    }
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<long>(boost::any_cast<long>(m["ExpireTime"]));
     }
@@ -3474,6 +3878,9 @@ public:
     }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("KmsKeyId") != m.end() && !m["KmsKeyId"].empty()) {
+      kmsKeyId = make_shared<string>(boost::any_cast<string>(m["KmsKeyId"]));
     }
     if (m.find("MaxEipTps") != m.end() && !m["MaxEipTps"].empty()) {
       maxEipTps = make_shared<long>(boost::any_cast<long>(m["MaxEipTps"]));
@@ -3498,6 +3905,9 @@ public:
     }
     if (m.find("PublicEndpoint") != m.end() && !m["PublicEndpoint"].empty()) {
       publicEndpoint = make_shared<string>(boost::any_cast<string>(m["PublicEndpoint"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -4679,8 +5089,10 @@ public:
 class UpdateInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> encryptedInstance{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceType{};
+  shared_ptr<string> kmsKeyId{};
   shared_ptr<long> maxConnections{};
   shared_ptr<long> maxEipTps{};
   shared_ptr<long> maxPrivateTps{};
@@ -4705,11 +5117,17 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (encryptedInstance) {
+      res["EncryptedInstance"] = boost::any(*encryptedInstance);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (kmsKeyId) {
+      res["KmsKeyId"] = boost::any(*kmsKeyId);
     }
     if (maxConnections) {
       res["MaxConnections"] = boost::any(*maxConnections);
@@ -4748,11 +5166,17 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("EncryptedInstance") != m.end() && !m["EncryptedInstance"].empty()) {
+      encryptedInstance = make_shared<bool>(boost::any_cast<bool>(m["EncryptedInstance"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("KmsKeyId") != m.end() && !m["KmsKeyId"].empty()) {
+      kmsKeyId = make_shared<string>(boost::any_cast<string>(m["KmsKeyId"]));
     }
     if (m.find("MaxConnections") != m.end() && !m["MaxConnections"].empty()) {
       maxConnections = make_shared<long>(boost::any_cast<long>(m["MaxConnections"]));
@@ -5082,6 +5506,8 @@ public:
   DeleteQueueResponse deleteQueue(shared_ptr<DeleteQueueRequest> request);
   DeleteVirtualHostResponse deleteVirtualHostWithOptions(shared_ptr<DeleteVirtualHostRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteVirtualHostResponse deleteVirtualHost(shared_ptr<DeleteVirtualHostRequest> request);
+  GetInstanceResponse getInstanceWithOptions(shared_ptr<GetInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetInstanceResponse getInstance(shared_ptr<GetInstanceRequest> request);
   GetMetadataAmountResponse getMetadataAmountWithOptions(shared_ptr<GetMetadataAmountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMetadataAmountResponse getMetadataAmount(shared_ptr<GetMetadataAmountRequest> request);
   ListAccountsResponse listAccountsWithOptions(shared_ptr<ListAccountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
