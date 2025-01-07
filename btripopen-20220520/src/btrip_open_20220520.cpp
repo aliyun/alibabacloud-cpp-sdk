@@ -1437,6 +1437,9 @@ CarApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::carApplyQuery(shar
 CarBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::carBillSettlementQueryWithOptions(shared_ptr<CarBillSettlementQueryRequest> request, shared_ptr<CarBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->billBatch)) {
+    query->insert(pair<string, string>("bill_batch", *request->billBatch));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
     query->insert(pair<string, long>("page_no", *request->pageNo));
   }
@@ -1448,6 +1451,12 @@ CarBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::carBillSe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodStart)) {
     query->insert(pair<string, string>("period_start", *request->periodStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scrollId)) {
+    query->insert(pair<string, string>("scroll_id", *request->scrollId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->scrollMod)) {
+    query->insert(pair<string, bool>("scroll_mod", *request->scrollMod));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -1814,6 +1823,9 @@ CommonApplySyncResponse Alibabacloud_BtripOpen20220520::Client::commonApplySync(
 CooperatorFlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::cooperatorFlightBillSettlementQueryWithOptions(shared_ptr<CooperatorFlightBillSettlementQueryRequest> request, shared_ptr<CooperatorFlightBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->billBatch)) {
+    query->insert(pair<string, string>("bill_batch", *request->billBatch));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cooperatorId)) {
     query->insert(pair<string, string>("cooperator_id", *request->cooperatorId));
   }
@@ -1828,6 +1840,12 @@ CooperatorFlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Clie
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodStart)) {
     query->insert(pair<string, string>("period_start", *request->periodStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scrollId)) {
+    query->insert(pair<string, string>("scroll_id", *request->scrollId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->scrollMod)) {
+    query->insert(pair<string, bool>("scroll_mod", *request->scrollMod));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -1863,6 +1881,9 @@ CooperatorFlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Clie
 CooperatorHotelBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::cooperatorHotelBillSettlementQueryWithOptions(shared_ptr<CooperatorHotelBillSettlementQueryRequest> request, shared_ptr<CooperatorHotelBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->billBatch)) {
+    query->insert(pair<string, string>("bill_batch", *request->billBatch));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cooperatorId)) {
     query->insert(pair<string, string>("cooperator_id", *request->cooperatorId));
   }
@@ -1877,6 +1898,12 @@ CooperatorHotelBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Clien
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodStart)) {
     query->insert(pair<string, string>("period_start", *request->periodStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scrollId)) {
+    query->insert(pair<string, string>("scroll_id", *request->scrollId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->scrollMod)) {
+    query->insert(pair<string, bool>("scroll_mod", *request->scrollMod));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -3082,6 +3109,9 @@ ExternalUserUpdateResponse Alibabacloud_BtripOpen20220520::Client::externalUserU
 FlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::flightBillSettlementQueryWithOptions(shared_ptr<FlightBillSettlementQueryRequest> request, shared_ptr<FlightBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->billBatch)) {
+    query->insert(pair<string, string>("bill_batch", *request->billBatch));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
     query->insert(pair<string, long>("page_no", *request->pageNo));
   }
@@ -3093,6 +3123,12 @@ FlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::flight
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodStart)) {
     query->insert(pair<string, string>("period_start", *request->periodStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scrollId)) {
+    query->insert(pair<string, string>("scroll_id", *request->scrollId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->scrollMod)) {
+    query->insert(pair<string, bool>("scroll_mod", *request->scrollMod));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -4963,6 +4999,64 @@ FlightSearchListResponse Alibabacloud_BtripOpen20220520::Client::flightSearchLis
   return flightSearchListWithOptions(request, headers, runtime);
 }
 
+FuPointBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::fuPointBillSettlementQueryWithOptions(shared_ptr<FuPointBillSettlementQueryRequest> request, shared_ptr<FuPointBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->billBatch)) {
+    query->insert(pair<string, string>("bill_batch", *request->billBatch));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cooperatorId)) {
+    query->insert(pair<string, string>("cooperator_id", *request->cooperatorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("page_no", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("page_size", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->periodEnd)) {
+    query->insert(pair<string, string>("period_end", *request->periodEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->periodStart)) {
+    query->insert(pair<string, string>("period_start", *request->periodStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scrollId)) {
+    query->insert(pair<string, string>("scroll_id", *request->scrollId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->scrollMod)) {
+    query->insert(pair<string, bool>("scroll_mod", *request->scrollMod));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("FuPointBillSettlementQuery"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/fupoint/v1/bill-settlement"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return FuPointBillSettlementQueryResponse(callApi(params, req, runtime));
+}
+
+FuPointBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::fuPointBillSettlementQuery(shared_ptr<FuPointBillSettlementQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<FuPointBillSettlementQueryHeaders> headers = make_shared<FuPointBillSettlementQueryHeaders>();
+  return fuPointBillSettlementQueryWithOptions(request, headers, runtime);
+}
+
 GroupCorpTokenResponse Alibabacloud_BtripOpen20220520::Client::groupCorpTokenWithOptions(shared_ptr<GroupCorpTokenRequest> request, shared_ptr<GroupCorpTokenHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5216,6 +5310,9 @@ HotelAskingPriceResponse Alibabacloud_BtripOpen20220520::Client::hotelAskingPric
 HotelBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelBillSettlementQueryWithOptions(shared_ptr<HotelBillSettlementQueryRequest> request, shared_ptr<HotelBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->billBatch)) {
+    query->insert(pair<string, string>("bill_batch", *request->billBatch));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
     query->insert(pair<string, long>("page_no", *request->pageNo));
   }
@@ -5227,6 +5324,12 @@ HotelBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelBi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodStart)) {
     query->insert(pair<string, string>("period_start", *request->periodStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scrollId)) {
+    query->insert(pair<string, string>("scroll_id", *request->scrollId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->scrollMod)) {
+    query->insert(pair<string, bool>("scroll_mod", *request->scrollMod));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -6430,6 +6533,9 @@ IFlightOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::iFlightOrd
 IeFlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieFlightBillSettlementQueryWithOptions(shared_ptr<IeFlightBillSettlementQueryRequest> request, shared_ptr<IeFlightBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->billBatch)) {
+    query->insert(pair<string, string>("bill_batch", *request->billBatch));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
     query->insert(pair<string, long>("page_no", *request->pageNo));
   }
@@ -6441,6 +6547,12 @@ IeFlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieFl
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodStart)) {
     query->insert(pair<string, string>("period_start", *request->periodStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scrollId)) {
+    query->insert(pair<string, string>("scroll_id", *request->scrollId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->scrollMod)) {
+    query->insert(pair<string, bool>("scroll_mod", *request->scrollMod));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -6476,6 +6588,9 @@ IeFlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieFl
 IeHotelBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieHotelBillSettlementQueryWithOptions(shared_ptr<IeHotelBillSettlementQueryRequest> request, shared_ptr<IeHotelBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->billBatch)) {
+    query->insert(pair<string, string>("bill_batch", *request->billBatch));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->category)) {
     query->insert(pair<string, long>("category", *request->category));
   }
@@ -6490,6 +6605,12 @@ IeHotelBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieHot
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodStart)) {
     query->insert(pair<string, string>("period_start", *request->periodStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scrollId)) {
+    query->insert(pair<string, string>("scroll_id", *request->scrollId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->scrollMod)) {
+    query->insert(pair<string, bool>("scroll_mod", *request->scrollMod));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -8050,6 +8171,9 @@ IsvUserSaveResponse Alibabacloud_BtripOpen20220520::Client::isvUserSave(shared_p
 MealBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::mealBillSettlementQueryWithOptions(shared_ptr<MealBillSettlementQueryRequest> request, shared_ptr<MealBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->billBatch)) {
+    query->insert(pair<string, string>("bill_batch", *request->billBatch));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
     query->insert(pair<string, long>("page_no", *request->pageNo));
   }
@@ -8061,6 +8185,12 @@ MealBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::mealBill
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodStart)) {
     query->insert(pair<string, string>("period_start", *request->periodStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scrollId)) {
+    query->insert(pair<string, string>("scroll_id", *request->scrollId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->scrollMod)) {
+    query->insert(pair<string, bool>("scroll_mod", *request->scrollMod));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -8213,6 +8343,9 @@ MonthBillConfirmResponse Alibabacloud_BtripOpen20220520::Client::monthBillConfir
 MonthBillGetResponse Alibabacloud_BtripOpen20220520::Client::monthBillGetWithOptions(shared_ptr<MonthBillGetRequest> request, shared_ptr<MonthBillGetHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->billBatch)) {
+    query->insert(pair<string, string>("bill_batch", *request->billBatch));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->billMonth)) {
     query->insert(pair<string, string>("bill_month", *request->billMonth));
   }
@@ -8245,6 +8378,46 @@ MonthBillGetResponse Alibabacloud_BtripOpen20220520::Client::monthBillGet(shared
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<MonthBillGetHeaders> headers = make_shared<MonthBillGetHeaders>();
   return monthBillGetWithOptions(request, headers, runtime);
+}
+
+OrderRefundDetailQueryResponse Alibabacloud_BtripOpen20220520::Client::orderRefundDetailQueryWithOptions(shared_ptr<OrderRefundDetailQueryRequest> request, shared_ptr<OrderRefundDetailQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cooperatorOrderId)) {
+    body->insert(pair<string, string>("cooperator_order_id", *request->cooperatorOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
+    body->insert(pair<string, string>("order_id", *request->orderId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("OrderRefundDetailQuery"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/coop-hotel/v1/refund/action/detail"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return OrderRefundDetailQueryResponse(callApi(params, req, runtime));
+}
+
+OrderRefundDetailQueryResponse Alibabacloud_BtripOpen20220520::Client::orderRefundDetailQuery(shared_ptr<OrderRefundDetailQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<OrderRefundDetailQueryHeaders> headers = make_shared<OrderRefundDetailQueryHeaders>();
+  return orderRefundDetailQueryWithOptions(request, headers, runtime);
 }
 
 ProjectAddResponse Alibabacloud_BtripOpen20220520::Client::projectAddWithOptions(shared_ptr<ProjectAddRequest> request, shared_ptr<ProjectAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -8380,6 +8553,43 @@ ProjectModifyResponse Alibabacloud_BtripOpen20220520::Client::projectModify(shar
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<ProjectModifyHeaders> headers = make_shared<ProjectModifyHeaders>();
   return projectModifyWithOptions(request, headers, runtime);
+}
+
+QueryCorpDetailInfoResponse Alibabacloud_BtripOpen20220520::Client::queryCorpDetailInfoWithOptions(shared_ptr<QueryCorpDetailInfoRequest> request, shared_ptr<QueryCorpDetailInfoHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetCorpId)) {
+    query->insert(pair<string, string>("target_corp_id", *request->targetCorpId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryCorpDetailInfo"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/corps/v1/corps/detail"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryCorpDetailInfoResponse(callApi(params, req, runtime));
+}
+
+QueryCorpDetailInfoResponse Alibabacloud_BtripOpen20220520::Client::queryCorpDetailInfo(shared_ptr<QueryCorpDetailInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<QueryCorpDetailInfoHeaders> headers = make_shared<QueryCorpDetailInfoHeaders>();
+  return queryCorpDetailInfoWithOptions(request, headers, runtime);
 }
 
 QueryEmployeeDetailResponse Alibabacloud_BtripOpen20220520::Client::queryEmployeeDetailWithOptions(shared_ptr<QueryEmployeeDetailRequest> request, shared_ptr<QueryEmployeeDetailHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -9104,6 +9314,9 @@ TrainApplyRefundResponse Alibabacloud_BtripOpen20220520::Client::trainApplyRefun
 TrainBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::trainBillSettlementQueryWithOptions(shared_ptr<TrainBillSettlementQueryRequest> request, shared_ptr<TrainBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->billBatch)) {
+    query->insert(pair<string, string>("bill_batch", *request->billBatch));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
     query->insert(pair<string, long>("page_no", *request->pageNo));
   }
@@ -9115,6 +9328,12 @@ TrainBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::trainBi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->periodStart)) {
     query->insert(pair<string, string>("period_start", *request->periodStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scrollId)) {
+    query->insert(pair<string, string>("scroll_id", *request->scrollId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->scrollMod)) {
+    query->insert(pair<string, bool>("scroll_mod", *request->scrollMod));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
