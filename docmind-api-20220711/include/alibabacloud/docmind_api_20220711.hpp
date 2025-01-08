@@ -1435,8 +1435,13 @@ public:
 };
 class QueryDocParserStatusResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> imageCount{};
   shared_ptr<long> numberOfSuccessfulParsing{};
+  shared_ptr<long> pageCountEstimate{};
+  shared_ptr<long> paragraphCount{};
   shared_ptr<string> status{};
+  shared_ptr<long> tableCount{};
+  shared_ptr<long> tokens{};
 
   QueryDocParserStatusResponseBodyData() {}
 
@@ -1448,21 +1453,51 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (imageCount) {
+      res["ImageCount"] = boost::any(*imageCount);
+    }
     if (numberOfSuccessfulParsing) {
       res["NumberOfSuccessfulParsing"] = boost::any(*numberOfSuccessfulParsing);
     }
+    if (pageCountEstimate) {
+      res["PageCountEstimate"] = boost::any(*pageCountEstimate);
+    }
+    if (paragraphCount) {
+      res["ParagraphCount"] = boost::any(*paragraphCount);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tableCount) {
+      res["TableCount"] = boost::any(*tableCount);
+    }
+    if (tokens) {
+      res["Tokens"] = boost::any(*tokens);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageCount") != m.end() && !m["ImageCount"].empty()) {
+      imageCount = make_shared<long>(boost::any_cast<long>(m["ImageCount"]));
+    }
     if (m.find("NumberOfSuccessfulParsing") != m.end() && !m["NumberOfSuccessfulParsing"].empty()) {
       numberOfSuccessfulParsing = make_shared<long>(boost::any_cast<long>(m["NumberOfSuccessfulParsing"]));
     }
+    if (m.find("PageCountEstimate") != m.end() && !m["PageCountEstimate"].empty()) {
+      pageCountEstimate = make_shared<long>(boost::any_cast<long>(m["PageCountEstimate"]));
+    }
+    if (m.find("ParagraphCount") != m.end() && !m["ParagraphCount"].empty()) {
+      paragraphCount = make_shared<long>(boost::any_cast<long>(m["ParagraphCount"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TableCount") != m.end() && !m["TableCount"].empty()) {
+      tableCount = make_shared<long>(boost::any_cast<long>(m["TableCount"]));
+    }
+    if (m.find("Tokens") != m.end() && !m["Tokens"].empty()) {
+      tokens = make_shared<long>(boost::any_cast<long>(m["Tokens"]));
     }
   }
 
@@ -3649,6 +3684,7 @@ public:
   shared_ptr<string> fileNameExtension{};
   shared_ptr<string> fileUrl{};
   shared_ptr<bool> formulaEnhancement{};
+  shared_ptr<bool> llmEnhancement{};
 
   SubmitDocParserJobRequest() {}
 
@@ -3672,6 +3708,9 @@ public:
     if (formulaEnhancement) {
       res["FormulaEnhancement"] = boost::any(*formulaEnhancement);
     }
+    if (llmEnhancement) {
+      res["LlmEnhancement"] = boost::any(*llmEnhancement);
+    }
     return res;
   }
 
@@ -3688,6 +3727,9 @@ public:
     if (m.find("FormulaEnhancement") != m.end() && !m["FormulaEnhancement"].empty()) {
       formulaEnhancement = make_shared<bool>(boost::any_cast<bool>(m["FormulaEnhancement"]));
     }
+    if (m.find("LlmEnhancement") != m.end() && !m["LlmEnhancement"].empty()) {
+      llmEnhancement = make_shared<bool>(boost::any_cast<bool>(m["LlmEnhancement"]));
+    }
   }
 
 
@@ -3699,6 +3741,7 @@ public:
   shared_ptr<string> fileNameExtension{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
   shared_ptr<bool> formulaEnhancement{};
+  shared_ptr<bool> llmEnhancement{};
 
   SubmitDocParserJobAdvanceRequest() {}
 
@@ -3722,6 +3765,9 @@ public:
     if (formulaEnhancement) {
       res["FormulaEnhancement"] = boost::any(*formulaEnhancement);
     }
+    if (llmEnhancement) {
+      res["LlmEnhancement"] = boost::any(*llmEnhancement);
+    }
     return res;
   }
 
@@ -3737,6 +3783,9 @@ public:
     }
     if (m.find("FormulaEnhancement") != m.end() && !m["FormulaEnhancement"].empty()) {
       formulaEnhancement = make_shared<bool>(boost::any_cast<bool>(m["FormulaEnhancement"]));
+    }
+    if (m.find("LlmEnhancement") != m.end() && !m["LlmEnhancement"].empty()) {
+      llmEnhancement = make_shared<bool>(boost::any_cast<bool>(m["LlmEnhancement"]));
     }
   }
 

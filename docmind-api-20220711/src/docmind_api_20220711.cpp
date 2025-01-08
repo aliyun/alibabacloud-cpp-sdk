@@ -1106,6 +1106,9 @@ SubmitDocParserJobResponse Alibabacloud_Docmind-api20220711::Client::submitDocPa
   if (!Darabonba_Util::Client::isUnset<bool>(request->formulaEnhancement)) {
     query->insert(pair<string, bool>("FormulaEnhancement", *request->formulaEnhancement));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->llmEnhancement)) {
+    query->insert(pair<string, bool>("LlmEnhancement", *request->llmEnhancement));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
