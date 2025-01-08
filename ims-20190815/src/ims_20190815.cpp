@@ -1909,6 +1909,9 @@ SetSecurityPreferenceResponse Alibabacloud_Ims20190815::Client::setSecurityPrefe
   if (!Darabonba_Util::Client::isUnset<bool>(request->allowUserToChangePassword)) {
     query->insert(pair<string, bool>("AllowUserToChangePassword", *request->allowUserToChangePassword));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->allowUserToLoginWithPasskey)) {
+    query->insert(pair<string, bool>("AllowUserToLoginWithPasskey", *request->allowUserToLoginWithPasskey));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->allowUserToManageAccessKeys)) {
     query->insert(pair<string, bool>("AllowUserToManageAccessKeys", *request->allowUserToManageAccessKeys));
   }

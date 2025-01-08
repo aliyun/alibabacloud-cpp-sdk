@@ -6804,6 +6804,7 @@ public:
 class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference : public Darabonba::Model {
 public:
   shared_ptr<bool> allowUserToChangePassword{};
+  shared_ptr<bool> allowUserToLoginWithPasskey{};
   shared_ptr<bool> enableSaveMFATicket{};
   shared_ptr<string> loginNetworkMasks{};
   shared_ptr<long> loginSessionDuration{};
@@ -6822,6 +6823,9 @@ public:
     map<string, boost::any> res;
     if (allowUserToChangePassword) {
       res["AllowUserToChangePassword"] = boost::any(*allowUserToChangePassword);
+    }
+    if (allowUserToLoginWithPasskey) {
+      res["AllowUserToLoginWithPasskey"] = boost::any(*allowUserToLoginWithPasskey);
     }
     if (enableSaveMFATicket) {
       res["EnableSaveMFATicket"] = boost::any(*enableSaveMFATicket);
@@ -6844,6 +6848,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AllowUserToChangePassword") != m.end() && !m["AllowUserToChangePassword"].empty()) {
       allowUserToChangePassword = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToChangePassword"]));
+    }
+    if (m.find("AllowUserToLoginWithPasskey") != m.end() && !m["AllowUserToLoginWithPasskey"].empty()) {
+      allowUserToLoginWithPasskey = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToLoginWithPasskey"]));
     }
     if (m.find("EnableSaveMFATicket") != m.end() && !m["EnableSaveMFATicket"].empty()) {
       enableSaveMFATicket = make_shared<bool>(boost::any_cast<bool>(m["EnableSaveMFATicket"]));
@@ -12599,6 +12606,7 @@ public:
 class SetSecurityPreferenceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> allowUserToChangePassword{};
+  shared_ptr<bool> allowUserToLoginWithPasskey{};
   shared_ptr<bool> allowUserToManageAccessKeys{};
   shared_ptr<bool> allowUserToManageMFADevices{};
   shared_ptr<bool> allowUserToManagePersonalDingTalk{};
@@ -12621,6 +12629,9 @@ public:
     map<string, boost::any> res;
     if (allowUserToChangePassword) {
       res["AllowUserToChangePassword"] = boost::any(*allowUserToChangePassword);
+    }
+    if (allowUserToLoginWithPasskey) {
+      res["AllowUserToLoginWithPasskey"] = boost::any(*allowUserToLoginWithPasskey);
     }
     if (allowUserToManageAccessKeys) {
       res["AllowUserToManageAccessKeys"] = boost::any(*allowUserToManageAccessKeys);
@@ -12655,6 +12666,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AllowUserToChangePassword") != m.end() && !m["AllowUserToChangePassword"].empty()) {
       allowUserToChangePassword = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToChangePassword"]));
+    }
+    if (m.find("AllowUserToLoginWithPasskey") != m.end() && !m["AllowUserToLoginWithPasskey"].empty()) {
+      allowUserToLoginWithPasskey = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToLoginWithPasskey"]));
     }
     if (m.find("AllowUserToManageAccessKeys") != m.end() && !m["AllowUserToManageAccessKeys"].empty()) {
       allowUserToManageAccessKeys = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToManageAccessKeys"]));
@@ -12698,6 +12712,7 @@ public:
 class SetSecurityPreferenceShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> allowUserToChangePassword{};
+  shared_ptr<bool> allowUserToLoginWithPasskey{};
   shared_ptr<bool> allowUserToManageAccessKeys{};
   shared_ptr<bool> allowUserToManageMFADevices{};
   shared_ptr<bool> allowUserToManagePersonalDingTalk{};
@@ -12720,6 +12735,9 @@ public:
     map<string, boost::any> res;
     if (allowUserToChangePassword) {
       res["AllowUserToChangePassword"] = boost::any(*allowUserToChangePassword);
+    }
+    if (allowUserToLoginWithPasskey) {
+      res["AllowUserToLoginWithPasskey"] = boost::any(*allowUserToLoginWithPasskey);
     }
     if (allowUserToManageAccessKeys) {
       res["AllowUserToManageAccessKeys"] = boost::any(*allowUserToManageAccessKeys);
@@ -12754,6 +12772,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AllowUserToChangePassword") != m.end() && !m["AllowUserToChangePassword"].empty()) {
       allowUserToChangePassword = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToChangePassword"]));
+    }
+    if (m.find("AllowUserToLoginWithPasskey") != m.end() && !m["AllowUserToLoginWithPasskey"].empty()) {
+      allowUserToLoginWithPasskey = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToLoginWithPasskey"]));
     }
     if (m.find("AllowUserToManageAccessKeys") != m.end() && !m["AllowUserToManageAccessKeys"].empty()) {
       allowUserToManageAccessKeys = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToManageAccessKeys"]));
@@ -12819,6 +12840,7 @@ public:
 class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference : public Darabonba::Model {
 public:
   shared_ptr<bool> allowUserToChangePassword{};
+  shared_ptr<bool> allowUserToLoginWithPasskey{};
   shared_ptr<bool> enableSaveMFATicket{};
   shared_ptr<string> loginNetworkMasks{};
   shared_ptr<long> loginSessionDuration{};
@@ -12837,6 +12859,9 @@ public:
     map<string, boost::any> res;
     if (allowUserToChangePassword) {
       res["AllowUserToChangePassword"] = boost::any(*allowUserToChangePassword);
+    }
+    if (allowUserToLoginWithPasskey) {
+      res["AllowUserToLoginWithPasskey"] = boost::any(*allowUserToLoginWithPasskey);
     }
     if (enableSaveMFATicket) {
       res["EnableSaveMFATicket"] = boost::any(*enableSaveMFATicket);
@@ -12859,6 +12884,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AllowUserToChangePassword") != m.end() && !m["AllowUserToChangePassword"].empty()) {
       allowUserToChangePassword = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToChangePassword"]));
+    }
+    if (m.find("AllowUserToLoginWithPasskey") != m.end() && !m["AllowUserToLoginWithPasskey"].empty()) {
+      allowUserToLoginWithPasskey = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToLoginWithPasskey"]));
     }
     if (m.find("EnableSaveMFATicket") != m.end() && !m["EnableSaveMFATicket"].empty()) {
       enableSaveMFATicket = make_shared<bool>(boost::any_cast<bool>(m["EnableSaveMFATicket"]));
