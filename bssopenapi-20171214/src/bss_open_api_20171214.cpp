@@ -4050,6 +4050,53 @@ SetResellerUserStatusResponse Alibabacloud_BssOpenApi20171214::Client::setResell
   return setResellerUserStatusWithOptions(request, runtime);
 }
 
+SetSavingPlanUserDeductRuleResponse Alibabacloud_BssOpenApi20171214::Client::setSavingPlanUserDeductRuleWithOptions(shared_ptr<SetSavingPlanUserDeductRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SetSavingPlanUserDeductRuleShrinkRequest> request = make_shared<SetSavingPlanUserDeductRuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<SetSavingPlanUserDeductRuleRequestEcIdAccountIds>>(tmpReq->ecIdAccountIds)) {
+    request->ecIdAccountIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ecIdAccountIds, make_shared<string>("EcIdAccountIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<SetSavingPlanUserDeductRuleRequestUserDeductRules>>(tmpReq->userDeductRules)) {
+    request->userDeductRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->userDeductRules, make_shared<string>("UserDeductRules"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecIdAccountIdsShrink)) {
+    query->insert(pair<string, string>("EcIdAccountIds", *request->ecIdAccountIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nbid)) {
+    query->insert(pair<string, string>("Nbid", *request->nbid));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->spnInstanceCode)) {
+    body->insert(pair<string, string>("SpnInstanceCode", *request->spnInstanceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userDeductRulesShrink)) {
+    body->insert(pair<string, string>("UserDeductRules", *request->userDeductRulesShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetSavingPlanUserDeductRule"))},
+    {"version", boost::any(string("2017-12-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetSavingPlanUserDeductRuleResponse(callApi(params, req, runtime));
+}
+
+SetSavingPlanUserDeductRuleResponse Alibabacloud_BssOpenApi20171214::Client::setSavingPlanUserDeductRule(shared_ptr<SetSavingPlanUserDeductRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setSavingPlanUserDeductRuleWithOptions(request, runtime);
+}
+
 SubscribeBillToOSSResponse Alibabacloud_BssOpenApi20171214::Client::subscribeBillToOSSWithOptions(shared_ptr<SubscribeBillToOSSRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

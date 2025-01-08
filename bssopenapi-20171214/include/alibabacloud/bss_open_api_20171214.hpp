@@ -6020,6 +6020,7 @@ public:
 class DescribeInstanceBillResponseBodyDataItems : public Darabonba::Model {
 public:
   shared_ptr<double> adjustAmount{};
+  shared_ptr<string> afterDiscountAmount{};
   shared_ptr<string> billAccountID{};
   shared_ptr<string> billAccountName{};
   shared_ptr<string> billingDate{};
@@ -6078,6 +6079,9 @@ public:
     map<string, boost::any> res;
     if (adjustAmount) {
       res["AdjustAmount"] = boost::any(*adjustAmount);
+    }
+    if (afterDiscountAmount) {
+      res["AfterDiscountAmount"] = boost::any(*afterDiscountAmount);
     }
     if (billAccountID) {
       res["BillAccountID"] = boost::any(*billAccountID);
@@ -6220,6 +6224,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AdjustAmount") != m.end() && !m["AdjustAmount"].empty()) {
       adjustAmount = make_shared<double>(boost::any_cast<double>(m["AdjustAmount"]));
+    }
+    if (m.find("AfterDiscountAmount") != m.end() && !m["AfterDiscountAmount"].empty()) {
+      afterDiscountAmount = make_shared<string>(boost::any_cast<string>(m["AfterDiscountAmount"]));
     }
     if (m.find("BillAccountID") != m.end() && !m["BillAccountID"].empty()) {
       billAccountID = make_shared<string>(boost::any_cast<string>(m["BillAccountID"]));
@@ -12602,6 +12609,7 @@ public:
 class DescribeSplitItemBillResponseBodyDataItems : public Darabonba::Model {
 public:
   shared_ptr<double> adjustAmount{};
+  shared_ptr<string> afterDiscountAmount{};
   shared_ptr<string> billAccountID{};
   shared_ptr<string> billAccountName{};
   shared_ptr<string> billingDate{};
@@ -12668,6 +12676,9 @@ public:
     map<string, boost::any> res;
     if (adjustAmount) {
       res["AdjustAmount"] = boost::any(*adjustAmount);
+    }
+    if (afterDiscountAmount) {
+      res["AfterDiscountAmount"] = boost::any(*afterDiscountAmount);
     }
     if (billAccountID) {
       res["BillAccountID"] = boost::any(*billAccountID);
@@ -12834,6 +12845,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AdjustAmount") != m.end() && !m["AdjustAmount"].empty()) {
       adjustAmount = make_shared<double>(boost::any_cast<double>(m["AdjustAmount"]));
+    }
+    if (m.find("AfterDiscountAmount") != m.end() && !m["AfterDiscountAmount"].empty()) {
+      afterDiscountAmount = make_shared<string>(boost::any_cast<string>(m["AfterDiscountAmount"]));
     }
     if (m.find("BillAccountID") != m.end() && !m["BillAccountID"].empty()) {
       billAccountID = make_shared<string>(boost::any_cast<string>(m["BillAccountID"]));
@@ -34019,6 +34033,308 @@ public:
 
   virtual ~SetResellerUserStatusResponse() = default;
 };
+class SetSavingPlanUserDeductRuleRequestEcIdAccountIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> accountIds{};
+  shared_ptr<string> ecId{};
+
+  SetSavingPlanUserDeductRuleRequestEcIdAccountIds() {}
+
+  explicit SetSavingPlanUserDeductRuleRequestEcIdAccountIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountIds) {
+      res["AccountIds"] = boost::any(*accountIds);
+    }
+    if (ecId) {
+      res["EcId"] = boost::any(*ecId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      accountIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("EcId") != m.end() && !m["EcId"].empty()) {
+      ecId = make_shared<string>(boost::any_cast<string>(m["EcId"]));
+    }
+  }
+
+
+  virtual ~SetSavingPlanUserDeductRuleRequestEcIdAccountIds() = default;
+};
+class SetSavingPlanUserDeductRuleRequestUserDeductRules : public Darabonba::Model {
+public:
+  shared_ptr<string> commodityCode{};
+  shared_ptr<string> moduleCode{};
+  shared_ptr<bool> skipDeduct{};
+
+  SetSavingPlanUserDeductRuleRequestUserDeductRules() {}
+
+  explicit SetSavingPlanUserDeductRuleRequestUserDeductRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commodityCode) {
+      res["CommodityCode"] = boost::any(*commodityCode);
+    }
+    if (moduleCode) {
+      res["ModuleCode"] = boost::any(*moduleCode);
+    }
+    if (skipDeduct) {
+      res["SkipDeduct"] = boost::any(*skipDeduct);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
+      commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
+    }
+    if (m.find("ModuleCode") != m.end() && !m["ModuleCode"].empty()) {
+      moduleCode = make_shared<string>(boost::any_cast<string>(m["ModuleCode"]));
+    }
+    if (m.find("SkipDeduct") != m.end() && !m["SkipDeduct"].empty()) {
+      skipDeduct = make_shared<bool>(boost::any_cast<bool>(m["SkipDeduct"]));
+    }
+  }
+
+
+  virtual ~SetSavingPlanUserDeductRuleRequestUserDeductRules() = default;
+};
+class SetSavingPlanUserDeductRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<SetSavingPlanUserDeductRuleRequestEcIdAccountIds>> ecIdAccountIds{};
+  shared_ptr<string> nbid{};
+  shared_ptr<string> spnInstanceCode{};
+  shared_ptr<vector<SetSavingPlanUserDeductRuleRequestUserDeductRules>> userDeductRules{};
+
+  SetSavingPlanUserDeductRuleRequest() {}
+
+  explicit SetSavingPlanUserDeductRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ecIdAccountIds) {
+      vector<boost::any> temp1;
+      for(auto item1:*ecIdAccountIds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EcIdAccountIds"] = boost::any(temp1);
+    }
+    if (nbid) {
+      res["Nbid"] = boost::any(*nbid);
+    }
+    if (spnInstanceCode) {
+      res["SpnInstanceCode"] = boost::any(*spnInstanceCode);
+    }
+    if (userDeductRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*userDeductRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UserDeductRules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EcIdAccountIds") != m.end() && !m["EcIdAccountIds"].empty()) {
+      if (typeid(vector<boost::any>) == m["EcIdAccountIds"].type()) {
+        vector<SetSavingPlanUserDeductRuleRequestEcIdAccountIds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EcIdAccountIds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SetSavingPlanUserDeductRuleRequestEcIdAccountIds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ecIdAccountIds = make_shared<vector<SetSavingPlanUserDeductRuleRequestEcIdAccountIds>>(expect1);
+      }
+    }
+    if (m.find("Nbid") != m.end() && !m["Nbid"].empty()) {
+      nbid = make_shared<string>(boost::any_cast<string>(m["Nbid"]));
+    }
+    if (m.find("SpnInstanceCode") != m.end() && !m["SpnInstanceCode"].empty()) {
+      spnInstanceCode = make_shared<string>(boost::any_cast<string>(m["SpnInstanceCode"]));
+    }
+    if (m.find("UserDeductRules") != m.end() && !m["UserDeductRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["UserDeductRules"].type()) {
+        vector<SetSavingPlanUserDeductRuleRequestUserDeductRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UserDeductRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SetSavingPlanUserDeductRuleRequestUserDeductRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        userDeductRules = make_shared<vector<SetSavingPlanUserDeductRuleRequestUserDeductRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~SetSavingPlanUserDeductRuleRequest() = default;
+};
+class SetSavingPlanUserDeductRuleShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ecIdAccountIdsShrink{};
+  shared_ptr<string> nbid{};
+  shared_ptr<string> spnInstanceCode{};
+  shared_ptr<string> userDeductRulesShrink{};
+
+  SetSavingPlanUserDeductRuleShrinkRequest() {}
+
+  explicit SetSavingPlanUserDeductRuleShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ecIdAccountIdsShrink) {
+      res["EcIdAccountIds"] = boost::any(*ecIdAccountIdsShrink);
+    }
+    if (nbid) {
+      res["Nbid"] = boost::any(*nbid);
+    }
+    if (spnInstanceCode) {
+      res["SpnInstanceCode"] = boost::any(*spnInstanceCode);
+    }
+    if (userDeductRulesShrink) {
+      res["UserDeductRules"] = boost::any(*userDeductRulesShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EcIdAccountIds") != m.end() && !m["EcIdAccountIds"].empty()) {
+      ecIdAccountIdsShrink = make_shared<string>(boost::any_cast<string>(m["EcIdAccountIds"]));
+    }
+    if (m.find("Nbid") != m.end() && !m["Nbid"].empty()) {
+      nbid = make_shared<string>(boost::any_cast<string>(m["Nbid"]));
+    }
+    if (m.find("SpnInstanceCode") != m.end() && !m["SpnInstanceCode"].empty()) {
+      spnInstanceCode = make_shared<string>(boost::any_cast<string>(m["SpnInstanceCode"]));
+    }
+    if (m.find("UserDeductRules") != m.end() && !m["UserDeductRules"].empty()) {
+      userDeductRulesShrink = make_shared<string>(boost::any_cast<string>(m["UserDeductRules"]));
+    }
+  }
+
+
+  virtual ~SetSavingPlanUserDeductRuleShrinkRequest() = default;
+};
+class SetSavingPlanUserDeductRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  SetSavingPlanUserDeductRuleResponseBody() {}
+
+  explicit SetSavingPlanUserDeductRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetSavingPlanUserDeductRuleResponseBody() = default;
+};
+class SetSavingPlanUserDeductRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetSavingPlanUserDeductRuleResponseBody> body{};
+
+  SetSavingPlanUserDeductRuleResponse() {}
+
+  explicit SetSavingPlanUserDeductRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetSavingPlanUserDeductRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetSavingPlanUserDeductRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetSavingPlanUserDeductRuleResponse() = default;
+};
 class SubscribeBillToOSSRequest : public Darabonba::Model {
 public:
   shared_ptr<string> beginBillingCycle{};
@@ -35121,6 +35437,8 @@ public:
   SetResellerUserQuotaResponse setResellerUserQuota(shared_ptr<SetResellerUserQuotaRequest> request);
   SetResellerUserStatusResponse setResellerUserStatusWithOptions(shared_ptr<SetResellerUserStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetResellerUserStatusResponse setResellerUserStatus(shared_ptr<SetResellerUserStatusRequest> request);
+  SetSavingPlanUserDeductRuleResponse setSavingPlanUserDeductRuleWithOptions(shared_ptr<SetSavingPlanUserDeductRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetSavingPlanUserDeductRuleResponse setSavingPlanUserDeductRule(shared_ptr<SetSavingPlanUserDeductRuleRequest> request);
   SubscribeBillToOSSResponse subscribeBillToOSSWithOptions(shared_ptr<SubscribeBillToOSSRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubscribeBillToOSSResponse subscribeBillToOSS(shared_ptr<SubscribeBillToOSSRequest> request);
   TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
