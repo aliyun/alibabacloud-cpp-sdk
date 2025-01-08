@@ -3971,6 +3971,10 @@ DescribeWebhookContactsResponse Alibabacloud_ARMS20190808::Client::describeWebho
 
 DoInsightsActionResponse Alibabacloud_ARMS20190808::Client::doInsightsActionWithOptions(shared_ptr<DoInsightsActionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->data)) {
     body->insert(pair<string, string>("Data", *request->data));
@@ -3979,6 +3983,7 @@ DoInsightsActionResponse Alibabacloud_ARMS20190808::Client::doInsightsActionWith
     body->insert(pair<string, string>("Module", *request->module));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -5011,6 +5016,9 @@ GetRumExceptionStackResponse Alibabacloud_ARMS20190808::Client::getRumExceptionS
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->exceptionThreadId)) {
     query->insert(pair<string, string>("ExceptionThreadId", *request->exceptionThreadId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extraInfo)) {
+    query->insert(pair<string, string>("ExtraInfo", *request->extraInfo));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
     query->insert(pair<string, string>("Pid", *request->pid));

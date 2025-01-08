@@ -8564,7 +8564,7 @@ class CreateOrUpdateAlertRuleResponseBodyAlertRule : public Darabonba::Model {
 public:
   shared_ptr<string> alertCheckType{};
   shared_ptr<long> alertGroup{};
-  shared_ptr<double> alertId{};
+  shared_ptr<long> alertId{};
   shared_ptr<string> alertName{};
   shared_ptr<CreateOrUpdateAlertRuleResponseBodyAlertRuleAlertRuleContent> alertRuleContent{};
   shared_ptr<string> alertStatus{};
@@ -8700,7 +8700,7 @@ public:
       alertGroup = make_shared<long>(boost::any_cast<long>(m["AlertGroup"]));
     }
     if (m.find("AlertId") != m.end() && !m["AlertId"].empty()) {
-      alertId = make_shared<double>(boost::any_cast<double>(m["AlertId"]));
+      alertId = make_shared<long>(boost::any_cast<long>(m["AlertId"]));
     }
     if (m.find("AlertName") != m.end() && !m["AlertName"].empty()) {
       alertName = make_shared<string>(boost::any_cast<string>(m["AlertName"]));
@@ -26410,6 +26410,7 @@ class DoInsightsActionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> data{};
   shared_ptr<string> module{};
+  shared_ptr<string> regionId{};
 
   DoInsightsActionRequest() {}
 
@@ -26427,6 +26428,9 @@ public:
     if (module) {
       res["Module"] = boost::any(*module);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -26436,6 +26440,9 @@ public:
     }
     if (m.find("Module") != m.end() && !m["Module"].empty()) {
       module = make_shared<string>(boost::any_cast<string>(m["Module"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -34680,6 +34687,7 @@ public:
   shared_ptr<string> exceptionBinaryImages{};
   shared_ptr<string> exceptionStack{};
   shared_ptr<string> exceptionThreadId{};
+  shared_ptr<string> extraInfo{};
   shared_ptr<string> pid{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sourcemapType{};
@@ -34703,6 +34711,9 @@ public:
     if (exceptionThreadId) {
       res["ExceptionThreadId"] = boost::any(*exceptionThreadId);
     }
+    if (extraInfo) {
+      res["ExtraInfo"] = boost::any(*extraInfo);
+    }
     if (pid) {
       res["Pid"] = boost::any(*pid);
     }
@@ -34724,6 +34735,9 @@ public:
     }
     if (m.find("ExceptionThreadId") != m.end() && !m["ExceptionThreadId"].empty()) {
       exceptionThreadId = make_shared<string>(boost::any_cast<string>(m["ExceptionThreadId"]));
+    }
+    if (m.find("ExtraInfo") != m.end() && !m["ExtraInfo"].empty()) {
+      extraInfo = make_shared<string>(boost::any_cast<string>(m["ExtraInfo"]));
     }
     if (m.find("Pid") != m.end() && !m["Pid"].empty()) {
       pid = make_shared<string>(boost::any_cast<string>(m["Pid"]));
