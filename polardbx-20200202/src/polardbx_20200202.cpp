@@ -1486,6 +1486,49 @@ DescribeEventsResponse Alibabacloud_Polardbx20200202::Client::describeEvents(sha
   return describeEventsWithOptions(request, runtime);
 }
 
+DescribeGdnInstancesResponse Alibabacloud_Polardbx20200202::Client::describeGdnInstancesWithOptions(shared_ptr<DescribeGdnInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterType)) {
+    query->insert(pair<string, string>("FilterType", *request->filterType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterValue)) {
+    query->insert(pair<string, string>("FilterValue", *request->filterValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->GDNId)) {
+    query->insert(pair<string, string>("GDNId", *request->GDNId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageNum)) {
+    query->insert(pair<string, string>("PageNum", *request->pageNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeGdnInstances"))},
+    {"version", boost::any(string("2020-02-02"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeGdnInstancesResponse(callApi(params, req, runtime));
+}
+
+DescribeGdnInstancesResponse Alibabacloud_Polardbx20200202::Client::describeGdnInstances(shared_ptr<DescribeGdnInstancesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeGdnInstancesWithOptions(request, runtime);
+}
+
 DescribeOpenBackupSetResponse Alibabacloud_Polardbx20200202::Client::describeOpenBackupSetWithOptions(shared_ptr<DescribeOpenBackupSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2598,6 +2641,40 @@ SwitchDBInstanceHAResponse Alibabacloud_Polardbx20200202::Client::switchDBInstan
 SwitchDBInstanceHAResponse Alibabacloud_Polardbx20200202::Client::switchDBInstanceHA(shared_ptr<SwitchDBInstanceHARequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return switchDBInstanceHAWithOptions(request, runtime);
+}
+
+SwitchGdnMemberRoleResponse Alibabacloud_Polardbx20200202::Client::switchGdnMemberRoleWithOptions(shared_ptr<SwitchGdnMemberRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceName)) {
+    query->insert(pair<string, string>("DBInstanceName", *request->DBInstanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->switchMode)) {
+    query->insert(pair<string, string>("SwitchMode", *request->switchMode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SwitchGdnMemberRole"))},
+    {"version", boost::any(string("2020-02-02"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SwitchGdnMemberRoleResponse(callApi(params, req, runtime));
+}
+
+SwitchGdnMemberRoleResponse Alibabacloud_Polardbx20200202::Client::switchGdnMemberRole(shared_ptr<SwitchGdnMemberRoleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return switchGdnMemberRoleWithOptions(request, runtime);
 }
 
 TagResourcesResponse Alibabacloud_Polardbx20200202::Client::tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
