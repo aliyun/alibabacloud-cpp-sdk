@@ -683,6 +683,7 @@ class AttachInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> entrusted{};
+  shared_ptr<bool> ignoreInvalidInstance{};
   shared_ptr<vector<string>> instanceIds{};
   shared_ptr<bool> lifecycleHook{};
   shared_ptr<vector<long>> loadBalancerWeights{};
@@ -708,6 +709,9 @@ public:
     }
     if (entrusted) {
       res["Entrusted"] = boost::any(*entrusted);
+    }
+    if (ignoreInvalidInstance) {
+      res["IgnoreInvalidInstance"] = boost::any(*ignoreInvalidInstance);
     }
     if (instanceIds) {
       res["InstanceIds"] = boost::any(*instanceIds);
@@ -745,6 +749,9 @@ public:
     }
     if (m.find("Entrusted") != m.end() && !m["Entrusted"].empty()) {
       entrusted = make_shared<bool>(boost::any_cast<bool>(m["Entrusted"]));
+    }
+    if (m.find("IgnoreInvalidInstance") != m.end() && !m["IgnoreInvalidInstance"].empty()) {
+      ignoreInvalidInstance = make_shared<bool>(boost::any_cast<bool>(m["IgnoreInvalidInstance"]));
     }
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
       vector<string> toVec1;

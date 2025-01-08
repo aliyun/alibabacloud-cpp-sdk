@@ -265,6 +265,9 @@ AttachInstancesResponse Alibabacloud_Ess20220222::Client::attachInstancesWithOpt
   if (!Darabonba_Util::Client::isUnset<bool>(request->entrusted)) {
     query->insert(pair<string, bool>("Entrusted", *request->entrusted));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ignoreInvalidInstance)) {
+    query->insert(pair<string, bool>("IgnoreInvalidInstance", *request->ignoreInvalidInstance));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
     query->insert(pair<string, vector<string>>("InstanceIds", *request->instanceIds));
   }
