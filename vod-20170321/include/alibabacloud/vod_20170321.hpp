@@ -2839,11 +2839,223 @@ public:
 
   virtual ~BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo() = default;
 };
+class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList : public Darabonba::Model {
+public:
+  shared_ptr<long> bitDepth{};
+  shared_ptr<string> bitrate{};
+  shared_ptr<string> codecName{};
+  shared_ptr<string> creationTime{};
+  shared_ptr<string> definition{};
+  shared_ptr<string> duration{};
+  shared_ptr<long> encrypt{};
+  shared_ptr<string> encryptMode{};
+  shared_ptr<string> encryptType{};
+  shared_ptr<string> format{};
+  shared_ptr<string> fps{};
+  shared_ptr<string> HDRType{};
+  shared_ptr<long> height{};
+  shared_ptr<string> jobExt{};
+  shared_ptr<string> jobId{};
+  shared_ptr<long> jobType{};
+  shared_ptr<string> modificationTime{};
+  shared_ptr<string> narrowBandType{};
+  shared_ptr<string> playURL{};
+  shared_ptr<long> size{};
+  shared_ptr<string> specification{};
+  shared_ptr<string> status{};
+  shared_ptr<string> streamType{};
+  shared_ptr<string> templateGroupId{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> watermarkId{};
+  shared_ptr<long> width{};
+
+  BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList() {}
+
+  explicit BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bitDepth) {
+      res["BitDepth"] = boost::any(*bitDepth);
+    }
+    if (bitrate) {
+      res["Bitrate"] = boost::any(*bitrate);
+    }
+    if (codecName) {
+      res["CodecName"] = boost::any(*codecName);
+    }
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (definition) {
+      res["Definition"] = boost::any(*definition);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (encrypt) {
+      res["Encrypt"] = boost::any(*encrypt);
+    }
+    if (encryptMode) {
+      res["EncryptMode"] = boost::any(*encryptMode);
+    }
+    if (encryptType) {
+      res["EncryptType"] = boost::any(*encryptType);
+    }
+    if (format) {
+      res["Format"] = boost::any(*format);
+    }
+    if (fps) {
+      res["Fps"] = boost::any(*fps);
+    }
+    if (HDRType) {
+      res["HDRType"] = boost::any(*HDRType);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (jobExt) {
+      res["JobExt"] = boost::any(*jobExt);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (jobType) {
+      res["JobType"] = boost::any(*jobType);
+    }
+    if (modificationTime) {
+      res["ModificationTime"] = boost::any(*modificationTime);
+    }
+    if (narrowBandType) {
+      res["NarrowBandType"] = boost::any(*narrowBandType);
+    }
+    if (playURL) {
+      res["PlayURL"] = boost::any(*playURL);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    if (specification) {
+      res["Specification"] = boost::any(*specification);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (streamType) {
+      res["StreamType"] = boost::any(*streamType);
+    }
+    if (templateGroupId) {
+      res["TemplateGroupId"] = boost::any(*templateGroupId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (watermarkId) {
+      res["WatermarkId"] = boost::any(*watermarkId);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BitDepth") != m.end() && !m["BitDepth"].empty()) {
+      bitDepth = make_shared<long>(boost::any_cast<long>(m["BitDepth"]));
+    }
+    if (m.find("Bitrate") != m.end() && !m["Bitrate"].empty()) {
+      bitrate = make_shared<string>(boost::any_cast<string>(m["Bitrate"]));
+    }
+    if (m.find("CodecName") != m.end() && !m["CodecName"].empty()) {
+      codecName = make_shared<string>(boost::any_cast<string>(m["CodecName"]));
+    }
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("Definition") != m.end() && !m["Definition"].empty()) {
+      definition = make_shared<string>(boost::any_cast<string>(m["Definition"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<string>(boost::any_cast<string>(m["Duration"]));
+    }
+    if (m.find("Encrypt") != m.end() && !m["Encrypt"].empty()) {
+      encrypt = make_shared<long>(boost::any_cast<long>(m["Encrypt"]));
+    }
+    if (m.find("EncryptMode") != m.end() && !m["EncryptMode"].empty()) {
+      encryptMode = make_shared<string>(boost::any_cast<string>(m["EncryptMode"]));
+    }
+    if (m.find("EncryptType") != m.end() && !m["EncryptType"].empty()) {
+      encryptType = make_shared<string>(boost::any_cast<string>(m["EncryptType"]));
+    }
+    if (m.find("Format") != m.end() && !m["Format"].empty()) {
+      format = make_shared<string>(boost::any_cast<string>(m["Format"]));
+    }
+    if (m.find("Fps") != m.end() && !m["Fps"].empty()) {
+      fps = make_shared<string>(boost::any_cast<string>(m["Fps"]));
+    }
+    if (m.find("HDRType") != m.end() && !m["HDRType"].empty()) {
+      HDRType = make_shared<string>(boost::any_cast<string>(m["HDRType"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("JobExt") != m.end() && !m["JobExt"].empty()) {
+      jobExt = make_shared<string>(boost::any_cast<string>(m["JobExt"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
+      jobType = make_shared<long>(boost::any_cast<long>(m["JobType"]));
+    }
+    if (m.find("ModificationTime") != m.end() && !m["ModificationTime"].empty()) {
+      modificationTime = make_shared<string>(boost::any_cast<string>(m["ModificationTime"]));
+    }
+    if (m.find("NarrowBandType") != m.end() && !m["NarrowBandType"].empty()) {
+      narrowBandType = make_shared<string>(boost::any_cast<string>(m["NarrowBandType"]));
+    }
+    if (m.find("PlayURL") != m.end() && !m["PlayURL"].empty()) {
+      playURL = make_shared<string>(boost::any_cast<string>(m["PlayURL"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("Specification") != m.end() && !m["Specification"].empty()) {
+      specification = make_shared<string>(boost::any_cast<string>(m["Specification"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StreamType") != m.end() && !m["StreamType"].empty()) {
+      streamType = make_shared<string>(boost::any_cast<string>(m["StreamType"]));
+    }
+    if (m.find("TemplateGroupId") != m.end() && !m["TemplateGroupId"].empty()) {
+      templateGroupId = make_shared<string>(boost::any_cast<string>(m["TemplateGroupId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("WatermarkId") != m.end() && !m["WatermarkId"].empty()) {
+      watermarkId = make_shared<string>(boost::any_cast<string>(m["WatermarkId"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList() = default;
+};
 class BatchGetMediaInfosResponseBodyMediaInfos : public Darabonba::Model {
 public:
   shared_ptr<string> mediaId{};
   shared_ptr<BatchGetMediaInfosResponseBodyMediaInfosMediaInfo> mediaInfo{};
   shared_ptr<BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo> mezzanineInfo{};
+  shared_ptr<vector<BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList>> playInfoList{};
 
   BatchGetMediaInfosResponseBodyMediaInfos() {}
 
@@ -2864,6 +3076,13 @@ public:
     if (mezzanineInfo) {
       res["MezzanineInfo"] = mezzanineInfo ? boost::any(mezzanineInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (playInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*playInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PlayInfoList"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -2883,6 +3102,19 @@ public:
         BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MezzanineInfo"]));
         mezzanineInfo = make_shared<BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo>(model1);
+      }
+    }
+    if (m.find("PlayInfoList") != m.end() && !m["PlayInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PlayInfoList"].type()) {
+        vector<BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PlayInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        playInfoList = make_shared<vector<BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList>>(expect1);
       }
     }
   }
