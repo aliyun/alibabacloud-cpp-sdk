@@ -457,6 +457,58 @@ FraudResultCallBackResponse Alibabacloud_Cloudauth-intl20220809::Client::fraudRe
   return fraudResultCallBackWithOptions(request, runtime);
 }
 
+Id2MetaPeriodVerifyIntlResponse Alibabacloud_Cloudauth-intl20220809::Client::id2MetaPeriodVerifyIntlWithOptions(shared_ptr<Id2MetaPeriodVerifyIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->docName)) {
+    body->insert(pair<string, string>("DocName", *request->docName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->docNo)) {
+    body->insert(pair<string, string>("DocNo", *request->docNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->docType)) {
+    body->insert(pair<string, string>("DocType", *request->docType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
+    body->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->merchantUserId)) {
+    body->insert(pair<string, string>("MerchantUserId", *request->merchantUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    body->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneCode)) {
+    body->insert(pair<string, string>("SceneCode", *request->sceneCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->validityEndDate)) {
+    body->insert(pair<string, string>("ValidityEndDate", *request->validityEndDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->validityStartDate)) {
+    body->insert(pair<string, string>("ValidityStartDate", *request->validityStartDate));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("Id2MetaPeriodVerifyIntl"))},
+    {"version", boost::any(string("2022-08-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return Id2MetaPeriodVerifyIntlResponse(callApi(params, req, runtime));
+}
+
+Id2MetaPeriodVerifyIntlResponse Alibabacloud_Cloudauth-intl20220809::Client::id2MetaPeriodVerifyIntl(shared_ptr<Id2MetaPeriodVerifyIntlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return id2MetaPeriodVerifyIntlWithOptions(request, runtime);
+}
+
 Id2MetaVerifyIntlResponse Alibabacloud_Cloudauth-intl20220809::Client::id2MetaVerifyIntlWithOptions(shared_ptr<Id2MetaVerifyIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

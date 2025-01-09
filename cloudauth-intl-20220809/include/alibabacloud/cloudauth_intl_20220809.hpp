@@ -2069,6 +2069,233 @@ public:
 
   virtual ~FraudResultCallBackResponse() = default;
 };
+class Id2MetaPeriodVerifyIntlRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> docName{};
+  shared_ptr<string> docNo{};
+  shared_ptr<string> docType{};
+  shared_ptr<string> merchantBizId{};
+  shared_ptr<string> merchantUserId{};
+  shared_ptr<string> productCode{};
+  shared_ptr<string> sceneCode{};
+  shared_ptr<string> validityEndDate{};
+  shared_ptr<string> validityStartDate{};
+
+  Id2MetaPeriodVerifyIntlRequest() {}
+
+  explicit Id2MetaPeriodVerifyIntlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (docName) {
+      res["DocName"] = boost::any(*docName);
+    }
+    if (docNo) {
+      res["DocNo"] = boost::any(*docNo);
+    }
+    if (docType) {
+      res["DocType"] = boost::any(*docType);
+    }
+    if (merchantBizId) {
+      res["MerchantBizId"] = boost::any(*merchantBizId);
+    }
+    if (merchantUserId) {
+      res["MerchantUserId"] = boost::any(*merchantUserId);
+    }
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
+    }
+    if (sceneCode) {
+      res["SceneCode"] = boost::any(*sceneCode);
+    }
+    if (validityEndDate) {
+      res["ValidityEndDate"] = boost::any(*validityEndDate);
+    }
+    if (validityStartDate) {
+      res["ValidityStartDate"] = boost::any(*validityStartDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DocName") != m.end() && !m["DocName"].empty()) {
+      docName = make_shared<string>(boost::any_cast<string>(m["DocName"]));
+    }
+    if (m.find("DocNo") != m.end() && !m["DocNo"].empty()) {
+      docNo = make_shared<string>(boost::any_cast<string>(m["DocNo"]));
+    }
+    if (m.find("DocType") != m.end() && !m["DocType"].empty()) {
+      docType = make_shared<string>(boost::any_cast<string>(m["DocType"]));
+    }
+    if (m.find("MerchantBizId") != m.end() && !m["MerchantBizId"].empty()) {
+      merchantBizId = make_shared<string>(boost::any_cast<string>(m["MerchantBizId"]));
+    }
+    if (m.find("MerchantUserId") != m.end() && !m["MerchantUserId"].empty()) {
+      merchantUserId = make_shared<string>(boost::any_cast<string>(m["MerchantUserId"]));
+    }
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("SceneCode") != m.end() && !m["SceneCode"].empty()) {
+      sceneCode = make_shared<string>(boost::any_cast<string>(m["SceneCode"]));
+    }
+    if (m.find("ValidityEndDate") != m.end() && !m["ValidityEndDate"].empty()) {
+      validityEndDate = make_shared<string>(boost::any_cast<string>(m["ValidityEndDate"]));
+    }
+    if (m.find("ValidityStartDate") != m.end() && !m["ValidityStartDate"].empty()) {
+      validityStartDate = make_shared<string>(boost::any_cast<string>(m["ValidityStartDate"]));
+    }
+  }
+
+
+  virtual ~Id2MetaPeriodVerifyIntlRequest() = default;
+};
+class Id2MetaPeriodVerifyIntlResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> passed{};
+  shared_ptr<string> subCode{};
+
+  Id2MetaPeriodVerifyIntlResponseBodyResult() {}
+
+  explicit Id2MetaPeriodVerifyIntlResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (passed) {
+      res["Passed"] = boost::any(*passed);
+    }
+    if (subCode) {
+      res["SubCode"] = boost::any(*subCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Passed") != m.end() && !m["Passed"].empty()) {
+      passed = make_shared<string>(boost::any_cast<string>(m["Passed"]));
+    }
+    if (m.find("SubCode") != m.end() && !m["SubCode"].empty()) {
+      subCode = make_shared<string>(boost::any_cast<string>(m["SubCode"]));
+    }
+  }
+
+
+  virtual ~Id2MetaPeriodVerifyIntlResponseBodyResult() = default;
+};
+class Id2MetaPeriodVerifyIntlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<Id2MetaPeriodVerifyIntlResponseBodyResult> result{};
+
+  Id2MetaPeriodVerifyIntlResponseBody() {}
+
+  explicit Id2MetaPeriodVerifyIntlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        Id2MetaPeriodVerifyIntlResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<Id2MetaPeriodVerifyIntlResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Id2MetaPeriodVerifyIntlResponseBody() = default;
+};
+class Id2MetaPeriodVerifyIntlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<Id2MetaPeriodVerifyIntlResponseBody> body{};
+
+  Id2MetaPeriodVerifyIntlResponse() {}
+
+  explicit Id2MetaPeriodVerifyIntlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        Id2MetaPeriodVerifyIntlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<Id2MetaPeriodVerifyIntlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Id2MetaPeriodVerifyIntlResponse() = default;
+};
 class Id2MetaVerifyIntlRequest : public Darabonba::Model {
 public:
   shared_ptr<string> identifyNum{};
@@ -2869,6 +3096,8 @@ public:
   FaceLivenessResponse faceLiveness(shared_ptr<FaceLivenessRequest> request);
   FraudResultCallBackResponse fraudResultCallBackWithOptions(shared_ptr<FraudResultCallBackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FraudResultCallBackResponse fraudResultCallBack(shared_ptr<FraudResultCallBackRequest> request);
+  Id2MetaPeriodVerifyIntlResponse id2MetaPeriodVerifyIntlWithOptions(shared_ptr<Id2MetaPeriodVerifyIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  Id2MetaPeriodVerifyIntlResponse id2MetaPeriodVerifyIntl(shared_ptr<Id2MetaPeriodVerifyIntlRequest> request);
   Id2MetaVerifyIntlResponse id2MetaVerifyIntlWithOptions(shared_ptr<Id2MetaVerifyIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   Id2MetaVerifyIntlResponse id2MetaVerifyIntl(shared_ptr<Id2MetaVerifyIntlRequest> request);
   InitializeResponse initializeWithOptions(shared_ptr<InitializeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
