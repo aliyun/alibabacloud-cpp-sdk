@@ -10821,6 +10821,7 @@ public:
 class CreateRCNodePoolRequestSystemDisk : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
+  shared_ptr<string> performanceLevel{};
   shared_ptr<long> size{};
 
   CreateRCNodePoolRequestSystemDisk() {}
@@ -10836,6 +10837,9 @@ public:
     if (category) {
       res["Category"] = boost::any(*category);
     }
+    if (performanceLevel) {
+      res["PerformanceLevel"] = boost::any(*performanceLevel);
+    }
     if (size) {
       res["Size"] = boost::any(*size);
     }
@@ -10845,6 +10849,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("PerformanceLevel") != m.end() && !m["PerformanceLevel"].empty()) {
+      performanceLevel = make_shared<string>(boost::any_cast<string>(m["PerformanceLevel"]));
     }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
@@ -51665,6 +51672,7 @@ public:
   shared_ptr<string> architecture{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageName{};
+  shared_ptr<string> instanceType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
@@ -51688,6 +51696,9 @@ public:
     }
     if (imageName) {
       res["ImageName"] = boost::any(*imageName);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -51713,6 +51724,9 @@ public:
     }
     if (m.find("ImageName") != m.end() && !m["ImageName"].empty()) {
       imageName = make_shared<string>(boost::any_cast<string>(m["ImageName"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -51744,6 +51758,7 @@ public:
   shared_ptr<string> OSName{};
   shared_ptr<string> OSNameEn{};
   shared_ptr<string> OSType{};
+  shared_ptr<string> platform{};
   shared_ptr<long> size{};
   shared_ptr<string> status{};
   shared_ptr<string> usage{};
@@ -51791,6 +51806,9 @@ public:
     if (OSType) {
       res["OSType"] = boost::any(*OSType);
     }
+    if (platform) {
+      res["Platform"] = boost::any(*platform);
+    }
     if (size) {
       res["Size"] = boost::any(*size);
     }
@@ -51836,6 +51854,9 @@ public:
     }
     if (m.find("OSType") != m.end() && !m["OSType"].empty()) {
       OSType = make_shared<string>(boost::any_cast<string>(m["OSType"]));
+    }
+    if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
+      platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
     }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
@@ -52390,6 +52411,63 @@ public:
 
   virtual ~DescribeRCInstanceAttributeResponseBodySecurityGroupIds() = default;
 };
+class DescribeRCInstanceAttributeResponseBodySystemDisk : public Darabonba::Model {
+public:
+  shared_ptr<bool> deleteWithInstance{};
+  shared_ptr<string> encrypted{};
+  shared_ptr<string> systemDiskCategory{};
+  shared_ptr<string> systemDiskPerformanceLevel{};
+  shared_ptr<long> systemDiskSize{};
+
+  DescribeRCInstanceAttributeResponseBodySystemDisk() {}
+
+  explicit DescribeRCInstanceAttributeResponseBodySystemDisk(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deleteWithInstance) {
+      res["DeleteWithInstance"] = boost::any(*deleteWithInstance);
+    }
+    if (encrypted) {
+      res["Encrypted"] = boost::any(*encrypted);
+    }
+    if (systemDiskCategory) {
+      res["SystemDiskCategory"] = boost::any(*systemDiskCategory);
+    }
+    if (systemDiskPerformanceLevel) {
+      res["SystemDiskPerformanceLevel"] = boost::any(*systemDiskPerformanceLevel);
+    }
+    if (systemDiskSize) {
+      res["SystemDiskSize"] = boost::any(*systemDiskSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeleteWithInstance") != m.end() && !m["DeleteWithInstance"].empty()) {
+      deleteWithInstance = make_shared<bool>(boost::any_cast<bool>(m["DeleteWithInstance"]));
+    }
+    if (m.find("Encrypted") != m.end() && !m["Encrypted"].empty()) {
+      encrypted = make_shared<string>(boost::any_cast<string>(m["Encrypted"]));
+    }
+    if (m.find("SystemDiskCategory") != m.end() && !m["SystemDiskCategory"].empty()) {
+      systemDiskCategory = make_shared<string>(boost::any_cast<string>(m["SystemDiskCategory"]));
+    }
+    if (m.find("SystemDiskPerformanceLevel") != m.end() && !m["SystemDiskPerformanceLevel"].empty()) {
+      systemDiskPerformanceLevel = make_shared<string>(boost::any_cast<string>(m["SystemDiskPerformanceLevel"]));
+    }
+    if (m.find("SystemDiskSize") != m.end() && !m["SystemDiskSize"].empty()) {
+      systemDiskSize = make_shared<long>(boost::any_cast<long>(m["SystemDiskSize"]));
+    }
+  }
+
+
+  virtual ~DescribeRCInstanceAttributeResponseBodySystemDisk() = default;
+};
 class DescribeRCInstanceAttributeResponseBodyTagsTag : public Darabonba::Model {
 public:
   shared_ptr<string> resourceId{};
@@ -52614,6 +52692,7 @@ public:
   shared_ptr<string> spotStrategy{};
   shared_ptr<string> status{};
   shared_ptr<string> stoppedMode{};
+  shared_ptr<DescribeRCInstanceAttributeResponseBodySystemDisk> systemDisk{};
   shared_ptr<DescribeRCInstanceAttributeResponseBodyTags> tags{};
   shared_ptr<string> vlanId{};
   shared_ptr<DescribeRCInstanceAttributeResponseBodyVpcAttributes> vpcAttributes{};
@@ -52745,6 +52824,9 @@ public:
     }
     if (stoppedMode) {
       res["StoppedMode"] = boost::any(*stoppedMode);
+    }
+    if (systemDisk) {
+      res["SystemDisk"] = systemDisk ? boost::any(systemDisk->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
@@ -52906,6 +52988,13 @@ public:
     }
     if (m.find("StoppedMode") != m.end() && !m["StoppedMode"].empty()) {
       stoppedMode = make_shared<string>(boost::any_cast<string>(m["StoppedMode"]));
+    }
+    if (m.find("SystemDisk") != m.end() && !m["SystemDisk"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SystemDisk"].type()) {
+        DescribeRCInstanceAttributeResponseBodySystemDisk model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SystemDisk"]));
+        systemDisk = make_shared<DescribeRCInstanceAttributeResponseBodySystemDisk>(model1);
+      }
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(map<string, boost::any>) == m["Tags"].type()) {
@@ -53875,6 +53964,7 @@ public:
 class DescribeRCNodePoolResponseBodyNodePoolListSystemDisk : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
+  shared_ptr<string> performanceLevel{};
   shared_ptr<long> size{};
 
   DescribeRCNodePoolResponseBodyNodePoolListSystemDisk() {}
@@ -53890,6 +53980,9 @@ public:
     if (category) {
       res["Category"] = boost::any(*category);
     }
+    if (performanceLevel) {
+      res["PerformanceLevel"] = boost::any(*performanceLevel);
+    }
     if (size) {
       res["Size"] = boost::any(*size);
     }
@@ -53899,6 +53992,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("PerformanceLevel") != m.end() && !m["PerformanceLevel"].empty()) {
+      performanceLevel = make_shared<string>(boost::any_cast<string>(m["PerformanceLevel"]));
     }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
@@ -57078,6 +57174,7 @@ class DescribeResourceUsageResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> archiveBackupSize{};
   shared_ptr<long> backupDataSize{};
+  shared_ptr<string> backupEcsSnapshotSize{};
   shared_ptr<long> backupLogSize{};
   shared_ptr<long> backupOssDataSize{};
   shared_ptr<long> backupOssLogSize{};
@@ -57107,6 +57204,9 @@ public:
     }
     if (backupDataSize) {
       res["BackupDataSize"] = boost::any(*backupDataSize);
+    }
+    if (backupEcsSnapshotSize) {
+      res["BackupEcsSnapshotSize"] = boost::any(*backupEcsSnapshotSize);
     }
     if (backupLogSize) {
       res["BackupLogSize"] = boost::any(*backupLogSize);
@@ -57156,6 +57256,9 @@ public:
     }
     if (m.find("BackupDataSize") != m.end() && !m["BackupDataSize"].empty()) {
       backupDataSize = make_shared<long>(boost::any_cast<long>(m["BackupDataSize"]));
+    }
+    if (m.find("BackupEcsSnapshotSize") != m.end() && !m["BackupEcsSnapshotSize"].empty()) {
+      backupEcsSnapshotSize = make_shared<string>(boost::any_cast<string>(m["BackupEcsSnapshotSize"]));
     }
     if (m.find("BackupLogSize") != m.end() && !m["BackupLogSize"].empty()) {
       backupLogSize = make_shared<long>(boost::any_cast<long>(m["BackupLogSize"]));
