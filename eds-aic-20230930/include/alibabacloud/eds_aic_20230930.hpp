@@ -1894,6 +1894,42 @@ public:
 
   virtual ~CreateKeyPairResponse() = default;
 };
+class CreatePolicyGroupRequestNetRedirectPolicyRules : public Darabonba::Model {
+public:
+  shared_ptr<string> ruleType{};
+  shared_ptr<string> target{};
+
+  CreatePolicyGroupRequestNetRedirectPolicyRules() {}
+
+  explicit CreatePolicyGroupRequestNetRedirectPolicyRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    if (target) {
+      res["Target"] = boost::any(*target);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      target = make_shared<string>(boost::any_cast<string>(m["Target"]));
+    }
+  }
+
+
+  virtual ~CreatePolicyGroupRequestNetRedirectPolicyRules() = default;
+};
 class CreatePolicyGroupRequestNetRedirectPolicy : public Darabonba::Model {
 public:
   shared_ptr<string> customProxy{};
@@ -1903,6 +1939,7 @@ public:
   shared_ptr<string> proxyPassword{};
   shared_ptr<string> proxyType{};
   shared_ptr<string> proxyUserName{};
+  shared_ptr<vector<CreatePolicyGroupRequestNetRedirectPolicyRules>> rules{};
 
   CreatePolicyGroupRequestNetRedirectPolicy() {}
 
@@ -1935,6 +1972,13 @@ public:
     if (proxyUserName) {
       res["ProxyUserName"] = boost::any(*proxyUserName);
     }
+    if (rules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Rules"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1959,6 +2003,19 @@ public:
     }
     if (m.find("ProxyUserName") != m.end() && !m["ProxyUserName"].empty()) {
       proxyUserName = make_shared<string>(boost::any_cast<string>(m["ProxyUserName"]));
+    }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(vector<boost::any>) == m["Rules"].type()) {
+        vector<CreatePolicyGroupRequestNetRedirectPolicyRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Rules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePolicyGroupRequestNetRedirectPolicyRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rules = make_shared<vector<CreatePolicyGroupRequestNetRedirectPolicyRules>>(expect1);
+      }
     }
   }
 
@@ -7397,6 +7454,42 @@ public:
 
   virtual ~ListPolicyGroupsRequest() = default;
 };
+class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules : public Darabonba::Model {
+public:
+  shared_ptr<string> ruleType{};
+  shared_ptr<string> target{};
+
+  ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules() {}
+
+  explicit ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    if (target) {
+      res["Target"] = boost::any(*target);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      target = make_shared<string>(boost::any_cast<string>(m["Target"]));
+    }
+  }
+
+
+  virtual ~ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules() = default;
+};
 class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy : public Darabonba::Model {
 public:
   shared_ptr<string> customProxy{};
@@ -7406,6 +7499,7 @@ public:
   shared_ptr<string> proxyPassword{};
   shared_ptr<string> proxyType{};
   shared_ptr<string> proxyUserName{};
+  shared_ptr<vector<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules>> rules{};
 
   ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy() {}
 
@@ -7438,6 +7532,13 @@ public:
     if (proxyUserName) {
       res["ProxyUserName"] = boost::any(*proxyUserName);
     }
+    if (rules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Rules"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -7462,6 +7563,19 @@ public:
     }
     if (m.find("ProxyUserName") != m.end() && !m["ProxyUserName"].empty()) {
       proxyUserName = make_shared<string>(boost::any_cast<string>(m["ProxyUserName"]));
+    }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(vector<boost::any>) == m["Rules"].type()) {
+        vector<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Rules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rules = make_shared<vector<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules>>(expect1);
+      }
     }
   }
 
