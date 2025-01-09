@@ -5510,6 +5510,9 @@ ModifyDBClusterResponse Alibabacloud_Polardb20170801::Client::modifyDBClusterWit
   if (!Darabonba_Util::Client::isUnset<string>(request->imciAutoIndex)) {
     query->insert(pair<string, string>("ImciAutoIndex", *request->imciAutoIndex));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modifyRowCompression)) {
+    query->insert(pair<string, string>("ModifyRowCompression", *request->modifyRowCompression));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -5530,6 +5533,9 @@ ModifyDBClusterResponse Alibabacloud_Polardb20170801::Client::modifyDBClusterWit
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->storageUpperBound)) {
     query->insert(pair<string, long>("StorageUpperBound", *request->storageUpperBound));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableMeta)) {
+    query->insert(pair<string, string>("TableMeta", *request->tableMeta));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

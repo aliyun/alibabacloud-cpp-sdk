@@ -10902,6 +10902,7 @@ public:
   shared_ptr<bool> hasCompleteStandbyRes{};
   shared_ptr<string> hotStandbyCluster{};
   shared_ptr<string> imciAutoIndex{};
+  shared_ptr<string> imperceptibleSwitch{};
   shared_ptr<long> inodeTotal{};
   shared_ptr<long> inodeUsed{};
   shared_ptr<bool> isLatestVersion{};
@@ -10921,6 +10922,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> restoreDataPoint{};
   shared_ptr<string> restoreType{};
+  shared_ptr<string> rowCompression{};
   shared_ptr<long> SQLSize{};
   shared_ptr<string> serverlessType{};
   shared_ptr<string> sourceDBCluster{};
@@ -11034,6 +11036,9 @@ public:
     if (imciAutoIndex) {
       res["ImciAutoIndex"] = boost::any(*imciAutoIndex);
     }
+    if (imperceptibleSwitch) {
+      res["ImperceptibleSwitch"] = boost::any(*imperceptibleSwitch);
+    }
     if (inodeTotal) {
       res["InodeTotal"] = boost::any(*inodeTotal);
     }
@@ -11090,6 +11095,9 @@ public:
     }
     if (restoreType) {
       res["RestoreType"] = boost::any(*restoreType);
+    }
+    if (rowCompression) {
+      res["RowCompression"] = boost::any(*rowCompression);
     }
     if (SQLSize) {
       res["SQLSize"] = boost::any(*SQLSize);
@@ -11241,6 +11249,9 @@ public:
     if (m.find("ImciAutoIndex") != m.end() && !m["ImciAutoIndex"].empty()) {
       imciAutoIndex = make_shared<string>(boost::any_cast<string>(m["ImciAutoIndex"]));
     }
+    if (m.find("ImperceptibleSwitch") != m.end() && !m["ImperceptibleSwitch"].empty()) {
+      imperceptibleSwitch = make_shared<string>(boost::any_cast<string>(m["ImperceptibleSwitch"]));
+    }
     if (m.find("InodeTotal") != m.end() && !m["InodeTotal"].empty()) {
       inodeTotal = make_shared<long>(boost::any_cast<long>(m["InodeTotal"]));
     }
@@ -11297,6 +11308,9 @@ public:
     }
     if (m.find("RestoreType") != m.end() && !m["RestoreType"].empty()) {
       restoreType = make_shared<string>(boost::any_cast<string>(m["RestoreType"]));
+    }
+    if (m.find("RowCompression") != m.end() && !m["RowCompression"].empty()) {
+      rowCompression = make_shared<string>(boost::any_cast<string>(m["RowCompression"]));
     }
     if (m.find("SQLSize") != m.end() && !m["SQLSize"].empty()) {
       SQLSize = make_shared<long>(boost::any_cast<long>(m["SQLSize"]));
@@ -27788,6 +27802,7 @@ public:
   shared_ptr<string> faultInjectionType{};
   shared_ptr<string> faultSimulateMode{};
   shared_ptr<string> imciAutoIndex{};
+  shared_ptr<string> modifyRowCompression{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -27795,6 +27810,7 @@ public:
   shared_ptr<string> standbyHAMode{};
   shared_ptr<string> storageAutoScale{};
   shared_ptr<long> storageUpperBound{};
+  shared_ptr<string> tableMeta{};
 
   ModifyDBClusterRequest() {}
 
@@ -27827,6 +27843,9 @@ public:
     if (imciAutoIndex) {
       res["ImciAutoIndex"] = boost::any(*imciAutoIndex);
     }
+    if (modifyRowCompression) {
+      res["ModifyRowCompression"] = boost::any(*modifyRowCompression);
+    }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
     }
@@ -27847,6 +27866,9 @@ public:
     }
     if (storageUpperBound) {
       res["StorageUpperBound"] = boost::any(*storageUpperBound);
+    }
+    if (tableMeta) {
+      res["TableMeta"] = boost::any(*tableMeta);
     }
     return res;
   }
@@ -27873,6 +27895,9 @@ public:
     if (m.find("ImciAutoIndex") != m.end() && !m["ImciAutoIndex"].empty()) {
       imciAutoIndex = make_shared<string>(boost::any_cast<string>(m["ImciAutoIndex"]));
     }
+    if (m.find("ModifyRowCompression") != m.end() && !m["ModifyRowCompression"].empty()) {
+      modifyRowCompression = make_shared<string>(boost::any_cast<string>(m["ModifyRowCompression"]));
+    }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
@@ -27893,6 +27918,9 @@ public:
     }
     if (m.find("StorageUpperBound") != m.end() && !m["StorageUpperBound"].empty()) {
       storageUpperBound = make_shared<long>(boost::any_cast<long>(m["StorageUpperBound"]));
+    }
+    if (m.find("TableMeta") != m.end() && !m["TableMeta"].empty()) {
+      tableMeta = make_shared<string>(boost::any_cast<string>(m["TableMeta"]));
     }
   }
 
