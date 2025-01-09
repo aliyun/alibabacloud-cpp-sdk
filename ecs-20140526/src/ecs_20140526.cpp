@@ -15672,6 +15672,9 @@ ModifyDiskDeploymentResponse Alibabacloud_Ecs20140526::Client::modifyDiskDeploym
 ModifyDiskSpecResponse Alibabacloud_Ecs20140526::Client::modifyDiskSpecWithOptions(shared_ptr<ModifyDiskSpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationZoneId)) {
+    query->insert(pair<string, string>("DestinationZoneId", *request->destinationZoneId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->diskCategory)) {
     query->insert(pair<string, string>("DiskCategory", *request->diskCategory));
   }
