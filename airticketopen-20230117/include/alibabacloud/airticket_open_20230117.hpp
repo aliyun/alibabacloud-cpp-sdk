@@ -15740,6 +15740,7 @@ class SearchRequestSearchControlOptions : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> airlineExcludedList{};
   shared_ptr<vector<string>> airlinePreferList{};
+  shared_ptr<string> serviceQuality{};
 
   SearchRequestSearchControlOptions() {}
 
@@ -15756,6 +15757,9 @@ public:
     }
     if (airlinePreferList) {
       res["airline_prefer_list"] = boost::any(*airlinePreferList);
+    }
+    if (serviceQuality) {
+      res["service_quality"] = boost::any(*serviceQuality);
     }
     return res;
   }
@@ -15780,6 +15784,9 @@ public:
         }
       }
       airlinePreferList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("service_quality") != m.end() && !m["service_quality"].empty()) {
+      serviceQuality = make_shared<string>(boost::any_cast<string>(m["service_quality"]));
     }
   }
 
