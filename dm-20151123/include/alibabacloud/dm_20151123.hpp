@@ -287,6 +287,7 @@ public:
   shared_ptr<string> accountName{};
   shared_ptr<long> addressType{};
   shared_ptr<string> clickTrace{};
+  shared_ptr<string> headers{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> receiversName{};
   shared_ptr<string> replyAddress{};
@@ -316,6 +317,9 @@ public:
     }
     if (clickTrace) {
       res["ClickTrace"] = boost::any(*clickTrace);
+    }
+    if (headers) {
+      res["Headers"] = boost::any(*headers);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -359,6 +363,9 @@ public:
     }
     if (m.find("ClickTrace") != m.end() && !m["ClickTrace"].empty()) {
       clickTrace = make_shared<string>(boost::any_cast<string>(m["ClickTrace"]));
+    }
+    if (m.find("Headers") != m.end() && !m["Headers"].empty()) {
+      headers = make_shared<string>(boost::any_cast<string>(m["Headers"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -8507,6 +8514,7 @@ public:
   shared_ptr<long> addressType{};
   shared_ptr<string> clickTrace{};
   shared_ptr<string> fromAlias{};
+  shared_ptr<string> headers{};
   shared_ptr<string> htmlBody{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> replyAddress{};
@@ -8542,6 +8550,9 @@ public:
     }
     if (fromAlias) {
       res["FromAlias"] = boost::any(*fromAlias);
+    }
+    if (headers) {
+      res["Headers"] = boost::any(*headers);
     }
     if (htmlBody) {
       res["HtmlBody"] = boost::any(*htmlBody);
@@ -8597,6 +8608,9 @@ public:
     }
     if (m.find("FromAlias") != m.end() && !m["FromAlias"].empty()) {
       fromAlias = make_shared<string>(boost::any_cast<string>(m["FromAlias"]));
+    }
+    if (m.find("Headers") != m.end() && !m["Headers"].empty()) {
+      headers = make_shared<string>(boost::any_cast<string>(m["Headers"]));
     }
     if (m.find("HtmlBody") != m.end() && !m["HtmlBody"].empty()) {
       htmlBody = make_shared<string>(boost::any_cast<string>(m["HtmlBody"]));

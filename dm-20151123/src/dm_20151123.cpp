@@ -123,6 +123,9 @@ BatchSendMailResponse Alibabacloud_Dm20151123::Client::batchSendMailWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->clickTrace)) {
     query->insert(pair<string, string>("ClickTrace", *request->clickTrace));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->headers)) {
+    query->insert(pair<string, string>("Headers", *request->headers));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
@@ -1838,6 +1841,9 @@ SingleSendMailResponse Alibabacloud_Dm20151123::Client::singleSendMailWithOption
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fromAlias)) {
     query->insert(pair<string, string>("FromAlias", *request->fromAlias));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->headers)) {
+    query->insert(pair<string, string>("Headers", *request->headers));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->htmlBody)) {
     query->insert(pair<string, string>("HtmlBody", *request->htmlBody));
