@@ -3920,6 +3920,7 @@ public:
   shared_ptr<string> gmtModified{};
   shared_ptr<long> maxVersion{};
   shared_ptr<string> name{};
+  shared_ptr<string> permissionType{};
   shared_ptr<string> progress{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
@@ -3968,6 +3969,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (permissionType) {
+      res["PermissionType"] = boost::any(*permissionType);
     }
     if (progress) {
       res["Progress"] = boost::any(*progress);
@@ -4030,6 +4034,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PermissionType") != m.end() && !m["PermissionType"].empty()) {
+      permissionType = make_shared<string>(boost::any_cast<string>(m["PermissionType"]));
     }
     if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
       progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
@@ -14258,6 +14265,7 @@ public:
   shared_ptr<UpdateArtifactRequestArtifactProperty> artifactProperty{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<string> permissionType{};
   shared_ptr<vector<string>> supportRegionIds{};
   shared_ptr<string> versionName{};
 
@@ -14285,6 +14293,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (permissionType) {
+      res["PermissionType"] = boost::any(*permissionType);
     }
     if (supportRegionIds) {
       res["SupportRegionIds"] = boost::any(*supportRegionIds);
@@ -14319,6 +14330,9 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("PermissionType") != m.end() && !m["PermissionType"].empty()) {
+      permissionType = make_shared<string>(boost::any_cast<string>(m["PermissionType"]));
+    }
     if (m.find("SupportRegionIds") != m.end() && !m["SupportRegionIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["SupportRegionIds"].type()) {
@@ -14344,6 +14358,7 @@ public:
   shared_ptr<string> artifactPropertyShrink{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<string> permissionType{};
   shared_ptr<vector<string>> supportRegionIds{};
   shared_ptr<string> versionName{};
 
@@ -14372,6 +14387,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (permissionType) {
+      res["PermissionType"] = boost::any(*permissionType);
+    }
     if (supportRegionIds) {
       res["SupportRegionIds"] = boost::any(*supportRegionIds);
     }
@@ -14396,6 +14414,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("PermissionType") != m.end() && !m["PermissionType"].empty()) {
+      permissionType = make_shared<string>(boost::any_cast<string>(m["PermissionType"]));
     }
     if (m.find("SupportRegionIds") != m.end() && !m["SupportRegionIds"].empty()) {
       vector<string> toVec1;

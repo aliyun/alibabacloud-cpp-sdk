@@ -1886,6 +1886,9 @@ UpdateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateA
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->permissionType)) {
+    query->insert(pair<string, string>("PermissionType", *request->permissionType));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->supportRegionIds)) {
     query->insert(pair<string, vector<string>>("SupportRegionIds", *request->supportRegionIds));
   }
