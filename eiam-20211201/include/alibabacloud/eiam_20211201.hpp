@@ -2311,6 +2311,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<CreateIdentityProviderRequestLarkConfig> larkConfig{};
   shared_ptr<CreateIdentityProviderRequestLdapConfig> ldapConfig{};
+  shared_ptr<string> logoUrl{};
   shared_ptr<string> networkAccessEndpointId{};
   shared_ptr<CreateIdentityProviderRequestOidcConfig> oidcConfig{};
   shared_ptr<CreateIdentityProviderRequestUdPullConfig> udPullConfig{};
@@ -2356,6 +2357,9 @@ public:
     }
     if (ldapConfig) {
       res["LdapConfig"] = ldapConfig ? boost::any(ldapConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (logoUrl) {
+      res["LogoUrl"] = boost::any(*logoUrl);
     }
     if (networkAccessEndpointId) {
       res["NetworkAccessEndpointId"] = boost::any(*networkAccessEndpointId);
@@ -2433,6 +2437,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LdapConfig"]));
         ldapConfig = make_shared<CreateIdentityProviderRequestLdapConfig>(model1);
       }
+    }
+    if (m.find("LogoUrl") != m.end() && !m["LogoUrl"].empty()) {
+      logoUrl = make_shared<string>(boost::any_cast<string>(m["LogoUrl"]));
     }
     if (m.find("NetworkAccessEndpointId") != m.end() && !m["NetworkAccessEndpointId"].empty()) {
       networkAccessEndpointId = make_shared<string>(boost::any_cast<string>(m["NetworkAccessEndpointId"]));
@@ -10146,6 +10153,7 @@ public:
   shared_ptr<string> lastStatusCheckJobResult{};
   shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig> ldapConfig{};
   shared_ptr<string> lockReason{};
+  shared_ptr<string> logoUrl{};
   shared_ptr<string> networkAccessEndpointId{};
   shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig> oidcConfig{};
   shared_ptr<GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig> udPullConfig{};
@@ -10215,6 +10223,9 @@ public:
     }
     if (lockReason) {
       res["LockReason"] = boost::any(*lockReason);
+    }
+    if (logoUrl) {
+      res["LogoUrl"] = boost::any(*logoUrl);
     }
     if (networkAccessEndpointId) {
       res["NetworkAccessEndpointId"] = boost::any(*networkAccessEndpointId);
@@ -10310,6 +10321,9 @@ public:
     }
     if (m.find("LockReason") != m.end() && !m["LockReason"].empty()) {
       lockReason = make_shared<string>(boost::any_cast<string>(m["LockReason"]));
+    }
+    if (m.find("LogoUrl") != m.end() && !m["LogoUrl"].empty()) {
+      logoUrl = make_shared<string>(boost::any_cast<string>(m["LogoUrl"]));
     }
     if (m.find("NetworkAccessEndpointId") != m.end() && !m["NetworkAccessEndpointId"].empty()) {
       networkAccessEndpointId = make_shared<string>(boost::any_cast<string>(m["NetworkAccessEndpointId"]));
@@ -11101,6 +11115,226 @@ public:
 
 
   virtual ~GetInstanceResponse() = default;
+};
+class GetInstanceLicenseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  GetInstanceLicenseRequest() {}
+
+  explicit GetInstanceLicenseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GetInstanceLicenseRequest() = default;
+};
+class GetInstanceLicenseResponseBodyLicense : public Darabonba::Model {
+public:
+  shared_ptr<string> edition{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> licenseChargeType{};
+  shared_ptr<string> licenseConfigJson{};
+  shared_ptr<long> licenseCreateTime{};
+  shared_ptr<string> licenseId{};
+  shared_ptr<string> licenseStatus{};
+  shared_ptr<string> purchaseChannel{};
+  shared_ptr<string> purchaseInstanceId{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> userQuota{};
+
+  GetInstanceLicenseResponseBodyLicense() {}
+
+  explicit GetInstanceLicenseResponseBodyLicense(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (edition) {
+      res["Edition"] = boost::any(*edition);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (licenseChargeType) {
+      res["LicenseChargeType"] = boost::any(*licenseChargeType);
+    }
+    if (licenseConfigJson) {
+      res["LicenseConfigJson"] = boost::any(*licenseConfigJson);
+    }
+    if (licenseCreateTime) {
+      res["LicenseCreateTime"] = boost::any(*licenseCreateTime);
+    }
+    if (licenseId) {
+      res["LicenseId"] = boost::any(*licenseId);
+    }
+    if (licenseStatus) {
+      res["LicenseStatus"] = boost::any(*licenseStatus);
+    }
+    if (purchaseChannel) {
+      res["PurchaseChannel"] = boost::any(*purchaseChannel);
+    }
+    if (purchaseInstanceId) {
+      res["PurchaseInstanceId"] = boost::any(*purchaseInstanceId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (userQuota) {
+      res["UserQuota"] = boost::any(*userQuota);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Edition") != m.end() && !m["Edition"].empty()) {
+      edition = make_shared<string>(boost::any_cast<string>(m["Edition"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("LicenseChargeType") != m.end() && !m["LicenseChargeType"].empty()) {
+      licenseChargeType = make_shared<string>(boost::any_cast<string>(m["LicenseChargeType"]));
+    }
+    if (m.find("LicenseConfigJson") != m.end() && !m["LicenseConfigJson"].empty()) {
+      licenseConfigJson = make_shared<string>(boost::any_cast<string>(m["LicenseConfigJson"]));
+    }
+    if (m.find("LicenseCreateTime") != m.end() && !m["LicenseCreateTime"].empty()) {
+      licenseCreateTime = make_shared<long>(boost::any_cast<long>(m["LicenseCreateTime"]));
+    }
+    if (m.find("LicenseId") != m.end() && !m["LicenseId"].empty()) {
+      licenseId = make_shared<string>(boost::any_cast<string>(m["LicenseId"]));
+    }
+    if (m.find("LicenseStatus") != m.end() && !m["LicenseStatus"].empty()) {
+      licenseStatus = make_shared<string>(boost::any_cast<string>(m["LicenseStatus"]));
+    }
+    if (m.find("PurchaseChannel") != m.end() && !m["PurchaseChannel"].empty()) {
+      purchaseChannel = make_shared<string>(boost::any_cast<string>(m["PurchaseChannel"]));
+    }
+    if (m.find("PurchaseInstanceId") != m.end() && !m["PurchaseInstanceId"].empty()) {
+      purchaseInstanceId = make_shared<string>(boost::any_cast<string>(m["PurchaseInstanceId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("UserQuota") != m.end() && !m["UserQuota"].empty()) {
+      userQuota = make_shared<long>(boost::any_cast<long>(m["UserQuota"]));
+    }
+  }
+
+
+  virtual ~GetInstanceLicenseResponseBodyLicense() = default;
+};
+class GetInstanceLicenseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetInstanceLicenseResponseBodyLicense> license{};
+  shared_ptr<string> requestId{};
+
+  GetInstanceLicenseResponseBody() {}
+
+  explicit GetInstanceLicenseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (license) {
+      res["License"] = license ? boost::any(license->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("License") != m.end() && !m["License"].empty()) {
+      if (typeid(map<string, boost::any>) == m["License"].type()) {
+        GetInstanceLicenseResponseBodyLicense model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["License"]));
+        license = make_shared<GetInstanceLicenseResponseBodyLicense>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetInstanceLicenseResponseBody() = default;
+};
+class GetInstanceLicenseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetInstanceLicenseResponseBody> body{};
+
+  GetInstanceLicenseResponse() {}
+
+  explicit GetInstanceLicenseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetInstanceLicenseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetInstanceLicenseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetInstanceLicenseResponse() = default;
 };
 class GetNetworkAccessEndpointRequest : public Darabonba::Model {
 public:
@@ -17399,6 +17633,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> lastStatusCheckJobResult{};
   shared_ptr<string> lockReason{};
+  shared_ptr<string> logoUrl{};
   shared_ptr<string> udPullStatus{};
   shared_ptr<string> udPullTargetScope{};
   shared_ptr<string> udPushStatus{};
@@ -17455,6 +17690,9 @@ public:
     }
     if (lockReason) {
       res["LockReason"] = boost::any(*lockReason);
+    }
+    if (logoUrl) {
+      res["LogoUrl"] = boost::any(*logoUrl);
     }
     if (udPullStatus) {
       res["UdPullStatus"] = boost::any(*udPullStatus);
@@ -17513,6 +17751,9 @@ public:
     }
     if (m.find("LockReason") != m.end() && !m["LockReason"].empty()) {
       lockReason = make_shared<string>(boost::any_cast<string>(m["LockReason"]));
+    }
+    if (m.find("LogoUrl") != m.end() && !m["LogoUrl"].empty()) {
+      logoUrl = make_shared<string>(boost::any_cast<string>(m["LogoUrl"]));
     }
     if (m.find("UdPullStatus") != m.end() && !m["UdPullStatus"].empty()) {
       udPullStatus = make_shared<string>(boost::any_cast<string>(m["UdPullStatus"]));
@@ -19531,10 +19772,54 @@ public:
 
   virtual ~ListRegionsResponse() = default;
 };
+class ListSynchronizationJobsRequestFilters : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<vector<string>> values{};
+
+  ListSynchronizationJobsRequestFilters() {}
+
+  explicit ListSynchronizationJobsRequestFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsRequestFilters() = default;
+};
 class ListSynchronizationJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> direction{};
   shared_ptr<long> endTime{};
+  shared_ptr<vector<ListSynchronizationJobsRequestFilters>> filters{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -19560,6 +19845,13 @@ public:
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (filters) {
+      vector<boost::any> temp1;
+      for(auto item1:*filters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filters"] = boost::any(temp1);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -19597,6 +19889,19 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filters"].type()) {
+        vector<ListSynchronizationJobsRequestFilters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSynchronizationJobsRequestFilters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filters = make_shared<vector<ListSynchronizationJobsRequestFilters>>(expect1);
+      }
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -20951,6 +21256,56 @@ public:
 
   virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsDeleted() = default;
 };
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsExported : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsExported() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsExported(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsExported() = default;
+};
 class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsPushed : public Darabonba::Model {
 public:
   shared_ptr<long> failed{};
@@ -21106,6 +21461,7 @@ public:
   shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsBinded> binded{};
   shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsCreated> created{};
   shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsDeleted> deleted{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsExported> exported{};
   shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsPushed> pushed{};
   shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsSame> same{};
   shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsUpdated> updated{};
@@ -21128,6 +21484,9 @@ public:
     }
     if (deleted) {
       res["Deleted"] = deleted ? boost::any(deleted->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (exported) {
+      res["Exported"] = exported ? boost::any(exported->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (pushed) {
       res["Pushed"] = pushed ? boost::any(pushed->toMap()) : boost::any(map<string,boost::any>({}));
@@ -21161,6 +21520,13 @@ public:
         ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsDeleted model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Deleted"]));
         deleted = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsDeleted>(model1);
+      }
+    }
+    if (m.find("Exported") != m.end() && !m["Exported"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Exported"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsExported model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Exported"]));
+        exported = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsExported>(model1);
       }
     }
     if (m.find("Pushed") != m.end() && !m["Pushed"].empty()) {
@@ -21271,6 +21637,7 @@ public:
 };
 class ListSynchronizationJobsResponseBodySynchronizationJobs : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
   shared_ptr<string> direction{};
   shared_ptr<long> endTime{};
   shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResult> result{};
@@ -21291,6 +21658,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (direction) {
       res["Direction"] = boost::any(*direction);
     }
@@ -21322,6 +21692,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
     if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
       direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
     }
@@ -23371,11 +23744,79 @@ public:
 
   virtual ~RevokeApplicationFromUsersResponse() = default;
 };
+class RunSynchronizationJobRequestSynchronizationScopeConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> groupIds{};
+  shared_ptr<vector<string>> organizationalUnitIds{};
+  shared_ptr<vector<string>> userIds{};
+
+  RunSynchronizationJobRequestSynchronizationScopeConfig() {}
+
+  explicit RunSynchronizationJobRequestSynchronizationScopeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupIds) {
+      res["GroupIds"] = boost::any(*groupIds);
+    }
+    if (organizationalUnitIds) {
+      res["OrganizationalUnitIds"] = boost::any(*organizationalUnitIds);
+    }
+    if (userIds) {
+      res["UserIds"] = boost::any(*userIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupIds") != m.end() && !m["GroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      groupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OrganizationalUnitIds") != m.end() && !m["OrganizationalUnitIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OrganizationalUnitIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OrganizationalUnitIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      organizationalUnitIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("UserIds") != m.end() && !m["UserIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UserIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UserIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      userIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~RunSynchronizationJobRequestSynchronizationScopeConfig() = default;
+};
 class RunSynchronizationJobRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
   shared_ptr<string> instanceId{};
+  shared_ptr<bool> passwordInitialization{};
+  shared_ptr<RunSynchronizationJobRequestSynchronizationScopeConfig> synchronizationScopeConfig{};
   shared_ptr<string> targetId{};
   shared_ptr<string> targetType{};
+  shared_ptr<vector<string>> userIdentityTypes{};
 
   RunSynchronizationJobRequest() {}
 
@@ -23387,8 +23828,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (passwordInitialization) {
+      res["PasswordInitialization"] = boost::any(*passwordInitialization);
+    }
+    if (synchronizationScopeConfig) {
+      res["SynchronizationScopeConfig"] = synchronizationScopeConfig ? boost::any(synchronizationScopeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (targetId) {
       res["TargetId"] = boost::any(*targetId);
@@ -23396,18 +23846,44 @@ public:
     if (targetType) {
       res["TargetType"] = boost::any(*targetType);
     }
+    if (userIdentityTypes) {
+      res["UserIdentityTypes"] = boost::any(*userIdentityTypes);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PasswordInitialization") != m.end() && !m["PasswordInitialization"].empty()) {
+      passwordInitialization = make_shared<bool>(boost::any_cast<bool>(m["PasswordInitialization"]));
+    }
+    if (m.find("SynchronizationScopeConfig") != m.end() && !m["SynchronizationScopeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SynchronizationScopeConfig"].type()) {
+        RunSynchronizationJobRequestSynchronizationScopeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SynchronizationScopeConfig"]));
+        synchronizationScopeConfig = make_shared<RunSynchronizationJobRequestSynchronizationScopeConfig>(model1);
+      }
     }
     if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
       targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
     }
     if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
       targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+    if (m.find("UserIdentityTypes") != m.end() && !m["UserIdentityTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UserIdentityTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UserIdentityTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      userIdentityTypes = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -27054,6 +27530,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<UpdateIdentityProviderRequestLarkConfig> larkConfig{};
   shared_ptr<UpdateIdentityProviderRequestLdapConfig> ldapConfig{};
+  shared_ptr<string> logoUrl{};
   shared_ptr<string> networkAccessEndpointId{};
   shared_ptr<UpdateIdentityProviderRequestOidcConfig> oidcConfig{};
   shared_ptr<UpdateIdentityProviderRequestWeComConfig> weComConfig{};
@@ -27085,6 +27562,9 @@ public:
     }
     if (ldapConfig) {
       res["LdapConfig"] = ldapConfig ? boost::any(ldapConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (logoUrl) {
+      res["LogoUrl"] = boost::any(*logoUrl);
     }
     if (networkAccessEndpointId) {
       res["NetworkAccessEndpointId"] = boost::any(*networkAccessEndpointId);
@@ -27128,6 +27608,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LdapConfig"]));
         ldapConfig = make_shared<UpdateIdentityProviderRequestLdapConfig>(model1);
       }
+    }
+    if (m.find("LogoUrl") != m.end() && !m["LogoUrl"].empty()) {
+      logoUrl = make_shared<string>(boost::any_cast<string>(m["LogoUrl"]));
     }
     if (m.find("NetworkAccessEndpointId") != m.end() && !m["NetworkAccessEndpointId"].empty()) {
       networkAccessEndpointId = make_shared<string>(boost::any_cast<string>(m["NetworkAccessEndpointId"]));
@@ -28466,6 +28949,8 @@ public:
   GetIdentityProviderUdPullConfigurationResponse getIdentityProviderUdPullConfiguration(shared_ptr<GetIdentityProviderUdPullConfigurationRequest> request);
   GetInstanceResponse getInstanceWithOptions(shared_ptr<GetInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetInstanceResponse getInstance(shared_ptr<GetInstanceRequest> request);
+  GetInstanceLicenseResponse getInstanceLicenseWithOptions(shared_ptr<GetInstanceLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetInstanceLicenseResponse getInstanceLicense(shared_ptr<GetInstanceLicenseRequest> request);
   GetNetworkAccessEndpointResponse getNetworkAccessEndpointWithOptions(shared_ptr<GetNetworkAccessEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetNetworkAccessEndpointResponse getNetworkAccessEndpoint(shared_ptr<GetNetworkAccessEndpointRequest> request);
   GetOrganizationalUnitResponse getOrganizationalUnitWithOptions(shared_ptr<GetOrganizationalUnitRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

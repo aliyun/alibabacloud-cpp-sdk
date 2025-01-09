@@ -419,6 +419,9 @@ CreateIdentityProviderResponse Alibabacloud_Eiam20211201::Client::createIdentity
   if (!Darabonba_Util::Client::isUnset<CreateIdentityProviderRequestLdapConfig>(request->ldapConfig)) {
     query->insert(pair<string, CreateIdentityProviderRequestLdapConfig>("LdapConfig", *request->ldapConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logoUrl)) {
+    query->insert(pair<string, string>("LogoUrl", *request->logoUrl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkAccessEndpointId)) {
     query->insert(pair<string, string>("NetworkAccessEndpointId", *request->networkAccessEndpointId));
   }
@@ -1911,6 +1914,34 @@ GetInstanceResponse Alibabacloud_Eiam20211201::Client::getInstance(shared_ptr<Ge
   return getInstanceWithOptions(request, runtime);
 }
 
+GetInstanceLicenseResponse Alibabacloud_Eiam20211201::Client::getInstanceLicenseWithOptions(shared_ptr<GetInstanceLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetInstanceLicense"))},
+    {"version", boost::any(string("2021-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetInstanceLicenseResponse(callApi(params, req, runtime));
+}
+
+GetInstanceLicenseResponse Alibabacloud_Eiam20211201::Client::getInstanceLicense(shared_ptr<GetInstanceLicenseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getInstanceLicenseWithOptions(request, runtime);
+}
+
 GetNetworkAccessEndpointResponse Alibabacloud_Eiam20211201::Client::getNetworkAccessEndpointWithOptions(shared_ptr<GetNetworkAccessEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2913,6 +2944,9 @@ ListSynchronizationJobsResponse Alibabacloud_Eiam20211201::Client::listSynchroni
   if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
     query->insert(pair<string, long>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListSynchronizationJobsRequestFilters>>(request->filters)) {
+    query->insert(pair<string, vector<ListSynchronizationJobsRequestFilters>>("Filters", *request->filters));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -3350,14 +3384,26 @@ RevokeApplicationFromUsersResponse Alibabacloud_Eiam20211201::Client::revokeAppl
 RunSynchronizationJobResponse Alibabacloud_Eiam20211201::Client::runSynchronizationJobWithOptions(shared_ptr<RunSynchronizationJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->passwordInitialization)) {
+    query->insert(pair<string, bool>("PasswordInitialization", *request->passwordInitialization));
+  }
+  if (!Darabonba_Util::Client::isUnset<RunSynchronizationJobRequestSynchronizationScopeConfig>(request->synchronizationScopeConfig)) {
+    query->insert(pair<string, RunSynchronizationJobRequestSynchronizationScopeConfig>("SynchronizationScopeConfig", *request->synchronizationScopeConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->targetId)) {
     query->insert(pair<string, string>("TargetId", *request->targetId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
     query->insert(pair<string, string>("TargetType", *request->targetType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->userIdentityTypes)) {
+    query->insert(pair<string, vector<string>>("UserIdentityTypes", *request->userIdentityTypes));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4039,6 +4085,9 @@ UpdateIdentityProviderResponse Alibabacloud_Eiam20211201::Client::updateIdentity
   }
   if (!Darabonba_Util::Client::isUnset<UpdateIdentityProviderRequestLdapConfig>(request->ldapConfig)) {
     query->insert(pair<string, UpdateIdentityProviderRequestLdapConfig>("LdapConfig", *request->ldapConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logoUrl)) {
+    query->insert(pair<string, string>("LogoUrl", *request->logoUrl));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkAccessEndpointId)) {
     query->insert(pair<string, string>("NetworkAccessEndpointId", *request->networkAccessEndpointId));
