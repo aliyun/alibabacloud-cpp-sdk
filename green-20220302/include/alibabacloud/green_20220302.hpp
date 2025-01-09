@@ -221,6 +221,7 @@ public:
 class DescribeFileModerationResultResponseBodyDataPageResultTextResult : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> descriptions{};
   shared_ptr<string> labels{};
   shared_ptr<string> riskLevel{};
   shared_ptr<string> riskTips{};
@@ -241,6 +242,9 @@ public:
     map<string, boost::any> res;
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (descriptions) {
+      res["Descriptions"] = boost::any(*descriptions);
     }
     if (labels) {
       res["Labels"] = boost::any(*labels);
@@ -269,6 +273,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Descriptions") != m.end() && !m["Descriptions"].empty()) {
+      descriptions = make_shared<string>(boost::any_cast<string>(m["Descriptions"]));
     }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
@@ -476,6 +483,7 @@ public:
 };
 class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
   shared_ptr<string> label{};
   shared_ptr<long> labelSum{};
 
@@ -489,6 +497,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (label) {
       res["Label"] = boost::any(*label);
     }
@@ -499,6 +510,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
     }
@@ -5889,6 +5903,7 @@ public:
 };
 class VideoModerationResultResponseBodyDataAudioResultAudioSummarys : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
   shared_ptr<string> label{};
   shared_ptr<long> labelSum{};
 
@@ -5902,6 +5917,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (label) {
       res["Label"] = boost::any(*label);
     }
@@ -5912,6 +5930,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
     }
@@ -5925,6 +5946,7 @@ public:
 };
 class VideoModerationResultResponseBodyDataAudioResultSliceDetails : public Darabonba::Model {
 public:
+  shared_ptr<string> descriptions{};
   shared_ptr<long> endTime{};
   shared_ptr<long> endTimestamp{};
   shared_ptr<string> extend{};
@@ -5948,6 +5970,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (descriptions) {
+      res["Descriptions"] = boost::any(*descriptions);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -5988,6 +6013,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Descriptions") != m.end() && !m["Descriptions"].empty()) {
+      descriptions = make_shared<string>(boost::any_cast<string>(m["Descriptions"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
     }
@@ -7029,6 +7057,7 @@ public:
 };
 class VoiceModerationResultResponseBodyDataSliceDetails : public Darabonba::Model {
 public:
+  shared_ptr<string> descriptions{};
   shared_ptr<long> endTime{};
   shared_ptr<long> endTimestamp{};
   shared_ptr<string> extend{};
@@ -7053,6 +7082,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (descriptions) {
+      res["Descriptions"] = boost::any(*descriptions);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -7096,6 +7128,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Descriptions") != m.end() && !m["Descriptions"].empty()) {
+      descriptions = make_shared<string>(boost::any_cast<string>(m["Descriptions"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
     }
