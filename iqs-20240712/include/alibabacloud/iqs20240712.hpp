@@ -2733,6 +2733,7 @@ public:
   shared_ptr<long> page{};
   shared_ptr<long> radius{};
   shared_ptr<long> size{};
+  shared_ptr<string> sortRule{};
   shared_ptr<string> types{};
 
   NearbySearchNovaRequest() {}
@@ -2766,6 +2767,9 @@ public:
     if (size) {
       res["size"] = boost::any(*size);
     }
+    if (sortRule) {
+      res["sortRule"] = boost::any(*sortRule);
+    }
     if (types) {
       res["types"] = boost::any(*types);
     }
@@ -2793,6 +2797,9 @@ public:
     }
     if (m.find("size") != m.end() && !m["size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["size"]));
+    }
+    if (m.find("sortRule") != m.end() && !m["sortRule"].empty()) {
+      sortRule = make_shared<string>(boost::any_cast<string>(m["sortRule"]));
     }
     if (m.find("types") != m.end() && !m["types"].empty()) {
       types = make_shared<string>(boost::any_cast<string>(m["types"]));

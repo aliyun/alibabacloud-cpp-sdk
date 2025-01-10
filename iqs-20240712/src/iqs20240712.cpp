@@ -282,6 +282,9 @@ NearbySearchNovaResponse Alibabacloud_IQS20240712::Client::nearbySearchNovaWithO
   if (!Darabonba_Util::Client::isUnset<long>(request->size)) {
     query->insert(pair<string, long>("size", *request->size));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortRule)) {
+    query->insert(pair<string, string>("sortRule", *request->sortRule));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->types)) {
     query->insert(pair<string, string>("types", *request->types));
   }
