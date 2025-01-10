@@ -5886,6 +5886,9 @@ DescribeAssetSummaryResponse Alibabacloud_Sas20181203::Client::describeAssetSumm
 DescribeAssetsScaProcessNumResponse Alibabacloud_Sas20181203::Client::describeAssetsScaProcessNumWithOptions(shared_ptr<DescribeAssetsScaProcessNumRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
+    query->insert(pair<string, string>("BizType", *request->bizType));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->uuidList)) {
     query->insert(pair<string, vector<string>>("UuidList", *request->uuidList));
   }
@@ -12268,6 +12271,12 @@ DescribePropertyScaItemResponse Alibabacloud_Sas20181203::Client::describeProper
 DescribePropertyScaProcessDetailResponse Alibabacloud_Sas20181203::Client::describePropertyScaProcessDetailWithOptions(shared_ptr<DescribePropertyScaProcessDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
+    query->insert(pair<string, string>("BizType", *request->bizType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cmdline)) {
+    query->insert(pair<string, string>("Cmdline", *request->cmdline));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
