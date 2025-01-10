@@ -32188,10 +32188,40 @@ public:
 
   virtual ~ListOriginPoolsResponse() = default;
 };
+class ListPagesRequestQueryArgs : public Darabonba::Model {
+public:
+  shared_ptr<string> nameDescriptionLike{};
+
+  ListPagesRequestQueryArgs() {}
+
+  explicit ListPagesRequestQueryArgs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nameDescriptionLike) {
+      res["NameDescriptionLike"] = boost::any(*nameDescriptionLike);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NameDescriptionLike") != m.end() && !m["NameDescriptionLike"].empty()) {
+      nameDescriptionLike = make_shared<string>(boost::any_cast<string>(m["NameDescriptionLike"]));
+    }
+  }
+
+
+  virtual ~ListPagesRequestQueryArgs() = default;
+};
 class ListPagesRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<ListPagesRequestQueryArgs> queryArgs{};
 
   ListPagesRequest() {}
 
@@ -32209,6 +32239,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (queryArgs) {
+      res["QueryArgs"] = queryArgs ? boost::any(queryArgs->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -32219,10 +32252,60 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
+    if (m.find("QueryArgs") != m.end() && !m["QueryArgs"].empty()) {
+      if (typeid(map<string, boost::any>) == m["QueryArgs"].type()) {
+        ListPagesRequestQueryArgs model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QueryArgs"]));
+        queryArgs = make_shared<ListPagesRequestQueryArgs>(model1);
+      }
+    }
   }
 
 
   virtual ~ListPagesRequest() = default;
+};
+class ListPagesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> queryArgsShrink{};
+
+  ListPagesShrinkRequest() {}
+
+  explicit ListPagesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (queryArgsShrink) {
+      res["QueryArgs"] = boost::any(*queryArgsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("QueryArgs") != m.end() && !m["QueryArgs"].empty()) {
+      queryArgsShrink = make_shared<string>(boost::any_cast<string>(m["QueryArgs"]));
+    }
+  }
+
+
+  virtual ~ListPagesShrinkRequest() = default;
 };
 class ListPagesResponseBodyPages : public Darabonba::Model {
 public:
@@ -35313,6 +35396,7 @@ class ListUserRatePlanInstancesResponseBodyInstanceInfo : public Darabonba::Mode
 public:
   shared_ptr<string> billingMode{};
   shared_ptr<string> botInstanceLevel{};
+  shared_ptr<string> botRequest{};
   shared_ptr<string> coverages{};
   shared_ptr<string> createTime{};
   shared_ptr<string> crossborderTraffic{};
@@ -35350,6 +35434,9 @@ public:
     }
     if (botInstanceLevel) {
       res["BotInstanceLevel"] = boost::any(*botInstanceLevel);
+    }
+    if (botRequest) {
+      res["BotRequest"] = boost::any(*botRequest);
     }
     if (coverages) {
       res["Coverages"] = boost::any(*coverages);
@@ -35427,6 +35514,9 @@ public:
     }
     if (m.find("BotInstanceLevel") != m.end() && !m["BotInstanceLevel"].empty()) {
       botInstanceLevel = make_shared<string>(boost::any_cast<string>(m["BotInstanceLevel"]));
+    }
+    if (m.find("BotRequest") != m.end() && !m["BotRequest"].empty()) {
+      botRequest = make_shared<string>(boost::any_cast<string>(m["BotRequest"]));
     }
     if (m.find("Coverages") != m.end() && !m["Coverages"].empty()) {
       coverages = make_shared<string>(boost::any_cast<string>(m["Coverages"]));
@@ -39576,6 +39666,7 @@ public:
 };
 class SetCertificateResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> id{};
   shared_ptr<string> requestId{};
 
   SetCertificateResponseBody() {}
@@ -39588,6 +39679,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -39595,6 +39689,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -44982,7 +45079,7 @@ public:
   ListManagedRulesGroupsResponse listManagedRulesGroups(shared_ptr<ListManagedRulesGroupsRequest> request);
   ListOriginPoolsResponse listOriginPoolsWithOptions(shared_ptr<ListOriginPoolsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListOriginPoolsResponse listOriginPools(shared_ptr<ListOriginPoolsRequest> request);
-  ListPagesResponse listPagesWithOptions(shared_ptr<ListPagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListPagesResponse listPagesWithOptions(shared_ptr<ListPagesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPagesResponse listPages(shared_ptr<ListPagesRequest> request);
   ListRecordsResponse listRecordsWithOptions(shared_ptr<ListRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRecordsResponse listRecords(shared_ptr<ListRecordsRequest> request);

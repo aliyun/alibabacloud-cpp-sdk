@@ -4380,14 +4380,22 @@ ListOriginPoolsResponse Alibabacloud_ESA20240910::Client::listOriginPools(shared
   return listOriginPoolsWithOptions(request, runtime);
 }
 
-ListPagesResponse Alibabacloud_ESA20240910::Client::listPagesWithOptions(shared_ptr<ListPagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListPagesResponse Alibabacloud_ESA20240910::Client::listPagesWithOptions(shared_ptr<ListPagesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListPagesShrinkRequest> request = make_shared<ListPagesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ListPagesRequestQueryArgs>(tmpReq->queryArgs)) {
+    request->queryArgsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->queryArgs, make_shared<string>("QueryArgs"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->queryArgsShrink)) {
+    query->insert(pair<string, string>("QueryArgs", *request->queryArgsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
