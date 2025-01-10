@@ -8273,6 +8273,7 @@ public:
 class GetScanResultResponseBodyDataItemsResult : public Darabonba::Model {
 public:
   shared_ptr<string> confidence{};
+  shared_ptr<string> description{};
   shared_ptr<string> label{};
 
   GetScanResultResponseBodyDataItemsResult() {}
@@ -8288,6 +8289,9 @@ public:
     if (confidence) {
       res["Confidence"] = boost::any(*confidence);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (label) {
       res["Label"] = boost::any(*label);
     }
@@ -8297,6 +8301,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
       confidence = make_shared<string>(boost::any_cast<string>(m["Confidence"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
@@ -8325,6 +8332,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> requestTime{};
   shared_ptr<vector<GetScanResultResponseBodyDataItemsResult>> result{};
+  shared_ptr<string> riskLevel{};
   shared_ptr<string> riskTips{};
   shared_ptr<string> riskWords{};
   shared_ptr<string> scanResult{};
@@ -8405,6 +8413,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Result"] = boost::any(temp1);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     if (riskTips) {
       res["RiskTips"] = boost::any(*riskTips);
@@ -8539,6 +8550,9 @@ public:
         }
         result = make_shared<vector<GetScanResultResponseBodyDataItemsResult>>(expect1);
       }
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
     }
     if (m.find("RiskTips") != m.end() && !m["RiskTips"].empty()) {
       riskTips = make_shared<string>(boost::any_cast<string>(m["RiskTips"]));
@@ -8857,6 +8871,7 @@ public:
 };
 class GetServiceConfResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> classify{};
   shared_ptr<long> code{};
   shared_ptr<map<string, boost::any>> customServiceConf{};
   shared_ptr<string> gmtModified{};
@@ -8878,6 +8893,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (classify) {
+      res["Classify"] = boost::any(*classify);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -8912,6 +8930,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Classify") != m.end() && !m["Classify"].empty()) {
+      classify = make_shared<string>(boost::any_cast<string>(m["Classify"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
@@ -10259,6 +10280,7 @@ public:
 class GetTextScanResultResponseBodyDataItemsResult : public Darabonba::Model {
 public:
   shared_ptr<double> confidence{};
+  shared_ptr<string> description{};
   shared_ptr<string> label{};
 
   GetTextScanResultResponseBodyDataItemsResult() {}
@@ -10274,6 +10296,9 @@ public:
     if (confidence) {
       res["Confidence"] = boost::any(*confidence);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (label) {
       res["Label"] = boost::any(*label);
     }
@@ -10283,6 +10308,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
       confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
@@ -10294,6 +10322,7 @@ public:
 };
 class GetTextScanResultResponseBodyDataItems : public Darabonba::Model {
 public:
+  shared_ptr<string> bailianRequestId{};
   shared_ptr<string> content{};
   shared_ptr<string> extFeedback{};
   shared_ptr<map<string, boost::any>> extra{};
@@ -10302,6 +10331,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> requestTime{};
   shared_ptr<vector<GetTextScanResultResponseBodyDataItemsResult>> result{};
+  shared_ptr<string> riskLevel{};
   shared_ptr<string> scanResult{};
   shared_ptr<double> score{};
   shared_ptr<string> serviceCode{};
@@ -10318,6 +10348,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bailianRequestId) {
+      res["BailianRequestId"] = boost::any(*bailianRequestId);
+    }
     if (content) {
       res["Content"] = boost::any(*content);
     }
@@ -10346,6 +10379,9 @@ public:
       }
       res["Result"] = boost::any(temp1);
     }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
     if (scanResult) {
       res["ScanResult"] = boost::any(*scanResult);
     }
@@ -10365,6 +10401,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BailianRequestId") != m.end() && !m["BailianRequestId"].empty()) {
+      bailianRequestId = make_shared<string>(boost::any_cast<string>(m["BailianRequestId"]));
+    }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
     }
@@ -10403,6 +10442,9 @@ public:
         }
         result = make_shared<vector<GetTextScanResultResponseBodyDataItemsResult>>(expect1);
       }
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
     }
     if (m.find("ScanResult") != m.end() && !m["ScanResult"].empty()) {
       scanResult = make_shared<string>(boost::any_cast<string>(m["ScanResult"]));
@@ -10843,6 +10885,7 @@ public:
   shared_ptr<long> bid{};
   shared_ptr<bool> buy{};
   shared_ptr<bool> indebt{};
+  shared_ptr<string> tag{};
 
   GetUserBuyStatusResponseBodyData() {}
 
@@ -10863,6 +10906,9 @@ public:
     if (indebt) {
       res["Indebt"] = boost::any(*indebt);
     }
+    if (tag) {
+      res["Tag"] = boost::any(*tag);
+    }
     return res;
   }
 
@@ -10875,6 +10921,9 @@ public:
     }
     if (m.find("Indebt") != m.end() && !m["Indebt"].empty()) {
       indebt = make_shared<bool>(boost::any_cast<bool>(m["Indebt"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
     }
   }
 
