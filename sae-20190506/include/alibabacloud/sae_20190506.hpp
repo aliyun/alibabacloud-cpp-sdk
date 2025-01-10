@@ -15897,6 +15897,7 @@ public:
 };
 class CreateIngressRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> addressType{};
   shared_ptr<string> certId{};
   shared_ptr<string> certIds{};
   shared_ptr<string> defaultRule{};
@@ -15910,11 +15911,13 @@ public:
   shared_ptr<long> listenerPort{};
   shared_ptr<string> listenerProtocol{};
   shared_ptr<string> loadBalanceType{};
+  shared_ptr<string> loadBalancerEdition{};
   shared_ptr<string> namespaceId{};
   shared_ptr<long> requestTimeout{};
   shared_ptr<string> rules{};
   shared_ptr<string> securityPolicyId{};
   shared_ptr<string> slbId{};
+  shared_ptr<string> zoneMappings{};
 
   CreateIngressRequest() {}
 
@@ -15926,6 +15929,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addressType) {
+      res["AddressType"] = boost::any(*addressType);
+    }
     if (certId) {
       res["CertId"] = boost::any(*certId);
     }
@@ -15965,6 +15971,9 @@ public:
     if (loadBalanceType) {
       res["LoadBalanceType"] = boost::any(*loadBalanceType);
     }
+    if (loadBalancerEdition) {
+      res["LoadBalancerEdition"] = boost::any(*loadBalancerEdition);
+    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -15980,10 +15989,16 @@ public:
     if (slbId) {
       res["SlbId"] = boost::any(*slbId);
     }
+    if (zoneMappings) {
+      res["ZoneMappings"] = boost::any(*zoneMappings);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
+      addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
+    }
     if (m.find("CertId") != m.end() && !m["CertId"].empty()) {
       certId = make_shared<string>(boost::any_cast<string>(m["CertId"]));
     }
@@ -16023,6 +16038,9 @@ public:
     if (m.find("LoadBalanceType") != m.end() && !m["LoadBalanceType"].empty()) {
       loadBalanceType = make_shared<string>(boost::any_cast<string>(m["LoadBalanceType"]));
     }
+    if (m.find("LoadBalancerEdition") != m.end() && !m["LoadBalancerEdition"].empty()) {
+      loadBalancerEdition = make_shared<string>(boost::any_cast<string>(m["LoadBalancerEdition"]));
+    }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
     }
@@ -16037,6 +16055,9 @@ public:
     }
     if (m.find("SlbId") != m.end() && !m["SlbId"].empty()) {
       slbId = make_shared<string>(boost::any_cast<string>(m["SlbId"]));
+    }
+    if (m.find("ZoneMappings") != m.end() && !m["ZoneMappings"].empty()) {
+      zoneMappings = make_shared<string>(boost::any_cast<string>(m["ZoneMappings"]));
     }
   }
 
@@ -28396,6 +28417,7 @@ class DescribeIngressResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> certId{};
   shared_ptr<string> certIds{};
+  shared_ptr<bool> createdBySae{};
   shared_ptr<DescribeIngressResponseBodyDataDefaultRule> defaultRule{};
   shared_ptr<string> description{};
   shared_ptr<bool> enableXForwardedFor{};
@@ -28431,6 +28453,9 @@ public:
     }
     if (certIds) {
       res["CertIds"] = boost::any(*certIds);
+    }
+    if (createdBySae) {
+      res["CreatedBySae"] = boost::any(*createdBySae);
     }
     if (defaultRule) {
       res["DefaultRule"] = defaultRule ? boost::any(defaultRule->toMap()) : boost::any(map<string,boost::any>({}));
@@ -28502,6 +28527,9 @@ public:
     }
     if (m.find("CertIds") != m.end() && !m["CertIds"].empty()) {
       certIds = make_shared<string>(boost::any_cast<string>(m["CertIds"]));
+    }
+    if (m.find("CreatedBySae") != m.end() && !m["CreatedBySae"].empty()) {
+      createdBySae = make_shared<bool>(boost::any_cast<bool>(m["CreatedBySae"]));
     }
     if (m.find("DefaultRule") != m.end() && !m["DefaultRule"].empty()) {
       if (typeid(map<string, boost::any>) == m["DefaultRule"].type()) {

@@ -634,6 +634,9 @@ CreateGreyTagRouteResponse Alibabacloud_Sae20190506::Client::createGreyTagRoute(
 CreateIngressResponse Alibabacloud_Sae20190506::Client::createIngressWithOptions(shared_ptr<CreateIngressRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressType)) {
+    query->insert(pair<string, string>("AddressType", *request->addressType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->certId)) {
     query->insert(pair<string, string>("CertId", *request->certId));
   }
@@ -673,6 +676,9 @@ CreateIngressResponse Alibabacloud_Sae20190506::Client::createIngressWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->loadBalanceType)) {
     query->insert(pair<string, string>("LoadBalanceType", *request->loadBalanceType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loadBalancerEdition)) {
+    query->insert(pair<string, string>("LoadBalancerEdition", *request->loadBalancerEdition));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -684,6 +690,9 @@ CreateIngressResponse Alibabacloud_Sae20190506::Client::createIngressWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->slbId)) {
     query->insert(pair<string, string>("SlbId", *request->slbId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->zoneMappings)) {
+    query->insert(pair<string, string>("ZoneMappings", *request->zoneMappings));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->rules)) {
