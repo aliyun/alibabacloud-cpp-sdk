@@ -3328,6 +3328,7 @@ public:
   shared_ptr<string> gpuUtilizationThreshold{};
   shared_ptr<long> maxGracefulTerminationSec{};
   shared_ptr<long> minReplicaCount{};
+  shared_ptr<map<string, vector<string>>> priorities{};
   shared_ptr<bool> recycleNodeDeletionEnabled{};
   shared_ptr<bool> scaleDownEnabled{};
   shared_ptr<bool> scaleUpFromZero{};
@@ -3365,6 +3366,9 @@ public:
     }
     if (minReplicaCount) {
       res["min_replica_count"] = boost::any(*minReplicaCount);
+    }
+    if (priorities) {
+      res["priorities"] = boost::any(*priorities);
     }
     if (recycleNodeDeletionEnabled) {
       res["recycle_node_deletion_enabled"] = boost::any(*recycleNodeDeletionEnabled);
@@ -3414,6 +3418,21 @@ public:
     }
     if (m.find("min_replica_count") != m.end() && !m["min_replica_count"].empty()) {
       minReplicaCount = make_shared<long>(boost::any_cast<long>(m["min_replica_count"]));
+    }
+    if (m.find("priorities") != m.end() && !m["priorities"].empty()) {
+      map<string, vector<string>> map1 = boost::any_cast<map<string, vector<string>>>(m["priorities"]);
+      map<string, vector<string>> toMap1;
+      for (auto item:map1) {
+        vector<string> toVec2;
+        if (typeid(vector<boost::any>) == item.second.type()) {
+          vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item.second);
+          for (auto item:vec2) {
+             toVec2.push_back(boost::any_cast<string>(item));
+          }
+        }
+         toMap1[item.first] = toVec2;
+      }
+      priorities = make_shared<map<string, vector<string>>>(toMap1);
     }
     if (m.find("recycle_node_deletion_enabled") != m.end() && !m["recycle_node_deletion_enabled"].empty()) {
       recycleNodeDeletionEnabled = make_shared<bool>(boost::any_cast<bool>(m["recycle_node_deletion_enabled"]));

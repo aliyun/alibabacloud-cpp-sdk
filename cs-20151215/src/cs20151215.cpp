@@ -435,6 +435,9 @@ CreateAutoscalingConfigResponse Alibabacloud_CS20151215::Client::createAutoscali
   if (!Darabonba_Util::Client::isUnset<long>(request->minReplicaCount)) {
     body->insert(pair<string, long>("min_replica_count", *request->minReplicaCount));
   }
+  if (!Darabonba_Util::Client::isUnset<map<string, vector<string>>>(request->priorities)) {
+    body->insert(pair<string, map<string, vector<string>>>("priorities", *request->priorities));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->recycleNodeDeletionEnabled)) {
     body->insert(pair<string, bool>("recycle_node_deletion_enabled", *request->recycleNodeDeletionEnabled));
   }
