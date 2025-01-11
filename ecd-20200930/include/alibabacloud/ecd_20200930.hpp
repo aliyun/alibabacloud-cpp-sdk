@@ -14315,6 +14315,7 @@ public:
   shared_ptr<string> clientIp{};
   shared_ptr<string> clientOS{};
   shared_ptr<string> clientVersion{};
+  shared_ptr<string> description{};
   shared_ptr<string> desktopGroupId{};
   shared_ptr<string> desktopGroupName{};
   shared_ptr<string> desktopId{};
@@ -14359,6 +14360,9 @@ public:
     }
     if (clientVersion) {
       res["ClientVersion"] = boost::any(*clientVersion);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (desktopGroupId) {
       res["DesktopGroupId"] = boost::any(*desktopGroupId);
@@ -14429,6 +14433,9 @@ public:
     }
     if (m.find("ClientVersion") != m.end() && !m["ClientVersion"].empty()) {
       clientVersion = make_shared<string>(boost::any_cast<string>(m["ClientVersion"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("DesktopGroupId") != m.end() && !m["DesktopGroupId"].empty()) {
       desktopGroupId = make_shared<string>(boost::any_cast<string>(m["DesktopGroupId"]));
