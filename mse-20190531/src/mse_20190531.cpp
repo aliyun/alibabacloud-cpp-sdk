@@ -1517,6 +1517,9 @@ CreateFlowRuleResponse Alibabacloud_Mse20190531::Client::createFlowRuleWithOptio
   if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
     query->insert(pair<string, bool>("Enable", *request->enable));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->limitApp)) {
+    query->insert(pair<string, string>("LimitApp", *request->limitApp));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxQueueingTimeMs)) {
     query->insert(pair<string, long>("MaxQueueingTimeMs", *request->maxQueueingTimeMs));
   }
@@ -1769,6 +1772,9 @@ CreateIsolationRuleResponse Alibabacloud_Mse20190531::Client::createIsolationRul
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
     query->insert(pair<string, bool>("Enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->limitApp)) {
+    query->insert(pair<string, string>("LimitApp", *request->limitApp));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("Namespace_", *request->namespace_));
@@ -4262,6 +4268,49 @@ GetKubernetesSourceResponse Alibabacloud_Mse20190531::Client::getKubernetesSourc
 GetKubernetesSourceResponse Alibabacloud_Mse20190531::Client::getKubernetesSource(shared_ptr<GetKubernetesSourceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getKubernetesSourceWithOptions(request, runtime);
+}
+
+GetLocalityRuleResponse Alibabacloud_Mse20190531::Client::getLocalityRuleWithOptions(shared_ptr<GetLocalityRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("Region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetLocalityRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetLocalityRuleResponse(callApi(params, req, runtime));
+}
+
+GetLocalityRuleResponse Alibabacloud_Mse20190531::Client::getLocalityRule(shared_ptr<GetLocalityRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getLocalityRuleWithOptions(request, runtime);
 }
 
 GetLosslessRuleByAppResponse Alibabacloud_Mse20190531::Client::getLosslessRuleByAppWithOptions(shared_ptr<GetLosslessRuleByAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -8595,6 +8644,9 @@ UpdateFlowRuleResponse Alibabacloud_Mse20190531::Client::updateFlowRuleWithOptio
   if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
     query->insert(pair<string, bool>("Enable", *request->enable));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->limitApp)) {
+    query->insert(pair<string, string>("LimitApp", *request->limitApp));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxQueueingTimeMs)) {
     query->insert(pair<string, long>("MaxQueueingTimeMs", *request->maxQueueingTimeMs));
   }
@@ -9828,6 +9880,9 @@ UpdateIsolationRuleResponse Alibabacloud_Mse20190531::Client::updateIsolationRul
   if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
     query->insert(pair<string, bool>("Enable", *request->enable));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->limitApp)) {
+    query->insert(pair<string, string>("LimitApp", *request->limitApp));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
@@ -9857,6 +9912,58 @@ UpdateIsolationRuleResponse Alibabacloud_Mse20190531::Client::updateIsolationRul
 UpdateIsolationRuleResponse Alibabacloud_Mse20190531::Client::updateIsolationRule(shared_ptr<UpdateIsolationRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateIsolationRuleWithOptions(request, runtime);
+}
+
+UpdateLocalityRuleResponse Alibabacloud_Mse20190531::Client::updateLocalityRuleWithOptions(shared_ptr<UpdateLocalityRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
+    query->insert(pair<string, bool>("Enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("Region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rules)) {
+    query->insert(pair<string, string>("Rules", *request->rules));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->threshold)) {
+    query->insert(pair<string, double>("Threshold", *request->threshold));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateLocalityRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateLocalityRuleResponse(callApi(params, req, runtime));
+}
+
+UpdateLocalityRuleResponse Alibabacloud_Mse20190531::Client::updateLocalityRule(shared_ptr<UpdateLocalityRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateLocalityRuleWithOptions(request, runtime);
 }
 
 UpdateMessageQueueRouteResponse Alibabacloud_Mse20190531::Client::updateMessageQueueRouteWithOptions(shared_ptr<UpdateMessageQueueRouteRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

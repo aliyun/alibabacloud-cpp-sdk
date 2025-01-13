@@ -9563,6 +9563,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<long> controlBehavior{};
   shared_ptr<bool> enable{};
+  shared_ptr<string> limitApp{};
   shared_ptr<long> maxQueueingTimeMs{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
@@ -9594,6 +9595,9 @@ public:
     }
     if (enable) {
       res["Enable"] = boost::any(*enable);
+    }
+    if (limitApp) {
+      res["LimitApp"] = boost::any(*limitApp);
     }
     if (maxQueueingTimeMs) {
       res["MaxQueueingTimeMs"] = boost::any(*maxQueueingTimeMs);
@@ -9632,6 +9636,9 @@ public:
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
     }
+    if (m.find("LimitApp") != m.end() && !m["LimitApp"].empty()) {
+      limitApp = make_shared<string>(boost::any_cast<string>(m["LimitApp"]));
+    }
     if (m.find("MaxQueueingTimeMs") != m.end() && !m["MaxQueueingTimeMs"].empty()) {
       maxQueueingTimeMs = make_shared<long>(boost::any_cast<long>(m["MaxQueueingTimeMs"]));
     }
@@ -9662,6 +9669,7 @@ public:
   shared_ptr<long> controlBehavior{};
   shared_ptr<bool> enable{};
   shared_ptr<long> id{};
+  shared_ptr<string> limitApp{};
   shared_ptr<long> maxQueueingTimeMs{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
@@ -9692,6 +9700,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (limitApp) {
+      res["LimitApp"] = boost::any(*limitApp);
     }
     if (maxQueueingTimeMs) {
       res["MaxQueueingTimeMs"] = boost::any(*maxQueueingTimeMs);
@@ -9726,6 +9737,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("LimitApp") != m.end() && !m["LimitApp"].empty()) {
+      limitApp = make_shared<string>(boost::any_cast<string>(m["LimitApp"]));
     }
     if (m.find("MaxQueueingTimeMs") != m.end() && !m["MaxQueueingTimeMs"].empty()) {
       maxQueueingTimeMs = make_shared<long>(boost::any_cast<long>(m["MaxQueueingTimeMs"]));
@@ -10483,6 +10497,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
   shared_ptr<bool> enable{};
+  shared_ptr<string> limitApp{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resource{};
@@ -10509,6 +10524,9 @@ public:
     }
     if (enable) {
       res["Enable"] = boost::any(*enable);
+    }
+    if (limitApp) {
+      res["LimitApp"] = boost::any(*limitApp);
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
@@ -10538,6 +10556,9 @@ public:
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
     }
+    if (m.find("LimitApp") != m.end() && !m["LimitApp"].empty()) {
+      limitApp = make_shared<string>(boost::any_cast<string>(m["LimitApp"]));
+    }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
@@ -10561,6 +10582,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<bool> enable{};
   shared_ptr<long> id{};
+  shared_ptr<string> limitApp{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resource{};
@@ -10587,6 +10609,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (limitApp) {
+      res["LimitApp"] = boost::any(*limitApp);
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
@@ -10615,6 +10640,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("LimitApp") != m.end() && !m["LimitApp"].empty()) {
+      limitApp = make_shared<string>(boost::any_cast<string>(m["LimitApp"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
@@ -28805,6 +28833,186 @@ public:
 
   virtual ~GetKubernetesSourceResponse() = default;
 };
+class GetLocalityRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> region{};
+  shared_ptr<string> source{};
+
+  GetLocalityRuleRequest() {}
+
+  explicit GetLocalityRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+  }
+
+
+  virtual ~GetLocalityRuleRequest() = default;
+};
+class GetLocalityRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  GetLocalityRuleResponseBody() {}
+
+  explicit GetLocalityRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetLocalityRuleResponseBody() = default;
+};
+class GetLocalityRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetLocalityRuleResponseBody> body{};
+
+  GetLocalityRuleResponse() {}
+
+  explicit GetLocalityRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetLocalityRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetLocalityRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetLocalityRuleResponse() = default;
+};
 class GetLosslessRuleByAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -40907,6 +41115,7 @@ public:
   shared_ptr<long> controlBehavior{};
   shared_ptr<bool> enable{};
   shared_ptr<string> fallbackObject{};
+  shared_ptr<string> limitApp{};
   shared_ptr<long> maxQueueingTimeMs{};
   shared_ptr<long> metricType{};
   shared_ptr<string> namespace_{};
@@ -40941,6 +41150,9 @@ public:
     }
     if (fallbackObject) {
       res["FallbackObject"] = boost::any(*fallbackObject);
+    }
+    if (limitApp) {
+      res["LimitApp"] = boost::any(*limitApp);
     }
     if (maxQueueingTimeMs) {
       res["MaxQueueingTimeMs"] = boost::any(*maxQueueingTimeMs);
@@ -40987,6 +41199,9 @@ public:
     }
     if (m.find("FallbackObject") != m.end() && !m["FallbackObject"].empty()) {
       fallbackObject = make_shared<string>(boost::any_cast<string>(m["FallbackObject"]));
+    }
+    if (m.find("LimitApp") != m.end() && !m["LimitApp"].empty()) {
+      limitApp = make_shared<string>(boost::any_cast<string>(m["LimitApp"]));
     }
     if (m.find("MaxQueueingTimeMs") != m.end() && !m["MaxQueueingTimeMs"].empty()) {
       maxQueueingTimeMs = make_shared<long>(boost::any_cast<long>(m["MaxQueueingTimeMs"]));
@@ -48547,6 +48762,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<bool> enable{};
   shared_ptr<string> fallbackObject{};
+  shared_ptr<string> limitApp{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resource{};
@@ -48574,6 +48790,9 @@ public:
     }
     if (fallbackObject) {
       res["FallbackObject"] = boost::any(*fallbackObject);
+    }
+    if (limitApp) {
+      res["LimitApp"] = boost::any(*limitApp);
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
@@ -48605,6 +48824,9 @@ public:
     }
     if (m.find("FallbackObject") != m.end() && !m["FallbackObject"].empty()) {
       fallbackObject = make_shared<string>(boost::any_cast<string>(m["FallbackObject"]));
+    }
+    if (m.find("LimitApp") != m.end() && !m["LimitApp"].empty()) {
+      limitApp = make_shared<string>(boost::any_cast<string>(m["LimitApp"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
@@ -55492,6 +55714,7 @@ public:
 };
 class QueryAllSwimmingLaneResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> enable{};
   shared_ptr<vector<QueryAllSwimmingLaneResponseBodyDataEntryRules>> entryRules{};
   shared_ptr<QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute> gatewaySwimmingLaneRoute{};
   shared_ptr<string> groupId{};
@@ -55519,6 +55742,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
     if (entryRules) {
       vector<boost::any> temp1;
       for(auto item1:*entryRules){
@@ -55575,6 +55801,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
     if (m.find("EntryRules") != m.end() && !m["EntryRules"].empty()) {
       if (typeid(vector<boost::any>) == m["EntryRules"].type()) {
         vector<QueryAllSwimmingLaneResponseBodyDataEntryRules> expect1;
@@ -63767,6 +63996,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<long> controlBehavior{};
   shared_ptr<bool> enable{};
+  shared_ptr<string> limitApp{};
   shared_ptr<long> maxQueueingTimeMs{};
   shared_ptr<string> namespace_{};
   shared_ptr<long> ruleId{};
@@ -63796,6 +64026,9 @@ public:
     }
     if (enable) {
       res["Enable"] = boost::any(*enable);
+    }
+    if (limitApp) {
+      res["LimitApp"] = boost::any(*limitApp);
     }
     if (maxQueueingTimeMs) {
       res["MaxQueueingTimeMs"] = boost::any(*maxQueueingTimeMs);
@@ -63828,6 +64061,9 @@ public:
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
     }
+    if (m.find("LimitApp") != m.end() && !m["LimitApp"].empty()) {
+      limitApp = make_shared<string>(boost::any_cast<string>(m["LimitApp"]));
+    }
     if (m.find("MaxQueueingTimeMs") != m.end() && !m["MaxQueueingTimeMs"].empty()) {
       maxQueueingTimeMs = make_shared<long>(boost::any_cast<long>(m["MaxQueueingTimeMs"]));
     }
@@ -63852,6 +64088,7 @@ public:
   shared_ptr<long> controlBehavior{};
   shared_ptr<bool> enable{};
   shared_ptr<long> id{};
+  shared_ptr<string> limitApp{};
   shared_ptr<long> maxQueueingTimeMs{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> resource{};
@@ -63881,6 +64118,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (limitApp) {
+      res["LimitApp"] = boost::any(*limitApp);
     }
     if (maxQueueingTimeMs) {
       res["MaxQueueingTimeMs"] = boost::any(*maxQueueingTimeMs);
@@ -63912,6 +64152,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("LimitApp") != m.end() && !m["LimitApp"].empty()) {
+      limitApp = make_shared<string>(boost::any_cast<string>(m["LimitApp"]));
     }
     if (m.find("MaxQueueingTimeMs") != m.end() && !m["MaxQueueingTimeMs"].empty()) {
       maxQueueingTimeMs = make_shared<long>(boost::any_cast<long>(m["MaxQueueingTimeMs"]));
@@ -71785,6 +72028,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
   shared_ptr<bool> enable{};
+  shared_ptr<string> limitApp{};
   shared_ptr<string> namespace_{};
   shared_ptr<long> ruleId{};
   shared_ptr<double> threshold{};
@@ -71811,6 +72055,9 @@ public:
     if (enable) {
       res["Enable"] = boost::any(*enable);
     }
+    if (limitApp) {
+      res["LimitApp"] = boost::any(*limitApp);
+    }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
     }
@@ -71836,6 +72083,9 @@ public:
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
     }
+    if (m.find("LimitApp") != m.end() && !m["LimitApp"].empty()) {
+      limitApp = make_shared<string>(boost::any_cast<string>(m["LimitApp"]));
+    }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
@@ -71856,6 +72106,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<bool> enable{};
   shared_ptr<long> id{};
+  shared_ptr<string> limitApp{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> resource{};
   shared_ptr<double> threshold{};
@@ -71882,6 +72133,9 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (limitApp) {
+      res["LimitApp"] = boost::any(*limitApp);
+    }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
     }
@@ -71906,6 +72160,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("LimitApp") != m.end() && !m["LimitApp"].empty()) {
+      limitApp = make_shared<string>(boost::any_cast<string>(m["LimitApp"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
@@ -72033,6 +72290,207 @@ public:
 
 
   virtual ~UpdateIsolationRuleResponse() = default;
+};
+class UpdateLocalityRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
+  shared_ptr<bool> enable{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> region{};
+  shared_ptr<string> rules{};
+  shared_ptr<string> source{};
+  shared_ptr<double> threshold{};
+
+  UpdateLocalityRuleRequest() {}
+
+  explicit UpdateLocalityRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (rules) {
+      res["Rules"] = boost::any(*rules);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (threshold) {
+      res["Threshold"] = boost::any(*threshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      rules = make_shared<string>(boost::any_cast<string>(m["Rules"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
+      threshold = make_shared<double>(boost::any_cast<double>(m["Threshold"]));
+    }
+  }
+
+
+  virtual ~UpdateLocalityRuleRequest() = default;
+};
+class UpdateLocalityRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  UpdateLocalityRuleResponseBody() {}
+
+  explicit UpdateLocalityRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateLocalityRuleResponseBody() = default;
+};
+class UpdateLocalityRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateLocalityRuleResponseBody> body{};
+
+  UpdateLocalityRuleResponse() {}
+
+  explicit UpdateLocalityRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateLocalityRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateLocalityRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateLocalityRuleResponse() = default;
 };
 class UpdateMessageQueueRouteRequest : public Darabonba::Model {
 public:
@@ -75071,6 +75529,8 @@ public:
   GetImportFileUrlResponse getImportFileUrl(shared_ptr<GetImportFileUrlRequest> request);
   GetKubernetesSourceResponse getKubernetesSourceWithOptions(shared_ptr<GetKubernetesSourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetKubernetesSourceResponse getKubernetesSource(shared_ptr<GetKubernetesSourceRequest> request);
+  GetLocalityRuleResponse getLocalityRuleWithOptions(shared_ptr<GetLocalityRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetLocalityRuleResponse getLocalityRule(shared_ptr<GetLocalityRuleRequest> request);
   GetLosslessRuleByAppResponse getLosslessRuleByAppWithOptions(shared_ptr<GetLosslessRuleByAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetLosslessRuleByAppResponse getLosslessRuleByApp(shared_ptr<GetLosslessRuleByAppRequest> request);
   GetMseFeatureSwitchResponse getMseFeatureSwitchWithOptions(shared_ptr<GetMseFeatureSwitchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -75333,6 +75793,8 @@ public:
   UpdateImageResponse updateImage(shared_ptr<UpdateImageRequest> request);
   UpdateIsolationRuleResponse updateIsolationRuleWithOptions(shared_ptr<UpdateIsolationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIsolationRuleResponse updateIsolationRule(shared_ptr<UpdateIsolationRuleRequest> request);
+  UpdateLocalityRuleResponse updateLocalityRuleWithOptions(shared_ptr<UpdateLocalityRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateLocalityRuleResponse updateLocalityRule(shared_ptr<UpdateLocalityRuleRequest> request);
   UpdateMessageQueueRouteResponse updateMessageQueueRouteWithOptions(shared_ptr<UpdateMessageQueueRouteRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateMessageQueueRouteResponse updateMessageQueueRoute(shared_ptr<UpdateMessageQueueRouteRequest> request);
   UpdateMigrationTaskResponse updateMigrationTaskWithOptions(shared_ptr<UpdateMigrationTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
