@@ -1,3 +1,13 @@
+2025-01-13 Version: 1.3.1
+- Update API CreateRule: add param ModelRuleIds.
+- Update API CreateRule: add param TemplateRuleIds.
+- Update API DescribeRules: add param CooperationChannel.
+- Update API DescribeRules: add param Simplify.
+- Update API DescribeRules: update response param.
+- Update API ModifyRule: add param ModelRuleIds.
+- Update API ModifyRule: add param TemplateRuleIds.
+
+
 2024-10-17 Version: 1.3.0
 - Support API DescribeIdentifyTaskStatus.
 - Update API DescribeInstances: update response param.

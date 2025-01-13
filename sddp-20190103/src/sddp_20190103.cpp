@@ -187,6 +187,9 @@ CreateRuleResponse Alibabacloud_Sddp20190103::Client::createRuleWithOptions(shar
   if (!Darabonba_Util::Client::isUnset<long>(request->matchType)) {
     query->insert(pair<string, long>("MatchType", *request->matchType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelRuleIds)) {
+    query->insert(pair<string, string>("ModelRuleIds", *request->modelRuleIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -216,6 +219,9 @@ CreateRuleResponse Alibabacloud_Sddp20190103::Client::createRuleWithOptions(shar
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->target)) {
     query->insert(pair<string, string>("Target", *request->target));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateRuleIds)) {
+    query->insert(pair<string, string>("TemplateRuleIds", *request->templateRuleIds));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->warnLevel)) {
     query->insert(pair<string, long>("WarnLevel", *request->warnLevel));
@@ -1737,6 +1743,9 @@ DescribeRulesResponse Alibabacloud_Sddp20190103::Client::describeRulesWithOption
   if (!Darabonba_Util::Client::isUnset<long>(request->contentCategory)) {
     query->insert(pair<string, long>("ContentCategory", *request->contentCategory));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cooperationChannel)) {
+    query->insert(pair<string, string>("CooperationChannel", *request->cooperationChannel));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
@@ -1775,6 +1784,9 @@ DescribeRulesResponse Alibabacloud_Sddp20190103::Client::describeRulesWithOption
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ruleType)) {
     query->insert(pair<string, long>("RuleType", *request->ruleType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->simplify)) {
+    query->insert(pair<string, bool>("Simplify", *request->simplify));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
     query->insert(pair<string, long>("Status", *request->status));
@@ -2271,6 +2283,9 @@ ModifyRuleResponse Alibabacloud_Sddp20190103::Client::modifyRuleWithOptions(shar
   if (!Darabonba_Util::Client::isUnset<long>(request->matchType)) {
     query->insert(pair<string, long>("MatchType", *request->matchType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelRuleIds)) {
+    query->insert(pair<string, string>("ModelRuleIds", *request->modelRuleIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -2288,6 +2303,9 @@ ModifyRuleResponse Alibabacloud_Sddp20190103::Client::modifyRuleWithOptions(shar
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->supportForm)) {
     query->insert(pair<string, long>("SupportForm", *request->supportForm));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateRuleIds)) {
+    query->insert(pair<string, string>("TemplateRuleIds", *request->templateRuleIds));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->warnLevel)) {
     query->insert(pair<string, long>("WarnLevel", *request->warnLevel));

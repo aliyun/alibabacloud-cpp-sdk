@@ -416,6 +416,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> lang{};
   shared_ptr<long> matchType{};
+  shared_ptr<string> modelRuleIds{};
   shared_ptr<string> name{};
   shared_ptr<string> productCode{};
   shared_ptr<long> productId{};
@@ -426,6 +427,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<long> supportForm{};
   shared_ptr<string> target{};
+  shared_ptr<string> templateRuleIds{};
   shared_ptr<long> warnLevel{};
 
   CreateRuleRequest() {}
@@ -455,6 +457,9 @@ public:
     }
     if (matchType) {
       res["MatchType"] = boost::any(*matchType);
+    }
+    if (modelRuleIds) {
+      res["ModelRuleIds"] = boost::any(*modelRuleIds);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -486,6 +491,9 @@ public:
     if (target) {
       res["Target"] = boost::any(*target);
     }
+    if (templateRuleIds) {
+      res["TemplateRuleIds"] = boost::any(*templateRuleIds);
+    }
     if (warnLevel) {
       res["WarnLevel"] = boost::any(*warnLevel);
     }
@@ -510,6 +518,9 @@ public:
     }
     if (m.find("MatchType") != m.end() && !m["MatchType"].empty()) {
       matchType = make_shared<long>(boost::any_cast<long>(m["MatchType"]));
+    }
+    if (m.find("ModelRuleIds") != m.end() && !m["ModelRuleIds"].empty()) {
+      modelRuleIds = make_shared<string>(boost::any_cast<string>(m["ModelRuleIds"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -540,6 +551,9 @@ public:
     }
     if (m.find("Target") != m.end() && !m["Target"].empty()) {
       target = make_shared<string>(boost::any_cast<string>(m["Target"]));
+    }
+    if (m.find("TemplateRuleIds") != m.end() && !m["TemplateRuleIds"].empty()) {
+      templateRuleIds = make_shared<string>(boost::any_cast<string>(m["TemplateRuleIds"]));
     }
     if (m.find("WarnLevel") != m.end() && !m["WarnLevel"].empty()) {
       warnLevel = make_shared<long>(boost::any_cast<long>(m["WarnLevel"]));
@@ -11160,6 +11174,7 @@ class DescribeRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<long> category{};
   shared_ptr<long> contentCategory{};
+  shared_ptr<string> cooperationChannel{};
   shared_ptr<long> currentPage{};
   shared_ptr<long> customType{};
   shared_ptr<long> featureType{};
@@ -11173,6 +11188,7 @@ public:
   shared_ptr<long> productId{};
   shared_ptr<long> riskLevelId{};
   shared_ptr<long> ruleType{};
+  shared_ptr<bool> simplify{};
   shared_ptr<long> status{};
   shared_ptr<long> supportForm{};
   shared_ptr<long> warnLevel{};
@@ -11192,6 +11208,9 @@ public:
     }
     if (contentCategory) {
       res["ContentCategory"] = boost::any(*contentCategory);
+    }
+    if (cooperationChannel) {
+      res["CooperationChannel"] = boost::any(*cooperationChannel);
     }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
@@ -11232,6 +11251,9 @@ public:
     if (ruleType) {
       res["RuleType"] = boost::any(*ruleType);
     }
+    if (simplify) {
+      res["Simplify"] = boost::any(*simplify);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -11250,6 +11272,9 @@ public:
     }
     if (m.find("ContentCategory") != m.end() && !m["ContentCategory"].empty()) {
       contentCategory = make_shared<long>(boost::any_cast<long>(m["ContentCategory"]));
+    }
+    if (m.find("CooperationChannel") != m.end() && !m["CooperationChannel"].empty()) {
+      cooperationChannel = make_shared<string>(boost::any_cast<string>(m["CooperationChannel"]));
     }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
@@ -11290,6 +11315,9 @@ public:
     if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
       ruleType = make_shared<long>(boost::any_cast<long>(m["RuleType"]));
     }
+    if (m.find("Simplify") != m.end() && !m["Simplify"].empty()) {
+      simplify = make_shared<bool>(boost::any_cast<bool>(m["Simplify"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
     }
@@ -11321,6 +11349,7 @@ public:
   shared_ptr<string> loginName{};
   shared_ptr<string> majorKey{};
   shared_ptr<long> matchType{};
+  shared_ptr<string> modelRuleIds{};
   shared_ptr<string> name{};
   shared_ptr<string> productCode{};
   shared_ptr<long> productId{};
@@ -11330,6 +11359,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<long> supportForm{};
   shared_ptr<string> target{};
+  shared_ptr<string> templateRuleIds{};
   shared_ptr<long> userId{};
   shared_ptr<long> warnLevel{};
 
@@ -11388,6 +11418,9 @@ public:
     if (matchType) {
       res["MatchType"] = boost::any(*matchType);
     }
+    if (modelRuleIds) {
+      res["ModelRuleIds"] = boost::any(*modelRuleIds);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -11414,6 +11447,9 @@ public:
     }
     if (target) {
       res["Target"] = boost::any(*target);
+    }
+    if (templateRuleIds) {
+      res["TemplateRuleIds"] = boost::any(*templateRuleIds);
     }
     if (userId) {
       res["UserId"] = boost::any(*userId);
@@ -11470,6 +11506,9 @@ public:
     if (m.find("MatchType") != m.end() && !m["MatchType"].empty()) {
       matchType = make_shared<long>(boost::any_cast<long>(m["MatchType"]));
     }
+    if (m.find("ModelRuleIds") != m.end() && !m["ModelRuleIds"].empty()) {
+      modelRuleIds = make_shared<string>(boost::any_cast<string>(m["ModelRuleIds"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -11496,6 +11535,9 @@ public:
     }
     if (m.find("Target") != m.end() && !m["Target"].empty()) {
       target = make_shared<string>(boost::any_cast<string>(m["Target"]));
+    }
+    if (m.find("TemplateRuleIds") != m.end() && !m["TemplateRuleIds"].empty()) {
+      templateRuleIds = make_shared<string>(boost::any_cast<string>(m["TemplateRuleIds"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
@@ -13661,12 +13703,14 @@ public:
   shared_ptr<long> id{};
   shared_ptr<string> lang{};
   shared_ptr<long> matchType{};
+  shared_ptr<string> modelRuleIds{};
   shared_ptr<string> name{};
   shared_ptr<string> productCode{};
   shared_ptr<long> productId{};
   shared_ptr<long> riskLevelId{};
   shared_ptr<long> ruleType{};
   shared_ptr<long> supportForm{};
+  shared_ptr<string> templateRuleIds{};
   shared_ptr<long> warnLevel{};
 
   ModifyRuleRequest() {}
@@ -13694,6 +13738,9 @@ public:
     if (matchType) {
       res["MatchType"] = boost::any(*matchType);
     }
+    if (modelRuleIds) {
+      res["ModelRuleIds"] = boost::any(*modelRuleIds);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -13711,6 +13758,9 @@ public:
     }
     if (supportForm) {
       res["SupportForm"] = boost::any(*supportForm);
+    }
+    if (templateRuleIds) {
+      res["TemplateRuleIds"] = boost::any(*templateRuleIds);
     }
     if (warnLevel) {
       res["WarnLevel"] = boost::any(*warnLevel);
@@ -13734,6 +13784,9 @@ public:
     if (m.find("MatchType") != m.end() && !m["MatchType"].empty()) {
       matchType = make_shared<long>(boost::any_cast<long>(m["MatchType"]));
     }
+    if (m.find("ModelRuleIds") != m.end() && !m["ModelRuleIds"].empty()) {
+      modelRuleIds = make_shared<string>(boost::any_cast<string>(m["ModelRuleIds"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -13751,6 +13804,9 @@ public:
     }
     if (m.find("SupportForm") != m.end() && !m["SupportForm"].empty()) {
       supportForm = make_shared<long>(boost::any_cast<long>(m["SupportForm"]));
+    }
+    if (m.find("TemplateRuleIds") != m.end() && !m["TemplateRuleIds"].empty()) {
+      templateRuleIds = make_shared<string>(boost::any_cast<string>(m["TemplateRuleIds"]));
     }
     if (m.find("WarnLevel") != m.end() && !m["WarnLevel"].empty()) {
       warnLevel = make_shared<long>(boost::any_cast<long>(m["WarnLevel"]));
