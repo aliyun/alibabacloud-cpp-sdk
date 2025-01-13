@@ -2877,6 +2877,9 @@ CreateImagePipelineResponse Alibabacloud_Ecs20140526::Client::createImagePipelin
   if (!Darabonba_Util::Client::isUnset<vector<long>>(request->addAccount)) {
     query->insert(pair<string, vector<long>>("AddAccount", *request->addAccount));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateImagePipelineRequestAdvancedOptions>(request->advancedOptions)) {
+    query->insert(pair<string, CreateImagePipelineRequestAdvancedOptions>("AdvancedOptions", *request->advancedOptions));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->baseImage)) {
     query->insert(pair<string, string>("BaseImage", *request->baseImage));
   }
@@ -2901,6 +2904,9 @@ CreateImagePipelineResponse Alibabacloud_Ecs20140526::Client::createImagePipelin
   if (!Darabonba_Util::Client::isUnset<string>(request->imageName)) {
     query->insert(pair<string, string>("ImageName", *request->imageName));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateImagePipelineRequestImportImageOptions>(request->importImageOptions)) {
+    query->insert(pair<string, CreateImagePipelineRequestImportImageOptions>("ImportImageOptions", *request->importImageOptions));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
     query->insert(pair<string, string>("InstanceType", *request->instanceType));
   }
@@ -2909,6 +2915,9 @@ CreateImagePipelineResponse Alibabacloud_Ecs20140526::Client::createImagePipelin
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nvmeSupport)) {
+    query->insert(pair<string, string>("NvmeSupport", *request->nvmeSupport));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
