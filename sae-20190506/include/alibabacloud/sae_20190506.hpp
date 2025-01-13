@@ -13793,6 +13793,7 @@ public:
   shared_ptr<string> pythonModules{};
   shared_ptr<string> readiness{};
   shared_ptr<long> replicas{};
+  shared_ptr<string> resourceType{};
   shared_ptr<string> saeVersion{};
   shared_ptr<string> secretMountDesc{};
   shared_ptr<string> securityGroupId{};
@@ -13984,6 +13985,9 @@ public:
     }
     if (replicas) {
       res["Replicas"] = boost::any(*replicas);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
     }
     if (saeVersion) {
       res["SaeVersion"] = boost::any(*saeVersion);
@@ -14200,6 +14204,9 @@ public:
     if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
       replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
     }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
     if (m.find("SaeVersion") != m.end() && !m["SaeVersion"].empty()) {
       saeVersion = make_shared<string>(boost::any_cast<string>(m["SaeVersion"]));
     }
@@ -14312,6 +14319,7 @@ public:
   shared_ptr<string> pythonModules{};
   shared_ptr<string> readiness{};
   shared_ptr<long> replicas{};
+  shared_ptr<string> resourceType{};
   shared_ptr<string> saeVersion{};
   shared_ptr<string> secretMountDesc{};
   shared_ptr<string> securityGroupId{};
@@ -14503,6 +14511,9 @@ public:
     }
     if (replicas) {
       res["Replicas"] = boost::any(*replicas);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
     }
     if (saeVersion) {
       res["SaeVersion"] = boost::any(*saeVersion);
@@ -14714,6 +14725,9 @@ public:
     }
     if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
       replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
     if (m.find("SaeVersion") != m.end() && !m["SaeVersion"].empty()) {
       saeVersion = make_shared<string>(boost::any_cast<string>(m["SaeVersion"]));
@@ -21516,6 +21530,7 @@ public:
   shared_ptr<string> readiness{};
   shared_ptr<string> regionId{};
   shared_ptr<long> replicas{};
+  shared_ptr<string> resourceType{};
   shared_ptr<vector<DescribeApplicationConfigResponseBodyDataSecretMountDesc>> secretMountDesc{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<map<string, string>> serviceTags{};
@@ -21738,6 +21753,9 @@ public:
     }
     if (replicas) {
       res["Replicas"] = boost::any(*replicas);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
     }
     if (secretMountDesc) {
       vector<boost::any> temp1;
@@ -22012,6 +22030,9 @@ public:
     }
     if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
       replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
     if (m.find("SecretMountDesc") != m.end() && !m["SecretMountDesc"].empty()) {
       if (typeid(vector<boost::any>) == m["SecretMountDesc"].type()) {

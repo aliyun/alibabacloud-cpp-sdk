@@ -393,6 +393,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<long>(request->replicas)) {
     query->insert(pair<string, long>("Replicas", *request->replicas));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->saeVersion)) {
     query->insert(pair<string, string>("SaeVersion", *request->saeVersion));
   }
