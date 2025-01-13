@@ -25458,6 +25458,209 @@ public:
 
   virtual ~GetDISyncTaskRequest() = default;
 };
+class GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList : public Darabonba::Model {
+public:
+  shared_ptr<string> aggregator{};
+  shared_ptr<string> comparator{};
+  shared_ptr<long> duration{};
+  shared_ptr<string> level{};
+  shared_ptr<long> threshold{};
+
+  GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList() {}
+
+  explicit GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aggregator) {
+      res["Aggregator"] = boost::any(*aggregator);
+    }
+    if (comparator) {
+      res["Comparator"] = boost::any(*comparator);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (threshold) {
+      res["Threshold"] = boost::any(*threshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Aggregator") != m.end() && !m["Aggregator"].empty()) {
+      aggregator = make_shared<string>(boost::any_cast<string>(m["Aggregator"]));
+    }
+    if (m.find("Comparator") != m.end() && !m["Comparator"].empty()) {
+      comparator = make_shared<string>(boost::any_cast<string>(m["Comparator"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+    }
+    if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
+      threshold = make_shared<long>(boost::any_cast<long>(m["Threshold"]));
+    }
+  }
+
+
+  virtual ~GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList() = default;
+};
+class GetDISyncTaskResponseBodyDataAlarmListNotifyRule : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> critical{};
+  shared_ptr<long> interval{};
+  shared_ptr<vector<string>> warning{};
+
+  GetDISyncTaskResponseBodyDataAlarmListNotifyRule() {}
+
+  explicit GetDISyncTaskResponseBodyDataAlarmListNotifyRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (critical) {
+      res["Critical"] = boost::any(*critical);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (warning) {
+      res["Warning"] = boost::any(*warning);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Critical") != m.end() && !m["Critical"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Critical"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Critical"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      critical = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("Warning") != m.end() && !m["Warning"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Warning"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Warning"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      warning = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetDISyncTaskResponseBodyDataAlarmListNotifyRule() = default;
+};
+class GetDISyncTaskResponseBodyDataAlarmList : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList>> alarmRuleList{};
+  shared_ptr<string> description{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> id{};
+  shared_ptr<string> metric{};
+  shared_ptr<GetDISyncTaskResponseBodyDataAlarmListNotifyRule> notifyRule{};
+  shared_ptr<string> ruleName{};
+
+  GetDISyncTaskResponseBodyDataAlarmList() {}
+
+  explicit GetDISyncTaskResponseBodyDataAlarmList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alarmRuleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*alarmRuleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AlarmRuleList"] = boost::any(temp1);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (metric) {
+      res["Metric"] = boost::any(*metric);
+    }
+    if (notifyRule) {
+      res["NotifyRule"] = notifyRule ? boost::any(notifyRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlarmRuleList") != m.end() && !m["AlarmRuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AlarmRuleList"].type()) {
+        vector<GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AlarmRuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        alarmRuleList = make_shared<vector<GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList>>(expect1);
+      }
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Metric") != m.end() && !m["Metric"].empty()) {
+      metric = make_shared<string>(boost::any_cast<string>(m["Metric"]));
+    }
+    if (m.find("NotifyRule") != m.end() && !m["NotifyRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NotifyRule"].type()) {
+        GetDISyncTaskResponseBodyDataAlarmListNotifyRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NotifyRule"]));
+        notifyRule = make_shared<GetDISyncTaskResponseBodyDataAlarmListNotifyRule>(model1);
+      }
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~GetDISyncTaskResponseBodyDataAlarmList() = default;
+};
 class GetDISyncTaskResponseBodyDataSolutionDetail : public Darabonba::Model {
 public:
   shared_ptr<string> creatorName{};
@@ -25559,6 +25762,7 @@ public:
 };
 class GetDISyncTaskResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<vector<GetDISyncTaskResponseBodyDataAlarmList>> alarmList{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<GetDISyncTaskResponseBodyDataSolutionDetail> solutionDetail{};
@@ -25574,6 +25778,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alarmList) {
+      vector<boost::any> temp1;
+      for(auto item1:*alarmList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AlarmList"] = boost::any(temp1);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -25590,6 +25801,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlarmList") != m.end() && !m["AlarmList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AlarmList"].type()) {
+        vector<GetDISyncTaskResponseBodyDataAlarmList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AlarmList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDISyncTaskResponseBodyDataAlarmList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        alarmList = make_shared<vector<GetDISyncTaskResponseBodyDataAlarmList>>(expect1);
+      }
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
