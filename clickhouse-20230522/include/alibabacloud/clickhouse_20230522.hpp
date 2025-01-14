@@ -2315,6 +2315,7 @@ public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<string> description{};
+  shared_ptr<string> disabledPorts{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineMinorVersion{};
   shared_ptr<string> engineVersion{};
@@ -2368,6 +2369,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (disabledPorts) {
+      res["DisabledPorts"] = boost::any(*disabledPorts);
     }
     if (engine) {
       res["Engine"] = boost::any(*engine);
@@ -2467,6 +2471,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DisabledPorts") != m.end() && !m["DisabledPorts"].empty()) {
+      disabledPorts = make_shared<string>(boost::any_cast<string>(m["DisabledPorts"]));
     }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
@@ -5831,6 +5838,7 @@ public:
   shared_ptr<string> connectionString{};
   shared_ptr<string> connectionStringPrefix{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> disablePorts{};
   shared_ptr<string> regionId{};
 
   ModifyDBInstanceConnectionStringRequest() {}
@@ -5852,6 +5860,9 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (disablePorts) {
+      res["DisablePorts"] = boost::any(*disablePorts);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -5868,6 +5879,9 @@ public:
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
     }
+    if (m.find("DisablePorts") != m.end() && !m["DisablePorts"].empty()) {
+      disablePorts = make_shared<string>(boost::any_cast<string>(m["DisablePorts"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -5881,6 +5895,7 @@ public:
   shared_ptr<string> connectionString{};
   shared_ptr<long> DBInstanceID{};
   shared_ptr<string> DBInstanceName{};
+  shared_ptr<string> disabledPorts{};
 
   ModifyDBInstanceConnectionStringResponseBodyData() {}
 
@@ -5901,6 +5916,9 @@ public:
     if (DBInstanceName) {
       res["DBInstanceName"] = boost::any(*DBInstanceName);
     }
+    if (disabledPorts) {
+      res["DisabledPorts"] = boost::any(*disabledPorts);
+    }
     return res;
   }
 
@@ -5913,6 +5931,9 @@ public:
     }
     if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
       DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
+    }
+    if (m.find("DisabledPorts") != m.end() && !m["DisabledPorts"].empty()) {
+      disabledPorts = make_shared<string>(boost::any_cast<string>(m["DisabledPorts"]));
     }
   }
 
