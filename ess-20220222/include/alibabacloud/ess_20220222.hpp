@@ -19329,6 +19329,63 @@ public:
 
   virtual ~DescribeScalingActivitiesRequest() = default;
 };
+class DescribeScalingActivitiesResponseBodyScalingActivitiesErrorMessages : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> description{};
+  shared_ptr<vector<string>> failedInstanceIds{};
+  shared_ptr<string> message{};
+
+  DescribeScalingActivitiesResponseBodyScalingActivitiesErrorMessages() {}
+
+  explicit DescribeScalingActivitiesResponseBodyScalingActivitiesErrorMessages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (failedInstanceIds) {
+      res["FailedInstanceIds"] = boost::any(*failedInstanceIds);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("FailedInstanceIds") != m.end() && !m["FailedInstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FailedInstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FailedInstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      failedInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingActivitiesResponseBodyScalingActivitiesErrorMessages() = default;
+};
 class DescribeScalingActivitiesResponseBodyScalingActivitiesLifecycleHookContext : public Darabonba::Model {
 public:
   shared_ptr<bool> disableLifecycleHook{};
@@ -19387,6 +19444,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<vector<DescribeScalingActivitiesResponseBodyScalingActivitiesErrorMessages>> errorMessages{};
   shared_ptr<string> instanceRefreshTaskId{};
   shared_ptr<DescribeScalingActivitiesResponseBodyScalingActivitiesLifecycleHookContext> lifecycleHookContext{};
   shared_ptr<long> progress{};
@@ -19452,6 +19510,13 @@ public:
     }
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (errorMessages) {
+      vector<boost::any> temp1;
+      for(auto item1:*errorMessages){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ErrorMessages"] = boost::any(temp1);
     }
     if (instanceRefreshTaskId) {
       res["InstanceRefreshTaskId"] = boost::any(*instanceRefreshTaskId);
@@ -19557,6 +19622,19 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("ErrorMessages") != m.end() && !m["ErrorMessages"].empty()) {
+      if (typeid(vector<boost::any>) == m["ErrorMessages"].type()) {
+        vector<DescribeScalingActivitiesResponseBodyScalingActivitiesErrorMessages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ErrorMessages"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingActivitiesResponseBodyScalingActivitiesErrorMessages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        errorMessages = make_shared<vector<DescribeScalingActivitiesResponseBodyScalingActivitiesErrorMessages>>(expect1);
+      }
     }
     if (m.find("InstanceRefreshTaskId") != m.end() && !m["InstanceRefreshTaskId"].empty()) {
       instanceRefreshTaskId = make_shared<string>(boost::any_cast<string>(m["InstanceRefreshTaskId"]));
