@@ -1372,11 +1372,48 @@ public:
 
   virtual ~CreateLoginProfileResponse() = default;
 };
+class CreatePolicyRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreatePolicyRequestTag() {}
+
+  explicit CreatePolicyRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreatePolicyRequestTag() = default;
+};
 class CreatePolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<string> policyDocument{};
   shared_ptr<string> policyName{};
+  shared_ptr<vector<CreatePolicyRequestTag>> tag{};
 
   CreatePolicyRequest() {}
 
@@ -1397,6 +1434,13 @@ public:
     if (policyName) {
       res["PolicyName"] = boost::any(*policyName);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1410,10 +1454,73 @@ public:
     if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
       policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreatePolicyRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePolicyRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreatePolicyRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~CreatePolicyRequest() = default;
+};
+class CreatePolicyShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> policyDocument{};
+  shared_ptr<string> policyName{};
+  shared_ptr<string> tagShrink{};
+
+  CreatePolicyShrinkRequest() {}
+
+  explicit CreatePolicyShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (policyDocument) {
+      res["PolicyDocument"] = boost::any(*policyDocument);
+    }
+    if (policyName) {
+      res["PolicyName"] = boost::any(*policyName);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("PolicyDocument") != m.end() && !m["PolicyDocument"].empty()) {
+      policyDocument = make_shared<string>(boost::any_cast<string>(m["PolicyDocument"]));
+    }
+    if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
+      policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~CreatePolicyShrinkRequest() = default;
 };
 class CreatePolicyResponseBodyPolicy : public Darabonba::Model {
 public:
@@ -1756,12 +1863,49 @@ public:
 
   virtual ~CreatePolicyVersionResponse() = default;
 };
+class CreateRoleRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateRoleRequestTag() {}
+
+  explicit CreateRoleRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateRoleRequestTag() = default;
+};
 class CreateRoleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> assumeRolePolicyDocument{};
   shared_ptr<string> description{};
   shared_ptr<long> maxSessionDuration{};
   shared_ptr<string> roleName{};
+  shared_ptr<vector<CreateRoleRequestTag>> tag{};
 
   CreateRoleRequest() {}
 
@@ -1785,6 +1929,13 @@ public:
     if (roleName) {
       res["RoleName"] = boost::any(*roleName);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1801,10 +1952,80 @@ public:
     if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
       roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateRoleRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateRoleRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateRoleRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~CreateRoleRequest() = default;
+};
+class CreateRoleShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> assumeRolePolicyDocument{};
+  shared_ptr<string> description{};
+  shared_ptr<long> maxSessionDuration{};
+  shared_ptr<string> roleName{};
+  shared_ptr<string> tagShrink{};
+
+  CreateRoleShrinkRequest() {}
+
+  explicit CreateRoleShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assumeRolePolicyDocument) {
+      res["AssumeRolePolicyDocument"] = boost::any(*assumeRolePolicyDocument);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (maxSessionDuration) {
+      res["MaxSessionDuration"] = boost::any(*maxSessionDuration);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssumeRolePolicyDocument") != m.end() && !m["AssumeRolePolicyDocument"].empty()) {
+      assumeRolePolicyDocument = make_shared<string>(boost::any_cast<string>(m["AssumeRolePolicyDocument"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("MaxSessionDuration") != m.end() && !m["MaxSessionDuration"].empty()) {
+      maxSessionDuration = make_shared<long>(boost::any_cast<long>(m["MaxSessionDuration"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~CreateRoleShrinkRequest() = default;
 };
 class CreateRoleResponseBodyRole : public Darabonba::Model {
 public:
@@ -3066,6 +3287,7 @@ public:
 };
 class DeletePolicyRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> cascadingDelete{};
   shared_ptr<string> policyName{};
 
   DeletePolicyRequest() {}
@@ -3078,6 +3300,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cascadingDelete) {
+      res["CascadingDelete"] = boost::any(*cascadingDelete);
+    }
     if (policyName) {
       res["PolicyName"] = boost::any(*policyName);
     }
@@ -3085,6 +3310,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CascadingDelete") != m.end() && !m["CascadingDelete"].empty()) {
+      cascadingDelete = make_shared<bool>(boost::any_cast<bool>(m["CascadingDelete"]));
+    }
     if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
       policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
     }
@@ -7165,11 +7393,48 @@ public:
 
   virtual ~ListGroupsForUserResponse() = default;
 };
+class ListPoliciesRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListPoliciesRequestTag() {}
+
+  explicit ListPoliciesRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListPoliciesRequestTag() = default;
+};
 class ListPoliciesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> marker{};
   shared_ptr<long> maxItems{};
   shared_ptr<string> policyType{};
+  shared_ptr<vector<ListPoliciesRequestTag>> tag{};
 
   ListPoliciesRequest() {}
 
@@ -7190,6 +7455,13 @@ public:
     if (policyType) {
       res["PolicyType"] = boost::any(*policyType);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -7203,10 +7475,152 @@ public:
     if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
       policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListPoliciesRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPoliciesRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListPoliciesRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListPoliciesRequest() = default;
+};
+class ListPoliciesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> marker{};
+  shared_ptr<long> maxItems{};
+  shared_ptr<string> policyType{};
+  shared_ptr<string> tagShrink{};
+
+  ListPoliciesShrinkRequest() {}
+
+  explicit ListPoliciesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (marker) {
+      res["Marker"] = boost::any(*marker);
+    }
+    if (maxItems) {
+      res["MaxItems"] = boost::any(*maxItems);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Marker") != m.end() && !m["Marker"].empty()) {
+      marker = make_shared<string>(boost::any_cast<string>(m["Marker"]));
+    }
+    if (m.find("MaxItems") != m.end() && !m["MaxItems"].empty()) {
+      maxItems = make_shared<long>(boost::any_cast<long>(m["MaxItems"]));
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~ListPoliciesShrinkRequest() = default;
+};
+class ListPoliciesResponseBodyPoliciesPolicyTagsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  ListPoliciesResponseBodyPoliciesPolicyTagsTag() {}
+
+  explicit ListPoliciesResponseBodyPoliciesPolicyTagsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~ListPoliciesResponseBodyPoliciesPolicyTagsTag() = default;
+};
+class ListPoliciesResponseBodyPoliciesPolicyTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListPoliciesResponseBodyPoliciesPolicyTagsTag>> tag{};
+
+  ListPoliciesResponseBodyPoliciesPolicyTags() {}
+
+  explicit ListPoliciesResponseBodyPoliciesPolicyTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListPoliciesResponseBodyPoliciesPolicyTagsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPoliciesResponseBodyPoliciesPolicyTagsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListPoliciesResponseBodyPoliciesPolicyTagsTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListPoliciesResponseBodyPoliciesPolicyTags() = default;
 };
 class ListPoliciesResponseBodyPoliciesPolicy : public Darabonba::Model {
 public:
@@ -7216,6 +7630,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> policyName{};
   shared_ptr<string> policyType{};
+  shared_ptr<ListPoliciesResponseBodyPoliciesPolicyTags> tags{};
   shared_ptr<string> updateDate{};
 
   ListPoliciesResponseBodyPoliciesPolicy() {}
@@ -7246,6 +7661,9 @@ public:
     if (policyType) {
       res["PolicyType"] = boost::any(*policyType);
     }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (updateDate) {
       res["UpdateDate"] = boost::any(*updateDate);
     }
@@ -7270,6 +7688,13 @@ public:
     }
     if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
       policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        ListPoliciesResponseBodyPoliciesPolicyTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<ListPoliciesResponseBodyPoliciesPolicyTags>(model1);
+      }
     }
     if (m.find("UpdateDate") != m.end() && !m["UpdateDate"].empty()) {
       updateDate = make_shared<string>(boost::any_cast<string>(m["UpdateDate"]));
@@ -8312,10 +8737,47 @@ public:
 
   virtual ~ListPolicyVersionsResponse() = default;
 };
+class ListRolesRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListRolesRequestTag() {}
+
+  explicit ListRolesRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListRolesRequestTag() = default;
+};
 class ListRolesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> marker{};
   shared_ptr<long> maxItems{};
+  shared_ptr<vector<ListRolesRequestTag>> tag{};
 
   ListRolesRequest() {}
 
@@ -8333,6 +8795,13 @@ public:
     if (maxItems) {
       res["MaxItems"] = boost::any(*maxItems);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -8343,10 +8812,145 @@ public:
     if (m.find("MaxItems") != m.end() && !m["MaxItems"].empty()) {
       maxItems = make_shared<long>(boost::any_cast<long>(m["MaxItems"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListRolesRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListRolesRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListRolesRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListRolesRequest() = default;
+};
+class ListRolesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> marker{};
+  shared_ptr<long> maxItems{};
+  shared_ptr<string> tagShrink{};
+
+  ListRolesShrinkRequest() {}
+
+  explicit ListRolesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (marker) {
+      res["Marker"] = boost::any(*marker);
+    }
+    if (maxItems) {
+      res["MaxItems"] = boost::any(*maxItems);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Marker") != m.end() && !m["Marker"].empty()) {
+      marker = make_shared<string>(boost::any_cast<string>(m["Marker"]));
+    }
+    if (m.find("MaxItems") != m.end() && !m["MaxItems"].empty()) {
+      maxItems = make_shared<long>(boost::any_cast<long>(m["MaxItems"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~ListRolesShrinkRequest() = default;
+};
+class ListRolesResponseBodyRolesRoleTagsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  ListRolesResponseBodyRolesRoleTagsTag() {}
+
+  explicit ListRolesResponseBodyRolesRoleTagsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~ListRolesResponseBodyRolesRoleTagsTag() = default;
+};
+class ListRolesResponseBodyRolesRoleTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListRolesResponseBodyRolesRoleTagsTag>> tag{};
+
+  ListRolesResponseBodyRolesRoleTags() {}
+
+  explicit ListRolesResponseBodyRolesRoleTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListRolesResponseBodyRolesRoleTagsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListRolesResponseBodyRolesRoleTagsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListRolesResponseBodyRolesRoleTagsTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListRolesResponseBodyRolesRoleTags() = default;
 };
 class ListRolesResponseBodyRolesRole : public Darabonba::Model {
 public:
@@ -8356,6 +8960,7 @@ public:
   shared_ptr<long> maxSessionDuration{};
   shared_ptr<string> roleId{};
   shared_ptr<string> roleName{};
+  shared_ptr<ListRolesResponseBodyRolesRoleTags> tags{};
   shared_ptr<string> updateDate{};
 
   ListRolesResponseBodyRolesRole() {}
@@ -8386,6 +8991,9 @@ public:
     if (roleName) {
       res["RoleName"] = boost::any(*roleName);
     }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (updateDate) {
       res["UpdateDate"] = boost::any(*updateDate);
     }
@@ -8410,6 +9018,13 @@ public:
     }
     if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
       roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        ListRolesResponseBodyRolesRoleTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<ListRolesResponseBodyRolesRoleTags>(model1);
+      }
     }
     if (m.find("UpdateDate") != m.end() && !m["UpdateDate"].empty()) {
       updateDate = make_shared<string>(boost::any_cast<string>(m["UpdateDate"]));
@@ -11536,11 +12151,11 @@ public:
   CreateGroupResponse createGroup(shared_ptr<CreateGroupRequest> request);
   CreateLoginProfileResponse createLoginProfileWithOptions(shared_ptr<CreateLoginProfileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateLoginProfileResponse createLoginProfile(shared_ptr<CreateLoginProfileRequest> request);
-  CreatePolicyResponse createPolicyWithOptions(shared_ptr<CreatePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePolicyResponse createPolicyWithOptions(shared_ptr<CreatePolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePolicyResponse createPolicy(shared_ptr<CreatePolicyRequest> request);
   CreatePolicyVersionResponse createPolicyVersionWithOptions(shared_ptr<CreatePolicyVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePolicyVersionResponse createPolicyVersion(shared_ptr<CreatePolicyVersionRequest> request);
-  CreateRoleResponse createRoleWithOptions(shared_ptr<CreateRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateRoleResponse createRoleWithOptions(shared_ptr<CreateRoleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateRoleResponse createRole(shared_ptr<CreateRoleRequest> request);
   CreateUserResponse createUserWithOptions(shared_ptr<CreateUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateUserResponse createUser(shared_ptr<CreateUserRequest> request);
@@ -11600,7 +12215,7 @@ public:
   ListGroupsResponse listGroups(shared_ptr<ListGroupsRequest> request);
   ListGroupsForUserResponse listGroupsForUserWithOptions(shared_ptr<ListGroupsForUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListGroupsForUserResponse listGroupsForUser(shared_ptr<ListGroupsForUserRequest> request);
-  ListPoliciesResponse listPoliciesWithOptions(shared_ptr<ListPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListPoliciesResponse listPoliciesWithOptions(shared_ptr<ListPoliciesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPoliciesResponse listPolicies(shared_ptr<ListPoliciesRequest> request);
   ListPoliciesForGroupResponse listPoliciesForGroupWithOptions(shared_ptr<ListPoliciesForGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPoliciesForGroupResponse listPoliciesForGroup(shared_ptr<ListPoliciesForGroupRequest> request);
@@ -11610,7 +12225,7 @@ public:
   ListPoliciesForUserResponse listPoliciesForUser(shared_ptr<ListPoliciesForUserRequest> request);
   ListPolicyVersionsResponse listPolicyVersionsWithOptions(shared_ptr<ListPolicyVersionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPolicyVersionsResponse listPolicyVersions(shared_ptr<ListPolicyVersionsRequest> request);
-  ListRolesResponse listRolesWithOptions(shared_ptr<ListRolesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListRolesResponse listRolesWithOptions(shared_ptr<ListRolesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRolesResponse listRoles(shared_ptr<ListRolesRequest> request);
   ListUsersResponse listUsersWithOptions(shared_ptr<ListUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListUsersResponse listUsers(shared_ptr<ListUsersRequest> request);

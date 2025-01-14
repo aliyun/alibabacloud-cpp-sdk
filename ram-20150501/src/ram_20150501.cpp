@@ -355,8 +355,13 @@ CreateLoginProfileResponse Alibabacloud_Ram20150501::Client::createLoginProfile(
   return createLoginProfileWithOptions(request, runtime);
 }
 
-CreatePolicyResponse Alibabacloud_Ram20150501::Client::createPolicyWithOptions(shared_ptr<CreatePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreatePolicyResponse Alibabacloud_Ram20150501::Client::createPolicyWithOptions(shared_ptr<CreatePolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreatePolicyShrinkRequest> request = make_shared<CreatePolicyShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreatePolicyRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
@@ -366,6 +371,9 @@ CreatePolicyResponse Alibabacloud_Ram20150501::Client::createPolicyWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->policyName)) {
     query->insert(pair<string, string>("PolicyName", *request->policyName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -426,8 +434,13 @@ CreatePolicyVersionResponse Alibabacloud_Ram20150501::Client::createPolicyVersio
   return createPolicyVersionWithOptions(request, runtime);
 }
 
-CreateRoleResponse Alibabacloud_Ram20150501::Client::createRoleWithOptions(shared_ptr<CreateRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateRoleResponse Alibabacloud_Ram20150501::Client::createRoleWithOptions(shared_ptr<CreateRoleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateRoleShrinkRequest> request = make_shared<CreateRoleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateRoleRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->assumeRolePolicyDocument)) {
     query->insert(pair<string, string>("AssumeRolePolicyDocument", *request->assumeRolePolicyDocument));
@@ -440,6 +453,9 @@ CreateRoleResponse Alibabacloud_Ram20150501::Client::createRoleWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->roleName)) {
     query->insert(pair<string, string>("RoleName", *request->roleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -649,6 +665,9 @@ DeleteLoginProfileResponse Alibabacloud_Ram20150501::Client::deleteLoginProfile(
 DeletePolicyResponse Alibabacloud_Ram20150501::Client::deletePolicyWithOptions(shared_ptr<DeletePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->cascadingDelete)) {
+    query->insert(pair<string, bool>("CascadingDelete", *request->cascadingDelete));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->policyName)) {
     query->insert(pair<string, string>("PolicyName", *request->policyName));
   }
@@ -1308,8 +1327,13 @@ ListGroupsForUserResponse Alibabacloud_Ram20150501::Client::listGroupsForUser(sh
   return listGroupsForUserWithOptions(request, runtime);
 }
 
-ListPoliciesResponse Alibabacloud_Ram20150501::Client::listPoliciesWithOptions(shared_ptr<ListPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListPoliciesResponse Alibabacloud_Ram20150501::Client::listPoliciesWithOptions(shared_ptr<ListPoliciesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListPoliciesShrinkRequest> request = make_shared<ListPoliciesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ListPoliciesRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->marker)) {
     query->insert(pair<string, string>("Marker", *request->marker));
@@ -1319,6 +1343,9 @@ ListPoliciesResponse Alibabacloud_Ram20150501::Client::listPoliciesWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->policyType)) {
     query->insert(pair<string, string>("PolicyType", *request->policyType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1457,14 +1484,22 @@ ListPolicyVersionsResponse Alibabacloud_Ram20150501::Client::listPolicyVersions(
   return listPolicyVersionsWithOptions(request, runtime);
 }
 
-ListRolesResponse Alibabacloud_Ram20150501::Client::listRolesWithOptions(shared_ptr<ListRolesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListRolesResponse Alibabacloud_Ram20150501::Client::listRolesWithOptions(shared_ptr<ListRolesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListRolesShrinkRequest> request = make_shared<ListRolesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ListRolesRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->marker)) {
     query->insert(pair<string, string>("Marker", *request->marker));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxItems)) {
     query->insert(pair<string, long>("MaxItems", *request->maxItems));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
