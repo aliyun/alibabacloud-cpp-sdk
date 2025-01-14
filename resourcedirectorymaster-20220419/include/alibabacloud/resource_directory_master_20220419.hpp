@@ -6585,6 +6585,8 @@ public:
 class ListAccountsRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> includeTags{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> queryKeyword{};
@@ -6602,6 +6604,12 @@ public:
     map<string, boost::any> res;
     if (includeTags) {
       res["IncludeTags"] = boost::any(*includeTags);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -6625,6 +6633,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("IncludeTags") != m.end() && !m["IncludeTags"].empty()) {
       includeTags = make_shared<bool>(boost::any_cast<bool>(m["IncludeTags"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -6895,6 +6909,7 @@ public:
 class ListAccountsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<ListAccountsResponseBodyAccounts> accounts{};
+  shared_ptr<string> nextToken{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
@@ -6912,6 +6927,9 @@ public:
     map<string, boost::any> res;
     if (accounts) {
       res["Accounts"] = accounts ? boost::any(accounts->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -6935,6 +6953,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Accounts"]));
         accounts = make_shared<ListAccountsResponseBodyAccounts>(model1);
       }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -8653,12 +8674,49 @@ public:
 
   virtual ~ListDelegatedServicesForAccountResponse() = default;
 };
+class ListFoldersForParentRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListFoldersForParentRequestTag() {}
+
+  explicit ListFoldersForParentRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListFoldersForParentRequestTag() = default;
+};
 class ListFoldersForParentRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> parentFolderId{};
   shared_ptr<string> queryKeyword{};
+  shared_ptr<vector<ListFoldersForParentRequestTag>> tag{};
 
   ListFoldersForParentRequest() {}
 
@@ -8682,6 +8740,13 @@ public:
     if (queryKeyword) {
       res["QueryKeyword"] = boost::any(*queryKeyword);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -8698,16 +8763,109 @@ public:
     if (m.find("QueryKeyword") != m.end() && !m["QueryKeyword"].empty()) {
       queryKeyword = make_shared<string>(boost::any_cast<string>(m["QueryKeyword"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListFoldersForParentRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListFoldersForParentRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListFoldersForParentRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListFoldersForParentRequest() = default;
+};
+class ListFoldersForParentResponseBodyFoldersFolderTagsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListFoldersForParentResponseBodyFoldersFolderTagsTag() {}
+
+  explicit ListFoldersForParentResponseBodyFoldersFolderTagsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListFoldersForParentResponseBodyFoldersFolderTagsTag() = default;
+};
+class ListFoldersForParentResponseBodyFoldersFolderTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListFoldersForParentResponseBodyFoldersFolderTagsTag>> tag{};
+
+  ListFoldersForParentResponseBodyFoldersFolderTags() {}
+
+  explicit ListFoldersForParentResponseBodyFoldersFolderTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListFoldersForParentResponseBodyFoldersFolderTagsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListFoldersForParentResponseBodyFoldersFolderTagsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListFoldersForParentResponseBodyFoldersFolderTagsTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListFoldersForParentResponseBodyFoldersFolderTags() = default;
 };
 class ListFoldersForParentResponseBodyFoldersFolder : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
   shared_ptr<string> folderId{};
   shared_ptr<string> folderName{};
+  shared_ptr<ListFoldersForParentResponseBodyFoldersFolderTags> tags{};
 
   ListFoldersForParentResponseBodyFoldersFolder() {}
 
@@ -8728,6 +8886,9 @@ public:
     if (folderName) {
       res["FolderName"] = boost::any(*folderName);
     }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -8740,6 +8901,13 @@ public:
     }
     if (m.find("FolderName") != m.end() && !m["FolderName"].empty()) {
       folderName = make_shared<string>(boost::any_cast<string>(m["FolderName"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        ListFoldersForParentResponseBodyFoldersFolderTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<ListFoldersForParentResponseBodyFoldersFolderTags>(model1);
+      }
     }
   }
 

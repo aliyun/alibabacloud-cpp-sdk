@@ -1164,6 +1164,12 @@ ListAccountsResponse Alibabacloud_ResourceDirectoryMaster20220419::Client::listA
   if (!Darabonba_Util::Client::isUnset<bool>(request->includeTags)) {
     query->insert(pair<string, bool>("IncludeTags", *request->includeTags));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
@@ -1413,6 +1419,9 @@ ListFoldersForParentResponse Alibabacloud_ResourceDirectoryMaster20220419::Clien
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->queryKeyword)) {
     query->insert(pair<string, string>("QueryKeyword", *request->queryKeyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListFoldersForParentRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListFoldersForParentRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
