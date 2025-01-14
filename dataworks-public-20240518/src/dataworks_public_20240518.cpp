@@ -70,8 +70,8 @@ AbolishDeploymentResponse Alibabacloud_Dataworks-public20240518::Client::abolish
   if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
     body->insert(pair<string, string>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -320,6 +320,54 @@ CreateDIJobResponse Alibabacloud_Dataworks-public20240518::Client::createDIJobWi
 CreateDIJobResponse Alibabacloud_Dataworks-public20240518::Client::createDIJob(shared_ptr<CreateDIJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createDIJobWithOptions(request, runtime);
+}
+
+CreateDataAssetTagResponse Alibabacloud_Dataworks-public20240518::Client::createDataAssetTagWithOptions(shared_ptr<CreateDataAssetTagRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDataAssetTagShrinkRequest> request = make_shared<CreateDataAssetTagShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->managers)) {
+    request->managersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->managers, make_shared<string>("Managers"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->values)) {
+    request->valuesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->values, make_shared<string>("Values"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->key)) {
+    query->insert(pair<string, string>("Key", *request->key));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->managersShrink)) {
+    query->insert(pair<string, string>("Managers", *request->managersShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->valueType)) {
+    query->insert(pair<string, string>("ValueType", *request->valueType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->valuesShrink)) {
+    query->insert(pair<string, string>("Values", *request->valuesShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDataAssetTag"))},
+    {"version", boost::any(string("2024-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDataAssetTagResponse(callApi(params, req, runtime));
+}
+
+CreateDataAssetTagResponse Alibabacloud_Dataworks-public20240518::Client::createDataAssetTag(shared_ptr<CreateDataAssetTagRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDataAssetTagWithOptions(request, runtime);
 }
 
 CreateDataQualityEvaluationTaskResponse Alibabacloud_Dataworks-public20240518::Client::createDataQualityEvaluationTaskWithOptions(shared_ptr<CreateDataQualityEvaluationTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -650,8 +698,8 @@ CreateDeploymentResponse Alibabacloud_Dataworks-public20240518::Client::createDe
   if (!Darabonba_Util::Client::isUnset<string>(request->objectIdsShrink)) {
     body->insert(pair<string, string>("ObjectIds", *request->objectIdsShrink));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     body->insert(pair<string, string>("Type", *request->type));
@@ -681,8 +729,8 @@ CreateDeploymentResponse Alibabacloud_Dataworks-public20240518::Client::createDe
 CreateFunctionResponse Alibabacloud_Dataworks-public20240518::Client::createFunctionWithOptions(shared_ptr<CreateFunctionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
     body->insert(pair<string, string>("Spec", *request->spec));
@@ -749,11 +797,11 @@ CreateNetworkResponse Alibabacloud_Dataworks-public20240518::Client::createNetwo
 CreateNodeResponse Alibabacloud_Dataworks-public20240518::Client::createNodeWithOptions(shared_ptr<CreateNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->containerId)) {
-    body->insert(pair<string, string>("ContainerId", *request->containerId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->containerId)) {
+    body->insert(pair<string, long>("ContainerId", *request->containerId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scene)) {
     body->insert(pair<string, string>("Scene", *request->scene));
@@ -879,8 +927,8 @@ CreateProjectMemberResponse Alibabacloud_Dataworks-public20240518::Client::creat
 CreateResourceResponse Alibabacloud_Dataworks-public20240518::Client::createResourceWithOptions(shared_ptr<CreateResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
     body->insert(pair<string, string>("Spec", *request->spec));
@@ -907,11 +955,22 @@ CreateResourceResponse Alibabacloud_Dataworks-public20240518::Client::createReso
   return createResourceWithOptions(request, runtime);
 }
 
-CreateResourceGroupResponse Alibabacloud_Dataworks-public20240518::Client::createResourceGroupWithOptions(shared_ptr<CreateResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateResourceGroupResponse Alibabacloud_Dataworks-public20240518::Client::createResourceGroupWithOptions(shared_ptr<CreateResourceGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateResourceGroupShrinkRequest> request = make_shared<CreateResourceGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateResourceGroupRequestAliyunResourceTags>>(tmpReq->aliyunResourceTags)) {
+    request->aliyunResourceTagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->aliyunResourceTags, make_shared<string>("AliyunResourceTags"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
-    body->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliyunResourceGroupId)) {
+    body->insert(pair<string, string>("AliyunResourceGroupId", *request->aliyunResourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliyunResourceTagsShrink)) {
+    body->insert(pair<string, string>("AliyunResourceTags", *request->aliyunResourceTagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenewEnabled)) {
+    body->insert(pair<string, bool>("AutoRenewEnabled", *request->autoRenewEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -996,8 +1055,8 @@ CreateRouteResponse Alibabacloud_Dataworks-public20240518::Client::createRoute(s
 CreateWorkflowDefinitionResponse Alibabacloud_Dataworks-public20240518::Client::createWorkflowDefinitionWithOptions(shared_ptr<CreateWorkflowDefinitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
     body->insert(pair<string, string>("Spec", *request->spec));
@@ -1100,6 +1159,42 @@ DeleteDIJobResponse Alibabacloud_Dataworks-public20240518::Client::deleteDIJobWi
 DeleteDIJobResponse Alibabacloud_Dataworks-public20240518::Client::deleteDIJob(shared_ptr<DeleteDIJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteDIJobWithOptions(request, runtime);
+}
+
+DeleteDataAssetTagResponse Alibabacloud_Dataworks-public20240518::Client::deleteDataAssetTagWithOptions(shared_ptr<DeleteDataAssetTagRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteDataAssetTagShrinkRequest> request = make_shared<DeleteDataAssetTagShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->values)) {
+    request->valuesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->values, make_shared<string>("Values"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->key)) {
+    query->insert(pair<string, string>("Key", *request->key));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->valuesShrink)) {
+    query->insert(pair<string, string>("Values", *request->valuesShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDataAssetTag"))},
+    {"version", boost::any(string("2024-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteDataAssetTagResponse(callApi(params, req, runtime));
+}
+
+DeleteDataAssetTagResponse Alibabacloud_Dataworks-public20240518::Client::deleteDataAssetTag(shared_ptr<DeleteDataAssetTagRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteDataAssetTagWithOptions(request, runtime);
 }
 
 DeleteDataQualityEvaluationTaskResponse Alibabacloud_Dataworks-public20240518::Client::deleteDataQualityEvaluationTaskWithOptions(shared_ptr<DeleteDataQualityEvaluationTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1251,11 +1346,11 @@ DeleteDataSourceSharedRuleResponse Alibabacloud_Dataworks-public20240518::Client
 DeleteFunctionResponse Alibabacloud_Dataworks-public20240518::Client::deleteFunctionWithOptions(shared_ptr<DeleteFunctionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1310,11 +1405,11 @@ DeleteNetworkResponse Alibabacloud_Dataworks-public20240518::Client::deleteNetwo
 DeleteNodeResponse Alibabacloud_Dataworks-public20240518::Client::deleteNodeWithOptions(shared_ptr<DeleteNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1400,11 +1495,11 @@ DeleteProjectMemberResponse Alibabacloud_Dataworks-public20240518::Client::delet
 DeleteResourceResponse Alibabacloud_Dataworks-public20240518::Client::deleteResourceWithOptions(shared_ptr<DeleteResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1518,11 +1613,11 @@ DeleteTaskResponse Alibabacloud_Dataworks-public20240518::Client::deleteTask(sha
 DeleteWorkflowDefinitionResponse Alibabacloud_Dataworks-public20240518::Client::deleteWorkflowDefinitionWithOptions(shared_ptr<DeleteWorkflowDefinitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1619,8 +1714,8 @@ DissociateProjectFromResourceGroupResponse Alibabacloud_Dataworks-public20240518
 ExecDeploymentStageResponse Alibabacloud_Dataworks-public20240518::Client::execDeploymentStageWithOptions(shared_ptr<ExecDeploymentStageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    query->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    query->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->code)) {
@@ -2281,8 +2376,8 @@ GrantMemberProjectRolesResponse Alibabacloud_Dataworks-public20240518::Client::g
 ImportWorkflowDefinitionResponse Alibabacloud_Dataworks-public20240518::Client::importWorkflowDefinitionWithOptions(shared_ptr<ImportWorkflowDefinitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
     body->insert(pair<string, string>("Spec", *request->spec));
@@ -2493,6 +2588,64 @@ ListDIJobsResponse Alibabacloud_Dataworks-public20240518::Client::listDIJobs(sha
   return listDIJobsWithOptions(request, runtime);
 }
 
+ListDataAssetTagsResponse Alibabacloud_Dataworks-public20240518::Client::listDataAssetTagsWithOptions(shared_ptr<ListDataAssetTagsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDataAssetTags"))},
+    {"version", boost::any(string("2024-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDataAssetTagsResponse(callApi(params, req, runtime));
+}
+
+ListDataAssetTagsResponse Alibabacloud_Dataworks-public20240518::Client::listDataAssetTags(shared_ptr<ListDataAssetTagsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDataAssetTagsWithOptions(request, runtime);
+}
+
+ListDataAssetsResponse Alibabacloud_Dataworks-public20240518::Client::listDataAssetsWithOptions(shared_ptr<ListDataAssetsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListDataAssetsShrinkRequest> request = make_shared<ListDataAssetsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->dataAssetIds)) {
+    request->dataAssetIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dataAssetIds, make_shared<string>("DataAssetIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListDataAssetsRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDataAssets"))},
+    {"version", boost::any(string("2024-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDataAssetsResponse(callApi(params, req, runtime));
+}
+
+ListDataAssetsResponse Alibabacloud_Dataworks-public20240518::Client::listDataAssets(shared_ptr<ListDataAssetsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDataAssetsWithOptions(request, runtime);
+}
+
 ListDataQualityEvaluationTaskInstancesResponse Alibabacloud_Dataworks-public20240518::Client::listDataQualityEvaluationTaskInstancesWithOptions(shared_ptr<ListDataQualityEvaluationTaskInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -2568,14 +2721,14 @@ ListDataQualityResultsResponse Alibabacloud_Dataworks-public20240518::Client::li
   return listDataQualityResultsWithOptions(request, runtime);
 }
 
-ListDataQualityRuleTemplateResponse Alibabacloud_Dataworks-public20240518::Client::listDataQualityRuleTemplateWithOptions(shared_ptr<ListDataQualityRuleTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListDataQualityRuleTemplatesResponse Alibabacloud_Dataworks-public20240518::Client::listDataQualityRuleTemplatesWithOptions(shared_ptr<ListDataQualityRuleTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListDataQualityRuleTemplate"))},
+    {"action", boost::any(string("ListDataQualityRuleTemplates"))},
     {"version", boost::any(string("2024-05-18"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
@@ -2585,12 +2738,12 @@ ListDataQualityRuleTemplateResponse Alibabacloud_Dataworks-public20240518::Clien
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListDataQualityRuleTemplateResponse(callApi(params, req, runtime));
+  return ListDataQualityRuleTemplatesResponse(callApi(params, req, runtime));
 }
 
-ListDataQualityRuleTemplateResponse Alibabacloud_Dataworks-public20240518::Client::listDataQualityRuleTemplate(shared_ptr<ListDataQualityRuleTemplateRequest> request) {
+ListDataQualityRuleTemplatesResponse Alibabacloud_Dataworks-public20240518::Client::listDataQualityRuleTemplates(shared_ptr<ListDataQualityRuleTemplatesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listDataQualityRuleTemplateWithOptions(request, runtime);
+  return listDataQualityRuleTemplatesWithOptions(request, runtime);
 }
 
 ListDataQualityRulesResponse Alibabacloud_Dataworks-public20240518::Client::listDataQualityRulesWithOptions(shared_ptr<ListDataQualityRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3017,6 +3170,9 @@ ListResourceGroupsResponse Alibabacloud_Dataworks-public20240518::Client::listRe
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ListResourceGroupsShrinkRequest> request = make_shared<ListResourceGroupsShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ListResourceGroupsRequestAliyunResourceTags>>(tmpReq->aliyunResourceTags)) {
+    request->aliyunResourceTagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->aliyunResourceTags, make_shared<string>("AliyunResourceTags"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->resourceGroupTypes)) {
     request->resourceGroupTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceGroupTypes, make_shared<string>("ResourceGroupTypes"), make_shared<string>("json")));
   }
@@ -3375,14 +3531,14 @@ ListWorkflowDefinitionsResponse Alibabacloud_Dataworks-public20240518::Client::l
 MoveFunctionResponse Alibabacloud_Dataworks-public20240518::Client::moveFunctionWithOptions(shared_ptr<MoveFunctionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->path)) {
     body->insert(pair<string, string>("Path", *request->path));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -3409,14 +3565,14 @@ MoveFunctionResponse Alibabacloud_Dataworks-public20240518::Client::moveFunction
 MoveNodeResponse Alibabacloud_Dataworks-public20240518::Client::moveNodeWithOptions(shared_ptr<MoveNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->path)) {
     body->insert(pair<string, string>("Path", *request->path));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -3443,14 +3599,14 @@ MoveNodeResponse Alibabacloud_Dataworks-public20240518::Client::moveNode(shared_
 MoveResourceResponse Alibabacloud_Dataworks-public20240518::Client::moveResourceWithOptions(shared_ptr<MoveResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->path)) {
     body->insert(pair<string, string>("Path", *request->path));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -3477,14 +3633,14 @@ MoveResourceResponse Alibabacloud_Dataworks-public20240518::Client::moveResource
 MoveWorkflowDefinitionResponse Alibabacloud_Dataworks-public20240518::Client::moveWorkflowDefinitionWithOptions(shared_ptr<MoveWorkflowDefinitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->path)) {
     body->insert(pair<string, string>("Path", *request->path));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -3552,14 +3708,14 @@ RemoveTaskInstanceDependenciesResponse Alibabacloud_Dataworks-public20240518::Cl
 RenameFunctionResponse Alibabacloud_Dataworks-public20240518::Client::renameFunctionWithOptions(shared_ptr<RenameFunctionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -3586,14 +3742,14 @@ RenameFunctionResponse Alibabacloud_Dataworks-public20240518::Client::renameFunc
 RenameNodeResponse Alibabacloud_Dataworks-public20240518::Client::renameNodeWithOptions(shared_ptr<RenameNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -3620,14 +3776,14 @@ RenameNodeResponse Alibabacloud_Dataworks-public20240518::Client::renameNode(sha
 RenameResourceResponse Alibabacloud_Dataworks-public20240518::Client::renameResourceWithOptions(shared_ptr<RenameResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -3654,14 +3810,14 @@ RenameResourceResponse Alibabacloud_Dataworks-public20240518::Client::renameReso
 RenameWorkflowDefinitionResponse Alibabacloud_Dataworks-public20240518::Client::renameWorkflowDefinitionWithOptions(shared_ptr<RenameWorkflowDefinitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    query->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    query->insert(pair<string, long>("Id", *request->id));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    query->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    query->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3959,8 +4115,63 @@ SuspendTaskInstancesResponse Alibabacloud_Dataworks-public20240518::Client::susp
   return suspendTaskInstancesWithOptions(request, runtime);
 }
 
+TagDataAssetsResponse Alibabacloud_Dataworks-public20240518::Client::tagDataAssetsWithOptions(shared_ptr<TagDataAssetsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<TagDataAssetsShrinkRequest> request = make_shared<TagDataAssetsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->dataAssetIds)) {
+    request->dataAssetIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dataAssetIds, make_shared<string>("DataAssetIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<TagDataAssetsRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoTraceEnabled)) {
+    query->insert(pair<string, bool>("AutoTraceEnabled", *request->autoTraceEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataAssetIdsShrink)) {
+    query->insert(pair<string, string>("DataAssetIds", *request->dataAssetIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataAssetType)) {
+    query->insert(pair<string, string>("DataAssetType", *request->dataAssetType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->envType)) {
+    query->insert(pair<string, string>("EnvType", *request->envType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    query->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("Tags", *request->tagsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TagDataAssets"))},
+    {"version", boost::any(string("2024-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return TagDataAssetsResponse(callApi(params, req, runtime));
+}
+
+TagDataAssetsResponse Alibabacloud_Dataworks-public20240518::Client::tagDataAssets(shared_ptr<TagDataAssetsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return tagDataAssetsWithOptions(request, runtime);
+}
+
 TriggerSchedulerTaskInstanceResponse Alibabacloud_Dataworks-public20240518::Client::triggerSchedulerTaskInstanceWithOptions(shared_ptr<TriggerSchedulerTaskInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->envType)) {
+    query->insert(pair<string, string>("EnvType", *request->envType));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->taskId)) {
     body->insert(pair<string, long>("TaskId", *request->taskId));
@@ -3969,6 +4180,7 @@ TriggerSchedulerTaskInstanceResponse Alibabacloud_Dataworks-public20240518::Clie
     body->insert(pair<string, long>("TriggerTime", *request->triggerTime));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -3988,6 +4200,54 @@ TriggerSchedulerTaskInstanceResponse Alibabacloud_Dataworks-public20240518::Clie
 TriggerSchedulerTaskInstanceResponse Alibabacloud_Dataworks-public20240518::Client::triggerSchedulerTaskInstance(shared_ptr<TriggerSchedulerTaskInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return triggerSchedulerTaskInstanceWithOptions(request, runtime);
+}
+
+UnTagDataAssetsResponse Alibabacloud_Dataworks-public20240518::Client::unTagDataAssetsWithOptions(shared_ptr<UnTagDataAssetsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UnTagDataAssetsShrinkRequest> request = make_shared<UnTagDataAssetsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->dataAssetIds)) {
+    request->dataAssetIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dataAssetIds, make_shared<string>("DataAssetIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UnTagDataAssetsRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataAssetIdsShrink)) {
+    query->insert(pair<string, string>("DataAssetIds", *request->dataAssetIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataAssetType)) {
+    query->insert(pair<string, string>("DataAssetType", *request->dataAssetType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->envType)) {
+    query->insert(pair<string, string>("EnvType", *request->envType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    query->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("Tags", *request->tagsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UnTagDataAssets"))},
+    {"version", boost::any(string("2024-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UnTagDataAssetsResponse(callApi(params, req, runtime));
+}
+
+UnTagDataAssetsResponse Alibabacloud_Dataworks-public20240518::Client::unTagDataAssets(shared_ptr<UnTagDataAssetsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return unTagDataAssetsWithOptions(request, runtime);
 }
 
 UpdateAlertRuleResponse Alibabacloud_Dataworks-public20240518::Client::updateAlertRuleWithOptions(shared_ptr<UpdateAlertRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4111,6 +4371,51 @@ UpdateDIJobResponse Alibabacloud_Dataworks-public20240518::Client::updateDIJobWi
 UpdateDIJobResponse Alibabacloud_Dataworks-public20240518::Client::updateDIJob(shared_ptr<UpdateDIJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateDIJobWithOptions(request, runtime);
+}
+
+UpdateDataAssetTagResponse Alibabacloud_Dataworks-public20240518::Client::updateDataAssetTagWithOptions(shared_ptr<UpdateDataAssetTagRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateDataAssetTagShrinkRequest> request = make_shared<UpdateDataAssetTagShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->managers)) {
+    request->managersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->managers, make_shared<string>("Managers"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->values)) {
+    request->valuesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->values, make_shared<string>("Values"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->key)) {
+    query->insert(pair<string, string>("Key", *request->key));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->managersShrink)) {
+    query->insert(pair<string, string>("Managers", *request->managersShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->valuesShrink)) {
+    query->insert(pair<string, string>("Values", *request->valuesShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateDataAssetTag"))},
+    {"version", boost::any(string("2024-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateDataAssetTagResponse(callApi(params, req, runtime));
+}
+
+UpdateDataAssetTagResponse Alibabacloud_Dataworks-public20240518::Client::updateDataAssetTag(shared_ptr<UpdateDataAssetTagRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateDataAssetTagWithOptions(request, runtime);
 }
 
 UpdateDataQualityEvaluationTaskResponse Alibabacloud_Dataworks-public20240518::Client::updateDataQualityEvaluationTaskWithOptions(shared_ptr<UpdateDataQualityEvaluationTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4358,11 +4663,11 @@ UpdateDataSourceResponse Alibabacloud_Dataworks-public20240518::Client::updateDa
 UpdateFunctionResponse Alibabacloud_Dataworks-public20240518::Client::updateFunctionWithOptions(shared_ptr<UpdateFunctionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
     body->insert(pair<string, string>("Spec", *request->spec));
@@ -4392,11 +4697,11 @@ UpdateFunctionResponse Alibabacloud_Dataworks-public20240518::Client::updateFunc
 UpdateNodeResponse Alibabacloud_Dataworks-public20240518::Client::updateNodeWithOptions(shared_ptr<UpdateNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
     body->insert(pair<string, string>("Spec", *request->spec));
@@ -4472,11 +4777,11 @@ UpdateProjectResponse Alibabacloud_Dataworks-public20240518::Client::updateProje
 UpdateResourceResponse Alibabacloud_Dataworks-public20240518::Client::updateResourceWithOptions(shared_ptr<UpdateResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
     body->insert(pair<string, string>("Spec", *request->spec));
@@ -4506,6 +4811,9 @@ UpdateResourceResponse Alibabacloud_Dataworks-public20240518::Client::updateReso
 UpdateResourceGroupResponse Alibabacloud_Dataworks-public20240518::Client::updateResourceGroupWithOptions(shared_ptr<UpdateResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliyunResourceGroupId)) {
+    body->insert(pair<string, string>("AliyunResourceGroupId", *request->aliyunResourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
     body->insert(pair<string, string>("Id", *request->id));
   }
@@ -4607,11 +4915,11 @@ UpdateTaskInstancesResponse Alibabacloud_Dataworks-public20240518::Client::updat
 UpdateWorkflowDefinitionResponse Alibabacloud_Dataworks-public20240518::Client::updateWorkflowDefinitionWithOptions(shared_ptr<UpdateWorkflowDefinitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    body->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    body->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
     body->insert(pair<string, string>("Spec", *request->spec));
