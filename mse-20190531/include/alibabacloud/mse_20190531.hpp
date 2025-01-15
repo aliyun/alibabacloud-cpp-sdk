@@ -55602,6 +55602,7 @@ public:
 class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute : public Darabonba::Model {
 public:
   shared_ptr<long> canaryModel{};
+  shared_ptr<string> condition{};
   shared_ptr<vector<QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditions>> conditions{};
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
@@ -55622,6 +55623,9 @@ public:
     map<string, boost::any> res;
     if (canaryModel) {
       res["CanaryModel"] = boost::any(*canaryModel);
+    }
+    if (condition) {
+      res["Condition"] = boost::any(*condition);
     }
     if (conditions) {
       vector<boost::any> temp1;
@@ -55658,6 +55662,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CanaryModel") != m.end() && !m["CanaryModel"].empty()) {
       canaryModel = make_shared<long>(boost::any_cast<long>(m["CanaryModel"]));
+    }
+    if (m.find("Condition") != m.end() && !m["Condition"].empty()) {
+      condition = make_shared<string>(boost::any_cast<string>(m["Condition"]));
     }
     if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
       if (typeid(vector<boost::any>) == m["Conditions"].type()) {
@@ -55717,6 +55724,7 @@ public:
   shared_ptr<string> enable{};
   shared_ptr<vector<QueryAllSwimmingLaneResponseBodyDataEntryRules>> entryRules{};
   shared_ptr<QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute> gatewaySwimmingLaneRoute{};
+  shared_ptr<string> gatewaySwimmingLaneRouteJson{};
   shared_ptr<string> groupId{};
   shared_ptr<long> id{};
   shared_ptr<string> messageQueueFilterSide{};
@@ -55754,6 +55762,9 @@ public:
     }
     if (gatewaySwimmingLaneRoute) {
       res["GatewaySwimmingLaneRoute"] = gatewaySwimmingLaneRoute ? boost::any(gatewaySwimmingLaneRoute->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (gatewaySwimmingLaneRouteJson) {
+      res["GatewaySwimmingLaneRouteJson"] = boost::any(*gatewaySwimmingLaneRouteJson);
     }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
@@ -55823,6 +55834,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GatewaySwimmingLaneRoute"]));
         gatewaySwimmingLaneRoute = make_shared<QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute>(model1);
       }
+    }
+    if (m.find("GatewaySwimmingLaneRouteJson") != m.end() && !m["GatewaySwimmingLaneRouteJson"].empty()) {
+      gatewaySwimmingLaneRouteJson = make_shared<string>(boost::any_cast<string>(m["GatewaySwimmingLaneRouteJson"]));
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
