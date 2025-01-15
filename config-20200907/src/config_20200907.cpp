@@ -822,6 +822,13 @@ CreateConfigRuleResponse Alibabacloud_Config20200907::Client::createConfigRuleWi
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->resourceTypesScope)) {
     request->resourceTypesScopeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceTypesScope, make_shared<string>("ResourceTypesScope"), make_shared<string>("simple")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateConfigRuleRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -892,6 +899,7 @@ CreateConfigRuleResponse Alibabacloud_Config20200907::Client::createConfigRuleWi
   }
   body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -1874,14 +1882,22 @@ GetAggregateConfigDeliveryChannelResponse Alibabacloud_Config20200907::Client::g
   return getAggregateConfigDeliveryChannelWithOptions(request, runtime);
 }
 
-GetAggregateConfigRuleResponse Alibabacloud_Config20200907::Client::getAggregateConfigRuleWithOptions(shared_ptr<GetAggregateConfigRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+GetAggregateConfigRuleResponse Alibabacloud_Config20200907::Client::getAggregateConfigRuleWithOptions(shared_ptr<GetAggregateConfigRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetAggregateConfigRuleShrinkRequest> request = make_shared<GetAggregateConfigRuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<GetAggregateConfigRuleRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     query->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->configRuleId)) {
     query->insert(pair<string, string>("ConfigRuleId", *request->configRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2447,11 +2463,19 @@ GetConfigDeliveryChannelResponse Alibabacloud_Config20200907::Client::getConfigD
   return getConfigDeliveryChannelWithOptions(request, runtime);
 }
 
-GetConfigRuleResponse Alibabacloud_Config20200907::Client::getConfigRuleWithOptions(shared_ptr<GetConfigRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+GetConfigRuleResponse Alibabacloud_Config20200907::Client::getConfigRuleWithOptions(shared_ptr<GetConfigRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetConfigRuleShrinkRequest> request = make_shared<GetConfigRuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<GetConfigRuleRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->configRuleId)) {
     query->insert(pair<string, string>("ConfigRuleId", *request->configRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3691,8 +3715,13 @@ ListConfigRuleEvaluationStatisticsResponse Alibabacloud_Config20200907::Client::
   return listConfigRuleEvaluationStatisticsWithOptions(runtime);
 }
 
-ListConfigRulesResponse Alibabacloud_Config20200907::Client::listConfigRulesWithOptions(shared_ptr<ListConfigRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListConfigRulesResponse Alibabacloud_Config20200907::Client::listConfigRulesWithOptions(shared_ptr<ListConfigRulesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListConfigRulesShrinkRequest> request = make_shared<ListConfigRulesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ListConfigRulesRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->compliancePackId)) {
     query->insert(pair<string, string>("CompliancePackId", *request->compliancePackId));
@@ -3720,6 +3749,9 @@ ListConfigRulesResponse Alibabacloud_Config20200907::Client::listConfigRulesWith
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->riskLevel)) {
     query->insert(pair<string, long>("RiskLevel", *request->riskLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5070,6 +5102,13 @@ UpdateConfigRuleResponse Alibabacloud_Config20200907::Client::updateConfigRuleWi
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->resourceTypesScope)) {
     request->resourceTypesScopeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceTypesScope, make_shared<string>("ResourceTypesScope"), make_shared<string>("simple")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateConfigRuleRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -5137,6 +5176,7 @@ UpdateConfigRuleResponse Alibabacloud_Config20200907::Client::updateConfigRuleWi
   }
   body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
