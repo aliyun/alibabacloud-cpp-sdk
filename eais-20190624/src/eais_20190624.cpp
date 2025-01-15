@@ -220,6 +220,9 @@ CreateEaiResponse Alibabacloud_Eais20190624::Client::createEaiWithOptions(shared
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateEaiRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateEaiRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
   }
@@ -273,6 +276,9 @@ CreateEaiEciResponse Alibabacloud_Eais20190624::Client::createEaiEciWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateEaiEciShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateEaiEciShrinkRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
@@ -328,6 +334,9 @@ CreateEaiEcsResponse Alibabacloud_Eais20190624::Client::createEaiEcsWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateEaiEcsShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateEaiEcsShrinkRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
   }
@@ -382,6 +391,9 @@ CreateEaiJupyterResponse Alibabacloud_Eais20190624::Client::createEaiJupyterWith
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateEaiJupyterShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateEaiJupyterShrinkRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
   }
@@ -427,6 +439,9 @@ CreateEaisEiResponse Alibabacloud_Eais20190624::Client::createEaisEiWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateEaisEiRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateEaisEiRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
