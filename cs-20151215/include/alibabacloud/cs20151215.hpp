@@ -189,10 +189,17 @@ public:
   shared_ptr<vector<string>> architectures{};
   shared_ptr<string> burstPerformanceOption{};
   shared_ptr<long> core{};
+  shared_ptr<long> cores{};
+  shared_ptr<vector<string>> cpuArchitectures{};
   shared_ptr<vector<string>> excludedInstanceTypes{};
+  shared_ptr<vector<string>> instanceCategories{};
   shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<long> maxCpuCores{};
+  shared_ptr<double> maxMemorySize{};
   shared_ptr<double> maxPrice{};
   shared_ptr<double> memory{};
+  shared_ptr<long> minCpuCores{};
+  shared_ptr<double> minMemorySize{};
 
   InstancePatterns() {}
 
@@ -213,17 +220,38 @@ public:
     if (core) {
       res["core"] = boost::any(*core);
     }
+    if (cores) {
+      res["cores"] = boost::any(*cores);
+    }
+    if (cpuArchitectures) {
+      res["cpu_architectures"] = boost::any(*cpuArchitectures);
+    }
     if (excludedInstanceTypes) {
       res["excluded_instance_types"] = boost::any(*excludedInstanceTypes);
     }
+    if (instanceCategories) {
+      res["instance_categories"] = boost::any(*instanceCategories);
+    }
     if (instanceFamilyLevel) {
       res["instance_family_level"] = boost::any(*instanceFamilyLevel);
+    }
+    if (maxCpuCores) {
+      res["max_cpu_cores"] = boost::any(*maxCpuCores);
+    }
+    if (maxMemorySize) {
+      res["max_memory_size"] = boost::any(*maxMemorySize);
     }
     if (maxPrice) {
       res["max_price"] = boost::any(*maxPrice);
     }
     if (memory) {
       res["memory"] = boost::any(*memory);
+    }
+    if (minCpuCores) {
+      res["min_cpu_cores"] = boost::any(*minCpuCores);
+    }
+    if (minMemorySize) {
+      res["min_memory_size"] = boost::any(*minMemorySize);
     }
     return res;
   }
@@ -245,6 +273,19 @@ public:
     if (m.find("core") != m.end() && !m["core"].empty()) {
       core = make_shared<long>(boost::any_cast<long>(m["core"]));
     }
+    if (m.find("cores") != m.end() && !m["cores"].empty()) {
+      cores = make_shared<long>(boost::any_cast<long>(m["cores"]));
+    }
+    if (m.find("cpu_architectures") != m.end() && !m["cpu_architectures"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["cpu_architectures"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["cpu_architectures"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cpuArchitectures = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("excluded_instance_types") != m.end() && !m["excluded_instance_types"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["excluded_instance_types"].type()) {
@@ -255,14 +296,36 @@ public:
       }
       excludedInstanceTypes = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("instance_categories") != m.end() && !m["instance_categories"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["instance_categories"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["instance_categories"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceCategories = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("instance_family_level") != m.end() && !m["instance_family_level"].empty()) {
       instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["instance_family_level"]));
+    }
+    if (m.find("max_cpu_cores") != m.end() && !m["max_cpu_cores"].empty()) {
+      maxCpuCores = make_shared<long>(boost::any_cast<long>(m["max_cpu_cores"]));
+    }
+    if (m.find("max_memory_size") != m.end() && !m["max_memory_size"].empty()) {
+      maxMemorySize = make_shared<double>(boost::any_cast<double>(m["max_memory_size"]));
     }
     if (m.find("max_price") != m.end() && !m["max_price"].empty()) {
       maxPrice = make_shared<double>(boost::any_cast<double>(m["max_price"]));
     }
     if (m.find("memory") != m.end() && !m["memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["memory"]));
+    }
+    if (m.find("min_cpu_cores") != m.end() && !m["min_cpu_cores"].empty()) {
+      minCpuCores = make_shared<long>(boost::any_cast<long>(m["min_cpu_cores"]));
+    }
+    if (m.find("min_memory_size") != m.end() && !m["min_memory_size"].empty()) {
+      minMemorySize = make_shared<double>(boost::any_cast<double>(m["min_memory_size"]));
     }
   }
 
@@ -352,6 +415,8 @@ public:
   shared_ptr<vector<string>> clusterDNS{};
   shared_ptr<long> containerLogMaxFiles{};
   shared_ptr<string> containerLogMaxSize{};
+  shared_ptr<long> containerLogMaxWorkers{};
+  shared_ptr<string> containerLogMonitorInterval{};
   shared_ptr<bool> cpuCFSQuota{};
   shared_ptr<string> cpuCFSQuotaPeriod{};
   shared_ptr<string> cpuManagerPolicy{};
@@ -399,6 +464,12 @@ public:
     }
     if (containerLogMaxSize) {
       res["containerLogMaxSize"] = boost::any(*containerLogMaxSize);
+    }
+    if (containerLogMaxWorkers) {
+      res["containerLogMaxWorkers"] = boost::any(*containerLogMaxWorkers);
+    }
+    if (containerLogMonitorInterval) {
+      res["containerLogMonitorInterval"] = boost::any(*containerLogMonitorInterval);
     }
     if (cpuCFSQuota) {
       res["cpuCFSQuota"] = boost::any(*cpuCFSQuota);
@@ -508,6 +579,12 @@ public:
     }
     if (m.find("containerLogMaxSize") != m.end() && !m["containerLogMaxSize"].empty()) {
       containerLogMaxSize = make_shared<string>(boost::any_cast<string>(m["containerLogMaxSize"]));
+    }
+    if (m.find("containerLogMaxWorkers") != m.end() && !m["containerLogMaxWorkers"].empty()) {
+      containerLogMaxWorkers = make_shared<long>(boost::any_cast<long>(m["containerLogMaxWorkers"]));
+    }
+    if (m.find("containerLogMonitorInterval") != m.end() && !m["containerLogMonitorInterval"].empty()) {
+      containerLogMonitorInterval = make_shared<string>(boost::any_cast<string>(m["containerLogMonitorInterval"]));
     }
     if (m.find("cpuCFSQuota") != m.end() && !m["cpuCFSQuota"].empty()) {
       cpuCFSQuota = make_shared<bool>(boost::any_cast<bool>(m["cpuCFSQuota"]));
