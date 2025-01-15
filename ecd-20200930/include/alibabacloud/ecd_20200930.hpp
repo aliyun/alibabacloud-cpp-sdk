@@ -13345,6 +13345,7 @@ public:
   shared_ptr<string> bundleName{};
   shared_ptr<string> bundleType{};
   shared_ptr<string> creationTime{};
+  shared_ptr<string> dataDiskCategory{};
   shared_ptr<string> description{};
   shared_ptr<string> desktopType{};
   shared_ptr<DescribeBundlesResponseBodyBundlesDesktopTypeAttribute> desktopTypeAttribute{};
@@ -13359,6 +13360,7 @@ public:
   shared_ptr<string> protocolType{};
   shared_ptr<string> sessionType{};
   shared_ptr<string> stockState{};
+  shared_ptr<string> systemDiskCategory{};
   shared_ptr<bool> volumeEncryptionEnabled{};
   shared_ptr<string> volumeEncryptionKey{};
 
@@ -13383,6 +13385,9 @@ public:
     }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (dataDiskCategory) {
+      res["DataDiskCategory"] = boost::any(*dataDiskCategory);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -13430,6 +13435,9 @@ public:
     if (stockState) {
       res["StockState"] = boost::any(*stockState);
     }
+    if (systemDiskCategory) {
+      res["SystemDiskCategory"] = boost::any(*systemDiskCategory);
+    }
     if (volumeEncryptionEnabled) {
       res["VolumeEncryptionEnabled"] = boost::any(*volumeEncryptionEnabled);
     }
@@ -13451,6 +13459,9 @@ public:
     }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("DataDiskCategory") != m.end() && !m["DataDiskCategory"].empty()) {
+      dataDiskCategory = make_shared<string>(boost::any_cast<string>(m["DataDiskCategory"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -13507,6 +13518,9 @@ public:
     }
     if (m.find("StockState") != m.end() && !m["StockState"].empty()) {
       stockState = make_shared<string>(boost::any_cast<string>(m["StockState"]));
+    }
+    if (m.find("SystemDiskCategory") != m.end() && !m["SystemDiskCategory"].empty()) {
+      systemDiskCategory = make_shared<string>(boost::any_cast<string>(m["SystemDiskCategory"]));
     }
     if (m.find("VolumeEncryptionEnabled") != m.end() && !m["VolumeEncryptionEnabled"].empty()) {
       volumeEncryptionEnabled = make_shared<bool>(boost::any_cast<bool>(m["VolumeEncryptionEnabled"]));
@@ -29845,6 +29859,8 @@ public:
   shared_ptr<string> progress{};
   shared_ptr<string> protocolType{};
   shared_ptr<long> remainTime{};
+  shared_ptr<string> restorePointId{};
+  shared_ptr<string> restorePointName{};
   shared_ptr<string> snapshotId{};
   shared_ptr<string> snapshotName{};
   shared_ptr<string> snapshotType{};
@@ -29893,6 +29909,12 @@ public:
     }
     if (remainTime) {
       res["RemainTime"] = boost::any(*remainTime);
+    }
+    if (restorePointId) {
+      res["RestorePointId"] = boost::any(*restorePointId);
+    }
+    if (restorePointName) {
+      res["RestorePointName"] = boost::any(*restorePointName);
     }
     if (snapshotId) {
       res["SnapshotId"] = boost::any(*snapshotId);
@@ -29951,6 +29973,12 @@ public:
     }
     if (m.find("RemainTime") != m.end() && !m["RemainTime"].empty()) {
       remainTime = make_shared<long>(boost::any_cast<long>(m["RemainTime"]));
+    }
+    if (m.find("RestorePointId") != m.end() && !m["RestorePointId"].empty()) {
+      restorePointId = make_shared<string>(boost::any_cast<string>(m["RestorePointId"]));
+    }
+    if (m.find("RestorePointName") != m.end() && !m["RestorePointName"].empty()) {
+      restorePointName = make_shared<string>(boost::any_cast<string>(m["RestorePointName"]));
     }
     if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
       snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
