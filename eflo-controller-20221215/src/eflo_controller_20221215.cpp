@@ -1030,6 +1030,42 @@ StopInvocationResponse Alibabacloud_Eflo-controller20221215::Client::stopInvocat
   return stopInvocationWithOptions(request, runtime);
 }
 
+StopNodesResponse Alibabacloud_Eflo-controller20221215::Client::stopNodesWithOptions(shared_ptr<StopNodesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<StopNodesShrinkRequest> request = make_shared<StopNodesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->nodes)) {
+    request->nodesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->nodes, make_shared<string>("Nodes"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ignoreFailedNodeTasks)) {
+    body->insert(pair<string, bool>("IgnoreFailedNodeTasks", *request->ignoreFailedNodeTasks));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodesShrink)) {
+    body->insert(pair<string, string>("Nodes", *request->nodesShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopNodes"))},
+    {"version", boost::any(string("2022-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopNodesResponse(callApi(params, req, runtime));
+}
+
+StopNodesResponse Alibabacloud_Eflo-controller20221215::Client::stopNodes(shared_ptr<StopNodesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return stopNodesWithOptions(request, runtime);
+}
+
 TagResourcesResponse Alibabacloud_Eflo-controller20221215::Client::tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
