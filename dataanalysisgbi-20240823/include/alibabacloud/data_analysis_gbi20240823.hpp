@@ -2621,6 +2621,7 @@ public:
 };
 class ResyncTableRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> keep{};
   shared_ptr<string> tableIdKey{};
   shared_ptr<string> workspaceId{};
 
@@ -2634,6 +2635,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (keep) {
+      res["keep"] = boost::any(*keep);
+    }
     if (tableIdKey) {
       res["tableIdKey"] = boost::any(*tableIdKey);
     }
@@ -2644,6 +2648,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("keep") != m.end() && !m["keep"].empty()) {
+      keep = make_shared<bool>(boost::any_cast<bool>(m["keep"]));
+    }
     if (m.find("tableIdKey") != m.end() && !m["tableIdKey"].empty()) {
       tableIdKey = make_shared<string>(boost::any_cast<string>(m["tableIdKey"]));
     }
@@ -3960,6 +3967,7 @@ public:
 class SyncRemoteTablesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> keepTableNames{};
+  shared_ptr<vector<string>> noModifiedTableNames{};
   shared_ptr<bool> pullSamples{};
   shared_ptr<vector<string>> tableNames{};
   shared_ptr<string> workspaceId{};
@@ -3976,6 +3984,9 @@ public:
     map<string, boost::any> res;
     if (keepTableNames) {
       res["keepTableNames"] = boost::any(*keepTableNames);
+    }
+    if (noModifiedTableNames) {
+      res["noModifiedTableNames"] = boost::any(*noModifiedTableNames);
     }
     if (pullSamples) {
       res["pullSamples"] = boost::any(*pullSamples);
@@ -3999,6 +4010,16 @@ public:
         }
       }
       keepTableNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("noModifiedTableNames") != m.end() && !m["noModifiedTableNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["noModifiedTableNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["noModifiedTableNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      noModifiedTableNames = make_shared<vector<string>>(toVec1);
     }
     if (m.find("pullSamples") != m.end() && !m["pullSamples"].empty()) {
       pullSamples = make_shared<bool>(boost::any_cast<bool>(m["pullSamples"]));

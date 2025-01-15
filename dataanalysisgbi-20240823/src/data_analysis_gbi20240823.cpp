@@ -685,6 +685,9 @@ ResyncTableResponse Alibabacloud_DataAnalysisGBI20240823::Client::resyncTableWit
     query->insert(pair<string, string>("workspaceId", *request->workspaceId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->keep)) {
+    body->insert(pair<string, bool>("keep", *request->keep));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tableIdKey)) {
     body->insert(pair<string, string>("tableIdKey", *request->tableIdKey));
   }
@@ -890,6 +893,9 @@ SyncRemoteTablesResponse Alibabacloud_DataAnalysisGBI20240823::Client::syncRemot
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->keepTableNames)) {
     body->insert(pair<string, vector<string>>("keepTableNames", *request->keepTableNames));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->noModifiedTableNames)) {
+    body->insert(pair<string, vector<string>>("noModifiedTableNames", *request->noModifiedTableNames));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->pullSamples)) {
     body->insert(pair<string, bool>("pullSamples", *request->pullSamples));
