@@ -20978,6 +20978,7 @@ class DescribePunishedDomainsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> domains{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> punishType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceManagerResourceGroupId{};
 
@@ -20996,6 +20997,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (punishType) {
+      res["PunishType"] = boost::any(*punishType);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -21019,6 +21023,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PunishType") != m.end() && !m["PunishType"].empty()) {
+      punishType = make_shared<string>(boost::any_cast<string>(m["PunishType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));

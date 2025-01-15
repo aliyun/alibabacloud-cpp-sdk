@@ -3860,6 +3860,9 @@ DescribePunishedDomainsResponse Alibabacloud_Waf-openapi20211001::Client::descri
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->punishType)) {
+    query->insert(pair<string, string>("PunishType", *request->punishType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
