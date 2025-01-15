@@ -1693,7 +1693,9 @@ class CreateIdentityProviderRequestLarkConfig : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> appSecret{};
+  shared_ptr<string> encryptKey{};
   shared_ptr<string> enterpriseNumber{};
+  shared_ptr<string> verificationToken{};
 
   CreateIdentityProviderRequestLarkConfig() {}
 
@@ -1711,8 +1713,14 @@ public:
     if (appSecret) {
       res["AppSecret"] = boost::any(*appSecret);
     }
+    if (encryptKey) {
+      res["EncryptKey"] = boost::any(*encryptKey);
+    }
     if (enterpriseNumber) {
       res["EnterpriseNumber"] = boost::any(*enterpriseNumber);
+    }
+    if (verificationToken) {
+      res["VerificationToken"] = boost::any(*verificationToken);
     }
     return res;
   }
@@ -1724,8 +1732,14 @@ public:
     if (m.find("AppSecret") != m.end() && !m["AppSecret"].empty()) {
       appSecret = make_shared<string>(boost::any_cast<string>(m["AppSecret"]));
     }
+    if (m.find("EncryptKey") != m.end() && !m["EncryptKey"].empty()) {
+      encryptKey = make_shared<string>(boost::any_cast<string>(m["EncryptKey"]));
+    }
     if (m.find("EnterpriseNumber") != m.end() && !m["EnterpriseNumber"].empty()) {
       enterpriseNumber = make_shared<string>(boost::any_cast<string>(m["EnterpriseNumber"]));
+    }
+    if (m.find("VerificationToken") != m.end() && !m["VerificationToken"].empty()) {
+      verificationToken = make_shared<string>(boost::any_cast<string>(m["VerificationToken"]));
     }
   }
 
@@ -9591,7 +9605,9 @@ class GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig : public D
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> appSecret{};
+  shared_ptr<string> encryptKey{};
   shared_ptr<string> enterpriseNumber{};
+  shared_ptr<string> verificationToken{};
 
   GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig() {}
 
@@ -9609,8 +9625,14 @@ public:
     if (appSecret) {
       res["AppSecret"] = boost::any(*appSecret);
     }
+    if (encryptKey) {
+      res["EncryptKey"] = boost::any(*encryptKey);
+    }
     if (enterpriseNumber) {
       res["EnterpriseNumber"] = boost::any(*enterpriseNumber);
+    }
+    if (verificationToken) {
+      res["VerificationToken"] = boost::any(*verificationToken);
     }
     return res;
   }
@@ -9622,8 +9644,14 @@ public:
     if (m.find("AppSecret") != m.end() && !m["AppSecret"].empty()) {
       appSecret = make_shared<string>(boost::any_cast<string>(m["AppSecret"]));
     }
+    if (m.find("EncryptKey") != m.end() && !m["EncryptKey"].empty()) {
+      encryptKey = make_shared<string>(boost::any_cast<string>(m["EncryptKey"]));
+    }
     if (m.find("EnterpriseNumber") != m.end() && !m["EnterpriseNumber"].empty()) {
       enterpriseNumber = make_shared<string>(boost::any_cast<string>(m["EnterpriseNumber"]));
+    }
+    if (m.find("VerificationToken") != m.end() && !m["VerificationToken"].empty()) {
+      verificationToken = make_shared<string>(boost::any_cast<string>(m["VerificationToken"]));
     }
   }
 
@@ -17634,6 +17662,7 @@ public:
   shared_ptr<string> lastStatusCheckJobResult{};
   shared_ptr<string> lockReason{};
   shared_ptr<string> logoUrl{};
+  shared_ptr<string> periodicSyncStatus{};
   shared_ptr<string> udPullStatus{};
   shared_ptr<string> udPullTargetScope{};
   shared_ptr<string> udPushStatus{};
@@ -17693,6 +17722,9 @@ public:
     }
     if (logoUrl) {
       res["LogoUrl"] = boost::any(*logoUrl);
+    }
+    if (periodicSyncStatus) {
+      res["PeriodicSyncStatus"] = boost::any(*periodicSyncStatus);
     }
     if (udPullStatus) {
       res["UdPullStatus"] = boost::any(*udPullStatus);
@@ -17754,6 +17786,9 @@ public:
     }
     if (m.find("LogoUrl") != m.end() && !m["LogoUrl"].empty()) {
       logoUrl = make_shared<string>(boost::any_cast<string>(m["LogoUrl"]));
+    }
+    if (m.find("PeriodicSyncStatus") != m.end() && !m["PeriodicSyncStatus"].empty()) {
+      periodicSyncStatus = make_shared<string>(boost::any_cast<string>(m["PeriodicSyncStatus"]));
     }
     if (m.find("UdPullStatus") != m.end() && !m["UdPullStatus"].empty()) {
       udPullStatus = make_shared<string>(boost::any_cast<string>(m["UdPullStatus"]));
@@ -27183,6 +27218,8 @@ class UpdateIdentityProviderRequestLarkConfig : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> appSecret{};
+  shared_ptr<string> encryptKey{};
+  shared_ptr<string> verificationToken{};
 
   UpdateIdentityProviderRequestLarkConfig() {}
 
@@ -27200,6 +27237,12 @@ public:
     if (appSecret) {
       res["AppSecret"] = boost::any(*appSecret);
     }
+    if (encryptKey) {
+      res["EncryptKey"] = boost::any(*encryptKey);
+    }
+    if (verificationToken) {
+      res["VerificationToken"] = boost::any(*verificationToken);
+    }
     return res;
   }
 
@@ -27209,6 +27252,12 @@ public:
     }
     if (m.find("AppSecret") != m.end() && !m["AppSecret"].empty()) {
       appSecret = make_shared<string>(boost::any_cast<string>(m["AppSecret"]));
+    }
+    if (m.find("EncryptKey") != m.end() && !m["EncryptKey"].empty()) {
+      encryptKey = make_shared<string>(boost::any_cast<string>(m["EncryptKey"]));
+    }
+    if (m.find("VerificationToken") != m.end() && !m["VerificationToken"].empty()) {
+      verificationToken = make_shared<string>(boost::any_cast<string>(m["VerificationToken"]));
     }
   }
 
