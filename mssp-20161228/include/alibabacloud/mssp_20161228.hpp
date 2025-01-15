@@ -275,6 +275,7 @@ public:
   shared_ptr<string> customerId{};
   shared_ptr<string> durationDay{};
   shared_ptr<string> isAttachment{};
+  shared_ptr<string> isMilestone{};
   shared_ptr<string> isWorkOrderNotify{};
   shared_ptr<string> notifyDay{};
   shared_ptr<long> notifyId{};
@@ -310,6 +311,9 @@ public:
     }
     if (isAttachment) {
       res["IsAttachment"] = boost::any(*isAttachment);
+    }
+    if (isMilestone) {
+      res["IsMilestone"] = boost::any(*isMilestone);
     }
     if (isWorkOrderNotify) {
       res["IsWorkOrderNotify"] = boost::any(*isWorkOrderNotify);
@@ -365,6 +369,9 @@ public:
     }
     if (m.find("IsAttachment") != m.end() && !m["IsAttachment"].empty()) {
       isAttachment = make_shared<string>(boost::any_cast<string>(m["IsAttachment"]));
+    }
+    if (m.find("IsMilestone") != m.end() && !m["IsMilestone"].empty()) {
+      isMilestone = make_shared<string>(boost::any_cast<string>(m["IsMilestone"]));
     }
     if (m.find("IsWorkOrderNotify") != m.end() && !m["IsWorkOrderNotify"].empty()) {
       isWorkOrderNotify = make_shared<string>(boost::any_cast<string>(m["IsWorkOrderNotify"]));

@@ -111,6 +111,9 @@ CreateServiceWorkOrderResponse Alibabacloud_Mssp20161228::Client::createServiceW
   if (!Darabonba_Util::Client::isUnset<string>(request->isAttachment)) {
     body->insert(pair<string, string>("IsAttachment", *request->isAttachment));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isMilestone)) {
+    body->insert(pair<string, string>("IsMilestone", *request->isMilestone));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->isWorkOrderNotify)) {
     body->insert(pair<string, string>("IsWorkOrderNotify", *request->isWorkOrderNotify));
   }
