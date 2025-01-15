@@ -3767,6 +3767,7 @@ public:
 };
 class DescribeInstanceAmortizedCostByAmortizationPeriodResponseBodyDataItems : public Darabonba::Model {
 public:
+  shared_ptr<double> afterDiscountAmount{};
   shared_ptr<string> amortizationPeriod{};
   shared_ptr<string> amortizationStatus{};
   shared_ptr<long> billAccountID{};
@@ -3777,6 +3778,7 @@ public:
   shared_ptr<string> consumePeriod{};
   shared_ptr<string> costUnit{};
   shared_ptr<string> costUnitCode{};
+  shared_ptr<double> currentAmortizationAfterDiscountAmount{};
   shared_ptr<double> currentAmortizationDeductedByCashCoupons{};
   shared_ptr<double> currentAmortizationDeductedByCoupons{};
   shared_ptr<double> currentAmortizationDeductedByPrepaidCard{};
@@ -3795,6 +3797,7 @@ public:
   shared_ptr<double> invoiceDiscount{};
   shared_ptr<double> pretaxAmount{};
   shared_ptr<double> pretaxGrossAmount{};
+  shared_ptr<double> previouslyAmortizedAfterDiscountAmount{};
   shared_ptr<double> previouslyAmortizedDeductedByCashCoupons{};
   shared_ptr<double> previouslyAmortizedDeductedByCoupons{};
   shared_ptr<double> previouslyAmortizedDeductedByPrepaidCard{};
@@ -3808,6 +3811,7 @@ public:
   shared_ptr<string> productDetailCode{};
   shared_ptr<string> productName{};
   shared_ptr<string> region{};
+  shared_ptr<double> remainingAmortizationAfterDiscountAmount{};
   shared_ptr<double> remainingAmortizationDeductedByCashCoupons{};
   shared_ptr<double> remainingAmortizationDeductedByCoupons{};
   shared_ptr<double> remainingAmortizationDeductedByPrepaidCard{};
@@ -3836,6 +3840,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (afterDiscountAmount) {
+      res["AfterDiscountAmount"] = boost::any(*afterDiscountAmount);
+    }
     if (amortizationPeriod) {
       res["AmortizationPeriod"] = boost::any(*amortizationPeriod);
     }
@@ -3865,6 +3872,9 @@ public:
     }
     if (costUnitCode) {
       res["CostUnitCode"] = boost::any(*costUnitCode);
+    }
+    if (currentAmortizationAfterDiscountAmount) {
+      res["CurrentAmortizationAfterDiscountAmount"] = boost::any(*currentAmortizationAfterDiscountAmount);
     }
     if (currentAmortizationDeductedByCashCoupons) {
       res["CurrentAmortizationDeductedByCashCoupons"] = boost::any(*currentAmortizationDeductedByCashCoupons);
@@ -3920,6 +3930,9 @@ public:
     if (pretaxGrossAmount) {
       res["PretaxGrossAmount"] = boost::any(*pretaxGrossAmount);
     }
+    if (previouslyAmortizedAfterDiscountAmount) {
+      res["PreviouslyAmortizedAfterDiscountAmount"] = boost::any(*previouslyAmortizedAfterDiscountAmount);
+    }
     if (previouslyAmortizedDeductedByCashCoupons) {
       res["PreviouslyAmortizedDeductedByCashCoupons"] = boost::any(*previouslyAmortizedDeductedByCashCoupons);
     }
@@ -3958,6 +3971,9 @@ public:
     }
     if (region) {
       res["Region"] = boost::any(*region);
+    }
+    if (remainingAmortizationAfterDiscountAmount) {
+      res["RemainingAmortizationAfterDiscountAmount"] = boost::any(*remainingAmortizationAfterDiscountAmount);
     }
     if (remainingAmortizationDeductedByCashCoupons) {
       res["RemainingAmortizationDeductedByCashCoupons"] = boost::any(*remainingAmortizationDeductedByCashCoupons);
@@ -4014,6 +4030,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AfterDiscountAmount") != m.end() && !m["AfterDiscountAmount"].empty()) {
+      afterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["AfterDiscountAmount"]));
+    }
     if (m.find("AmortizationPeriod") != m.end() && !m["AmortizationPeriod"].empty()) {
       amortizationPeriod = make_shared<string>(boost::any_cast<string>(m["AmortizationPeriod"]));
     }
@@ -4043,6 +4062,9 @@ public:
     }
     if (m.find("CostUnitCode") != m.end() && !m["CostUnitCode"].empty()) {
       costUnitCode = make_shared<string>(boost::any_cast<string>(m["CostUnitCode"]));
+    }
+    if (m.find("CurrentAmortizationAfterDiscountAmount") != m.end() && !m["CurrentAmortizationAfterDiscountAmount"].empty()) {
+      currentAmortizationAfterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["CurrentAmortizationAfterDiscountAmount"]));
     }
     if (m.find("CurrentAmortizationDeductedByCashCoupons") != m.end() && !m["CurrentAmortizationDeductedByCashCoupons"].empty()) {
       currentAmortizationDeductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["CurrentAmortizationDeductedByCashCoupons"]));
@@ -4098,6 +4120,9 @@ public:
     if (m.find("PretaxGrossAmount") != m.end() && !m["PretaxGrossAmount"].empty()) {
       pretaxGrossAmount = make_shared<double>(boost::any_cast<double>(m["PretaxGrossAmount"]));
     }
+    if (m.find("PreviouslyAmortizedAfterDiscountAmount") != m.end() && !m["PreviouslyAmortizedAfterDiscountAmount"].empty()) {
+      previouslyAmortizedAfterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["PreviouslyAmortizedAfterDiscountAmount"]));
+    }
     if (m.find("PreviouslyAmortizedDeductedByCashCoupons") != m.end() && !m["PreviouslyAmortizedDeductedByCashCoupons"].empty()) {
       previouslyAmortizedDeductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["PreviouslyAmortizedDeductedByCashCoupons"]));
     }
@@ -4136,6 +4161,9 @@ public:
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("RemainingAmortizationAfterDiscountAmount") != m.end() && !m["RemainingAmortizationAfterDiscountAmount"].empty()) {
+      remainingAmortizationAfterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["RemainingAmortizationAfterDiscountAmount"]));
     }
     if (m.find("RemainingAmortizationDeductedByCashCoupons") != m.end() && !m["RemainingAmortizationDeductedByCashCoupons"].empty()) {
       remainingAmortizationDeductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["RemainingAmortizationDeductedByCashCoupons"]));
@@ -5280,6 +5308,7 @@ public:
 };
 class DescribeInstanceAmortizedCostByConsumePeriodResponseBodyDataItems : public Darabonba::Model {
 public:
+  shared_ptr<double> afterDiscountAmount{};
   shared_ptr<string> amortizationPeriod{};
   shared_ptr<string> amortizationStatus{};
   shared_ptr<long> billAccountID{};
@@ -5290,6 +5319,7 @@ public:
   shared_ptr<string> consumePeriod{};
   shared_ptr<string> costUnit{};
   shared_ptr<string> costUnitCode{};
+  shared_ptr<double> currentAmortizationAfterDiscountAmount{};
   shared_ptr<double> currentAmortizationDeductedByCashCoupons{};
   shared_ptr<double> currentAmortizationDeductedByCoupons{};
   shared_ptr<double> currentAmortizationDeductedByPrepaidCard{};
@@ -5308,6 +5338,7 @@ public:
   shared_ptr<double> invoiceDiscount{};
   shared_ptr<double> pretaxAmount{};
   shared_ptr<double> pretaxGrossAmount{};
+  shared_ptr<double> previouslyAmortizedAfterDiscountAmount{};
   shared_ptr<double> previouslyAmortizedDeductedByCashCoupons{};
   shared_ptr<double> previouslyAmortizedDeductedByCoupons{};
   shared_ptr<double> previouslyAmortizedDeductedByPrepaidCard{};
@@ -5321,6 +5352,7 @@ public:
   shared_ptr<string> productDetailCode{};
   shared_ptr<string> productName{};
   shared_ptr<string> region{};
+  shared_ptr<double> remainingAmortizationAfterDiscountAmount{};
   shared_ptr<double> remainingAmortizationDeductedByCashCoupons{};
   shared_ptr<double> remainingAmortizationDeductedByCoupons{};
   shared_ptr<double> remainingAmortizationDeductedByPrepaidCard{};
@@ -5349,6 +5381,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (afterDiscountAmount) {
+      res["AfterDiscountAmount"] = boost::any(*afterDiscountAmount);
+    }
     if (amortizationPeriod) {
       res["AmortizationPeriod"] = boost::any(*amortizationPeriod);
     }
@@ -5378,6 +5413,9 @@ public:
     }
     if (costUnitCode) {
       res["CostUnitCode"] = boost::any(*costUnitCode);
+    }
+    if (currentAmortizationAfterDiscountAmount) {
+      res["CurrentAmortizationAfterDiscountAmount"] = boost::any(*currentAmortizationAfterDiscountAmount);
     }
     if (currentAmortizationDeductedByCashCoupons) {
       res["CurrentAmortizationDeductedByCashCoupons"] = boost::any(*currentAmortizationDeductedByCashCoupons);
@@ -5433,6 +5471,9 @@ public:
     if (pretaxGrossAmount) {
       res["PretaxGrossAmount"] = boost::any(*pretaxGrossAmount);
     }
+    if (previouslyAmortizedAfterDiscountAmount) {
+      res["PreviouslyAmortizedAfterDiscountAmount"] = boost::any(*previouslyAmortizedAfterDiscountAmount);
+    }
     if (previouslyAmortizedDeductedByCashCoupons) {
       res["PreviouslyAmortizedDeductedByCashCoupons"] = boost::any(*previouslyAmortizedDeductedByCashCoupons);
     }
@@ -5471,6 +5512,9 @@ public:
     }
     if (region) {
       res["Region"] = boost::any(*region);
+    }
+    if (remainingAmortizationAfterDiscountAmount) {
+      res["RemainingAmortizationAfterDiscountAmount"] = boost::any(*remainingAmortizationAfterDiscountAmount);
     }
     if (remainingAmortizationDeductedByCashCoupons) {
       res["RemainingAmortizationDeductedByCashCoupons"] = boost::any(*remainingAmortizationDeductedByCashCoupons);
@@ -5527,6 +5571,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AfterDiscountAmount") != m.end() && !m["AfterDiscountAmount"].empty()) {
+      afterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["AfterDiscountAmount"]));
+    }
     if (m.find("AmortizationPeriod") != m.end() && !m["AmortizationPeriod"].empty()) {
       amortizationPeriod = make_shared<string>(boost::any_cast<string>(m["AmortizationPeriod"]));
     }
@@ -5556,6 +5603,9 @@ public:
     }
     if (m.find("CostUnitCode") != m.end() && !m["CostUnitCode"].empty()) {
       costUnitCode = make_shared<string>(boost::any_cast<string>(m["CostUnitCode"]));
+    }
+    if (m.find("CurrentAmortizationAfterDiscountAmount") != m.end() && !m["CurrentAmortizationAfterDiscountAmount"].empty()) {
+      currentAmortizationAfterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["CurrentAmortizationAfterDiscountAmount"]));
     }
     if (m.find("CurrentAmortizationDeductedByCashCoupons") != m.end() && !m["CurrentAmortizationDeductedByCashCoupons"].empty()) {
       currentAmortizationDeductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["CurrentAmortizationDeductedByCashCoupons"]));
@@ -5611,6 +5661,9 @@ public:
     if (m.find("PretaxGrossAmount") != m.end() && !m["PretaxGrossAmount"].empty()) {
       pretaxGrossAmount = make_shared<double>(boost::any_cast<double>(m["PretaxGrossAmount"]));
     }
+    if (m.find("PreviouslyAmortizedAfterDiscountAmount") != m.end() && !m["PreviouslyAmortizedAfterDiscountAmount"].empty()) {
+      previouslyAmortizedAfterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["PreviouslyAmortizedAfterDiscountAmount"]));
+    }
     if (m.find("PreviouslyAmortizedDeductedByCashCoupons") != m.end() && !m["PreviouslyAmortizedDeductedByCashCoupons"].empty()) {
       previouslyAmortizedDeductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["PreviouslyAmortizedDeductedByCashCoupons"]));
     }
@@ -5649,6 +5702,9 @@ public:
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("RemainingAmortizationAfterDiscountAmount") != m.end() && !m["RemainingAmortizationAfterDiscountAmount"].empty()) {
+      remainingAmortizationAfterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["RemainingAmortizationAfterDiscountAmount"]));
     }
     if (m.find("RemainingAmortizationDeductedByCashCoupons") != m.end() && !m["RemainingAmortizationDeductedByCashCoupons"].empty()) {
       remainingAmortizationDeductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["RemainingAmortizationDeductedByCashCoupons"]));
@@ -6020,7 +6076,7 @@ public:
 class DescribeInstanceBillResponseBodyDataItems : public Darabonba::Model {
 public:
   shared_ptr<double> adjustAmount{};
-  shared_ptr<string> afterDiscountAmount{};
+  shared_ptr<double> afterDiscountAmount{};
   shared_ptr<string> billAccountID{};
   shared_ptr<string> billAccountName{};
   shared_ptr<string> billingDate{};
@@ -6226,7 +6282,7 @@ public:
       adjustAmount = make_shared<double>(boost::any_cast<double>(m["AdjustAmount"]));
     }
     if (m.find("AfterDiscountAmount") != m.end() && !m["AfterDiscountAmount"].empty()) {
-      afterDiscountAmount = make_shared<string>(boost::any_cast<string>(m["AfterDiscountAmount"]));
+      afterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["AfterDiscountAmount"]));
     }
     if (m.find("BillAccountID") != m.end() && !m["BillAccountID"].empty()) {
       billAccountID = make_shared<string>(boost::any_cast<string>(m["BillAccountID"]));
@@ -7866,6 +7922,7 @@ public:
 };
 class DescribeProductAmortizedCostByAmortizationPeriodResponseBodyDataItems : public Darabonba::Model {
 public:
+  shared_ptr<double> afterDiscountAmount{};
   shared_ptr<string> amortizationPeriod{};
   shared_ptr<string> amortizationStatus{};
   shared_ptr<long> billAccountID{};
@@ -7874,6 +7931,7 @@ public:
   shared_ptr<string> billOwnerName{};
   shared_ptr<string> bizType{};
   shared_ptr<string> consumePeriod{};
+  shared_ptr<double> currentAmortizationAfterDiscountAmount{};
   shared_ptr<double> currentAmortizationDeductedByCashCoupons{};
   shared_ptr<double> currentAmortizationDeductedByCoupons{};
   shared_ptr<double> currentAmortizationDeductedByPrepaidCard{};
@@ -7889,6 +7947,7 @@ public:
   shared_ptr<double> invoiceDiscount{};
   shared_ptr<double> pretaxAmount{};
   shared_ptr<double> pretaxGrossAmount{};
+  shared_ptr<double> previouslyAmortizedAfterDiscountAmount{};
   shared_ptr<double> previouslyAmortizedDeductedByCashCoupons{};
   shared_ptr<double> previouslyAmortizedDeductedByCoupons{};
   shared_ptr<double> previouslyAmortizedDeductedByPrepaidCard{};
@@ -7901,6 +7960,7 @@ public:
   shared_ptr<string> productDetail{};
   shared_ptr<string> productDetailCode{};
   shared_ptr<string> productName{};
+  shared_ptr<double> remainingAmortizationAfterDiscountAmount{};
   shared_ptr<double> remainingAmortizationDeductedByCashCoupons{};
   shared_ptr<double> remainingAmortizationDeductedByCoupons{};
   shared_ptr<double> remainingAmortizationDeductedByPrepaidCard{};
@@ -7922,6 +7982,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (afterDiscountAmount) {
+      res["AfterDiscountAmount"] = boost::any(*afterDiscountAmount);
+    }
     if (amortizationPeriod) {
       res["AmortizationPeriod"] = boost::any(*amortizationPeriod);
     }
@@ -7945,6 +8008,9 @@ public:
     }
     if (consumePeriod) {
       res["ConsumePeriod"] = boost::any(*consumePeriod);
+    }
+    if (currentAmortizationAfterDiscountAmount) {
+      res["CurrentAmortizationAfterDiscountAmount"] = boost::any(*currentAmortizationAfterDiscountAmount);
     }
     if (currentAmortizationDeductedByCashCoupons) {
       res["CurrentAmortizationDeductedByCashCoupons"] = boost::any(*currentAmortizationDeductedByCashCoupons);
@@ -7991,6 +8057,9 @@ public:
     if (pretaxGrossAmount) {
       res["PretaxGrossAmount"] = boost::any(*pretaxGrossAmount);
     }
+    if (previouslyAmortizedAfterDiscountAmount) {
+      res["PreviouslyAmortizedAfterDiscountAmount"] = boost::any(*previouslyAmortizedAfterDiscountAmount);
+    }
     if (previouslyAmortizedDeductedByCashCoupons) {
       res["PreviouslyAmortizedDeductedByCashCoupons"] = boost::any(*previouslyAmortizedDeductedByCashCoupons);
     }
@@ -8027,6 +8096,9 @@ public:
     if (productName) {
       res["ProductName"] = boost::any(*productName);
     }
+    if (remainingAmortizationAfterDiscountAmount) {
+      res["RemainingAmortizationAfterDiscountAmount"] = boost::any(*remainingAmortizationAfterDiscountAmount);
+    }
     if (remainingAmortizationDeductedByCashCoupons) {
       res["RemainingAmortizationDeductedByCashCoupons"] = boost::any(*remainingAmortizationDeductedByCashCoupons);
     }
@@ -8061,6 +8133,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AfterDiscountAmount") != m.end() && !m["AfterDiscountAmount"].empty()) {
+      afterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["AfterDiscountAmount"]));
+    }
     if (m.find("AmortizationPeriod") != m.end() && !m["AmortizationPeriod"].empty()) {
       amortizationPeriod = make_shared<string>(boost::any_cast<string>(m["AmortizationPeriod"]));
     }
@@ -8084,6 +8159,9 @@ public:
     }
     if (m.find("ConsumePeriod") != m.end() && !m["ConsumePeriod"].empty()) {
       consumePeriod = make_shared<string>(boost::any_cast<string>(m["ConsumePeriod"]));
+    }
+    if (m.find("CurrentAmortizationAfterDiscountAmount") != m.end() && !m["CurrentAmortizationAfterDiscountAmount"].empty()) {
+      currentAmortizationAfterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["CurrentAmortizationAfterDiscountAmount"]));
     }
     if (m.find("CurrentAmortizationDeductedByCashCoupons") != m.end() && !m["CurrentAmortizationDeductedByCashCoupons"].empty()) {
       currentAmortizationDeductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["CurrentAmortizationDeductedByCashCoupons"]));
@@ -8130,6 +8208,9 @@ public:
     if (m.find("PretaxGrossAmount") != m.end() && !m["PretaxGrossAmount"].empty()) {
       pretaxGrossAmount = make_shared<double>(boost::any_cast<double>(m["PretaxGrossAmount"]));
     }
+    if (m.find("PreviouslyAmortizedAfterDiscountAmount") != m.end() && !m["PreviouslyAmortizedAfterDiscountAmount"].empty()) {
+      previouslyAmortizedAfterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["PreviouslyAmortizedAfterDiscountAmount"]));
+    }
     if (m.find("PreviouslyAmortizedDeductedByCashCoupons") != m.end() && !m["PreviouslyAmortizedDeductedByCashCoupons"].empty()) {
       previouslyAmortizedDeductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["PreviouslyAmortizedDeductedByCashCoupons"]));
     }
@@ -8165,6 +8246,9 @@ public:
     }
     if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
       productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    }
+    if (m.find("RemainingAmortizationAfterDiscountAmount") != m.end() && !m["RemainingAmortizationAfterDiscountAmount"].empty()) {
+      remainingAmortizationAfterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["RemainingAmortizationAfterDiscountAmount"]));
     }
     if (m.find("RemainingAmortizationDeductedByCashCoupons") != m.end() && !m["RemainingAmortizationDeductedByCashCoupons"].empty()) {
       remainingAmortizationDeductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["RemainingAmortizationDeductedByCashCoupons"]));
@@ -8507,6 +8591,7 @@ public:
 };
 class DescribeProductAmortizedCostByConsumePeriodResponseBodyDataItems : public Darabonba::Model {
 public:
+  shared_ptr<double> afterDiscountAmount{};
   shared_ptr<string> amortizationPeriod{};
   shared_ptr<string> amortizationStatus{};
   shared_ptr<long> billAccountID{};
@@ -8515,6 +8600,7 @@ public:
   shared_ptr<string> billOwnerName{};
   shared_ptr<string> bizType{};
   shared_ptr<string> consumePeriod{};
+  shared_ptr<double> currentAmortizationAfterDiscountAmount{};
   shared_ptr<double> currentAmortizationDeductedByCashCoupons{};
   shared_ptr<double> currentAmortizationDeductedByCoupons{};
   shared_ptr<double> currentAmortizationDeductedByPrepaidCard{};
@@ -8530,6 +8616,7 @@ public:
   shared_ptr<double> invoiceDiscount{};
   shared_ptr<double> pretaxAmount{};
   shared_ptr<double> pretaxGrossAmount{};
+  shared_ptr<double> previouslyAmortizedAfterDiscountAmount{};
   shared_ptr<double> previouslyAmortizedDeductedByCashCoupons{};
   shared_ptr<double> previouslyAmortizedDeductedByCoupons{};
   shared_ptr<double> previouslyAmortizedDeductedByPrepaidCard{};
@@ -8542,6 +8629,7 @@ public:
   shared_ptr<string> productDetail{};
   shared_ptr<string> productDetailCode{};
   shared_ptr<string> productName{};
+  shared_ptr<double> remainingAmortizationAfterDiscountAmount{};
   shared_ptr<double> remainingAmortizationDeductedByCashCoupons{};
   shared_ptr<double> remainingAmortizationDeductedByCoupons{};
   shared_ptr<double> remainingAmortizationDeductedByPrepaidCard{};
@@ -8563,6 +8651,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (afterDiscountAmount) {
+      res["AfterDiscountAmount"] = boost::any(*afterDiscountAmount);
+    }
     if (amortizationPeriod) {
       res["AmortizationPeriod"] = boost::any(*amortizationPeriod);
     }
@@ -8586,6 +8677,9 @@ public:
     }
     if (consumePeriod) {
       res["ConsumePeriod"] = boost::any(*consumePeriod);
+    }
+    if (currentAmortizationAfterDiscountAmount) {
+      res["CurrentAmortizationAfterDiscountAmount"] = boost::any(*currentAmortizationAfterDiscountAmount);
     }
     if (currentAmortizationDeductedByCashCoupons) {
       res["CurrentAmortizationDeductedByCashCoupons"] = boost::any(*currentAmortizationDeductedByCashCoupons);
@@ -8632,6 +8726,9 @@ public:
     if (pretaxGrossAmount) {
       res["PretaxGrossAmount"] = boost::any(*pretaxGrossAmount);
     }
+    if (previouslyAmortizedAfterDiscountAmount) {
+      res["PreviouslyAmortizedAfterDiscountAmount"] = boost::any(*previouslyAmortizedAfterDiscountAmount);
+    }
     if (previouslyAmortizedDeductedByCashCoupons) {
       res["PreviouslyAmortizedDeductedByCashCoupons"] = boost::any(*previouslyAmortizedDeductedByCashCoupons);
     }
@@ -8668,6 +8765,9 @@ public:
     if (productName) {
       res["ProductName"] = boost::any(*productName);
     }
+    if (remainingAmortizationAfterDiscountAmount) {
+      res["RemainingAmortizationAfterDiscountAmount"] = boost::any(*remainingAmortizationAfterDiscountAmount);
+    }
     if (remainingAmortizationDeductedByCashCoupons) {
       res["RemainingAmortizationDeductedByCashCoupons"] = boost::any(*remainingAmortizationDeductedByCashCoupons);
     }
@@ -8702,6 +8802,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AfterDiscountAmount") != m.end() && !m["AfterDiscountAmount"].empty()) {
+      afterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["AfterDiscountAmount"]));
+    }
     if (m.find("AmortizationPeriod") != m.end() && !m["AmortizationPeriod"].empty()) {
       amortizationPeriod = make_shared<string>(boost::any_cast<string>(m["AmortizationPeriod"]));
     }
@@ -8725,6 +8828,9 @@ public:
     }
     if (m.find("ConsumePeriod") != m.end() && !m["ConsumePeriod"].empty()) {
       consumePeriod = make_shared<string>(boost::any_cast<string>(m["ConsumePeriod"]));
+    }
+    if (m.find("CurrentAmortizationAfterDiscountAmount") != m.end() && !m["CurrentAmortizationAfterDiscountAmount"].empty()) {
+      currentAmortizationAfterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["CurrentAmortizationAfterDiscountAmount"]));
     }
     if (m.find("CurrentAmortizationDeductedByCashCoupons") != m.end() && !m["CurrentAmortizationDeductedByCashCoupons"].empty()) {
       currentAmortizationDeductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["CurrentAmortizationDeductedByCashCoupons"]));
@@ -8771,6 +8877,9 @@ public:
     if (m.find("PretaxGrossAmount") != m.end() && !m["PretaxGrossAmount"].empty()) {
       pretaxGrossAmount = make_shared<double>(boost::any_cast<double>(m["PretaxGrossAmount"]));
     }
+    if (m.find("PreviouslyAmortizedAfterDiscountAmount") != m.end() && !m["PreviouslyAmortizedAfterDiscountAmount"].empty()) {
+      previouslyAmortizedAfterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["PreviouslyAmortizedAfterDiscountAmount"]));
+    }
     if (m.find("PreviouslyAmortizedDeductedByCashCoupons") != m.end() && !m["PreviouslyAmortizedDeductedByCashCoupons"].empty()) {
       previouslyAmortizedDeductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["PreviouslyAmortizedDeductedByCashCoupons"]));
     }
@@ -8806,6 +8915,9 @@ public:
     }
     if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
       productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    }
+    if (m.find("RemainingAmortizationAfterDiscountAmount") != m.end() && !m["RemainingAmortizationAfterDiscountAmount"].empty()) {
+      remainingAmortizationAfterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["RemainingAmortizationAfterDiscountAmount"]));
     }
     if (m.find("RemainingAmortizationDeductedByCashCoupons") != m.end() && !m["RemainingAmortizationDeductedByCashCoupons"].empty()) {
       remainingAmortizationDeductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["RemainingAmortizationDeductedByCashCoupons"]));
@@ -12609,7 +12721,7 @@ public:
 class DescribeSplitItemBillResponseBodyDataItems : public Darabonba::Model {
 public:
   shared_ptr<double> adjustAmount{};
-  shared_ptr<string> afterDiscountAmount{};
+  shared_ptr<double> afterDiscountAmount{};
   shared_ptr<string> billAccountID{};
   shared_ptr<string> billAccountName{};
   shared_ptr<string> billingDate{};
@@ -12847,7 +12959,7 @@ public:
       adjustAmount = make_shared<double>(boost::any_cast<double>(m["AdjustAmount"]));
     }
     if (m.find("AfterDiscountAmount") != m.end() && !m["AfterDiscountAmount"].empty()) {
-      afterDiscountAmount = make_shared<string>(boost::any_cast<string>(m["AfterDiscountAmount"]));
+      afterDiscountAmount = make_shared<double>(boost::any_cast<double>(m["AfterDiscountAmount"]));
     }
     if (m.find("BillAccountID") != m.end() && !m["BillAccountID"].empty()) {
       billAccountID = make_shared<string>(boost::any_cast<string>(m["BillAccountID"]));
