@@ -3731,6 +3731,9 @@ ModifyDefaultIPSConfigResponse Alibabacloud_Cloudfw20171207::Client::modifyDefau
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxSdl)) {
+    query->insert(pair<string, long>("MaxSdl", *request->maxSdl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->patchRules)) {
     query->insert(pair<string, string>("PatchRules", *request->patchRules));
   }

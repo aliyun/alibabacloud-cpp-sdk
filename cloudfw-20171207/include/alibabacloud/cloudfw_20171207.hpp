@@ -6794,6 +6794,8 @@ class DescribeDefaultIPSConfigResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> basicRules{};
   shared_ptr<long> ctiRules{};
+  shared_ptr<string> freeTrailStatus{};
+  shared_ptr<long> maxSdl{};
   shared_ptr<long> patchRules{};
   shared_ptr<string> requestId{};
   shared_ptr<long> ruleClass{};
@@ -6814,6 +6816,12 @@ public:
     }
     if (ctiRules) {
       res["CtiRules"] = boost::any(*ctiRules);
+    }
+    if (freeTrailStatus) {
+      res["FreeTrailStatus"] = boost::any(*freeTrailStatus);
+    }
+    if (maxSdl) {
+      res["MaxSdl"] = boost::any(*maxSdl);
     }
     if (patchRules) {
       res["PatchRules"] = boost::any(*patchRules);
@@ -6836,6 +6844,12 @@ public:
     }
     if (m.find("CtiRules") != m.end() && !m["CtiRules"].empty()) {
       ctiRules = make_shared<long>(boost::any_cast<long>(m["CtiRules"]));
+    }
+    if (m.find("FreeTrailStatus") != m.end() && !m["FreeTrailStatus"].empty()) {
+      freeTrailStatus = make_shared<string>(boost::any_cast<string>(m["FreeTrailStatus"]));
+    }
+    if (m.find("MaxSdl") != m.end() && !m["MaxSdl"].empty()) {
+      maxSdl = make_shared<long>(boost::any_cast<long>(m["MaxSdl"]));
     }
     if (m.find("PatchRules") != m.end() && !m["PatchRules"].empty()) {
       patchRules = make_shared<long>(boost::any_cast<long>(m["PatchRules"]));
@@ -12220,6 +12234,8 @@ public:
   shared_ptr<long> totalInternetTraffic{};
   shared_ptr<long> totalNatAssets{};
   shared_ptr<long> totalNatTraffic{};
+  shared_ptr<long> totalSdlBillTraffic{};
+  shared_ptr<long> totalSdlFreeTraffic{};
   shared_ptr<long> totalTraffic{};
   shared_ptr<long> totalVpcAssets{};
   shared_ptr<long> totalVpcTraffic{};
@@ -12255,6 +12271,12 @@ public:
     if (totalNatTraffic) {
       res["TotalNatTraffic"] = boost::any(*totalNatTraffic);
     }
+    if (totalSdlBillTraffic) {
+      res["TotalSdlBillTraffic"] = boost::any(*totalSdlBillTraffic);
+    }
+    if (totalSdlFreeTraffic) {
+      res["TotalSdlFreeTraffic"] = boost::any(*totalSdlFreeTraffic);
+    }
     if (totalTraffic) {
       res["TotalTraffic"] = boost::any(*totalTraffic);
     }
@@ -12288,6 +12310,12 @@ public:
     }
     if (m.find("TotalNatTraffic") != m.end() && !m["TotalNatTraffic"].empty()) {
       totalNatTraffic = make_shared<long>(boost::any_cast<long>(m["TotalNatTraffic"]));
+    }
+    if (m.find("TotalSdlBillTraffic") != m.end() && !m["TotalSdlBillTraffic"].empty()) {
+      totalSdlBillTraffic = make_shared<long>(boost::any_cast<long>(m["TotalSdlBillTraffic"]));
+    }
+    if (m.find("TotalSdlFreeTraffic") != m.end() && !m["TotalSdlFreeTraffic"].empty()) {
+      totalSdlFreeTraffic = make_shared<long>(boost::any_cast<long>(m["TotalSdlFreeTraffic"]));
     }
     if (m.find("TotalTraffic") != m.end() && !m["TotalTraffic"].empty()) {
       totalTraffic = make_shared<long>(boost::any_cast<long>(m["TotalTraffic"]));
@@ -15603,14 +15631,17 @@ public:
   shared_ptr<long> expire{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceStatus{};
+  shared_ptr<long> internetBandwidth{};
   shared_ptr<long> ipNumber{};
   shared_ptr<bool> logStatus{};
   shared_ptr<long> logStorage{};
   shared_ptr<long> maxOverflow{};
+  shared_ptr<long> natBandwidth{};
   shared_ptr<string> requestId{};
   shared_ptr<long> startTime{};
   shared_ptr<bool> userStatus{};
   shared_ptr<long> version{};
+  shared_ptr<long> vpcBandwidth{};
   shared_ptr<long> vpcNumber{};
 
   DescribeUserBuyVersionResponseBody() {}
@@ -15635,6 +15666,9 @@ public:
     if (instanceStatus) {
       res["InstanceStatus"] = boost::any(*instanceStatus);
     }
+    if (internetBandwidth) {
+      res["InternetBandwidth"] = boost::any(*internetBandwidth);
+    }
     if (ipNumber) {
       res["IpNumber"] = boost::any(*ipNumber);
     }
@@ -15647,6 +15681,9 @@ public:
     if (maxOverflow) {
       res["MaxOverflow"] = boost::any(*maxOverflow);
     }
+    if (natBandwidth) {
+      res["NatBandwidth"] = boost::any(*natBandwidth);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -15658,6 +15695,9 @@ public:
     }
     if (version) {
       res["Version"] = boost::any(*version);
+    }
+    if (vpcBandwidth) {
+      res["VpcBandwidth"] = boost::any(*vpcBandwidth);
     }
     if (vpcNumber) {
       res["VpcNumber"] = boost::any(*vpcNumber);
@@ -15678,6 +15718,9 @@ public:
     if (m.find("InstanceStatus") != m.end() && !m["InstanceStatus"].empty()) {
       instanceStatus = make_shared<string>(boost::any_cast<string>(m["InstanceStatus"]));
     }
+    if (m.find("InternetBandwidth") != m.end() && !m["InternetBandwidth"].empty()) {
+      internetBandwidth = make_shared<long>(boost::any_cast<long>(m["InternetBandwidth"]));
+    }
     if (m.find("IpNumber") != m.end() && !m["IpNumber"].empty()) {
       ipNumber = make_shared<long>(boost::any_cast<long>(m["IpNumber"]));
     }
@@ -15690,6 +15733,9 @@ public:
     if (m.find("MaxOverflow") != m.end() && !m["MaxOverflow"].empty()) {
       maxOverflow = make_shared<long>(boost::any_cast<long>(m["MaxOverflow"]));
     }
+    if (m.find("NatBandwidth") != m.end() && !m["NatBandwidth"].empty()) {
+      natBandwidth = make_shared<long>(boost::any_cast<long>(m["NatBandwidth"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -15701,6 +15747,9 @@ public:
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<long>(boost::any_cast<long>(m["Version"]));
+    }
+    if (m.find("VpcBandwidth") != m.end() && !m["VpcBandwidth"].empty()) {
+      vpcBandwidth = make_shared<long>(boost::any_cast<long>(m["VpcBandwidth"]));
     }
     if (m.find("VpcNumber") != m.end() && !m["VpcNumber"].empty()) {
       vpcNumber = make_shared<long>(boost::any_cast<long>(m["VpcNumber"]));
@@ -21230,6 +21279,7 @@ public:
   shared_ptr<string> basicRules{};
   shared_ptr<string> ctiRules{};
   shared_ptr<string> lang{};
+  shared_ptr<long> maxSdl{};
   shared_ptr<string> patchRules{};
   shared_ptr<string> ruleClass{};
   shared_ptr<string> runMode{};
@@ -21253,6 +21303,9 @@ public:
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
+    if (maxSdl) {
+      res["MaxSdl"] = boost::any(*maxSdl);
+    }
     if (patchRules) {
       res["PatchRules"] = boost::any(*patchRules);
     }
@@ -21274,6 +21327,9 @@ public:
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("MaxSdl") != m.end() && !m["MaxSdl"].empty()) {
+      maxSdl = make_shared<long>(boost::any_cast<long>(m["MaxSdl"]));
     }
     if (m.find("PatchRules") != m.end() && !m["PatchRules"].empty()) {
       patchRules = make_shared<string>(boost::any_cast<string>(m["PatchRules"]));
