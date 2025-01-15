@@ -1639,6 +1639,7 @@ public:
 };
 class GetVideoAnalysisTaskResponseBodyDataPayloadOutput : public Darabonba::Model {
 public:
+  shared_ptr<string> resultJsonFileUrl{};
   shared_ptr<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResult> videoAnalysisResult{};
   shared_ptr<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult> videoCaptionResult{};
   shared_ptr<GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResult> videoGenerateResult{};
@@ -1655,6 +1656,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (resultJsonFileUrl) {
+      res["resultJsonFileUrl"] = boost::any(*resultJsonFileUrl);
+    }
     if (videoAnalysisResult) {
       res["videoAnalysisResult"] = videoAnalysisResult ? boost::any(videoAnalysisResult->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1674,6 +1678,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("resultJsonFileUrl") != m.end() && !m["resultJsonFileUrl"].empty()) {
+      resultJsonFileUrl = make_shared<string>(boost::any_cast<string>(m["resultJsonFileUrl"]));
+    }
     if (m.find("videoAnalysisResult") != m.end() && !m["videoAnalysisResult"].empty()) {
       if (typeid(map<string, boost::any>) == m["videoAnalysisResult"].type()) {
         GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResult model1;
@@ -4743,6 +4750,339 @@ public:
 
   virtual ~RunMarketingInformationWritingResponse() = default;
 };
+class RunScriptChatRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> prompt{};
+  shared_ptr<string> taskId{};
+
+  RunScriptChatRequest() {}
+
+  explicit RunScriptChatRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (prompt) {
+      res["prompt"] = boost::any(*prompt);
+    }
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("prompt") != m.end() && !m["prompt"].empty()) {
+      prompt = make_shared<string>(boost::any_cast<string>(m["prompt"]));
+    }
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+  }
+
+
+  virtual ~RunScriptChatRequest() = default;
+};
+class RunScriptChatResponseBodyHeader : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> event{};
+  shared_ptr<string> eventInfo{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> traceId{};
+
+  RunScriptChatResponseBodyHeader() {}
+
+  explicit RunScriptChatResponseBodyHeader(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (event) {
+      res["event"] = boost::any(*event);
+    }
+    if (eventInfo) {
+      res["eventInfo"] = boost::any(*eventInfo);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("event") != m.end() && !m["event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["event"]));
+    }
+    if (m.find("eventInfo") != m.end() && !m["eventInfo"].empty()) {
+      eventInfo = make_shared<string>(boost::any_cast<string>(m["eventInfo"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~RunScriptChatResponseBodyHeader() = default;
+};
+class RunScriptChatResponseBodyPayloadOutput : public Darabonba::Model {
+public:
+  shared_ptr<string> text{};
+
+  RunScriptChatResponseBodyPayloadOutput() {}
+
+  explicit RunScriptChatResponseBodyPayloadOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+  }
+
+
+  virtual ~RunScriptChatResponseBodyPayloadOutput() = default;
+};
+class RunScriptChatResponseBodyPayloadUsage : public Darabonba::Model {
+public:
+  shared_ptr<long> inputTokens{};
+  shared_ptr<long> outputTokens{};
+  shared_ptr<long> totalTokens{};
+
+  RunScriptChatResponseBodyPayloadUsage() {}
+
+  explicit RunScriptChatResponseBodyPayloadUsage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inputTokens) {
+      res["inputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["outputTokens"] = boost::any(*outputTokens);
+    }
+    if (totalTokens) {
+      res["totalTokens"] = boost::any(*totalTokens);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("inputTokens") != m.end() && !m["inputTokens"].empty()) {
+      inputTokens = make_shared<long>(boost::any_cast<long>(m["inputTokens"]));
+    }
+    if (m.find("outputTokens") != m.end() && !m["outputTokens"].empty()) {
+      outputTokens = make_shared<long>(boost::any_cast<long>(m["outputTokens"]));
+    }
+    if (m.find("totalTokens") != m.end() && !m["totalTokens"].empty()) {
+      totalTokens = make_shared<long>(boost::any_cast<long>(m["totalTokens"]));
+    }
+  }
+
+
+  virtual ~RunScriptChatResponseBodyPayloadUsage() = default;
+};
+class RunScriptChatResponseBodyPayload : public Darabonba::Model {
+public:
+  shared_ptr<RunScriptChatResponseBodyPayloadOutput> output{};
+  shared_ptr<RunScriptChatResponseBodyPayloadUsage> usage{};
+
+  RunScriptChatResponseBodyPayload() {}
+
+  explicit RunScriptChatResponseBodyPayload(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (output) {
+      res["output"] = output ? boost::any(output->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (usage) {
+      res["usage"] = usage ? boost::any(usage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("output") != m.end() && !m["output"].empty()) {
+      if (typeid(map<string, boost::any>) == m["output"].type()) {
+        RunScriptChatResponseBodyPayloadOutput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["output"]));
+        output = make_shared<RunScriptChatResponseBodyPayloadOutput>(model1);
+      }
+    }
+    if (m.find("usage") != m.end() && !m["usage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["usage"].type()) {
+        RunScriptChatResponseBodyPayloadUsage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["usage"]));
+        usage = make_shared<RunScriptChatResponseBodyPayloadUsage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunScriptChatResponseBodyPayload() = default;
+};
+class RunScriptChatResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> end{};
+  shared_ptr<RunScriptChatResponseBodyHeader> header{};
+  shared_ptr<RunScriptChatResponseBodyPayload> payload{};
+
+  RunScriptChatResponseBody() {}
+
+  explicit RunScriptChatResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (end) {
+      res["end"] = boost::any(*end);
+    }
+    if (header) {
+      res["header"] = header ? boost::any(header->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (payload) {
+      res["payload"] = payload ? boost::any(payload->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("end") != m.end() && !m["end"].empty()) {
+      end = make_shared<bool>(boost::any_cast<bool>(m["end"]));
+    }
+    if (m.find("header") != m.end() && !m["header"].empty()) {
+      if (typeid(map<string, boost::any>) == m["header"].type()) {
+        RunScriptChatResponseBodyHeader model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["header"]));
+        header = make_shared<RunScriptChatResponseBodyHeader>(model1);
+      }
+    }
+    if (m.find("payload") != m.end() && !m["payload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["payload"].type()) {
+        RunScriptChatResponseBodyPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["payload"]));
+        payload = make_shared<RunScriptChatResponseBodyPayload>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunScriptChatResponseBody() = default;
+};
+class RunScriptChatResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RunScriptChatResponseBody> body{};
+
+  RunScriptChatResponse() {}
+
+  explicit RunScriptChatResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RunScriptChatResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RunScriptChatResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunScriptChatResponse() = default;
+};
 class RunScriptContinueRequest : public Darabonba::Model {
 public:
   shared_ptr<string> scriptSummary{};
@@ -5450,6 +5790,379 @@ public:
 
 
   virtual ~RunScriptPlanningResponse() = default;
+};
+class RunScriptRefineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+
+  RunScriptRefineRequest() {}
+
+  explicit RunScriptRefineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+  }
+
+
+  virtual ~RunScriptRefineRequest() = default;
+};
+class RunScriptRefineResponseBodyHeader : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> event{};
+  shared_ptr<string> eventInfo{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> traceId{};
+
+  RunScriptRefineResponseBodyHeader() {}
+
+  explicit RunScriptRefineResponseBodyHeader(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (event) {
+      res["event"] = boost::any(*event);
+    }
+    if (eventInfo) {
+      res["eventInfo"] = boost::any(*eventInfo);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("event") != m.end() && !m["event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["event"]));
+    }
+    if (m.find("eventInfo") != m.end() && !m["eventInfo"].empty()) {
+      eventInfo = make_shared<string>(boost::any_cast<string>(m["eventInfo"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~RunScriptRefineResponseBodyHeader() = default;
+};
+class RunScriptRefineResponseBodyPayloadOutput : public Darabonba::Model {
+public:
+  shared_ptr<vector<map<string, string>>> content{};
+  shared_ptr<string> outline{};
+  shared_ptr<string> role{};
+  shared_ptr<string> scene{};
+  shared_ptr<string> summary{};
+  shared_ptr<string> text{};
+
+  RunScriptRefineResponseBodyPayloadOutput() {}
+
+  explicit RunScriptRefineResponseBodyPayloadOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (outline) {
+      res["outline"] = boost::any(*outline);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    if (scene) {
+      res["scene"] = boost::any(*scene);
+    }
+    if (summary) {
+      res["summary"] = boost::any(*summary);
+    }
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      vector<map<string, string>> toVec1;
+      if (typeid(vector<boost::any>) == m["content"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["content"]);
+        for (auto item:vec1) {
+          map<string, string> map2 = boost::any_cast<map<string, string>>(item);
+          map<string, string> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      content = make_shared<vector<map<string, string>>>(toVec1);
+    }
+    if (m.find("outline") != m.end() && !m["outline"].empty()) {
+      outline = make_shared<string>(boost::any_cast<string>(m["outline"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+    if (m.find("scene") != m.end() && !m["scene"].empty()) {
+      scene = make_shared<string>(boost::any_cast<string>(m["scene"]));
+    }
+    if (m.find("summary") != m.end() && !m["summary"].empty()) {
+      summary = make_shared<string>(boost::any_cast<string>(m["summary"]));
+    }
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+  }
+
+
+  virtual ~RunScriptRefineResponseBodyPayloadOutput() = default;
+};
+class RunScriptRefineResponseBodyPayloadUsage : public Darabonba::Model {
+public:
+  shared_ptr<long> inputTokens{};
+  shared_ptr<long> outputTokens{};
+  shared_ptr<long> totalTokens{};
+
+  RunScriptRefineResponseBodyPayloadUsage() {}
+
+  explicit RunScriptRefineResponseBodyPayloadUsage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inputTokens) {
+      res["inputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["outputTokens"] = boost::any(*outputTokens);
+    }
+    if (totalTokens) {
+      res["totalTokens"] = boost::any(*totalTokens);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("inputTokens") != m.end() && !m["inputTokens"].empty()) {
+      inputTokens = make_shared<long>(boost::any_cast<long>(m["inputTokens"]));
+    }
+    if (m.find("outputTokens") != m.end() && !m["outputTokens"].empty()) {
+      outputTokens = make_shared<long>(boost::any_cast<long>(m["outputTokens"]));
+    }
+    if (m.find("totalTokens") != m.end() && !m["totalTokens"].empty()) {
+      totalTokens = make_shared<long>(boost::any_cast<long>(m["totalTokens"]));
+    }
+  }
+
+
+  virtual ~RunScriptRefineResponseBodyPayloadUsage() = default;
+};
+class RunScriptRefineResponseBodyPayload : public Darabonba::Model {
+public:
+  shared_ptr<RunScriptRefineResponseBodyPayloadOutput> output{};
+  shared_ptr<RunScriptRefineResponseBodyPayloadUsage> usage{};
+
+  RunScriptRefineResponseBodyPayload() {}
+
+  explicit RunScriptRefineResponseBodyPayload(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (output) {
+      res["output"] = output ? boost::any(output->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (usage) {
+      res["usage"] = usage ? boost::any(usage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("output") != m.end() && !m["output"].empty()) {
+      if (typeid(map<string, boost::any>) == m["output"].type()) {
+        RunScriptRefineResponseBodyPayloadOutput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["output"]));
+        output = make_shared<RunScriptRefineResponseBodyPayloadOutput>(model1);
+      }
+    }
+    if (m.find("usage") != m.end() && !m["usage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["usage"].type()) {
+        RunScriptRefineResponseBodyPayloadUsage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["usage"]));
+        usage = make_shared<RunScriptRefineResponseBodyPayloadUsage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunScriptRefineResponseBodyPayload() = default;
+};
+class RunScriptRefineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> end{};
+  shared_ptr<RunScriptRefineResponseBodyHeader> header{};
+  shared_ptr<RunScriptRefineResponseBodyPayload> payload{};
+
+  RunScriptRefineResponseBody() {}
+
+  explicit RunScriptRefineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (end) {
+      res["end"] = boost::any(*end);
+    }
+    if (header) {
+      res["header"] = header ? boost::any(header->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (payload) {
+      res["payload"] = payload ? boost::any(payload->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("end") != m.end() && !m["end"].empty()) {
+      end = make_shared<bool>(boost::any_cast<bool>(m["end"]));
+    }
+    if (m.find("header") != m.end() && !m["header"].empty()) {
+      if (typeid(map<string, boost::any>) == m["header"].type()) {
+        RunScriptRefineResponseBodyHeader model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["header"]));
+        header = make_shared<RunScriptRefineResponseBodyHeader>(model1);
+      }
+    }
+    if (m.find("payload") != m.end() && !m["payload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["payload"].type()) {
+        RunScriptRefineResponseBodyPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["payload"]));
+        payload = make_shared<RunScriptRefineResponseBodyPayload>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunScriptRefineResponseBody() = default;
+};
+class RunScriptRefineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RunScriptRefineResponseBody> body{};
+
+  RunScriptRefineResponse() {}
+
+  explicit RunScriptRefineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RunScriptRefineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RunScriptRefineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunScriptRefineResponse() = default;
 };
 class RunStyleWritingRequest : public Darabonba::Model {
 public:
@@ -7641,6 +8354,7 @@ public:
 };
 class RunVideoAnalysisResponseBodyPayloadOutput : public Darabonba::Model {
 public:
+  shared_ptr<string> resultJsonFileUrl{};
   shared_ptr<RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult> videoAnalysisResult{};
   shared_ptr<RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult> videoCaptionResult{};
   shared_ptr<RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult> videoGenerateResult{};
@@ -7658,6 +8372,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (resultJsonFileUrl) {
+      res["resultJsonFileUrl"] = boost::any(*resultJsonFileUrl);
+    }
     if (videoAnalysisResult) {
       res["videoAnalysisResult"] = videoAnalysisResult ? boost::any(videoAnalysisResult->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -7680,6 +8397,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("resultJsonFileUrl") != m.end() && !m["resultJsonFileUrl"].empty()) {
+      resultJsonFileUrl = make_shared<string>(boost::any_cast<string>(m["resultJsonFileUrl"]));
+    }
     if (m.find("videoAnalysisResult") != m.end() && !m["videoAnalysisResult"].empty()) {
       if (typeid(map<string, boost::any>) == m["videoAnalysisResult"].type()) {
         RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult model1;
@@ -8586,6 +9306,11 @@ public:
                                                                                    shared_ptr<map<string, string>> headers,
                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunMarketingInformationWritingResponse runMarketingInformationWriting(shared_ptr<string> workspaceId, shared_ptr<RunMarketingInformationWritingRequest> request);
+  RunScriptChatResponse runScriptChatWithOptions(shared_ptr<string> workspaceId,
+                                                 shared_ptr<RunScriptChatRequest> request,
+                                                 shared_ptr<map<string, string>> headers,
+                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RunScriptChatResponse runScriptChat(shared_ptr<string> workspaceId, shared_ptr<RunScriptChatRequest> request);
   RunScriptContinueResponse runScriptContinueWithOptions(shared_ptr<string> workspaceId,
                                                          shared_ptr<RunScriptContinueRequest> request,
                                                          shared_ptr<map<string, string>> headers,
@@ -8596,6 +9321,11 @@ public:
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunScriptPlanningResponse runScriptPlanning(shared_ptr<string> workspaceId, shared_ptr<RunScriptPlanningRequest> request);
+  RunScriptRefineResponse runScriptRefineWithOptions(shared_ptr<string> workspaceId,
+                                                     shared_ptr<RunScriptRefineRequest> request,
+                                                     shared_ptr<map<string, string>> headers,
+                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RunScriptRefineResponse runScriptRefine(shared_ptr<string> workspaceId, shared_ptr<RunScriptRefineRequest> request);
   RunStyleWritingResponse runStyleWritingWithOptions(shared_ptr<string> workspaceId,
                                                      shared_ptr<RunStyleWritingRequest> tmpReq,
                                                      shared_ptr<map<string, string>> headers,

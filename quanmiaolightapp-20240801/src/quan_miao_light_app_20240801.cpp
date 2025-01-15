@@ -447,6 +447,42 @@ RunMarketingInformationWritingResponse Alibabacloud_QuanMiaoLightApp20240801::Cl
   return runMarketingInformationWritingWithOptions(workspaceId, request, headers, runtime);
 }
 
+RunScriptChatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScriptChatWithOptions(shared_ptr<string> workspaceId,
+                                                                                              shared_ptr<RunScriptChatRequest> request,
+                                                                                              shared_ptr<map<string, string>> headers,
+                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
+    body->insert(pair<string, string>("prompt", *request->prompt));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunScriptChat"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/runScriptChat"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunScriptChatResponse(callApi(params, req, runtime));
+}
+
+RunScriptChatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScriptChat(shared_ptr<string> workspaceId, shared_ptr<RunScriptChatRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runScriptChatWithOptions(workspaceId, request, headers, runtime);
+}
+
 RunScriptContinueResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScriptContinueWithOptions(shared_ptr<string> workspaceId,
                                                                                                       shared_ptr<RunScriptContinueRequest> request,
                                                                                                       shared_ptr<map<string, string>> headers,
@@ -535,6 +571,39 @@ RunScriptPlanningResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScri
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return runScriptPlanningWithOptions(workspaceId, request, headers, runtime);
+}
+
+RunScriptRefineResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScriptRefineWithOptions(shared_ptr<string> workspaceId,
+                                                                                                  shared_ptr<RunScriptRefineRequest> request,
+                                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("taskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunScriptRefine"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/runScriptRefine"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunScriptRefineResponse(callApi(params, req, runtime));
+}
+
+RunScriptRefineResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScriptRefine(shared_ptr<string> workspaceId, shared_ptr<RunScriptRefineRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runScriptRefineWithOptions(workspaceId, request, headers, runtime);
 }
 
 RunStyleWritingResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runStyleWritingWithOptions(shared_ptr<string> workspaceId,
