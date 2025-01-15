@@ -2937,6 +2937,7 @@ public:
   shared_ptr<string> memberFlow{};
   shared_ptr<string> regionFlow{};
   shared_ptr<long> time{};
+  shared_ptr<long> totalBillFlow{};
   shared_ptr<long> totalFlow{};
 
   DescribeDdosOriginInstanceBillResponseBodyFlowList() {}
@@ -2958,6 +2959,9 @@ public:
     if (time) {
       res["Time"] = boost::any(*time);
     }
+    if (totalBillFlow) {
+      res["TotalBillFlow"] = boost::any(*totalBillFlow);
+    }
     if (totalFlow) {
       res["TotalFlow"] = boost::any(*totalFlow);
     }
@@ -2973,6 +2977,9 @@ public:
     }
     if (m.find("Time") != m.end() && !m["Time"].empty()) {
       time = make_shared<long>(boost::any_cast<long>(m["Time"]));
+    }
+    if (m.find("TotalBillFlow") != m.end() && !m["TotalBillFlow"].empty()) {
+      totalBillFlow = make_shared<long>(boost::any_cast<long>(m["TotalBillFlow"]));
     }
     if (m.find("TotalFlow") != m.end() && !m["TotalFlow"].empty()) {
       totalFlow = make_shared<long>(boost::any_cast<long>(m["TotalFlow"]));
