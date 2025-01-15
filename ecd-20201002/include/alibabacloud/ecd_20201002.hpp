@@ -2386,6 +2386,8 @@ public:
   shared_ptr<string> desktopId{};
   shared_ptr<string> progress{};
   shared_ptr<long> remainTime{};
+  shared_ptr<string> restorePointId{};
+  shared_ptr<string> restorePointName{};
   shared_ptr<string> snapshotId{};
   shared_ptr<string> snapshotName{};
   shared_ptr<string> snapshotType{};
@@ -2417,6 +2419,12 @@ public:
     }
     if (remainTime) {
       res["RemainTime"] = boost::any(*remainTime);
+    }
+    if (restorePointId) {
+      res["RestorePointId"] = boost::any(*restorePointId);
+    }
+    if (restorePointName) {
+      res["RestorePointName"] = boost::any(*restorePointName);
     }
     if (snapshotId) {
       res["SnapshotId"] = boost::any(*snapshotId);
@@ -2454,6 +2462,12 @@ public:
     }
     if (m.find("RemainTime") != m.end() && !m["RemainTime"].empty()) {
       remainTime = make_shared<long>(boost::any_cast<long>(m["RemainTime"]));
+    }
+    if (m.find("RestorePointId") != m.end() && !m["RestorePointId"].empty()) {
+      restorePointId = make_shared<string>(boost::any_cast<string>(m["RestorePointId"]));
+    }
+    if (m.find("RestorePointName") != m.end() && !m["RestorePointName"].empty()) {
+      restorePointName = make_shared<string>(boost::any_cast<string>(m["RestorePointName"]));
     }
     if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
       snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
@@ -4790,6 +4804,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> snapshotId{};
+  shared_ptr<bool> stopDesktop{};
 
   ResetSnapshotRequest() {}
 
@@ -4819,6 +4834,9 @@ public:
     if (snapshotId) {
       res["SnapshotId"] = boost::any(*snapshotId);
     }
+    if (stopDesktop) {
+      res["StopDesktop"] = boost::any(*stopDesktop);
+    }
     return res;
   }
 
@@ -4840,6 +4858,9 @@ public:
     }
     if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
       snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
+    }
+    if (m.find("StopDesktop") != m.end() && !m["StopDesktop"].empty()) {
+      stopDesktop = make_shared<bool>(boost::any_cast<bool>(m["StopDesktop"]));
     }
   }
 
