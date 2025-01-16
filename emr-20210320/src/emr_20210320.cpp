@@ -250,6 +250,9 @@ CreateScriptResponse Alibabacloud_Emr20210320::Client::createScriptWithOptions(s
   if (!Darabonba_Util::Client::isUnset<vector<Script>>(request->scripts)) {
     query->insert(pair<string, vector<Script>>("Scripts", *request->scripts));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeoutSecs)) {
+    query->insert(pair<string, string>("TimeoutSecs", *request->timeoutSecs));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2407,8 +2410,17 @@ ListScriptsResponse Alibabacloud_Emr20210320::Client::listScriptsWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scriptId)) {
+    query->insert(pair<string, string>("ScriptId", *request->scriptId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scriptName)) {
+    query->insert(pair<string, string>("ScriptName", *request->scriptName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->scriptType)) {
     query->insert(pair<string, string>("ScriptType", *request->scriptType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->statuses)) {
+    query->insert(pair<string, vector<string>>("Statuses", *request->statuses));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

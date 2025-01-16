@@ -1745,20 +1745,20 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (maxCapacity) {
-      res["maxCapacity"] = boost::any(*maxCapacity);
+      res["MaxCapacity"] = boost::any(*maxCapacity);
     }
     if (minCapacity) {
-      res["minCapacity"] = boost::any(*minCapacity);
+      res["MinCapacity"] = boost::any(*minCapacity);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("maxCapacity") != m.end() && !m["maxCapacity"].empty()) {
-      maxCapacity = make_shared<long>(boost::any_cast<long>(m["maxCapacity"]));
+    if (m.find("MaxCapacity") != m.end() && !m["MaxCapacity"].empty()) {
+      maxCapacity = make_shared<long>(boost::any_cast<long>(m["MaxCapacity"]));
     }
-    if (m.find("minCapacity") != m.end() && !m["minCapacity"].empty()) {
-      minCapacity = make_shared<long>(boost::any_cast<long>(m["minCapacity"]));
+    if (m.find("MinCapacity") != m.end() && !m["MinCapacity"].empty()) {
+      minCapacity = make_shared<long>(boost::any_cast<long>(m["MinCapacity"]));
     }
   }
 
@@ -1781,30 +1781,30 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (constraints) {
-      res["constraints"] = constraints ? boost::any(constraints->toMap()) : boost::any(map<string,boost::any>({}));
+      res["Constraints"] = constraints ? boost::any(constraints->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (scalingRules) {
       vector<boost::any> temp1;
       for(auto item1:*scalingRules){
         temp1.push_back(boost::any(item1.toMap()));
       }
-      res["scalingRules"] = boost::any(temp1);
+      res["ScalingRules"] = boost::any(temp1);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("constraints") != m.end() && !m["constraints"].empty()) {
-      if (typeid(map<string, boost::any>) == m["constraints"].type()) {
+    if (m.find("Constraints") != m.end() && !m["Constraints"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Constraints"].type()) {
         AutoScalingPolicyConstraints model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["constraints"]));
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Constraints"]));
         constraints = make_shared<AutoScalingPolicyConstraints>(model1);
       }
     }
-    if (m.find("scalingRules") != m.end() && !m["scalingRules"].empty()) {
-      if (typeid(vector<boost::any>) == m["scalingRules"].type()) {
+    if (m.find("ScalingRules") != m.end() && !m["ScalingRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["ScalingRules"].type()) {
         vector<ScalingRule> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["scalingRules"])){
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ScalingRules"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
             ScalingRule model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
@@ -8684,6 +8684,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> scriptType{};
   shared_ptr<vector<Script>> scripts{};
+  shared_ptr<string> timeoutSecs{};
 
   CreateScriptRequest() {}
 
@@ -8711,6 +8712,9 @@ public:
       }
       res["Scripts"] = boost::any(temp1);
     }
+    if (timeoutSecs) {
+      res["TimeoutSecs"] = boost::any(*timeoutSecs);
+    }
     return res;
   }
 
@@ -8736,6 +8740,9 @@ public:
         }
         scripts = make_shared<vector<Script>>(expect1);
       }
+    }
+    if (m.find("TimeoutSecs") != m.end() && !m["TimeoutSecs"].empty()) {
+      timeoutSecs = make_shared<string>(boost::any_cast<string>(m["TimeoutSecs"]));
     }
   }
 
@@ -10801,6 +10808,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConstraints> constraints{};
   shared_ptr<string> nodeGroupId{};
+  shared_ptr<string> nodeGroupName{};
   shared_ptr<string> scalingPolicyId{};
   shared_ptr<string> scalingPolicyType{};
   shared_ptr<vector<GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesScalingRules>> scalingRules{};
@@ -10823,6 +10831,9 @@ public:
     }
     if (nodeGroupId) {
       res["NodeGroupId"] = boost::any(*nodeGroupId);
+    }
+    if (nodeGroupName) {
+      res["NodeGroupName"] = boost::any(*nodeGroupName);
     }
     if (scalingPolicyId) {
       res["ScalingPolicyId"] = boost::any(*scalingPolicyId);
@@ -10853,6 +10864,9 @@ public:
     }
     if (m.find("NodeGroupId") != m.end() && !m["NodeGroupId"].empty()) {
       nodeGroupId = make_shared<string>(boost::any_cast<string>(m["NodeGroupId"]));
+    }
+    if (m.find("NodeGroupName") != m.end() && !m["NodeGroupName"].empty()) {
+      nodeGroupName = make_shared<string>(boost::any_cast<string>(m["NodeGroupName"]));
     }
     if (m.find("ScalingPolicyId") != m.end() && !m["ScalingPolicyId"].empty()) {
       scalingPolicyId = make_shared<string>(boost::any_cast<string>(m["ScalingPolicyId"]));
@@ -49828,7 +49842,10 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> scriptId{};
+  shared_ptr<string> scriptName{};
   shared_ptr<string> scriptType{};
+  shared_ptr<vector<string>> statuses{};
 
   ListScriptsRequest() {}
 
@@ -49852,8 +49869,17 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (scriptId) {
+      res["ScriptId"] = boost::any(*scriptId);
+    }
+    if (scriptName) {
+      res["ScriptName"] = boost::any(*scriptName);
+    }
     if (scriptType) {
       res["ScriptType"] = boost::any(*scriptType);
+    }
+    if (statuses) {
+      res["Statuses"] = boost::any(*statuses);
     }
     return res;
   }
@@ -49871,8 +49897,24 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ScriptId") != m.end() && !m["ScriptId"].empty()) {
+      scriptId = make_shared<string>(boost::any_cast<string>(m["ScriptId"]));
+    }
+    if (m.find("ScriptName") != m.end() && !m["ScriptName"].empty()) {
+      scriptName = make_shared<string>(boost::any_cast<string>(m["ScriptName"]));
+    }
     if (m.find("ScriptType") != m.end() && !m["ScriptType"].empty()) {
       scriptType = make_shared<string>(boost::any_cast<string>(m["ScriptType"]));
+    }
+    if (m.find("Statuses") != m.end() && !m["Statuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Statuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Statuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      statuses = make_shared<vector<string>>(toVec1);
     }
   }
 
