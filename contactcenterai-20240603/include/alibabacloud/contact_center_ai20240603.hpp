@@ -1332,9 +1332,11 @@ public:
 };
 class CreateTaskRequestTranscription : public Darabonba::Model {
 public:
+  shared_ptr<string> asrModelCode{};
   shared_ptr<long> autoSplit{};
   shared_ptr<long> clientChannel{};
   shared_ptr<string> fileName{};
+  shared_ptr<string> level{};
   shared_ptr<long> serviceChannel{};
   shared_ptr<vector<string>> serviceChannelKeywords{};
   shared_ptr<string> voiceFileUrl{};
@@ -1349,6 +1351,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (asrModelCode) {
+      res["asrModelCode"] = boost::any(*asrModelCode);
+    }
     if (autoSplit) {
       res["autoSplit"] = boost::any(*autoSplit);
     }
@@ -1357,6 +1362,9 @@ public:
     }
     if (fileName) {
       res["fileName"] = boost::any(*fileName);
+    }
+    if (level) {
+      res["level"] = boost::any(*level);
     }
     if (serviceChannel) {
       res["serviceChannel"] = boost::any(*serviceChannel);
@@ -1371,6 +1379,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("asrModelCode") != m.end() && !m["asrModelCode"].empty()) {
+      asrModelCode = make_shared<string>(boost::any_cast<string>(m["asrModelCode"]));
+    }
     if (m.find("autoSplit") != m.end() && !m["autoSplit"].empty()) {
       autoSplit = make_shared<long>(boost::any_cast<long>(m["autoSplit"]));
     }
@@ -1379,6 +1390,9 @@ public:
     }
     if (m.find("fileName") != m.end() && !m["fileName"].empty()) {
       fileName = make_shared<string>(boost::any_cast<string>(m["fileName"]));
+    }
+    if (m.find("level") != m.end() && !m["level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["level"]));
     }
     if (m.find("serviceChannel") != m.end() && !m["serviceChannel"].empty()) {
       serviceChannel = make_shared<long>(boost::any_cast<long>(m["serviceChannel"]));
@@ -1804,6 +1818,7 @@ public:
 class GetTaskResultResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<GetTaskResultResponseBodyDataAsrResult>> asrResult{};
+  shared_ptr<string> extra{};
   shared_ptr<string> taskErrorMessage{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskStatus{};
@@ -1825,6 +1840,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["asrResult"] = boost::any(temp1);
+    }
+    if (extra) {
+      res["extra"] = boost::any(*extra);
     }
     if (taskErrorMessage) {
       res["taskErrorMessage"] = boost::any(*taskErrorMessage);
@@ -1854,6 +1872,9 @@ public:
         }
         asrResult = make_shared<vector<GetTaskResultResponseBodyDataAsrResult>>(expect1);
       }
+    }
+    if (m.find("extra") != m.end() && !m["extra"].empty()) {
+      extra = make_shared<string>(boost::any_cast<string>(m["extra"]));
     }
     if (m.find("taskErrorMessage") != m.end() && !m["taskErrorMessage"].empty()) {
       taskErrorMessage = make_shared<string>(boost::any_cast<string>(m["taskErrorMessage"]));
