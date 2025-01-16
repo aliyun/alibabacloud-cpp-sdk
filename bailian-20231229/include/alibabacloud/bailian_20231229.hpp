@@ -9766,7 +9766,7 @@ public:
   shared_ptr<string> answerScope{};
   shared_ptr<bool> enableCitation{};
   shared_ptr<bool> enableSearch{};
-  shared_ptr<string> enableWebSearch{};
+  shared_ptr<bool> enableWebSearch{};
   shared_ptr<string> fixedReplyDetail{};
   shared_ptr<vector<string>> knowledgeBaseCodeList{};
   shared_ptr<string> promptStrategy{};
@@ -9836,7 +9836,7 @@ public:
       enableSearch = make_shared<bool>(boost::any_cast<bool>(m["enableSearch"]));
     }
     if (m.find("enableWebSearch") != m.end() && !m["enableWebSearch"].empty()) {
-      enableWebSearch = make_shared<string>(boost::any_cast<string>(m["enableWebSearch"]));
+      enableWebSearch = make_shared<bool>(boost::any_cast<bool>(m["enableWebSearch"]));
     }
     if (m.find("fixedReplyDetail") != m.end() && !m["fixedReplyDetail"].empty()) {
       fixedReplyDetail = make_shared<string>(boost::any_cast<string>(m["fixedReplyDetail"]));
