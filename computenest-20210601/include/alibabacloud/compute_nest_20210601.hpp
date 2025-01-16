@@ -6318,6 +6318,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
   shared_ptr<string> serviceInstanceId{};
+  shared_ptr<string> sortOrder{};
 
   ListServiceInstanceLogsRequest() {}
 
@@ -6354,6 +6355,9 @@ public:
     if (serviceInstanceId) {
       res["ServiceInstanceId"] = boost::any(*serviceInstanceId);
     }
+    if (sortOrder) {
+      res["SortOrder"] = boost::any(*sortOrder);
+    }
     return res;
   }
 
@@ -6388,6 +6392,9 @@ public:
     }
     if (m.find("ServiceInstanceId") != m.end() && !m["ServiceInstanceId"].empty()) {
       serviceInstanceId = make_shared<string>(boost::any_cast<string>(m["ServiceInstanceId"]));
+    }
+    if (m.find("SortOrder") != m.end() && !m["SortOrder"].empty()) {
+      sortOrder = make_shared<string>(boost::any_cast<string>(m["SortOrder"]));
     }
   }
 

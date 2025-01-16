@@ -747,6 +747,9 @@ ListServiceInstanceLogsResponse Alibabacloud_ComputeNest20210601::Client::listSe
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceInstanceId)) {
     query->insert(pair<string, string>("ServiceInstanceId", *request->serviceInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortOrder)) {
+    query->insert(pair<string, string>("SortOrder", *request->sortOrder));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
