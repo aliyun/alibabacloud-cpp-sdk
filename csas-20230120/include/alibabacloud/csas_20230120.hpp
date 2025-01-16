@@ -3503,9 +3503,13 @@ public:
 };
 class CreateWmEmbedTaskRequestCsvControl : public Darabonba::Model {
 public:
+  shared_ptr<long> embedBitsNumberInEachTime{};
   shared_ptr<long> embedColumn{};
+  shared_ptr<string> embedDensity{};
   shared_ptr<long> embedPrecision{};
+  shared_ptr<string> embedTimePosition{};
   shared_ptr<string> method{};
+  shared_ptr<string> timeFormat{};
 
   CreateWmEmbedTaskRequestCsvControl() {}
 
@@ -3517,27 +3521,51 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (embedBitsNumberInEachTime) {
+      res["EmbedBitsNumberInEachTime"] = boost::any(*embedBitsNumberInEachTime);
+    }
     if (embedColumn) {
       res["EmbedColumn"] = boost::any(*embedColumn);
+    }
+    if (embedDensity) {
+      res["EmbedDensity"] = boost::any(*embedDensity);
     }
     if (embedPrecision) {
       res["EmbedPrecision"] = boost::any(*embedPrecision);
     }
+    if (embedTimePosition) {
+      res["EmbedTimePosition"] = boost::any(*embedTimePosition);
+    }
     if (method) {
       res["Method"] = boost::any(*method);
+    }
+    if (timeFormat) {
+      res["TimeFormat"] = boost::any(*timeFormat);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EmbedBitsNumberInEachTime") != m.end() && !m["EmbedBitsNumberInEachTime"].empty()) {
+      embedBitsNumberInEachTime = make_shared<long>(boost::any_cast<long>(m["EmbedBitsNumberInEachTime"]));
+    }
     if (m.find("EmbedColumn") != m.end() && !m["EmbedColumn"].empty()) {
       embedColumn = make_shared<long>(boost::any_cast<long>(m["EmbedColumn"]));
+    }
+    if (m.find("EmbedDensity") != m.end() && !m["EmbedDensity"].empty()) {
+      embedDensity = make_shared<string>(boost::any_cast<string>(m["EmbedDensity"]));
     }
     if (m.find("EmbedPrecision") != m.end() && !m["EmbedPrecision"].empty()) {
       embedPrecision = make_shared<long>(boost::any_cast<long>(m["EmbedPrecision"]));
     }
+    if (m.find("EmbedTimePosition") != m.end() && !m["EmbedTimePosition"].empty()) {
+      embedTimePosition = make_shared<string>(boost::any_cast<string>(m["EmbedTimePosition"]));
+    }
     if (m.find("Method") != m.end() && !m["Method"].empty()) {
       method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("TimeFormat") != m.end() && !m["TimeFormat"].empty()) {
+      timeFormat = make_shared<string>(boost::any_cast<string>(m["TimeFormat"]));
     }
   }
 
@@ -4113,9 +4141,12 @@ public:
 };
 class CreateWmExtractTaskRequestCsvControl : public Darabonba::Model {
 public:
+  shared_ptr<long> embedBitsNumberInEachTime{};
   shared_ptr<long> embedColumn{};
   shared_ptr<long> embedPrecision{};
+  shared_ptr<string> embedTimePosition{};
   shared_ptr<string> method{};
+  shared_ptr<string> timeFormat{};
 
   CreateWmExtractTaskRequestCsvControl() {}
 
@@ -4127,27 +4158,45 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (embedBitsNumberInEachTime) {
+      res["EmbedBitsNumberInEachTime"] = boost::any(*embedBitsNumberInEachTime);
+    }
     if (embedColumn) {
       res["EmbedColumn"] = boost::any(*embedColumn);
     }
     if (embedPrecision) {
       res["EmbedPrecision"] = boost::any(*embedPrecision);
     }
+    if (embedTimePosition) {
+      res["EmbedTimePosition"] = boost::any(*embedTimePosition);
+    }
     if (method) {
       res["Method"] = boost::any(*method);
+    }
+    if (timeFormat) {
+      res["TimeFormat"] = boost::any(*timeFormat);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EmbedBitsNumberInEachTime") != m.end() && !m["EmbedBitsNumberInEachTime"].empty()) {
+      embedBitsNumberInEachTime = make_shared<long>(boost::any_cast<long>(m["EmbedBitsNumberInEachTime"]));
+    }
     if (m.find("EmbedColumn") != m.end() && !m["EmbedColumn"].empty()) {
       embedColumn = make_shared<long>(boost::any_cast<long>(m["EmbedColumn"]));
     }
     if (m.find("EmbedPrecision") != m.end() && !m["EmbedPrecision"].empty()) {
       embedPrecision = make_shared<long>(boost::any_cast<long>(m["EmbedPrecision"]));
     }
+    if (m.find("EmbedTimePosition") != m.end() && !m["EmbedTimePosition"].empty()) {
+      embedTimePosition = make_shared<string>(boost::any_cast<string>(m["EmbedTimePosition"]));
+    }
     if (m.find("Method") != m.end() && !m["Method"].empty()) {
       method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("TimeFormat") != m.end() && !m["TimeFormat"].empty()) {
+      timeFormat = make_shared<string>(boost::any_cast<string>(m["TimeFormat"]));
     }
   }
 
@@ -9828,6 +9877,7 @@ public:
   shared_ptr<string> deviceVersion{};
   shared_ptr<string> disk{};
   shared_ptr<string> dlpStatus{};
+  shared_ptr<string> edrStatus{};
   shared_ptr<vector<GetUserDeviceResponseBodyDeviceHistoryUsers>> historyUsers{};
   shared_ptr<string> hostname{};
   shared_ptr<string> iaStatus{};
@@ -9891,6 +9941,9 @@ public:
     }
     if (dlpStatus) {
       res["DlpStatus"] = boost::any(*dlpStatus);
+    }
+    if (edrStatus) {
+      res["EdrStatus"] = boost::any(*edrStatus);
     }
     if (historyUsers) {
       vector<boost::any> temp1;
@@ -9984,6 +10037,9 @@ public:
     }
     if (m.find("DlpStatus") != m.end() && !m["DlpStatus"].empty()) {
       dlpStatus = make_shared<string>(boost::any_cast<string>(m["DlpStatus"]));
+    }
+    if (m.find("EdrStatus") != m.end() && !m["EdrStatus"].empty()) {
+      edrStatus = make_shared<string>(boost::any_cast<string>(m["EdrStatus"]));
     }
     if (m.find("HistoryUsers") != m.end() && !m["HistoryUsers"].empty()) {
       if (typeid(vector<boost::any>) == m["HistoryUsers"].type()) {
@@ -20648,6 +20704,7 @@ public:
 class ListUserDevicesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> appStatuses{};
+  shared_ptr<vector<string>> appVersions{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> department{};
   shared_ptr<string> deviceBelong{};
@@ -20679,6 +20736,9 @@ public:
     map<string, boost::any> res;
     if (appStatuses) {
       res["AppStatuses"] = boost::any(*appStatuses);
+    }
+    if (appVersions) {
+      res["AppVersions"] = boost::any(*appVersions);
     }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
@@ -20747,6 +20807,16 @@ public:
         }
       }
       appStatuses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AppVersions") != m.end() && !m["AppVersions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AppVersions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AppVersions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      appVersions = make_shared<vector<string>>(toVec1);
     }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
@@ -20907,6 +20977,7 @@ public:
   shared_ptr<string> deviceVersion{};
   shared_ptr<string> disk{};
   shared_ptr<string> dlpStatus{};
+  shared_ptr<string> edrStatus{};
   shared_ptr<string> hostname{};
   shared_ptr<string> iaStatus{};
   shared_ptr<string> innerIP{};
@@ -20969,6 +21040,9 @@ public:
     }
     if (dlpStatus) {
       res["DlpStatus"] = boost::any(*dlpStatus);
+    }
+    if (edrStatus) {
+      res["EdrStatus"] = boost::any(*edrStatus);
     }
     if (hostname) {
       res["Hostname"] = boost::any(*hostname);
@@ -21055,6 +21129,9 @@ public:
     }
     if (m.find("DlpStatus") != m.end() && !m["DlpStatus"].empty()) {
       dlpStatus = make_shared<string>(boost::any_cast<string>(m["DlpStatus"]));
+    }
+    if (m.find("EdrStatus") != m.end() && !m["EdrStatus"].empty()) {
+      edrStatus = make_shared<string>(boost::any_cast<string>(m["EdrStatus"]));
     }
     if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
       hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
