@@ -4745,6 +4745,8 @@ public:
 };
 class AssociateVpcCidrBlockResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> cidrBlock{};
+  shared_ptr<string> ipVersion{};
   shared_ptr<string> requestId{};
 
   AssociateVpcCidrBlockResponseBody() {}
@@ -4757,6 +4759,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cidrBlock) {
+      res["CidrBlock"] = boost::any(*cidrBlock);
+    }
+    if (ipVersion) {
+      res["IpVersion"] = boost::any(*ipVersion);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -4764,6 +4772,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrBlock") != m.end() && !m["CidrBlock"].empty()) {
+      cidrBlock = make_shared<string>(boost::any_cast<string>(m["CidrBlock"]));
+    }
+    if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
+      ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
