@@ -2277,3 +2277,34 @@ UpdateMessageContactResponse Alibabacloud_ResourceDirectoryMaster20220419::Clien
   return updateMessageContactWithOptions(request, runtime);
 }
 
+UpdatePayerForAccountResponse Alibabacloud_ResourceDirectoryMaster20220419::Client::updatePayerForAccountWithOptions(shared_ptr<UpdatePayerForAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("AccountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->payerAccountId)) {
+    query->insert(pair<string, string>("PayerAccountId", *request->payerAccountId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdatePayerForAccount"))},
+    {"version", boost::any(string("2022-04-19"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdatePayerForAccountResponse(callApi(params, req, runtime));
+}
+
+UpdatePayerForAccountResponse Alibabacloud_ResourceDirectoryMaster20220419::Client::updatePayerForAccount(shared_ptr<UpdatePayerForAccountRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updatePayerForAccountWithOptions(request, runtime);
+}
+
