@@ -251,6 +251,7 @@ public:
   shared_ptr<long> userOfflineTimeout{};
   shared_ptr<long> userOnlineTimeout{};
   shared_ptr<string> voiceId{};
+  shared_ptr<vector<string>> voiceIdList{};
   shared_ptr<string> voiceprintId{};
   shared_ptr<long> volume{};
   shared_ptr<string> wakeUpQuery{};
@@ -314,6 +315,9 @@ public:
     }
     if (voiceId) {
       res["VoiceId"] = boost::any(*voiceId);
+    }
+    if (voiceIdList) {
+      res["VoiceIdList"] = boost::any(*voiceIdList);
     }
     if (voiceprintId) {
       res["VoiceprintId"] = boost::any(*voiceprintId);
@@ -386,6 +390,16 @@ public:
     if (m.find("VoiceId") != m.end() && !m["VoiceId"].empty()) {
       voiceId = make_shared<string>(boost::any_cast<string>(m["VoiceId"]));
     }
+    if (m.find("VoiceIdList") != m.end() && !m["VoiceIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VoiceIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VoiceIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      voiceIdList = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("VoiceprintId") != m.end() && !m["VoiceprintId"].empty()) {
       voiceprintId = make_shared<string>(boost::any_cast<string>(m["VoiceprintId"]));
     }
@@ -455,6 +469,7 @@ public:
   shared_ptr<long> userOfflineTimeout{};
   shared_ptr<long> userOnlineTimeout{};
   shared_ptr<string> voiceId{};
+  shared_ptr<vector<string>> voiceIdList{};
   shared_ptr<string> voiceprintId{};
   shared_ptr<long> volume{};
   shared_ptr<string> wakeUpQuery{};
@@ -515,6 +530,9 @@ public:
     }
     if (voiceId) {
       res["VoiceId"] = boost::any(*voiceId);
+    }
+    if (voiceIdList) {
+      res["VoiceIdList"] = boost::any(*voiceIdList);
     }
     if (voiceprintId) {
       res["VoiceprintId"] = boost::any(*voiceprintId);
@@ -583,6 +601,16 @@ public:
     }
     if (m.find("VoiceId") != m.end() && !m["VoiceId"].empty()) {
       voiceId = make_shared<string>(boost::any_cast<string>(m["VoiceId"]));
+    }
+    if (m.find("VoiceIdList") != m.end() && !m["VoiceIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VoiceIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VoiceIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      voiceIdList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("VoiceprintId") != m.end() && !m["VoiceprintId"].empty()) {
       voiceprintId = make_shared<string>(boost::any_cast<string>(m["VoiceprintId"]));
@@ -655,6 +683,7 @@ public:
   shared_ptr<long> userOfflineTimeout{};
   shared_ptr<long> userOnlineTimeout{};
   shared_ptr<string> voiceId{};
+  shared_ptr<vector<string>> voiceIdList{};
   shared_ptr<string> voiceprintId{};
   shared_ptr<long> volume{};
   shared_ptr<string> wakeUpQuery{};
@@ -721,6 +750,9 @@ public:
     }
     if (voiceId) {
       res["VoiceId"] = boost::any(*voiceId);
+    }
+    if (voiceIdList) {
+      res["VoiceIdList"] = boost::any(*voiceIdList);
     }
     if (voiceprintId) {
       res["VoiceprintId"] = boost::any(*voiceprintId);
@@ -795,6 +827,16 @@ public:
     }
     if (m.find("VoiceId") != m.end() && !m["VoiceId"].empty()) {
       voiceId = make_shared<string>(boost::any_cast<string>(m["VoiceId"]));
+    }
+    if (m.find("VoiceIdList") != m.end() && !m["VoiceIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VoiceIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VoiceIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      voiceIdList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("VoiceprintId") != m.end() && !m["VoiceprintId"].empty()) {
       voiceprintId = make_shared<string>(boost::any_cast<string>(m["VoiceprintId"]));
@@ -21945,6 +21987,238 @@ public:
 
 
   virtual ~GetPlayInfoResponse() = default;
+};
+class GetProjectExportJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+
+  GetProjectExportJobRequest() {}
+
+  explicit GetProjectExportJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+  }
+
+
+  virtual ~GetProjectExportJobRequest() = default;
+};
+class GetProjectExportJobResponseBodyProjectExportJobExportResult : public Darabonba::Model {
+public:
+  shared_ptr<string> timeline{};
+
+  GetProjectExportJobResponseBodyProjectExportJobExportResult() {}
+
+  explicit GetProjectExportJobResponseBodyProjectExportJobExportResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (timeline) {
+      res["Timeline"] = boost::any(*timeline);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Timeline") != m.end() && !m["Timeline"].empty()) {
+      timeline = make_shared<string>(boost::any_cast<string>(m["Timeline"]));
+    }
+  }
+
+
+  virtual ~GetProjectExportJobResponseBodyProjectExportJobExportResult() = default;
+};
+class GetProjectExportJobResponseBodyProjectExportJob : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetProjectExportJobResponseBodyProjectExportJobExportResult> exportResult{};
+  shared_ptr<string> exportType{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> status{};
+  shared_ptr<string> userData{};
+
+  GetProjectExportJobResponseBodyProjectExportJob() {}
+
+  explicit GetProjectExportJobResponseBodyProjectExportJob(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (exportResult) {
+      res["ExportResult"] = exportResult ? boost::any(exportResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (exportType) {
+      res["ExportType"] = boost::any(*exportType);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ExportResult") != m.end() && !m["ExportResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ExportResult"].type()) {
+        GetProjectExportJobResponseBodyProjectExportJobExportResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ExportResult"]));
+        exportResult = make_shared<GetProjectExportJobResponseBodyProjectExportJobExportResult>(model1);
+      }
+    }
+    if (m.find("ExportType") != m.end() && !m["ExportType"].empty()) {
+      exportType = make_shared<string>(boost::any_cast<string>(m["ExportType"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~GetProjectExportJobResponseBodyProjectExportJob() = default;
+};
+class GetProjectExportJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetProjectExportJobResponseBodyProjectExportJob> projectExportJob{};
+  shared_ptr<string> requestId{};
+
+  GetProjectExportJobResponseBody() {}
+
+  explicit GetProjectExportJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectExportJob) {
+      res["ProjectExportJob"] = projectExportJob ? boost::any(projectExportJob->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectExportJob") != m.end() && !m["ProjectExportJob"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ProjectExportJob"].type()) {
+        GetProjectExportJobResponseBodyProjectExportJob model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProjectExportJob"]));
+        projectExportJob = make_shared<GetProjectExportJobResponseBodyProjectExportJob>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetProjectExportJobResponseBody() = default;
+};
+class GetProjectExportJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetProjectExportJobResponseBody> body{};
+
+  GetProjectExportJobResponse() {}
+
+  explicit GetProjectExportJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetProjectExportJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetProjectExportJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetProjectExportJobResponse() = default;
 };
 class GetPublicMediaInfoRequest : public Darabonba::Model {
 public:
@@ -60430,6 +60704,151 @@ public:
 
   virtual ~SubmitPackageJobResponse() = default;
 };
+class SubmitProjectExportJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> exportType{};
+  shared_ptr<string> outputMediaConfig{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> timeline{};
+  shared_ptr<string> userData{};
+
+  SubmitProjectExportJobRequest() {}
+
+  explicit SubmitProjectExportJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (exportType) {
+      res["ExportType"] = boost::any(*exportType);
+    }
+    if (outputMediaConfig) {
+      res["OutputMediaConfig"] = boost::any(*outputMediaConfig);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (timeline) {
+      res["Timeline"] = boost::any(*timeline);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExportType") != m.end() && !m["ExportType"].empty()) {
+      exportType = make_shared<string>(boost::any_cast<string>(m["ExportType"]));
+    }
+    if (m.find("OutputMediaConfig") != m.end() && !m["OutputMediaConfig"].empty()) {
+      outputMediaConfig = make_shared<string>(boost::any_cast<string>(m["OutputMediaConfig"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("Timeline") != m.end() && !m["Timeline"].empty()) {
+      timeline = make_shared<string>(boost::any_cast<string>(m["Timeline"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~SubmitProjectExportJobRequest() = default;
+};
+class SubmitProjectExportJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> requestId{};
+
+  SubmitProjectExportJobResponseBody() {}
+
+  explicit SubmitProjectExportJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SubmitProjectExportJobResponseBody() = default;
+};
+class SubmitProjectExportJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitProjectExportJobResponseBody> body{};
+
+  SubmitProjectExportJobResponse() {}
+
+  explicit SubmitProjectExportJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitProjectExportJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitProjectExportJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitProjectExportJobResponse() = default;
+};
 class SubmitScreenMediaHighlightsJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> editingConfig{};
@@ -72873,6 +73292,8 @@ public:
   GetPipelineResponse getPipeline(shared_ptr<GetPipelineRequest> request);
   GetPlayInfoResponse getPlayInfoWithOptions(shared_ptr<GetPlayInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPlayInfoResponse getPlayInfo(shared_ptr<GetPlayInfoRequest> request);
+  GetProjectExportJobResponse getProjectExportJobWithOptions(shared_ptr<GetProjectExportJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetProjectExportJobResponse getProjectExportJob(shared_ptr<GetProjectExportJobRequest> request);
   GetPublicMediaInfoResponse getPublicMediaInfoWithOptions(shared_ptr<GetPublicMediaInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPublicMediaInfoResponse getPublicMediaInfo(shared_ptr<GetPublicMediaInfoRequest> request);
   GetSmartHandleJobResponse getSmartHandleJobWithOptions(shared_ptr<GetSmartHandleJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -73091,6 +73512,8 @@ public:
   SubmitMediaProducingJobResponse submitMediaProducingJob(shared_ptr<SubmitMediaProducingJobRequest> request);
   SubmitPackageJobResponse submitPackageJobWithOptions(shared_ptr<SubmitPackageJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitPackageJobResponse submitPackageJob(shared_ptr<SubmitPackageJobRequest> request);
+  SubmitProjectExportJobResponse submitProjectExportJobWithOptions(shared_ptr<SubmitProjectExportJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitProjectExportJobResponse submitProjectExportJob(shared_ptr<SubmitProjectExportJobRequest> request);
   SubmitScreenMediaHighlightsJobResponse submitScreenMediaHighlightsJobWithOptions(shared_ptr<SubmitScreenMediaHighlightsJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitScreenMediaHighlightsJobResponse submitScreenMediaHighlightsJob(shared_ptr<SubmitScreenMediaHighlightsJobRequest> request);
   SubmitSmarttagJobResponse submitSmarttagJobWithOptions(shared_ptr<SubmitSmarttagJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

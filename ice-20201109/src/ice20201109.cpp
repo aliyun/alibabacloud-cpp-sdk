@@ -2938,6 +2938,34 @@ GetPlayInfoResponse Alibabacloud_ICE20201109::Client::getPlayInfo(shared_ptr<Get
   return getPlayInfoWithOptions(request, runtime);
 }
 
+GetProjectExportJobResponse Alibabacloud_ICE20201109::Client::getProjectExportJobWithOptions(shared_ptr<GetProjectExportJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    query->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetProjectExportJob"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetProjectExportJobResponse(callApi(params, req, runtime));
+}
+
+GetProjectExportJobResponse Alibabacloud_ICE20201109::Client::getProjectExportJob(shared_ptr<GetProjectExportJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getProjectExportJobWithOptions(request, runtime);
+}
+
 GetPublicMediaInfoResponse Alibabacloud_ICE20201109::Client::getPublicMediaInfoWithOptions(shared_ptr<GetPublicMediaInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -7256,6 +7284,48 @@ SubmitPackageJobResponse Alibabacloud_ICE20201109::Client::submitPackageJobWithO
 SubmitPackageJobResponse Alibabacloud_ICE20201109::Client::submitPackageJob(shared_ptr<SubmitPackageJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return submitPackageJobWithOptions(request, runtime);
+}
+
+SubmitProjectExportJobResponse Alibabacloud_ICE20201109::Client::submitProjectExportJobWithOptions(shared_ptr<SubmitProjectExportJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->exportType)) {
+    query->insert(pair<string, string>("ExportType", *request->exportType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputMediaConfig)) {
+    query->insert(pair<string, string>("OutputMediaConfig", *request->outputMediaConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
+    query->insert(pair<string, string>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeline)) {
+    body->insert(pair<string, string>("Timeline", *request->timeline));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitProjectExportJob"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitProjectExportJobResponse(callApi(params, req, runtime));
+}
+
+SubmitProjectExportJobResponse Alibabacloud_ICE20201109::Client::submitProjectExportJob(shared_ptr<SubmitProjectExportJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitProjectExportJobWithOptions(request, runtime);
 }
 
 SubmitScreenMediaHighlightsJobResponse Alibabacloud_ICE20201109::Client::submitScreenMediaHighlightsJobWithOptions(shared_ptr<SubmitScreenMediaHighlightsJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
