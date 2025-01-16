@@ -1490,6 +1490,9 @@ CreateFreeLockCorrectOrderResponse Alibabacloud_Dms-enterprise20181101::Client::
   if (!Darabonba_Util::Client::isUnset<string>(request->paramShrink)) {
     query->insert(pair<string, string>("Param", *request->paramShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realLoginUserUid)) {
+    query->insert(pair<string, string>("RealLoginUserUid", *request->realLoginUserUid));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->relatedUserListShrink)) {
     query->insert(pair<string, string>("RelatedUserList", *request->relatedUserListShrink));
   }
@@ -8039,6 +8042,9 @@ ModifyDataCorrectExecSQLResponse Alibabacloud_Dms-enterprise20181101::Client::mo
   if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
     query->insert(pair<string, long>("OrderId", *request->orderId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realLoginUserUid)) {
+    query->insert(pair<string, string>("RealLoginUserUid", *request->realLoginUserUid));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
@@ -8757,6 +8763,9 @@ RestartDataCorrectSQLJobResponse Alibabacloud_Dms-enterprise20181101::Client::re
   if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
     query->insert(pair<string, long>("OrderId", *request->orderId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realLoginUserUid)) {
+    query->insert(pair<string, string>("RealLoginUserUid", *request->realLoginUserUid));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
@@ -8861,6 +8870,9 @@ RetryDataCorrectPreCheckResponse Alibabacloud_Dms-enterprise20181101::Client::re
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
     query->insert(pair<string, long>("OrderId", *request->orderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realLoginUserUid)) {
+    query->insert(pair<string, string>("RealLoginUserUid", *request->realLoginUserUid));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
@@ -9228,6 +9240,9 @@ SkipDataCorrectRowCheckResponse Alibabacloud_Dms-enterprise20181101::Client::ski
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
     query->insert(pair<string, long>("OrderId", *request->orderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realLoginUserUid)) {
+    query->insert(pair<string, string>("RealLoginUserUid", *request->realLoginUserUid));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->reason)) {
     query->insert(pair<string, string>("Reason", *request->reason));
