@@ -443,6 +443,9 @@ MassPushResponse Alibabacloud_Push20160801::Client::massPushWithOptions(shared_p
   if (!Darabonba_Util::Client::isUnset<long>(request->appKey)) {
     query->insert(pair<string, long>("AppKey", *request->appKey));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->idempotentToken)) {
+    query->insert(pair<string, string>("IdempotentToken", *request->idempotentToken));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<MassPushRequestPushTask>>(request->pushTask)) {
     body->insert(pair<string, vector<MassPushRequestPushTask>>("PushTask", *request->pushTask));
@@ -676,6 +679,9 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->harmonyUri)) {
     query->insert(pair<string, string>("HarmonyUri", *request->harmonyUri));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->idempotentToken)) {
+    query->insert(pair<string, string>("IdempotentToken", *request->idempotentToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobKey)) {
     query->insert(pair<string, string>("JobKey", *request->jobKey));

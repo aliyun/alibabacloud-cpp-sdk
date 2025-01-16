@@ -2353,6 +2353,7 @@ public:
 class MassPushRequest : public Darabonba::Model {
 public:
   shared_ptr<long> appKey{};
+  shared_ptr<string> idempotentToken{};
   shared_ptr<vector<MassPushRequestPushTask>> pushTask{};
 
   MassPushRequest() {}
@@ -2368,6 +2369,9 @@ public:
     if (appKey) {
       res["AppKey"] = boost::any(*appKey);
     }
+    if (idempotentToken) {
+      res["IdempotentToken"] = boost::any(*idempotentToken);
+    }
     if (pushTask) {
       vector<boost::any> temp1;
       for(auto item1:*pushTask){
@@ -2381,6 +2385,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
       appKey = make_shared<long>(boost::any_cast<long>(m["AppKey"]));
+    }
+    if (m.find("IdempotentToken") != m.end() && !m["IdempotentToken"].empty()) {
+      idempotentToken = make_shared<string>(boost::any_cast<string>(m["IdempotentToken"]));
     }
     if (m.find("PushTask") != m.end() && !m["PushTask"].empty()) {
       if (typeid(vector<boost::any>) == m["PushTask"].type()) {
@@ -2598,6 +2605,7 @@ public:
   shared_ptr<string> harmonyRenderStyle{};
   shared_ptr<bool> harmonyTestMessage{};
   shared_ptr<string> harmonyUri{};
+  shared_ptr<string> idempotentToken{};
   shared_ptr<string> jobKey{};
   shared_ptr<string> pushTime{};
   shared_ptr<string> pushType{};
@@ -2842,6 +2850,9 @@ public:
     }
     if (harmonyUri) {
       res["HarmonyUri"] = boost::any(*harmonyUri);
+    }
+    if (idempotentToken) {
+      res["IdempotentToken"] = boost::any(*idempotentToken);
     }
     if (jobKey) {
       res["JobKey"] = boost::any(*jobKey);
@@ -3140,6 +3151,9 @@ public:
     }
     if (m.find("HarmonyUri") != m.end() && !m["HarmonyUri"].empty()) {
       harmonyUri = make_shared<string>(boost::any_cast<string>(m["HarmonyUri"]));
+    }
+    if (m.find("IdempotentToken") != m.end() && !m["IdempotentToken"].empty()) {
+      idempotentToken = make_shared<string>(boost::any_cast<string>(m["IdempotentToken"]));
     }
     if (m.find("JobKey") != m.end() && !m["JobKey"].empty()) {
       jobKey = make_shared<string>(boost::any_cast<string>(m["JobKey"]));
