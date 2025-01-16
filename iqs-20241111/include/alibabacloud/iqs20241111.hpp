@@ -145,6 +145,7 @@ public:
   shared_ptr<vector<IncludeImage>> images{};
   shared_ptr<string> link{};
   shared_ptr<string> mainText{};
+  shared_ptr<string> markdownText{};
   shared_ptr<string> mime{};
   shared_ptr<map<string, string>> pageMap{};
   shared_ptr<long> publishTime{};
@@ -192,6 +193,9 @@ public:
     }
     if (mainText) {
       res["mainText"] = boost::any(*mainText);
+    }
+    if (markdownText) {
+      res["markdownText"] = boost::any(*markdownText);
     }
     if (mime) {
       res["mime"] = boost::any(*mime);
@@ -251,6 +255,9 @@ public:
     }
     if (m.find("mainText") != m.end() && !m["mainText"].empty()) {
       mainText = make_shared<string>(boost::any_cast<string>(m["mainText"]));
+    }
+    if (m.find("markdownText") != m.end() && !m["markdownText"].empty()) {
+      markdownText = make_shared<string>(boost::any_cast<string>(m["markdownText"]));
     }
     if (m.find("mime") != m.end() && !m["mime"].empty()) {
       mime = make_shared<string>(boost::any_cast<string>(m["mime"]));
