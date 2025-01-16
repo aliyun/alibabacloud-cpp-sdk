@@ -26113,6 +26113,7 @@ public:
 };
 class DescribePolicyGroupsRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> externalPolicyGroupIds{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<vector<string>> policyGroupId{};
@@ -26129,6 +26130,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (externalPolicyGroupIds) {
+      res["ExternalPolicyGroupIds"] = boost::any(*externalPolicyGroupIds);
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
@@ -26148,6 +26152,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExternalPolicyGroupIds") != m.end() && !m["ExternalPolicyGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExternalPolicyGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExternalPolicyGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      externalPolicyGroupIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -26602,6 +26616,7 @@ public:
   shared_ptr<long> edsCount{};
   shared_ptr<string> endUserApplyAdminCoordinate{};
   shared_ptr<string> endUserGroupCoordinate{};
+  shared_ptr<string> fileTransfer{};
   shared_ptr<string> gpuAcceleration{};
   shared_ptr<string> html5Access{};
   shared_ptr<string> html5FileTransfer{};
@@ -26628,6 +26643,9 @@ public:
   shared_ptr<string> qualityEnhancement{};
   shared_ptr<string> recordContent{};
   shared_ptr<long> recordContentExpires{};
+  shared_ptr<long> recordEventDuration{};
+  shared_ptr<vector<string>> recordEventFilePaths{};
+  shared_ptr<vector<string>> recordEventRegisters{};
   shared_ptr<string> recording{};
   shared_ptr<string> recordingAudio{};
   shared_ptr<long> recordingDuration{};
@@ -26638,6 +26656,7 @@ public:
   shared_ptr<string> recordingUserNotify{};
   shared_ptr<string> recordingUserNotifyMessage{};
   shared_ptr<string> remoteCoordinate{};
+  shared_ptr<string> resetDesktop{};
   shared_ptr<long> resourceGroupCount{};
   shared_ptr<string> resourceRegionId{};
   shared_ptr<string> scope{};
@@ -26779,6 +26798,9 @@ public:
     if (endUserGroupCoordinate) {
       res["EndUserGroupCoordinate"] = boost::any(*endUserGroupCoordinate);
     }
+    if (fileTransfer) {
+      res["FileTransfer"] = boost::any(*fileTransfer);
+    }
     if (gpuAcceleration) {
       res["GpuAcceleration"] = boost::any(*gpuAcceleration);
     }
@@ -26861,6 +26883,15 @@ public:
     if (recordContentExpires) {
       res["RecordContentExpires"] = boost::any(*recordContentExpires);
     }
+    if (recordEventDuration) {
+      res["RecordEventDuration"] = boost::any(*recordEventDuration);
+    }
+    if (recordEventFilePaths) {
+      res["RecordEventFilePaths"] = boost::any(*recordEventFilePaths);
+    }
+    if (recordEventRegisters) {
+      res["RecordEventRegisters"] = boost::any(*recordEventRegisters);
+    }
     if (recording) {
       res["Recording"] = boost::any(*recording);
     }
@@ -26890,6 +26921,9 @@ public:
     }
     if (remoteCoordinate) {
       res["RemoteCoordinate"] = boost::any(*remoteCoordinate);
+    }
+    if (resetDesktop) {
+      res["ResetDesktop"] = boost::any(*resetDesktop);
     }
     if (resourceGroupCount) {
       res["ResourceGroupCount"] = boost::any(*resourceGroupCount);
@@ -27134,6 +27168,9 @@ public:
     if (m.find("EndUserGroupCoordinate") != m.end() && !m["EndUserGroupCoordinate"].empty()) {
       endUserGroupCoordinate = make_shared<string>(boost::any_cast<string>(m["EndUserGroupCoordinate"]));
     }
+    if (m.find("FileTransfer") != m.end() && !m["FileTransfer"].empty()) {
+      fileTransfer = make_shared<string>(boost::any_cast<string>(m["FileTransfer"]));
+    }
     if (m.find("GpuAcceleration") != m.end() && !m["GpuAcceleration"].empty()) {
       gpuAcceleration = make_shared<string>(boost::any_cast<string>(m["GpuAcceleration"]));
     }
@@ -27236,6 +27273,29 @@ public:
     if (m.find("RecordContentExpires") != m.end() && !m["RecordContentExpires"].empty()) {
       recordContentExpires = make_shared<long>(boost::any_cast<long>(m["RecordContentExpires"]));
     }
+    if (m.find("RecordEventDuration") != m.end() && !m["RecordEventDuration"].empty()) {
+      recordEventDuration = make_shared<long>(boost::any_cast<long>(m["RecordEventDuration"]));
+    }
+    if (m.find("RecordEventFilePaths") != m.end() && !m["RecordEventFilePaths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordEventFilePaths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordEventFilePaths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordEventFilePaths = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RecordEventRegisters") != m.end() && !m["RecordEventRegisters"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordEventRegisters"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordEventRegisters"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordEventRegisters = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("Recording") != m.end() && !m["Recording"].empty()) {
       recording = make_shared<string>(boost::any_cast<string>(m["Recording"]));
     }
@@ -27265,6 +27325,9 @@ public:
     }
     if (m.find("RemoteCoordinate") != m.end() && !m["RemoteCoordinate"].empty()) {
       remoteCoordinate = make_shared<string>(boost::any_cast<string>(m["RemoteCoordinate"]));
+    }
+    if (m.find("ResetDesktop") != m.end() && !m["ResetDesktop"].empty()) {
+      resetDesktop = make_shared<string>(boost::any_cast<string>(m["ResetDesktop"]));
     }
     if (m.find("ResourceGroupCount") != m.end() && !m["ResourceGroupCount"].empty()) {
       resourceGroupCount = make_shared<long>(boost::any_cast<long>(m["ResourceGroupCount"]));
@@ -28497,6 +28560,8 @@ public:
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> regionId{};
   shared_ptr<long> signedUrlExpireMinutes{};
+  shared_ptr<string> standardEndTime{};
+  shared_ptr<string> standardStartTime{};
   shared_ptr<string> startTime{};
 
   DescribeRecordingsRequest() {}
@@ -28533,6 +28598,12 @@ public:
     if (signedUrlExpireMinutes) {
       res["SignedUrlExpireMinutes"] = boost::any(*signedUrlExpireMinutes);
     }
+    if (standardEndTime) {
+      res["StandardEndTime"] = boost::any(*standardEndTime);
+    }
+    if (standardStartTime) {
+      res["StandardStartTime"] = boost::any(*standardStartTime);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -28563,6 +28634,12 @@ public:
     }
     if (m.find("SignedUrlExpireMinutes") != m.end() && !m["SignedUrlExpireMinutes"].empty()) {
       signedUrlExpireMinutes = make_shared<long>(boost::any_cast<long>(m["SignedUrlExpireMinutes"]));
+    }
+    if (m.find("StandardEndTime") != m.end() && !m["StandardEndTime"].empty()) {
+      standardEndTime = make_shared<string>(boost::any_cast<string>(m["StandardEndTime"]));
+    }
+    if (m.find("StandardStartTime") != m.end() && !m["StandardStartTime"].empty()) {
+      standardStartTime = make_shared<string>(boost::any_cast<string>(m["StandardStartTime"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));

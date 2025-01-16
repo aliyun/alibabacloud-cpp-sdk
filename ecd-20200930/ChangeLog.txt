@@ -1,3 +1,10 @@
+2025-01-16 Version: 4.2.4
+- Update API DescribePolicyGroups: add param ExternalPolicyGroupIds.
+- Update API DescribePolicyGroups: update response param.
+- Update API DescribeRecordings: add param StandardEndTime.
+- Update API DescribeRecordings: add param StandardStartTime.
+
+
 2025-01-15 Version: 4.2.3
 - Update API ApplyAutoSnapshotPolicy: update param DesktopId.
 - Update API DescribeBundles: update response param.

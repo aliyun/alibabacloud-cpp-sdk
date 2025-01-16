@@ -4650,6 +4650,9 @@ DescribeOfficeSitesResponse Alibabacloud_Ecd20200930::Client::describeOfficeSite
 DescribePolicyGroupsResponse Alibabacloud_Ecd20200930::Client::describePolicyGroupsWithOptions(shared_ptr<DescribePolicyGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->externalPolicyGroupIds)) {
+    query->insert(pair<string, vector<string>>("ExternalPolicyGroupIds", *request->externalPolicyGroupIds));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
@@ -4900,6 +4903,12 @@ DescribeRecordingsResponse Alibabacloud_Ecd20200930::Client::describeRecordingsW
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->signedUrlExpireMinutes)) {
     query->insert(pair<string, long>("SignedUrlExpireMinutes", *request->signedUrlExpireMinutes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->standardEndTime)) {
+    query->insert(pair<string, string>("StandardEndTime", *request->standardEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->standardStartTime)) {
+    query->insert(pair<string, string>("StandardStartTime", *request->standardStartTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
