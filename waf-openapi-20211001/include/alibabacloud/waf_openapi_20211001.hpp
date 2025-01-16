@@ -5294,6 +5294,7 @@ public:
   shared_ptr<long> follow{};
   shared_ptr<long> ignoreTime{};
   shared_ptr<long> lastestTime{};
+  shared_ptr<long> latestDiscoverTime{};
   shared_ptr<string> matchedHost{};
   shared_ptr<string> note{};
   shared_ptr<string> origin{};
@@ -5353,6 +5354,9 @@ public:
     }
     if (lastestTime) {
       res["LastestTime"] = boost::any(*lastestTime);
+    }
+    if (latestDiscoverTime) {
+      res["LatestDiscoverTime"] = boost::any(*latestDiscoverTime);
     }
     if (matchedHost) {
       res["MatchedHost"] = boost::any(*matchedHost);
@@ -5421,6 +5425,9 @@ public:
     }
     if (m.find("LastestTime") != m.end() && !m["LastestTime"].empty()) {
       lastestTime = make_shared<long>(boost::any_cast<long>(m["LastestTime"]));
+    }
+    if (m.find("LatestDiscoverTime") != m.end() && !m["LatestDiscoverTime"].empty()) {
+      latestDiscoverTime = make_shared<long>(boost::any_cast<long>(m["LatestDiscoverTime"]));
     }
     if (m.find("MatchedHost") != m.end() && !m["MatchedHost"].empty()) {
       matchedHost = make_shared<string>(boost::any_cast<string>(m["MatchedHost"]));
