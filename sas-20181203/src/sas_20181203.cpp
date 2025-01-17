@@ -18,28 +18,28 @@ using namespace Alibabacloud_Sas20181203;
 Alibabacloud_Sas20181203::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
-    {"cn-qingdao", "tds.aliyuncs.com"},
-    {"cn-beijing", "tds.aliyuncs.com"},
-    {"cn-zhangjiakou", "tds.aliyuncs.com"},
-    {"cn-huhehaote", "tds.aliyuncs.com"},
-    {"cn-wulanchabu", "tds.aliyuncs.com"},
-    {"cn-hangzhou", "tds.aliyuncs.com"},
-    {"cn-shanghai", "tds.aliyuncs.com"},
-    {"cn-nanjing", "tds.aliyuncs.com"},
-    {"cn-fuzhou", "tds.aliyuncs.com"},
-    {"cn-shenzhen", "tds.aliyuncs.com"},
-    {"cn-heyuan", "tds.aliyuncs.com"},
-    {"cn-guangzhou", "tds.aliyuncs.com"},
+    {"cn-qingdao", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-beijing", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-zhangjiakou", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-huhehaote", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-wulanchabu", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-hangzhou", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-shanghai", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-nanjing", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-fuzhou", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-shenzhen", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-heyuan", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-guangzhou", "tds.cn-shanghai.aliyuncs.com"},
     {"ap-southeast-2", "tds.ap-southeast-1.aliyuncs.com"},
     {"ap-southeast-6", "tds.ap-southeast-1.aliyuncs.com"},
     {"ap-northeast-2", "tds.ap-southeast-1.aliyuncs.com"},
     {"ap-southeast-3", "tds.ap-southeast-1.aliyuncs.com"},
     {"ap-northeast-1", "tds.ap-southeast-1.aliyuncs.com"},
     {"ap-southeast-7", "tds.ap-southeast-1.aliyuncs.com"},
-    {"cn-chengdu", "tds.aliyuncs.com"},
+    {"cn-chengdu", "tds.cn-shanghai.aliyuncs.com"},
     {"ap-southeast-1", "tds.ap-southeast-1.aliyuncs.com"},
     {"ap-southeast-5", "tds.ap-southeast-1.aliyuncs.com"},
-    {"cn-hongkong", "tds.aliyuncs.com"},
+    {"cn-hongkong", "tds.cn-shanghai.aliyuncs.com"},
     {"eu-central-1", "tds.ap-southeast-1.aliyuncs.com"},
     {"us-east-1", "tds.ap-southeast-1.aliyuncs.com"},
     {"us-west-1", "tds.ap-southeast-1.aliyuncs.com"},
@@ -47,16 +47,16 @@ Alibabacloud_Sas20181203::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"me-east-1", "tds.ap-southeast-1.aliyuncs.com"},
     {"me-central-1", "tds.ap-southeast-1.aliyuncs.com"},
     {"ap-south-1", "tds.ap-southeast-1.aliyuncs.com"},
-    {"cn-beijing-finance-1", "tds.aliyuncs.com"},
-    {"cn-hangzhou-finance", "tds.aliyuncs.com"},
-    {"cn-shanghai-finance-1", "tds.aliyuncs.com"},
-    {"cn-shenzhen-finance-1", "tds.aliyuncs.com"},
-    {"cn-heyuan-acdr-1", "tds.aliyuncs.com"},
-    {"cn-north-2-gov-1", "tds.aliyuncs.com"},
-    {"cn-qingdao-acdr-ut-1", "tds.aliyuncs.com"},
-    {"cn-shanghai-mybk", "tds.aliyuncs.com"},
-    {"cn-wuhan-lr", "tds.aliyuncs.com"},
-    {"cn-zhengzhou-jva", "tds.aliyuncs.com"}
+    {"cn-beijing-finance-1", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-hangzhou-finance", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-shanghai-finance-1", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-shenzhen-finance-1", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-heyuan-acdr-1", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-north-2-gov-1", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao-acdr-ut-1", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-shanghai-mybk", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-wuhan-lr", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-zhengzhou-jva", "tds.cn-shanghai.aliyuncs.com"}
   })
 );
   checkConfig(config);
@@ -341,6 +341,9 @@ AddCloudVendorAccountAKResponse Alibabacloud_Sas20181203::Client::addCloudVendor
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vendor)) {
     query->insert(pair<string, string>("Vendor", *request->vendor));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vendorAuthAlias)) {
+    query->insert(pair<string, string>("VendorAuthAlias", *request->vendorAuthAlias));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -7150,6 +7153,9 @@ DescribeCloudVendorAccountAKListResponse Alibabacloud_Sas20181203::Client::descr
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subAccountName)) {
     query->insert(pair<string, string>("SubAccountName", *request->subAccountName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vendorAuthAlias)) {
+    query->insert(pair<string, string>("VendorAuthAlias", *request->vendorAuthAlias));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -24454,6 +24460,9 @@ ModifyCloudVendorAccountAKResponse Alibabacloud_Sas20181203::Client::modifyCloud
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tenantId)) {
     query->insert(pair<string, string>("TenantId", *request->tenantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vendorAuthAlias)) {
+    query->insert(pair<string, string>("VendorAuthAlias", *request->vendorAuthAlias));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
