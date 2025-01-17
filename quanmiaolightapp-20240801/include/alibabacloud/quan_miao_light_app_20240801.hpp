@@ -4750,6 +4750,481 @@ public:
 
   virtual ~RunMarketingInformationWritingResponse() = default;
 };
+class RunNetworkContentAuditRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagDefinePrompt{};
+  shared_ptr<string> tagName{};
+
+  RunNetworkContentAuditRequestTags() {}
+
+  explicit RunNetworkContentAuditRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagDefinePrompt) {
+      res["tagDefinePrompt"] = boost::any(*tagDefinePrompt);
+    }
+    if (tagName) {
+      res["tagName"] = boost::any(*tagName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tagDefinePrompt") != m.end() && !m["tagDefinePrompt"].empty()) {
+      tagDefinePrompt = make_shared<string>(boost::any_cast<string>(m["tagDefinePrompt"]));
+    }
+    if (m.find("tagName") != m.end() && !m["tagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["tagName"]));
+    }
+  }
+
+
+  virtual ~RunNetworkContentAuditRequestTags() = default;
+};
+class RunNetworkContentAuditRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessType{};
+  shared_ptr<string> content{};
+  shared_ptr<string> extraInfo{};
+  shared_ptr<string> modelId{};
+  shared_ptr<string> outputFormat{};
+  shared_ptr<vector<RunNetworkContentAuditRequestTags>> tags{};
+  shared_ptr<string> taskDescription{};
+
+  RunNetworkContentAuditRequest() {}
+
+  explicit RunNetworkContentAuditRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessType) {
+      res["businessType"] = boost::any(*businessType);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (extraInfo) {
+      res["extraInfo"] = boost::any(*extraInfo);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (outputFormat) {
+      res["outputFormat"] = boost::any(*outputFormat);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
+    }
+    if (taskDescription) {
+      res["taskDescription"] = boost::any(*taskDescription);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("businessType") != m.end() && !m["businessType"].empty()) {
+      businessType = make_shared<string>(boost::any_cast<string>(m["businessType"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("extraInfo") != m.end() && !m["extraInfo"].empty()) {
+      extraInfo = make_shared<string>(boost::any_cast<string>(m["extraInfo"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("outputFormat") != m.end() && !m["outputFormat"].empty()) {
+      outputFormat = make_shared<string>(boost::any_cast<string>(m["outputFormat"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<RunNetworkContentAuditRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunNetworkContentAuditRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<RunNetworkContentAuditRequestTags>>(expect1);
+      }
+    }
+    if (m.find("taskDescription") != m.end() && !m["taskDescription"].empty()) {
+      taskDescription = make_shared<string>(boost::any_cast<string>(m["taskDescription"]));
+    }
+  }
+
+
+  virtual ~RunNetworkContentAuditRequest() = default;
+};
+class RunNetworkContentAuditShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> businessType{};
+  shared_ptr<string> content{};
+  shared_ptr<string> extraInfo{};
+  shared_ptr<string> modelId{};
+  shared_ptr<string> outputFormat{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> taskDescription{};
+
+  RunNetworkContentAuditShrinkRequest() {}
+
+  explicit RunNetworkContentAuditShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessType) {
+      res["businessType"] = boost::any(*businessType);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (extraInfo) {
+      res["extraInfo"] = boost::any(*extraInfo);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (outputFormat) {
+      res["outputFormat"] = boost::any(*outputFormat);
+    }
+    if (tagsShrink) {
+      res["tags"] = boost::any(*tagsShrink);
+    }
+    if (taskDescription) {
+      res["taskDescription"] = boost::any(*taskDescription);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("businessType") != m.end() && !m["businessType"].empty()) {
+      businessType = make_shared<string>(boost::any_cast<string>(m["businessType"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("extraInfo") != m.end() && !m["extraInfo"].empty()) {
+      extraInfo = make_shared<string>(boost::any_cast<string>(m["extraInfo"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("outputFormat") != m.end() && !m["outputFormat"].empty()) {
+      outputFormat = make_shared<string>(boost::any_cast<string>(m["outputFormat"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["tags"]));
+    }
+    if (m.find("taskDescription") != m.end() && !m["taskDescription"].empty()) {
+      taskDescription = make_shared<string>(boost::any_cast<string>(m["taskDescription"]));
+    }
+  }
+
+
+  virtual ~RunNetworkContentAuditShrinkRequest() = default;
+};
+class RunNetworkContentAuditResponseBodyHeader : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> event{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> traceId{};
+
+  RunNetworkContentAuditResponseBodyHeader() {}
+
+  explicit RunNetworkContentAuditResponseBodyHeader(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (event) {
+      res["event"] = boost::any(*event);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("event") != m.end() && !m["event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["event"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~RunNetworkContentAuditResponseBodyHeader() = default;
+};
+class RunNetworkContentAuditResponseBodyPayloadOutput : public Darabonba::Model {
+public:
+  shared_ptr<string> text{};
+
+  RunNetworkContentAuditResponseBodyPayloadOutput() {}
+
+  explicit RunNetworkContentAuditResponseBodyPayloadOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+  }
+
+
+  virtual ~RunNetworkContentAuditResponseBodyPayloadOutput() = default;
+};
+class RunNetworkContentAuditResponseBodyPayloadUsage : public Darabonba::Model {
+public:
+  shared_ptr<long> inputTokens{};
+  shared_ptr<long> outputTokens{};
+  shared_ptr<long> totalTokens{};
+
+  RunNetworkContentAuditResponseBodyPayloadUsage() {}
+
+  explicit RunNetworkContentAuditResponseBodyPayloadUsage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inputTokens) {
+      res["inputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["outputTokens"] = boost::any(*outputTokens);
+    }
+    if (totalTokens) {
+      res["totalTokens"] = boost::any(*totalTokens);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("inputTokens") != m.end() && !m["inputTokens"].empty()) {
+      inputTokens = make_shared<long>(boost::any_cast<long>(m["inputTokens"]));
+    }
+    if (m.find("outputTokens") != m.end() && !m["outputTokens"].empty()) {
+      outputTokens = make_shared<long>(boost::any_cast<long>(m["outputTokens"]));
+    }
+    if (m.find("totalTokens") != m.end() && !m["totalTokens"].empty()) {
+      totalTokens = make_shared<long>(boost::any_cast<long>(m["totalTokens"]));
+    }
+  }
+
+
+  virtual ~RunNetworkContentAuditResponseBodyPayloadUsage() = default;
+};
+class RunNetworkContentAuditResponseBodyPayload : public Darabonba::Model {
+public:
+  shared_ptr<RunNetworkContentAuditResponseBodyPayloadOutput> output{};
+  shared_ptr<RunNetworkContentAuditResponseBodyPayloadUsage> usage{};
+
+  RunNetworkContentAuditResponseBodyPayload() {}
+
+  explicit RunNetworkContentAuditResponseBodyPayload(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (output) {
+      res["output"] = output ? boost::any(output->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (usage) {
+      res["usage"] = usage ? boost::any(usage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("output") != m.end() && !m["output"].empty()) {
+      if (typeid(map<string, boost::any>) == m["output"].type()) {
+        RunNetworkContentAuditResponseBodyPayloadOutput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["output"]));
+        output = make_shared<RunNetworkContentAuditResponseBodyPayloadOutput>(model1);
+      }
+    }
+    if (m.find("usage") != m.end() && !m["usage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["usage"].type()) {
+        RunNetworkContentAuditResponseBodyPayloadUsage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["usage"]));
+        usage = make_shared<RunNetworkContentAuditResponseBodyPayloadUsage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunNetworkContentAuditResponseBodyPayload() = default;
+};
+class RunNetworkContentAuditResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<RunNetworkContentAuditResponseBodyHeader> header{};
+  shared_ptr<RunNetworkContentAuditResponseBodyPayload> payload{};
+  shared_ptr<string> requestId{};
+
+  RunNetworkContentAuditResponseBody() {}
+
+  explicit RunNetworkContentAuditResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (header) {
+      res["header"] = header ? boost::any(header->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (payload) {
+      res["payload"] = payload ? boost::any(payload->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("header") != m.end() && !m["header"].empty()) {
+      if (typeid(map<string, boost::any>) == m["header"].type()) {
+        RunNetworkContentAuditResponseBodyHeader model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["header"]));
+        header = make_shared<RunNetworkContentAuditResponseBodyHeader>(model1);
+      }
+    }
+    if (m.find("payload") != m.end() && !m["payload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["payload"].type()) {
+        RunNetworkContentAuditResponseBodyPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["payload"]));
+        payload = make_shared<RunNetworkContentAuditResponseBodyPayload>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~RunNetworkContentAuditResponseBody() = default;
+};
+class RunNetworkContentAuditResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RunNetworkContentAuditResponseBody> body{};
+
+  RunNetworkContentAuditResponse() {}
+
+  explicit RunNetworkContentAuditResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RunNetworkContentAuditResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RunNetworkContentAuditResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunNetworkContentAuditResponse() = default;
+};
 class RunScriptChatRequest : public Darabonba::Model {
 public:
   shared_ptr<string> prompt{};
@@ -9306,6 +9781,11 @@ public:
                                                                                    shared_ptr<map<string, string>> headers,
                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunMarketingInformationWritingResponse runMarketingInformationWriting(shared_ptr<string> workspaceId, shared_ptr<RunMarketingInformationWritingRequest> request);
+  RunNetworkContentAuditResponse runNetworkContentAuditWithOptions(shared_ptr<string> workspaceId,
+                                                                   shared_ptr<RunNetworkContentAuditRequest> tmpReq,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RunNetworkContentAuditResponse runNetworkContentAudit(shared_ptr<string> workspaceId, shared_ptr<RunNetworkContentAuditRequest> request);
   RunScriptChatResponse runScriptChatWithOptions(shared_ptr<string> workspaceId,
                                                  shared_ptr<RunScriptChatRequest> request,
                                                  shared_ptr<map<string, string>> headers,

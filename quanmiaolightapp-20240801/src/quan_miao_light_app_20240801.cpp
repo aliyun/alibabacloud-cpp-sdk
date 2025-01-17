@@ -447,6 +447,62 @@ RunMarketingInformationWritingResponse Alibabacloud_QuanMiaoLightApp20240801::Cl
   return runMarketingInformationWritingWithOptions(workspaceId, request, headers, runtime);
 }
 
+RunNetworkContentAuditResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runNetworkContentAuditWithOptions(shared_ptr<string> workspaceId,
+                                                                                                                shared_ptr<RunNetworkContentAuditRequest> tmpReq,
+                                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<RunNetworkContentAuditShrinkRequest> request = make_shared<RunNetworkContentAuditShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<RunNetworkContentAuditRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->businessType)) {
+    body->insert(pair<string, string>("businessType", *request->businessType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    body->insert(pair<string, string>("content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extraInfo)) {
+    body->insert(pair<string, string>("extraInfo", *request->extraInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelId)) {
+    body->insert(pair<string, string>("modelId", *request->modelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputFormat)) {
+    body->insert(pair<string, string>("outputFormat", *request->outputFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    body->insert(pair<string, string>("tags", *request->tagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskDescription)) {
+    body->insert(pair<string, string>("taskDescription", *request->taskDescription));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunNetworkContentAudit"))},
+    {"version", boost::any(string("2024-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/quanmiao/lightapp/runNetworkContentAudit"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunNetworkContentAuditResponse(callApi(params, req, runtime));
+}
+
+RunNetworkContentAuditResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runNetworkContentAudit(shared_ptr<string> workspaceId, shared_ptr<RunNetworkContentAuditRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runNetworkContentAuditWithOptions(workspaceId, request, headers, runtime);
+}
+
 RunScriptChatResponse Alibabacloud_QuanMiaoLightApp20240801::Client::runScriptChatWithOptions(shared_ptr<string> workspaceId,
                                                                                               shared_ptr<RunScriptChatRequest> request,
                                                                                               shared_ptr<map<string, string>> headers,
