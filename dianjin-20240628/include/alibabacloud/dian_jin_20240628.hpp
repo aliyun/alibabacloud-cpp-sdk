@@ -3847,6 +3847,7 @@ class GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisResp 
 public:
   shared_ptr<string> dialogExecPlan{};
   shared_ptr<vector<GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisRespDialogLabels>> dialogLabels{};
+  shared_ptr<string> dialogSop{};
   shared_ptr<string> dialogSummary{};
 
   GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisResp() {}
@@ -3868,6 +3869,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["dialogLabels"] = boost::any(temp1);
+    }
+    if (dialogSop) {
+      res["dialogSop"] = boost::any(*dialogSop);
     }
     if (dialogSummary) {
       res["dialogSummary"] = boost::any(*dialogSummary);
@@ -3891,6 +3895,9 @@ public:
         }
         dialogLabels = make_shared<vector<GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisRespDialogLabels>>(expect1);
       }
+    }
+    if (m.find("dialogSop") != m.end() && !m["dialogSop"].empty()) {
+      dialogSop = make_shared<string>(boost::any_cast<string>(m["dialogSop"]));
     }
     if (m.find("dialogSummary") != m.end() && !m["dialogSummary"].empty()) {
       dialogSummary = make_shared<string>(boost::any_cast<string>(m["dialogSummary"]));
