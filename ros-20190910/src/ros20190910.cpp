@@ -549,6 +549,9 @@ CreateStackInstancesResponse Alibabacloud_ROS20190910::Client::createStackInstan
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->deploymentOptions)) {
+    query->insert(pair<string, vector<string>>("DeploymentOptions", *request->deploymentOptions));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->deploymentTargetsShrink)) {
     query->insert(pair<string, string>("DeploymentTargets", *request->deploymentTargetsShrink));
   }
@@ -2984,6 +2987,9 @@ ListTemplateVersionsResponse Alibabacloud_ROS20190910::Client::listTemplateVersi
 ListTemplatesResponse Alibabacloud_ROS20190910::Client::listTemplatesWithOptions(shared_ptr<ListTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<ListTemplatesRequestFilters>>(request->filters)) {
+    query->insert(pair<string, vector<ListTemplatesRequestFilters>>("Filters", *request->filters));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->includeTags)) {
     query->insert(pair<string, string>("IncludeTags", *request->includeTags));
   }
@@ -3613,6 +3619,9 @@ UpdateStackGroupResponse Alibabacloud_ROS20190910::Client::updateStackGroupWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->deploymentOptions)) {
+    query->insert(pair<string, vector<string>>("DeploymentOptions", *request->deploymentOptions));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deploymentTargetsShrink)) {
     query->insert(pair<string, string>("DeploymentTargets", *request->deploymentTargetsShrink));
