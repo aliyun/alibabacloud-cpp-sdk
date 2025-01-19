@@ -672,6 +672,74 @@ DescribePhoneNumberOperatorAttributeResponse Alibabacloud_Dytnsapi20200217::Clie
   return describePhoneNumberOperatorAttributeWithOptions(request, runtime);
 }
 
+DescribePhoneNumberOperatorAttributeAnnualResponse Alibabacloud_Dytnsapi20200217::Client::describePhoneNumberOperatorAttributeAnnualWithOptions(shared_ptr<DescribePhoneNumberOperatorAttributeAnnualRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
+    query->insert(pair<string, string>("AuthCode", *request->authCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mask)) {
+    query->insert(pair<string, string>("Mask", *request->mask));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->number)) {
+    query->insert(pair<string, string>("Number", *request->number));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribePhoneNumberOperatorAttributeAnnual"))},
+    {"version", boost::any(string("2020-02-17"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribePhoneNumberOperatorAttributeAnnualResponse(callApi(params, req, runtime));
+}
+
+DescribePhoneNumberOperatorAttributeAnnualResponse Alibabacloud_Dytnsapi20200217::Client::describePhoneNumberOperatorAttributeAnnual(shared_ptr<DescribePhoneNumberOperatorAttributeAnnualRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describePhoneNumberOperatorAttributeAnnualWithOptions(request, runtime);
+}
+
+DescribePhoneNumberOperatorAttributeAnnualUseResponse Alibabacloud_Dytnsapi20200217::Client::describePhoneNumberOperatorAttributeAnnualUseWithOptions(shared_ptr<DescribePhoneNumberOperatorAttributeAnnualUseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
+    query->insert(pair<string, string>("AuthCode", *request->authCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
+    query->insert(pair<string, string>("InputNumber", *request->inputNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mask)) {
+    query->insert(pair<string, string>("Mask", *request->mask));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribePhoneNumberOperatorAttributeAnnualUse"))},
+    {"version", boost::any(string("2020-02-17"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribePhoneNumberOperatorAttributeAnnualUseResponse(callApi(params, req, runtime));
+}
+
+DescribePhoneNumberOperatorAttributeAnnualUseResponse Alibabacloud_Dytnsapi20200217::Client::describePhoneNumberOperatorAttributeAnnualUse(shared_ptr<DescribePhoneNumberOperatorAttributeAnnualUseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describePhoneNumberOperatorAttributeAnnualUseWithOptions(request, runtime);
+}
+
 DescribePhoneNumberRiskResponse Alibabacloud_Dytnsapi20200217::Client::describePhoneNumberRiskWithOptions(shared_ptr<DescribePhoneNumberRiskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
