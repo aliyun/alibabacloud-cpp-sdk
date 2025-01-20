@@ -8116,6 +8116,7 @@ public:
   shared_ptr<string> ahasNamespace{};
   shared_ptr<string> appName{};
   shared_ptr<bool> isAHASPublicRegion{};
+  shared_ptr<string> mseAppName{};
   shared_ptr<string> namespace_{};
 
   CloneSentinelRuleFromAhasRequest() {}
@@ -8140,6 +8141,9 @@ public:
     if (isAHASPublicRegion) {
       res["IsAHASPublicRegion"] = boost::any(*isAHASPublicRegion);
     }
+    if (mseAppName) {
+      res["MseAppName"] = boost::any(*mseAppName);
+    }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
     }
@@ -8158,6 +8162,9 @@ public:
     }
     if (m.find("IsAHASPublicRegion") != m.end() && !m["IsAHASPublicRegion"].empty()) {
       isAHASPublicRegion = make_shared<bool>(boost::any_cast<bool>(m["IsAHASPublicRegion"]));
+    }
+    if (m.find("MseAppName") != m.end() && !m["MseAppName"].empty()) {
+      mseAppName = make_shared<string>(boost::any_cast<string>(m["MseAppName"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
