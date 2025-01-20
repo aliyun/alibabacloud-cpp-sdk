@@ -6922,6 +6922,7 @@ public:
 class CreateDataCorrectOrderRequestParamDbItemList : public Darabonba::Model {
 public:
   shared_ptr<long> dbId{};
+  shared_ptr<long> instanceId{};
   shared_ptr<bool> logic{};
 
   CreateDataCorrectOrderRequestParamDbItemList() {}
@@ -6937,6 +6938,9 @@ public:
     if (dbId) {
       res["DbId"] = boost::any(*dbId);
     }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
     if (logic) {
       res["Logic"] = boost::any(*logic);
     }
@@ -6946,6 +6950,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DbId") != m.end() && !m["DbId"].empty()) {
       dbId = make_shared<long>(boost::any_cast<long>(m["DbId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
     }
     if (m.find("Logic") != m.end() && !m["Logic"].empty()) {
       logic = make_shared<bool>(boost::any_cast<bool>(m["Logic"]));
