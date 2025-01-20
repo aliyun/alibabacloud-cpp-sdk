@@ -67,7 +67,12 @@ BicyclingDirectionNovaResponse Alibabacloud_IQS20240712::Client::bicyclingDirect
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return BicyclingDirectionNovaResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return BicyclingDirectionNovaResponse(callApi(params, req, runtime));
+  }
+  else {
+    return BicyclingDirectionNovaResponse(execute(params, req, runtime));
+  }
 }
 
 BicyclingDirectionNovaResponse Alibabacloud_IQS20240712::Client::bicyclingDirectionNova(shared_ptr<BicyclingDirectionNovaRequest> request) {
@@ -93,7 +98,12 @@ CommonQueryBySceneResponse Alibabacloud_IQS20240712::Client::commonQueryBySceneW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CommonQueryBySceneResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CommonQueryBySceneResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CommonQueryBySceneResponse(execute(params, req, runtime));
+  }
 }
 
 CommonQueryBySceneResponse Alibabacloud_IQS20240712::Client::commonQueryByScene(shared_ptr<CommonQueryBySceneRequest> request) {
@@ -138,7 +148,12 @@ DrivingDirectionNovaResponse Alibabacloud_IQS20240712::Client::drivingDirectionN
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DrivingDirectionNovaResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DrivingDirectionNovaResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DrivingDirectionNovaResponse(execute(params, req, runtime));
+  }
 }
 
 DrivingDirectionNovaResponse Alibabacloud_IQS20240712::Client::drivingDirectionNova(shared_ptr<DrivingDirectionNovaRequest> request) {
@@ -177,7 +192,12 @@ ElectrobikeDirectionNovaResponse Alibabacloud_IQS20240712::Client::electrobikeDi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ElectrobikeDirectionNovaResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ElectrobikeDirectionNovaResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ElectrobikeDirectionNovaResponse(execute(params, req, runtime));
+  }
 }
 
 ElectrobikeDirectionNovaResponse Alibabacloud_IQS20240712::Client::electrobikeDirectionNova(shared_ptr<ElectrobikeDirectionNovaRequest> request) {
@@ -210,7 +230,12 @@ GeoCodeResponse Alibabacloud_IQS20240712::Client::geoCodeWithOptions(shared_ptr<
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GeoCodeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GeoCodeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GeoCodeResponse(execute(params, req, runtime));
+  }
 }
 
 GeoCodeResponse Alibabacloud_IQS20240712::Client::geoCode(shared_ptr<GeoCodeRequest> request) {
@@ -264,7 +289,12 @@ NearbySearchNovaResponse Alibabacloud_IQS20240712::Client::nearbySearchNovaWithO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return NearbySearchNovaResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return NearbySearchNovaResponse(callApi(params, req, runtime));
+  }
+  else {
+    return NearbySearchNovaResponse(execute(params, req, runtime));
+  }
 }
 
 NearbySearchNovaResponse Alibabacloud_IQS20240712::Client::nearbySearchNova(shared_ptr<NearbySearchNovaRequest> request) {
@@ -309,13 +339,204 @@ PlaceSearchNovaResponse Alibabacloud_IQS20240712::Client::placeSearchNovaWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PlaceSearchNovaResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PlaceSearchNovaResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PlaceSearchNovaResponse(execute(params, req, runtime));
+  }
 }
 
 PlaceSearchNovaResponse Alibabacloud_IQS20240712::Client::placeSearchNova(shared_ptr<PlaceSearchNovaRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return placeSearchNovaWithOptions(request, headers, runtime);
+}
+
+QueryAttractionsResponse Alibabacloud_IQS20240712::Client::queryAttractionsWithOptions(shared_ptr<QueryAttractionsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryAttractions"))},
+    {"version", boost::any(string("2024-07-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/amap-function-call-agent/iqs-agent-service/v1/nl/attractions"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryAttractionsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryAttractionsResponse(execute(params, req, runtime));
+  }
+}
+
+QueryAttractionsResponse Alibabacloud_IQS20240712::Client::queryAttractions(shared_ptr<QueryAttractionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryAttractionsWithOptions(request, headers, runtime);
+}
+
+QueryAttractionsNlResponse Alibabacloud_IQS20240712::Client::queryAttractionsNlWithOptions(shared_ptr<QueryAttractionsNlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryAttractionsNl"))},
+    {"version", boost::any(string("2024-07-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/amap-function-call-agent/iqs-agent-service/v2/nl/attractions"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryAttractionsNlResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryAttractionsNlResponse(execute(params, req, runtime));
+  }
+}
+
+QueryAttractionsNlResponse Alibabacloud_IQS20240712::Client::queryAttractionsNl(shared_ptr<QueryAttractionsNlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryAttractionsNlWithOptions(request, headers, runtime);
+}
+
+QueryHotelsResponse Alibabacloud_IQS20240712::Client::queryHotelsWithOptions(shared_ptr<QueryHotelsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryHotels"))},
+    {"version", boost::any(string("2024-07-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/amap-function-call-agent/iqs-agent-service/v1/nl/hotels"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryHotelsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryHotelsResponse(execute(params, req, runtime));
+  }
+}
+
+QueryHotelsResponse Alibabacloud_IQS20240712::Client::queryHotels(shared_ptr<QueryHotelsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryHotelsWithOptions(request, headers, runtime);
+}
+
+QueryHotelsNlResponse Alibabacloud_IQS20240712::Client::queryHotelsNlWithOptions(shared_ptr<QueryHotelsNlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryHotelsNl"))},
+    {"version", boost::any(string("2024-07-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/amap-function-call-agent/iqs-agent-service/v2/nl/hotels"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryHotelsNlResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryHotelsNlResponse(execute(params, req, runtime));
+  }
+}
+
+QueryHotelsNlResponse Alibabacloud_IQS20240712::Client::queryHotelsNl(shared_ptr<QueryHotelsNlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryHotelsNlWithOptions(request, headers, runtime);
+}
+
+QueryRestaurantsResponse Alibabacloud_IQS20240712::Client::queryRestaurantsWithOptions(shared_ptr<QueryRestaurantsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryRestaurants"))},
+    {"version", boost::any(string("2024-07-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/amap-function-call-agent/iqs-agent-service/v1/nl/restaurants"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryRestaurantsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryRestaurantsResponse(execute(params, req, runtime));
+  }
+}
+
+QueryRestaurantsResponse Alibabacloud_IQS20240712::Client::queryRestaurants(shared_ptr<QueryRestaurantsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryRestaurantsWithOptions(request, headers, runtime);
+}
+
+QueryRestaurantsNlResponse Alibabacloud_IQS20240712::Client::queryRestaurantsNlWithOptions(shared_ptr<QueryRestaurantsNlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryRestaurantsNl"))},
+    {"version", boost::any(string("2024-07-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/amap-function-call-agent/iqs-agent-service/v2/nl/restaurants"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryRestaurantsNlResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryRestaurantsNlResponse(execute(params, req, runtime));
+  }
+}
+
+QueryRestaurantsNlResponse Alibabacloud_IQS20240712::Client::queryRestaurantsNl(shared_ptr<QueryRestaurantsNlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return queryRestaurantsNlWithOptions(request, headers, runtime);
 }
 
 RgeoCodeResponse Alibabacloud_IQS20240712::Client::rgeoCodeWithOptions(shared_ptr<RgeoCodeRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -342,7 +563,12 @@ RgeoCodeResponse Alibabacloud_IQS20240712::Client::rgeoCodeWithOptions(shared_pt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RgeoCodeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RgeoCodeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RgeoCodeResponse(execute(params, req, runtime));
+  }
 }
 
 RgeoCodeResponse Alibabacloud_IQS20240712::Client::rgeoCode(shared_ptr<RgeoCodeRequest> request) {
@@ -387,7 +613,12 @@ TransitIntegratedDirectionResponse Alibabacloud_IQS20240712::Client::transitInte
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return TransitIntegratedDirectionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return TransitIntegratedDirectionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return TransitIntegratedDirectionResponse(execute(params, req, runtime));
+  }
 }
 
 TransitIntegratedDirectionResponse Alibabacloud_IQS20240712::Client::transitIntegratedDirection(shared_ptr<TransitIntegratedDirectionRequest> request) {
@@ -426,7 +657,12 @@ WalkingDirectionNovaResponse Alibabacloud_IQS20240712::Client::walkingDirectionN
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return WalkingDirectionNovaResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return WalkingDirectionNovaResponse(callApi(params, req, runtime));
+  }
+  else {
+    return WalkingDirectionNovaResponse(execute(params, req, runtime));
+  }
 }
 
 WalkingDirectionNovaResponse Alibabacloud_IQS20240712::Client::walkingDirectionNova(shared_ptr<WalkingDirectionNovaRequest> request) {

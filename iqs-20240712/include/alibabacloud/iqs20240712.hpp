@@ -116,6 +116,7 @@ public:
 };
 class QueryResultDataMetadata : public Darabonba::Model {
 public:
+  shared_ptr<string> averageSpend{};
   shared_ptr<string> businessArea{};
   shared_ptr<string> dailyOpeningHours{};
   shared_ptr<string> mainTag{};
@@ -133,6 +134,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (averageSpend) {
+      res["averageSpend"] = boost::any(*averageSpend);
+    }
     if (businessArea) {
       res["businessArea"] = boost::any(*businessArea);
     }
@@ -155,6 +159,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("averageSpend") != m.end() && !m["averageSpend"].empty()) {
+      averageSpend = make_shared<string>(boost::any_cast<string>(m["averageSpend"]));
+    }
     if (m.find("businessArea") != m.end() && !m["businessArea"].empty()) {
       businessArea = make_shared<string>(boost::any_cast<string>(m["businessArea"]));
     }
@@ -183,6 +190,7 @@ public:
   shared_ptr<string> address{};
   shared_ptr<string> cityCode{};
   shared_ptr<string> cityName{};
+  shared_ptr<string> distanceMeter{};
   shared_ptr<string> districtCode{};
   shared_ptr<string> districtName{};
   shared_ptr<string> id{};
@@ -214,6 +222,9 @@ public:
     }
     if (cityName) {
       res["cityName"] = boost::any(*cityName);
+    }
+    if (distanceMeter) {
+      res["distanceMeter"] = boost::any(*distanceMeter);
     }
     if (districtCode) {
       res["districtCode"] = boost::any(*districtCode);
@@ -267,6 +278,9 @@ public:
     }
     if (m.find("cityName") != m.end() && !m["cityName"].empty()) {
       cityName = make_shared<string>(boost::any_cast<string>(m["cityName"]));
+    }
+    if (m.find("distanceMeter") != m.end() && !m["distanceMeter"].empty()) {
+      distanceMeter = make_shared<string>(boost::any_cast<string>(m["distanceMeter"]));
     }
     if (m.find("districtCode") != m.end() && !m["districtCode"].empty()) {
       districtCode = make_shared<string>(boost::any_cast<string>(m["districtCode"]));
@@ -326,6 +340,7 @@ public:
 class QueryResult : public Darabonba::Model {
 public:
   shared_ptr<vector<QueryResultData>> data{};
+  shared_ptr<string> requestId{};
 
   QueryResult() {}
 
@@ -344,6 +359,9 @@ public:
       }
       res["data"] = boost::any(temp1);
     }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -360,6 +378,9 @@ public:
         }
         data = make_shared<vector<QueryResultData>>(expect1);
       }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
   }
 
@@ -3373,6 +3394,636 @@ public:
 
   virtual ~PlaceSearchNovaResponse() = default;
 };
+class QueryAttractionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<AgentBaseQuery> body{};
+
+  QueryAttractionsRequest() {}
+
+  explicit QueryAttractionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AgentBaseQuery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AgentBaseQuery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryAttractionsRequest() = default;
+};
+class QueryAttractionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<QueryResult> queryResult{};
+  shared_ptr<string> requestId{};
+
+  QueryAttractionsResponseBody() {}
+
+  explicit QueryAttractionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (queryResult) {
+      res["queryResult"] = queryResult ? boost::any(queryResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("queryResult") != m.end() && !m["queryResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["queryResult"].type()) {
+        QueryResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["queryResult"]));
+        queryResult = make_shared<QueryResult>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~QueryAttractionsResponseBody() = default;
+};
+class QueryAttractionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryAttractionsResponseBody> body{};
+
+  QueryAttractionsResponse() {}
+
+  explicit QueryAttractionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryAttractionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryAttractionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryAttractionsResponse() = default;
+};
+class QueryAttractionsNlRequest : public Darabonba::Model {
+public:
+  shared_ptr<AgentBaseQuery> body{};
+
+  QueryAttractionsNlRequest() {}
+
+  explicit QueryAttractionsNlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AgentBaseQuery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AgentBaseQuery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryAttractionsNlRequest() = default;
+};
+class QueryAttractionsNlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryResult> body{};
+
+  QueryAttractionsNlResponse() {}
+
+  explicit QueryAttractionsNlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryAttractionsNlResponse() = default;
+};
+class QueryHotelsRequest : public Darabonba::Model {
+public:
+  shared_ptr<AgentBaseQuery> body{};
+
+  QueryHotelsRequest() {}
+
+  explicit QueryHotelsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AgentBaseQuery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AgentBaseQuery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryHotelsRequest() = default;
+};
+class QueryHotelsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<QueryResult> queryResult{};
+  shared_ptr<string> requestId{};
+
+  QueryHotelsResponseBody() {}
+
+  explicit QueryHotelsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (queryResult) {
+      res["queryResult"] = queryResult ? boost::any(queryResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("queryResult") != m.end() && !m["queryResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["queryResult"].type()) {
+        QueryResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["queryResult"]));
+        queryResult = make_shared<QueryResult>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~QueryHotelsResponseBody() = default;
+};
+class QueryHotelsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryHotelsResponseBody> body{};
+
+  QueryHotelsResponse() {}
+
+  explicit QueryHotelsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryHotelsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryHotelsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryHotelsResponse() = default;
+};
+class QueryHotelsNlRequest : public Darabonba::Model {
+public:
+  shared_ptr<AgentBaseQuery> body{};
+
+  QueryHotelsNlRequest() {}
+
+  explicit QueryHotelsNlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AgentBaseQuery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AgentBaseQuery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryHotelsNlRequest() = default;
+};
+class QueryHotelsNlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryResult> body{};
+
+  QueryHotelsNlResponse() {}
+
+  explicit QueryHotelsNlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryHotelsNlResponse() = default;
+};
+class QueryRestaurantsRequest : public Darabonba::Model {
+public:
+  shared_ptr<AgentBaseQuery> body{};
+
+  QueryRestaurantsRequest() {}
+
+  explicit QueryRestaurantsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AgentBaseQuery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AgentBaseQuery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryRestaurantsRequest() = default;
+};
+class QueryRestaurantsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<QueryResult> queryResult{};
+  shared_ptr<string> requestId{};
+
+  QueryRestaurantsResponseBody() {}
+
+  explicit QueryRestaurantsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (queryResult) {
+      res["queryResult"] = queryResult ? boost::any(queryResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("queryResult") != m.end() && !m["queryResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["queryResult"].type()) {
+        QueryResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["queryResult"]));
+        queryResult = make_shared<QueryResult>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~QueryRestaurantsResponseBody() = default;
+};
+class QueryRestaurantsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryRestaurantsResponseBody> body{};
+
+  QueryRestaurantsResponse() {}
+
+  explicit QueryRestaurantsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryRestaurantsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryRestaurantsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryRestaurantsResponse() = default;
+};
+class QueryRestaurantsNlRequest : public Darabonba::Model {
+public:
+  shared_ptr<AgentBaseQuery> body{};
+
+  QueryRestaurantsNlRequest() {}
+
+  explicit QueryRestaurantsNlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AgentBaseQuery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AgentBaseQuery>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryRestaurantsNlRequest() = default;
+};
+class QueryRestaurantsNlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryResult> body{};
+
+  QueryRestaurantsNlResponse() {}
+
+  explicit QueryRestaurantsNlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryRestaurantsNlResponse() = default;
+};
 class RgeoCodeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> latitude{};
@@ -6220,6 +6871,18 @@ public:
   NearbySearchNovaResponse nearbySearchNova(shared_ptr<NearbySearchNovaRequest> request);
   PlaceSearchNovaResponse placeSearchNovaWithOptions(shared_ptr<PlaceSearchNovaRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PlaceSearchNovaResponse placeSearchNova(shared_ptr<PlaceSearchNovaRequest> request);
+  QueryAttractionsResponse queryAttractionsWithOptions(shared_ptr<QueryAttractionsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryAttractionsResponse queryAttractions(shared_ptr<QueryAttractionsRequest> request);
+  QueryAttractionsNlResponse queryAttractionsNlWithOptions(shared_ptr<QueryAttractionsNlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryAttractionsNlResponse queryAttractionsNl(shared_ptr<QueryAttractionsNlRequest> request);
+  QueryHotelsResponse queryHotelsWithOptions(shared_ptr<QueryHotelsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryHotelsResponse queryHotels(shared_ptr<QueryHotelsRequest> request);
+  QueryHotelsNlResponse queryHotelsNlWithOptions(shared_ptr<QueryHotelsNlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryHotelsNlResponse queryHotelsNl(shared_ptr<QueryHotelsNlRequest> request);
+  QueryRestaurantsResponse queryRestaurantsWithOptions(shared_ptr<QueryRestaurantsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryRestaurantsResponse queryRestaurants(shared_ptr<QueryRestaurantsRequest> request);
+  QueryRestaurantsNlResponse queryRestaurantsNlWithOptions(shared_ptr<QueryRestaurantsNlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryRestaurantsNlResponse queryRestaurantsNl(shared_ptr<QueryRestaurantsNlRequest> request);
   RgeoCodeResponse rgeoCodeWithOptions(shared_ptr<RgeoCodeRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RgeoCodeResponse rgeoCode(shared_ptr<RgeoCodeRequest> request);
   TransitIntegratedDirectionResponse transitIntegratedDirectionWithOptions(shared_ptr<TransitIntegratedDirectionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
