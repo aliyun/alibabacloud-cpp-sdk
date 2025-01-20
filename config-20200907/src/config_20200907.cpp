@@ -1473,6 +1473,9 @@ EvaluatePreConfigRulesResponse Alibabacloud_Config20200907::Client::evaluatePreC
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceEvaluateItemsShrink)) {
     body->insert(pair<string, string>("ResourceEvaluateItems", *request->resourceEvaluateItemsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceTypeFormat)) {
+    body->insert(pair<string, string>("ResourceTypeFormat", *request->resourceTypeFormat));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));

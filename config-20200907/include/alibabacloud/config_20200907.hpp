@@ -8388,6 +8388,7 @@ class EvaluatePreConfigRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> enableManagedRules{};
   shared_ptr<vector<EvaluatePreConfigRulesRequestResourceEvaluateItems>> resourceEvaluateItems{};
+  shared_ptr<string> resourceTypeFormat{};
 
   EvaluatePreConfigRulesRequest() {}
 
@@ -8409,6 +8410,9 @@ public:
       }
       res["ResourceEvaluateItems"] = boost::any(temp1);
     }
+    if (resourceTypeFormat) {
+      res["ResourceTypeFormat"] = boost::any(*resourceTypeFormat);
+    }
     return res;
   }
 
@@ -8429,6 +8433,9 @@ public:
         resourceEvaluateItems = make_shared<vector<EvaluatePreConfigRulesRequestResourceEvaluateItems>>(expect1);
       }
     }
+    if (m.find("ResourceTypeFormat") != m.end() && !m["ResourceTypeFormat"].empty()) {
+      resourceTypeFormat = make_shared<string>(boost::any_cast<string>(m["ResourceTypeFormat"]));
+    }
   }
 
 
@@ -8438,6 +8445,7 @@ class EvaluatePreConfigRulesShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> enableManagedRules{};
   shared_ptr<string> resourceEvaluateItemsShrink{};
+  shared_ptr<string> resourceTypeFormat{};
 
   EvaluatePreConfigRulesShrinkRequest() {}
 
@@ -8455,6 +8463,9 @@ public:
     if (resourceEvaluateItemsShrink) {
       res["ResourceEvaluateItems"] = boost::any(*resourceEvaluateItemsShrink);
     }
+    if (resourceTypeFormat) {
+      res["ResourceTypeFormat"] = boost::any(*resourceTypeFormat);
+    }
     return res;
   }
 
@@ -8464,6 +8475,9 @@ public:
     }
     if (m.find("ResourceEvaluateItems") != m.end() && !m["ResourceEvaluateItems"].empty()) {
       resourceEvaluateItemsShrink = make_shared<string>(boost::any_cast<string>(m["ResourceEvaluateItems"]));
+    }
+    if (m.find("ResourceTypeFormat") != m.end() && !m["ResourceTypeFormat"].empty()) {
+      resourceTypeFormat = make_shared<string>(boost::any_cast<string>(m["ResourceTypeFormat"]));
     }
   }
 
