@@ -30430,6 +30430,172 @@ public:
 
   virtual ~ModifyDBClusterServerlessConfResponse() = default;
 };
+class ModifyDBClusterStoragePerformanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> burstingEnabled{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> modifyType{};
+  shared_ptr<long> provisionedIops{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> storageType{};
+
+  ModifyDBClusterStoragePerformanceRequest() {}
+
+  explicit ModifyDBClusterStoragePerformanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (burstingEnabled) {
+      res["BurstingEnabled"] = boost::any(*burstingEnabled);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (modifyType) {
+      res["ModifyType"] = boost::any(*modifyType);
+    }
+    if (provisionedIops) {
+      res["ProvisionedIops"] = boost::any(*provisionedIops);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BurstingEnabled") != m.end() && !m["BurstingEnabled"].empty()) {
+      burstingEnabled = make_shared<string>(boost::any_cast<string>(m["BurstingEnabled"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("ModifyType") != m.end() && !m["ModifyType"].empty()) {
+      modifyType = make_shared<string>(boost::any_cast<string>(m["ModifyType"]));
+    }
+    if (m.find("ProvisionedIops") != m.end() && !m["ProvisionedIops"].empty()) {
+      provisionedIops = make_shared<long>(boost::any_cast<long>(m["ProvisionedIops"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
+    }
+  }
+
+
+  virtual ~ModifyDBClusterStoragePerformanceRequest() = default;
+};
+class ModifyDBClusterStoragePerformanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+
+  ModifyDBClusterStoragePerformanceResponseBody() {}
+
+  explicit ModifyDBClusterStoragePerformanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyDBClusterStoragePerformanceResponseBody() = default;
+};
+class ModifyDBClusterStoragePerformanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyDBClusterStoragePerformanceResponseBody> body{};
+
+  ModifyDBClusterStoragePerformanceResponse() {}
+
+  explicit ModifyDBClusterStoragePerformanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyDBClusterStoragePerformanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyDBClusterStoragePerformanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyDBClusterStoragePerformanceResponse() = default;
+};
 class ModifyDBClusterStorageSpaceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -36195,6 +36361,8 @@ public:
   ModifyDBClusterSSLResponse modifyDBClusterSSL(shared_ptr<ModifyDBClusterSSLRequest> request);
   ModifyDBClusterServerlessConfResponse modifyDBClusterServerlessConfWithOptions(shared_ptr<ModifyDBClusterServerlessConfRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBClusterServerlessConfResponse modifyDBClusterServerlessConf(shared_ptr<ModifyDBClusterServerlessConfRequest> request);
+  ModifyDBClusterStoragePerformanceResponse modifyDBClusterStoragePerformanceWithOptions(shared_ptr<ModifyDBClusterStoragePerformanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyDBClusterStoragePerformanceResponse modifyDBClusterStoragePerformance(shared_ptr<ModifyDBClusterStoragePerformanceRequest> request);
   ModifyDBClusterStorageSpaceResponse modifyDBClusterStorageSpaceWithOptions(shared_ptr<ModifyDBClusterStorageSpaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBClusterStorageSpaceResponse modifyDBClusterStorageSpace(shared_ptr<ModifyDBClusterStorageSpaceRequest> request);
   ModifyDBClusterTDEResponse modifyDBClusterTDEWithOptions(shared_ptr<ModifyDBClusterTDERequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
