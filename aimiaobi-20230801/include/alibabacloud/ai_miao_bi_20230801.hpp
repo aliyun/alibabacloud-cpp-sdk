@@ -38207,6 +38207,604 @@ public:
 
   virtual ~RunSearchGenerationResponse() = default;
 };
+class RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> name{};
+
+  RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources() {}
+
+  explicit RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources() = default;
+};
+class RunSearchSimilarArticlesRequestChatConfigSearchParam : public Darabonba::Model {
+public:
+  shared_ptr<vector<RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources>> searchSources{};
+
+  RunSearchSimilarArticlesRequestChatConfigSearchParam() {}
+
+  explicit RunSearchSimilarArticlesRequestChatConfigSearchParam(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (searchSources) {
+      vector<boost::any> temp1;
+      for(auto item1:*searchSources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SearchSources"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SearchSources") != m.end() && !m["SearchSources"].empty()) {
+      if (typeid(vector<boost::any>) == m["SearchSources"].type()) {
+        vector<RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SearchSources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        searchSources = make_shared<vector<RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RunSearchSimilarArticlesRequestChatConfigSearchParam() = default;
+};
+class RunSearchSimilarArticlesRequestChatConfig : public Darabonba::Model {
+public:
+  shared_ptr<RunSearchSimilarArticlesRequestChatConfigSearchParam> searchParam{};
+
+  RunSearchSimilarArticlesRequestChatConfig() {}
+
+  explicit RunSearchSimilarArticlesRequestChatConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (searchParam) {
+      res["SearchParam"] = searchParam ? boost::any(searchParam->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SearchParam") != m.end() && !m["SearchParam"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SearchParam"].type()) {
+        RunSearchSimilarArticlesRequestChatConfigSearchParam model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SearchParam"]));
+        searchParam = make_shared<RunSearchSimilarArticlesRequestChatConfigSearchParam>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunSearchSimilarArticlesRequestChatConfig() = default;
+};
+class RunSearchSimilarArticlesRequest : public Darabonba::Model {
+public:
+  shared_ptr<RunSearchSimilarArticlesRequestChatConfig> chatConfig{};
+  shared_ptr<string> docType{};
+  shared_ptr<string> title{};
+  shared_ptr<string> url{};
+  shared_ptr<string> workspaceId{};
+
+  RunSearchSimilarArticlesRequest() {}
+
+  explicit RunSearchSimilarArticlesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (chatConfig) {
+      res["ChatConfig"] = chatConfig ? boost::any(chatConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (docType) {
+      res["DocType"] = boost::any(*docType);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChatConfig") != m.end() && !m["ChatConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ChatConfig"].type()) {
+        RunSearchSimilarArticlesRequestChatConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ChatConfig"]));
+        chatConfig = make_shared<RunSearchSimilarArticlesRequestChatConfig>(model1);
+      }
+    }
+    if (m.find("DocType") != m.end() && !m["DocType"].empty()) {
+      docType = make_shared<string>(boost::any_cast<string>(m["DocType"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~RunSearchSimilarArticlesRequest() = default;
+};
+class RunSearchSimilarArticlesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> chatConfigShrink{};
+  shared_ptr<string> docType{};
+  shared_ptr<string> title{};
+  shared_ptr<string> url{};
+  shared_ptr<string> workspaceId{};
+
+  RunSearchSimilarArticlesShrinkRequest() {}
+
+  explicit RunSearchSimilarArticlesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (chatConfigShrink) {
+      res["ChatConfig"] = boost::any(*chatConfigShrink);
+    }
+    if (docType) {
+      res["DocType"] = boost::any(*docType);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChatConfig") != m.end() && !m["ChatConfig"].empty()) {
+      chatConfigShrink = make_shared<string>(boost::any_cast<string>(m["ChatConfig"]));
+    }
+    if (m.find("DocType") != m.end() && !m["DocType"].empty()) {
+      docType = make_shared<string>(boost::any_cast<string>(m["DocType"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~RunSearchSimilarArticlesShrinkRequest() = default;
+};
+class RunSearchSimilarArticlesResponseBodyHeader : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> event{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> taskId{};
+
+  RunSearchSimilarArticlesResponseBodyHeader() {}
+
+  explicit RunSearchSimilarArticlesResponseBodyHeader(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (event) {
+      res["Event"] = boost::any(*event);
+    }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Event") != m.end() && !m["Event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["Event"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~RunSearchSimilarArticlesResponseBodyHeader() = default;
+};
+class RunSearchSimilarArticlesResponseBodyPayloadOutputArticles : public Darabonba::Model {
+public:
+  shared_ptr<string> docUuid{};
+  shared_ptr<string> pubTime{};
+  shared_ptr<string> searchSourceName{};
+  shared_ptr<string> source{};
+  shared_ptr<string> summary{};
+  shared_ptr<string> title{};
+  shared_ptr<string> url{};
+
+  RunSearchSimilarArticlesResponseBodyPayloadOutputArticles() {}
+
+  explicit RunSearchSimilarArticlesResponseBodyPayloadOutputArticles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (docUuid) {
+      res["DocUuid"] = boost::any(*docUuid);
+    }
+    if (pubTime) {
+      res["PubTime"] = boost::any(*pubTime);
+    }
+    if (searchSourceName) {
+      res["SearchSourceName"] = boost::any(*searchSourceName);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (summary) {
+      res["Summary"] = boost::any(*summary);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DocUuid") != m.end() && !m["DocUuid"].empty()) {
+      docUuid = make_shared<string>(boost::any_cast<string>(m["DocUuid"]));
+    }
+    if (m.find("PubTime") != m.end() && !m["PubTime"].empty()) {
+      pubTime = make_shared<string>(boost::any_cast<string>(m["PubTime"]));
+    }
+    if (m.find("SearchSourceName") != m.end() && !m["SearchSourceName"].empty()) {
+      searchSourceName = make_shared<string>(boost::any_cast<string>(m["SearchSourceName"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("Summary") != m.end() && !m["Summary"].empty()) {
+      summary = make_shared<string>(boost::any_cast<string>(m["Summary"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~RunSearchSimilarArticlesResponseBodyPayloadOutputArticles() = default;
+};
+class RunSearchSimilarArticlesResponseBodyPayloadOutput : public Darabonba::Model {
+public:
+  shared_ptr<vector<RunSearchSimilarArticlesResponseBodyPayloadOutputArticles>> articles{};
+  shared_ptr<string> text{};
+
+  RunSearchSimilarArticlesResponseBodyPayloadOutput() {}
+
+  explicit RunSearchSimilarArticlesResponseBodyPayloadOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (articles) {
+      vector<boost::any> temp1;
+      for(auto item1:*articles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Articles"] = boost::any(temp1);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Articles") != m.end() && !m["Articles"].empty()) {
+      if (typeid(vector<boost::any>) == m["Articles"].type()) {
+        vector<RunSearchSimilarArticlesResponseBodyPayloadOutputArticles> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Articles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunSearchSimilarArticlesResponseBodyPayloadOutputArticles model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        articles = make_shared<vector<RunSearchSimilarArticlesResponseBodyPayloadOutputArticles>>(expect1);
+      }
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~RunSearchSimilarArticlesResponseBodyPayloadOutput() = default;
+};
+class RunSearchSimilarArticlesResponseBodyPayloadUsage : public Darabonba::Model {
+public:
+  shared_ptr<long> inputTokens{};
+  shared_ptr<long> outputTokens{};
+  shared_ptr<long> totalTokens{};
+
+  RunSearchSimilarArticlesResponseBodyPayloadUsage() {}
+
+  explicit RunSearchSimilarArticlesResponseBodyPayloadUsage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inputTokens) {
+      res["InputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["OutputTokens"] = boost::any(*outputTokens);
+    }
+    if (totalTokens) {
+      res["TotalTokens"] = boost::any(*totalTokens);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InputTokens") != m.end() && !m["InputTokens"].empty()) {
+      inputTokens = make_shared<long>(boost::any_cast<long>(m["InputTokens"]));
+    }
+    if (m.find("OutputTokens") != m.end() && !m["OutputTokens"].empty()) {
+      outputTokens = make_shared<long>(boost::any_cast<long>(m["OutputTokens"]));
+    }
+    if (m.find("TotalTokens") != m.end() && !m["TotalTokens"].empty()) {
+      totalTokens = make_shared<long>(boost::any_cast<long>(m["TotalTokens"]));
+    }
+  }
+
+
+  virtual ~RunSearchSimilarArticlesResponseBodyPayloadUsage() = default;
+};
+class RunSearchSimilarArticlesResponseBodyPayload : public Darabonba::Model {
+public:
+  shared_ptr<RunSearchSimilarArticlesResponseBodyPayloadOutput> output{};
+  shared_ptr<RunSearchSimilarArticlesResponseBodyPayloadUsage> usage{};
+
+  RunSearchSimilarArticlesResponseBodyPayload() {}
+
+  explicit RunSearchSimilarArticlesResponseBodyPayload(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (output) {
+      res["Output"] = output ? boost::any(output->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (usage) {
+      res["Usage"] = usage ? boost::any(usage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Output") != m.end() && !m["Output"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Output"].type()) {
+        RunSearchSimilarArticlesResponseBodyPayloadOutput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Output"]));
+        output = make_shared<RunSearchSimilarArticlesResponseBodyPayloadOutput>(model1);
+      }
+    }
+    if (m.find("Usage") != m.end() && !m["Usage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Usage"].type()) {
+        RunSearchSimilarArticlesResponseBodyPayloadUsage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Usage"]));
+        usage = make_shared<RunSearchSimilarArticlesResponseBodyPayloadUsage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunSearchSimilarArticlesResponseBodyPayload() = default;
+};
+class RunSearchSimilarArticlesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<RunSearchSimilarArticlesResponseBodyHeader> header{};
+  shared_ptr<RunSearchSimilarArticlesResponseBodyPayload> payload{};
+  shared_ptr<string> requestId{};
+
+  RunSearchSimilarArticlesResponseBody() {}
+
+  explicit RunSearchSimilarArticlesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (header) {
+      res["Header"] = header ? boost::any(header->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (payload) {
+      res["Payload"] = payload ? boost::any(payload->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Header") != m.end() && !m["Header"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Header"].type()) {
+        RunSearchSimilarArticlesResponseBodyHeader model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Header"]));
+        header = make_shared<RunSearchSimilarArticlesResponseBodyHeader>(model1);
+      }
+    }
+    if (m.find("Payload") != m.end() && !m["Payload"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Payload"].type()) {
+        RunSearchSimilarArticlesResponseBodyPayload model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Payload"]));
+        payload = make_shared<RunSearchSimilarArticlesResponseBodyPayload>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RunSearchSimilarArticlesResponseBody() = default;
+};
+class RunSearchSimilarArticlesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RunSearchSimilarArticlesResponseBody> body{};
+
+  RunSearchSimilarArticlesResponse() {}
+
+  explicit RunSearchSimilarArticlesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RunSearchSimilarArticlesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RunSearchSimilarArticlesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunSearchSimilarArticlesResponse() = default;
+};
 class RunStepByStepWritingRequestReferenceDataArticles : public Darabonba::Model {
 public:
   shared_ptr<string> author{};
@@ -50407,6 +51005,8 @@ public:
   RunKeywordsExtractionGenerationResponse runKeywordsExtractionGeneration(shared_ptr<RunKeywordsExtractionGenerationRequest> request);
   RunSearchGenerationResponse runSearchGenerationWithOptions(shared_ptr<RunSearchGenerationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunSearchGenerationResponse runSearchGeneration(shared_ptr<RunSearchGenerationRequest> request);
+  RunSearchSimilarArticlesResponse runSearchSimilarArticlesWithOptions(shared_ptr<RunSearchSimilarArticlesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RunSearchSimilarArticlesResponse runSearchSimilarArticles(shared_ptr<RunSearchSimilarArticlesRequest> request);
   RunStepByStepWritingResponse runStepByStepWritingWithOptions(shared_ptr<RunStepByStepWritingRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunStepByStepWritingResponse runStepByStepWriting(shared_ptr<RunStepByStepWritingRequest> request);
   RunStyleFeatureAnalysisResponse runStyleFeatureAnalysisWithOptions(shared_ptr<RunStyleFeatureAnalysisRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
