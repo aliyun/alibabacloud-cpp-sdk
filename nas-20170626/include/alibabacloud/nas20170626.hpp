@@ -12598,6 +12598,8 @@ public:
   shared_ptr<vector<DescribeFilesetsRequestFilters>> filters{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> orderByField{};
+  shared_ptr<string> sortOrder{};
 
   DescribeFilesetsRequest() {}
 
@@ -12625,6 +12627,12 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (orderByField) {
+      res["OrderByField"] = boost::any(*orderByField);
+    }
+    if (sortOrder) {
+      res["SortOrder"] = boost::any(*sortOrder);
+    }
     return res;
   }
 
@@ -12650,6 +12658,12 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("OrderByField") != m.end() && !m["OrderByField"].empty()) {
+      orderByField = make_shared<string>(boost::any_cast<string>(m["OrderByField"]));
+    }
+    if (m.find("SortOrder") != m.end() && !m["SortOrder"].empty()) {
+      sortOrder = make_shared<string>(boost::any_cast<string>(m["SortOrder"]));
     }
   }
 
