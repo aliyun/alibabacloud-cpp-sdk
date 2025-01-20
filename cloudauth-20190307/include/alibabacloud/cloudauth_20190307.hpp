@@ -5848,6 +5848,7 @@ public:
   shared_ptr<string> birthday{};
   shared_ptr<string> callbackToken{};
   shared_ptr<string> callbackUrl{};
+  shared_ptr<string> cameraSelection{};
   shared_ptr<string> certName{};
   shared_ptr<string> certNo{};
   shared_ptr<string> certType{};
@@ -5904,6 +5905,9 @@ public:
     }
     if (callbackUrl) {
       res["CallbackUrl"] = boost::any(*callbackUrl);
+    }
+    if (cameraSelection) {
+      res["CameraSelection"] = boost::any(*cameraSelection);
     }
     if (certName) {
       res["CertName"] = boost::any(*certName);
@@ -6016,6 +6020,9 @@ public:
     }
     if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
       callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
+    }
+    if (m.find("CameraSelection") != m.end() && !m["CameraSelection"].empty()) {
+      cameraSelection = make_shared<string>(boost::any_cast<string>(m["CameraSelection"]));
     }
     if (m.find("CertName") != m.end() && !m["CertName"].empty()) {
       certName = make_shared<string>(boost::any_cast<string>(m["CertName"]));

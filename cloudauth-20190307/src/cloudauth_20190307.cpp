@@ -1129,6 +1129,9 @@ InitFaceVerifyResponse Alibabacloud_Cloudauth20190307::Client::initFaceVerifyWit
   if (!Darabonba_Util::Client::isUnset<string>(request->callbackUrl)) {
     query->insert(pair<string, string>("CallbackUrl", *request->callbackUrl));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cameraSelection)) {
+    query->insert(pair<string, string>("CameraSelection", *request->cameraSelection));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->certName)) {
     query->insert(pair<string, string>("CertName", *request->certName));
   }
