@@ -9579,6 +9579,7 @@ public:
 };
 class ListArtifactsResponseBodyArtifacts : public Darabonba::Model {
 public:
+  shared_ptr<string> artifactBuildProperty{};
   shared_ptr<string> artifactId{};
   shared_ptr<string> artifactType{};
   shared_ptr<string> description{};
@@ -9599,6 +9600,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (artifactBuildProperty) {
+      res["ArtifactBuildProperty"] = boost::any(*artifactBuildProperty);
+    }
     if (artifactId) {
       res["ArtifactId"] = boost::any(*artifactId);
     }
@@ -9634,6 +9638,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArtifactBuildProperty") != m.end() && !m["ArtifactBuildProperty"].empty()) {
+      artifactBuildProperty = make_shared<string>(boost::any_cast<string>(m["ArtifactBuildProperty"]));
+    }
     if (m.find("ArtifactId") != m.end() && !m["ArtifactId"].empty()) {
       artifactId = make_shared<string>(boost::any_cast<string>(m["ArtifactId"]));
     }
@@ -9798,6 +9805,405 @@ public:
 
 
   virtual ~ListArtifactsResponse() = default;
+};
+class ListServiceInstanceDeployDetailsRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> value{};
+
+  ListServiceInstanceDeployDetailsRequestFilter() {}
+
+  explicit ListServiceInstanceDeployDetailsRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Value"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Value"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      value = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListServiceInstanceDeployDetailsRequestFilter() = default;
+};
+class ListServiceInstanceDeployDetailsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cycleTimeZone{};
+  shared_ptr<string> cycleType{};
+  shared_ptr<vector<string>> dimension{};
+  shared_ptr<string> endTime{};
+  shared_ptr<vector<ListServiceInstanceDeployDetailsRequestFilter>> filter{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> startTime{};
+
+  ListServiceInstanceDeployDetailsRequest() {}
+
+  explicit ListServiceInstanceDeployDetailsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cycleTimeZone) {
+      res["CycleTimeZone"] = boost::any(*cycleTimeZone);
+    }
+    if (cycleType) {
+      res["CycleType"] = boost::any(*cycleType);
+    }
+    if (dimension) {
+      res["Dimension"] = boost::any(*dimension);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (filter) {
+      vector<boost::any> temp1;
+      for(auto item1:*filter){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filter"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CycleTimeZone") != m.end() && !m["CycleTimeZone"].empty()) {
+      cycleTimeZone = make_shared<string>(boost::any_cast<string>(m["CycleTimeZone"]));
+    }
+    if (m.find("CycleType") != m.end() && !m["CycleType"].empty()) {
+      cycleType = make_shared<string>(boost::any_cast<string>(m["CycleType"]));
+    }
+    if (m.find("Dimension") != m.end() && !m["Dimension"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Dimension"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Dimension"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dimension = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filter"].type()) {
+        vector<ListServiceInstanceDeployDetailsRequestFilter> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filter"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListServiceInstanceDeployDetailsRequestFilter model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filter = make_shared<vector<ListServiceInstanceDeployDetailsRequestFilter>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~ListServiceInstanceDeployDetailsRequest() = default;
+};
+class ListServiceInstanceDeployDetailsResponseBodyDeployDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> count{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> cycle{};
+  shared_ptr<string> deploySucceeded{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorDetail{};
+  shared_ptr<string> errorType{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<string> serviceInstanceId{};
+  shared_ptr<string> serviceNameChn{};
+  shared_ptr<string> serviceNameEng{};
+  shared_ptr<string> serviceType{};
+  shared_ptr<string> serviceVersion{};
+  shared_ptr<string> timestamp{};
+  shared_ptr<string> userId{};
+
+  ListServiceInstanceDeployDetailsResponseBodyDeployDetails() {}
+
+  explicit ListServiceInstanceDeployDetailsResponseBodyDeployDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (cycle) {
+      res["Cycle"] = boost::any(*cycle);
+    }
+    if (deploySucceeded) {
+      res["DeploySucceeded"] = boost::any(*deploySucceeded);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorDetail) {
+      res["ErrorDetail"] = boost::any(*errorDetail);
+    }
+    if (errorType) {
+      res["ErrorType"] = boost::any(*errorType);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceInstanceId) {
+      res["ServiceInstanceId"] = boost::any(*serviceInstanceId);
+    }
+    if (serviceNameChn) {
+      res["ServiceNameChn"] = boost::any(*serviceNameChn);
+    }
+    if (serviceNameEng) {
+      res["ServiceNameEng"] = boost::any(*serviceNameEng);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (serviceVersion) {
+      res["ServiceVersion"] = boost::any(*serviceVersion);
+    }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<string>(boost::any_cast<string>(m["Count"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Cycle") != m.end() && !m["Cycle"].empty()) {
+      cycle = make_shared<string>(boost::any_cast<string>(m["Cycle"]));
+    }
+    if (m.find("DeploySucceeded") != m.end() && !m["DeploySucceeded"].empty()) {
+      deploySucceeded = make_shared<string>(boost::any_cast<string>(m["DeploySucceeded"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorDetail") != m.end() && !m["ErrorDetail"].empty()) {
+      errorDetail = make_shared<string>(boost::any_cast<string>(m["ErrorDetail"]));
+    }
+    if (m.find("ErrorType") != m.end() && !m["ErrorType"].empty()) {
+      errorType = make_shared<string>(boost::any_cast<string>(m["ErrorType"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceInstanceId") != m.end() && !m["ServiceInstanceId"].empty()) {
+      serviceInstanceId = make_shared<string>(boost::any_cast<string>(m["ServiceInstanceId"]));
+    }
+    if (m.find("ServiceNameChn") != m.end() && !m["ServiceNameChn"].empty()) {
+      serviceNameChn = make_shared<string>(boost::any_cast<string>(m["ServiceNameChn"]));
+    }
+    if (m.find("ServiceNameEng") != m.end() && !m["ServiceNameEng"].empty()) {
+      serviceNameEng = make_shared<string>(boost::any_cast<string>(m["ServiceNameEng"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("ServiceVersion") != m.end() && !m["ServiceVersion"].empty()) {
+      serviceVersion = make_shared<string>(boost::any_cast<string>(m["ServiceVersion"]));
+    }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<string>(boost::any_cast<string>(m["Timestamp"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~ListServiceInstanceDeployDetailsResponseBodyDeployDetails() = default;
+};
+class ListServiceInstanceDeployDetailsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListServiceInstanceDeployDetailsResponseBodyDeployDetails>> deployDetails{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListServiceInstanceDeployDetailsResponseBody() {}
+
+  explicit ListServiceInstanceDeployDetailsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deployDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*deployDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeployDetails"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeployDetails") != m.end() && !m["DeployDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeployDetails"].type()) {
+        vector<ListServiceInstanceDeployDetailsResponseBodyDeployDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeployDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListServiceInstanceDeployDetailsResponseBodyDeployDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deployDetails = make_shared<vector<ListServiceInstanceDeployDetailsResponseBodyDeployDetails>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListServiceInstanceDeployDetailsResponseBody() = default;
+};
+class ListServiceInstanceDeployDetailsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListServiceInstanceDeployDetailsResponseBody> body{};
+
+  ListServiceInstanceDeployDetailsResponse() {}
+
+  explicit ListServiceInstanceDeployDetailsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListServiceInstanceDeployDetailsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListServiceInstanceDeployDetailsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListServiceInstanceDeployDetailsResponse() = default;
 };
 class ListServiceInstancesRequestFilter : public Darabonba::Model {
 public:
@@ -16736,6 +17142,8 @@ public:
   ListArtifactVersionsResponse listArtifactVersions(shared_ptr<ListArtifactVersionsRequest> request);
   ListArtifactsResponse listArtifactsWithOptions(shared_ptr<ListArtifactsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListArtifactsResponse listArtifacts(shared_ptr<ListArtifactsRequest> request);
+  ListServiceInstanceDeployDetailsResponse listServiceInstanceDeployDetailsWithOptions(shared_ptr<ListServiceInstanceDeployDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListServiceInstanceDeployDetailsResponse listServiceInstanceDeployDetails(shared_ptr<ListServiceInstanceDeployDetailsRequest> request);
   ListServiceInstancesResponse listServiceInstancesWithOptions(shared_ptr<ListServiceInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListServiceInstancesResponse listServiceInstances(shared_ptr<ListServiceInstancesRequest> request);
   ListServiceSharedAccountsResponse listServiceSharedAccountsWithOptions(shared_ptr<ListServiceSharedAccountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

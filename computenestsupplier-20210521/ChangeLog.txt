@@ -1,3 +1,8 @@
+2025-01-21 Version: 4.2.0
+- Support API ListServiceInstanceDeployDetails.
+- Update API ListArtifacts: update response param.
+
+
 2025-01-09 Version: 4.1.1
 - Update API GetArtifact: update response param.
 - Update API UpdateArtifact: add param PermissionType.

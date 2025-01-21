@@ -69,7 +69,12 @@ AddServiceSharedAccountsResponse Alibabacloud_ComputeNestSupplier20210521::Clien
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AddServiceSharedAccountsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AddServiceSharedAccountsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AddServiceSharedAccountsResponse(execute(params, req, runtime));
+  }
 }
 
 AddServiceSharedAccountsResponse Alibabacloud_ComputeNestSupplier20210521::Client::addServiceSharedAccounts(shared_ptr<AddServiceSharedAccountsRequest> request) {
@@ -112,7 +117,12 @@ ApproveServiceUsageResponse Alibabacloud_ComputeNestSupplier20210521::Client::ap
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ApproveServiceUsageResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ApproveServiceUsageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ApproveServiceUsageResponse(execute(params, req, runtime));
+  }
 }
 
 ApproveServiceUsageResponse Alibabacloud_ComputeNestSupplier20210521::Client::approveServiceUsage(shared_ptr<ApproveServiceUsageRequest> request) {
@@ -152,7 +162,12 @@ ContinueDeployServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ContinueDeployServiceInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ContinueDeployServiceInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ContinueDeployServiceInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 ContinueDeployServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::continueDeployServiceInstance(shared_ptr<ContinueDeployServiceInstanceRequest> request) {
@@ -221,7 +236,12 @@ CreateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::createA
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateArtifactResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateArtifactResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateArtifactResponse(execute(params, req, runtime));
+  }
 }
 
 CreateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::createArtifact(shared_ptr<CreateArtifactRequest> request) {
@@ -335,7 +355,12 @@ CreateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::createSe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateServiceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateServiceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateServiceResponse(execute(params, req, runtime));
+  }
 }
 
 CreateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::createService(shared_ptr<CreateServiceRequest> request) {
@@ -404,7 +429,12 @@ CreateServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateServiceInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateServiceInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateServiceInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 CreateServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::createServiceInstance(shared_ptr<CreateServiceInstanceRequest> request) {
@@ -438,7 +468,12 @@ CreateServiceUsageResponse Alibabacloud_ComputeNestSupplier20210521::Client::cre
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateServiceUsageResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateServiceUsageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateServiceUsageResponse(execute(params, req, runtime));
+  }
 }
 
 CreateServiceUsageResponse Alibabacloud_ComputeNestSupplier20210521::Client::createServiceUsage(shared_ptr<CreateServiceUsageRequest> request) {
@@ -472,7 +507,12 @@ DeleteArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::deleteA
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteArtifactResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteArtifactResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteArtifactResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::deleteArtifact(shared_ptr<DeleteArtifactRequest> request) {
@@ -509,7 +549,12 @@ DeleteServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::deleteSe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteServiceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteServiceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteServiceResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::deleteService(shared_ptr<DeleteServiceRequest> request) {
@@ -543,7 +588,12 @@ DeleteServiceInstancesResponse Alibabacloud_ComputeNestSupplier20210521::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteServiceInstancesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteServiceInstancesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteServiceInstancesResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteServiceInstancesResponse Alibabacloud_ComputeNestSupplier20210521::Client::deleteServiceInstances(shared_ptr<DeleteServiceInstancesRequest> request) {
@@ -577,7 +627,12 @@ DeployServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeployServiceInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeployServiceInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeployServiceInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 DeployServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::deployServiceInstance(shared_ptr<DeployServiceInstanceRequest> request) {
@@ -620,7 +675,12 @@ GenerateServicePolicyResponse Alibabacloud_ComputeNestSupplier20210521::Client::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GenerateServicePolicyResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GenerateServicePolicyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GenerateServicePolicyResponse(execute(params, req, runtime));
+  }
 }
 
 GenerateServicePolicyResponse Alibabacloud_ComputeNestSupplier20210521::Client::generateServicePolicy(shared_ptr<GenerateServicePolicyRequest> request) {
@@ -654,7 +714,12 @@ GetArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::getArtifac
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetArtifactResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetArtifactResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetArtifactResponse(execute(params, req, runtime));
+  }
 }
 
 GetArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::getArtifact(shared_ptr<GetArtifactRequest> request) {
@@ -685,7 +750,12 @@ GetArtifactRepositoryCredentialsResponse Alibabacloud_ComputeNestSupplier2021052
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetArtifactRepositoryCredentialsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetArtifactRepositoryCredentialsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetArtifactRepositoryCredentialsResponse(execute(params, req, runtime));
+  }
 }
 
 GetArtifactRepositoryCredentialsResponse Alibabacloud_ComputeNestSupplier20210521::Client::getArtifactRepositoryCredentials(shared_ptr<GetArtifactRepositoryCredentialsRequest> request) {
@@ -734,7 +804,12 @@ GetServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::getServiceW
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetServiceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetServiceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetServiceResponse(execute(params, req, runtime));
+  }
 }
 
 GetServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::getService(shared_ptr<GetServiceRequest> request) {
@@ -794,7 +869,12 @@ GetServiceEstimateCostResponse Alibabacloud_ComputeNestSupplier20210521::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetServiceEstimateCostResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetServiceEstimateCostResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetServiceEstimateCostResponse(execute(params, req, runtime));
+  }
 }
 
 GetServiceEstimateCostResponse Alibabacloud_ComputeNestSupplier20210521::Client::getServiceEstimateCost(shared_ptr<GetServiceEstimateCostRequest> request) {
@@ -825,7 +905,12 @@ GetServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::get
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetServiceInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetServiceInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetServiceInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 GetServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::getServiceInstance(shared_ptr<GetServiceInstanceRequest> request) {
@@ -870,7 +955,12 @@ GetServiceProvisionsResponse Alibabacloud_ComputeNestSupplier20210521::Client::g
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetServiceProvisionsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetServiceProvisionsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetServiceProvisionsResponse(execute(params, req, runtime));
+  }
 }
 
 GetServiceProvisionsResponse Alibabacloud_ComputeNestSupplier20210521::Client::getServiceProvisions(shared_ptr<GetServiceProvisionsRequest> request) {
@@ -922,7 +1012,12 @@ GetServiceTemplateParameterConstraintsResponse Alibabacloud_ComputeNestSupplier2
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetServiceTemplateParameterConstraintsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetServiceTemplateParameterConstraintsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetServiceTemplateParameterConstraintsResponse(execute(params, req, runtime));
+  }
 }
 
 GetServiceTemplateParameterConstraintsResponse Alibabacloud_ComputeNestSupplier20210521::Client::getServiceTemplateParameterConstraints(shared_ptr<GetServiceTemplateParameterConstraintsRequest> request) {
@@ -953,7 +1048,12 @@ GetUploadCredentialsResponse Alibabacloud_ComputeNestSupplier20210521::Client::g
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetUploadCredentialsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetUploadCredentialsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetUploadCredentialsResponse(execute(params, req, runtime));
+  }
 }
 
 GetUploadCredentialsResponse Alibabacloud_ComputeNestSupplier20210521::Client::getUploadCredentials(shared_ptr<GetUploadCredentialsRequest> request) {
@@ -996,7 +1096,12 @@ LaunchServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::launchSe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return LaunchServiceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return LaunchServiceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return LaunchServiceResponse(execute(params, req, runtime));
+  }
 }
 
 LaunchServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::launchService(shared_ptr<LaunchServiceRequest> request) {
@@ -1033,7 +1138,12 @@ ListAcrImageRepositoriesResponse Alibabacloud_ComputeNestSupplier20210521::Clien
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListAcrImageRepositoriesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListAcrImageRepositoriesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListAcrImageRepositoriesResponse(execute(params, req, runtime));
+  }
 }
 
 ListAcrImageRepositoriesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listAcrImageRepositories(shared_ptr<ListAcrImageRepositoriesRequest> request) {
@@ -1070,7 +1180,12 @@ ListAcrImageTagsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listA
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListAcrImageTagsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListAcrImageTagsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListAcrImageTagsResponse(execute(params, req, runtime));
+  }
 }
 
 ListAcrImageTagsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listAcrImageTags(shared_ptr<ListAcrImageTagsRequest> request) {
@@ -1112,7 +1227,12 @@ ListArtifactVersionsResponse Alibabacloud_ComputeNestSupplier20210521::Client::l
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListArtifactVersionsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListArtifactVersionsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListArtifactVersionsResponse(execute(params, req, runtime));
+  }
 }
 
 ListArtifactVersionsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listArtifactVersions(shared_ptr<ListArtifactVersionsRequest> request) {
@@ -1152,12 +1272,74 @@ ListArtifactsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listArti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListArtifactsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListArtifactsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListArtifactsResponse(execute(params, req, runtime));
+  }
 }
 
 ListArtifactsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listArtifacts(shared_ptr<ListArtifactsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listArtifactsWithOptions(request, runtime);
+}
+
+ListServiceInstanceDeployDetailsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceInstanceDeployDetailsWithOptions(shared_ptr<ListServiceInstanceDeployDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cycleTimeZone)) {
+    query->insert(pair<string, string>("CycleTimeZone", *request->cycleTimeZone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cycleType)) {
+    query->insert(pair<string, string>("CycleType", *request->cycleType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->dimension)) {
+    query->insert(pair<string, vector<string>>("Dimension", *request->dimension));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListServiceInstanceDeployDetailsRequestFilter>>(request->filter)) {
+    query->insert(pair<string, vector<ListServiceInstanceDeployDetailsRequestFilter>>("Filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListServiceInstanceDeployDetails"))},
+    {"version", boost::any(string("2021-05-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListServiceInstanceDeployDetailsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListServiceInstanceDeployDetailsResponse(execute(params, req, runtime));
+  }
+}
+
+ListServiceInstanceDeployDetailsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceInstanceDeployDetails(shared_ptr<ListServiceInstanceDeployDetailsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listServiceInstanceDeployDetailsWithOptions(request, runtime);
 }
 
 ListServiceInstancesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceInstancesWithOptions(shared_ptr<ListServiceInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1198,7 +1380,12 @@ ListServiceInstancesResponse Alibabacloud_ComputeNestSupplier20210521::Client::l
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListServiceInstancesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListServiceInstancesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListServiceInstancesResponse(execute(params, req, runtime));
+  }
 }
 
 ListServiceInstancesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceInstances(shared_ptr<ListServiceInstancesRequest> request) {
@@ -1241,7 +1428,12 @@ ListServiceSharedAccountsResponse Alibabacloud_ComputeNestSupplier20210521::Clie
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListServiceSharedAccountsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListServiceSharedAccountsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListServiceSharedAccountsResponse(execute(params, req, runtime));
+  }
 }
 
 ListServiceSharedAccountsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceSharedAccounts(shared_ptr<ListServiceSharedAccountsRequest> request) {
@@ -1278,7 +1470,12 @@ ListServiceUsagesResponse Alibabacloud_ComputeNestSupplier20210521::Client::list
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListServiceUsagesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListServiceUsagesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListServiceUsagesResponse(execute(params, req, runtime));
+  }
 }
 
 ListServiceUsagesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceUsages(shared_ptr<ListServiceUsagesRequest> request) {
@@ -1324,7 +1521,12 @@ ListServicesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListServicesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListServicesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListServicesResponse(execute(params, req, runtime));
+  }
 }
 
 ListServicesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServices(shared_ptr<ListServicesRequest> request) {
@@ -1358,7 +1560,12 @@ ListTagKeysResponse Alibabacloud_ComputeNestSupplier20210521::Client::listTagKey
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListTagKeysResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTagKeysResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTagKeysResponse(execute(params, req, runtime));
+  }
 }
 
 ListTagKeysResponse Alibabacloud_ComputeNestSupplier20210521::Client::listTagKeys(shared_ptr<ListTagKeysRequest> request) {
@@ -1395,7 +1602,12 @@ ListTagValuesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listTagV
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListTagValuesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTagValuesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTagValuesResponse(execute(params, req, runtime));
+  }
 }
 
 ListTagValuesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listTagValues(shared_ptr<ListTagValuesRequest> request) {
@@ -1429,7 +1641,12 @@ ModifyServiceInstanceResourcesResponse Alibabacloud_ComputeNestSupplier20210521:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ModifyServiceInstanceResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ModifyServiceInstanceResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ModifyServiceInstanceResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 ModifyServiceInstanceResourcesResponse Alibabacloud_ComputeNestSupplier20210521::Client::modifyServiceInstanceResources(shared_ptr<ModifyServiceInstanceResourcesRequest> request) {
@@ -1463,7 +1680,12 @@ PreLaunchServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::preLa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PreLaunchServiceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PreLaunchServiceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PreLaunchServiceResponse(execute(params, req, runtime));
+  }
 }
 
 PreLaunchServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::preLaunchService(shared_ptr<PreLaunchServiceRequest> request) {
@@ -1494,7 +1716,12 @@ PushMeteringDataResponse Alibabacloud_ComputeNestSupplier20210521::Client::pushM
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PushMeteringDataResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PushMeteringDataResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PushMeteringDataResponse(execute(params, req, runtime));
+  }
 }
 
 PushMeteringDataResponse Alibabacloud_ComputeNestSupplier20210521::Client::pushMeteringData(shared_ptr<PushMeteringDataRequest> request) {
@@ -1528,7 +1755,12 @@ RegisterServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::regist
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RegisterServiceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RegisterServiceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RegisterServiceResponse(execute(params, req, runtime));
+  }
 }
 
 RegisterServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::registerService(shared_ptr<RegisterServiceRequest> request) {
@@ -1568,7 +1800,12 @@ RejectServiceUsageResponse Alibabacloud_ComputeNestSupplier20210521::Client::rej
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RejectServiceUsageResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RejectServiceUsageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RejectServiceUsageResponse(execute(params, req, runtime));
+  }
 }
 
 RejectServiceUsageResponse Alibabacloud_ComputeNestSupplier20210521::Client::rejectServiceUsage(shared_ptr<RejectServiceUsageRequest> request) {
@@ -1599,7 +1836,12 @@ ReleaseArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::releas
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ReleaseArtifactResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ReleaseArtifactResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ReleaseArtifactResponse(execute(params, req, runtime));
+  }
 }
 
 ReleaseArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::releaseArtifact(shared_ptr<ReleaseArtifactRequest> request) {
@@ -1639,7 +1881,12 @@ RemoveServiceSharedAccountsResponse Alibabacloud_ComputeNestSupplier20210521::Cl
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RemoveServiceSharedAccountsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RemoveServiceSharedAccountsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RemoveServiceSharedAccountsResponse(execute(params, req, runtime));
+  }
 }
 
 RemoveServiceSharedAccountsResponse Alibabacloud_ComputeNestSupplier20210521::Client::removeServiceSharedAccounts(shared_ptr<RemoveServiceSharedAccountsRequest> request) {
@@ -1673,7 +1920,12 @@ RestartServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RestartServiceInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RestartServiceInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RestartServiceInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 RestartServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::restartServiceInstance(shared_ptr<RestartServiceInstanceRequest> request) {
@@ -1707,7 +1959,12 @@ RollbackServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RollbackServiceInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RollbackServiceInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RollbackServiceInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 RollbackServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::rollbackServiceInstance(shared_ptr<RollbackServiceInstanceRequest> request) {
@@ -1741,7 +1998,12 @@ StartServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::s
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return StartServiceInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return StartServiceInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return StartServiceInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 StartServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::startServiceInstance(shared_ptr<StartServiceInstanceRequest> request) {
@@ -1775,7 +2037,12 @@ StopServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::st
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return StopServiceInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return StopServiceInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return StopServiceInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 StopServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::stopServiceInstance(shared_ptr<StopServiceInstanceRequest> request) {
@@ -1812,7 +2079,12 @@ TagResourcesResponse Alibabacloud_ComputeNestSupplier20210521::Client::tagResour
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return TagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return TagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return TagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 TagResourcesResponse Alibabacloud_ComputeNestSupplier20210521::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
@@ -1852,7 +2124,12 @@ UnTagResourcesResponse Alibabacloud_ComputeNestSupplier20210521::Client::unTagRe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UnTagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UnTagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UnTagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 UnTagResourcesResponse Alibabacloud_ComputeNestSupplier20210521::Client::unTagResources(shared_ptr<UnTagResourcesRequest> request) {
@@ -1909,7 +2186,12 @@ UpdateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateA
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateArtifactResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateArtifactResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateArtifactResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateArtifact(shared_ptr<UpdateArtifactRequest> request) {
@@ -2023,7 +2305,12 @@ UpdateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateSe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateServiceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateServiceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateServiceResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateService(shared_ptr<UpdateServiceRequest> request) {
@@ -2068,7 +2355,12 @@ UpdateServiceInstanceAttributeResponse Alibabacloud_ComputeNestSupplier20210521:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateServiceInstanceAttributeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateServiceInstanceAttributeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateServiceInstanceAttributeResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateServiceInstanceAttributeResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateServiceInstanceAttribute(shared_ptr<UpdateServiceInstanceAttributeRequest> request) {
@@ -2116,7 +2408,12 @@ UpdateServiceInstanceSpecResponse Alibabacloud_ComputeNestSupplier20210521::Clie
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateServiceInstanceSpecResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateServiceInstanceSpecResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateServiceInstanceSpecResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateServiceInstanceSpecResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateServiceInstanceSpec(shared_ptr<UpdateServiceInstanceSpecRequest> request) {
@@ -2164,7 +2461,12 @@ UpgradeServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client:
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpgradeServiceInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpgradeServiceInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpgradeServiceInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 UpgradeServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::upgradeServiceInstance(shared_ptr<UpgradeServiceInstanceRequest> request) {
