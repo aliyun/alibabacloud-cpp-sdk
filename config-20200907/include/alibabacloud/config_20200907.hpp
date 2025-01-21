@@ -1601,6 +1601,42 @@ public:
 
   virtual ~CreateAggregateCompliancePackRequestExcludeTagsScope() = default;
 };
+class CreateAggregateCompliancePackRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateAggregateCompliancePackRequestTag() {}
+
+  explicit CreateAggregateCompliancePackRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateAggregateCompliancePackRequestTag() = default;
+};
 class CreateAggregateCompliancePackRequestTagsScope : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -1654,6 +1690,7 @@ public:
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<vector<CreateAggregateCompliancePackRequestTag>> tag{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
   shared_ptr<vector<CreateAggregateCompliancePackRequestTagsScope>> tagsScope{};
@@ -1721,6 +1758,13 @@ public:
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -1806,6 +1850,19 @@ public:
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateAggregateCompliancePackRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAggregateCompliancePackRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateAggregateCompliancePackRequestTag>>(expect1);
+      }
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -1923,6 +1980,7 @@ public:
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<string> tagShrink{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
   shared_ptr<vector<CreateAggregateCompliancePackShrinkRequestTagsScope>> tagsScope{};
@@ -1986,6 +2044,9 @@ public:
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -2061,6 +2122,9 @@ public:
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -2414,6 +2478,42 @@ public:
 
   virtual ~CreateAggregateConfigRuleRequestExcludeTagsScope() = default;
 };
+class CreateAggregateConfigRuleRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateAggregateConfigRuleRequestTag() {}
+
+  explicit CreateAggregateConfigRuleRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateAggregateConfigRuleRequestTag() = default;
+};
 class CreateAggregateConfigRuleRequestTagsScope : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -2475,6 +2575,7 @@ public:
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
   shared_ptr<string> sourceOwner{};
+  shared_ptr<vector<CreateAggregateConfigRuleRequestTag>> tag{};
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
@@ -2562,6 +2663,13 @@ public:
     }
     if (sourceOwner) {
       res["SourceOwner"] = boost::any(*sourceOwner);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (tagKeyLogicScope) {
       res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
@@ -2673,6 +2781,19 @@ public:
     }
     if (m.find("SourceOwner") != m.end() && !m["SourceOwner"].empty()) {
       sourceOwner = make_shared<string>(boost::any_cast<string>(m["SourceOwner"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateAggregateConfigRuleRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAggregateConfigRuleRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateAggregateConfigRuleRequestTag>>(expect1);
+      }
     }
     if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
       tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
@@ -2798,6 +2919,7 @@ public:
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
   shared_ptr<string> sourceOwner{};
+  shared_ptr<string> tagShrink{};
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
@@ -2885,6 +3007,9 @@ public:
     }
     if (sourceOwner) {
       res["SourceOwner"] = boost::any(*sourceOwner);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
     }
     if (tagKeyLogicScope) {
       res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
@@ -2984,6 +3109,9 @@ public:
     }
     if (m.find("SourceOwner") != m.end() && !m["SourceOwner"].empty()) {
       sourceOwner = make_shared<string>(boost::any_cast<string>(m["SourceOwner"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
     }
     if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
       tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
@@ -3309,6 +3437,42 @@ public:
 
   virtual ~CreateAggregatorRequestAggregatorAccounts() = default;
 };
+class CreateAggregatorRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateAggregatorRequestTag() {}
+
+  explicit CreateAggregatorRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateAggregatorRequestTag() = default;
+};
 class CreateAggregatorRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<CreateAggregatorRequestAggregatorAccounts>> aggregatorAccounts{};
@@ -3317,6 +3481,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<string> folderId{};
+  shared_ptr<vector<CreateAggregatorRequestTag>> tag{};
 
   CreateAggregatorRequest() {}
 
@@ -3350,6 +3515,13 @@ public:
     if (folderId) {
       res["FolderId"] = boost::any(*folderId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -3382,6 +3554,19 @@ public:
     if (m.find("FolderId") != m.end() && !m["FolderId"].empty()) {
       folderId = make_shared<string>(boost::any_cast<string>(m["FolderId"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateAggregatorRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAggregatorRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateAggregatorRequestTag>>(expect1);
+      }
+    }
   }
 
 
@@ -3395,6 +3580,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<string> folderId{};
+  shared_ptr<string> tagShrink{};
 
   CreateAggregatorShrinkRequest() {}
 
@@ -3424,6 +3610,9 @@ public:
     if (folderId) {
       res["FolderId"] = boost::any(*folderId);
     }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
     return res;
   }
 
@@ -3445,6 +3634,9 @@ public:
     }
     if (m.find("FolderId") != m.end() && !m["FolderId"].empty()) {
       folderId = make_shared<string>(boost::any_cast<string>(m["FolderId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
     }
   }
 
@@ -3689,6 +3881,42 @@ public:
 
   virtual ~CreateCompliancePackRequestExcludeTagsScope() = default;
 };
+class CreateCompliancePackRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateCompliancePackRequestTag() {}
+
+  explicit CreateCompliancePackRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateCompliancePackRequestTag() = default;
+};
 class CreateCompliancePackRequestTagsScope : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -3741,6 +3969,7 @@ public:
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<vector<CreateCompliancePackRequestTag>> tag{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
   shared_ptr<vector<CreateCompliancePackRequestTagsScope>> tagsScope{};
@@ -3805,6 +4034,13 @@ public:
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -3887,6 +4123,19 @@ public:
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateCompliancePackRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCompliancePackRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateCompliancePackRequestTag>>(expect1);
+      }
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -4003,6 +4252,7 @@ public:
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<string> tagShrink{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
   shared_ptr<vector<CreateCompliancePackShrinkRequestTagsScope>> tagsScope{};
@@ -4063,6 +4313,9 @@ public:
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -4135,6 +4388,9 @@ public:
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -10006,10 +10262,47 @@ public:
 
   virtual ~GetAggregateAdvancedSearchFileResponse() = default;
 };
+class GetAggregateCompliancePackRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetAggregateCompliancePackRequestTag() {}
+
+  explicit GetAggregateCompliancePackRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetAggregateCompliancePackRequestTag() = default;
+};
 class GetAggregateCompliancePackRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
   shared_ptr<string> compliancePackId{};
+  shared_ptr<vector<GetAggregateCompliancePackRequestTag>> tag{};
 
   GetAggregateCompliancePackRequest() {}
 
@@ -10027,6 +10320,13 @@ public:
     if (compliancePackId) {
       res["CompliancePackId"] = boost::any(*compliancePackId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -10037,10 +10337,66 @@ public:
     if (m.find("CompliancePackId") != m.end() && !m["CompliancePackId"].empty()) {
       compliancePackId = make_shared<string>(boost::any_cast<string>(m["CompliancePackId"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<GetAggregateCompliancePackRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAggregateCompliancePackRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<GetAggregateCompliancePackRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~GetAggregateCompliancePackRequest() = default;
+};
+class GetAggregateCompliancePackShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aggregatorId{};
+  shared_ptr<string> compliancePackId{};
+  shared_ptr<string> tagShrink{};
+
+  GetAggregateCompliancePackShrinkRequest() {}
+
+  explicit GetAggregateCompliancePackShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aggregatorId) {
+      res["AggregatorId"] = boost::any(*aggregatorId);
+    }
+    if (compliancePackId) {
+      res["CompliancePackId"] = boost::any(*compliancePackId);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
+      aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("CompliancePackId") != m.end() && !m["CompliancePackId"].empty()) {
+      compliancePackId = make_shared<string>(boost::any_cast<string>(m["CompliancePackId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~GetAggregateCompliancePackShrinkRequest() = default;
 };
 class GetAggregateCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters : public Darabonba::Model {
 public:
@@ -10362,6 +10718,42 @@ public:
 
   virtual ~GetAggregateCompliancePackResponseBodyCompliancePackScope() = default;
 };
+class GetAggregateCompliancePackResponseBodyCompliancePackTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetAggregateCompliancePackResponseBodyCompliancePackTags() {}
+
+  explicit GetAggregateCompliancePackResponseBodyCompliancePackTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetAggregateCompliancePackResponseBodyCompliancePackTags() = default;
+};
 class GetAggregateCompliancePackResponseBodyCompliancePack : public Darabonba::Model {
 public:
   shared_ptr<long> accountId{};
@@ -10375,6 +10767,7 @@ public:
   shared_ptr<long> riskLevel{};
   shared_ptr<GetAggregateCompliancePackResponseBodyCompliancePackScope> scope{};
   shared_ptr<string> status{};
+  shared_ptr<vector<GetAggregateCompliancePackResponseBodyCompliancePackTags>> tags{};
   shared_ptr<string> templateContent{};
 
   GetAggregateCompliancePackResponseBodyCompliancePack() {}
@@ -10423,6 +10816,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (templateContent) {
       res["TemplateContent"] = boost::any(*templateContent);
@@ -10477,6 +10877,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetAggregateCompliancePackResponseBodyCompliancePackTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAggregateCompliancePackResponseBodyCompliancePackTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetAggregateCompliancePackResponseBodyCompliancePackTags>>(expect1);
+      }
     }
     if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
       templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
@@ -15435,9 +15848,46 @@ public:
 
   virtual ~GetAggregateResourceInventoryResponse() = default;
 };
+class GetAggregatorRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetAggregatorRequestTag() {}
+
+  explicit GetAggregatorRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetAggregatorRequestTag() = default;
+};
 class GetAggregatorRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
+  shared_ptr<vector<GetAggregatorRequestTag>> tag{};
 
   GetAggregatorRequest() {}
 
@@ -15452,6 +15902,13 @@ public:
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -15459,10 +15916,59 @@ public:
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<GetAggregatorRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAggregatorRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<GetAggregatorRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~GetAggregatorRequest() = default;
+};
+class GetAggregatorShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aggregatorId{};
+  shared_ptr<string> tagShrink{};
+
+  GetAggregatorShrinkRequest() {}
+
+  explicit GetAggregatorShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aggregatorId) {
+      res["AggregatorId"] = boost::any(*aggregatorId);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
+      aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~GetAggregatorShrinkRequest() = default;
 };
 class GetAggregatorResponseBodyAggregatorAggregatorAccounts : public Darabonba::Model {
 public:
@@ -15514,6 +16020,42 @@ public:
 
   virtual ~GetAggregatorResponseBodyAggregatorAggregatorAccounts() = default;
 };
+class GetAggregatorResponseBodyAggregatorTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetAggregatorResponseBodyAggregatorTags() {}
+
+  explicit GetAggregatorResponseBodyAggregatorTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetAggregatorResponseBodyAggregatorTags() = default;
+};
 class GetAggregatorResponseBodyAggregator : public Darabonba::Model {
 public:
   shared_ptr<long> accountId{};
@@ -15526,6 +16068,7 @@ public:
   shared_ptr<string> aggregatorType{};
   shared_ptr<string> description{};
   shared_ptr<string> folderId{};
+  shared_ptr<vector<GetAggregatorResponseBodyAggregatorTags>> tags{};
 
   GetAggregatorResponseBodyAggregator() {}
 
@@ -15571,6 +16114,13 @@ public:
     if (folderId) {
       res["FolderId"] = boost::any(*folderId);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -15614,6 +16164,19 @@ public:
     }
     if (m.find("FolderId") != m.end() && !m["FolderId"].empty()) {
       folderId = make_shared<string>(boost::any_cast<string>(m["FolderId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetAggregatorResponseBodyAggregatorTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAggregatorResponseBodyAggregatorTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetAggregatorResponseBodyAggregatorTags>>(expect1);
+      }
     }
   }
 
@@ -15712,9 +16275,46 @@ public:
 
   virtual ~GetAggregatorResponse() = default;
 };
+class GetCompliancePackRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetCompliancePackRequestTag() {}
+
+  explicit GetCompliancePackRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetCompliancePackRequestTag() = default;
+};
 class GetCompliancePackRequest : public Darabonba::Model {
 public:
   shared_ptr<string> compliancePackId{};
+  shared_ptr<vector<GetCompliancePackRequestTag>> tag{};
 
   GetCompliancePackRequest() {}
 
@@ -15729,6 +16329,13 @@ public:
     if (compliancePackId) {
       res["CompliancePackId"] = boost::any(*compliancePackId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -15736,10 +16343,59 @@ public:
     if (m.find("CompliancePackId") != m.end() && !m["CompliancePackId"].empty()) {
       compliancePackId = make_shared<string>(boost::any_cast<string>(m["CompliancePackId"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<GetCompliancePackRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetCompliancePackRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<GetCompliancePackRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~GetCompliancePackRequest() = default;
+};
+class GetCompliancePackShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> compliancePackId{};
+  shared_ptr<string> tagShrink{};
+
+  GetCompliancePackShrinkRequest() {}
+
+  explicit GetCompliancePackShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (compliancePackId) {
+      res["CompliancePackId"] = boost::any(*compliancePackId);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompliancePackId") != m.end() && !m["CompliancePackId"].empty()) {
+      compliancePackId = make_shared<string>(boost::any_cast<string>(m["CompliancePackId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~GetCompliancePackShrinkRequest() = default;
 };
 class GetCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters : public Darabonba::Model {
 public:
@@ -16061,6 +16717,42 @@ public:
 
   virtual ~GetCompliancePackResponseBodyCompliancePackScope() = default;
 };
+class GetCompliancePackResponseBodyCompliancePackTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetCompliancePackResponseBodyCompliancePackTags() {}
+
+  explicit GetCompliancePackResponseBodyCompliancePackTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetCompliancePackResponseBodyCompliancePackTags() = default;
+};
 class GetCompliancePackResponseBodyCompliancePack : public Darabonba::Model {
 public:
   shared_ptr<long> accountId{};
@@ -16073,6 +16765,7 @@ public:
   shared_ptr<long> riskLevel{};
   shared_ptr<GetCompliancePackResponseBodyCompliancePackScope> scope{};
   shared_ptr<string> status{};
+  shared_ptr<vector<GetCompliancePackResponseBodyCompliancePackTags>> tags{};
   shared_ptr<string> templateContent{};
 
   GetCompliancePackResponseBodyCompliancePack() {}
@@ -16118,6 +16811,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (templateContent) {
       res["TemplateContent"] = boost::any(*templateContent);
@@ -16169,6 +16869,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetCompliancePackResponseBodyCompliancePackTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetCompliancePackResponseBodyCompliancePackTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetCompliancePackResponseBodyCompliancePackTags>>(expect1);
+      }
     }
     if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
       templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
@@ -22287,12 +23000,49 @@ public:
 
   virtual ~IgnoreEvaluationResultsResponse() = default;
 };
+class ListAggregateCompliancePacksRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListAggregateCompliancePacksRequestTag() {}
+
+  explicit ListAggregateCompliancePacksRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListAggregateCompliancePacksRequestTag() = default;
+};
 class ListAggregateCompliancePacksRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListAggregateCompliancePacksRequestTag>> tag{};
 
   ListAggregateCompliancePacksRequest() {}
 
@@ -22316,6 +23066,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -22332,10 +23089,116 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListAggregateCompliancePacksRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAggregateCompliancePacksRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListAggregateCompliancePacksRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListAggregateCompliancePacksRequest() = default;
+};
+class ListAggregateCompliancePacksShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aggregatorId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> status{};
+  shared_ptr<string> tagShrink{};
+
+  ListAggregateCompliancePacksShrinkRequest() {}
+
+  explicit ListAggregateCompliancePacksShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aggregatorId) {
+      res["AggregatorId"] = boost::any(*aggregatorId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
+      aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~ListAggregateCompliancePacksShrinkRequest() = default;
+};
+class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags() {}
+
+  explicit ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags() = default;
 };
 class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacks : public Darabonba::Model {
 public:
@@ -22348,6 +23211,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags>> tags{};
 
   ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacks() {}
 
@@ -22386,6 +23250,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -22416,6 +23287,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags>>(expect1);
+      }
     }
   }
 
@@ -23507,6 +24391,42 @@ public:
 
   virtual ~ListAggregateConfigRuleEvaluationStatisticsResponse() = default;
 };
+class ListAggregateConfigRulesRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListAggregateConfigRulesRequestTag() {}
+
+  explicit ListAggregateConfigRulesRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListAggregateConfigRulesRequestTag() = default;
+};
 class ListAggregateConfigRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
@@ -23519,6 +24439,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceTypes{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<vector<ListAggregateConfigRulesRequestTag>> tag{};
 
   ListAggregateConfigRulesRequest() {}
 
@@ -23560,6 +24481,13 @@ public:
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -23594,10 +24522,122 @@ public:
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListAggregateConfigRulesRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAggregateConfigRulesRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListAggregateConfigRulesRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListAggregateConfigRulesRequest() = default;
+};
+class ListAggregateConfigRulesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aggregatorId{};
+  shared_ptr<string> compliancePackId{};
+  shared_ptr<string> complianceType{};
+  shared_ptr<string> configRuleName{};
+  shared_ptr<string> configRuleState{};
+  shared_ptr<string> keyword{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceTypes{};
+  shared_ptr<long> riskLevel{};
+  shared_ptr<string> tagShrink{};
+
+  ListAggregateConfigRulesShrinkRequest() {}
+
+  explicit ListAggregateConfigRulesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aggregatorId) {
+      res["AggregatorId"] = boost::any(*aggregatorId);
+    }
+    if (compliancePackId) {
+      res["CompliancePackId"] = boost::any(*compliancePackId);
+    }
+    if (complianceType) {
+      res["ComplianceType"] = boost::any(*complianceType);
+    }
+    if (configRuleName) {
+      res["ConfigRuleName"] = boost::any(*configRuleName);
+    }
+    if (configRuleState) {
+      res["ConfigRuleState"] = boost::any(*configRuleState);
+    }
+    if (keyword) {
+      res["Keyword"] = boost::any(*keyword);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (resourceTypes) {
+      res["ResourceTypes"] = boost::any(*resourceTypes);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
+      aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("CompliancePackId") != m.end() && !m["CompliancePackId"].empty()) {
+      compliancePackId = make_shared<string>(boost::any_cast<string>(m["CompliancePackId"]));
+    }
+    if (m.find("ComplianceType") != m.end() && !m["ComplianceType"].empty()) {
+      complianceType = make_shared<string>(boost::any_cast<string>(m["ComplianceType"]));
+    }
+    if (m.find("ConfigRuleName") != m.end() && !m["ConfigRuleName"].empty()) {
+      configRuleName = make_shared<string>(boost::any_cast<string>(m["ConfigRuleName"]));
+    }
+    if (m.find("ConfigRuleState") != m.end() && !m["ConfigRuleState"].empty()) {
+      configRuleState = make_shared<string>(boost::any_cast<string>(m["ConfigRuleState"]));
+    }
+    if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
+      resourceTypes = make_shared<string>(boost::any_cast<string>(m["ResourceTypes"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~ListAggregateConfigRulesShrinkRequest() = default;
 };
 class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCompliance : public Darabonba::Model {
 public:
@@ -25879,10 +26919,47 @@ public:
 
   virtual ~ListAggregateResourcesByAdvancedSearchResponse() = default;
 };
+class ListAggregatorsRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListAggregatorsRequestTag() {}
+
+  explicit ListAggregatorsRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListAggregatorsRequestTag() = default;
+};
 class ListAggregatorsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<vector<ListAggregatorsRequestTag>> tag{};
 
   ListAggregatorsRequest() {}
 
@@ -25900,6 +26977,13 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -25910,10 +26994,102 @@ public:
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListAggregatorsRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAggregatorsRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListAggregatorsRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListAggregatorsRequest() = default;
+};
+class ListAggregatorsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> tagShrink{};
+
+  ListAggregatorsShrinkRequest() {}
+
+  explicit ListAggregatorsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~ListAggregatorsShrinkRequest() = default;
+};
+class ListAggregatorsResponseBodyAggregatorsResultAggregatorsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  ListAggregatorsResponseBodyAggregatorsResultAggregatorsTags() {}
+
+  explicit ListAggregatorsResponseBodyAggregatorsResultAggregatorsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~ListAggregatorsResponseBodyAggregatorsResultAggregatorsTags() = default;
 };
 class ListAggregatorsResponseBodyAggregatorsResultAggregators : public Darabonba::Model {
 public:
@@ -25926,6 +27102,7 @@ public:
   shared_ptr<string> aggregatorType{};
   shared_ptr<string> description{};
   shared_ptr<string> folderId{};
+  shared_ptr<vector<ListAggregatorsResponseBodyAggregatorsResultAggregatorsTags>> tags{};
 
   ListAggregatorsResponseBodyAggregatorsResultAggregators() {}
 
@@ -25964,6 +27141,13 @@ public:
     if (folderId) {
       res["FolderId"] = boost::any(*folderId);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -25994,6 +27178,19 @@ public:
     }
     if (m.find("FolderId") != m.end() && !m["FolderId"].empty()) {
       folderId = make_shared<string>(boost::any_cast<string>(m["FolderId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListAggregatorsResponseBodyAggregatorsResultAggregatorsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAggregatorsResponseBodyAggregatorsResultAggregatorsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListAggregatorsResponseBodyAggregatorsResultAggregatorsTags>>(expect1);
+      }
     }
   }
 
@@ -26575,11 +27772,48 @@ public:
 
   virtual ~ListCompliancePackTemplatesResponse() = default;
 };
+class ListCompliancePacksRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListCompliancePacksRequestTag() {}
+
+  explicit ListCompliancePacksRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListCompliancePacksRequestTag() = default;
+};
 class ListCompliancePacksRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListCompliancePacksRequestTag>> tag{};
 
   ListCompliancePacksRequest() {}
 
@@ -26600,6 +27834,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -26613,10 +27854,109 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListCompliancePacksRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCompliancePacksRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListCompliancePacksRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListCompliancePacksRequest() = default;
+};
+class ListCompliancePacksShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> status{};
+  shared_ptr<string> tagShrink{};
+
+  ListCompliancePacksShrinkRequest() {}
+
+  explicit ListCompliancePacksShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~ListCompliancePacksShrinkRequest() = default;
+};
+class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags() {}
+
+  explicit ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags() = default;
 };
 class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks : public Darabonba::Model {
 public:
@@ -26628,6 +27968,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags>> tags{};
 
   ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks() {}
 
@@ -26663,6 +28004,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -26690,6 +28038,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags>>(expect1);
+      }
     }
   }
 
@@ -33666,6 +35027,42 @@ public:
 
   virtual ~UpdateAggregateCompliancePackRequestExcludeTagsScope() = default;
 };
+class UpdateAggregateCompliancePackRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  UpdateAggregateCompliancePackRequestTag() {}
+
+  explicit UpdateAggregateCompliancePackRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateAggregateCompliancePackRequestTag() = default;
+};
 class UpdateAggregateCompliancePackRequestTagsScope : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -33718,6 +35115,7 @@ public:
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<vector<UpdateAggregateCompliancePackRequestTag>> tag{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
   shared_ptr<vector<UpdateAggregateCompliancePackRequestTagsScope>> tagsScope{};
@@ -33781,6 +35179,13 @@ public:
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -33860,6 +35265,19 @@ public:
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<UpdateAggregateCompliancePackRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAggregateCompliancePackRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<UpdateAggregateCompliancePackRequestTag>>(expect1);
+      }
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -33973,6 +35391,7 @@ public:
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<string> tagShrink{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
   shared_ptr<vector<UpdateAggregateCompliancePackShrinkRequestTagsScope>> tagsScope{};
@@ -34032,6 +35451,9 @@ public:
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -34101,6 +35523,9 @@ public:
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -34458,6 +35883,42 @@ public:
 
   virtual ~UpdateAggregateConfigRuleRequestExcludeTagsScope() = default;
 };
+class UpdateAggregateConfigRuleRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  UpdateAggregateConfigRuleRequestTag() {}
+
+  explicit UpdateAggregateConfigRuleRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateAggregateConfigRuleRequestTag() = default;
+};
 class UpdateAggregateConfigRuleRequestTagsScope : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -34517,6 +35978,7 @@ public:
   shared_ptr<string> resourceIdsScope{};
   shared_ptr<vector<string>> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<vector<UpdateAggregateConfigRuleRequestTag>> tag{};
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
@@ -34598,6 +36060,13 @@ public:
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (tagKeyLogicScope) {
       res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
@@ -34703,6 +36172,19 @@ public:
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<UpdateAggregateConfigRuleRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAggregateConfigRuleRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<UpdateAggregateConfigRuleRequestTag>>(expect1);
+      }
     }
     if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
       tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
@@ -34826,6 +36308,7 @@ public:
   shared_ptr<string> resourceIdsScope{};
   shared_ptr<string> resourceTypesScopeShrink{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<string> tagShrink{};
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
@@ -34907,6 +36390,9 @@ public:
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
     }
     if (tagKeyLogicScope) {
       res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
@@ -35000,6 +36486,9 @@ public:
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
     }
     if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
       tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
@@ -35318,6 +36807,42 @@ public:
 
   virtual ~UpdateAggregatorRequestAggregatorAccounts() = default;
 };
+class UpdateAggregatorRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  UpdateAggregatorRequestTag() {}
+
+  explicit UpdateAggregatorRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateAggregatorRequestTag() = default;
+};
 class UpdateAggregatorRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<UpdateAggregatorRequestAggregatorAccounts>> aggregatorAccounts{};
@@ -35325,6 +36850,7 @@ public:
   shared_ptr<string> aggregatorName{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<vector<UpdateAggregatorRequestTag>> tag{};
 
   UpdateAggregatorRequest() {}
 
@@ -35355,6 +36881,13 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -35384,6 +36917,19 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<UpdateAggregatorRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAggregatorRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<UpdateAggregatorRequestTag>>(expect1);
+      }
+    }
   }
 
 
@@ -35396,6 +36942,7 @@ public:
   shared_ptr<string> aggregatorName{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<string> tagShrink{};
 
   UpdateAggregatorShrinkRequest() {}
 
@@ -35422,6 +36969,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
     return res;
   }
 
@@ -35440,6 +36990,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
     }
   }
 
@@ -35684,6 +37237,42 @@ public:
 
   virtual ~UpdateCompliancePackRequestExcludeTagsScope() = default;
 };
+class UpdateCompliancePackRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  UpdateCompliancePackRequestTag() {}
+
+  explicit UpdateCompliancePackRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateCompliancePackRequestTag() = default;
+};
 class UpdateCompliancePackRequestTagsScope : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -35735,6 +37324,7 @@ public:
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<vector<UpdateCompliancePackRequestTag>> tag{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
   shared_ptr<vector<UpdateCompliancePackRequestTagsScope>> tagsScope{};
@@ -35795,6 +37385,13 @@ public:
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -35871,6 +37468,19 @@ public:
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<UpdateCompliancePackRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCompliancePackRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<UpdateCompliancePackRequestTag>>(expect1);
+      }
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -35983,6 +37593,7 @@ public:
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<string> tagShrink{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
   shared_ptr<vector<UpdateCompliancePackShrinkRequestTagsScope>> tagsScope{};
@@ -36039,6 +37650,9 @@ public:
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -36105,6 +37719,9 @@ public:
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -37863,7 +39480,7 @@ public:
   GetAggregateAccountComplianceByPackResponse getAggregateAccountComplianceByPack(shared_ptr<GetAggregateAccountComplianceByPackRequest> request);
   GetAggregateAdvancedSearchFileResponse getAggregateAdvancedSearchFileWithOptions(shared_ptr<GetAggregateAdvancedSearchFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAggregateAdvancedSearchFileResponse getAggregateAdvancedSearchFile(shared_ptr<GetAggregateAdvancedSearchFileRequest> request);
-  GetAggregateCompliancePackResponse getAggregateCompliancePackWithOptions(shared_ptr<GetAggregateCompliancePackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAggregateCompliancePackResponse getAggregateCompliancePackWithOptions(shared_ptr<GetAggregateCompliancePackRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAggregateCompliancePackResponse getAggregateCompliancePack(shared_ptr<GetAggregateCompliancePackRequest> request);
   GetAggregateCompliancePackReportResponse getAggregateCompliancePackReportWithOptions(shared_ptr<GetAggregateCompliancePackReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAggregateCompliancePackReportResponse getAggregateCompliancePackReport(shared_ptr<GetAggregateCompliancePackReportRequest> request);
@@ -37899,9 +39516,9 @@ public:
   GetAggregateResourceCountsGroupByResourceTypeResponse getAggregateResourceCountsGroupByResourceType(shared_ptr<GetAggregateResourceCountsGroupByResourceTypeRequest> request);
   GetAggregateResourceInventoryResponse getAggregateResourceInventoryWithOptions(shared_ptr<GetAggregateResourceInventoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAggregateResourceInventoryResponse getAggregateResourceInventory(shared_ptr<GetAggregateResourceInventoryRequest> request);
-  GetAggregatorResponse getAggregatorWithOptions(shared_ptr<GetAggregatorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAggregatorResponse getAggregatorWithOptions(shared_ptr<GetAggregatorRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAggregatorResponse getAggregator(shared_ptr<GetAggregatorRequest> request);
-  GetCompliancePackResponse getCompliancePackWithOptions(shared_ptr<GetCompliancePackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetCompliancePackResponse getCompliancePackWithOptions(shared_ptr<GetCompliancePackRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCompliancePackResponse getCompliancePack(shared_ptr<GetCompliancePackRequest> request);
   GetCompliancePackReportResponse getCompliancePackReportWithOptions(shared_ptr<GetCompliancePackReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCompliancePackReportResponse getCompliancePackReport(shared_ptr<GetCompliancePackReportRequest> request);
@@ -37951,7 +39568,7 @@ public:
   IgnoreAggregateEvaluationResultsResponse ignoreAggregateEvaluationResults(shared_ptr<IgnoreAggregateEvaluationResultsRequest> request);
   IgnoreEvaluationResultsResponse ignoreEvaluationResultsWithOptions(shared_ptr<IgnoreEvaluationResultsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   IgnoreEvaluationResultsResponse ignoreEvaluationResults(shared_ptr<IgnoreEvaluationResultsRequest> request);
-  ListAggregateCompliancePacksResponse listAggregateCompliancePacksWithOptions(shared_ptr<ListAggregateCompliancePacksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAggregateCompliancePacksResponse listAggregateCompliancePacksWithOptions(shared_ptr<ListAggregateCompliancePacksRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAggregateCompliancePacksResponse listAggregateCompliancePacks(shared_ptr<ListAggregateCompliancePacksRequest> request);
   ListAggregateConfigDeliveryChannelsResponse listAggregateConfigDeliveryChannelsWithOptions(shared_ptr<ListAggregateConfigDeliveryChannelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAggregateConfigDeliveryChannelsResponse listAggregateConfigDeliveryChannels(shared_ptr<ListAggregateConfigDeliveryChannelsRequest> request);
@@ -37959,7 +39576,7 @@ public:
   ListAggregateConfigRuleEvaluationResultsResponse listAggregateConfigRuleEvaluationResults(shared_ptr<ListAggregateConfigRuleEvaluationResultsRequest> request);
   ListAggregateConfigRuleEvaluationStatisticsResponse listAggregateConfigRuleEvaluationStatisticsWithOptions(shared_ptr<ListAggregateConfigRuleEvaluationStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAggregateConfigRuleEvaluationStatisticsResponse listAggregateConfigRuleEvaluationStatistics(shared_ptr<ListAggregateConfigRuleEvaluationStatisticsRequest> request);
-  ListAggregateConfigRulesResponse listAggregateConfigRulesWithOptions(shared_ptr<ListAggregateConfigRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAggregateConfigRulesResponse listAggregateConfigRulesWithOptions(shared_ptr<ListAggregateConfigRulesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAggregateConfigRulesResponse listAggregateConfigRules(shared_ptr<ListAggregateConfigRulesRequest> request);
   ListAggregateDiscoveredResourcesResponse listAggregateDiscoveredResourcesWithOptions(shared_ptr<ListAggregateDiscoveredResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAggregateDiscoveredResourcesResponse listAggregateDiscoveredResources(shared_ptr<ListAggregateDiscoveredResourcesRequest> request);
@@ -37973,11 +39590,11 @@ public:
   ListAggregateResourceRelationsResponse listAggregateResourceRelations(shared_ptr<ListAggregateResourceRelationsRequest> request);
   ListAggregateResourcesByAdvancedSearchResponse listAggregateResourcesByAdvancedSearchWithOptions(shared_ptr<ListAggregateResourcesByAdvancedSearchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAggregateResourcesByAdvancedSearchResponse listAggregateResourcesByAdvancedSearch(shared_ptr<ListAggregateResourcesByAdvancedSearchRequest> request);
-  ListAggregatorsResponse listAggregatorsWithOptions(shared_ptr<ListAggregatorsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAggregatorsResponse listAggregatorsWithOptions(shared_ptr<ListAggregatorsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAggregatorsResponse listAggregators(shared_ptr<ListAggregatorsRequest> request);
   ListCompliancePackTemplatesResponse listCompliancePackTemplatesWithOptions(shared_ptr<ListCompliancePackTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCompliancePackTemplatesResponse listCompliancePackTemplates(shared_ptr<ListCompliancePackTemplatesRequest> request);
-  ListCompliancePacksResponse listCompliancePacksWithOptions(shared_ptr<ListCompliancePacksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCompliancePacksResponse listCompliancePacksWithOptions(shared_ptr<ListCompliancePacksRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCompliancePacksResponse listCompliancePacks(shared_ptr<ListCompliancePacksRequest> request);
   ListConfigDeliveryChannelsResponse listConfigDeliveryChannelsWithOptions(shared_ptr<ListConfigDeliveryChannelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListConfigDeliveryChannelsResponse listConfigDeliveryChannels(shared_ptr<ListConfigDeliveryChannelsRequest> request);
