@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -74,7 +73,12 @@ RegisterDeviceResponse Alibabacloud_Moguan-sdk20210415::Client::registerDeviceWi
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RegisterDeviceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RegisterDeviceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RegisterDeviceResponse(execute(params, req, runtime));
+  }
 }
 
 RegisterDeviceResponse Alibabacloud_Moguan-sdk20210415::Client::registerDevice(shared_ptr<RegisterDeviceRequest> request) {
