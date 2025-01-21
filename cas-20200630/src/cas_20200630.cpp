@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -21,7 +20,6 @@ Alibabacloud_Cas20200630::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"cn-hangzhou", "cas.aliyuncs.com"},
     {"ap-northeast-2-pop", "cas.aliyuncs.com"},
-    {"ap-southeast-1", "cas.aliyuncs.com"},
     {"ap-southeast-3", "cas.aliyuncs.com"},
     {"ap-southeast-5", "cas.aliyuncs.com"},
     {"cn-beijing", "cas.aliyuncs.com"},
@@ -43,6 +41,7 @@ Alibabacloud_Cas20200630::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"cn-hongkong", "cas.aliyuncs.com"},
     {"cn-hongkong-finance-pop", "cas.aliyuncs.com"},
     {"cn-huhehaote", "cas.aliyuncs.com"},
+    {"cn-huhehaote-nebula-1", "cas.aliyuncs.com"},
     {"cn-north-2-gov-1", "cas.aliyuncs.com"},
     {"cn-qingdao", "cas.aliyuncs.com"},
     {"cn-qingdao-nebula", "cas.aliyuncs.com"},
@@ -58,7 +57,9 @@ Alibabacloud_Cas20200630::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"cn-shenzhen-st4-d01", "cas.aliyuncs.com"},
     {"cn-shenzhen-su18-b01", "cas.aliyuncs.com"},
     {"cn-wuhan", "cas.aliyuncs.com"},
+    {"cn-wulanchabu", "cas.aliyuncs.com"},
     {"cn-yushanfang", "cas.aliyuncs.com"},
+    {"cn-zhangbei", "cas.aliyuncs.com"},
     {"cn-zhangbei-na61-b01", "cas.aliyuncs.com"},
     {"cn-zhangjiakou", "cas.aliyuncs.com"},
     {"cn-zhangjiakou-na62-a01", "cas.aliyuncs.com"},
@@ -108,11 +109,11 @@ CreateClientCertificateResponse Alibabacloud_Cas20200630::Client::createClientCe
   if (!Darabonba_Util::Client::isUnset<string>(request->country)) {
     query->insert(pair<string, string>("Country", *request->country));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->csr)) {
-    query->insert(pair<string, string>("Csr", *request->csr));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->days)) {
     query->insert(pair<string, long>("Days", *request->days));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enableCrl)) {
+    query->insert(pair<string, long>("EnableCrl", *request->enableCrl));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->immediately)) {
     query->insert(pair<string, long>("Immediately", *request->immediately));
@@ -158,7 +159,12 @@ CreateClientCertificateResponse Alibabacloud_Cas20200630::Client::createClientCe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateClientCertificateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateClientCertificateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateClientCertificateResponse(execute(params, req, runtime));
+  }
 }
 
 CreateClientCertificateResponse Alibabacloud_Cas20200630::Client::createClientCertificate(shared_ptr<CreateClientCertificateRequest> request) {
@@ -187,11 +193,11 @@ CreateClientCertificateWithCsrResponse Alibabacloud_Cas20200630::Client::createC
   if (!Darabonba_Util::Client::isUnset<string>(request->csr)) {
     query->insert(pair<string, string>("Csr", *request->csr));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->csr1)) {
-    query->insert(pair<string, string>("Csr1", *request->csr1));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->days)) {
     query->insert(pair<string, long>("Days", *request->days));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enableCrl)) {
+    query->insert(pair<string, long>("EnableCrl", *request->enableCrl));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->immediately)) {
     query->insert(pair<string, long>("Immediately", *request->immediately));
@@ -237,7 +243,12 @@ CreateClientCertificateWithCsrResponse Alibabacloud_Cas20200630::Client::createC
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateClientCertificateWithCsrResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateClientCertificateWithCsrResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateClientCertificateWithCsrResponse(execute(params, req, runtime));
+  }
 }
 
 CreateClientCertificateWithCsrResponse Alibabacloud_Cas20200630::Client::createClientCertificateWithCsr(shared_ptr<CreateClientCertificateWithCsrRequest> request) {
@@ -253,6 +264,9 @@ CreateCustomCertificateResponse Alibabacloud_Cas20200630::Client::createCustomCe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->csr)) {
     query->insert(pair<string, string>("Csr", *request->csr));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enableCrl)) {
+    query->insert(pair<string, long>("EnableCrl", *request->enableCrl));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->immediately)) {
     query->insert(pair<string, long>("Immediately", *request->immediately));
@@ -277,7 +291,12 @@ CreateCustomCertificateResponse Alibabacloud_Cas20200630::Client::createCustomCe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateCustomCertificateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateCustomCertificateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateCustomCertificateResponse(execute(params, req, runtime));
+  }
 }
 
 CreateCustomCertificateResponse Alibabacloud_Cas20200630::Client::createCustomCertificate(shared_ptr<CreateCustomCertificateRequest> request) {
@@ -305,7 +324,12 @@ CreateRevokeClientCertificateResponse Alibabacloud_Cas20200630::Client::createRe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateRevokeClientCertificateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateRevokeClientCertificateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateRevokeClientCertificateResponse(execute(params, req, runtime));
+  }
 }
 
 CreateRevokeClientCertificateResponse Alibabacloud_Cas20200630::Client::createRevokeClientCertificate(shared_ptr<CreateRevokeClientCertificateRequest> request) {
@@ -354,7 +378,12 @@ CreateRootCACertificateResponse Alibabacloud_Cas20200630::Client::createRootCACe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateRootCACertificateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateRootCACertificateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateRootCACertificateResponse(execute(params, req, runtime));
+  }
 }
 
 CreateRootCACertificateResponse Alibabacloud_Cas20200630::Client::createRootCACertificate(shared_ptr<CreateRootCACertificateRequest> request) {
@@ -380,14 +409,14 @@ CreateServerCertificateResponse Alibabacloud_Cas20200630::Client::createServerCe
   if (!Darabonba_Util::Client::isUnset<string>(request->country)) {
     query->insert(pair<string, string>("Country", *request->country));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->csr)) {
-    query->insert(pair<string, string>("Csr", *request->csr));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->days)) {
     query->insert(pair<string, long>("Days", *request->days));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
     query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enableCrl)) {
+    query->insert(pair<string, long>("EnableCrl", *request->enableCrl));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->immediately)) {
     query->insert(pair<string, long>("Immediately", *request->immediately));
@@ -427,7 +456,12 @@ CreateServerCertificateResponse Alibabacloud_Cas20200630::Client::createServerCe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateServerCertificateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateServerCertificateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateServerCertificateResponse(execute(params, req, runtime));
+  }
 }
 
 CreateServerCertificateResponse Alibabacloud_Cas20200630::Client::createServerCertificate(shared_ptr<CreateServerCertificateRequest> request) {
@@ -456,14 +490,14 @@ CreateServerCertificateWithCsrResponse Alibabacloud_Cas20200630::Client::createS
   if (!Darabonba_Util::Client::isUnset<string>(request->csr)) {
     query->insert(pair<string, string>("Csr", *request->csr));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->csr1)) {
-    query->insert(pair<string, string>("Csr1", *request->csr1));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->days)) {
     query->insert(pair<string, long>("Days", *request->days));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
     query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enableCrl)) {
+    query->insert(pair<string, long>("EnableCrl", *request->enableCrl));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->immediately)) {
     query->insert(pair<string, long>("Immediately", *request->immediately));
@@ -503,7 +537,12 @@ CreateServerCertificateWithCsrResponse Alibabacloud_Cas20200630::Client::createS
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateServerCertificateWithCsrResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateServerCertificateWithCsrResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateServerCertificateWithCsrResponse(execute(params, req, runtime));
+  }
 }
 
 CreateServerCertificateWithCsrResponse Alibabacloud_Cas20200630::Client::createServerCertificateWithCsr(shared_ptr<CreateServerCertificateWithCsrRequest> request) {
@@ -522,6 +561,12 @@ CreateSubCACertificateResponse Alibabacloud_Cas20200630::Client::createSubCACert
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->countryCode)) {
     query->insert(pair<string, string>("CountryCode", *request->countryCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->crlDay)) {
+    query->insert(pair<string, long>("CrlDay", *request->crlDay));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableCrl)) {
+    query->insert(pair<string, bool>("EnableCrl", *request->enableCrl));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->extendedKeyUsages)) {
     query->insert(pair<string, vector<string>>("ExtendedKeyUsages", *request->extendedKeyUsages));
@@ -561,7 +606,12 @@ CreateSubCACertificateResponse Alibabacloud_Cas20200630::Client::createSubCACert
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateSubCACertificateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateSubCACertificateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateSubCACertificateResponse(execute(params, req, runtime));
+  }
 }
 
 CreateSubCACertificateResponse Alibabacloud_Cas20200630::Client::createSubCACertificate(shared_ptr<CreateSubCACertificateRequest> request) {
@@ -589,7 +639,12 @@ DeleteClientCertificateResponse Alibabacloud_Cas20200630::Client::deleteClientCe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteClientCertificateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteClientCertificateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteClientCertificateResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteClientCertificateResponse Alibabacloud_Cas20200630::Client::deleteClientCertificate(shared_ptr<DeleteClientCertificateRequest> request) {
@@ -617,7 +672,12 @@ DescribeCACertificateResponse Alibabacloud_Cas20200630::Client::describeCACertif
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeCACertificateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeCACertificateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeCACertificateResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeCACertificateResponse Alibabacloud_Cas20200630::Client::describeCACertificate(shared_ptr<DescribeCACertificateRequest> request) {
@@ -638,7 +698,12 @@ DescribeCACertificateCountResponse Alibabacloud_Cas20200630::Client::describeCAC
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeCACertificateCountResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeCACertificateCountResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeCACertificateCountResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeCACertificateCountResponse Alibabacloud_Cas20200630::Client::describeCACertificateCount() {
@@ -651,6 +716,9 @@ DescribeCACertificateListResponse Alibabacloud_Cas20200630::Client::describeCACe
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identifier)) {
+    query->insert(pair<string, string>("Identifier", *request->identifier));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->showSize)) {
     query->insert(pair<string, long>("ShowSize", *request->showSize));
@@ -669,7 +737,12 @@ DescribeCACertificateListResponse Alibabacloud_Cas20200630::Client::describeCACe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeCACertificateListResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeCACertificateListResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeCACertificateListResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeCACertificateListResponse Alibabacloud_Cas20200630::Client::describeCACertificateList(shared_ptr<DescribeCACertificateListRequest> request) {
@@ -700,7 +773,12 @@ DescribeCertificatePrivateKeyResponse Alibabacloud_Cas20200630::Client::describe
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeCertificatePrivateKeyResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeCertificatePrivateKeyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeCertificatePrivateKeyResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeCertificatePrivateKeyResponse Alibabacloud_Cas20200630::Client::describeCertificatePrivateKey(shared_ptr<DescribeCertificatePrivateKeyRequest> request) {
@@ -728,7 +806,12 @@ DescribeClientCertificateResponse Alibabacloud_Cas20200630::Client::describeClie
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeClientCertificateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeClientCertificateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeClientCertificateResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeClientCertificateResponse Alibabacloud_Cas20200630::Client::describeClientCertificate(shared_ptr<DescribeClientCertificateRequest> request) {
@@ -756,7 +839,12 @@ DescribeClientCertificateStatusResponse Alibabacloud_Cas20200630::Client::descri
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeClientCertificateStatusResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeClientCertificateStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeClientCertificateStatusResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeClientCertificateStatusResponse Alibabacloud_Cas20200630::Client::describeClientCertificateStatus(shared_ptr<DescribeClientCertificateStatusRequest> request) {
@@ -767,6 +855,9 @@ DescribeClientCertificateStatusResponse Alibabacloud_Cas20200630::Client::descri
 GetCAInstanceStatusResponse Alibabacloud_Cas20200630::Client::getCAInstanceStatusWithOptions(shared_ptr<GetCAInstanceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->identifier)) {
+    query->insert(pair<string, string>("Identifier", *request->identifier));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -784,7 +875,12 @@ GetCAInstanceStatusResponse Alibabacloud_Cas20200630::Client::getCAInstanceStatu
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetCAInstanceStatusResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetCAInstanceStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetCAInstanceStatusResponse(execute(params, req, runtime));
+  }
 }
 
 GetCAInstanceStatusResponse Alibabacloud_Cas20200630::Client::getCAInstanceStatus(shared_ptr<GetCAInstanceStatusRequest> request) {
@@ -797,6 +893,9 @@ ListClientCertificateResponse Alibabacloud_Cas20200630::Client::listClientCertif
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identifier)) {
+    query->insert(pair<string, string>("Identifier", *request->identifier));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->showSize)) {
     query->insert(pair<string, long>("ShowSize", *request->showSize));
@@ -815,7 +914,12 @@ ListClientCertificateResponse Alibabacloud_Cas20200630::Client::listClientCertif
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListClientCertificateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListClientCertificateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListClientCertificateResponse(execute(params, req, runtime));
+  }
 }
 
 ListClientCertificateResponse Alibabacloud_Cas20200630::Client::listClientCertificate(shared_ptr<ListClientCertificateRequest> request) {
@@ -846,7 +950,12 @@ ListRevokeCertificateResponse Alibabacloud_Cas20200630::Client::listRevokeCertif
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListRevokeCertificateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListRevokeCertificateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListRevokeCertificateResponse(execute(params, req, runtime));
+  }
 }
 
 ListRevokeCertificateResponse Alibabacloud_Cas20200630::Client::listRevokeCertificate(shared_ptr<ListRevokeCertificateRequest> request) {
@@ -877,7 +986,12 @@ UpdateCACertificateStatusResponse Alibabacloud_Cas20200630::Client::updateCACert
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateCACertificateStatusResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateCACertificateStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateCACertificateStatusResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateCACertificateStatusResponse Alibabacloud_Cas20200630::Client::updateCACertificateStatus(shared_ptr<UpdateCACertificateStatusRequest> request) {

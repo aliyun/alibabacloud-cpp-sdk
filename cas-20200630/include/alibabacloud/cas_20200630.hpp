@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_CAS20200630_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -21,8 +20,8 @@ public:
   shared_ptr<long> beforeTime{};
   shared_ptr<string> commonName{};
   shared_ptr<string> country{};
-  shared_ptr<string> csr{};
   shared_ptr<long> days{};
+  shared_ptr<long> enableCrl{};
   shared_ptr<long> immediately{};
   shared_ptr<string> locality{};
   shared_ptr<long> months{};
@@ -59,11 +58,11 @@ public:
     if (country) {
       res["Country"] = boost::any(*country);
     }
-    if (csr) {
-      res["Csr"] = boost::any(*csr);
-    }
     if (days) {
       res["Days"] = boost::any(*days);
+    }
+    if (enableCrl) {
+      res["EnableCrl"] = boost::any(*enableCrl);
     }
     if (immediately) {
       res["Immediately"] = boost::any(*immediately);
@@ -114,11 +113,11 @@ public:
     if (m.find("Country") != m.end() && !m["Country"].empty()) {
       country = make_shared<string>(boost::any_cast<string>(m["Country"]));
     }
-    if (m.find("Csr") != m.end() && !m["Csr"].empty()) {
-      csr = make_shared<string>(boost::any_cast<string>(m["Csr"]));
-    }
     if (m.find("Days") != m.end() && !m["Days"].empty()) {
       days = make_shared<long>(boost::any_cast<long>(m["Days"]));
+    }
+    if (m.find("EnableCrl") != m.end() && !m["EnableCrl"].empty()) {
+      enableCrl = make_shared<long>(boost::any_cast<long>(m["EnableCrl"]));
     }
     if (m.find("Immediately") != m.end() && !m["Immediately"].empty()) {
       immediately = make_shared<long>(boost::any_cast<long>(m["Immediately"]));
@@ -224,17 +223,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -282,8 +271,8 @@ public:
   shared_ptr<string> commonName{};
   shared_ptr<string> country{};
   shared_ptr<string> csr{};
-  shared_ptr<string> csr1{};
   shared_ptr<long> days{};
+  shared_ptr<long> enableCrl{};
   shared_ptr<long> immediately{};
   shared_ptr<string> locality{};
   shared_ptr<long> months{};
@@ -323,11 +312,11 @@ public:
     if (csr) {
       res["Csr"] = boost::any(*csr);
     }
-    if (csr1) {
-      res["Csr1"] = boost::any(*csr1);
-    }
     if (days) {
       res["Days"] = boost::any(*days);
+    }
+    if (enableCrl) {
+      res["EnableCrl"] = boost::any(*enableCrl);
     }
     if (immediately) {
       res["Immediately"] = boost::any(*immediately);
@@ -381,11 +370,11 @@ public:
     if (m.find("Csr") != m.end() && !m["Csr"].empty()) {
       csr = make_shared<string>(boost::any_cast<string>(m["Csr"]));
     }
-    if (m.find("Csr1") != m.end() && !m["Csr1"].empty()) {
-      csr1 = make_shared<string>(boost::any_cast<string>(m["Csr1"]));
-    }
     if (m.find("Days") != m.end() && !m["Days"].empty()) {
       days = make_shared<long>(boost::any_cast<long>(m["Days"]));
+    }
+    if (m.find("EnableCrl") != m.end() && !m["EnableCrl"].empty()) {
+      enableCrl = make_shared<long>(boost::any_cast<long>(m["EnableCrl"]));
     }
     if (m.find("Immediately") != m.end() && !m["Immediately"].empty()) {
       immediately = make_shared<long>(boost::any_cast<long>(m["Immediately"]));
@@ -491,17 +480,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -657,6 +636,7 @@ public:
 };
 class CreateCustomCertificateRequestApiPassthroughExtensions : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> criticals{};
   shared_ptr<vector<string>> extendedKeyUsages{};
   shared_ptr<CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage> keyUsage{};
   shared_ptr<vector<CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames>> subjectAlternativeNames{};
@@ -671,6 +651,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (criticals) {
+      res["Criticals"] = boost::any(*criticals);
+    }
     if (extendedKeyUsages) {
       res["ExtendedKeyUsages"] = boost::any(*extendedKeyUsages);
     }
@@ -688,6 +671,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Criticals") != m.end() && !m["Criticals"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Criticals"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Criticals"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      criticals = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ExtendedKeyUsages") != m.end() && !m["ExtendedKeyUsages"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ExtendedKeyUsages"].type()) {
@@ -723,10 +716,47 @@ public:
 
   virtual ~CreateCustomCertificateRequestApiPassthroughExtensions() = default;
 };
+class CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes : public Darabonba::Model {
+public:
+  shared_ptr<string> objectIdentifier{};
+  shared_ptr<string> value{};
+
+  CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes() {}
+
+  explicit CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (objectIdentifier) {
+      res["ObjectIdentifier"] = boost::any(*objectIdentifier);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ObjectIdentifier") != m.end() && !m["ObjectIdentifier"].empty()) {
+      objectIdentifier = make_shared<string>(boost::any_cast<string>(m["ObjectIdentifier"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes() = default;
+};
 class CreateCustomCertificateRequestApiPassthroughSubject : public Darabonba::Model {
 public:
   shared_ptr<string> commonName{};
   shared_ptr<string> country{};
+  shared_ptr<vector<CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes>> customAttributes{};
   shared_ptr<string> locality{};
   shared_ptr<string> organization{};
   shared_ptr<string> organizationUnit{};
@@ -747,6 +777,13 @@ public:
     }
     if (country) {
       res["Country"] = boost::any(*country);
+    }
+    if (customAttributes) {
+      vector<boost::any> temp1;
+      for(auto item1:*customAttributes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomAttributes"] = boost::any(temp1);
     }
     if (locality) {
       res["Locality"] = boost::any(*locality);
@@ -770,6 +807,19 @@ public:
     if (m.find("Country") != m.end() && !m["Country"].empty()) {
       country = make_shared<string>(boost::any_cast<string>(m["Country"]));
     }
+    if (m.find("CustomAttributes") != m.end() && !m["CustomAttributes"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomAttributes"].type()) {
+        vector<CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomAttributes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customAttributes = make_shared<vector<CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes>>(expect1);
+      }
+    }
     if (m.find("Locality") != m.end() && !m["Locality"].empty()) {
       locality = make_shared<string>(boost::any_cast<string>(m["Locality"]));
     }
@@ -790,6 +840,7 @@ public:
 class CreateCustomCertificateRequestApiPassthrough : public Darabonba::Model {
 public:
   shared_ptr<CreateCustomCertificateRequestApiPassthroughExtensions> extensions{};
+  shared_ptr<string> serialNumber{};
   shared_ptr<CreateCustomCertificateRequestApiPassthroughSubject> subject{};
 
   CreateCustomCertificateRequestApiPassthrough() {}
@@ -805,6 +856,9 @@ public:
     if (extensions) {
       res["Extensions"] = extensions ? boost::any(extensions->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (serialNumber) {
+      res["SerialNumber"] = boost::any(*serialNumber);
+    }
     if (subject) {
       res["Subject"] = subject ? boost::any(subject->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -818,6 +872,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extensions"]));
         extensions = make_shared<CreateCustomCertificateRequestApiPassthroughExtensions>(model1);
       }
+    }
+    if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
+      serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
     }
     if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
       if (typeid(map<string, boost::any>) == m["Subject"].type()) {
@@ -835,6 +892,7 @@ class CreateCustomCertificateRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateCustomCertificateRequestApiPassthrough> apiPassthrough{};
   shared_ptr<string> csr{};
+  shared_ptr<long> enableCrl{};
   shared_ptr<long> immediately{};
   shared_ptr<string> parentIdentifier{};
   shared_ptr<string> validity{};
@@ -854,6 +912,9 @@ public:
     }
     if (csr) {
       res["Csr"] = boost::any(*csr);
+    }
+    if (enableCrl) {
+      res["EnableCrl"] = boost::any(*enableCrl);
     }
     if (immediately) {
       res["Immediately"] = boost::any(*immediately);
@@ -877,6 +938,9 @@ public:
     }
     if (m.find("Csr") != m.end() && !m["Csr"].empty()) {
       csr = make_shared<string>(boost::any_cast<string>(m["Csr"]));
+    }
+    if (m.find("EnableCrl") != m.end() && !m["EnableCrl"].empty()) {
+      enableCrl = make_shared<long>(boost::any_cast<long>(m["EnableCrl"]));
     }
     if (m.find("Immediately") != m.end() && !m["Immediately"].empty()) {
       immediately = make_shared<long>(boost::any_cast<long>(m["Immediately"]));
@@ -961,17 +1025,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1081,17 +1135,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1271,17 +1315,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1328,9 +1362,9 @@ public:
   shared_ptr<long> beforeTime{};
   shared_ptr<string> commonName{};
   shared_ptr<string> country{};
-  shared_ptr<string> csr{};
   shared_ptr<long> days{};
   shared_ptr<string> domain{};
+  shared_ptr<long> enableCrl{};
   shared_ptr<long> immediately{};
   shared_ptr<string> locality{};
   shared_ptr<long> months{};
@@ -1365,14 +1399,14 @@ public:
     if (country) {
       res["Country"] = boost::any(*country);
     }
-    if (csr) {
-      res["Csr"] = boost::any(*csr);
-    }
     if (days) {
       res["Days"] = boost::any(*days);
     }
     if (domain) {
       res["Domain"] = boost::any(*domain);
+    }
+    if (enableCrl) {
+      res["EnableCrl"] = boost::any(*enableCrl);
     }
     if (immediately) {
       res["Immediately"] = boost::any(*immediately);
@@ -1417,14 +1451,14 @@ public:
     if (m.find("Country") != m.end() && !m["Country"].empty()) {
       country = make_shared<string>(boost::any_cast<string>(m["Country"]));
     }
-    if (m.find("Csr") != m.end() && !m["Csr"].empty()) {
-      csr = make_shared<string>(boost::any_cast<string>(m["Csr"]));
-    }
     if (m.find("Days") != m.end() && !m["Days"].empty()) {
       days = make_shared<long>(boost::any_cast<long>(m["Days"]));
     }
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("EnableCrl") != m.end() && !m["EnableCrl"].empty()) {
+      enableCrl = make_shared<long>(boost::any_cast<long>(m["EnableCrl"]));
     }
     if (m.find("Immediately") != m.end() && !m["Immediately"].empty()) {
       immediately = make_shared<long>(boost::any_cast<long>(m["Immediately"]));
@@ -1524,17 +1558,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1582,9 +1606,9 @@ public:
   shared_ptr<string> commonName{};
   shared_ptr<string> country{};
   shared_ptr<string> csr{};
-  shared_ptr<string> csr1{};
   shared_ptr<long> days{};
   shared_ptr<string> domain{};
+  shared_ptr<long> enableCrl{};
   shared_ptr<long> immediately{};
   shared_ptr<string> locality{};
   shared_ptr<long> months{};
@@ -1622,14 +1646,14 @@ public:
     if (csr) {
       res["Csr"] = boost::any(*csr);
     }
-    if (csr1) {
-      res["Csr1"] = boost::any(*csr1);
-    }
     if (days) {
       res["Days"] = boost::any(*days);
     }
     if (domain) {
       res["Domain"] = boost::any(*domain);
+    }
+    if (enableCrl) {
+      res["EnableCrl"] = boost::any(*enableCrl);
     }
     if (immediately) {
       res["Immediately"] = boost::any(*immediately);
@@ -1677,14 +1701,14 @@ public:
     if (m.find("Csr") != m.end() && !m["Csr"].empty()) {
       csr = make_shared<string>(boost::any_cast<string>(m["Csr"]));
     }
-    if (m.find("Csr1") != m.end() && !m["Csr1"].empty()) {
-      csr1 = make_shared<string>(boost::any_cast<string>(m["Csr1"]));
-    }
     if (m.find("Days") != m.end() && !m["Days"].empty()) {
       days = make_shared<long>(boost::any_cast<long>(m["Days"]));
     }
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("EnableCrl") != m.end() && !m["EnableCrl"].empty()) {
+      enableCrl = make_shared<long>(boost::any_cast<long>(m["EnableCrl"]));
     }
     if (m.find("Immediately") != m.end() && !m["Immediately"].empty()) {
       immediately = make_shared<long>(boost::any_cast<long>(m["Immediately"]));
@@ -1784,17 +1808,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1839,6 +1853,8 @@ public:
   shared_ptr<string> algorithm{};
   shared_ptr<string> commonName{};
   shared_ptr<string> countryCode{};
+  shared_ptr<long> crlDay{};
+  shared_ptr<bool> enableCrl{};
   shared_ptr<vector<string>> extendedKeyUsages{};
   shared_ptr<string> locality{};
   shared_ptr<string> organization{};
@@ -1866,6 +1882,12 @@ public:
     }
     if (countryCode) {
       res["CountryCode"] = boost::any(*countryCode);
+    }
+    if (crlDay) {
+      res["CrlDay"] = boost::any(*crlDay);
+    }
+    if (enableCrl) {
+      res["EnableCrl"] = boost::any(*enableCrl);
     }
     if (extendedKeyUsages) {
       res["ExtendedKeyUsages"] = boost::any(*extendedKeyUsages);
@@ -1903,6 +1925,12 @@ public:
     }
     if (m.find("CountryCode") != m.end() && !m["CountryCode"].empty()) {
       countryCode = make_shared<string>(boost::any_cast<string>(m["CountryCode"]));
+    }
+    if (m.find("CrlDay") != m.end() && !m["CrlDay"].empty()) {
+      crlDay = make_shared<long>(boost::any_cast<long>(m["CrlDay"]));
+    }
+    if (m.find("EnableCrl") != m.end() && !m["EnableCrl"].empty()) {
+      enableCrl = make_shared<bool>(boost::any_cast<bool>(m["EnableCrl"]));
     }
     if (m.find("ExtendedKeyUsages") != m.end() && !m["ExtendedKeyUsages"].empty()) {
       vector<string> toVec1;
@@ -2002,17 +2030,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2122,17 +2140,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2206,9 +2214,14 @@ public:
   shared_ptr<long> afterDate{};
   shared_ptr<string> algorithm{};
   shared_ptr<long> beforeDate{};
+  shared_ptr<string> caCertChain{};
+  shared_ptr<long> certIssuedCount{};
+  shared_ptr<long> certRemainingCount{};
+  shared_ptr<long> certTotalCount{};
   shared_ptr<string> certificateType{};
   shared_ptr<string> commonName{};
   shared_ptr<string> countryCode{};
+  shared_ptr<long> crlDay{};
   shared_ptr<string> crlStatus{};
   shared_ptr<string> crlUrl{};
   shared_ptr<string> identifier{};
@@ -2246,6 +2259,18 @@ public:
     if (beforeDate) {
       res["BeforeDate"] = boost::any(*beforeDate);
     }
+    if (caCertChain) {
+      res["CaCertChain"] = boost::any(*caCertChain);
+    }
+    if (certIssuedCount) {
+      res["CertIssuedCount"] = boost::any(*certIssuedCount);
+    }
+    if (certRemainingCount) {
+      res["CertRemainingCount"] = boost::any(*certRemainingCount);
+    }
+    if (certTotalCount) {
+      res["CertTotalCount"] = boost::any(*certTotalCount);
+    }
     if (certificateType) {
       res["CertificateType"] = boost::any(*certificateType);
     }
@@ -2254,6 +2279,9 @@ public:
     }
     if (countryCode) {
       res["CountryCode"] = boost::any(*countryCode);
+    }
+    if (crlDay) {
+      res["CrlDay"] = boost::any(*crlDay);
     }
     if (crlStatus) {
       res["CrlStatus"] = boost::any(*crlStatus);
@@ -2319,6 +2347,18 @@ public:
     if (m.find("BeforeDate") != m.end() && !m["BeforeDate"].empty()) {
       beforeDate = make_shared<long>(boost::any_cast<long>(m["BeforeDate"]));
     }
+    if (m.find("CaCertChain") != m.end() && !m["CaCertChain"].empty()) {
+      caCertChain = make_shared<string>(boost::any_cast<string>(m["CaCertChain"]));
+    }
+    if (m.find("CertIssuedCount") != m.end() && !m["CertIssuedCount"].empty()) {
+      certIssuedCount = make_shared<long>(boost::any_cast<long>(m["CertIssuedCount"]));
+    }
+    if (m.find("CertRemainingCount") != m.end() && !m["CertRemainingCount"].empty()) {
+      certRemainingCount = make_shared<long>(boost::any_cast<long>(m["CertRemainingCount"]));
+    }
+    if (m.find("CertTotalCount") != m.end() && !m["CertTotalCount"].empty()) {
+      certTotalCount = make_shared<long>(boost::any_cast<long>(m["CertTotalCount"]));
+    }
     if (m.find("CertificateType") != m.end() && !m["CertificateType"].empty()) {
       certificateType = make_shared<string>(boost::any_cast<string>(m["CertificateType"]));
     }
@@ -2327,6 +2367,9 @@ public:
     }
     if (m.find("CountryCode") != m.end() && !m["CountryCode"].empty()) {
       countryCode = make_shared<string>(boost::any_cast<string>(m["CountryCode"]));
+    }
+    if (m.find("CrlDay") != m.end() && !m["CrlDay"].empty()) {
+      crlDay = make_shared<long>(boost::any_cast<long>(m["CrlDay"]));
     }
     if (m.find("CrlStatus") != m.end() && !m["CrlStatus"].empty()) {
       crlStatus = make_shared<string>(boost::any_cast<string>(m["CrlStatus"]));
@@ -2443,17 +2486,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2541,17 +2574,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2594,6 +2617,7 @@ public:
 class DescribeCACertificateListRequest : public Darabonba::Model {
 public:
   shared_ptr<long> currentPage{};
+  shared_ptr<string> identifier{};
   shared_ptr<long> showSize{};
 
   DescribeCACertificateListRequest() {}
@@ -2609,6 +2633,9 @@ public:
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
+    if (identifier) {
+      res["Identifier"] = boost::any(*identifier);
+    }
     if (showSize) {
       res["ShowSize"] = boost::any(*showSize);
     }
@@ -2618,6 +2645,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
     }
     if (m.find("ShowSize") != m.end() && !m["ShowSize"].empty()) {
       showSize = make_shared<long>(boost::any_cast<long>(m["ShowSize"]));
@@ -2893,17 +2923,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3027,17 +3047,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3334,17 +3344,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3518,17 +3518,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3570,6 +3560,7 @@ public:
 };
 class GetCAInstanceStatusRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> identifier{};
   shared_ptr<string> instanceId{};
 
   GetCAInstanceStatusRequest() {}
@@ -3582,6 +3573,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (identifier) {
+      res["Identifier"] = boost::any(*identifier);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -3589,6 +3583,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -3744,17 +3741,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3797,6 +3784,7 @@ public:
 class ListClientCertificateRequest : public Darabonba::Model {
 public:
   shared_ptr<long> currentPage{};
+  shared_ptr<string> identifier{};
   shared_ptr<long> showSize{};
 
   ListClientCertificateRequest() {}
@@ -3812,6 +3800,9 @@ public:
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
+    if (identifier) {
+      res["Identifier"] = boost::any(*identifier);
+    }
     if (showSize) {
       res["ShowSize"] = boost::any(*showSize);
     }
@@ -3821,6 +3812,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
     }
     if (m.find("ShowSize") != m.end() && !m["ShowSize"].empty()) {
       showSize = make_shared<long>(boost::any_cast<long>(m["ShowSize"]));
@@ -4096,17 +4090,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4441,17 +4425,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4568,17 +4542,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
