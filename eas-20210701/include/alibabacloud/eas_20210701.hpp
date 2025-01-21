@@ -122,6 +122,7 @@ public:
   shared_ptr<string> intranetEndpoint{};
   shared_ptr<string> name{};
   shared_ptr<string> queueService{};
+  shared_ptr<string> trafficMode{};
   shared_ptr<string> updateTime{};
 
   Group() {}
@@ -155,6 +156,9 @@ public:
     if (queueService) {
       res["QueueService"] = boost::any(*queueService);
     }
+    if (trafficMode) {
+      res["TrafficMode"] = boost::any(*trafficMode);
+    }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
@@ -182,6 +186,9 @@ public:
     }
     if (m.find("QueueService") != m.end() && !m["QueueService"].empty()) {
       queueService = make_shared<string>(boost::any_cast<string>(m["QueueService"]));
+    }
+    if (m.find("TrafficMode") != m.end() && !m["TrafficMode"].empty()) {
+      trafficMode = make_shared<string>(boost::any_cast<string>(m["TrafficMode"]));
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -906,6 +913,7 @@ public:
   shared_ptr<string> source{};
   shared_ptr<string> status{};
   shared_ptr<long> totalInstance{};
+  shared_ptr<string> trafficState{};
   shared_ptr<string> updateTime{};
   shared_ptr<long> weight{};
   shared_ptr<string> workspaceId{};
@@ -1043,6 +1051,9 @@ public:
     }
     if (totalInstance) {
       res["TotalInstance"] = boost::any(*totalInstance);
+    }
+    if (trafficState) {
+      res["TrafficState"] = boost::any(*trafficState);
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
@@ -1186,6 +1197,9 @@ public:
     }
     if (m.find("TotalInstance") != m.end() && !m["TotalInstance"].empty()) {
       totalInstance = make_shared<long>(boost::any_cast<long>(m["TotalInstance"]));
+    }
+    if (m.find("TrafficState") != m.end() && !m["TrafficState"].empty()) {
+      trafficState = make_shared<string>(boost::any_cast<string>(m["TrafficState"]));
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -4346,6 +4360,7 @@ public:
 };
 class CreateVirtualResourceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> disableSpotProtectionPeriod{};
   shared_ptr<vector<CreateVirtualResourceRequestResources>> resources{};
   shared_ptr<string> virtualResourceName{};
 
@@ -4359,6 +4374,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (disableSpotProtectionPeriod) {
+      res["DisableSpotProtectionPeriod"] = boost::any(*disableSpotProtectionPeriod);
+    }
     if (resources) {
       vector<boost::any> temp1;
       for(auto item1:*resources){
@@ -4373,6 +4391,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisableSpotProtectionPeriod") != m.end() && !m["DisableSpotProtectionPeriod"].empty()) {
+      disableSpotProtectionPeriod = make_shared<bool>(boost::any_cast<bool>(m["DisableSpotProtectionPeriod"]));
+    }
     if (m.find("Resources") != m.end() && !m["Resources"].empty()) {
       if (typeid(vector<boost::any>) == m["Resources"].type()) {
         vector<CreateVirtualResourceRequestResources> expect1;
@@ -9405,8 +9426,10 @@ public:
 class DescribeVirtualResourceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<bool> disableSpotProtectionPeriod{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<DescribeVirtualResourceResponseBodyResources>> resources{};
+  shared_ptr<long> serviceCount{};
   shared_ptr<string> updateTime{};
   shared_ptr<string> virtualResourceId{};
   shared_ptr<string> virtualResourceName{};
@@ -9424,6 +9447,9 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
+    if (disableSpotProtectionPeriod) {
+      res["DisableSpotProtectionPeriod"] = boost::any(*disableSpotProtectionPeriod);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -9433,6 +9459,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Resources"] = boost::any(temp1);
+    }
+    if (serviceCount) {
+      res["ServiceCount"] = boost::any(*serviceCount);
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
@@ -9450,6 +9479,9 @@ public:
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
+    if (m.find("DisableSpotProtectionPeriod") != m.end() && !m["DisableSpotProtectionPeriod"].empty()) {
+      disableSpotProtectionPeriod = make_shared<bool>(boost::any_cast<bool>(m["DisableSpotProtectionPeriod"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -9465,6 +9497,9 @@ public:
         }
         resources = make_shared<vector<DescribeVirtualResourceResponseBodyResources>>(expect1);
       }
+    }
+    if (m.find("ServiceCount") != m.end() && !m["ServiceCount"].empty()) {
+      serviceCount = make_shared<long>(boost::any_cast<long>(m["ServiceCount"]));
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -11531,6 +11566,7 @@ class ListResourceInstanceWorkerRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> workerName{};
 
   ListResourceInstanceWorkerRequest() {}
 
@@ -11548,6 +11584,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (workerName) {
+      res["WorkerName"] = boost::any(*workerName);
+    }
     return res;
   }
 
@@ -11557,6 +11596,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("WorkerName") != m.end() && !m["WorkerName"].empty()) {
+      workerName = make_shared<string>(boost::any_cast<string>(m["WorkerName"]));
     }
   }
 
@@ -12062,11 +12104,14 @@ public:
 };
 class ListResourcesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceStatus{};
   shared_ptr<string> resourceType{};
+  shared_ptr<string> sort{};
 
   ListResourcesRequest() {}
 
@@ -12078,6 +12123,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -12090,13 +12138,22 @@ public:
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
     }
+    if (resourceStatus) {
+      res["ResourceStatus"] = boost::any(*resourceStatus);
+    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -12109,8 +12166,14 @@ public:
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
     }
+    if (m.find("ResourceStatus") != m.end() && !m["ResourceStatus"].empty()) {
+      resourceStatus = make_shared<string>(boost::any_cast<string>(m["ResourceStatus"]));
+    }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
     }
   }
 
@@ -13414,6 +13477,7 @@ public:
 class ListVirtualResourceResponseBodyVirtualResources : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<long> serviceCount{};
   shared_ptr<string> updateTime{};
   shared_ptr<string> virtualResourceId{};
   shared_ptr<string> virtualResourceName{};
@@ -13431,6 +13495,9 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
+    if (serviceCount) {
+      res["ServiceCount"] = boost::any(*serviceCount);
+    }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
@@ -13446,6 +13513,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("ServiceCount") != m.end() && !m["ServiceCount"].empty()) {
+      serviceCount = make_shared<long>(boost::any_cast<long>(m["ServiceCount"]));
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -16522,6 +16592,7 @@ public:
 };
 class UpdateVirtualResourceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> disableSpotProtectionPeriod{};
   shared_ptr<vector<UpdateVirtualResourceRequestResources>> resources{};
   shared_ptr<string> virtualResourceName{};
 
@@ -16535,6 +16606,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (disableSpotProtectionPeriod) {
+      res["DisableSpotProtectionPeriod"] = boost::any(*disableSpotProtectionPeriod);
+    }
     if (resources) {
       vector<boost::any> temp1;
       for(auto item1:*resources){
@@ -16549,6 +16623,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisableSpotProtectionPeriod") != m.end() && !m["DisableSpotProtectionPeriod"].empty()) {
+      disableSpotProtectionPeriod = make_shared<bool>(boost::any_cast<bool>(m["DisableSpotProtectionPeriod"]));
+    }
     if (m.find("Resources") != m.end() && !m["Resources"].empty()) {
       if (typeid(vector<boost::any>) == m["Resources"].type()) {
         vector<UpdateVirtualResourceRequestResources> expect1;
