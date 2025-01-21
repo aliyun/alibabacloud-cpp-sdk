@@ -170,7 +170,12 @@ CreateJobResponse Alibabacloud_Pai-dlc20201203::Client::createJobWithOptions(sha
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateJobResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateJobResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateJobResponse(execute(params, req, runtime));
+  }
 }
 
 CreateJobResponse Alibabacloud_Pai-dlc20201203::Client::createJob(shared_ptr<CreateJobRequest> request) {
@@ -257,7 +262,12 @@ CreateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::createTensorboar
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateTensorboardResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateTensorboardResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateTensorboardResponse(execute(params, req, runtime));
+  }
 }
 
 CreateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::createTensorboard(shared_ptr<CreateTensorboardRequest> request) {
@@ -281,7 +291,12 @@ DeleteJobResponse Alibabacloud_Pai-dlc20201203::Client::deleteJobWithOptions(sha
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteJobResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteJobResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteJobResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteJobResponse Alibabacloud_Pai-dlc20201203::Client::deleteJob(shared_ptr<string> JobId) {
@@ -314,7 +329,12 @@ DeleteTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::deleteTensorboar
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteTensorboardResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteTensorboardResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteTensorboardResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::deleteTensorboard(shared_ptr<string> TensorboardId, shared_ptr<DeleteTensorboardRequest> request) {
@@ -347,7 +367,12 @@ GetJobResponse Alibabacloud_Pai-dlc20201203::Client::getJobWithOptions(shared_pt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetJobResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetJobResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetJobResponse(execute(params, req, runtime));
+  }
 }
 
 GetJobResponse Alibabacloud_Pai-dlc20201203::Client::getJob(shared_ptr<string> JobId, shared_ptr<GetJobRequest> request) {
@@ -386,7 +411,12 @@ GetJobEventsResponse Alibabacloud_Pai-dlc20201203::Client::getJobEventsWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetJobEventsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetJobEventsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetJobEventsResponse(execute(params, req, runtime));
+  }
 }
 
 GetJobEventsResponse Alibabacloud_Pai-dlc20201203::Client::getJobEvents(shared_ptr<string> JobId, shared_ptr<GetJobEventsRequest> request) {
@@ -431,7 +461,12 @@ GetJobMetricsResponse Alibabacloud_Pai-dlc20201203::Client::getJobMetricsWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetJobMetricsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetJobMetricsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetJobMetricsResponse(execute(params, req, runtime));
+  }
 }
 
 GetJobMetricsResponse Alibabacloud_Pai-dlc20201203::Client::getJobMetrics(shared_ptr<string> JobId, shared_ptr<GetJobMetricsRequest> request) {
@@ -470,7 +505,12 @@ GetJobSanityCheckResultResponse Alibabacloud_Pai-dlc20201203::Client::getJobSani
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetJobSanityCheckResultResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetJobSanityCheckResultResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetJobSanityCheckResultResponse(execute(params, req, runtime));
+  }
 }
 
 GetJobSanityCheckResultResponse Alibabacloud_Pai-dlc20201203::Client::getJobSanityCheckResult(shared_ptr<string> JobId, shared_ptr<GetJobSanityCheckResultRequest> request) {
@@ -513,7 +553,12 @@ GetPodEventsResponse Alibabacloud_Pai-dlc20201203::Client::getPodEventsWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetPodEventsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetPodEventsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetPodEventsResponse(execute(params, req, runtime));
+  }
 }
 
 GetPodEventsResponse Alibabacloud_Pai-dlc20201203::Client::getPodEvents(shared_ptr<string> JobId, shared_ptr<string> PodId, shared_ptr<GetPodEventsRequest> request) {
@@ -559,7 +604,12 @@ GetPodLogsResponse Alibabacloud_Pai-dlc20201203::Client::getPodLogsWithOptions(s
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetPodLogsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetPodLogsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetPodLogsResponse(execute(params, req, runtime));
+  }
 }
 
 GetPodLogsResponse Alibabacloud_Pai-dlc20201203::Client::getPodLogs(shared_ptr<string> JobId, shared_ptr<string> PodId, shared_ptr<GetPodLogsRequest> request) {
@@ -598,7 +648,12 @@ GetTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::getTensorboardWithO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetTensorboardResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetTensorboardResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetTensorboardResponse(execute(params, req, runtime));
+  }
 }
 
 GetTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::getTensorboard(shared_ptr<string> TensorboardId, shared_ptr<GetTensorboardRequest> request) {
@@ -631,7 +686,12 @@ GetTensorboardSharedUrlResponse Alibabacloud_Pai-dlc20201203::Client::getTensorb
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetTensorboardSharedUrlResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetTensorboardSharedUrlResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetTensorboardSharedUrlResponse(execute(params, req, runtime));
+  }
 }
 
 GetTensorboardSharedUrlResponse Alibabacloud_Pai-dlc20201203::Client::getTensorboardSharedUrl(shared_ptr<string> TensorboardId, shared_ptr<GetTensorboardSharedUrlRequest> request) {
@@ -667,7 +727,12 @@ GetTokenResponse Alibabacloud_Pai-dlc20201203::Client::getTokenWithOptions(share
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetTokenResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetTokenResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetTokenResponse(execute(params, req, runtime));
+  }
 }
 
 GetTokenResponse Alibabacloud_Pai-dlc20201203::Client::getToken(shared_ptr<GetTokenRequest> request) {
@@ -704,7 +769,12 @@ GetWebTerminalResponse Alibabacloud_Pai-dlc20201203::Client::getWebTerminalWithO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetWebTerminalResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetWebTerminalResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetWebTerminalResponse(execute(params, req, runtime));
+  }
 }
 
 GetWebTerminalResponse Alibabacloud_Pai-dlc20201203::Client::getWebTerminal(shared_ptr<string> JobId, shared_ptr<string> PodId, shared_ptr<GetWebTerminalRequest> request) {
@@ -752,7 +822,12 @@ ListEcsSpecsResponse Alibabacloud_Pai-dlc20201203::Client::listEcsSpecsWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListEcsSpecsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListEcsSpecsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListEcsSpecsResponse(execute(params, req, runtime));
+  }
 }
 
 ListEcsSpecsResponse Alibabacloud_Pai-dlc20201203::Client::listEcsSpecs(shared_ptr<ListEcsSpecsRequest> request) {
@@ -785,7 +860,12 @@ ListJobSanityCheckResultsResponse Alibabacloud_Pai-dlc20201203::Client::listJobS
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListJobSanityCheckResultsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListJobSanityCheckResultsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListJobSanityCheckResultsResponse(execute(params, req, runtime));
+  }
 }
 
 ListJobSanityCheckResultsResponse Alibabacloud_Pai-dlc20201203::Client::listJobSanityCheckResults(shared_ptr<string> JobId, shared_ptr<ListJobSanityCheckResultsRequest> request) {
@@ -838,6 +918,9 @@ ListJobsResponse Alibabacloud_Pai-dlc20201203::Client::listJobsWithOptions(share
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paymentType)) {
+    query->insert(pair<string, string>("PaymentType", *request->paymentType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->pipelineId)) {
     query->insert(pair<string, string>("PipelineId", *request->pipelineId));
   }
@@ -886,7 +969,12 @@ ListJobsResponse Alibabacloud_Pai-dlc20201203::Client::listJobsWithOptions(share
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListJobsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListJobsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListJobsResponse(execute(params, req, runtime));
+  }
 }
 
 ListJobsResponse Alibabacloud_Pai-dlc20201203::Client::listJobs(shared_ptr<ListJobsRequest> request) {
@@ -973,7 +1061,12 @@ ListTensorboardsResponse Alibabacloud_Pai-dlc20201203::Client::listTensorboardsW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListTensorboardsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTensorboardsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTensorboardsResponse(execute(params, req, runtime));
+  }
 }
 
 ListTensorboardsResponse Alibabacloud_Pai-dlc20201203::Client::listTensorboards(shared_ptr<ListTensorboardsRequest> request) {
@@ -1006,7 +1099,12 @@ StartTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::startTensorboardW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return StartTensorboardResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return StartTensorboardResponse(callApi(params, req, runtime));
+  }
+  else {
+    return StartTensorboardResponse(execute(params, req, runtime));
+  }
 }
 
 StartTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::startTensorboard(shared_ptr<string> TensorboardId, shared_ptr<StartTensorboardRequest> request) {
@@ -1030,7 +1128,12 @@ StopJobResponse Alibabacloud_Pai-dlc20201203::Client::stopJobWithOptions(shared_
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return StopJobResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return StopJobResponse(callApi(params, req, runtime));
+  }
+  else {
+    return StopJobResponse(execute(params, req, runtime));
+  }
 }
 
 StopJobResponse Alibabacloud_Pai-dlc20201203::Client::stopJob(shared_ptr<string> JobId) {
@@ -1063,7 +1166,12 @@ StopTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::stopTensorboardWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return StopTensorboardResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return StopTensorboardResponse(callApi(params, req, runtime));
+  }
+  else {
+    return StopTensorboardResponse(execute(params, req, runtime));
+  }
 }
 
 StopTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::stopTensorboard(shared_ptr<string> TensorboardId, shared_ptr<StopTensorboardRequest> request) {
@@ -1099,7 +1207,12 @@ UpdateJobResponse Alibabacloud_Pai-dlc20201203::Client::updateJobWithOptions(sha
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateJobResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateJobResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateJobResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateJobResponse Alibabacloud_Pai-dlc20201203::Client::updateJob(shared_ptr<string> JobId, shared_ptr<UpdateJobRequest> request) {
@@ -1141,7 +1254,12 @@ UpdateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::updateTensorboar
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateTensorboardResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateTensorboardResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateTensorboardResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::updateTensorboard(shared_ptr<string> TensorboardId, shared_ptr<UpdateTensorboardRequest> request) {

@@ -2599,6 +2599,7 @@ public:
   shared_ptr<string> caller{};
   shared_ptr<bool> disableEcsStockCheck{};
   shared_ptr<string> driver{};
+  shared_ptr<bool> enableCPUAffinity{};
   shared_ptr<bool> enableErrorMonitoringInAIMaster{};
   shared_ptr<bool> enableOssAppend{};
   shared_ptr<bool> enableRDMA{};
@@ -2636,6 +2637,9 @@ public:
     }
     if (driver) {
       res["Driver"] = boost::any(*driver);
+    }
+    if (enableCPUAffinity) {
+      res["EnableCPUAffinity"] = boost::any(*enableCPUAffinity);
     }
     if (enableErrorMonitoringInAIMaster) {
       res["EnableErrorMonitoringInAIMaster"] = boost::any(*enableErrorMonitoringInAIMaster);
@@ -2696,6 +2700,9 @@ public:
     }
     if (m.find("Driver") != m.end() && !m["Driver"].empty()) {
       driver = make_shared<string>(boost::any_cast<string>(m["Driver"]));
+    }
+    if (m.find("EnableCPUAffinity") != m.end() && !m["EnableCPUAffinity"].empty()) {
+      enableCPUAffinity = make_shared<bool>(boost::any_cast<bool>(m["EnableCPUAffinity"]));
     }
     if (m.find("EnableErrorMonitoringInAIMaster") != m.end() && !m["EnableErrorMonitoringInAIMaster"].empty()) {
       enableErrorMonitoringInAIMaster = make_shared<bool>(boost::any_cast<bool>(m["EnableErrorMonitoringInAIMaster"]));
@@ -7987,6 +7994,7 @@ public:
   shared_ptr<string> oversoldInfo{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> paymentType{};
   shared_ptr<string> pipelineId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceQuotaName{};
@@ -8044,6 +8052,9 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (paymentType) {
+      res["PaymentType"] = boost::any(*paymentType);
     }
     if (pipelineId) {
       res["PipelineId"] = boost::any(*pipelineId);
@@ -8118,6 +8129,9 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
+    if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
+    }
     if (m.find("PipelineId") != m.end() && !m["PipelineId"].empty()) {
       pipelineId = make_shared<string>(boost::any_cast<string>(m["PipelineId"]));
     }
@@ -8175,6 +8189,7 @@ public:
   shared_ptr<string> oversoldInfo{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> paymentType{};
   shared_ptr<string> pipelineId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceQuotaName{};
@@ -8232,6 +8247,9 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (paymentType) {
+      res["PaymentType"] = boost::any(*paymentType);
     }
     if (pipelineId) {
       res["PipelineId"] = boost::any(*pipelineId);
@@ -8305,6 +8323,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
     }
     if (m.find("PipelineId") != m.end() && !m["PipelineId"].empty()) {
       pipelineId = make_shared<string>(boost::any_cast<string>(m["PipelineId"]));
