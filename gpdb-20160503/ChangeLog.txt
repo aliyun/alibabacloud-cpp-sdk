@@ -1,3 +1,17 @@
+2025-01-22 Version: 2.3.0
+- Support API CloneDBInstance.
+- Support API CreateBackup.
+- Support API DeleteBackup.
+- Support API DescribeBackupJob.
+- Support API ListBackupJobs.
+- Support API ModifyDBInstanceDeploymentMode.
+- Update API CreateCollection: add param HnswEfConstruction.
+- Update API CreateDocumentCollection: add param HnswEfConstruction.
+- Update API CreateVectorIndex: add param HnswEfConstruction.
+- Update API CreateVectorIndex: update param AccessKeyId.
+- Update API ModifyMasterSpec: update param AccessKeyId.
+
+
 2025-01-10 Version: 2.2.0
 - Support API CreateBackup.
 - Support API DeleteBackup.
