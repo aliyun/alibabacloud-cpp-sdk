@@ -4408,6 +4408,8 @@ public:
 };
 class ListPublicParametersRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> createdDateAfter{};
+  shared_ptr<string> createdDateBefore{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> name{};
   shared_ptr<string> nextToken{};
@@ -4428,6 +4430,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (createdDateAfter) {
+      res["CreatedDateAfter"] = boost::any(*createdDateAfter);
+    }
+    if (createdDateBefore) {
+      res["CreatedDateBefore"] = boost::any(*createdDateBefore);
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
@@ -4459,6 +4467,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreatedDateAfter") != m.end() && !m["CreatedDateAfter"].empty()) {
+      createdDateAfter = make_shared<string>(boost::any_cast<string>(m["CreatedDateAfter"]));
+    }
+    if (m.find("CreatedDateBefore") != m.end() && !m["CreatedDateBefore"].empty()) {
+      createdDateBefore = make_shared<string>(boost::any_cast<string>(m["CreatedDateBefore"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
