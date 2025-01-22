@@ -12276,6 +12276,525 @@ public:
 
   virtual ~RecognizeIntentionResponse() = default;
 };
+class RunAgentRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> botId{};
+  shared_ptr<string> modelId{};
+  shared_ptr<bool> stream{};
+  shared_ptr<string> threadId{};
+  shared_ptr<bool> useDraft{};
+  shared_ptr<string> userContent{};
+  shared_ptr<string> versionId{};
+
+  RunAgentRequest() {}
+
+  explicit RunAgentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (botId) {
+      res["botId"] = boost::any(*botId);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (stream) {
+      res["stream"] = boost::any(*stream);
+    }
+    if (threadId) {
+      res["threadId"] = boost::any(*threadId);
+    }
+    if (useDraft) {
+      res["useDraft"] = boost::any(*useDraft);
+    }
+    if (userContent) {
+      res["userContent"] = boost::any(*userContent);
+    }
+    if (versionId) {
+      res["versionId"] = boost::any(*versionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("botId") != m.end() && !m["botId"].empty()) {
+      botId = make_shared<string>(boost::any_cast<string>(m["botId"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("stream") != m.end() && !m["stream"].empty()) {
+      stream = make_shared<bool>(boost::any_cast<bool>(m["stream"]));
+    }
+    if (m.find("threadId") != m.end() && !m["threadId"].empty()) {
+      threadId = make_shared<string>(boost::any_cast<string>(m["threadId"]));
+    }
+    if (m.find("useDraft") != m.end() && !m["useDraft"].empty()) {
+      useDraft = make_shared<bool>(boost::any_cast<bool>(m["useDraft"]));
+    }
+    if (m.find("userContent") != m.end() && !m["userContent"].empty()) {
+      userContent = make_shared<string>(boost::any_cast<string>(m["userContent"]));
+    }
+    if (m.find("versionId") != m.end() && !m["versionId"].empty()) {
+      versionId = make_shared<string>(boost::any_cast<string>(m["versionId"]));
+    }
+  }
+
+
+  virtual ~RunAgentRequest() = default;
+};
+class RunAgentResponseBodyDataFunctionCallResponses : public Darabonba::Model {
+public:
+  shared_ptr<string> displayName{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> functionArgs{};
+  shared_ptr<string> functionName{};
+  shared_ptr<string> result{};
+  shared_ptr<string> startTime{};
+
+  RunAgentResponseBodyDataFunctionCallResponses() {}
+
+  explicit RunAgentResponseBodyDataFunctionCallResponses(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (displayName) {
+      res["displayName"] = boost::any(*displayName);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (functionArgs) {
+      res["functionArgs"] = boost::any(*functionArgs);
+    }
+    if (functionName) {
+      res["functionName"] = boost::any(*functionName);
+    }
+    if (result) {
+      res["result"] = boost::any(*result);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("displayName") != m.end() && !m["displayName"].empty()) {
+      displayName = make_shared<string>(boost::any_cast<string>(m["displayName"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("functionArgs") != m.end() && !m["functionArgs"].empty()) {
+      functionArgs = make_shared<string>(boost::any_cast<string>(m["functionArgs"]));
+    }
+    if (m.find("functionName") != m.end() && !m["functionName"].empty()) {
+      functionName = make_shared<string>(boost::any_cast<string>(m["functionName"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["result"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
+    }
+  }
+
+
+  virtual ~RunAgentResponseBodyDataFunctionCallResponses() = default;
+};
+class RunAgentResponseBodyDataResponseChoicesMessage : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> role{};
+  shared_ptr<string> roleDisplayName{};
+
+  RunAgentResponseBodyDataResponseChoicesMessage() {}
+
+  explicit RunAgentResponseBodyDataResponseChoicesMessage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    if (roleDisplayName) {
+      res["roleDisplayName"] = boost::any(*roleDisplayName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+    if (m.find("roleDisplayName") != m.end() && !m["roleDisplayName"].empty()) {
+      roleDisplayName = make_shared<string>(boost::any_cast<string>(m["roleDisplayName"]));
+    }
+  }
+
+
+  virtual ~RunAgentResponseBodyDataResponseChoicesMessage() = default;
+};
+class RunAgentResponseBodyDataResponseChoices : public Darabonba::Model {
+public:
+  shared_ptr<string> finishReason{};
+  shared_ptr<long> index{};
+  shared_ptr<RunAgentResponseBodyDataResponseChoicesMessage> message{};
+
+  RunAgentResponseBodyDataResponseChoices() {}
+
+  explicit RunAgentResponseBodyDataResponseChoices(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (finishReason) {
+      res["finishReason"] = boost::any(*finishReason);
+    }
+    if (index) {
+      res["index"] = boost::any(*index);
+    }
+    if (message) {
+      res["message"] = message ? boost::any(message->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("finishReason") != m.end() && !m["finishReason"].empty()) {
+      finishReason = make_shared<string>(boost::any_cast<string>(m["finishReason"]));
+    }
+    if (m.find("index") != m.end() && !m["index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["index"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      if (typeid(map<string, boost::any>) == m["message"].type()) {
+        RunAgentResponseBodyDataResponseChoicesMessage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["message"]));
+        message = make_shared<RunAgentResponseBodyDataResponseChoicesMessage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunAgentResponseBodyDataResponseChoices() = default;
+};
+class RunAgentResponseBodyDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<vector<RunAgentResponseBodyDataResponseChoices>> choices{};
+  shared_ptr<long> created{};
+  shared_ptr<string> id{};
+  shared_ptr<string> modelId{};
+  shared_ptr<string> time{};
+
+  RunAgentResponseBodyDataResponse() {}
+
+  explicit RunAgentResponseBodyDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (choices) {
+      vector<boost::any> temp1;
+      for(auto item1:*choices){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["choices"] = boost::any(temp1);
+    }
+    if (created) {
+      res["created"] = boost::any(*created);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (modelId) {
+      res["modelId"] = boost::any(*modelId);
+    }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("choices") != m.end() && !m["choices"].empty()) {
+      if (typeid(vector<boost::any>) == m["choices"].type()) {
+        vector<RunAgentResponseBodyDataResponseChoices> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["choices"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunAgentResponseBodyDataResponseChoices model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        choices = make_shared<vector<RunAgentResponseBodyDataResponseChoices>>(expect1);
+      }
+    }
+    if (m.find("created") != m.end() && !m["created"].empty()) {
+      created = make_shared<long>(boost::any_cast<long>(m["created"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("modelId") != m.end() && !m["modelId"].empty()) {
+      modelId = make_shared<string>(boost::any_cast<string>(m["modelId"]));
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["time"]));
+    }
+  }
+
+
+  virtual ~RunAgentResponseBodyDataResponse() = default;
+};
+class RunAgentResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<RunAgentResponseBodyDataFunctionCallResponses>> functionCallResponses{};
+  shared_ptr<long> inputTokens{};
+  shared_ptr<long> outputTokens{};
+  shared_ptr<RunAgentResponseBodyDataResponse> response{};
+  shared_ptr<string> threadId{};
+  shared_ptr<string> traceId{};
+  shared_ptr<string> versionId{};
+
+  RunAgentResponseBodyData() {}
+
+  explicit RunAgentResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (functionCallResponses) {
+      vector<boost::any> temp1;
+      for(auto item1:*functionCallResponses){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["functionCallResponses"] = boost::any(temp1);
+    }
+    if (inputTokens) {
+      res["inputTokens"] = boost::any(*inputTokens);
+    }
+    if (outputTokens) {
+      res["outputTokens"] = boost::any(*outputTokens);
+    }
+    if (response) {
+      res["response"] = response ? boost::any(response->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (threadId) {
+      res["threadId"] = boost::any(*threadId);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    if (versionId) {
+      res["versionId"] = boost::any(*versionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("functionCallResponses") != m.end() && !m["functionCallResponses"].empty()) {
+      if (typeid(vector<boost::any>) == m["functionCallResponses"].type()) {
+        vector<RunAgentResponseBodyDataFunctionCallResponses> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["functionCallResponses"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunAgentResponseBodyDataFunctionCallResponses model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        functionCallResponses = make_shared<vector<RunAgentResponseBodyDataFunctionCallResponses>>(expect1);
+      }
+    }
+    if (m.find("inputTokens") != m.end() && !m["inputTokens"].empty()) {
+      inputTokens = make_shared<long>(boost::any_cast<long>(m["inputTokens"]));
+    }
+    if (m.find("outputTokens") != m.end() && !m["outputTokens"].empty()) {
+      outputTokens = make_shared<long>(boost::any_cast<long>(m["outputTokens"]));
+    }
+    if (m.find("response") != m.end() && !m["response"].empty()) {
+      if (typeid(map<string, boost::any>) == m["response"].type()) {
+        RunAgentResponseBodyDataResponse model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["response"]));
+        response = make_shared<RunAgentResponseBodyDataResponse>(model1);
+      }
+    }
+    if (m.find("threadId") != m.end() && !m["threadId"].empty()) {
+      threadId = make_shared<string>(boost::any_cast<string>(m["threadId"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+    if (m.find("versionId") != m.end() && !m["versionId"].empty()) {
+      versionId = make_shared<string>(boost::any_cast<string>(m["versionId"]));
+    }
+  }
+
+
+  virtual ~RunAgentResponseBodyData() = default;
+};
+class RunAgentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> cost{};
+  shared_ptr<RunAgentResponseBodyData> data{};
+  shared_ptr<string> dataType{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> time{};
+
+  RunAgentResponseBody() {}
+
+  explicit RunAgentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cost) {
+      res["cost"] = boost::any(*cost);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dataType) {
+      res["dataType"] = boost::any(*dataType);
+    }
+    if (errCode) {
+      res["errCode"] = boost::any(*errCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cost") != m.end() && !m["cost"].empty()) {
+      cost = make_shared<long>(boost::any_cast<long>(m["cost"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        RunAgentResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<RunAgentResponseBodyData>(model1);
+      }
+    }
+    if (m.find("dataType") != m.end() && !m["dataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["dataType"]));
+    }
+    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["time"]));
+    }
+  }
+
+
+  virtual ~RunAgentResponseBody() = default;
+};
+class RunAgentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RunAgentResponseBody> body{};
+
+  RunAgentResponse() {}
+
+  explicit RunAgentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RunAgentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RunAgentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunAgentResponse() = default;
+};
 class RunChatResultGenerationRequestMessages : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -15179,6 +15698,11 @@ public:
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeIntentionResponse recognizeIntention(shared_ptr<string> workspaceId, shared_ptr<RecognizeIntentionRequest> request);
+  RunAgentResponse runAgentWithOptions(shared_ptr<string> workspaceId,
+                                       shared_ptr<RunAgentRequest> request,
+                                       shared_ptr<map<string, string>> headers,
+                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RunAgentResponse runAgent(shared_ptr<string> workspaceId, shared_ptr<RunAgentRequest> request);
   RunChatResultGenerationResponse runChatResultGenerationWithOptions(shared_ptr<string> workspaceId,
                                                                      shared_ptr<RunChatResultGenerationRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
