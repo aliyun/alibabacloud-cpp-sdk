@@ -6642,8 +6642,10 @@ public:
 class RunStyleWritingRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> learningSamples{};
+  shared_ptr<string> processStage{};
   shared_ptr<vector<string>> referenceMaterials{};
   shared_ptr<string> styleFeature{};
+  shared_ptr<bool> useSearch{};
   shared_ptr<string> writingTheme{};
 
   RunStyleWritingRequest() {}
@@ -6659,11 +6661,17 @@ public:
     if (learningSamples) {
       res["learningSamples"] = boost::any(*learningSamples);
     }
+    if (processStage) {
+      res["processStage"] = boost::any(*processStage);
+    }
     if (referenceMaterials) {
       res["referenceMaterials"] = boost::any(*referenceMaterials);
     }
     if (styleFeature) {
       res["styleFeature"] = boost::any(*styleFeature);
+    }
+    if (useSearch) {
+      res["useSearch"] = boost::any(*useSearch);
     }
     if (writingTheme) {
       res["writingTheme"] = boost::any(*writingTheme);
@@ -6682,6 +6690,9 @@ public:
       }
       learningSamples = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("processStage") != m.end() && !m["processStage"].empty()) {
+      processStage = make_shared<string>(boost::any_cast<string>(m["processStage"]));
+    }
     if (m.find("referenceMaterials") != m.end() && !m["referenceMaterials"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["referenceMaterials"].type()) {
@@ -6695,6 +6706,9 @@ public:
     if (m.find("styleFeature") != m.end() && !m["styleFeature"].empty()) {
       styleFeature = make_shared<string>(boost::any_cast<string>(m["styleFeature"]));
     }
+    if (m.find("useSearch") != m.end() && !m["useSearch"].empty()) {
+      useSearch = make_shared<bool>(boost::any_cast<bool>(m["useSearch"]));
+    }
     if (m.find("writingTheme") != m.end() && !m["writingTheme"].empty()) {
       writingTheme = make_shared<string>(boost::any_cast<string>(m["writingTheme"]));
     }
@@ -6706,8 +6720,10 @@ public:
 class RunStyleWritingShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> learningSamplesShrink{};
+  shared_ptr<string> processStage{};
   shared_ptr<string> referenceMaterialsShrink{};
   shared_ptr<string> styleFeature{};
+  shared_ptr<bool> useSearch{};
   shared_ptr<string> writingTheme{};
 
   RunStyleWritingShrinkRequest() {}
@@ -6723,11 +6739,17 @@ public:
     if (learningSamplesShrink) {
       res["learningSamples"] = boost::any(*learningSamplesShrink);
     }
+    if (processStage) {
+      res["processStage"] = boost::any(*processStage);
+    }
     if (referenceMaterialsShrink) {
       res["referenceMaterials"] = boost::any(*referenceMaterialsShrink);
     }
     if (styleFeature) {
       res["styleFeature"] = boost::any(*styleFeature);
+    }
+    if (useSearch) {
+      res["useSearch"] = boost::any(*useSearch);
     }
     if (writingTheme) {
       res["writingTheme"] = boost::any(*writingTheme);
@@ -6739,11 +6761,17 @@ public:
     if (m.find("learningSamples") != m.end() && !m["learningSamples"].empty()) {
       learningSamplesShrink = make_shared<string>(boost::any_cast<string>(m["learningSamples"]));
     }
+    if (m.find("processStage") != m.end() && !m["processStage"].empty()) {
+      processStage = make_shared<string>(boost::any_cast<string>(m["processStage"]));
+    }
     if (m.find("referenceMaterials") != m.end() && !m["referenceMaterials"].empty()) {
       referenceMaterialsShrink = make_shared<string>(boost::any_cast<string>(m["referenceMaterials"]));
     }
     if (m.find("styleFeature") != m.end() && !m["styleFeature"].empty()) {
       styleFeature = make_shared<string>(boost::any_cast<string>(m["styleFeature"]));
+    }
+    if (m.find("useSearch") != m.end() && !m["useSearch"].empty()) {
+      useSearch = make_shared<bool>(boost::any_cast<bool>(m["useSearch"]));
     }
     if (m.find("writingTheme") != m.end() && !m["writingTheme"].empty()) {
       writingTheme = make_shared<string>(boost::any_cast<string>(m["writingTheme"]));
