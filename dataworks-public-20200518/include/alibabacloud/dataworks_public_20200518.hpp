@@ -48591,6 +48591,7 @@ public:
 class ListCheckProcessesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> eventCode{};
+  shared_ptr<string> messageId{};
   shared_ptr<string> operator_{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -48609,6 +48610,9 @@ public:
     map<string, boost::any> res;
     if (eventCode) {
       res["EventCode"] = boost::any(*eventCode);
+    }
+    if (messageId) {
+      res["MessageId"] = boost::any(*messageId);
     }
     if (operator_) {
       res["Operator"] = boost::any(*operator_);
@@ -48631,6 +48635,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EventCode") != m.end() && !m["EventCode"].empty()) {
       eventCode = make_shared<string>(boost::any_cast<string>(m["EventCode"]));
+    }
+    if (m.find("MessageId") != m.end() && !m["MessageId"].empty()) {
+      messageId = make_shared<string>(boost::any_cast<string>(m["MessageId"]));
     }
     if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
       operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
