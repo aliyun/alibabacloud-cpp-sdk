@@ -5207,6 +5207,7 @@ public:
   shared_ptr<string> vaultRegionId{};
   shared_ptr<string> vaultStorageClass{};
   shared_ptr<string> vaultType{};
+  shared_ptr<bool> wormEnabled{};
 
   CreateVaultRequest() {}
 
@@ -5239,6 +5240,9 @@ public:
     if (vaultType) {
       res["VaultType"] = boost::any(*vaultType);
     }
+    if (wormEnabled) {
+      res["WormEnabled"] = boost::any(*wormEnabled);
+    }
     return res;
   }
 
@@ -5263,6 +5267,9 @@ public:
     }
     if (m.find("VaultType") != m.end() && !m["VaultType"].empty()) {
       vaultType = make_shared<string>(boost::any_cast<string>(m["VaultType"]));
+    }
+    if (m.find("WormEnabled") != m.end() && !m["WormEnabled"].empty()) {
+      wormEnabled = make_shared<bool>(boost::any_cast<bool>(m["WormEnabled"]));
     }
   }
 
@@ -24413,6 +24420,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> vaultId{};
   shared_ptr<string> vaultName{};
+  shared_ptr<bool> wormEnabled{};
 
   UpdateVaultRequest() {}
 
@@ -24436,6 +24444,9 @@ public:
     if (vaultName) {
       res["VaultName"] = boost::any(*vaultName);
     }
+    if (wormEnabled) {
+      res["WormEnabled"] = boost::any(*wormEnabled);
+    }
     return res;
   }
 
@@ -24451,6 +24462,9 @@ public:
     }
     if (m.find("VaultName") != m.end() && !m["VaultName"].empty()) {
       vaultName = make_shared<string>(boost::any_cast<string>(m["VaultName"]));
+    }
+    if (m.find("WormEnabled") != m.end() && !m["WormEnabled"].empty()) {
+      wormEnabled = make_shared<bool>(boost::any_cast<bool>(m["WormEnabled"]));
     }
   }
 
