@@ -3308,6 +3308,49 @@ public:
 
   virtual ~WorkspaceSpecs() = default;
 };
+class SubQuotaPreemptionConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> preemptedPriorityUpperBound{};
+  shared_ptr<vector<string>> preemptedProducts{};
+
+  SubQuotaPreemptionConfig() {}
+
+  explicit SubQuotaPreemptionConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (preemptedPriorityUpperBound) {
+      res["PreemptedPriorityUpperBound"] = boost::any(*preemptedPriorityUpperBound);
+    }
+    if (preemptedProducts) {
+      res["PreemptedProducts"] = boost::any(*preemptedProducts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PreemptedPriorityUpperBound") != m.end() && !m["PreemptedPriorityUpperBound"].empty()) {
+      preemptedPriorityUpperBound = make_shared<long>(boost::any_cast<long>(m["PreemptedPriorityUpperBound"]));
+    }
+    if (m.find("PreemptedProducts") != m.end() && !m["PreemptedProducts"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PreemptedProducts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PreemptedProducts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      preemptedProducts = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~SubQuotaPreemptionConfig() = default;
+};
 class UserVpc : public Darabonba::Model {
 public:
   shared_ptr<ForwardInfo> defaultForwardInfo{};
@@ -3396,7 +3439,9 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> defaultGPUDriver{};
   shared_ptr<bool> enablePreemptSubquotaWorkloads{};
+  shared_ptr<bool> enableSubQuotaPreemption{};
   shared_ptr<vector<WorkspaceSpecs>> resourceSpecs{};
+  shared_ptr<SubQuotaPreemptionConfig> subQuotaPreemptionConfig{};
   shared_ptr<vector<string>> supportGPUDrivers{};
   shared_ptr<bool> supportRDMA{};
   shared_ptr<UserVpc> userVpc{};
@@ -3423,12 +3468,18 @@ public:
     if (enablePreemptSubquotaWorkloads) {
       res["EnablePreemptSubquotaWorkloads"] = boost::any(*enablePreemptSubquotaWorkloads);
     }
+    if (enableSubQuotaPreemption) {
+      res["EnableSubQuotaPreemption"] = boost::any(*enableSubQuotaPreemption);
+    }
     if (resourceSpecs) {
       vector<boost::any> temp1;
       for(auto item1:*resourceSpecs){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ResourceSpecs"] = boost::any(temp1);
+    }
+    if (subQuotaPreemptionConfig) {
+      res["SubQuotaPreemptionConfig"] = subQuotaPreemptionConfig ? boost::any(subQuotaPreemptionConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (supportGPUDrivers) {
       res["SupportGPUDrivers"] = boost::any(*supportGPUDrivers);
@@ -3459,6 +3510,9 @@ public:
     if (m.find("EnablePreemptSubquotaWorkloads") != m.end() && !m["EnablePreemptSubquotaWorkloads"].empty()) {
       enablePreemptSubquotaWorkloads = make_shared<bool>(boost::any_cast<bool>(m["EnablePreemptSubquotaWorkloads"]));
     }
+    if (m.find("EnableSubQuotaPreemption") != m.end() && !m["EnableSubQuotaPreemption"].empty()) {
+      enableSubQuotaPreemption = make_shared<bool>(boost::any_cast<bool>(m["EnableSubQuotaPreemption"]));
+    }
     if (m.find("ResourceSpecs") != m.end() && !m["ResourceSpecs"].empty()) {
       if (typeid(vector<boost::any>) == m["ResourceSpecs"].type()) {
         vector<WorkspaceSpecs> expect1;
@@ -3470,6 +3524,13 @@ public:
           }
         }
         resourceSpecs = make_shared<vector<WorkspaceSpecs>>(expect1);
+      }
+    }
+    if (m.find("SubQuotaPreemptionConfig") != m.end() && !m["SubQuotaPreemptionConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SubQuotaPreemptionConfig"].type()) {
+        SubQuotaPreemptionConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SubQuotaPreemptionConfig"]));
+        subQuotaPreemptionConfig = make_shared<SubQuotaPreemptionConfig>(model1);
       }
     }
     if (m.find("SupportGPUDrivers") != m.end() && !m["SupportGPUDrivers"].empty()) {
@@ -5139,7 +5200,7 @@ public:
 };
 class Rules : public Darabonba::Model {
 public:
-  shared_ptr<SchedulingRule> schedulingRule{};
+  shared_ptr<SchedulingRule> scheduling{};
 
   Rules() {}
 
@@ -5151,18 +5212,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (schedulingRule) {
-      res["SchedulingRule"] = schedulingRule ? boost::any(schedulingRule->toMap()) : boost::any(map<string,boost::any>({}));
+    if (scheduling) {
+      res["Scheduling"] = scheduling ? boost::any(scheduling->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("SchedulingRule") != m.end() && !m["SchedulingRule"].empty()) {
-      if (typeid(map<string, boost::any>) == m["SchedulingRule"].type()) {
+    if (m.find("Scheduling") != m.end() && !m["Scheduling"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Scheduling"].type()) {
         SchedulingRule model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SchedulingRule"]));
-        schedulingRule = make_shared<SchedulingRule>(model1);
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Scheduling"]));
+        scheduling = make_shared<SchedulingRule>(model1);
       }
     }
   }
