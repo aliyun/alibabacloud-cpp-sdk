@@ -3902,6 +3902,49 @@ public:
 
   virtual ~ListIpamResourceCidrsRequest() = default;
 };
+class ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> overlapResourceCidr{};
+  shared_ptr<string> overlapResourceId{};
+  shared_ptr<string> overlapResourceRegion{};
+
+  ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail() {}
+
+  explicit ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (overlapResourceCidr) {
+      res["OverlapResourceCidr"] = boost::any(*overlapResourceCidr);
+    }
+    if (overlapResourceId) {
+      res["OverlapResourceId"] = boost::any(*overlapResourceId);
+    }
+    if (overlapResourceRegion) {
+      res["OverlapResourceRegion"] = boost::any(*overlapResourceRegion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OverlapResourceCidr") != m.end() && !m["OverlapResourceCidr"].empty()) {
+      overlapResourceCidr = make_shared<string>(boost::any_cast<string>(m["OverlapResourceCidr"]));
+    }
+    if (m.find("OverlapResourceId") != m.end() && !m["OverlapResourceId"].empty()) {
+      overlapResourceId = make_shared<string>(boost::any_cast<string>(m["OverlapResourceId"]));
+    }
+    if (m.find("OverlapResourceRegion") != m.end() && !m["OverlapResourceRegion"].empty()) {
+      overlapResourceRegion = make_shared<string>(boost::any_cast<string>(m["OverlapResourceRegion"]));
+    }
+  }
+
+
+  virtual ~ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail() = default;
+};
 class ListIpamResourceCidrsResponseBodyIpamResourceCidrs : public Darabonba::Model {
 public:
   shared_ptr<long> aliUid{};
@@ -3913,6 +3956,7 @@ public:
   shared_ptr<string> ipamPoolId{};
   shared_ptr<string> ipamScopeId{};
   shared_ptr<string> managementStatus{};
+  shared_ptr<vector<ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail>> overlapDetail{};
   shared_ptr<string> overlapStatus{};
   shared_ptr<string> resourceId{};
   shared_ptr<long> resourceOwnerId{};
@@ -3958,6 +4002,13 @@ public:
     }
     if (managementStatus) {
       res["ManagementStatus"] = boost::any(*managementStatus);
+    }
+    if (overlapDetail) {
+      vector<boost::any> temp1;
+      for(auto item1:*overlapDetail){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OverlapDetail"] = boost::any(temp1);
     }
     if (overlapStatus) {
       res["OverlapStatus"] = boost::any(*overlapStatus);
@@ -4013,6 +4064,19 @@ public:
     }
     if (m.find("ManagementStatus") != m.end() && !m["ManagementStatus"].empty()) {
       managementStatus = make_shared<string>(boost::any_cast<string>(m["ManagementStatus"]));
+    }
+    if (m.find("OverlapDetail") != m.end() && !m["OverlapDetail"].empty()) {
+      if (typeid(vector<boost::any>) == m["OverlapDetail"].type()) {
+        vector<ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OverlapDetail"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        overlapDetail = make_shared<vector<ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail>>(expect1);
+      }
     }
     if (m.find("OverlapStatus") != m.end() && !m["OverlapStatus"].empty()) {
       overlapStatus = make_shared<string>(boost::any_cast<string>(m["OverlapStatus"]));

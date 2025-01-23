@@ -69,7 +69,12 @@ AddIpamPoolCidrResponse Alibabacloud_VpcIpam20230228::Client::addIpamPoolCidrWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AddIpamPoolCidrResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AddIpamPoolCidrResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AddIpamPoolCidrResponse(execute(params, req, runtime));
+  }
 }
 
 AddIpamPoolCidrResponse Alibabacloud_VpcIpam20230228::Client::addIpamPoolCidr(shared_ptr<AddIpamPoolCidrRequest> request) {
@@ -118,7 +123,12 @@ ChangeResourceGroupResponse Alibabacloud_VpcIpam20230228::Client::changeResource
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ChangeResourceGroupResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ChangeResourceGroupResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ChangeResourceGroupResponse(execute(params, req, runtime));
+  }
 }
 
 ChangeResourceGroupResponse Alibabacloud_VpcIpam20230228::Client::changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request) {
@@ -179,7 +189,12 @@ CreateIpamResponse Alibabacloud_VpcIpam20230228::Client::createIpamWithOptions(s
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateIpamResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateIpamResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateIpamResponse(execute(params, req, runtime));
+  }
 }
 
 CreateIpamResponse Alibabacloud_VpcIpam20230228::Client::createIpam(shared_ptr<CreateIpamRequest> request) {
@@ -261,7 +276,12 @@ CreateIpamPoolResponse Alibabacloud_VpcIpam20230228::Client::createIpamPoolWithO
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateIpamPoolResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateIpamPoolResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateIpamPoolResponse(execute(params, req, runtime));
+  }
 }
 
 CreateIpamPoolResponse Alibabacloud_VpcIpam20230228::Client::createIpamPool(shared_ptr<CreateIpamPoolRequest> request) {
@@ -310,7 +330,12 @@ CreateIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::createIpa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateIpamPoolAllocationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateIpamPoolAllocationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateIpamPoolAllocationResponse(execute(params, req, runtime));
+  }
 }
 
 CreateIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::createIpamPoolAllocation(shared_ptr<CreateIpamPoolAllocationRequest> request) {
@@ -374,7 +399,12 @@ CreateIpamScopeResponse Alibabacloud_VpcIpam20230228::Client::createIpamScopeWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateIpamScopeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateIpamScopeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateIpamScopeResponse(execute(params, req, runtime));
+  }
 }
 
 CreateIpamScopeResponse Alibabacloud_VpcIpam20230228::Client::createIpamScope(shared_ptr<CreateIpamScopeRequest> request) {
@@ -423,7 +453,12 @@ DeleteIpamResponse Alibabacloud_VpcIpam20230228::Client::deleteIpamWithOptions(s
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteIpamResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteIpamResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteIpamResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteIpamResponse Alibabacloud_VpcIpam20230228::Client::deleteIpam(shared_ptr<DeleteIpamRequest> request) {
@@ -472,7 +507,12 @@ DeleteIpamPoolResponse Alibabacloud_VpcIpam20230228::Client::deleteIpamPoolWithO
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteIpamPoolResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteIpamPoolResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteIpamPoolResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteIpamPoolResponse Alibabacloud_VpcIpam20230228::Client::deleteIpamPool(shared_ptr<DeleteIpamPoolRequest> request) {
@@ -509,7 +549,12 @@ DeleteIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::deleteIpa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteIpamPoolAllocationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteIpamPoolAllocationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteIpamPoolAllocationResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::deleteIpamPoolAllocation(shared_ptr<DeleteIpamPoolAllocationRequest> request) {
@@ -549,7 +594,12 @@ DeleteIpamPoolCidrResponse Alibabacloud_VpcIpam20230228::Client::deleteIpamPoolC
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteIpamPoolCidrResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteIpamPoolCidrResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteIpamPoolCidrResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteIpamPoolCidrResponse Alibabacloud_VpcIpam20230228::Client::deleteIpamPoolCidr(shared_ptr<DeleteIpamPoolCidrRequest> request) {
@@ -598,7 +648,12 @@ DeleteIpamScopeResponse Alibabacloud_VpcIpam20230228::Client::deleteIpamScopeWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteIpamScopeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteIpamScopeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteIpamScopeResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteIpamScopeResponse Alibabacloud_VpcIpam20230228::Client::deleteIpamScope(shared_ptr<DeleteIpamScopeRequest> request) {
@@ -623,7 +678,12 @@ GetIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::getIpamPoolA
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetIpamPoolAllocationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetIpamPoolAllocationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetIpamPoolAllocationResponse(execute(params, req, runtime));
+  }
 }
 
 GetIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::getIpamPoolAllocation(shared_ptr<GetIpamPoolAllocationRequest> request) {
@@ -666,7 +726,12 @@ GetVpcIpamServiceStatusResponse Alibabacloud_VpcIpam20230228::Client::getVpcIpam
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetVpcIpamServiceStatusResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetVpcIpamServiceStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetVpcIpamServiceStatusResponse(execute(params, req, runtime));
+  }
 }
 
 GetVpcIpamServiceStatusResponse Alibabacloud_VpcIpam20230228::Client::getVpcIpamServiceStatus(shared_ptr<GetVpcIpamServiceStatusRequest> request) {
@@ -709,7 +774,12 @@ ListIpamDiscoveredResourceResponse Alibabacloud_VpcIpam20230228::Client::listIpa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListIpamDiscoveredResourceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListIpamDiscoveredResourceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListIpamDiscoveredResourceResponse(execute(params, req, runtime));
+  }
 }
 
 ListIpamDiscoveredResourceResponse Alibabacloud_VpcIpam20230228::Client::listIpamDiscoveredResource(shared_ptr<ListIpamDiscoveredResourceRequest> request) {
@@ -755,7 +825,12 @@ ListIpamPoolAllocationsResponse Alibabacloud_VpcIpam20230228::Client::listIpamPo
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListIpamPoolAllocationsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListIpamPoolAllocationsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListIpamPoolAllocationsResponse(execute(params, req, runtime));
+  }
 }
 
 ListIpamPoolAllocationsResponse Alibabacloud_VpcIpam20230228::Client::listIpamPoolAllocations(shared_ptr<ListIpamPoolAllocationsRequest> request) {
@@ -795,7 +870,12 @@ ListIpamPoolCidrsResponse Alibabacloud_VpcIpam20230228::Client::listIpamPoolCidr
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListIpamPoolCidrsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListIpamPoolCidrsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListIpamPoolCidrsResponse(execute(params, req, runtime));
+  }
 }
 
 ListIpamPoolCidrsResponse Alibabacloud_VpcIpam20230228::Client::listIpamPoolCidrs(shared_ptr<ListIpamPoolCidrsRequest> request) {
@@ -865,7 +945,12 @@ ListIpamPoolsResponse Alibabacloud_VpcIpam20230228::Client::listIpamPoolsWithOpt
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListIpamPoolsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListIpamPoolsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListIpamPoolsResponse(execute(params, req, runtime));
+  }
 }
 
 ListIpamPoolsResponse Alibabacloud_VpcIpam20230228::Client::listIpamPools(shared_ptr<ListIpamPoolsRequest> request) {
@@ -917,7 +1002,12 @@ ListIpamResourceCidrsResponse Alibabacloud_VpcIpam20230228::Client::listIpamReso
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListIpamResourceCidrsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListIpamResourceCidrsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListIpamResourceCidrsResponse(execute(params, req, runtime));
+  }
 }
 
 ListIpamResourceCidrsResponse Alibabacloud_VpcIpam20230228::Client::listIpamResourceCidrs(shared_ptr<ListIpamResourceCidrsRequest> request) {
@@ -978,7 +1068,12 @@ ListIpamResourceDiscoveriesResponse Alibabacloud_VpcIpam20230228::Client::listIp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListIpamResourceDiscoveriesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListIpamResourceDiscoveriesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListIpamResourceDiscoveriesResponse(execute(params, req, runtime));
+  }
 }
 
 ListIpamResourceDiscoveriesResponse Alibabacloud_VpcIpam20230228::Client::listIpamResourceDiscoveries(shared_ptr<ListIpamResourceDiscoveriesRequest> request) {
@@ -1042,7 +1137,12 @@ ListIpamScopesResponse Alibabacloud_VpcIpam20230228::Client::listIpamScopesWithO
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListIpamScopesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListIpamScopesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListIpamScopesResponse(execute(params, req, runtime));
+  }
 }
 
 ListIpamScopesResponse Alibabacloud_VpcIpam20230228::Client::listIpamScopes(shared_ptr<ListIpamScopesRequest> request) {
@@ -1100,7 +1200,12 @@ ListIpamsResponse Alibabacloud_VpcIpam20230228::Client::listIpamsWithOptions(sha
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListIpamsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListIpamsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListIpamsResponse(execute(params, req, runtime));
+  }
 }
 
 ListIpamsResponse Alibabacloud_VpcIpam20230228::Client::listIpams(shared_ptr<ListIpamsRequest> request) {
@@ -1155,7 +1260,12 @@ ListTagResourcesResponse Alibabacloud_VpcIpam20230228::Client::listTagResourcesW
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListTagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 ListTagResourcesResponse Alibabacloud_VpcIpam20230228::Client::listTagResources(shared_ptr<ListTagResourcesRequest> request) {
@@ -1198,7 +1308,12 @@ OpenVpcIpamServiceResponse Alibabacloud_VpcIpam20230228::Client::openVpcIpamServ
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return OpenVpcIpamServiceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return OpenVpcIpamServiceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return OpenVpcIpamServiceResponse(execute(params, req, runtime));
+  }
 }
 
 OpenVpcIpamServiceResponse Alibabacloud_VpcIpam20230228::Client::openVpcIpamService(shared_ptr<OpenVpcIpamServiceRequest> request) {
@@ -1247,7 +1362,12 @@ TagResourcesResponse Alibabacloud_VpcIpam20230228::Client::tagResourcesWithOptio
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return TagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return TagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return TagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 TagResourcesResponse Alibabacloud_VpcIpam20230228::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
@@ -1299,7 +1419,12 @@ UntagResourcesResponse Alibabacloud_VpcIpam20230228::Client::untagResourcesWithO
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UntagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UntagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UntagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 UntagResourcesResponse Alibabacloud_VpcIpam20230228::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
@@ -1360,7 +1485,12 @@ UpdateIpamResponse Alibabacloud_VpcIpam20230228::Client::updateIpamWithOptions(s
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateIpamResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateIpamResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateIpamResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateIpamResponse Alibabacloud_VpcIpam20230228::Client::updateIpam(shared_ptr<UpdateIpamRequest> request) {
@@ -1430,7 +1560,12 @@ UpdateIpamPoolResponse Alibabacloud_VpcIpam20230228::Client::updateIpamPoolWithO
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateIpamPoolResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateIpamPoolResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateIpamPoolResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateIpamPoolResponse Alibabacloud_VpcIpam20230228::Client::updateIpamPool(shared_ptr<UpdateIpamPoolRequest> request) {
@@ -1473,7 +1608,12 @@ UpdateIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::updateIpa
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateIpamPoolAllocationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateIpamPoolAllocationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateIpamPoolAllocationResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateIpamPoolAllocationResponse Alibabacloud_VpcIpam20230228::Client::updateIpamPoolAllocation(shared_ptr<UpdateIpamPoolAllocationRequest> request) {
@@ -1528,7 +1668,12 @@ UpdateIpamScopeResponse Alibabacloud_VpcIpam20230228::Client::updateIpamScopeWit
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateIpamScopeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateIpamScopeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateIpamScopeResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateIpamScopeResponse Alibabacloud_VpcIpam20230228::Client::updateIpamScope(shared_ptr<UpdateIpamScopeRequest> request) {
