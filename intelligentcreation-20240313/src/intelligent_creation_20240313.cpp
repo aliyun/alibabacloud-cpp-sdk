@@ -64,7 +64,12 @@ AddTextFeedbackResponse Alibabacloud_IntelligentCreation20240313::Client::addTex
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AddTextFeedbackResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AddTextFeedbackResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AddTextFeedbackResponse(execute(params, req, runtime));
+  }
 }
 
 AddTextFeedbackResponse Alibabacloud_IntelligentCreation20240313::Client::addTextFeedback(shared_ptr<AddTextFeedbackRequest> request) {
@@ -100,7 +105,12 @@ BatchCreateAICoachTaskResponse Alibabacloud_IntelligentCreation20240313::Client:
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return BatchCreateAICoachTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return BatchCreateAICoachTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return BatchCreateAICoachTaskResponse(execute(params, req, runtime));
+  }
 }
 
 BatchCreateAICoachTaskResponse Alibabacloud_IntelligentCreation20240313::Client::batchCreateAICoachTask(shared_ptr<BatchCreateAICoachTaskRequest> request) {
@@ -135,7 +145,12 @@ BatchGetProjectTaskResponse Alibabacloud_IntelligentCreation20240313::Client::ba
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return BatchGetProjectTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return BatchGetProjectTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return BatchGetProjectTaskResponse(execute(params, req, runtime));
+  }
 }
 
 BatchGetProjectTaskResponse Alibabacloud_IntelligentCreation20240313::Client::batchGetProjectTask(shared_ptr<BatchGetProjectTaskRequest> request) {
@@ -170,7 +185,12 @@ BatchQueryIndividuationTextResponse Alibabacloud_IntelligentCreation20240313::Cl
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return BatchQueryIndividuationTextResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return BatchQueryIndividuationTextResponse(callApi(params, req, runtime));
+  }
+  else {
+    return BatchQueryIndividuationTextResponse(execute(params, req, runtime));
+  }
 }
 
 BatchQueryIndividuationTextResponse Alibabacloud_IntelligentCreation20240313::Client::batchQueryIndividuationText(shared_ptr<BatchQueryIndividuationTextRequest> request) {
@@ -203,7 +223,12 @@ CheckSessionResponse Alibabacloud_IntelligentCreation20240313::Client::checkSess
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CheckSessionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CheckSessionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CheckSessionResponse(execute(params, req, runtime));
+  }
 }
 
 CheckSessionResponse Alibabacloud_IntelligentCreation20240313::Client::checkSession(shared_ptr<CheckSessionRequest> request) {
@@ -236,7 +261,12 @@ CloseAICoachTaskSessionResponse Alibabacloud_IntelligentCreation20240313::Client
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CloseAICoachTaskSessionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CloseAICoachTaskSessionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CloseAICoachTaskSessionResponse(execute(params, req, runtime));
+  }
 }
 
 CloseAICoachTaskSessionResponse Alibabacloud_IntelligentCreation20240313::Client::closeAICoachTaskSession(shared_ptr<CloseAICoachTaskSessionRequest> request) {
@@ -275,7 +305,12 @@ CountTextResponse Alibabacloud_IntelligentCreation20240313::Client::countTextWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CountTextResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CountTextResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CountTextResponse(execute(params, req, runtime));
+  }
 }
 
 CountTextResponse Alibabacloud_IntelligentCreation20240313::Client::countText(shared_ptr<CountTextRequest> request) {
@@ -311,7 +346,12 @@ CreateAICoachTaskResponse Alibabacloud_IntelligentCreation20240313::Client::crea
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateAICoachTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateAICoachTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateAICoachTaskResponse(execute(params, req, runtime));
+  }
 }
 
 CreateAICoachTaskResponse Alibabacloud_IntelligentCreation20240313::Client::createAICoachTask(shared_ptr<CreateAICoachTaskRequest> request) {
@@ -344,7 +384,12 @@ CreateAICoachTaskSessionResponse Alibabacloud_IntelligentCreation20240313::Clien
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateAICoachTaskSessionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateAICoachTaskSessionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateAICoachTaskSessionResponse(execute(params, req, runtime));
+  }
 }
 
 CreateAICoachTaskSessionResponse Alibabacloud_IntelligentCreation20240313::Client::createAICoachTaskSession(shared_ptr<CreateAICoachTaskSessionRequest> request) {
@@ -386,7 +431,12 @@ CreateAnchorResponse Alibabacloud_IntelligentCreation20240313::Client::createAnc
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateAnchorResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateAnchorResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateAnchorResponse(execute(params, req, runtime));
+  }
 }
 
 CreateAnchorResponse Alibabacloud_IntelligentCreation20240313::Client::createAnchor(shared_ptr<CreateAnchorRequest> request) {
@@ -415,7 +465,12 @@ CreateIllustrationTaskResponse Alibabacloud_IntelligentCreation20240313::Client:
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateIllustrationTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateIllustrationTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateIllustrationTaskResponse(execute(params, req, runtime));
+  }
 }
 
 CreateIllustrationTaskResponse Alibabacloud_IntelligentCreation20240313::Client::createIllustrationTask(shared_ptr<string> textId, shared_ptr<CreateIllustrationTaskRequest> request) {
@@ -454,7 +509,12 @@ CreateIndividuationProjectResponse Alibabacloud_IntelligentCreation20240313::Cli
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateIndividuationProjectResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateIndividuationProjectResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateIndividuationProjectResponse(execute(params, req, runtime));
+  }
 }
 
 CreateIndividuationProjectResponse Alibabacloud_IntelligentCreation20240313::Client::createIndividuationProject(shared_ptr<CreateIndividuationProjectRequest> request) {
@@ -490,7 +550,12 @@ CreateIndividuationTextTaskResponse Alibabacloud_IntelligentCreation20240313::Cl
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateIndividuationTextTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateIndividuationTextTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateIndividuationTextTaskResponse(execute(params, req, runtime));
+  }
 }
 
 CreateIndividuationTextTaskResponse Alibabacloud_IntelligentCreation20240313::Client::createIndividuationTextTask(shared_ptr<CreateIndividuationTextTaskRequest> request) {
@@ -559,7 +624,12 @@ CreateRealisticPortraitResponse Alibabacloud_IntelligentCreation20240313::Client
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateRealisticPortraitResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateRealisticPortraitResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateRealisticPortraitResponse(execute(params, req, runtime));
+  }
 }
 
 CreateRealisticPortraitResponse Alibabacloud_IntelligentCreation20240313::Client::createRealisticPortrait(shared_ptr<CreateRealisticPortraitRequest> request) {
@@ -585,7 +655,12 @@ CreateTextTaskResponse Alibabacloud_IntelligentCreation20240313::Client::createT
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateTextTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateTextTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateTextTaskResponse(execute(params, req, runtime));
+  }
 }
 
 CreateTextTaskResponse Alibabacloud_IntelligentCreation20240313::Client::createTextTask(shared_ptr<CreateTextTaskRequest> request) {
@@ -615,7 +690,12 @@ DeleteIndividuationProjectResponse Alibabacloud_IntelligentCreation20240313::Cli
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteIndividuationProjectResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteIndividuationProjectResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteIndividuationProjectResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteIndividuationProjectResponse Alibabacloud_IntelligentCreation20240313::Client::deleteIndividuationProject(shared_ptr<DeleteIndividuationProjectRequest> request) {
@@ -645,7 +725,12 @@ DeleteIndividuationTextResponse Alibabacloud_IntelligentCreation20240313::Client
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteIndividuationTextResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteIndividuationTextResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteIndividuationTextResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteIndividuationTextResponse Alibabacloud_IntelligentCreation20240313::Client::deleteIndividuationText(shared_ptr<DeleteIndividuationTextRequest> request) {
@@ -678,7 +763,12 @@ FinishAICoachTaskSessionResponse Alibabacloud_IntelligentCreation20240313::Clien
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return FinishAICoachTaskSessionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return FinishAICoachTaskSessionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return FinishAICoachTaskSessionResponse(execute(params, req, runtime));
+  }
 }
 
 FinishAICoachTaskSessionResponse Alibabacloud_IntelligentCreation20240313::Client::finishAICoachTaskSession(shared_ptr<FinishAICoachTaskSessionRequest> request) {
@@ -717,7 +807,12 @@ GetAICoachTaskSessionHistoryResponse Alibabacloud_IntelligentCreation20240313::C
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetAICoachTaskSessionHistoryResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetAICoachTaskSessionHistoryResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetAICoachTaskSessionHistoryResponse(execute(params, req, runtime));
+  }
 }
 
 GetAICoachTaskSessionHistoryResponse Alibabacloud_IntelligentCreation20240313::Client::getAICoachTaskSessionHistory(shared_ptr<GetAICoachTaskSessionHistoryRequest> request) {
@@ -750,7 +845,12 @@ GetAICoachTaskSessionReportResponse Alibabacloud_IntelligentCreation20240313::Cl
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetAICoachTaskSessionReportResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetAICoachTaskSessionReportResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetAICoachTaskSessionReportResponse(execute(params, req, runtime));
+  }
 }
 
 GetAICoachTaskSessionReportResponse Alibabacloud_IntelligentCreation20240313::Client::getAICoachTaskSessionReport(shared_ptr<GetAICoachTaskSessionReportRequest> request) {
@@ -777,7 +877,12 @@ GetIllustrationResponse Alibabacloud_IntelligentCreation20240313::Client::getIll
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetIllustrationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetIllustrationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetIllustrationResponse(execute(params, req, runtime));
+  }
 }
 
 GetIllustrationResponse Alibabacloud_IntelligentCreation20240313::Client::getIllustration(shared_ptr<string> textId, shared_ptr<string> illustrationId) {
@@ -804,7 +909,12 @@ GetIllustrationTaskResponse Alibabacloud_IntelligentCreation20240313::Client::ge
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetIllustrationTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetIllustrationTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetIllustrationTaskResponse(execute(params, req, runtime));
+  }
 }
 
 GetIllustrationTaskResponse Alibabacloud_IntelligentCreation20240313::Client::getIllustrationTask(shared_ptr<string> textId, shared_ptr<string> illustrationTaskId) {
@@ -837,7 +947,12 @@ GetOssUploadTokenResponse Alibabacloud_IntelligentCreation20240313::Client::getO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetOssUploadTokenResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetOssUploadTokenResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetOssUploadTokenResponse(execute(params, req, runtime));
+  }
 }
 
 GetOssUploadTokenResponse Alibabacloud_IntelligentCreation20240313::Client::getOssUploadToken(shared_ptr<GetOssUploadTokenRequest> request) {
@@ -870,7 +985,12 @@ GetProjectTaskResponse Alibabacloud_IntelligentCreation20240313::Client::getProj
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetProjectTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetProjectTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetProjectTaskResponse(execute(params, req, runtime));
+  }
 }
 
 GetProjectTaskResponse Alibabacloud_IntelligentCreation20240313::Client::getProjectTask(shared_ptr<GetProjectTaskRequest> request) {
@@ -894,7 +1014,12 @@ GetTextResponse Alibabacloud_IntelligentCreation20240313::Client::getTextWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetTextResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetTextResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetTextResponse(execute(params, req, runtime));
+  }
 }
 
 GetTextResponse Alibabacloud_IntelligentCreation20240313::Client::getText(shared_ptr<string> textId) {
@@ -918,7 +1043,12 @@ GetTextTaskResponse Alibabacloud_IntelligentCreation20240313::Client::getTextTas
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetTextTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetTextTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetTextTaskResponse(execute(params, req, runtime));
+  }
 }
 
 GetTextTaskResponse Alibabacloud_IntelligentCreation20240313::Client::getTextTask(shared_ptr<string> textTaskId) {
@@ -948,7 +1078,12 @@ GetTextTemplateResponse Alibabacloud_IntelligentCreation20240313::Client::getTex
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetTextTemplateResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetTextTemplateResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetTextTemplateResponse(execute(params, req, runtime));
+  }
 }
 
 GetTextTemplateResponse Alibabacloud_IntelligentCreation20240313::Client::getTextTemplate(shared_ptr<GetTextTemplateRequest> request) {
@@ -984,7 +1119,12 @@ InteractTextResponse Alibabacloud_IntelligentCreation20240313::Client::interactT
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return InteractTextResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return InteractTextResponse(callApi(params, req, runtime));
+  }
+  else {
+    return InteractTextResponse(execute(params, req, runtime));
+  }
 }
 
 InteractTextResponse Alibabacloud_IntelligentCreation20240313::Client::interactText(shared_ptr<InteractTextRequest> request) {
@@ -1026,7 +1166,12 @@ ListAICoachScriptPageResponse Alibabacloud_IntelligentCreation20240313::Client::
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListAICoachScriptPageResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListAICoachScriptPageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListAICoachScriptPageResponse(execute(params, req, runtime));
+  }
 }
 
 ListAICoachScriptPageResponse Alibabacloud_IntelligentCreation20240313::Client::listAICoachScriptPage(shared_ptr<ListAICoachScriptPageRequest> request) {
@@ -1068,7 +1213,12 @@ ListAICoachTaskPageResponse Alibabacloud_IntelligentCreation20240313::Client::li
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListAICoachTaskPageResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListAICoachTaskPageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListAICoachTaskPageResponse(execute(params, req, runtime));
+  }
 }
 
 ListAICoachTaskPageResponse Alibabacloud_IntelligentCreation20240313::Client::listAICoachTaskPage(shared_ptr<ListAICoachTaskPageRequest> request) {
@@ -1119,7 +1269,12 @@ ListAnchorResponse Alibabacloud_IntelligentCreation20240313::Client::listAnchorW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListAnchorResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListAnchorResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListAnchorResponse(execute(params, req, runtime));
+  }
 }
 
 ListAnchorResponse Alibabacloud_IntelligentCreation20240313::Client::listAnchor(shared_ptr<ListAnchorRequest> request) {
@@ -1154,7 +1309,12 @@ ListAvatarProjectResponse Alibabacloud_IntelligentCreation20240313::Client::list
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListAvatarProjectResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListAvatarProjectResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListAvatarProjectResponse(execute(params, req, runtime));
+  }
 }
 
 ListAvatarProjectResponse Alibabacloud_IntelligentCreation20240313::Client::listAvatarProject(shared_ptr<ListAvatarProjectRequest> request) {
@@ -1184,7 +1344,12 @@ ListTextThemesResponse Alibabacloud_IntelligentCreation20240313::Client::listTex
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListTextThemesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTextThemesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTextThemesResponse(execute(params, req, runtime));
+  }
 }
 
 ListTextThemesResponse Alibabacloud_IntelligentCreation20240313::Client::listTextThemes(shared_ptr<ListTextThemesRequest> request) {
@@ -1235,7 +1400,12 @@ ListTextsResponse Alibabacloud_IntelligentCreation20240313::Client::listTextsWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListTextsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTextsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTextsResponse(execute(params, req, runtime));
+  }
 }
 
 ListTextsResponse Alibabacloud_IntelligentCreation20240313::Client::listTexts(shared_ptr<ListTextsRequest> request) {
@@ -1277,7 +1447,12 @@ ListVoiceModelsResponse Alibabacloud_IntelligentCreation20240313::Client::listVo
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListVoiceModelsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListVoiceModelsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListVoiceModelsResponse(execute(params, req, runtime));
+  }
 }
 
 ListVoiceModelsResponse Alibabacloud_IntelligentCreation20240313::Client::listVoiceModels(shared_ptr<ListVoiceModelsRequest> request) {
@@ -1316,7 +1491,12 @@ OperateAvatarProjectResponse Alibabacloud_IntelligentCreation20240313::Client::o
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return OperateAvatarProjectResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return OperateAvatarProjectResponse(callApi(params, req, runtime));
+  }
+  else {
+    return OperateAvatarProjectResponse(execute(params, req, runtime));
+  }
 }
 
 OperateAvatarProjectResponse Alibabacloud_IntelligentCreation20240313::Client::operateAvatarProject(shared_ptr<OperateAvatarProjectRequest> request) {
@@ -1346,7 +1526,12 @@ QueryAvatarProjectResponse Alibabacloud_IntelligentCreation20240313::Client::que
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QueryAvatarProjectResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryAvatarProjectResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryAvatarProjectResponse(execute(params, req, runtime));
+  }
 }
 
 QueryAvatarProjectResponse Alibabacloud_IntelligentCreation20240313::Client::queryAvatarProject(shared_ptr<QueryAvatarProjectRequest> request) {
@@ -1376,7 +1561,12 @@ QueryAvatarResourceResponse Alibabacloud_IntelligentCreation20240313::Client::qu
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QueryAvatarResourceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryAvatarResourceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryAvatarResourceResponse(execute(params, req, runtime));
+  }
 }
 
 QueryAvatarResourceResponse Alibabacloud_IntelligentCreation20240313::Client::queryAvatarResource(shared_ptr<QueryAvatarResourceRequest> request) {
@@ -1406,7 +1596,12 @@ QueryIndividuationTextTaskResponse Alibabacloud_IntelligentCreation20240313::Cli
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QueryIndividuationTextTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryIndividuationTextTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryIndividuationTextTaskResponse(execute(params, req, runtime));
+  }
 }
 
 QueryIndividuationTextTaskResponse Alibabacloud_IntelligentCreation20240313::Client::queryIndividuationTextTask(shared_ptr<QueryIndividuationTextTaskRequest> request) {
@@ -1450,7 +1645,12 @@ QuerySessionInfoResponse Alibabacloud_IntelligentCreation20240313::Client::query
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QuerySessionInfoResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QuerySessionInfoResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QuerySessionInfoResponse(execute(params, req, runtime));
+  }
 }
 
 QuerySessionInfoResponse Alibabacloud_IntelligentCreation20240313::Client::querySessionInfo(shared_ptr<QuerySessionInfoRequest> request) {
@@ -1474,7 +1674,12 @@ QueryTextStreamResponse Alibabacloud_IntelligentCreation20240313::Client::queryT
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QueryTextStreamResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryTextStreamResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryTextStreamResponse(execute(params, req, runtime));
+  }
 }
 
 QueryTextStreamResponse Alibabacloud_IntelligentCreation20240313::Client::queryTextStream(shared_ptr<string> textId) {
@@ -1525,7 +1730,12 @@ SaveAvatarProjectResponse Alibabacloud_IntelligentCreation20240313::Client::save
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SaveAvatarProjectResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SaveAvatarProjectResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SaveAvatarProjectResponse(execute(params, req, runtime));
+  }
 }
 
 SaveAvatarProjectResponse Alibabacloud_IntelligentCreation20240313::Client::saveAvatarProject(shared_ptr<SaveAvatarProjectRequest> request) {
@@ -1549,7 +1759,12 @@ SelectImageTaskResponse Alibabacloud_IntelligentCreation20240313::Client::select
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SelectImageTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SelectImageTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SelectImageTaskResponse(execute(params, req, runtime));
+  }
 }
 
 SelectImageTaskResponse Alibabacloud_IntelligentCreation20240313::Client::selectImageTask(shared_ptr<string> taskId) {
@@ -1579,7 +1794,12 @@ SelectResourceResponse Alibabacloud_IntelligentCreation20240313::Client::selectR
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SelectResourceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SelectResourceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SelectResourceResponse(execute(params, req, runtime));
+  }
 }
 
 SelectResourceResponse Alibabacloud_IntelligentCreation20240313::Client::selectResource(shared_ptr<SelectResourceRequest> request) {
@@ -1618,7 +1838,12 @@ SendSdkMessageResponse Alibabacloud_IntelligentCreation20240313::Client::sendSdk
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SendSdkMessageResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SendSdkMessageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SendSdkMessageResponse(execute(params, req, runtime));
+  }
 }
 
 SendSdkMessageResponse Alibabacloud_IntelligentCreation20240313::Client::sendSdkMessage(shared_ptr<SendSdkMessageRequest> request) {
@@ -1660,7 +1885,12 @@ SendTextMsgResponse Alibabacloud_IntelligentCreation20240313::Client::sendTextMs
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SendTextMsgResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SendTextMsgResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SendTextMsgResponse(execute(params, req, runtime));
+  }
 }
 
 SendTextMsgResponse Alibabacloud_IntelligentCreation20240313::Client::sendTextMsg(shared_ptr<SendTextMsgRequest> request) {
@@ -1702,7 +1932,12 @@ StartAvatarSessionResponse Alibabacloud_IntelligentCreation20240313::Client::sta
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return StartAvatarSessionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return StartAvatarSessionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return StartAvatarSessionResponse(execute(params, req, runtime));
+  }
 }
 
 StartAvatarSessionResponse Alibabacloud_IntelligentCreation20240313::Client::startAvatarSession(shared_ptr<StartAvatarSessionRequest> request) {
@@ -1735,7 +1970,12 @@ StopAvatarSessionResponse Alibabacloud_IntelligentCreation20240313::Client::stop
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return StopAvatarSessionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return StopAvatarSessionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return StopAvatarSessionResponse(execute(params, req, runtime));
+  }
 }
 
 StopAvatarSessionResponse Alibabacloud_IntelligentCreation20240313::Client::stopAvatarSession(shared_ptr<StopAvatarSessionRequest> request) {
@@ -1765,7 +2005,12 @@ StopProjectTaskResponse Alibabacloud_IntelligentCreation20240313::Client::stopPr
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return StopProjectTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return StopProjectTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return StopProjectTaskResponse(execute(params, req, runtime));
+  }
 }
 
 StopProjectTaskResponse Alibabacloud_IntelligentCreation20240313::Client::stopProjectTask(shared_ptr<StopProjectTaskRequest> request) {
@@ -1804,7 +2049,12 @@ SubmitProjectTaskResponse Alibabacloud_IntelligentCreation20240313::Client::subm
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SubmitProjectTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SubmitProjectTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SubmitProjectTaskResponse(execute(params, req, runtime));
+  }
 }
 
 SubmitProjectTaskResponse Alibabacloud_IntelligentCreation20240313::Client::submitProjectTask(shared_ptr<SubmitProjectTaskRequest> request) {
@@ -1849,7 +2099,12 @@ TransferPortraitStyleResponse Alibabacloud_IntelligentCreation20240313::Client::
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return TransferPortraitStyleResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return TransferPortraitStyleResponse(callApi(params, req, runtime));
+  }
+  else {
+    return TransferPortraitStyleResponse(execute(params, req, runtime));
+  }
 }
 
 TransferPortraitStyleResponse Alibabacloud_IntelligentCreation20240313::Client::transferPortraitStyle(shared_ptr<TransferPortraitStyleRequest> request) {
