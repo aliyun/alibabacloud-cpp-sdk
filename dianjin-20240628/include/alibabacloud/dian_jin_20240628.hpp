@@ -3492,6 +3492,7 @@ class GetChatQuestionRespResponseBodyDataQuestionList : public Darabonba::Model 
 public:
   shared_ptr<string> content{};
   shared_ptr<string> gmtCreate{};
+  shared_ptr<string> oriContent{};
   shared_ptr<string> reply{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> type{};
@@ -3513,6 +3514,9 @@ public:
     }
     if (gmtCreate) {
       res["gmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (oriContent) {
+      res["oriContent"] = boost::any(*oriContent);
     }
     if (reply) {
       res["reply"] = boost::any(*reply);
@@ -3538,6 +3542,9 @@ public:
     }
     if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmtCreate"]));
+    }
+    if (m.find("oriContent") != m.end() && !m["oriContent"].empty()) {
+      oriContent = make_shared<string>(boost::any_cast<string>(m["oriContent"]));
     }
     if (m.find("reply") != m.end() && !m["reply"].empty()) {
       reply = make_shared<string>(boost::any_cast<string>(m["reply"]));
