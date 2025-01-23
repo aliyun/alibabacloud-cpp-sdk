@@ -2284,6 +2284,194 @@ public:
 
   virtual ~CreatePolicyGroupResponse() = default;
 };
+class CreateScreenshotRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> androidInstanceIdList{};
+  shared_ptr<string> ossBucketName{};
+  shared_ptr<string> skipCheckPolicyConfig{};
+
+  CreateScreenshotRequest() {}
+
+  explicit CreateScreenshotRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceIdList) {
+      res["AndroidInstanceIdList"] = boost::any(*androidInstanceIdList);
+    }
+    if (ossBucketName) {
+      res["OssBucketName"] = boost::any(*ossBucketName);
+    }
+    if (skipCheckPolicyConfig) {
+      res["SkipCheckPolicyConfig"] = boost::any(*skipCheckPolicyConfig);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceIdList") != m.end() && !m["AndroidInstanceIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AndroidInstanceIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AndroidInstanceIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      androidInstanceIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OssBucketName") != m.end() && !m["OssBucketName"].empty()) {
+      ossBucketName = make_shared<string>(boost::any_cast<string>(m["OssBucketName"]));
+    }
+    if (m.find("SkipCheckPolicyConfig") != m.end() && !m["SkipCheckPolicyConfig"].empty()) {
+      skipCheckPolicyConfig = make_shared<string>(boost::any_cast<string>(m["SkipCheckPolicyConfig"]));
+    }
+  }
+
+
+  virtual ~CreateScreenshotRequest() = default;
+};
+class CreateScreenshotResponseBodyTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> androidInstanceId{};
+  shared_ptr<string> taskId{};
+
+  CreateScreenshotResponseBodyTasks() {}
+
+  explicit CreateScreenshotResponseBodyTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (androidInstanceId) {
+      res["AndroidInstanceId"] = boost::any(*androidInstanceId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AndroidInstanceId") != m.end() && !m["AndroidInstanceId"].empty()) {
+      androidInstanceId = make_shared<string>(boost::any_cast<string>(m["AndroidInstanceId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~CreateScreenshotResponseBodyTasks() = default;
+};
+class CreateScreenshotResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<CreateScreenshotResponseBodyTasks>> tasks{};
+
+  CreateScreenshotResponseBody() {}
+
+  explicit CreateScreenshotResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (tasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*tasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tasks"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tasks"].type()) {
+        vector<CreateScreenshotResponseBodyTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateScreenshotResponseBodyTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tasks = make_shared<vector<CreateScreenshotResponseBodyTasks>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateScreenshotResponseBody() = default;
+};
+class CreateScreenshotResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateScreenshotResponseBody> body{};
+
+  CreateScreenshotResponse() {}
+
+  explicit CreateScreenshotResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateScreenshotResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateScreenshotResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateScreenshotResponse() = default;
+};
 class DeleteAndroidInstanceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> instanceGroupIds{};
@@ -3490,6 +3678,8 @@ public:
   shared_ptr<string> keyPairId{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> nodeId{};
+  shared_ptr<string> nodeName{};
   shared_ptr<string> saleMode{};
   shared_ptr<string> status{};
   shared_ptr<vector<DescribeAndroidInstancesRequestTag>> tag{};
@@ -3533,6 +3723,12 @@ public:
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
+    }
+    if (nodeName) {
+      res["NodeName"] = boost::any(*nodeName);
     }
     if (saleMode) {
       res["SaleMode"] = boost::any(*saleMode);
@@ -3594,6 +3790,12 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+    if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
+      nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
     }
     if (m.find("SaleMode") != m.end() && !m["SaleMode"].empty()) {
       saleMode = make_shared<string>(boost::any_cast<string>(m["SaleMode"]));
@@ -3721,6 +3923,7 @@ public:
   shared_ptr<long> rate{};
   shared_ptr<string> regionId{};
   shared_ptr<string> renderingType{};
+  shared_ptr<string> sessionStatus{};
   shared_ptr<vector<DescribeAndroidInstancesResponseBodyInstanceModelTags>> tags{};
 
   DescribeAndroidInstancesResponseBodyInstanceModel() {}
@@ -3820,6 +4023,9 @@ public:
     }
     if (renderingType) {
       res["RenderingType"] = boost::any(*renderingType);
+    }
+    if (sessionStatus) {
+      res["SessionStatus"] = boost::any(*sessionStatus);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -3925,6 +4131,9 @@ public:
     }
     if (m.find("RenderingType") != m.end() && !m["RenderingType"].empty()) {
       renderingType = make_shared<string>(boost::any_cast<string>(m["RenderingType"]));
+    }
+    if (m.find("SessionStatus") != m.end() && !m["SessionStatus"].empty()) {
+      sessionStatus = make_shared<string>(boost::any_cast<string>(m["SessionStatus"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
@@ -4804,6 +5013,7 @@ class DescribeImageListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageName{};
+  shared_ptr<string> imagePackageType{};
   shared_ptr<string> imageType{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -4824,6 +5034,9 @@ public:
     }
     if (imageName) {
       res["ImageName"] = boost::any(*imageName);
+    }
+    if (imagePackageType) {
+      res["ImagePackageType"] = boost::any(*imagePackageType);
     }
     if (imageType) {
       res["ImageType"] = boost::any(*imageType);
@@ -4846,6 +5059,9 @@ public:
     }
     if (m.find("ImageName") != m.end() && !m["ImageName"].empty()) {
       imageName = make_shared<string>(boost::any_cast<string>(m["ImageName"]));
+    }
+    if (m.find("ImagePackageType") != m.end() && !m["ImagePackageType"].empty()) {
+      imagePackageType = make_shared<string>(boost::any_cast<string>(m["ImagePackageType"]));
     }
     if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
       imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
@@ -5556,6 +5772,7 @@ public:
 class DescribeRegionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> saleMode{};
 
   DescribeRegionsRequest() {}
 
@@ -5570,12 +5787,18 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
+    if (saleMode) {
+      res["SaleMode"] = boost::any(*saleMode);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("SaleMode") != m.end() && !m["SaleMode"].empty()) {
+      saleMode = make_shared<string>(boost::any_cast<string>(m["SaleMode"]));
     }
   }
 
@@ -5723,8 +5946,10 @@ public:
 class DescribeSpecRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizRegionId{};
+  shared_ptr<string> matrixSpec{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> saleMode{};
   shared_ptr<vector<string>> specIds{};
   shared_ptr<string> specStatus{};
   shared_ptr<string> specType{};
@@ -5742,11 +5967,17 @@ public:
     if (bizRegionId) {
       res["BizRegionId"] = boost::any(*bizRegionId);
     }
+    if (matrixSpec) {
+      res["MatrixSpec"] = boost::any(*matrixSpec);
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
+    }
+    if (saleMode) {
+      res["SaleMode"] = boost::any(*saleMode);
     }
     if (specIds) {
       res["SpecIds"] = boost::any(*specIds);
@@ -5764,11 +5995,17 @@ public:
     if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
       bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
     }
+    if (m.find("MatrixSpec") != m.end() && !m["MatrixSpec"].empty()) {
+      matrixSpec = make_shared<string>(boost::any_cast<string>(m["MatrixSpec"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("SaleMode") != m.end() && !m["SaleMode"].empty()) {
+      saleMode = make_shared<string>(boost::any_cast<string>(m["SaleMode"]));
     }
     if (m.find("SpecIds") != m.end() && !m["SpecIds"].empty()) {
       vector<string> toVec1;
@@ -5795,6 +6032,8 @@ class DescribeSpecResponseBodySpecInfoModel : public Darabonba::Model {
 public:
   shared_ptr<long> core{};
   shared_ptr<long> memory{};
+  shared_ptr<string> phoneCount{};
+  shared_ptr<string> resolution{};
   shared_ptr<string> specId{};
   shared_ptr<string> specStatus{};
   shared_ptr<string> specType{};
@@ -5815,6 +6054,12 @@ public:
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
+    }
+    if (phoneCount) {
+      res["PhoneCount"] = boost::any(*phoneCount);
+    }
+    if (resolution) {
+      res["Resolution"] = boost::any(*resolution);
     }
     if (specId) {
       res["SpecId"] = boost::any(*specId);
@@ -5837,6 +6082,12 @@ public:
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("PhoneCount") != m.end() && !m["PhoneCount"].empty()) {
+      phoneCount = make_shared<string>(boost::any_cast<string>(m["PhoneCount"]));
+    }
+    if (m.find("Resolution") != m.end() && !m["Resolution"].empty()) {
+      resolution = make_shared<string>(boost::any_cast<string>(m["Resolution"]));
     }
     if (m.find("SpecId") != m.end() && !m["SpecId"].empty()) {
       specId = make_shared<string>(boost::any_cast<string>(m["SpecId"]));
@@ -7593,8 +7844,8 @@ public:
   shared_ptr<ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy> netRedirectPolicy{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> policyGroupName{};
-  shared_ptr<string> sessionResolutionHeight{};
-  shared_ptr<string> sessionResolutionWidth{};
+  shared_ptr<long> sessionResolutionHeight{};
+  shared_ptr<long> sessionResolutionWidth{};
 
   ListPolicyGroupsResponseBodyPolicyGroupModel() {}
 
@@ -7675,10 +7926,10 @@ public:
       policyGroupName = make_shared<string>(boost::any_cast<string>(m["PolicyGroupName"]));
     }
     if (m.find("SessionResolutionHeight") != m.end() && !m["SessionResolutionHeight"].empty()) {
-      sessionResolutionHeight = make_shared<string>(boost::any_cast<string>(m["SessionResolutionHeight"]));
+      sessionResolutionHeight = make_shared<long>(boost::any_cast<long>(m["SessionResolutionHeight"]));
     }
     if (m.find("SessionResolutionWidth") != m.end() && !m["SessionResolutionWidth"].empty()) {
-      sessionResolutionWidth = make_shared<string>(boost::any_cast<string>(m["SessionResolutionWidth"]));
+      sessionResolutionWidth = make_shared<long>(boost::any_cast<long>(m["SessionResolutionWidth"]));
     }
   }
 
@@ -10533,6 +10784,8 @@ public:
   CreateKeyPairResponse createKeyPair(shared_ptr<CreateKeyPairRequest> request);
   CreatePolicyGroupResponse createPolicyGroupWithOptions(shared_ptr<CreatePolicyGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePolicyGroupResponse createPolicyGroup(shared_ptr<CreatePolicyGroupRequest> request);
+  CreateScreenshotResponse createScreenshotWithOptions(shared_ptr<CreateScreenshotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateScreenshotResponse createScreenshot(shared_ptr<CreateScreenshotRequest> request);
   DeleteAndroidInstanceGroupResponse deleteAndroidInstanceGroupWithOptions(shared_ptr<DeleteAndroidInstanceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAndroidInstanceGroupResponse deleteAndroidInstanceGroup(shared_ptr<DeleteAndroidInstanceGroupRequest> request);
   DeleteAppsResponse deleteAppsWithOptions(shared_ptr<DeleteAppsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
