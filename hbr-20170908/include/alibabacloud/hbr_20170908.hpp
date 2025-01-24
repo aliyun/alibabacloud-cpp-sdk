@@ -1481,10 +1481,12 @@ public:
   shared_ptr<string> backupType{};
   shared_ptr<string> bucket{};
   shared_ptr<string> changeListPath{};
+  shared_ptr<string> clusterId{};
   shared_ptr<long> createTime{};
   shared_ptr<string> crossAccountRoleName{};
   shared_ptr<string> crossAccountType{};
   shared_ptr<long> crossAccountUserId{};
+  shared_ptr<string> dataSourceId{};
   shared_ptr<map<string, boost::any>> destDataSourceDetail{};
   shared_ptr<string> destDataSourceId{};
   shared_ptr<string> destSourceType{};
@@ -1528,6 +1530,9 @@ public:
     if (changeListPath) {
       res["ChangeListPath"] = boost::any(*changeListPath);
     }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -1539,6 +1544,9 @@ public:
     }
     if (crossAccountUserId) {
       res["CrossAccountUserId"] = boost::any(*crossAccountUserId);
+    }
+    if (dataSourceId) {
+      res["DataSourceId"] = boost::any(*dataSourceId);
     }
     if (destDataSourceDetail) {
       res["DestDataSourceDetail"] = boost::any(*destDataSourceDetail);
@@ -1626,6 +1634,9 @@ public:
     if (m.find("ChangeListPath") != m.end() && !m["ChangeListPath"].empty()) {
       changeListPath = make_shared<string>(boost::any_cast<string>(m["ChangeListPath"]));
     }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
     }
@@ -1637,6 +1648,9 @@ public:
     }
     if (m.find("CrossAccountUserId") != m.end() && !m["CrossAccountUserId"].empty()) {
       crossAccountUserId = make_shared<long>(boost::any_cast<long>(m["CrossAccountUserId"]));
+    }
+    if (m.find("DataSourceId") != m.end() && !m["DataSourceId"].empty()) {
+      dataSourceId = make_shared<string>(boost::any_cast<string>(m["DataSourceId"]));
     }
     if (m.find("DestDataSourceDetail") != m.end() && !m["DestDataSourceDetail"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["DestDataSourceDetail"]);
@@ -1826,10 +1840,12 @@ public:
   shared_ptr<string> backupType{};
   shared_ptr<string> bucket{};
   shared_ptr<string> changeListPath{};
+  shared_ptr<string> clusterId{};
   shared_ptr<long> createTime{};
   shared_ptr<string> crossAccountRoleName{};
   shared_ptr<string> crossAccountType{};
   shared_ptr<long> crossAccountUserId{};
+  shared_ptr<string> dataSourceId{};
   shared_ptr<string> destDataSourceDetailShrink{};
   shared_ptr<string> destDataSourceId{};
   shared_ptr<string> destSourceType{};
@@ -1873,6 +1889,9 @@ public:
     if (changeListPath) {
       res["ChangeListPath"] = boost::any(*changeListPath);
     }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -1884,6 +1903,9 @@ public:
     }
     if (crossAccountUserId) {
       res["CrossAccountUserId"] = boost::any(*crossAccountUserId);
+    }
+    if (dataSourceId) {
+      res["DataSourceId"] = boost::any(*dataSourceId);
     }
     if (destDataSourceDetailShrink) {
       res["DestDataSourceDetail"] = boost::any(*destDataSourceDetailShrink);
@@ -1971,6 +1993,9 @@ public:
     if (m.find("ChangeListPath") != m.end() && !m["ChangeListPath"].empty()) {
       changeListPath = make_shared<string>(boost::any_cast<string>(m["ChangeListPath"]));
     }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
     }
@@ -1982,6 +2007,9 @@ public:
     }
     if (m.find("CrossAccountUserId") != m.end() && !m["CrossAccountUserId"].empty()) {
       crossAccountUserId = make_shared<long>(boost::any_cast<long>(m["CrossAccountUserId"]));
+    }
+    if (m.find("DataSourceId") != m.end() && !m["DataSourceId"].empty()) {
+      dataSourceId = make_shared<string>(boost::any_cast<string>(m["DataSourceId"]));
     }
     if (m.find("DestDataSourceDetail") != m.end() && !m["DestDataSourceDetail"].empty()) {
       destDataSourceDetailShrink = make_shared<string>(boost::any_cast<string>(m["DestDataSourceDetail"]));

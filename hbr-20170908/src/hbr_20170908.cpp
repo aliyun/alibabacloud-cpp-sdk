@@ -379,6 +379,9 @@ CreateBackupPlanResponse Alibabacloud_Hbr20170908::Client::createBackupPlanWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->changeListPath)) {
     query->insert(pair<string, string>("ChangeListPath", *request->changeListPath));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->createTime)) {
     query->insert(pair<string, long>("CreateTime", *request->createTime));
   }
@@ -434,6 +437,9 @@ CreateBackupPlanResponse Alibabacloud_Hbr20170908::Client::createBackupPlanWithO
     query->insert(pair<string, string>("VaultId", *request->vaultId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceId)) {
+    body->insert(pair<string, string>("DataSourceId", *request->dataSourceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->exclude)) {
     body->insert(pair<string, string>("Exclude", *request->exclude));
   }
