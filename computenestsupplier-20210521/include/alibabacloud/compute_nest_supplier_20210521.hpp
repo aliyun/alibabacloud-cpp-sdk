@@ -347,6 +347,130 @@ public:
 
   virtual ~ApproveServiceUsageResponse() = default;
 };
+class CancelServiceRegistrationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> registrationId{};
+
+  CancelServiceRegistrationRequest() {}
+
+  explicit CancelServiceRegistrationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (registrationId) {
+      res["RegistrationId"] = boost::any(*registrationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RegistrationId") != m.end() && !m["RegistrationId"].empty()) {
+      registrationId = make_shared<string>(boost::any_cast<string>(m["RegistrationId"]));
+    }
+  }
+
+
+  virtual ~CancelServiceRegistrationRequest() = default;
+};
+class CancelServiceRegistrationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CancelServiceRegistrationResponseBody() {}
+
+  explicit CancelServiceRegistrationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CancelServiceRegistrationResponseBody() = default;
+};
+class CancelServiceRegistrationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CancelServiceRegistrationResponseBody> body{};
+
+  CancelServiceRegistrationResponse() {}
+
+  explicit CancelServiceRegistrationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CancelServiceRegistrationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CancelServiceRegistrationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CancelServiceRegistrationResponse() = default;
+};
 class ContinueDeployServiceInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -10920,6 +11044,300 @@ public:
 
   virtual ~ListServiceInstancesResponse() = default;
 };
+class ListServiceRegistrationsRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> value{};
+
+  ListServiceRegistrationsRequestFilter() {}
+
+  explicit ListServiceRegistrationsRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Value"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Value"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      value = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListServiceRegistrationsRequestFilter() = default;
+};
+class ListServiceRegistrationsRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListServiceRegistrationsRequestFilter>> filter{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+
+  ListServiceRegistrationsRequest() {}
+
+  explicit ListServiceRegistrationsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filter) {
+      vector<boost::any> temp1;
+      for(auto item1:*filter){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filter"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filter"].type()) {
+        vector<ListServiceRegistrationsRequestFilter> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filter"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListServiceRegistrationsRequestFilter model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filter = make_shared<vector<ListServiceRegistrationsRequestFilter>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListServiceRegistrationsRequest() = default;
+};
+class ListServiceRegistrationsResponseBodyServiceRegistrations : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> finishTime{};
+  shared_ptr<string> registrationId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<string> status{};
+  shared_ptr<string> submitTime{};
+
+  ListServiceRegistrationsResponseBodyServiceRegistrations() {}
+
+  explicit ListServiceRegistrationsResponseBodyServiceRegistrations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (finishTime) {
+      res["FinishTime"] = boost::any(*finishTime);
+    }
+    if (registrationId) {
+      res["RegistrationId"] = boost::any(*registrationId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (submitTime) {
+      res["SubmitTime"] = boost::any(*submitTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("FinishTime") != m.end() && !m["FinishTime"].empty()) {
+      finishTime = make_shared<string>(boost::any_cast<string>(m["FinishTime"]));
+    }
+    if (m.find("RegistrationId") != m.end() && !m["RegistrationId"].empty()) {
+      registrationId = make_shared<string>(boost::any_cast<string>(m["RegistrationId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubmitTime") != m.end() && !m["SubmitTime"].empty()) {
+      submitTime = make_shared<string>(boost::any_cast<string>(m["SubmitTime"]));
+    }
+  }
+
+
+  virtual ~ListServiceRegistrationsResponseBodyServiceRegistrations() = default;
+};
+class ListServiceRegistrationsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListServiceRegistrationsResponseBodyServiceRegistrations>> serviceRegistrations{};
+  shared_ptr<long> totalCount{};
+
+  ListServiceRegistrationsResponseBody() {}
+
+  explicit ListServiceRegistrationsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (serviceRegistrations) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceRegistrations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceRegistrations"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ServiceRegistrations") != m.end() && !m["ServiceRegistrations"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceRegistrations"].type()) {
+        vector<ListServiceRegistrationsResponseBodyServiceRegistrations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceRegistrations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListServiceRegistrationsResponseBodyServiceRegistrations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceRegistrations = make_shared<vector<ListServiceRegistrationsResponseBodyServiceRegistrations>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListServiceRegistrationsResponseBody() = default;
+};
+class ListServiceRegistrationsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListServiceRegistrationsResponseBody> body{};
+
+  ListServiceRegistrationsResponse() {}
+
+  explicit ListServiceRegistrationsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListServiceRegistrationsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListServiceRegistrationsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListServiceRegistrationsResponse() = default;
+};
 class ListServiceSharedAccountsRequestFilter : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -16840,6 +17258,151 @@ public:
 
   virtual ~UpdateServiceInstanceSpecResponse() = default;
 };
+class UpdateSharedAccountPermissionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> permission{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<string> type{};
+  shared_ptr<long> userAliUid{};
+
+  UpdateSharedAccountPermissionRequest() {}
+
+  explicit UpdateSharedAccountPermissionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (permission) {
+      res["Permission"] = boost::any(*permission);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (userAliUid) {
+      res["UserAliUid"] = boost::any(*userAliUid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Permission") != m.end() && !m["Permission"].empty()) {
+      permission = make_shared<string>(boost::any_cast<string>(m["Permission"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("UserAliUid") != m.end() && !m["UserAliUid"].empty()) {
+      userAliUid = make_shared<long>(boost::any_cast<long>(m["UserAliUid"]));
+    }
+  }
+
+
+  virtual ~UpdateSharedAccountPermissionRequest() = default;
+};
+class UpdateSharedAccountPermissionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateSharedAccountPermissionResponseBody() {}
+
+  explicit UpdateSharedAccountPermissionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateSharedAccountPermissionResponseBody() = default;
+};
+class UpdateSharedAccountPermissionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateSharedAccountPermissionResponseBody> body{};
+
+  UpdateSharedAccountPermissionResponse() {}
+
+  explicit UpdateSharedAccountPermissionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateSharedAccountPermissionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateSharedAccountPermissionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateSharedAccountPermissionResponse() = default;
+};
 class UpgradeServiceInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -17082,6 +17645,137 @@ public:
 
   virtual ~UpgradeServiceInstanceResponse() = default;
 };
+class WithdrawServiceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<string> serviceVersion{};
+
+  WithdrawServiceRequest() {}
+
+  explicit WithdrawServiceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceVersion) {
+      res["ServiceVersion"] = boost::any(*serviceVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceVersion") != m.end() && !m["ServiceVersion"].empty()) {
+      serviceVersion = make_shared<string>(boost::any_cast<string>(m["ServiceVersion"]));
+    }
+  }
+
+
+  virtual ~WithdrawServiceRequest() = default;
+};
+class WithdrawServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  WithdrawServiceResponseBody() {}
+
+  explicit WithdrawServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~WithdrawServiceResponseBody() = default;
+};
+class WithdrawServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<WithdrawServiceResponseBody> body{};
+
+  WithdrawServiceResponse() {}
+
+  explicit WithdrawServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        WithdrawServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<WithdrawServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~WithdrawServiceResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -17096,6 +17790,8 @@ public:
   AddServiceSharedAccountsResponse addServiceSharedAccounts(shared_ptr<AddServiceSharedAccountsRequest> request);
   ApproveServiceUsageResponse approveServiceUsageWithOptions(shared_ptr<ApproveServiceUsageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApproveServiceUsageResponse approveServiceUsage(shared_ptr<ApproveServiceUsageRequest> request);
+  CancelServiceRegistrationResponse cancelServiceRegistrationWithOptions(shared_ptr<CancelServiceRegistrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CancelServiceRegistrationResponse cancelServiceRegistration(shared_ptr<CancelServiceRegistrationRequest> request);
   ContinueDeployServiceInstanceResponse continueDeployServiceInstanceWithOptions(shared_ptr<ContinueDeployServiceInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ContinueDeployServiceInstanceResponse continueDeployServiceInstance(shared_ptr<ContinueDeployServiceInstanceRequest> request);
   CreateArtifactResponse createArtifactWithOptions(shared_ptr<CreateArtifactRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -17146,6 +17842,8 @@ public:
   ListServiceInstanceDeployDetailsResponse listServiceInstanceDeployDetails(shared_ptr<ListServiceInstanceDeployDetailsRequest> request);
   ListServiceInstancesResponse listServiceInstancesWithOptions(shared_ptr<ListServiceInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListServiceInstancesResponse listServiceInstances(shared_ptr<ListServiceInstancesRequest> request);
+  ListServiceRegistrationsResponse listServiceRegistrationsWithOptions(shared_ptr<ListServiceRegistrationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListServiceRegistrationsResponse listServiceRegistrations(shared_ptr<ListServiceRegistrationsRequest> request);
   ListServiceSharedAccountsResponse listServiceSharedAccountsWithOptions(shared_ptr<ListServiceSharedAccountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListServiceSharedAccountsResponse listServiceSharedAccounts(shared_ptr<ListServiceSharedAccountsRequest> request);
   ListServiceUsagesResponse listServiceUsagesWithOptions(shared_ptr<ListServiceUsagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -17190,8 +17888,12 @@ public:
   UpdateServiceInstanceAttributeResponse updateServiceInstanceAttribute(shared_ptr<UpdateServiceInstanceAttributeRequest> request);
   UpdateServiceInstanceSpecResponse updateServiceInstanceSpecWithOptions(shared_ptr<UpdateServiceInstanceSpecRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateServiceInstanceSpecResponse updateServiceInstanceSpec(shared_ptr<UpdateServiceInstanceSpecRequest> request);
+  UpdateSharedAccountPermissionResponse updateSharedAccountPermissionWithOptions(shared_ptr<UpdateSharedAccountPermissionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateSharedAccountPermissionResponse updateSharedAccountPermission(shared_ptr<UpdateSharedAccountPermissionRequest> request);
   UpgradeServiceInstanceResponse upgradeServiceInstanceWithOptions(shared_ptr<UpgradeServiceInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpgradeServiceInstanceResponse upgradeServiceInstance(shared_ptr<UpgradeServiceInstanceRequest> request);
+  WithdrawServiceResponse withdrawServiceWithOptions(shared_ptr<WithdrawServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  WithdrawServiceResponse withdrawService(shared_ptr<WithdrawServiceRequest> request);
 
   virtual ~Client() = default;
 };
