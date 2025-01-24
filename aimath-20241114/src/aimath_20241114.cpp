@@ -62,7 +62,12 @@ ChatMessageResponse Alibabacloud_AIMath20241114::Client::chatMessageWithOptions(
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ChatMessageResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ChatMessageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ChatMessageResponse(execute(params, req, runtime));
+  }
 }
 
 ChatMessageResponse Alibabacloud_AIMath20241114::Client::chatMessage(shared_ptr<ChatMessageRequest> request) {
@@ -105,7 +110,12 @@ CreateConversationResponse Alibabacloud_AIMath20241114::Client::createConversati
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateConversationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateConversationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateConversationResponse(execute(params, req, runtime));
+  }
 }
 
 CreateConversationResponse Alibabacloud_AIMath20241114::Client::createConversation(shared_ptr<CreateConversationRequest> request) {
@@ -139,7 +149,12 @@ CreateRelatedConversationResponse Alibabacloud_AIMath20241114::Client::createRel
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateRelatedConversationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateRelatedConversationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateRelatedConversationResponse(execute(params, req, runtime));
+  }
 }
 
 CreateRelatedConversationResponse Alibabacloud_AIMath20241114::Client::createRelatedConversation(shared_ptr<CreateRelatedConversationRequest> request) {
@@ -167,7 +182,12 @@ GenAnalysisResponse Alibabacloud_AIMath20241114::Client::genAnalysisWithOptions(
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GenAnalysisResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GenAnalysisResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GenAnalysisResponse(execute(params, req, runtime));
+  }
 }
 
 GenAnalysisResponse Alibabacloud_AIMath20241114::Client::genAnalysis(shared_ptr<GenAnalysisRequest> request) {
@@ -195,7 +215,12 @@ GenStepResponse Alibabacloud_AIMath20241114::Client::genStepWithOptions(shared_p
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GenStepResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GenStepResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GenStepResponse(execute(params, req, runtime));
+  }
 }
 
 GenStepResponse Alibabacloud_AIMath20241114::Client::genStep(shared_ptr<GenStepRequest> request) {
@@ -226,7 +251,12 @@ GlobalConfirmResponse Alibabacloud_AIMath20241114::Client::globalConfirmWithOpti
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GlobalConfirmResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GlobalConfirmResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GlobalConfirmResponse(execute(params, req, runtime));
+  }
 }
 
 GlobalConfirmResponse Alibabacloud_AIMath20241114::Client::globalConfirm(shared_ptr<GlobalConfirmRequest> request) {
@@ -260,7 +290,12 @@ UpdateAnalysisResponse Alibabacloud_AIMath20241114::Client::updateAnalysisWithOp
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateAnalysisResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateAnalysisResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateAnalysisResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateAnalysisResponse Alibabacloud_AIMath20241114::Client::updateAnalysis(shared_ptr<UpdateAnalysisRequest> request) {
@@ -294,7 +329,12 @@ UpdateStepResponse Alibabacloud_AIMath20241114::Client::updateStepWithOptions(sh
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateStepResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateStepResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateStepResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateStepResponse Alibabacloud_AIMath20241114::Client::updateStep(shared_ptr<UpdateStepRequest> request) {
