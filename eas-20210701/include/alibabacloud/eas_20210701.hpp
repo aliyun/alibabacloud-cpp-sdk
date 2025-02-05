@@ -546,6 +546,42 @@ public:
 
   virtual ~Resource() = default;
 };
+class ResourceInstanceLabels : public Darabonba::Model {
+public:
+  shared_ptr<string> labelKey{};
+  shared_ptr<string> labelValue{};
+
+  ResourceInstanceLabels() {}
+
+  explicit ResourceInstanceLabels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (labelKey) {
+      res["LabelKey"] = boost::any(*labelKey);
+    }
+    if (labelValue) {
+      res["LabelValue"] = boost::any(*labelValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LabelKey") != m.end() && !m["LabelKey"].empty()) {
+      labelKey = make_shared<string>(boost::any_cast<string>(m["LabelKey"]));
+    }
+    if (m.find("LabelValue") != m.end() && !m["LabelValue"].empty()) {
+      labelValue = make_shared<string>(boost::any_cast<string>(m["LabelValue"]));
+    }
+  }
+
+
+  virtual ~ResourceInstanceLabels() = default;
+};
 class ResourceInstance : public Darabonba::Model {
 public:
   shared_ptr<string> arch{};
@@ -568,6 +604,7 @@ public:
   shared_ptr<double> instanceUsedGpu{};
   shared_ptr<string> instanceUsedGpuMemory{};
   shared_ptr<string> instanceUsedMemory{};
+  shared_ptr<vector<ResourceInstanceLabels>> labels{};
   shared_ptr<string> region{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> zone{};
@@ -642,6 +679,13 @@ public:
     if (instanceUsedMemory) {
       res["InstanceUsedMemory"] = boost::any(*instanceUsedMemory);
     }
+    if (labels) {
+      vector<boost::any> temp1;
+      for(auto item1:*labels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Labels"] = boost::any(temp1);
+    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -714,6 +758,19 @@ public:
     }
     if (m.find("InstanceUsedMemory") != m.end() && !m["InstanceUsedMemory"].empty()) {
       instanceUsedMemory = make_shared<string>(boost::any_cast<string>(m["InstanceUsedMemory"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<ResourceInstanceLabels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Labels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ResourceInstanceLabels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        labels = make_shared<vector<ResourceInstanceLabels>>(expect1);
+      }
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -2903,6 +2960,7 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<long> ecsInstanceCount{};
   shared_ptr<string> ecsInstanceType{};
+  shared_ptr<map<string, string>> labels{};
   shared_ptr<string> resourceType{};
   shared_ptr<CreateResourceRequestSelfManagedResourceOptions> selfManagedResourceOptions{};
   shared_ptr<long> systemDiskSize{};
@@ -2929,6 +2987,9 @@ public:
     }
     if (ecsInstanceType) {
       res["EcsInstanceType"] = boost::any(*ecsInstanceType);
+    }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -2957,6 +3018,14 @@ public:
     }
     if (m.find("EcsInstanceType") != m.end() && !m["EcsInstanceType"].empty()) {
       ecsInstanceType = make_shared<string>(boost::any_cast<string>(m["EcsInstanceType"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Labels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      labels = make_shared<map<string, string>>(toMap1);
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -3108,6 +3177,7 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<long> ecsInstanceCount{};
   shared_ptr<string> ecsInstanceType{};
+  shared_ptr<map<string, string>> labels{};
   shared_ptr<long> systemDiskSize{};
   shared_ptr<string> userData{};
   shared_ptr<string> zone{};
@@ -3134,6 +3204,9 @@ public:
     if (ecsInstanceType) {
       res["EcsInstanceType"] = boost::any(*ecsInstanceType);
     }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
     if (systemDiskSize) {
       res["SystemDiskSize"] = boost::any(*systemDiskSize);
     }
@@ -3158,6 +3231,14 @@ public:
     }
     if (m.find("EcsInstanceType") != m.end() && !m["EcsInstanceType"].empty()) {
       ecsInstanceType = make_shared<string>(boost::any_cast<string>(m["EcsInstanceType"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Labels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      labels = make_shared<map<string, string>>(toMap1);
     }
     if (m.find("SystemDiskSize") != m.end() && !m["SystemDiskSize"].empty()) {
       systemDiskSize = make_shared<long>(boost::any_cast<long>(m["SystemDiskSize"]));
@@ -5433,6 +5514,194 @@ public:
 
 
   virtual ~DeleteResourceDLinkResponse() = default;
+};
+class DeleteResourceInstanceLabelRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> allInstances{};
+  shared_ptr<vector<string>> instanceIds{};
+  shared_ptr<vector<string>> keys{};
+
+  DeleteResourceInstanceLabelRequest() {}
+
+  explicit DeleteResourceInstanceLabelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allInstances) {
+      res["AllInstances"] = boost::any(*allInstances);
+    }
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    if (keys) {
+      res["Keys"] = boost::any(*keys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllInstances") != m.end() && !m["AllInstances"].empty()) {
+      allInstances = make_shared<bool>(boost::any_cast<bool>(m["AllInstances"]));
+    }
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Keys") != m.end() && !m["Keys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Keys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Keys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      keys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DeleteResourceInstanceLabelRequest() = default;
+};
+class DeleteResourceInstanceLabelShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> allInstances{};
+  shared_ptr<string> instanceIdsShrink{};
+  shared_ptr<string> keysShrink{};
+
+  DeleteResourceInstanceLabelShrinkRequest() {}
+
+  explicit DeleteResourceInstanceLabelShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allInstances) {
+      res["AllInstances"] = boost::any(*allInstances);
+    }
+    if (instanceIdsShrink) {
+      res["InstanceIds"] = boost::any(*instanceIdsShrink);
+    }
+    if (keysShrink) {
+      res["Keys"] = boost::any(*keysShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllInstances") != m.end() && !m["AllInstances"].empty()) {
+      allInstances = make_shared<bool>(boost::any_cast<bool>(m["AllInstances"]));
+    }
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      instanceIdsShrink = make_shared<string>(boost::any_cast<string>(m["InstanceIds"]));
+    }
+    if (m.find("Keys") != m.end() && !m["Keys"].empty()) {
+      keysShrink = make_shared<string>(boost::any_cast<string>(m["Keys"]));
+    }
+  }
+
+
+  virtual ~DeleteResourceInstanceLabelShrinkRequest() = default;
+};
+class DeleteResourceInstanceLabelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DeleteResourceInstanceLabelResponseBody() {}
+
+  explicit DeleteResourceInstanceLabelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteResourceInstanceLabelResponseBody() = default;
+};
+class DeleteResourceInstanceLabelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteResourceInstanceLabelResponseBody> body{};
+
+  DeleteResourceInstanceLabelResponse() {}
+
+  explicit DeleteResourceInstanceLabelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteResourceInstanceLabelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteResourceInstanceLabelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteResourceInstanceLabelResponse() = default;
 };
 class DeleteResourceInstancesRequest : public Darabonba::Model {
 public:
@@ -11736,6 +12005,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> instanceStatus{};
+  shared_ptr<map<string, string>> label{};
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -11768,6 +12038,9 @@ public:
     }
     if (instanceStatus) {
       res["InstanceStatus"] = boost::any(*instanceStatus);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
     }
     if (order) {
       res["Order"] = boost::any(*order);
@@ -11803,6 +12076,14 @@ public:
     if (m.find("InstanceStatus") != m.end() && !m["InstanceStatus"].empty()) {
       instanceStatus = make_shared<string>(boost::any_cast<string>(m["InstanceStatus"]));
     }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Label"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      label = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));
     }
@@ -11819,6 +12100,105 @@ public:
 
 
   virtual ~ListResourceInstancesRequest() = default;
+};
+class ListResourceInstancesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> chargeType{};
+  shared_ptr<string> filter{};
+  shared_ptr<string> instanceIP{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> instanceStatus{};
+  shared_ptr<string> labelShrink{};
+  shared_ptr<string> order{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> sort{};
+
+  ListResourceInstancesShrinkRequest() {}
+
+  explicit ListResourceInstancesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (filter) {
+      res["Filter"] = boost::any(*filter);
+    }
+    if (instanceIP) {
+      res["InstanceIP"] = boost::any(*instanceIP);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (instanceStatus) {
+      res["InstanceStatus"] = boost::any(*instanceStatus);
+    }
+    if (labelShrink) {
+      res["Label"] = boost::any(*labelShrink);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("InstanceIP") != m.end() && !m["InstanceIP"].empty()) {
+      instanceIP = make_shared<string>(boost::any_cast<string>(m["InstanceIP"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("InstanceStatus") != m.end() && !m["InstanceStatus"].empty()) {
+      instanceStatus = make_shared<string>(boost::any_cast<string>(m["InstanceStatus"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      labelShrink = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+  }
+
+
+  virtual ~ListResourceInstancesShrinkRequest() = default;
 };
 class ListResourceInstancesResponseBody : public Darabonba::Model {
 public:
@@ -15262,6 +15642,197 @@ public:
 
   virtual ~UpdateResourceInstanceResponse() = default;
 };
+class UpdateResourceInstanceLabelRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> allInstances{};
+  shared_ptr<vector<string>> instanceIds{};
+  shared_ptr<map<string, string>> labels{};
+
+  UpdateResourceInstanceLabelRequest() {}
+
+  explicit UpdateResourceInstanceLabelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allInstances) {
+      res["AllInstances"] = boost::any(*allInstances);
+    }
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllInstances") != m.end() && !m["AllInstances"].empty()) {
+      allInstances = make_shared<bool>(boost::any_cast<bool>(m["AllInstances"]));
+    }
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Labels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      labels = make_shared<map<string, string>>(toMap1);
+    }
+  }
+
+
+  virtual ~UpdateResourceInstanceLabelRequest() = default;
+};
+class UpdateResourceInstanceLabelShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> allInstances{};
+  shared_ptr<string> instanceIdsShrink{};
+  shared_ptr<map<string, string>> labels{};
+
+  UpdateResourceInstanceLabelShrinkRequest() {}
+
+  explicit UpdateResourceInstanceLabelShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allInstances) {
+      res["AllInstances"] = boost::any(*allInstances);
+    }
+    if (instanceIdsShrink) {
+      res["InstanceIds"] = boost::any(*instanceIdsShrink);
+    }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllInstances") != m.end() && !m["AllInstances"].empty()) {
+      allInstances = make_shared<bool>(boost::any_cast<bool>(m["AllInstances"]));
+    }
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      instanceIdsShrink = make_shared<string>(boost::any_cast<string>(m["InstanceIds"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Labels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      labels = make_shared<map<string, string>>(toMap1);
+    }
+  }
+
+
+  virtual ~UpdateResourceInstanceLabelShrinkRequest() = default;
+};
+class UpdateResourceInstanceLabelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  UpdateResourceInstanceLabelResponseBody() {}
+
+  explicit UpdateResourceInstanceLabelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateResourceInstanceLabelResponseBody() = default;
+};
+class UpdateResourceInstanceLabelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateResourceInstanceLabelResponseBody> body{};
+
+  UpdateResourceInstanceLabelResponse() {}
+
+  explicit UpdateResourceInstanceLabelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateResourceInstanceLabelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateResourceInstanceLabelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateResourceInstanceLabelResponse() = default;
+};
 class UpdateServiceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> updateType{};
@@ -16860,6 +17431,12 @@ public:
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteResourceDLinkResponse deleteResourceDLink(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
+  DeleteResourceInstanceLabelResponse deleteResourceInstanceLabelWithOptions(shared_ptr<string> ClusterId,
+                                                                             shared_ptr<string> ResourceId,
+                                                                             shared_ptr<DeleteResourceInstanceLabelRequest> tmpReq,
+                                                                             shared_ptr<map<string, string>> headers,
+                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteResourceInstanceLabelResponse deleteResourceInstanceLabel(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<DeleteResourceInstanceLabelRequest> request);
   DeleteResourceInstancesResponse deleteResourceInstancesWithOptions(shared_ptr<string> ClusterId,
                                                                      shared_ptr<string> ResourceId,
                                                                      shared_ptr<DeleteResourceInstancesRequest> request,
@@ -17067,7 +17644,7 @@ public:
                                                                 shared_ptr<ListResourceInstanceWorkerRequest> request);
   ListResourceInstancesResponse listResourceInstancesWithOptions(shared_ptr<string> ClusterId,
                                                                  shared_ptr<string> ResourceId,
-                                                                 shared_ptr<ListResourceInstancesRequest> request,
+                                                                 shared_ptr<ListResourceInstancesRequest> tmpReq,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListResourceInstancesResponse listResourceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<ListResourceInstancesRequest> request);
@@ -17179,6 +17756,12 @@ public:
                                                         shared_ptr<string> ResourceId,
                                                         shared_ptr<string> InstanceId,
                                                         shared_ptr<UpdateResourceInstanceRequest> request);
+  UpdateResourceInstanceLabelResponse updateResourceInstanceLabelWithOptions(shared_ptr<string> ClusterId,
+                                                                             shared_ptr<string> ResourceId,
+                                                                             shared_ptr<UpdateResourceInstanceLabelRequest> tmpReq,
+                                                                             shared_ptr<map<string, string>> headers,
+                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateResourceInstanceLabelResponse updateResourceInstanceLabel(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<UpdateResourceInstanceLabelRequest> request);
   UpdateServiceResponse updateServiceWithOptions(shared_ptr<string> ClusterId,
                                                  shared_ptr<string> ServiceName,
                                                  shared_ptr<UpdateServiceRequest> request,

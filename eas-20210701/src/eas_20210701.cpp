@@ -474,6 +474,9 @@ CreateResourceResponse Alibabacloud_Eas20210701::Client::createResourceWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->ecsInstanceType)) {
     body->insert(pair<string, string>("EcsInstanceType", *request->ecsInstanceType));
   }
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(request->labels)) {
+    body->insert(pair<string, map<string, string>>("Labels", *request->labels));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     body->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
@@ -533,6 +536,9 @@ CreateResourceInstancesResponse Alibabacloud_Eas20210701::Client::createResource
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ecsInstanceType)) {
     body->insert(pair<string, string>("EcsInstanceType", *request->ecsInstanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(request->labels)) {
+    body->insert(pair<string, map<string, string>>("Labels", *request->labels));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->systemDiskSize)) {
     body->insert(pair<string, long>("SystemDiskSize", *request->systemDiskSize));
@@ -1096,6 +1102,59 @@ DeleteResourceDLinkResponse Alibabacloud_Eas20210701::Client::deleteResourceDLin
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return deleteResourceDLinkWithOptions(ClusterId, ResourceId, headers, runtime);
+}
+
+DeleteResourceInstanceLabelResponse Alibabacloud_Eas20210701::Client::deleteResourceInstanceLabelWithOptions(shared_ptr<string> ClusterId,
+                                                                                                             shared_ptr<string> ResourceId,
+                                                                                                             shared_ptr<DeleteResourceInstanceLabelRequest> tmpReq,
+                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteResourceInstanceLabelShrinkRequest> request = make_shared<DeleteResourceInstanceLabelShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceIds)) {
+    request->instanceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceIds, make_shared<string>("InstanceIds"), make_shared<string>("simple")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->keys)) {
+    request->keysShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->keys, make_shared<string>("Keys"), make_shared<string>("simple")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->allInstances)) {
+    query->insert(pair<string, bool>("AllInstances", *request->allInstances));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceIdsShrink)) {
+    query->insert(pair<string, string>("InstanceIds", *request->instanceIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keysShrink)) {
+    query->insert(pair<string, string>("Keys", *request->keysShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteResourceInstanceLabel"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/resources/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ResourceId)) + string("/label"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteResourceInstanceLabelResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteResourceInstanceLabelResponse(execute(params, req, runtime));
+  }
+}
+
+DeleteResourceInstanceLabelResponse Alibabacloud_Eas20210701::Client::deleteResourceInstanceLabel(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<DeleteResourceInstanceLabelRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteResourceInstanceLabelWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 DeleteResourceInstancesResponse Alibabacloud_Eas20210701::Client::deleteResourceInstancesWithOptions(shared_ptr<string> ClusterId,
@@ -2584,10 +2643,15 @@ ListResourceInstanceWorkerResponse Alibabacloud_Eas20210701::Client::listResourc
 
 ListResourceInstancesResponse Alibabacloud_Eas20210701::Client::listResourceInstancesWithOptions(shared_ptr<string> ClusterId,
                                                                                                  shared_ptr<string> ResourceId,
-                                                                                                 shared_ptr<ListResourceInstancesRequest> request,
+                                                                                                 shared_ptr<ListResourceInstancesRequest> tmpReq,
                                                                                                  shared_ptr<map<string, string>> headers,
                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListResourceInstancesShrinkRequest> request = make_shared<ListResourceInstancesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->label)) {
+    request->labelShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->label, make_shared<string>("Label"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
     query->insert(pair<string, string>("ChargeType", *request->chargeType));
@@ -2606,6 +2670,9 @@ ListResourceInstancesResponse Alibabacloud_Eas20210701::Client::listResourceInst
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceStatus)) {
     query->insert(pair<string, string>("InstanceStatus", *request->instanceStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labelShrink)) {
+    query->insert(pair<string, string>("Label", *request->labelShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
     query->insert(pair<string, string>("Order", *request->order));
@@ -3573,6 +3640,58 @@ UpdateResourceInstanceResponse Alibabacloud_Eas20210701::Client::updateResourceI
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateResourceInstanceWithOptions(ClusterId, ResourceId, InstanceId, request, headers, runtime);
+}
+
+UpdateResourceInstanceLabelResponse Alibabacloud_Eas20210701::Client::updateResourceInstanceLabelWithOptions(shared_ptr<string> ClusterId,
+                                                                                                             shared_ptr<string> ResourceId,
+                                                                                                             shared_ptr<UpdateResourceInstanceLabelRequest> tmpReq,
+                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateResourceInstanceLabelShrinkRequest> request = make_shared<UpdateResourceInstanceLabelShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceIds)) {
+    request->instanceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceIds, make_shared<string>("InstanceIds"), make_shared<string>("simple")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->allInstances)) {
+    query->insert(pair<string, bool>("AllInstances", *request->allInstances));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceIdsShrink)) {
+    query->insert(pair<string, string>("InstanceIds", *request->instanceIdsShrink));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(request->labels)) {
+    body->insert(pair<string, map<string, string>>("Labels", *request->labels));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateResourceInstanceLabel"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/resources/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ResourceId)) + string("/label"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateResourceInstanceLabelResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateResourceInstanceLabelResponse(execute(params, req, runtime));
+  }
+}
+
+UpdateResourceInstanceLabelResponse Alibabacloud_Eas20210701::Client::updateResourceInstanceLabel(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<UpdateResourceInstanceLabelRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateResourceInstanceLabelWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 UpdateServiceResponse Alibabacloud_Eas20210701::Client::updateServiceWithOptions(shared_ptr<string> ClusterId,
