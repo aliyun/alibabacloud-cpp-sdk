@@ -72,7 +72,12 @@ CreateTaskResponse Alibabacloud_Tingwu20230930::Client::createTaskWithOptions(sh
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateTaskResponse(execute(params, req, runtime));
+  }
 }
 
 CreateTaskResponse Alibabacloud_Tingwu20230930::Client::createTask(shared_ptr<CreateTaskRequest> request) {
@@ -108,7 +113,12 @@ CreateTranscriptionPhrasesResponse Alibabacloud_Tingwu20230930::Client::createTr
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateTranscriptionPhrasesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateTranscriptionPhrasesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateTranscriptionPhrasesResponse(execute(params, req, runtime));
+  }
 }
 
 CreateTranscriptionPhrasesResponse Alibabacloud_Tingwu20230930::Client::createTranscriptionPhrases(shared_ptr<CreateTranscriptionPhrasesRequest> request) {
@@ -132,7 +142,12 @@ DeleteTranscriptionPhrasesResponse Alibabacloud_Tingwu20230930::Client::deleteTr
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteTranscriptionPhrasesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteTranscriptionPhrasesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteTranscriptionPhrasesResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteTranscriptionPhrasesResponse Alibabacloud_Tingwu20230930::Client::deleteTranscriptionPhrases(shared_ptr<string> PhraseId) {
@@ -156,7 +171,12 @@ GetTaskInfoResponse Alibabacloud_Tingwu20230930::Client::getTaskInfoWithOptions(
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetTaskInfoResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetTaskInfoResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetTaskInfoResponse(execute(params, req, runtime));
+  }
 }
 
 GetTaskInfoResponse Alibabacloud_Tingwu20230930::Client::getTaskInfo(shared_ptr<string> TaskId) {
@@ -180,7 +200,12 @@ GetTranscriptionPhrasesResponse Alibabacloud_Tingwu20230930::Client::getTranscri
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetTranscriptionPhrasesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetTranscriptionPhrasesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetTranscriptionPhrasesResponse(execute(params, req, runtime));
+  }
 }
 
 GetTranscriptionPhrasesResponse Alibabacloud_Tingwu20230930::Client::getTranscriptionPhrases(shared_ptr<string> PhraseId) {
@@ -204,7 +229,12 @@ ListTranscriptionPhrasesResponse Alibabacloud_Tingwu20230930::Client::listTransc
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListTranscriptionPhrasesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTranscriptionPhrasesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTranscriptionPhrasesResponse(execute(params, req, runtime));
+  }
 }
 
 ListTranscriptionPhrasesResponse Alibabacloud_Tingwu20230930::Client::listTranscriptionPhrases() {
@@ -243,7 +273,12 @@ UpdateTranscriptionPhrasesResponse Alibabacloud_Tingwu20230930::Client::updateTr
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateTranscriptionPhrasesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateTranscriptionPhrasesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateTranscriptionPhrasesResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateTranscriptionPhrasesResponse Alibabacloud_Tingwu20230930::Client::updateTranscriptionPhrases(shared_ptr<string> PhraseId, shared_ptr<UpdateTranscriptionPhrasesRequest> request) {

@@ -120,6 +120,104 @@ public:
 
   virtual ~CreateTaskRequestInput() = default;
 };
+class CreateTaskRequestParametersContentExtractionExtractionContents : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> title{};
+
+  CreateTaskRequestParametersContentExtractionExtractionContents() {}
+
+  explicit CreateTaskRequestParametersContentExtractionExtractionContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~CreateTaskRequestParametersContentExtractionExtractionContents() = default;
+};
+class CreateTaskRequestParametersContentExtraction : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateTaskRequestParametersContentExtractionExtractionContents>> extractionContents{};
+  shared_ptr<string> sceneIntroduction{};
+  shared_ptr<map<string, boost::any>> speakerMap{};
+
+  CreateTaskRequestParametersContentExtraction() {}
+
+  explicit CreateTaskRequestParametersContentExtraction(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extractionContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*extractionContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExtractionContents"] = boost::any(temp1);
+    }
+    if (sceneIntroduction) {
+      res["SceneIntroduction"] = boost::any(*sceneIntroduction);
+    }
+    if (speakerMap) {
+      res["SpeakerMap"] = boost::any(*speakerMap);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExtractionContents") != m.end() && !m["ExtractionContents"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExtractionContents"].type()) {
+        vector<CreateTaskRequestParametersContentExtractionExtractionContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExtractionContents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateTaskRequestParametersContentExtractionExtractionContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        extractionContents = make_shared<vector<CreateTaskRequestParametersContentExtractionExtractionContents>>(expect1);
+      }
+    }
+    if (m.find("SceneIntroduction") != m.end() && !m["SceneIntroduction"].empty()) {
+      sceneIntroduction = make_shared<string>(boost::any_cast<string>(m["SceneIntroduction"]));
+    }
+    if (m.find("SpeakerMap") != m.end() && !m["SpeakerMap"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["SpeakerMap"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      speakerMap = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~CreateTaskRequestParametersContentExtraction() = default;
+};
 class CreateTaskRequestParametersCustomPromptContents : public Darabonba::Model {
 public:
   shared_ptr<string> model{};
@@ -654,6 +752,8 @@ public:
 class CreateTaskRequestParameters : public Darabonba::Model {
 public:
   shared_ptr<bool> autoChaptersEnabled{};
+  shared_ptr<CreateTaskRequestParametersContentExtraction> contentExtraction{};
+  shared_ptr<bool> contentExtractionEnabled{};
   shared_ptr<CreateTaskRequestParametersCustomPrompt> customPrompt{};
   shared_ptr<bool> customPromptEnabled{};
   shared_ptr<CreateTaskRequestParametersExtraParams> extraParams{};
@@ -682,6 +782,12 @@ public:
     map<string, boost::any> res;
     if (autoChaptersEnabled) {
       res["AutoChaptersEnabled"] = boost::any(*autoChaptersEnabled);
+    }
+    if (contentExtraction) {
+      res["ContentExtraction"] = contentExtraction ? boost::any(contentExtraction->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (contentExtractionEnabled) {
+      res["ContentExtractionEnabled"] = boost::any(*contentExtractionEnabled);
     }
     if (customPrompt) {
       res["CustomPrompt"] = customPrompt ? boost::any(customPrompt->toMap()) : boost::any(map<string,boost::any>({}));
@@ -734,6 +840,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoChaptersEnabled") != m.end() && !m["AutoChaptersEnabled"].empty()) {
       autoChaptersEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoChaptersEnabled"]));
+    }
+    if (m.find("ContentExtraction") != m.end() && !m["ContentExtraction"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ContentExtraction"].type()) {
+        CreateTaskRequestParametersContentExtraction model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ContentExtraction"]));
+        contentExtraction = make_shared<CreateTaskRequestParametersContentExtraction>(model1);
+      }
+    }
+    if (m.find("ContentExtractionEnabled") != m.end() && !m["ContentExtractionEnabled"].empty()) {
+      contentExtractionEnabled = make_shared<bool>(boost::any_cast<bool>(m["ContentExtractionEnabled"]));
     }
     if (m.find("CustomPrompt") != m.end() && !m["CustomPrompt"].empty()) {
       if (typeid(map<string, boost::any>) == m["CustomPrompt"].type()) {
