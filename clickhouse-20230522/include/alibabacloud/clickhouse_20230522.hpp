@@ -590,6 +590,7 @@ class CreateDBInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> DBInstanceDescription{};
+  shared_ptr<string> deploySchema{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
   shared_ptr<vector<CreateDBInstanceRequestMultiZone>> multiZone{};
@@ -615,6 +616,9 @@ public:
     }
     if (DBInstanceDescription) {
       res["DBInstanceDescription"] = boost::any(*DBInstanceDescription);
+    }
+    if (deploySchema) {
+      res["DeploySchema"] = boost::any(*deploySchema);
     }
     if (engine) {
       res["Engine"] = boost::any(*engine);
@@ -656,6 +660,9 @@ public:
     }
     if (m.find("DBInstanceDescription") != m.end() && !m["DBInstanceDescription"].empty()) {
       DBInstanceDescription = make_shared<string>(boost::any_cast<string>(m["DBInstanceDescription"]));
+    }
+    if (m.find("DeploySchema") != m.end() && !m["DeploySchema"].empty()) {
+      deploySchema = make_shared<string>(boost::any_cast<string>(m["DeploySchema"]));
     }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
@@ -703,6 +710,7 @@ class CreateDBInstanceShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> DBInstanceDescription{};
+  shared_ptr<string> deploySchema{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
   shared_ptr<string> multiZoneShrink{};
@@ -728,6 +736,9 @@ public:
     }
     if (DBInstanceDescription) {
       res["DBInstanceDescription"] = boost::any(*DBInstanceDescription);
+    }
+    if (deploySchema) {
+      res["DeploySchema"] = boost::any(*deploySchema);
     }
     if (engine) {
       res["Engine"] = boost::any(*engine);
@@ -765,6 +776,9 @@ public:
     }
     if (m.find("DBInstanceDescription") != m.end() && !m["DBInstanceDescription"].empty()) {
       DBInstanceDescription = make_shared<string>(boost::any_cast<string>(m["DBInstanceDescription"]));
+    }
+    if (m.find("DeploySchema") != m.end() && !m["DeploySchema"].empty()) {
+      deploySchema = make_shared<string>(boost::any_cast<string>(m["DeploySchema"]));
     }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
