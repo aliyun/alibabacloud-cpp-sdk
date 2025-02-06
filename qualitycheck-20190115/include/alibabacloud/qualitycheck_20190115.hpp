@@ -3362,6 +3362,191 @@ public:
 
   virtual ~AddRuleV4Response() = default;
 };
+class ApplyWsTokenRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> baseMeAgentId{};
+  shared_ptr<string> jsonStr{};
+
+  ApplyWsTokenRequest() {}
+
+  explicit ApplyWsTokenRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseMeAgentId) {
+      res["BaseMeAgentId"] = boost::any(*baseMeAgentId);
+    }
+    if (jsonStr) {
+      res["JsonStr"] = boost::any(*jsonStr);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseMeAgentId") != m.end() && !m["BaseMeAgentId"].empty()) {
+      baseMeAgentId = make_shared<long>(boost::any_cast<long>(m["BaseMeAgentId"]));
+    }
+    if (m.find("JsonStr") != m.end() && !m["JsonStr"].empty()) {
+      jsonStr = make_shared<string>(boost::any_cast<string>(m["JsonStr"]));
+    }
+  }
+
+
+  virtual ~ApplyWsTokenRequest() = default;
+};
+class ApplyWsTokenResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> token{};
+  shared_ptr<string> wsEndpoint{};
+
+  ApplyWsTokenResponseBodyData() {}
+
+  explicit ApplyWsTokenResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    if (token) {
+      res["Token"] = boost::any(*token);
+    }
+    if (wsEndpoint) {
+      res["WsEndpoint"] = boost::any(*wsEndpoint);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+    if (m.find("Token") != m.end() && !m["Token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
+    }
+    if (m.find("WsEndpoint") != m.end() && !m["WsEndpoint"].empty()) {
+      wsEndpoint = make_shared<string>(boost::any_cast<string>(m["WsEndpoint"]));
+    }
+  }
+
+
+  virtual ~ApplyWsTokenResponseBodyData() = default;
+};
+class ApplyWsTokenResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ApplyWsTokenResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+
+  ApplyWsTokenResponseBody() {}
+
+  explicit ApplyWsTokenResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ApplyWsTokenResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ApplyWsTokenResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ApplyWsTokenResponseBody() = default;
+};
+class ApplyWsTokenResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ApplyWsTokenResponseBody> body{};
+
+  ApplyWsTokenResponse() {}
+
+  explicit ApplyWsTokenResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ApplyWsTokenResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ApplyWsTokenResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ApplyWsTokenResponse() = default;
+};
 class AssignReviewerRequest : public Darabonba::Model {
 public:
   shared_ptr<long> baseMeAgentId{};
@@ -7719,6 +7904,8 @@ public:
 };
 class GetAsrVocabResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> asrVersion{};
+  shared_ptr<string> modelCustomizationId{};
   shared_ptr<string> name{};
   shared_ptr<GetAsrVocabResponseBodyDataWords> words{};
 
@@ -7732,6 +7919,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (asrVersion) {
+      res["AsrVersion"] = boost::any(*asrVersion);
+    }
+    if (modelCustomizationId) {
+      res["ModelCustomizationId"] = boost::any(*modelCustomizationId);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -7742,6 +7935,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AsrVersion") != m.end() && !m["AsrVersion"].empty()) {
+      asrVersion = make_shared<long>(boost::any_cast<long>(m["AsrVersion"]));
+    }
+    if (m.find("ModelCustomizationId") != m.end() && !m["ModelCustomizationId"].empty()) {
+      modelCustomizationId = make_shared<string>(boost::any_cast<string>(m["ModelCustomizationId"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -8143,6 +8342,7 @@ public:
 };
 class GetCustomizationConfigListResponseBodyDataModelCustomizationDataSetPo : public Darabonba::Model {
 public:
+  shared_ptr<long> asrVersion{};
   shared_ptr<string> createTime{};
   shared_ptr<string> modeCustomizationId{};
   shared_ptr<long> modelId{};
@@ -8160,6 +8360,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (asrVersion) {
+      res["AsrVersion"] = boost::any(*asrVersion);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -8182,6 +8385,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AsrVersion") != m.end() && !m["AsrVersion"].empty()) {
+      asrVersion = make_shared<long>(boost::any_cast<long>(m["AsrVersion"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
@@ -19226,8 +19432,10 @@ public:
 };
 class ListAsrVocabResponseBodyDataAsrVocab : public Darabonba::Model {
 public:
+  shared_ptr<long> asrVersion{};
   shared_ptr<string> createTime{};
   shared_ptr<string> id{};
+  shared_ptr<string> modelCustomizationId{};
   shared_ptr<string> name{};
   shared_ptr<string> updateTime{};
   shared_ptr<string> vocabularyId{};
@@ -19242,11 +19450,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (asrVersion) {
+      res["AsrVersion"] = boost::any(*asrVersion);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (modelCustomizationId) {
+      res["ModelCustomizationId"] = boost::any(*modelCustomizationId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -19261,11 +19475,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AsrVersion") != m.end() && !m["AsrVersion"].empty()) {
+      asrVersion = make_shared<long>(boost::any_cast<long>(m["AsrVersion"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("ModelCustomizationId") != m.end() && !m["ModelCustomizationId"].empty()) {
+      modelCustomizationId = make_shared<string>(boost::any_cast<string>(m["ModelCustomizationId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -21930,6 +22150,7 @@ public:
 class ListSchemeTaskConfigResponseBodyDataData : public Darabonba::Model {
 public:
   shared_ptr<long> asrTaskPriority{};
+  shared_ptr<long> asrVersion{};
   shared_ptr<long> assignType{};
   shared_ptr<string> createTime{};
   shared_ptr<long> createUser{};
@@ -21968,6 +22189,9 @@ public:
     map<string, boost::any> res;
     if (asrTaskPriority) {
       res["AsrTaskPriority"] = boost::any(*asrTaskPriority);
+    }
+    if (asrVersion) {
+      res["AsrVersion"] = boost::any(*asrVersion);
     }
     if (assignType) {
       res["AssignType"] = boost::any(*assignType);
@@ -22050,6 +22274,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AsrTaskPriority") != m.end() && !m["AsrTaskPriority"].empty()) {
       asrTaskPriority = make_shared<long>(boost::any_cast<long>(m["AsrTaskPriority"]));
+    }
+    if (m.find("AsrVersion") != m.end() && !m["AsrVersion"].empty()) {
+      asrVersion = make_shared<long>(boost::any_cast<long>(m["AsrVersion"]));
     }
     if (m.find("AssignType") != m.end() && !m["AssignType"].empty()) {
       assignType = make_shared<long>(boost::any_cast<long>(m["AssignType"]));
@@ -26971,10 +27198,82 @@ public:
 
   virtual ~SyncQualityCheckResponseBodyDataRulesHit() = default;
 };
+class SyncQualityCheckResponseBodyDataRulesRuleInfoBase : public Darabonba::Model {
+public:
+  shared_ptr<string> comments{};
+  shared_ptr<long> level{};
+  shared_ptr<string> ruleCategoryName{};
+  shared_ptr<long> scoreNum{};
+  shared_ptr<long> scoreNumType{};
+  shared_ptr<long> scoreType{};
+  shared_ptr<long> type{};
+
+  SyncQualityCheckResponseBodyDataRulesRuleInfoBase() {}
+
+  explicit SyncQualityCheckResponseBodyDataRulesRuleInfoBase(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comments) {
+      res["Comments"] = boost::any(*comments);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (ruleCategoryName) {
+      res["RuleCategoryName"] = boost::any(*ruleCategoryName);
+    }
+    if (scoreNum) {
+      res["ScoreNum"] = boost::any(*scoreNum);
+    }
+    if (scoreNumType) {
+      res["ScoreNumType"] = boost::any(*scoreNumType);
+    }
+    if (scoreType) {
+      res["ScoreType"] = boost::any(*scoreType);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comments") != m.end() && !m["Comments"].empty()) {
+      comments = make_shared<string>(boost::any_cast<string>(m["Comments"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<long>(boost::any_cast<long>(m["Level"]));
+    }
+    if (m.find("RuleCategoryName") != m.end() && !m["RuleCategoryName"].empty()) {
+      ruleCategoryName = make_shared<string>(boost::any_cast<string>(m["RuleCategoryName"]));
+    }
+    if (m.find("ScoreNum") != m.end() && !m["ScoreNum"].empty()) {
+      scoreNum = make_shared<long>(boost::any_cast<long>(m["ScoreNum"]));
+    }
+    if (m.find("ScoreNumType") != m.end() && !m["ScoreNumType"].empty()) {
+      scoreNumType = make_shared<long>(boost::any_cast<long>(m["ScoreNumType"]));
+    }
+    if (m.find("ScoreType") != m.end() && !m["ScoreType"].empty()) {
+      scoreType = make_shared<long>(boost::any_cast<long>(m["ScoreType"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+  }
+
+
+  virtual ~SyncQualityCheckResponseBodyDataRulesRuleInfoBase() = default;
+};
 class SyncQualityCheckResponseBodyDataRules : public Darabonba::Model {
 public:
   shared_ptr<vector<SyncQualityCheckResponseBodyDataRulesHit>> hit{};
   shared_ptr<string> rid{};
+  shared_ptr<SyncQualityCheckResponseBodyDataRulesRuleInfoBase> ruleInfoBase{};
   shared_ptr<string> ruleName{};
 
   SyncQualityCheckResponseBodyDataRules() {}
@@ -26996,6 +27295,9 @@ public:
     }
     if (rid) {
       res["Rid"] = boost::any(*rid);
+    }
+    if (ruleInfoBase) {
+      res["RuleInfoBase"] = ruleInfoBase ? boost::any(ruleInfoBase->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
@@ -27019,6 +27321,13 @@ public:
     }
     if (m.find("Rid") != m.end() && !m["Rid"].empty()) {
       rid = make_shared<string>(boost::any_cast<string>(m["Rid"]));
+    }
+    if (m.find("RuleInfoBase") != m.end() && !m["RuleInfoBase"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RuleInfoBase"].type()) {
+        SyncQualityCheckResponseBodyDataRulesRuleInfoBase model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RuleInfoBase"]));
+        ruleInfoBase = make_shared<SyncQualityCheckResponseBodyDataRulesRuleInfoBase>(model1);
+      }
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
@@ -32567,6 +32876,8 @@ public:
   AddRuleCategoryResponse addRuleCategory(shared_ptr<AddRuleCategoryRequest> request);
   AddRuleV4Response addRuleV4WithOptions(shared_ptr<AddRuleV4Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddRuleV4Response addRuleV4(shared_ptr<AddRuleV4Request> request);
+  ApplyWsTokenResponse applyWsTokenWithOptions(shared_ptr<ApplyWsTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ApplyWsTokenResponse applyWsToken(shared_ptr<ApplyWsTokenRequest> request);
   AssignReviewerResponse assignReviewerWithOptions(shared_ptr<AssignReviewerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AssignReviewerResponse assignReviewer(shared_ptr<AssignReviewerRequest> request);
   AssignReviewerBySessionGroupResponse assignReviewerBySessionGroupWithOptions(shared_ptr<AssignReviewerBySessionGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
