@@ -7440,12 +7440,14 @@ public:
 class DescribeActivationCodesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aliyunOrderId{};
+  shared_ptr<string> macAddress{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> systemIdentifier{};
 
   DescribeActivationCodesRequest() {}
 
@@ -7459,6 +7461,9 @@ public:
     map<string, boost::any> res;
     if (aliyunOrderId) {
       res["AliyunOrderId"] = boost::any(*aliyunOrderId);
+    }
+    if (macAddress) {
+      res["MacAddress"] = boost::any(*macAddress);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -7478,12 +7483,18 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (systemIdentifier) {
+      res["SystemIdentifier"] = boost::any(*systemIdentifier);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliyunOrderId") != m.end() && !m["AliyunOrderId"].empty()) {
       aliyunOrderId = make_shared<string>(boost::any_cast<string>(m["AliyunOrderId"]));
+    }
+    if (m.find("MacAddress") != m.end() && !m["MacAddress"].empty()) {
+      macAddress = make_shared<string>(boost::any_cast<string>(m["MacAddress"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -7502,6 +7513,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SystemIdentifier") != m.end() && !m["SystemIdentifier"].empty()) {
+      systemIdentifier = make_shared<string>(boost::any_cast<string>(m["SystemIdentifier"]));
     }
   }
 
