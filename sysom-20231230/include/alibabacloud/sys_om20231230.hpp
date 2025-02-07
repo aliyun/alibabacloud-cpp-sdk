@@ -7840,6 +7840,7 @@ public:
 };
 class ListInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterId{};
   shared_ptr<long> current{};
   shared_ptr<string> instance{};
   shared_ptr<long> pageSize{};
@@ -7856,6 +7857,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterId) {
+      res["cluster_id"] = boost::any(*clusterId);
+    }
     if (current) {
       res["current"] = boost::any(*current);
     }
@@ -7875,6 +7879,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("cluster_id") != m.end() && !m["cluster_id"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["cluster_id"]));
+    }
     if (m.find("current") != m.end() && !m["current"].empty()) {
       current = make_shared<long>(boost::any_cast<long>(m["current"]));
     }

@@ -1565,6 +1565,9 @@ ListInstanceStatusResponse Alibabacloud_SysOM20231230::Client::listInstanceStatu
 ListInstancesResponse Alibabacloud_SysOM20231230::Client::listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("cluster_id", *request->clusterId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->current)) {
     query->insert(pair<string, long>("current", *request->current));
   }
