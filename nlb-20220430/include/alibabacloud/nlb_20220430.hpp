@@ -10694,7 +10694,6 @@ public:
 };
 class TagResourcesResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> jobId{};
   shared_ptr<string> requestId{};
 
   TagResourcesResponseBody() {}
@@ -10707,9 +10706,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (jobId) {
-      res["JobId"] = boost::any(*jobId);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -10717,9 +10713,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
-      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -10867,7 +10860,6 @@ public:
 };
 class UntagResourcesResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> jobId{};
   shared_ptr<string> requestId{};
 
   UntagResourcesResponseBody() {}
@@ -10880,9 +10872,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (jobId) {
-      res["JobId"] = boost::any(*jobId);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -10890,9 +10879,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
-      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
