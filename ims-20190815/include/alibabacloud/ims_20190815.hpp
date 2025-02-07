@@ -3712,6 +3712,123 @@ public:
 
   virtual ~DeleteOIDCProviderResponse() = default;
 };
+class DeletePasskeyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> passkeyId{};
+  shared_ptr<string> userPrincipalName{};
+
+  DeletePasskeyRequest() {}
+
+  explicit DeletePasskeyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (passkeyId) {
+      res["PasskeyId"] = boost::any(*passkeyId);
+    }
+    if (userPrincipalName) {
+      res["UserPrincipalName"] = boost::any(*userPrincipalName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PasskeyId") != m.end() && !m["PasskeyId"].empty()) {
+      passkeyId = make_shared<string>(boost::any_cast<string>(m["PasskeyId"]));
+    }
+    if (m.find("UserPrincipalName") != m.end() && !m["UserPrincipalName"].empty()) {
+      userPrincipalName = make_shared<string>(boost::any_cast<string>(m["UserPrincipalName"]));
+    }
+  }
+
+
+  virtual ~DeletePasskeyRequest() = default;
+};
+class DeletePasskeyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeletePasskeyResponseBody() {}
+
+  explicit DeletePasskeyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeletePasskeyResponseBody() = default;
+};
+class DeletePasskeyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeletePasskeyResponseBody> body{};
+
+  DeletePasskeyResponse() {}
+
+  explicit DeletePasskeyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeletePasskeyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeletePasskeyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeletePasskeyResponse() = default;
+};
 class DeleteSAMLProviderRequest : public Darabonba::Model {
 public:
   shared_ptr<string> SAMLProviderName{};
@@ -9602,6 +9719,187 @@ public:
 
   virtual ~ListOIDCProvidersResponse() = default;
 };
+class ListPasskeysRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> userPrincipalName{};
+
+  ListPasskeysRequest() {}
+
+  explicit ListPasskeysRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userPrincipalName) {
+      res["UserPrincipalName"] = boost::any(*userPrincipalName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UserPrincipalName") != m.end() && !m["UserPrincipalName"].empty()) {
+      userPrincipalName = make_shared<string>(boost::any_cast<string>(m["UserPrincipalName"]));
+    }
+  }
+
+
+  virtual ~ListPasskeysRequest() = default;
+};
+class ListPasskeysResponseBodyPasskeys : public Darabonba::Model {
+public:
+  shared_ptr<string> createDate{};
+  shared_ptr<string> lastUseDate{};
+  shared_ptr<string> passkeyId{};
+  shared_ptr<string> passkeyName{};
+
+  ListPasskeysResponseBodyPasskeys() {}
+
+  explicit ListPasskeysResponseBodyPasskeys(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createDate) {
+      res["CreateDate"] = boost::any(*createDate);
+    }
+    if (lastUseDate) {
+      res["LastUseDate"] = boost::any(*lastUseDate);
+    }
+    if (passkeyId) {
+      res["PasskeyId"] = boost::any(*passkeyId);
+    }
+    if (passkeyName) {
+      res["PasskeyName"] = boost::any(*passkeyName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
+      createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
+    }
+    if (m.find("LastUseDate") != m.end() && !m["LastUseDate"].empty()) {
+      lastUseDate = make_shared<string>(boost::any_cast<string>(m["LastUseDate"]));
+    }
+    if (m.find("PasskeyId") != m.end() && !m["PasskeyId"].empty()) {
+      passkeyId = make_shared<string>(boost::any_cast<string>(m["PasskeyId"]));
+    }
+    if (m.find("PasskeyName") != m.end() && !m["PasskeyName"].empty()) {
+      passkeyName = make_shared<string>(boost::any_cast<string>(m["PasskeyName"]));
+    }
+  }
+
+
+  virtual ~ListPasskeysResponseBodyPasskeys() = default;
+};
+class ListPasskeysResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListPasskeysResponseBodyPasskeys>> passkeys{};
+  shared_ptr<string> requestId{};
+
+  ListPasskeysResponseBody() {}
+
+  explicit ListPasskeysResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (passkeys) {
+      vector<boost::any> temp1;
+      for(auto item1:*passkeys){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Passkeys"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Passkeys") != m.end() && !m["Passkeys"].empty()) {
+      if (typeid(vector<boost::any>) == m["Passkeys"].type()) {
+        vector<ListPasskeysResponseBodyPasskeys> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Passkeys"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPasskeysResponseBodyPasskeys model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        passkeys = make_shared<vector<ListPasskeysResponseBodyPasskeys>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListPasskeysResponseBody() = default;
+};
+class ListPasskeysResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListPasskeysResponseBody> body{};
+
+  ListPasskeysResponse() {}
+
+  explicit ListPasskeysResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListPasskeysResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListPasskeysResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListPasskeysResponse() = default;
+};
 class ListPredefinedScopesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appType{};
@@ -15151,6 +15449,130 @@ public:
 
   virtual ~UpdateOIDCProviderResponse() = default;
 };
+class UpdatePasskeyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> passkeyId{};
+  shared_ptr<string> passkeyName{};
+  shared_ptr<string> userPrincipalName{};
+
+  UpdatePasskeyRequest() {}
+
+  explicit UpdatePasskeyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (passkeyId) {
+      res["PasskeyId"] = boost::any(*passkeyId);
+    }
+    if (passkeyName) {
+      res["PasskeyName"] = boost::any(*passkeyName);
+    }
+    if (userPrincipalName) {
+      res["UserPrincipalName"] = boost::any(*userPrincipalName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PasskeyId") != m.end() && !m["PasskeyId"].empty()) {
+      passkeyId = make_shared<string>(boost::any_cast<string>(m["PasskeyId"]));
+    }
+    if (m.find("PasskeyName") != m.end() && !m["PasskeyName"].empty()) {
+      passkeyName = make_shared<string>(boost::any_cast<string>(m["PasskeyName"]));
+    }
+    if (m.find("UserPrincipalName") != m.end() && !m["UserPrincipalName"].empty()) {
+      userPrincipalName = make_shared<string>(boost::any_cast<string>(m["UserPrincipalName"]));
+    }
+  }
+
+
+  virtual ~UpdatePasskeyRequest() = default;
+};
+class UpdatePasskeyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdatePasskeyResponseBody() {}
+
+  explicit UpdatePasskeyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdatePasskeyResponseBody() = default;
+};
+class UpdatePasskeyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdatePasskeyResponseBody> body{};
+
+  UpdatePasskeyResponse() {}
+
+  explicit UpdatePasskeyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdatePasskeyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdatePasskeyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdatePasskeyResponse() = default;
+};
 class UpdateSAMLProviderRequest : public Darabonba::Model {
 public:
   shared_ptr<string> newDescription{};
@@ -15648,6 +16070,8 @@ public:
   DeleteLoginProfileResponse deleteLoginProfile(shared_ptr<DeleteLoginProfileRequest> request);
   DeleteOIDCProviderResponse deleteOIDCProviderWithOptions(shared_ptr<DeleteOIDCProviderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteOIDCProviderResponse deleteOIDCProvider(shared_ptr<DeleteOIDCProviderRequest> request);
+  DeletePasskeyResponse deletePasskeyWithOptions(shared_ptr<DeletePasskeyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeletePasskeyResponse deletePasskey(shared_ptr<DeletePasskeyRequest> request);
   DeleteSAMLProviderResponse deleteSAMLProviderWithOptions(shared_ptr<DeleteSAMLProviderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSAMLProviderResponse deleteSAMLProvider(shared_ptr<DeleteSAMLProviderRequest> request);
   DeleteUserResponse deleteUserWithOptions(shared_ptr<DeleteUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -15706,6 +16130,8 @@ public:
   ListGroupsForUserResponse listGroupsForUser(shared_ptr<ListGroupsForUserRequest> request);
   ListOIDCProvidersResponse listOIDCProvidersWithOptions(shared_ptr<ListOIDCProvidersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListOIDCProvidersResponse listOIDCProviders(shared_ptr<ListOIDCProvidersRequest> request);
+  ListPasskeysResponse listPasskeysWithOptions(shared_ptr<ListPasskeysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListPasskeysResponse listPasskeys(shared_ptr<ListPasskeysRequest> request);
   ListPredefinedScopesResponse listPredefinedScopesWithOptions(shared_ptr<ListPredefinedScopesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPredefinedScopesResponse listPredefinedScopes(shared_ptr<ListPredefinedScopesRequest> request);
   ListSAMLProvidersResponse listSAMLProvidersWithOptions(shared_ptr<ListSAMLProvidersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -15750,6 +16176,8 @@ public:
   UpdateLoginProfileResponse updateLoginProfile(shared_ptr<UpdateLoginProfileRequest> request);
   UpdateOIDCProviderResponse updateOIDCProviderWithOptions(shared_ptr<UpdateOIDCProviderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateOIDCProviderResponse updateOIDCProvider(shared_ptr<UpdateOIDCProviderRequest> request);
+  UpdatePasskeyResponse updatePasskeyWithOptions(shared_ptr<UpdatePasskeyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdatePasskeyResponse updatePasskey(shared_ptr<UpdatePasskeyRequest> request);
   UpdateSAMLProviderResponse updateSAMLProviderWithOptions(shared_ptr<UpdateSAMLProviderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSAMLProviderResponse updateSAMLProvider(shared_ptr<UpdateSAMLProviderRequest> request);
   UpdateUserResponse updateUserWithOptions(shared_ptr<UpdateUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
