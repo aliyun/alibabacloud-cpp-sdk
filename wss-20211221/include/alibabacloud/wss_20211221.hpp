@@ -369,11 +369,13 @@ public:
 };
 class DescribePackageDeductionsRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> endTime{};
   shared_ptr<vector<string>> instanceIds{};
   shared_ptr<vector<string>> packageIds{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceType{};
+  shared_ptr<long> startTime{};
 
   DescribePackageDeductionsRequest() {}
 
@@ -385,6 +387,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (instanceIds) {
       res["InstanceIds"] = boost::any(*instanceIds);
     }
@@ -400,10 +405,16 @@ public:
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
@@ -432,6 +443,9 @@ public:
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
   }
 
@@ -558,6 +572,8 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
   shared_ptr<long> totalCount{};
+  shared_ptr<double> totalUsedCoreTime{};
+  shared_ptr<long> totalUsedTime{};
 
   DescribePackageDeductionsResponseBody() {}
 
@@ -588,6 +604,12 @@ public:
     if (totalCount) {
       res["TotalCount"] = boost::any(*totalCount);
     }
+    if (totalUsedCoreTime) {
+      res["TotalUsedCoreTime"] = boost::any(*totalUsedCoreTime);
+    }
+    if (totalUsedTime) {
+      res["TotalUsedTime"] = boost::any(*totalUsedTime);
+    }
     return res;
   }
 
@@ -616,6 +638,12 @@ public:
     }
     if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
       totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("TotalUsedCoreTime") != m.end() && !m["TotalUsedCoreTime"].empty()) {
+      totalUsedCoreTime = make_shared<double>(boost::any_cast<double>(m["TotalUsedCoreTime"]));
+    }
+    if (m.find("TotalUsedTime") != m.end() && !m["TotalUsedTime"].empty()) {
+      totalUsedTime = make_shared<long>(boost::any_cast<long>(m["TotalUsedTime"]));
     }
   }
 
@@ -674,6 +702,151 @@ public:
 
   virtual ~DescribePackageDeductionsResponse() = default;
 };
+class ModifyInstancePropertiesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<vector<string>> instanceIds{};
+  shared_ptr<string> key{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> value{};
+
+  ModifyInstancePropertiesRequest() {}
+
+  explicit ModifyInstancePropertiesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ModifyInstancePropertiesRequest() = default;
+};
+class ModifyInstancePropertiesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyInstancePropertiesResponseBody() {}
+
+  explicit ModifyInstancePropertiesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyInstancePropertiesResponseBody() = default;
+};
+class ModifyInstancePropertiesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyInstancePropertiesResponseBody> body{};
+
+  ModifyInstancePropertiesResponse() {}
+
+  explicit ModifyInstancePropertiesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyInstancePropertiesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyInstancePropertiesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyInstancePropertiesResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -688,6 +861,8 @@ public:
   DescribeDeliveryAddressResponse describeDeliveryAddress();
   DescribePackageDeductionsResponse describePackageDeductionsWithOptions(shared_ptr<DescribePackageDeductionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePackageDeductionsResponse describePackageDeductions(shared_ptr<DescribePackageDeductionsRequest> request);
+  ModifyInstancePropertiesResponse modifyInstancePropertiesWithOptions(shared_ptr<ModifyInstancePropertiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyInstancePropertiesResponse modifyInstanceProperties(shared_ptr<ModifyInstancePropertiesRequest> request);
 
   virtual ~Client() = default;
 };
