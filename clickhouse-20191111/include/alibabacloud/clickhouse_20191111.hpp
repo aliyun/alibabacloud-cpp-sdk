@@ -11040,13 +11040,19 @@ public:
 };
 class DescribeTransferHistoryResponseBodyHistoryDetailsHistoryDetail : public Darabonba::Model {
 public:
+  shared_ptr<long> bytesPerMinute{};
   shared_ptr<string> disableWriteWindows{};
+  shared_ptr<double> partsPerMinute{};
   shared_ptr<string> progress{};
   shared_ptr<string> sourceControlVersion{};
   shared_ptr<string> sourceDBCluster{};
   shared_ptr<string> status{};
+  shared_ptr<string> subJob{};
+  shared_ptr<string> subJobStatus{};
   shared_ptr<string> targetControlVersion{};
   shared_ptr<string> targetDBCluster{};
+  shared_ptr<long> unsyncedBytes{};
+  shared_ptr<long> unsyncedParts{};
 
   DescribeTransferHistoryResponseBodyHistoryDetailsHistoryDetail() {}
 
@@ -11058,8 +11064,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bytesPerMinute) {
+      res["BytesPerMinute"] = boost::any(*bytesPerMinute);
+    }
     if (disableWriteWindows) {
       res["DisableWriteWindows"] = boost::any(*disableWriteWindows);
+    }
+    if (partsPerMinute) {
+      res["PartsPerMinute"] = boost::any(*partsPerMinute);
     }
     if (progress) {
       res["Progress"] = boost::any(*progress);
@@ -11073,18 +11085,36 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (subJob) {
+      res["SubJob"] = boost::any(*subJob);
+    }
+    if (subJobStatus) {
+      res["SubJobStatus"] = boost::any(*subJobStatus);
+    }
     if (targetControlVersion) {
       res["TargetControlVersion"] = boost::any(*targetControlVersion);
     }
     if (targetDBCluster) {
       res["TargetDBCluster"] = boost::any(*targetDBCluster);
     }
+    if (unsyncedBytes) {
+      res["UnsyncedBytes"] = boost::any(*unsyncedBytes);
+    }
+    if (unsyncedParts) {
+      res["UnsyncedParts"] = boost::any(*unsyncedParts);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BytesPerMinute") != m.end() && !m["BytesPerMinute"].empty()) {
+      bytesPerMinute = make_shared<long>(boost::any_cast<long>(m["BytesPerMinute"]));
+    }
     if (m.find("DisableWriteWindows") != m.end() && !m["DisableWriteWindows"].empty()) {
       disableWriteWindows = make_shared<string>(boost::any_cast<string>(m["DisableWriteWindows"]));
+    }
+    if (m.find("PartsPerMinute") != m.end() && !m["PartsPerMinute"].empty()) {
+      partsPerMinute = make_shared<double>(boost::any_cast<double>(m["PartsPerMinute"]));
     }
     if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
       progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
@@ -11098,11 +11128,23 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("SubJob") != m.end() && !m["SubJob"].empty()) {
+      subJob = make_shared<string>(boost::any_cast<string>(m["SubJob"]));
+    }
+    if (m.find("SubJobStatus") != m.end() && !m["SubJobStatus"].empty()) {
+      subJobStatus = make_shared<string>(boost::any_cast<string>(m["SubJobStatus"]));
+    }
     if (m.find("TargetControlVersion") != m.end() && !m["TargetControlVersion"].empty()) {
       targetControlVersion = make_shared<string>(boost::any_cast<string>(m["TargetControlVersion"]));
     }
     if (m.find("TargetDBCluster") != m.end() && !m["TargetDBCluster"].empty()) {
       targetDBCluster = make_shared<string>(boost::any_cast<string>(m["TargetDBCluster"]));
+    }
+    if (m.find("UnsyncedBytes") != m.end() && !m["UnsyncedBytes"].empty()) {
+      unsyncedBytes = make_shared<long>(boost::any_cast<long>(m["UnsyncedBytes"]));
+    }
+    if (m.find("UnsyncedParts") != m.end() && !m["UnsyncedParts"].empty()) {
+      unsyncedParts = make_shared<long>(boost::any_cast<long>(m["UnsyncedParts"]));
     }
   }
 
@@ -13882,7 +13924,9 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> sourceAccount{};
+  shared_ptr<string> sourceClusterName{};
   shared_ptr<string> sourcePassword{};
+  shared_ptr<string> sourceShards{};
   shared_ptr<string> targetAccount{};
   shared_ptr<string> targetDbClusterId{};
   shared_ptr<string> targetPassword{};
@@ -13927,8 +13971,14 @@ public:
     if (sourceAccount) {
       res["SourceAccount"] = boost::any(*sourceAccount);
     }
+    if (sourceClusterName) {
+      res["SourceClusterName"] = boost::any(*sourceClusterName);
+    }
     if (sourcePassword) {
       res["SourcePassword"] = boost::any(*sourcePassword);
+    }
+    if (sourceShards) {
+      res["SourceShards"] = boost::any(*sourceShards);
     }
     if (targetAccount) {
       res["TargetAccount"] = boost::any(*targetAccount);
@@ -13973,8 +14023,14 @@ public:
     if (m.find("SourceAccount") != m.end() && !m["SourceAccount"].empty()) {
       sourceAccount = make_shared<string>(boost::any_cast<string>(m["SourceAccount"]));
     }
+    if (m.find("SourceClusterName") != m.end() && !m["SourceClusterName"].empty()) {
+      sourceClusterName = make_shared<string>(boost::any_cast<string>(m["SourceClusterName"]));
+    }
     if (m.find("SourcePassword") != m.end() && !m["SourcePassword"].empty()) {
       sourcePassword = make_shared<string>(boost::any_cast<string>(m["SourcePassword"]));
+    }
+    if (m.find("SourceShards") != m.end() && !m["SourceShards"].empty()) {
+      sourceShards = make_shared<string>(boost::any_cast<string>(m["SourceShards"]));
     }
     if (m.find("TargetAccount") != m.end() && !m["TargetAccount"].empty()) {
       targetAccount = make_shared<string>(boost::any_cast<string>(m["TargetAccount"]));
