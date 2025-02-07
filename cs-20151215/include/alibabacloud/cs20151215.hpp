@@ -194,12 +194,17 @@ public:
   shared_ptr<vector<string>> excludedInstanceTypes{};
   shared_ptr<vector<string>> instanceCategories{};
   shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<vector<string>> instanceTypeFamilies{};
   shared_ptr<long> maxCpuCores{};
   shared_ptr<double> maxMemorySize{};
   shared_ptr<double> maxPrice{};
+  shared_ptr<long> maximumGpuAmount{};
   shared_ptr<double> memory{};
   shared_ptr<long> minCpuCores{};
   shared_ptr<double> minMemorySize{};
+  shared_ptr<long> minimumEniIpv6AddressQuantity{};
+  shared_ptr<long> minimumEniPrivateIpAddressQuantity{};
+  shared_ptr<long> minimumEniQuantity{};
 
   InstancePatterns() {}
 
@@ -235,6 +240,9 @@ public:
     if (instanceFamilyLevel) {
       res["instance_family_level"] = boost::any(*instanceFamilyLevel);
     }
+    if (instanceTypeFamilies) {
+      res["instance_type_families"] = boost::any(*instanceTypeFamilies);
+    }
     if (maxCpuCores) {
       res["max_cpu_cores"] = boost::any(*maxCpuCores);
     }
@@ -244,6 +252,9 @@ public:
     if (maxPrice) {
       res["max_price"] = boost::any(*maxPrice);
     }
+    if (maximumGpuAmount) {
+      res["maximum_gpu_amount"] = boost::any(*maximumGpuAmount);
+    }
     if (memory) {
       res["memory"] = boost::any(*memory);
     }
@@ -252,6 +263,15 @@ public:
     }
     if (minMemorySize) {
       res["min_memory_size"] = boost::any(*minMemorySize);
+    }
+    if (minimumEniIpv6AddressQuantity) {
+      res["minimum_eni_ipv6_address_quantity"] = boost::any(*minimumEniIpv6AddressQuantity);
+    }
+    if (minimumEniPrivateIpAddressQuantity) {
+      res["minimum_eni_private_ip_address_quantity"] = boost::any(*minimumEniPrivateIpAddressQuantity);
+    }
+    if (minimumEniQuantity) {
+      res["minimum_eni_quantity"] = boost::any(*minimumEniQuantity);
     }
     return res;
   }
@@ -309,6 +329,16 @@ public:
     if (m.find("instance_family_level") != m.end() && !m["instance_family_level"].empty()) {
       instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["instance_family_level"]));
     }
+    if (m.find("instance_type_families") != m.end() && !m["instance_type_families"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["instance_type_families"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["instance_type_families"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypeFamilies = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("max_cpu_cores") != m.end() && !m["max_cpu_cores"].empty()) {
       maxCpuCores = make_shared<long>(boost::any_cast<long>(m["max_cpu_cores"]));
     }
@@ -318,6 +348,9 @@ public:
     if (m.find("max_price") != m.end() && !m["max_price"].empty()) {
       maxPrice = make_shared<double>(boost::any_cast<double>(m["max_price"]));
     }
+    if (m.find("maximum_gpu_amount") != m.end() && !m["maximum_gpu_amount"].empty()) {
+      maximumGpuAmount = make_shared<long>(boost::any_cast<long>(m["maximum_gpu_amount"]));
+    }
     if (m.find("memory") != m.end() && !m["memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["memory"]));
     }
@@ -326,6 +359,15 @@ public:
     }
     if (m.find("min_memory_size") != m.end() && !m["min_memory_size"].empty()) {
       minMemorySize = make_shared<double>(boost::any_cast<double>(m["min_memory_size"]));
+    }
+    if (m.find("minimum_eni_ipv6_address_quantity") != m.end() && !m["minimum_eni_ipv6_address_quantity"].empty()) {
+      minimumEniIpv6AddressQuantity = make_shared<long>(boost::any_cast<long>(m["minimum_eni_ipv6_address_quantity"]));
+    }
+    if (m.find("minimum_eni_private_ip_address_quantity") != m.end() && !m["minimum_eni_private_ip_address_quantity"].empty()) {
+      minimumEniPrivateIpAddressQuantity = make_shared<long>(boost::any_cast<long>(m["minimum_eni_private_ip_address_quantity"]));
+    }
+    if (m.find("minimum_eni_quantity") != m.end() && !m["minimum_eni_quantity"].empty()) {
+      minimumEniQuantity = make_shared<long>(boost::any_cast<long>(m["minimum_eni_quantity"]));
     }
   }
 
