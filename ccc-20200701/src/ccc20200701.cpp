@@ -1470,6 +1470,45 @@ CreateCampaignResponse Alibabacloud_CCC20200701::Client::createCampaign(shared_p
   return createCampaignWithOptions(request, runtime);
 }
 
+CreateChatMediaUrlResponse Alibabacloud_CCC20200701::Client::createChatMediaUrlWithOptions(shared_ptr<CreateChatMediaUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mimeType)) {
+    body->insert(pair<string, string>("MimeType", *request->mimeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
+    body->insert(pair<string, string>("RequestId", *request->requestId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateChatMediaUrl"))},
+    {"version", boost::any(string("2020-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateChatMediaUrlResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateChatMediaUrlResponse(execute(params, req, runtime));
+  }
+}
+
+CreateChatMediaUrlResponse Alibabacloud_CCC20200701::Client::createChatMediaUrl(shared_ptr<CreateChatMediaUrlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createChatMediaUrlWithOptions(request, runtime);
+}
+
 CreateContactFlowResponse Alibabacloud_CCC20200701::Client::createContactFlowWithOptions(shared_ptr<CreateContactFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -8220,6 +8259,60 @@ ProcessAliMeCallbackOfStagingResponse Alibabacloud_CCC20200701::Client::processA
 ProcessAliMeCallbackOfStagingResponse Alibabacloud_CCC20200701::Client::processAliMeCallbackOfStaging(shared_ptr<ProcessAliMeCallbackOfStagingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return processAliMeCallbackOfStagingWithOptions(request, runtime);
+}
+
+ProcessCustomIMCallbackResponse Alibabacloud_CCC20200701::Client::processCustomIMCallbackWithOptions(shared_ptr<ProcessCustomIMCallbackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessChannelId)) {
+    body->insert(pair<string, string>("AccessChannelId", *request->accessChannelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->conversationId)) {
+    body->insert(pair<string, string>("ConversationId", *request->conversationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->messageContent)) {
+    body->insert(pair<string, string>("MessageContent", *request->messageContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
+    body->insert(pair<string, string>("RequestId", *request->requestId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->senderAvatarMediaId)) {
+    body->insert(pair<string, string>("SenderAvatarMediaId", *request->senderAvatarMediaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->senderId)) {
+    body->insert(pair<string, string>("SenderId", *request->senderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->senderName)) {
+    body->insert(pair<string, string>("SenderName", *request->senderName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ProcessCustomIMCallback"))},
+    {"version", boost::any(string("2020-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ProcessCustomIMCallbackResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ProcessCustomIMCallbackResponse(execute(params, req, runtime));
+  }
+}
+
+ProcessCustomIMCallbackResponse Alibabacloud_CCC20200701::Client::processCustomIMCallback(shared_ptr<ProcessCustomIMCallbackRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return processCustomIMCallbackWithOptions(request, runtime);
 }
 
 PublishContactFlowResponse Alibabacloud_CCC20200701::Client::publishContactFlowWithOptions(shared_ptr<PublishContactFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

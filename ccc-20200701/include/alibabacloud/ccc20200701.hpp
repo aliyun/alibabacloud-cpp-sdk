@@ -8916,6 +8916,212 @@ public:
 
   virtual ~CreateCampaignResponse() = default;
 };
+class CreateChatMediaUrlRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> mimeType{};
+  shared_ptr<string> requestId{};
+
+  CreateChatMediaUrlRequest() {}
+
+  explicit CreateChatMediaUrlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (mimeType) {
+      res["MimeType"] = boost::any(*mimeType);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MimeType") != m.end() && !m["MimeType"].empty()) {
+      mimeType = make_shared<string>(boost::any_cast<string>(m["MimeType"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateChatMediaUrlRequest() = default;
+};
+class CreateChatMediaUrlResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> mediaId{};
+  shared_ptr<string> url{};
+
+  CreateChatMediaUrlResponseBodyData() {}
+
+  explicit CreateChatMediaUrlResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~CreateChatMediaUrlResponseBodyData() = default;
+};
+class CreateChatMediaUrlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<CreateChatMediaUrlResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<vector<string>> params{};
+  shared_ptr<string> requestId{};
+
+  CreateChatMediaUrlResponseBody() {}
+
+  explicit CreateChatMediaUrlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateChatMediaUrlResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateChatMediaUrlResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Params"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Params"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      params = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateChatMediaUrlResponseBody() = default;
+};
+class CreateChatMediaUrlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateChatMediaUrlResponseBody> body{};
+
+  CreateChatMediaUrlResponse() {}
+
+  explicit CreateChatMediaUrlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateChatMediaUrlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateChatMediaUrlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateChatMediaUrlResponse() = default;
+};
 class CreateContactFlowRequest : public Darabonba::Model {
 public:
   shared_ptr<string> definition{};
@@ -64263,6 +64469,214 @@ public:
 
   virtual ~ProcessAliMeCallbackOfStagingResponse() = default;
 };
+class ProcessCustomIMCallbackRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessChannelId{};
+  shared_ptr<string> conversationId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> messageContent{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> senderAvatarMediaId{};
+  shared_ptr<string> senderId{};
+  shared_ptr<string> senderName{};
+
+  ProcessCustomIMCallbackRequest() {}
+
+  explicit ProcessCustomIMCallbackRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessChannelId) {
+      res["AccessChannelId"] = boost::any(*accessChannelId);
+    }
+    if (conversationId) {
+      res["ConversationId"] = boost::any(*conversationId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (messageContent) {
+      res["MessageContent"] = boost::any(*messageContent);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (senderAvatarMediaId) {
+      res["SenderAvatarMediaId"] = boost::any(*senderAvatarMediaId);
+    }
+    if (senderId) {
+      res["SenderId"] = boost::any(*senderId);
+    }
+    if (senderName) {
+      res["SenderName"] = boost::any(*senderName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessChannelId") != m.end() && !m["AccessChannelId"].empty()) {
+      accessChannelId = make_shared<string>(boost::any_cast<string>(m["AccessChannelId"]));
+    }
+    if (m.find("ConversationId") != m.end() && !m["ConversationId"].empty()) {
+      conversationId = make_shared<string>(boost::any_cast<string>(m["ConversationId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MessageContent") != m.end() && !m["MessageContent"].empty()) {
+      messageContent = make_shared<string>(boost::any_cast<string>(m["MessageContent"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SenderAvatarMediaId") != m.end() && !m["SenderAvatarMediaId"].empty()) {
+      senderAvatarMediaId = make_shared<string>(boost::any_cast<string>(m["SenderAvatarMediaId"]));
+    }
+    if (m.find("SenderId") != m.end() && !m["SenderId"].empty()) {
+      senderId = make_shared<string>(boost::any_cast<string>(m["SenderId"]));
+    }
+    if (m.find("SenderName") != m.end() && !m["SenderName"].empty()) {
+      senderName = make_shared<string>(boost::any_cast<string>(m["SenderName"]));
+    }
+  }
+
+
+  virtual ~ProcessCustomIMCallbackRequest() = default;
+};
+class ProcessCustomIMCallbackResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> message{};
+  shared_ptr<vector<string>> params{};
+  shared_ptr<string> requestId{};
+
+  ProcessCustomIMCallbackResponseBody() {}
+
+  explicit ProcessCustomIMCallbackResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Params"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Params"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      params = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ProcessCustomIMCallbackResponseBody() = default;
+};
+class ProcessCustomIMCallbackResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ProcessCustomIMCallbackResponseBody> body{};
+
+  ProcessCustomIMCallbackResponse() {}
+
+  explicit ProcessCustomIMCallbackResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ProcessCustomIMCallbackResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ProcessCustomIMCallbackResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ProcessCustomIMCallbackResponse() = default;
+};
 class PublishContactFlowRequest : public Darabonba::Model {
 public:
   shared_ptr<string> contactFlowId{};
@@ -77049,6 +77463,8 @@ public:
   CreateCallTagsResponse createCallTags(shared_ptr<CreateCallTagsRequest> request);
   CreateCampaignResponse createCampaignWithOptions(shared_ptr<CreateCampaignRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCampaignResponse createCampaign(shared_ptr<CreateCampaignRequest> request);
+  CreateChatMediaUrlResponse createChatMediaUrlWithOptions(shared_ptr<CreateChatMediaUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateChatMediaUrlResponse createChatMediaUrl(shared_ptr<CreateChatMediaUrlRequest> request);
   CreateContactFlowResponse createContactFlowWithOptions(shared_ptr<CreateContactFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateContactFlowResponse createContactFlow(shared_ptr<CreateContactFlowRequest> request);
   CreateCustomCallTaggingResponse createCustomCallTaggingWithOptions(shared_ptr<CreateCustomCallTaggingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -77367,6 +77783,8 @@ public:
   PollUserStatusResponse pollUserStatus(shared_ptr<PollUserStatusRequest> request);
   ProcessAliMeCallbackOfStagingResponse processAliMeCallbackOfStagingWithOptions(shared_ptr<ProcessAliMeCallbackOfStagingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ProcessAliMeCallbackOfStagingResponse processAliMeCallbackOfStaging(shared_ptr<ProcessAliMeCallbackOfStagingRequest> request);
+  ProcessCustomIMCallbackResponse processCustomIMCallbackWithOptions(shared_ptr<ProcessCustomIMCallbackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ProcessCustomIMCallbackResponse processCustomIMCallback(shared_ptr<ProcessCustomIMCallbackRequest> request);
   PublishContactFlowResponse publishContactFlowWithOptions(shared_ptr<PublishContactFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PublishContactFlowResponse publishContactFlow(shared_ptr<PublishContactFlowRequest> request);
   ReadyForServiceResponse readyForServiceWithOptions(shared_ptr<ReadyForServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
