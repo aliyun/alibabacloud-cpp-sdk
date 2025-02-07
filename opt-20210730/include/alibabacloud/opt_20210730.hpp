@@ -177,6 +177,7 @@ public:
   shared_ptr<long> currentConcurrency{};
   shared_ptr<long> currentDays{};
   shared_ptr<string> instanceId{};
+  shared_ptr<bool> isReleased{};
   shared_ptr<string> licenseKey{};
   shared_ptr<string> remark{};
   shared_ptr<long> totalDays{};
@@ -203,6 +204,9 @@ public:
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
     }
+    if (isReleased) {
+      res["isReleased"] = boost::any(*isReleased);
+    }
     if (licenseKey) {
       res["licenseKey"] = boost::any(*licenseKey);
     }
@@ -227,6 +231,9 @@ public:
     }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("isReleased") != m.end() && !m["isReleased"].empty()) {
+      isReleased = make_shared<bool>(boost::any_cast<bool>(m["isReleased"]));
     }
     if (m.find("licenseKey") != m.end() && !m["licenseKey"].empty()) {
       licenseKey = make_shared<string>(boost::any_cast<string>(m["licenseKey"]));

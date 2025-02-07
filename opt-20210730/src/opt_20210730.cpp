@@ -50,7 +50,12 @@ GetOpenStatusResponse Alibabacloud_Opt20210730::Client::getOpenStatusWithOptions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetOpenStatusResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetOpenStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetOpenStatusResponse(execute(params, req, runtime));
+  }
 }
 
 GetOpenStatusResponse Alibabacloud_Opt20210730::Client::getOpenStatus() {
@@ -84,7 +89,12 @@ GetOrderInfoResponse Alibabacloud_Opt20210730::Client::getOrderInfoWithOptions(s
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetOrderInfoResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetOrderInfoResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetOrderInfoResponse(execute(params, req, runtime));
+  }
 }
 
 GetOrderInfoResponse Alibabacloud_Opt20210730::Client::getOrderInfo(shared_ptr<GetOrderInfoRequest> request) {
@@ -121,7 +131,12 @@ GetOrderUsageResponse Alibabacloud_Opt20210730::Client::getOrderUsageWithOptions
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetOrderUsageResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetOrderUsageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetOrderUsageResponse(execute(params, req, runtime));
+  }
 }
 
 GetOrderUsageResponse Alibabacloud_Opt20210730::Client::getOrderUsage(shared_ptr<GetOrderUsageRequest> request) {
