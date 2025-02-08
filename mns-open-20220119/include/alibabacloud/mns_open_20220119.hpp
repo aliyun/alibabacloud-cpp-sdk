@@ -266,6 +266,49 @@ public:
 
   virtual ~AuthorizeEndpointAclResponse() = default;
 };
+class CreateQueueRequestDlqPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> deadLetterTargetQueue{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> maxReceiveCount{};
+
+  CreateQueueRequestDlqPolicy() {}
+
+  explicit CreateQueueRequestDlqPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deadLetterTargetQueue) {
+      res["DeadLetterTargetQueue"] = boost::any(*deadLetterTargetQueue);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (maxReceiveCount) {
+      res["MaxReceiveCount"] = boost::any(*maxReceiveCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeadLetterTargetQueue") != m.end() && !m["DeadLetterTargetQueue"].empty()) {
+      deadLetterTargetQueue = make_shared<string>(boost::any_cast<string>(m["DeadLetterTargetQueue"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("MaxReceiveCount") != m.end() && !m["MaxReceiveCount"].empty()) {
+      maxReceiveCount = make_shared<long>(boost::any_cast<long>(m["MaxReceiveCount"]));
+    }
+  }
+
+
+  virtual ~CreateQueueRequestDlqPolicy() = default;
+};
 class CreateQueueRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -305,6 +348,7 @@ public:
 class CreateQueueRequest : public Darabonba::Model {
 public:
   shared_ptr<long> delaySeconds{};
+  shared_ptr<CreateQueueRequestDlqPolicy> dlqPolicy{};
   shared_ptr<bool> enableLogging{};
   shared_ptr<long> maximumMessageSize{};
   shared_ptr<long> messageRetentionPeriod{};
@@ -325,6 +369,9 @@ public:
     map<string, boost::any> res;
     if (delaySeconds) {
       res["DelaySeconds"] = boost::any(*delaySeconds);
+    }
+    if (dlqPolicy) {
+      res["DlqPolicy"] = dlqPolicy ? boost::any(dlqPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (enableLogging) {
       res["EnableLogging"] = boost::any(*enableLogging);
@@ -357,6 +404,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DelaySeconds") != m.end() && !m["DelaySeconds"].empty()) {
       delaySeconds = make_shared<long>(boost::any_cast<long>(m["DelaySeconds"]));
+    }
+    if (m.find("DlqPolicy") != m.end() && !m["DlqPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DlqPolicy"].type()) {
+        CreateQueueRequestDlqPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DlqPolicy"]));
+        dlqPolicy = make_shared<CreateQueueRequestDlqPolicy>(model1);
+      }
     }
     if (m.find("EnableLogging") != m.end() && !m["EnableLogging"].empty()) {
       enableLogging = make_shared<bool>(boost::any_cast<bool>(m["EnableLogging"]));
@@ -393,6 +447,141 @@ public:
 
 
   virtual ~CreateQueueRequest() = default;
+};
+class CreateQueueShrinkRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateQueueShrinkRequestTag() {}
+
+  explicit CreateQueueShrinkRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateQueueShrinkRequestTag() = default;
+};
+class CreateQueueShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> delaySeconds{};
+  shared_ptr<string> dlqPolicyShrink{};
+  shared_ptr<bool> enableLogging{};
+  shared_ptr<long> maximumMessageSize{};
+  shared_ptr<long> messageRetentionPeriod{};
+  shared_ptr<long> pollingWaitSeconds{};
+  shared_ptr<string> queueName{};
+  shared_ptr<vector<CreateQueueShrinkRequestTag>> tag{};
+  shared_ptr<long> visibilityTimeout{};
+
+  CreateQueueShrinkRequest() {}
+
+  explicit CreateQueueShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (delaySeconds) {
+      res["DelaySeconds"] = boost::any(*delaySeconds);
+    }
+    if (dlqPolicyShrink) {
+      res["DlqPolicy"] = boost::any(*dlqPolicyShrink);
+    }
+    if (enableLogging) {
+      res["EnableLogging"] = boost::any(*enableLogging);
+    }
+    if (maximumMessageSize) {
+      res["MaximumMessageSize"] = boost::any(*maximumMessageSize);
+    }
+    if (messageRetentionPeriod) {
+      res["MessageRetentionPeriod"] = boost::any(*messageRetentionPeriod);
+    }
+    if (pollingWaitSeconds) {
+      res["PollingWaitSeconds"] = boost::any(*pollingWaitSeconds);
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    if (visibilityTimeout) {
+      res["VisibilityTimeout"] = boost::any(*visibilityTimeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DelaySeconds") != m.end() && !m["DelaySeconds"].empty()) {
+      delaySeconds = make_shared<long>(boost::any_cast<long>(m["DelaySeconds"]));
+    }
+    if (m.find("DlqPolicy") != m.end() && !m["DlqPolicy"].empty()) {
+      dlqPolicyShrink = make_shared<string>(boost::any_cast<string>(m["DlqPolicy"]));
+    }
+    if (m.find("EnableLogging") != m.end() && !m["EnableLogging"].empty()) {
+      enableLogging = make_shared<bool>(boost::any_cast<bool>(m["EnableLogging"]));
+    }
+    if (m.find("MaximumMessageSize") != m.end() && !m["MaximumMessageSize"].empty()) {
+      maximumMessageSize = make_shared<long>(boost::any_cast<long>(m["MaximumMessageSize"]));
+    }
+    if (m.find("MessageRetentionPeriod") != m.end() && !m["MessageRetentionPeriod"].empty()) {
+      messageRetentionPeriod = make_shared<long>(boost::any_cast<long>(m["MessageRetentionPeriod"]));
+    }
+    if (m.find("PollingWaitSeconds") != m.end() && !m["PollingWaitSeconds"].empty()) {
+      pollingWaitSeconds = make_shared<long>(boost::any_cast<long>(m["PollingWaitSeconds"]));
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateQueueShrinkRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateQueueShrinkRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateQueueShrinkRequestTag>>(expect1);
+      }
+    }
+    if (m.find("VisibilityTimeout") != m.end() && !m["VisibilityTimeout"].empty()) {
+      visibilityTimeout = make_shared<long>(boost::any_cast<long>(m["VisibilityTimeout"]));
+    }
+  }
+
+
+  virtual ~CreateQueueShrinkRequest() = default;
 };
 class CreateQueueResponseBodyData : public Darabonba::Model {
 public:
@@ -1766,6 +1955,49 @@ public:
 
   virtual ~GetQueueAttributesRequest() = default;
 };
+class GetQueueAttributesResponseBodyDataDlqPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> deadLetterTargetQueue{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> maxReceiveCount{};
+
+  GetQueueAttributesResponseBodyDataDlqPolicy() {}
+
+  explicit GetQueueAttributesResponseBodyDataDlqPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deadLetterTargetQueue) {
+      res["DeadLetterTargetQueue"] = boost::any(*deadLetterTargetQueue);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (maxReceiveCount) {
+      res["MaxReceiveCount"] = boost::any(*maxReceiveCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeadLetterTargetQueue") != m.end() && !m["DeadLetterTargetQueue"].empty()) {
+      deadLetterTargetQueue = make_shared<string>(boost::any_cast<string>(m["DeadLetterTargetQueue"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("MaxReceiveCount") != m.end() && !m["MaxReceiveCount"].empty()) {
+      maxReceiveCount = make_shared<string>(boost::any_cast<string>(m["MaxReceiveCount"]));
+    }
+  }
+
+
+  virtual ~GetQueueAttributesResponseBodyDataDlqPolicy() = default;
+};
 class GetQueueAttributesResponseBodyDataTags : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -1808,6 +2040,7 @@ public:
   shared_ptr<long> createTime{};
   shared_ptr<long> delayMessages{};
   shared_ptr<long> delaySeconds{};
+  shared_ptr<GetQueueAttributesResponseBodyDataDlqPolicy> dlqPolicy{};
   shared_ptr<long> inactiveMessages{};
   shared_ptr<long> lastModifyTime{};
   shared_ptr<bool> loggingEnabled{};
@@ -1839,6 +2072,9 @@ public:
     }
     if (delaySeconds) {
       res["DelaySeconds"] = boost::any(*delaySeconds);
+    }
+    if (dlqPolicy) {
+      res["DlqPolicy"] = dlqPolicy ? boost::any(dlqPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (inactiveMessages) {
       res["InactiveMessages"] = boost::any(*inactiveMessages);
@@ -1886,6 +2122,13 @@ public:
     }
     if (m.find("DelaySeconds") != m.end() && !m["DelaySeconds"].empty()) {
       delaySeconds = make_shared<long>(boost::any_cast<long>(m["DelaySeconds"]));
+    }
+    if (m.find("DlqPolicy") != m.end() && !m["DlqPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DlqPolicy"].type()) {
+        GetQueueAttributesResponseBodyDataDlqPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DlqPolicy"]));
+        dlqPolicy = make_shared<GetQueueAttributesResponseBodyDataDlqPolicy>(model1);
+      }
     }
     if (m.find("InactiveMessages") != m.end() && !m["InactiveMessages"].empty()) {
       inactiveMessages = make_shared<long>(boost::any_cast<long>(m["InactiveMessages"]));
@@ -2085,9 +2328,46 @@ public:
 
   virtual ~GetSubscriptionAttributesRequest() = default;
 };
+class GetSubscriptionAttributesResponseBodyDataDlqPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> deadLetterTargetQueue{};
+  shared_ptr<bool> enabled{};
+
+  GetSubscriptionAttributesResponseBodyDataDlqPolicy() {}
+
+  explicit GetSubscriptionAttributesResponseBodyDataDlqPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deadLetterTargetQueue) {
+      res["DeadLetterTargetQueue"] = boost::any(*deadLetterTargetQueue);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeadLetterTargetQueue") != m.end() && !m["DeadLetterTargetQueue"].empty()) {
+      deadLetterTargetQueue = make_shared<string>(boost::any_cast<string>(m["DeadLetterTargetQueue"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~GetSubscriptionAttributesResponseBodyDataDlqPolicy() = default;
+};
 class GetSubscriptionAttributesResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> createTime{};
+  shared_ptr<GetSubscriptionAttributesResponseBodyDataDlqPolicy> dlqPolicy{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> filterTag{};
   shared_ptr<long> lastModifyTime{};
@@ -2109,6 +2389,9 @@ public:
     map<string, boost::any> res;
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (dlqPolicy) {
+      res["DlqPolicy"] = dlqPolicy ? boost::any(dlqPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (endpoint) {
       res["Endpoint"] = boost::any(*endpoint);
@@ -2140,6 +2423,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("DlqPolicy") != m.end() && !m["DlqPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DlqPolicy"].type()) {
+        GetSubscriptionAttributesResponseBodyDataDlqPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DlqPolicy"]));
+        dlqPolicy = make_shared<GetSubscriptionAttributesResponseBodyDataDlqPolicy>(model1);
+      }
     }
     if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
@@ -2724,6 +3014,49 @@ public:
 
   virtual ~ListQueueRequest() = default;
 };
+class ListQueueResponseBodyDataPageDataDlqPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> deadLetterTargetQueue{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> maxReceiveCount{};
+
+  ListQueueResponseBodyDataPageDataDlqPolicy() {}
+
+  explicit ListQueueResponseBodyDataPageDataDlqPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deadLetterTargetQueue) {
+      res["DeadLetterTargetQueue"] = boost::any(*deadLetterTargetQueue);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (maxReceiveCount) {
+      res["MaxReceiveCount"] = boost::any(*maxReceiveCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeadLetterTargetQueue") != m.end() && !m["DeadLetterTargetQueue"].empty()) {
+      deadLetterTargetQueue = make_shared<string>(boost::any_cast<string>(m["DeadLetterTargetQueue"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("MaxReceiveCount") != m.end() && !m["MaxReceiveCount"].empty()) {
+      maxReceiveCount = make_shared<string>(boost::any_cast<string>(m["MaxReceiveCount"]));
+    }
+  }
+
+
+  virtual ~ListQueueResponseBodyDataPageDataDlqPolicy() = default;
+};
 class ListQueueResponseBodyDataPageDataTags : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -2766,6 +3099,7 @@ public:
   shared_ptr<long> createTime{};
   shared_ptr<long> delayMessages{};
   shared_ptr<long> delaySeconds{};
+  shared_ptr<ListQueueResponseBodyDataPageDataDlqPolicy> dlqPolicy{};
   shared_ptr<long> inactiveMessages{};
   shared_ptr<long> lastModifyTime{};
   shared_ptr<bool> loggingEnabled{};
@@ -2797,6 +3131,9 @@ public:
     }
     if (delaySeconds) {
       res["DelaySeconds"] = boost::any(*delaySeconds);
+    }
+    if (dlqPolicy) {
+      res["DlqPolicy"] = dlqPolicy ? boost::any(dlqPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (inactiveMessages) {
       res["InactiveMessages"] = boost::any(*inactiveMessages);
@@ -2844,6 +3181,13 @@ public:
     }
     if (m.find("DelaySeconds") != m.end() && !m["DelaySeconds"].empty()) {
       delaySeconds = make_shared<long>(boost::any_cast<long>(m["DelaySeconds"]));
+    }
+    if (m.find("DlqPolicy") != m.end() && !m["DlqPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DlqPolicy"].type()) {
+        ListQueueResponseBodyDataPageDataDlqPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DlqPolicy"]));
+        dlqPolicy = make_shared<ListQueueResponseBodyDataPageDataDlqPolicy>(model1);
+      }
     }
     if (m.find("InactiveMessages") != m.end() && !m["InactiveMessages"].empty()) {
       inactiveMessages = make_shared<long>(boost::any_cast<long>(m["InactiveMessages"]));
@@ -3135,9 +3479,46 @@ public:
 
   virtual ~ListSubscriptionByTopicRequest() = default;
 };
+class ListSubscriptionByTopicResponseBodyDataPageDataDlqPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> deadLetterTargetQueue{};
+  shared_ptr<bool> enabled{};
+
+  ListSubscriptionByTopicResponseBodyDataPageDataDlqPolicy() {}
+
+  explicit ListSubscriptionByTopicResponseBodyDataPageDataDlqPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deadLetterTargetQueue) {
+      res["DeadLetterTargetQueue"] = boost::any(*deadLetterTargetQueue);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeadLetterTargetQueue") != m.end() && !m["DeadLetterTargetQueue"].empty()) {
+      deadLetterTargetQueue = make_shared<string>(boost::any_cast<string>(m["DeadLetterTargetQueue"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~ListSubscriptionByTopicResponseBodyDataPageDataDlqPolicy() = default;
+};
 class ListSubscriptionByTopicResponseBodyDataPageData : public Darabonba::Model {
 public:
   shared_ptr<long> createTime{};
+  shared_ptr<ListSubscriptionByTopicResponseBodyDataPageDataDlqPolicy> dlqPolicy{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> filterTag{};
   shared_ptr<long> lastModifyTime{};
@@ -3159,6 +3540,9 @@ public:
     map<string, boost::any> res;
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (dlqPolicy) {
+      res["DlqPolicy"] = dlqPolicy ? boost::any(dlqPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (endpoint) {
       res["Endpoint"] = boost::any(*endpoint);
@@ -3190,6 +3574,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("DlqPolicy") != m.end() && !m["DlqPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DlqPolicy"].type()) {
+        ListSubscriptionByTopicResponseBodyDataPageDataDlqPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DlqPolicy"]));
+        dlqPolicy = make_shared<ListSubscriptionByTopicResponseBodyDataPageDataDlqPolicy>(model1);
+      }
     }
     if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
@@ -4046,9 +4437,53 @@ public:
 
   virtual ~RevokeEndpointAclResponse() = default;
 };
+class SetQueueAttributesRequestDlqPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> deadLetterTargetQueue{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> maxReceiveCount{};
+
+  SetQueueAttributesRequestDlqPolicy() {}
+
+  explicit SetQueueAttributesRequestDlqPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deadLetterTargetQueue) {
+      res["DeadLetterTargetQueue"] = boost::any(*deadLetterTargetQueue);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (maxReceiveCount) {
+      res["MaxReceiveCount"] = boost::any(*maxReceiveCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeadLetterTargetQueue") != m.end() && !m["DeadLetterTargetQueue"].empty()) {
+      deadLetterTargetQueue = make_shared<string>(boost::any_cast<string>(m["DeadLetterTargetQueue"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("MaxReceiveCount") != m.end() && !m["MaxReceiveCount"].empty()) {
+      maxReceiveCount = make_shared<long>(boost::any_cast<long>(m["MaxReceiveCount"]));
+    }
+  }
+
+
+  virtual ~SetQueueAttributesRequestDlqPolicy() = default;
+};
 class SetQueueAttributesRequest : public Darabonba::Model {
 public:
   shared_ptr<long> delaySeconds{};
+  shared_ptr<SetQueueAttributesRequestDlqPolicy> dlqPolicy{};
   shared_ptr<bool> enableLogging{};
   shared_ptr<long> maximumMessageSize{};
   shared_ptr<long> messageRetentionPeriod{};
@@ -4068,6 +4503,9 @@ public:
     map<string, boost::any> res;
     if (delaySeconds) {
       res["DelaySeconds"] = boost::any(*delaySeconds);
+    }
+    if (dlqPolicy) {
+      res["DlqPolicy"] = dlqPolicy ? boost::any(dlqPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (enableLogging) {
       res["EnableLogging"] = boost::any(*enableLogging);
@@ -4094,6 +4532,13 @@ public:
     if (m.find("DelaySeconds") != m.end() && !m["DelaySeconds"].empty()) {
       delaySeconds = make_shared<long>(boost::any_cast<long>(m["DelaySeconds"]));
     }
+    if (m.find("DlqPolicy") != m.end() && !m["DlqPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DlqPolicy"].type()) {
+        SetQueueAttributesRequestDlqPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DlqPolicy"]));
+        dlqPolicy = make_shared<SetQueueAttributesRequestDlqPolicy>(model1);
+      }
+    }
     if (m.find("EnableLogging") != m.end() && !m["EnableLogging"].empty()) {
       enableLogging = make_shared<bool>(boost::any_cast<bool>(m["EnableLogging"]));
     }
@@ -4116,6 +4561,84 @@ public:
 
 
   virtual ~SetQueueAttributesRequest() = default;
+};
+class SetQueueAttributesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> delaySeconds{};
+  shared_ptr<string> dlqPolicyShrink{};
+  shared_ptr<bool> enableLogging{};
+  shared_ptr<long> maximumMessageSize{};
+  shared_ptr<long> messageRetentionPeriod{};
+  shared_ptr<long> pollingWaitSeconds{};
+  shared_ptr<string> queueName{};
+  shared_ptr<long> visibilityTimeout{};
+
+  SetQueueAttributesShrinkRequest() {}
+
+  explicit SetQueueAttributesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (delaySeconds) {
+      res["DelaySeconds"] = boost::any(*delaySeconds);
+    }
+    if (dlqPolicyShrink) {
+      res["DlqPolicy"] = boost::any(*dlqPolicyShrink);
+    }
+    if (enableLogging) {
+      res["EnableLogging"] = boost::any(*enableLogging);
+    }
+    if (maximumMessageSize) {
+      res["MaximumMessageSize"] = boost::any(*maximumMessageSize);
+    }
+    if (messageRetentionPeriod) {
+      res["MessageRetentionPeriod"] = boost::any(*messageRetentionPeriod);
+    }
+    if (pollingWaitSeconds) {
+      res["PollingWaitSeconds"] = boost::any(*pollingWaitSeconds);
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    if (visibilityTimeout) {
+      res["VisibilityTimeout"] = boost::any(*visibilityTimeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DelaySeconds") != m.end() && !m["DelaySeconds"].empty()) {
+      delaySeconds = make_shared<long>(boost::any_cast<long>(m["DelaySeconds"]));
+    }
+    if (m.find("DlqPolicy") != m.end() && !m["DlqPolicy"].empty()) {
+      dlqPolicyShrink = make_shared<string>(boost::any_cast<string>(m["DlqPolicy"]));
+    }
+    if (m.find("EnableLogging") != m.end() && !m["EnableLogging"].empty()) {
+      enableLogging = make_shared<bool>(boost::any_cast<bool>(m["EnableLogging"]));
+    }
+    if (m.find("MaximumMessageSize") != m.end() && !m["MaximumMessageSize"].empty()) {
+      maximumMessageSize = make_shared<long>(boost::any_cast<long>(m["MaximumMessageSize"]));
+    }
+    if (m.find("MessageRetentionPeriod") != m.end() && !m["MessageRetentionPeriod"].empty()) {
+      messageRetentionPeriod = make_shared<long>(boost::any_cast<long>(m["MessageRetentionPeriod"]));
+    }
+    if (m.find("PollingWaitSeconds") != m.end() && !m["PollingWaitSeconds"].empty()) {
+      pollingWaitSeconds = make_shared<long>(boost::any_cast<long>(m["PollingWaitSeconds"]));
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("VisibilityTimeout") != m.end() && !m["VisibilityTimeout"].empty()) {
+      visibilityTimeout = make_shared<long>(boost::any_cast<long>(m["VisibilityTimeout"]));
+    }
+  }
+
+
+  virtual ~SetQueueAttributesShrinkRequest() = default;
 };
 class SetQueueAttributesResponseBodyData : public Darabonba::Model {
 public:
@@ -4280,8 +4803,45 @@ public:
 
   virtual ~SetQueueAttributesResponse() = default;
 };
+class SetSubscriptionAttributesRequestDlqPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> deadLetterTargetQueue{};
+  shared_ptr<bool> enabled{};
+
+  SetSubscriptionAttributesRequestDlqPolicy() {}
+
+  explicit SetSubscriptionAttributesRequestDlqPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deadLetterTargetQueue) {
+      res["DeadLetterTargetQueue"] = boost::any(*deadLetterTargetQueue);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeadLetterTargetQueue") != m.end() && !m["DeadLetterTargetQueue"].empty()) {
+      deadLetterTargetQueue = make_shared<string>(boost::any_cast<string>(m["DeadLetterTargetQueue"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~SetSubscriptionAttributesRequestDlqPolicy() = default;
+};
 class SetSubscriptionAttributesRequest : public Darabonba::Model {
 public:
+  shared_ptr<SetSubscriptionAttributesRequestDlqPolicy> dlqPolicy{};
   shared_ptr<string> notifyStrategy{};
   shared_ptr<string> subscriptionName{};
   shared_ptr<string> topicName{};
@@ -4296,6 +4856,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dlqPolicy) {
+      res["DlqPolicy"] = dlqPolicy ? boost::any(dlqPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (notifyStrategy) {
       res["NotifyStrategy"] = boost::any(*notifyStrategy);
     }
@@ -4309,6 +4872,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DlqPolicy") != m.end() && !m["DlqPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DlqPolicy"].type()) {
+        SetSubscriptionAttributesRequestDlqPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DlqPolicy"]));
+        dlqPolicy = make_shared<SetSubscriptionAttributesRequestDlqPolicy>(model1);
+      }
+    }
     if (m.find("NotifyStrategy") != m.end() && !m["NotifyStrategy"].empty()) {
       notifyStrategy = make_shared<string>(boost::any_cast<string>(m["NotifyStrategy"]));
     }
@@ -4322,6 +4892,56 @@ public:
 
 
   virtual ~SetSubscriptionAttributesRequest() = default;
+};
+class SetSubscriptionAttributesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dlqPolicyShrink{};
+  shared_ptr<string> notifyStrategy{};
+  shared_ptr<string> subscriptionName{};
+  shared_ptr<string> topicName{};
+
+  SetSubscriptionAttributesShrinkRequest() {}
+
+  explicit SetSubscriptionAttributesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dlqPolicyShrink) {
+      res["DlqPolicy"] = boost::any(*dlqPolicyShrink);
+    }
+    if (notifyStrategy) {
+      res["NotifyStrategy"] = boost::any(*notifyStrategy);
+    }
+    if (subscriptionName) {
+      res["SubscriptionName"] = boost::any(*subscriptionName);
+    }
+    if (topicName) {
+      res["TopicName"] = boost::any(*topicName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DlqPolicy") != m.end() && !m["DlqPolicy"].empty()) {
+      dlqPolicyShrink = make_shared<string>(boost::any_cast<string>(m["DlqPolicy"]));
+    }
+    if (m.find("NotifyStrategy") != m.end() && !m["NotifyStrategy"].empty()) {
+      notifyStrategy = make_shared<string>(boost::any_cast<string>(m["NotifyStrategy"]));
+    }
+    if (m.find("SubscriptionName") != m.end() && !m["SubscriptionName"].empty()) {
+      subscriptionName = make_shared<string>(boost::any_cast<string>(m["SubscriptionName"]));
+    }
+    if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
+      topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
+    }
+  }
+
+
+  virtual ~SetSubscriptionAttributesShrinkRequest() = default;
 };
 class SetSubscriptionAttributesResponseBodyData : public Darabonba::Model {
 public:
@@ -4692,8 +5312,45 @@ public:
 
   virtual ~SetTopicAttributesResponse() = default;
 };
+class SubscribeRequestDlqPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> deadLetterTargetQueue{};
+  shared_ptr<bool> enabled{};
+
+  SubscribeRequestDlqPolicy() {}
+
+  explicit SubscribeRequestDlqPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deadLetterTargetQueue) {
+      res["DeadLetterTargetQueue"] = boost::any(*deadLetterTargetQueue);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeadLetterTargetQueue") != m.end() && !m["DeadLetterTargetQueue"].empty()) {
+      deadLetterTargetQueue = make_shared<string>(boost::any_cast<string>(m["DeadLetterTargetQueue"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~SubscribeRequestDlqPolicy() = default;
+};
 class SubscribeRequest : public Darabonba::Model {
 public:
+  shared_ptr<SubscribeRequestDlqPolicy> dlqPolicy{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> messageTag{};
   shared_ptr<string> notifyContentFormat{};
@@ -4712,6 +5369,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dlqPolicy) {
+      res["DlqPolicy"] = dlqPolicy ? boost::any(dlqPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (endpoint) {
       res["Endpoint"] = boost::any(*endpoint);
     }
@@ -4737,6 +5397,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DlqPolicy") != m.end() && !m["DlqPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DlqPolicy"].type()) {
+        SubscribeRequestDlqPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DlqPolicy"]));
+        dlqPolicy = make_shared<SubscribeRequestDlqPolicy>(model1);
+      }
+    }
     if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
     }
@@ -4762,6 +5429,84 @@ public:
 
 
   virtual ~SubscribeRequest() = default;
+};
+class SubscribeShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dlqPolicyShrink{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> messageTag{};
+  shared_ptr<string> notifyContentFormat{};
+  shared_ptr<string> notifyStrategy{};
+  shared_ptr<string> pushType{};
+  shared_ptr<string> subscriptionName{};
+  shared_ptr<string> topicName{};
+
+  SubscribeShrinkRequest() {}
+
+  explicit SubscribeShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dlqPolicyShrink) {
+      res["DlqPolicy"] = boost::any(*dlqPolicyShrink);
+    }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (messageTag) {
+      res["MessageTag"] = boost::any(*messageTag);
+    }
+    if (notifyContentFormat) {
+      res["NotifyContentFormat"] = boost::any(*notifyContentFormat);
+    }
+    if (notifyStrategy) {
+      res["NotifyStrategy"] = boost::any(*notifyStrategy);
+    }
+    if (pushType) {
+      res["PushType"] = boost::any(*pushType);
+    }
+    if (subscriptionName) {
+      res["SubscriptionName"] = boost::any(*subscriptionName);
+    }
+    if (topicName) {
+      res["TopicName"] = boost::any(*topicName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DlqPolicy") != m.end() && !m["DlqPolicy"].empty()) {
+      dlqPolicyShrink = make_shared<string>(boost::any_cast<string>(m["DlqPolicy"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("MessageTag") != m.end() && !m["MessageTag"].empty()) {
+      messageTag = make_shared<string>(boost::any_cast<string>(m["MessageTag"]));
+    }
+    if (m.find("NotifyContentFormat") != m.end() && !m["NotifyContentFormat"].empty()) {
+      notifyContentFormat = make_shared<string>(boost::any_cast<string>(m["NotifyContentFormat"]));
+    }
+    if (m.find("NotifyStrategy") != m.end() && !m["NotifyStrategy"].empty()) {
+      notifyStrategy = make_shared<string>(boost::any_cast<string>(m["NotifyStrategy"]));
+    }
+    if (m.find("PushType") != m.end() && !m["PushType"].empty()) {
+      pushType = make_shared<string>(boost::any_cast<string>(m["PushType"]));
+    }
+    if (m.find("SubscriptionName") != m.end() && !m["SubscriptionName"].empty()) {
+      subscriptionName = make_shared<string>(boost::any_cast<string>(m["SubscriptionName"]));
+    }
+    if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
+      topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
+    }
+  }
+
+
+  virtual ~SubscribeShrinkRequest() = default;
 };
 class SubscribeResponseBody : public Darabonba::Model {
 public:
@@ -5090,7 +5835,7 @@ public:
                      shared_ptr<string> endpoint);
   AuthorizeEndpointAclResponse authorizeEndpointAclWithOptions(shared_ptr<AuthorizeEndpointAclRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AuthorizeEndpointAclResponse authorizeEndpointAcl(shared_ptr<AuthorizeEndpointAclRequest> request);
-  CreateQueueResponse createQueueWithOptions(shared_ptr<CreateQueueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateQueueResponse createQueueWithOptions(shared_ptr<CreateQueueRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateQueueResponse createQueue(shared_ptr<CreateQueueRequest> request);
   CreateTopicResponse createTopicWithOptions(shared_ptr<CreateTopicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTopicResponse createTopic(shared_ptr<CreateTopicRequest> request);
@@ -5118,13 +5863,13 @@ public:
   ListTopicResponse listTopic(shared_ptr<ListTopicRequest> request);
   RevokeEndpointAclResponse revokeEndpointAclWithOptions(shared_ptr<RevokeEndpointAclRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RevokeEndpointAclResponse revokeEndpointAcl(shared_ptr<RevokeEndpointAclRequest> request);
-  SetQueueAttributesResponse setQueueAttributesWithOptions(shared_ptr<SetQueueAttributesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetQueueAttributesResponse setQueueAttributesWithOptions(shared_ptr<SetQueueAttributesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetQueueAttributesResponse setQueueAttributes(shared_ptr<SetQueueAttributesRequest> request);
-  SetSubscriptionAttributesResponse setSubscriptionAttributesWithOptions(shared_ptr<SetSubscriptionAttributesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetSubscriptionAttributesResponse setSubscriptionAttributesWithOptions(shared_ptr<SetSubscriptionAttributesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetSubscriptionAttributesResponse setSubscriptionAttributes(shared_ptr<SetSubscriptionAttributesRequest> request);
   SetTopicAttributesResponse setTopicAttributesWithOptions(shared_ptr<SetTopicAttributesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetTopicAttributesResponse setTopicAttributes(shared_ptr<SetTopicAttributesRequest> request);
-  SubscribeResponse subscribeWithOptions(shared_ptr<SubscribeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubscribeResponse subscribeWithOptions(shared_ptr<SubscribeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubscribeResponse subscribe(shared_ptr<SubscribeRequest> request);
   UnsubscribeResponse unsubscribeWithOptions(shared_ptr<UnsubscribeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UnsubscribeResponse unsubscribe(shared_ptr<UnsubscribeRequest> request);
