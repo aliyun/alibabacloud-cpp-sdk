@@ -61,7 +61,12 @@ ChangeResourceGroupResponse Alibabacloud_Tablestore20201209::Client::changeResou
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ChangeResourceGroupResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ChangeResourceGroupResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ChangeResourceGroupResponse(execute(params, req, runtime));
+  }
 }
 
 ChangeResourceGroupResponse Alibabacloud_Tablestore20201209::Client::changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request) {
@@ -94,7 +99,12 @@ CheckInstancePolicyResponse Alibabacloud_Tablestore20201209::Client::checkInstan
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CheckInstancePolicyResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CheckInstancePolicyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CheckInstancePolicyResponse(execute(params, req, runtime));
+  }
 }
 
 CheckInstancePolicyResponse Alibabacloud_Tablestore20201209::Client::checkInstancePolicy(shared_ptr<CheckInstancePolicyRequest> request) {
@@ -151,7 +161,12 @@ CreateInstanceResponse Alibabacloud_Tablestore20201209::Client::createInstanceWi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 CreateInstanceResponse Alibabacloud_Tablestore20201209::Client::createInstance(shared_ptr<CreateInstanceRequest> request) {
@@ -181,7 +196,12 @@ DeleteInstanceResponse Alibabacloud_Tablestore20201209::Client::deleteInstanceWi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteInstanceResponse Alibabacloud_Tablestore20201209::Client::deleteInstance(shared_ptr<DeleteInstanceRequest> request) {
@@ -214,7 +234,12 @@ DeleteInstancePolicyResponse Alibabacloud_Tablestore20201209::Client::deleteInst
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteInstancePolicyResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteInstancePolicyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteInstancePolicyResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteInstancePolicyResponse Alibabacloud_Tablestore20201209::Client::deleteInstancePolicy(shared_ptr<DeleteInstancePolicyRequest> request) {
@@ -244,7 +269,12 @@ DescribeRegionsResponse Alibabacloud_Tablestore20201209::Client::describeRegions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeRegionsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeRegionsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeRegionsResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeRegionsResponse Alibabacloud_Tablestore20201209::Client::describeRegions(shared_ptr<DescribeRegionsRequest> request) {
@@ -274,7 +304,12 @@ GetInstanceResponse Alibabacloud_Tablestore20201209::Client::getInstanceWithOpti
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 GetInstanceResponse Alibabacloud_Tablestore20201209::Client::getInstance(shared_ptr<GetInstanceRequest> request) {
@@ -289,6 +324,9 @@ ListInstancesResponse Alibabacloud_Tablestore20201209::Client::listInstancesWith
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceNameList)) {
     request->instanceNameListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceNameList, make_shared<string>("InstanceNameList"), make_shared<string>("simple")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListInstancesRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
@@ -309,6 +347,9 @@ ListInstancesResponse Alibabacloud_Tablestore20201209::Client::listInstancesWith
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -324,7 +365,12 @@ ListInstancesResponse Alibabacloud_Tablestore20201209::Client::listInstancesWith
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListInstancesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListInstancesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListInstancesResponse(execute(params, req, runtime));
+  }
 }
 
 ListInstancesResponse Alibabacloud_Tablestore20201209::Client::listInstances(shared_ptr<ListInstancesRequest> request) {
@@ -374,7 +420,12 @@ ListTagResourcesResponse Alibabacloud_Tablestore20201209::Client::listTagResourc
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListTagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 ListTagResourcesResponse Alibabacloud_Tablestore20201209::Client::listTagResources(shared_ptr<ListTagResourcesRequest> request) {
@@ -410,7 +461,12 @@ TagResourcesResponse Alibabacloud_Tablestore20201209::Client::tagResourcesWithOp
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return TagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return TagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return TagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 TagResourcesResponse Alibabacloud_Tablestore20201209::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
@@ -449,7 +505,12 @@ UntagResourcesResponse Alibabacloud_Tablestore20201209::Client::untagResourcesWi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UntagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UntagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UntagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 UntagResourcesResponse Alibabacloud_Tablestore20201209::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
@@ -494,7 +555,12 @@ UpdateInstanceResponse Alibabacloud_Tablestore20201209::Client::updateInstanceWi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateInstanceResponse Alibabacloud_Tablestore20201209::Client::updateInstance(shared_ptr<UpdateInstanceRequest> request) {
@@ -527,7 +593,12 @@ UpdateInstanceElasticVCUUpperLimitResponse Alibabacloud_Tablestore20201209::Clie
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateInstanceElasticVCUUpperLimitResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateInstanceElasticVCUUpperLimitResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateInstanceElasticVCUUpperLimitResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateInstanceElasticVCUUpperLimitResponse Alibabacloud_Tablestore20201209::Client::updateInstanceElasticVCUUpperLimit(shared_ptr<UpdateInstanceElasticVCUUpperLimitRequest> request) {
@@ -563,7 +634,12 @@ UpdateInstancePolicyResponse Alibabacloud_Tablestore20201209::Client::updateInst
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateInstancePolicyResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateInstancePolicyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateInstancePolicyResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateInstancePolicyResponse Alibabacloud_Tablestore20201209::Client::updateInstancePolicy(shared_ptr<UpdateInstancePolicyRequest> request) {
