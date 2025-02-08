@@ -7018,6 +7018,7 @@ public:
   shared_ptr<bool> enableCompute{};
   shared_ptr<bool> enableLts{};
   shared_ptr<bool> enableMessage{};
+  shared_ptr<bool> enableRow{};
   shared_ptr<bool> enableStream{};
   shared_ptr<bool> enableVector{};
   shared_ptr<string> engineType{};
@@ -7066,6 +7067,9 @@ public:
     }
     if (enableMessage) {
       res["EnableMessage"] = boost::any(*enableMessage);
+    }
+    if (enableRow) {
+      res["EnableRow"] = boost::any(*enableRow);
     }
     if (enableStream) {
       res["EnableStream"] = boost::any(*enableStream);
@@ -7146,6 +7150,9 @@ public:
     }
     if (m.find("EnableMessage") != m.end() && !m["EnableMessage"].empty()) {
       enableMessage = make_shared<bool>(boost::any_cast<bool>(m["EnableMessage"]));
+    }
+    if (m.find("EnableRow") != m.end() && !m["EnableRow"].empty()) {
+      enableRow = make_shared<bool>(boost::any_cast<bool>(m["EnableRow"]));
     }
     if (m.find("EnableStream") != m.end() && !m["EnableStream"].empty()) {
       enableStream = make_shared<bool>(boost::any_cast<bool>(m["EnableStream"]));
