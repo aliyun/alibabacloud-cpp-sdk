@@ -6151,6 +6151,7 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<long> fileType{};
   shared_ptr<bool> ignoreParentSkipRunningProperty{};
+  shared_ptr<string> imageId{};
   shared_ptr<string> inputList{};
   shared_ptr<string> inputParameters{};
   shared_ptr<string> outputParameters{};
@@ -6230,6 +6231,9 @@ public:
     }
     if (ignoreParentSkipRunningProperty) {
       res["IgnoreParentSkipRunningProperty"] = boost::any(*ignoreParentSkipRunningProperty);
+    }
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
     }
     if (inputList) {
       res["InputList"] = boost::any(*inputList);
@@ -6333,6 +6337,9 @@ public:
     }
     if (m.find("IgnoreParentSkipRunningProperty") != m.end() && !m["IgnoreParentSkipRunningProperty"].empty()) {
       ignoreParentSkipRunningProperty = make_shared<bool>(boost::any_cast<bool>(m["IgnoreParentSkipRunningProperty"]));
+    }
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
     if (m.find("InputList") != m.end() && !m["InputList"].empty()) {
       inputList = make_shared<string>(boost::any_cast<string>(m["InputList"]));
@@ -30687,6 +30694,7 @@ public:
   shared_ptr<string> dependentType{};
   shared_ptr<long> endEffectDate{};
   shared_ptr<string> ignoreParentSkipRunningProperty{};
+  shared_ptr<string> imageId{};
   shared_ptr<vector<GetFileResponseBodyDataNodeConfigurationInputList>> inputList{};
   shared_ptr<vector<GetFileResponseBodyDataNodeConfigurationInputParameters>> inputParameters{};
   shared_ptr<vector<GetFileResponseBodyDataNodeConfigurationOutputList>> outputList{};
@@ -30736,6 +30744,9 @@ public:
     }
     if (ignoreParentSkipRunningProperty) {
       res["IgnoreParentSkipRunningProperty"] = boost::any(*ignoreParentSkipRunningProperty);
+    }
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
     }
     if (inputList) {
       vector<boost::any> temp1;
@@ -30819,6 +30830,9 @@ public:
     }
     if (m.find("IgnoreParentSkipRunningProperty") != m.end() && !m["IgnoreParentSkipRunningProperty"].empty()) {
       ignoreParentSkipRunningProperty = make_shared<string>(boost::any_cast<string>(m["IgnoreParentSkipRunningProperty"]));
+    }
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
     if (m.find("InputList") != m.end() && !m["InputList"].empty()) {
       if (typeid(vector<boost::any>) == m["InputList"].type()) {
@@ -81119,6 +81133,7 @@ public:
   shared_ptr<long> fileId{};
   shared_ptr<string> fileName{};
   shared_ptr<bool> ignoreParentSkipRunningProperty{};
+  shared_ptr<string> imageId{};
   shared_ptr<string> inputList{};
   shared_ptr<string> inputParameters{};
   shared_ptr<string> outputList{};
@@ -81195,6 +81210,9 @@ public:
     }
     if (ignoreParentSkipRunningProperty) {
       res["IgnoreParentSkipRunningProperty"] = boost::any(*ignoreParentSkipRunningProperty);
+    }
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
     }
     if (inputList) {
       res["InputList"] = boost::any(*inputList);
@@ -81295,6 +81313,9 @@ public:
     }
     if (m.find("IgnoreParentSkipRunningProperty") != m.end() && !m["IgnoreParentSkipRunningProperty"].empty()) {
       ignoreParentSkipRunningProperty = make_shared<bool>(boost::any_cast<bool>(m["IgnoreParentSkipRunningProperty"]));
+    }
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
     if (m.find("InputList") != m.end() && !m["InputList"].empty()) {
       inputList = make_shared<string>(boost::any_cast<string>(m["InputList"]));

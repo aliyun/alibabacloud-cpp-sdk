@@ -1396,6 +1396,9 @@ CreateFileResponse Alibabacloud_Dataworks-public20200518::Client::createFileWith
   if (!Darabonba_Util::Client::isUnset<bool>(request->ignoreParentSkipRunningProperty)) {
     body->insert(pair<string, bool>("IgnoreParentSkipRunningProperty", *request->ignoreParentSkipRunningProperty));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
+    body->insert(pair<string, string>("ImageId", *request->imageId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputList)) {
     body->insert(pair<string, string>("InputList", *request->inputList));
   }
@@ -12835,6 +12838,9 @@ UpdateFileResponse Alibabacloud_Dataworks-public20200518::Client::updateFileWith
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->ignoreParentSkipRunningProperty)) {
     body->insert(pair<string, bool>("IgnoreParentSkipRunningProperty", *request->ignoreParentSkipRunningProperty));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
+    body->insert(pair<string, string>("ImageId", *request->imageId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputList)) {
     body->insert(pair<string, string>("InputList", *request->inputList));
