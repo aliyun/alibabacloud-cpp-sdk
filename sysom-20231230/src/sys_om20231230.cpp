@@ -1057,6 +1057,9 @@ InstallAgentForClusterResponse Alibabacloud_SysOM20231230::Client::installAgentF
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     body->insert(pair<string, string>("cluster_id", *request->clusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grayscaleConfig)) {
+    body->insert(pair<string, string>("grayscale_config", *request->grayscaleConfig));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}

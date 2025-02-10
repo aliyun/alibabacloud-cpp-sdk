@@ -5191,6 +5191,7 @@ public:
   shared_ptr<string> agentId{};
   shared_ptr<string> agentVersion{};
   shared_ptr<string> clusterId{};
+  shared_ptr<string> grayscaleConfig{};
 
   InstallAgentForClusterRequest() {}
 
@@ -5211,6 +5212,9 @@ public:
     if (clusterId) {
       res["cluster_id"] = boost::any(*clusterId);
     }
+    if (grayscaleConfig) {
+      res["grayscale_config"] = boost::any(*grayscaleConfig);
+    }
     return res;
   }
 
@@ -5223,6 +5227,9 @@ public:
     }
     if (m.find("cluster_id") != m.end() && !m["cluster_id"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["cluster_id"]));
+    }
+    if (m.find("grayscale_config") != m.end() && !m["grayscale_config"].empty()) {
+      grayscaleConfig = make_shared<string>(boost::any_cast<string>(m["grayscale_config"]));
     }
   }
 
