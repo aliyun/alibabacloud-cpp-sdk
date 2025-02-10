@@ -36211,6 +36211,7 @@ public:
   shared_ptr<bool> secondLimited{};
   shared_ptr<DescribeEipAddressesResponseBodyEipAddressesEipAddressSecurityProtectionTypes> securityProtectionTypes{};
   shared_ptr<string> segmentInstanceId{};
+  shared_ptr<long> serviceID{};
   shared_ptr<long> serviceManaged{};
   shared_ptr<string> status{};
   shared_ptr<DescribeEipAddressesResponseBodyEipAddressesEipAddressTags> tags{};
@@ -36334,6 +36335,9 @@ public:
     }
     if (segmentInstanceId) {
       res["SegmentInstanceId"] = boost::any(*segmentInstanceId);
+    }
+    if (serviceID) {
+      res["ServiceID"] = boost::any(*serviceID);
     }
     if (serviceManaged) {
       res["ServiceManaged"] = boost::any(*serviceManaged);
@@ -36469,6 +36473,9 @@ public:
     }
     if (m.find("SegmentInstanceId") != m.end() && !m["SegmentInstanceId"].empty()) {
       segmentInstanceId = make_shared<string>(boost::any_cast<string>(m["SegmentInstanceId"]));
+    }
+    if (m.find("ServiceID") != m.end() && !m["ServiceID"].empty()) {
+      serviceID = make_shared<long>(boost::any_cast<long>(m["ServiceID"]));
     }
     if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
       serviceManaged = make_shared<long>(boost::any_cast<long>(m["ServiceManaged"]));
