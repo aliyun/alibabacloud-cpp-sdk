@@ -2246,6 +2246,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<vector<string>> tagKeys{};
   shared_ptr<string> targetId{};
   shared_ptr<string> targetType{};
 
@@ -2271,6 +2272,9 @@ public:
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
+    if (tagKeys) {
+      res["TagKeys"] = boost::any(*tagKeys);
+    }
     if (targetId) {
       res["TargetId"] = boost::any(*targetId);
     }
@@ -2293,6 +2297,16 @@ public:
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
+    if (m.find("TagKeys") != m.end() && !m["TagKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TagKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TagKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tagKeys = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
       targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
     }
@@ -2304,9 +2318,131 @@ public:
 
   virtual ~GetEffectivePolicyRequest() = default;
 };
+class GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList : public Darabonba::Model {
+public:
+  shared_ptr<long> attachSeq{};
+  shared_ptr<string> attachTime{};
+  shared_ptr<string> policyId{};
+  shared_ptr<string> policyName{};
+  shared_ptr<string> targetId{};
+  shared_ptr<string> targetType{};
+
+  GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList() {}
+
+  explicit GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attachSeq) {
+      res["AttachSeq"] = boost::any(*attachSeq);
+    }
+    if (attachTime) {
+      res["AttachTime"] = boost::any(*attachTime);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (policyName) {
+      res["PolicyName"] = boost::any(*policyName);
+    }
+    if (targetId) {
+      res["TargetId"] = boost::any(*targetId);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttachSeq") != m.end() && !m["AttachSeq"].empty()) {
+      attachSeq = make_shared<long>(boost::any_cast<long>(m["AttachSeq"]));
+    }
+    if (m.find("AttachTime") != m.end() && !m["AttachTime"].empty()) {
+      attachTime = make_shared<string>(boost::any_cast<string>(m["AttachTime"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
+      policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+    if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
+      targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList() = default;
+};
+class GetEffectivePolicyResponseBodyPolicyAttachments : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList>> policyList{};
+  shared_ptr<string> policyType{};
+  shared_ptr<string> tagKey{};
+
+  GetEffectivePolicyResponseBodyPolicyAttachments() {}
+
+  explicit GetEffectivePolicyResponseBodyPolicyAttachments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyList) {
+      vector<boost::any> temp1;
+      for(auto item1:*policyList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PolicyList"] = boost::any(temp1);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
+    }
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyList") != m.end() && !m["PolicyList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PolicyList"].type()) {
+        vector<GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PolicyList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        policyList = make_shared<vector<GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList>>(expect1);
+      }
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+  }
+
+
+  virtual ~GetEffectivePolicyResponseBodyPolicyAttachments() = default;
+};
 class GetEffectivePolicyResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> effectivePolicy{};
+  shared_ptr<vector<GetEffectivePolicyResponseBodyPolicyAttachments>> policyAttachments{};
   shared_ptr<string> requestId{};
 
   GetEffectivePolicyResponseBody() {}
@@ -2322,6 +2458,13 @@ public:
     if (effectivePolicy) {
       res["EffectivePolicy"] = boost::any(*effectivePolicy);
     }
+    if (policyAttachments) {
+      vector<boost::any> temp1;
+      for(auto item1:*policyAttachments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PolicyAttachments"] = boost::any(temp1);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -2331,6 +2474,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EffectivePolicy") != m.end() && !m["EffectivePolicy"].empty()) {
       effectivePolicy = make_shared<string>(boost::any_cast<string>(m["EffectivePolicy"]));
+    }
+    if (m.find("PolicyAttachments") != m.end() && !m["PolicyAttachments"].empty()) {
+      if (typeid(vector<boost::any>) == m["PolicyAttachments"].type()) {
+        vector<GetEffectivePolicyResponseBodyPolicyAttachments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PolicyAttachments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetEffectivePolicyResponseBodyPolicyAttachments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        policyAttachments = make_shared<vector<GetEffectivePolicyResponseBodyPolicyAttachments>>(expect1);
+      }
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -4078,6 +4234,7 @@ public:
 };
 class ListSupportResourceTypesResponseBodySupportResourceTypes : public Darabonba::Model {
 public:
+  shared_ptr<string> arnTemplate{};
   shared_ptr<string> productCode{};
   shared_ptr<string> resourceType{};
   shared_ptr<vector<ListSupportResourceTypesResponseBodySupportResourceTypesSupportItems>> supportItems{};
@@ -4092,6 +4249,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (arnTemplate) {
+      res["ArnTemplate"] = boost::any(*arnTemplate);
+    }
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
     }
@@ -4109,6 +4269,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArnTemplate") != m.end() && !m["ArnTemplate"].empty()) {
+      arnTemplate = make_shared<string>(boost::any_cast<string>(m["ArnTemplate"]));
+    }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
     }
