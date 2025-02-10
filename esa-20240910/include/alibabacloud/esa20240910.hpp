@@ -51483,8 +51483,50 @@ public:
 
   virtual ~PublishRoutineCodeVersionResponse() = default;
 };
+class PurgeCachesRequestContentCacheKeys : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<string> url{};
+
+  PurgeCachesRequestContentCacheKeys() {}
+
+  explicit PurgeCachesRequestContentCacheKeys(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["Headers"] = boost::any(*headers);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Headers") != m.end() && !m["Headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~PurgeCachesRequestContentCacheKeys() = default;
+};
 class PurgeCachesRequestContent : public Darabonba::Model {
 public:
+  shared_ptr<vector<PurgeCachesRequestContentCacheKeys>> cacheKeys{};
   shared_ptr<vector<string>> cacheTags{};
   shared_ptr<vector<string>> directories{};
   shared_ptr<vector<boost::any>> files{};
@@ -51502,6 +51544,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cacheKeys) {
+      vector<boost::any> temp1;
+      for(auto item1:*cacheKeys){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CacheKeys"] = boost::any(temp1);
+    }
     if (cacheTags) {
       res["CacheTags"] = boost::any(*cacheTags);
     }
@@ -51524,6 +51573,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheKeys") != m.end() && !m["CacheKeys"].empty()) {
+      if (typeid(vector<boost::any>) == m["CacheKeys"].type()) {
+        vector<PurgeCachesRequestContentCacheKeys> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CacheKeys"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PurgeCachesRequestContentCacheKeys model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cacheKeys = make_shared<vector<PurgeCachesRequestContentCacheKeys>>(expect1);
+      }
+    }
     if (m.find("CacheTags") != m.end() && !m["CacheTags"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["CacheTags"].type()) {
