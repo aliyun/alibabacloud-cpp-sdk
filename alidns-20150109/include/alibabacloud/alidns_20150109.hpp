@@ -32199,6 +32199,7 @@ public:
 };
 class DescribePdnsUserInfoResponseBodyUserInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> availableAccessSecurityType{};
   shared_ptr<string> availableService{};
   shared_ptr<long> pdnsId{};
   shared_ptr<string> secretKey{};
@@ -32217,6 +32218,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (availableAccessSecurityType) {
+      res["AvailableAccessSecurityType"] = boost::any(*availableAccessSecurityType);
+    }
     if (availableService) {
       res["AvailableService"] = boost::any(*availableService);
     }
@@ -32242,6 +32246,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AvailableAccessSecurityType") != m.end() && !m["AvailableAccessSecurityType"].empty()) {
+      availableAccessSecurityType = make_shared<string>(boost::any_cast<string>(m["AvailableAccessSecurityType"]));
+    }
     if (m.find("AvailableService") != m.end() && !m["AvailableService"].empty()) {
       availableService = make_shared<string>(boost::any_cast<string>(m["AvailableService"]));
     }
