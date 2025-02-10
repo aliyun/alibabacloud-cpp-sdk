@@ -69,7 +69,12 @@ AcceptVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::acceptVpcP
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AcceptVpcPeerConnectionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AcceptVpcPeerConnectionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AcceptVpcPeerConnectionResponse(execute(params, req, runtime));
+  }
 }
 
 AcceptVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::acceptVpcPeerConnection(shared_ptr<AcceptVpcPeerConnectionRequest> request) {
@@ -132,7 +137,12 @@ CreateVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::createVpcP
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateVpcPeerConnectionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateVpcPeerConnectionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateVpcPeerConnectionResponse(execute(params, req, runtime));
+  }
 }
 
 CreateVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::createVpcPeerConnection(shared_ptr<CreateVpcPeerConnectionRequest> request) {
@@ -169,7 +179,12 @@ DeleteVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::deleteVpcP
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteVpcPeerConnectionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteVpcPeerConnectionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteVpcPeerConnectionResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::deleteVpcPeerConnection(shared_ptr<DeleteVpcPeerConnectionRequest> request) {
@@ -200,7 +215,12 @@ GetVpcPeerConnectionAttributeResponse Alibabacloud_VpcPeer20220101::Client::getV
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetVpcPeerConnectionAttributeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetVpcPeerConnectionAttributeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetVpcPeerConnectionAttributeResponse(execute(params, req, runtime));
+  }
 }
 
 GetVpcPeerConnectionAttributeResponse Alibabacloud_VpcPeer20220101::Client::getVpcPeerConnectionAttribute(shared_ptr<GetVpcPeerConnectionAttributeRequest> request) {
@@ -243,7 +263,12 @@ ListTagResourcesResponse Alibabacloud_VpcPeer20220101::Client::listTagResourcesW
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListTagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 ListTagResourcesResponse Alibabacloud_VpcPeer20220101::Client::listTagResources(shared_ptr<ListTagResourcesRequest> request) {
@@ -299,7 +324,12 @@ ListVpcPeerConnectionsResponse Alibabacloud_VpcPeer20220101::Client::listVpcPeer
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListVpcPeerConnectionsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListVpcPeerConnectionsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListVpcPeerConnectionsResponse(execute(params, req, runtime));
+  }
 }
 
 ListVpcPeerConnectionsResponse Alibabacloud_VpcPeer20220101::Client::listVpcPeerConnections(shared_ptr<ListVpcPeerConnectionsRequest> request) {
@@ -347,7 +377,12 @@ ModifyVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::modifyVpcP
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ModifyVpcPeerConnectionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ModifyVpcPeerConnectionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ModifyVpcPeerConnectionResponse(execute(params, req, runtime));
+  }
 }
 
 ModifyVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::modifyVpcPeerConnection(shared_ptr<ModifyVpcPeerConnectionRequest> request) {
@@ -384,7 +419,12 @@ MoveResourceGroupResponse Alibabacloud_VpcPeer20220101::Client::moveResourceGrou
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return MoveResourceGroupResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return MoveResourceGroupResponse(callApi(params, req, runtime));
+  }
+  else {
+    return MoveResourceGroupResponse(execute(params, req, runtime));
+  }
 }
 
 MoveResourceGroupResponse Alibabacloud_VpcPeer20220101::Client::moveResourceGroup(shared_ptr<MoveResourceGroupRequest> request) {
@@ -421,7 +461,12 @@ RejectVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::rejectVpcP
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RejectVpcPeerConnectionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RejectVpcPeerConnectionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RejectVpcPeerConnectionResponse(execute(params, req, runtime));
+  }
 }
 
 RejectVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::rejectVpcPeerConnection(shared_ptr<RejectVpcPeerConnectionRequest> request) {
@@ -461,7 +506,12 @@ TagResourcesResponse Alibabacloud_VpcPeer20220101::Client::tagResourcesWithOptio
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return TagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return TagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return TagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 TagResourcesResponse Alibabacloud_VpcPeer20220101::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
@@ -504,7 +554,12 @@ UnTagResourcesResponse Alibabacloud_VpcPeer20220101::Client::unTagResourcesWithO
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UnTagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UnTagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UnTagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 UnTagResourcesResponse Alibabacloud_VpcPeer20220101::Client::unTagResources(shared_ptr<UnTagResourcesRequest> request) {
