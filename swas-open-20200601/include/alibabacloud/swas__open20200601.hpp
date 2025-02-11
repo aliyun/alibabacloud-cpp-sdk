@@ -16938,11 +16938,48 @@ public:
 
   virtual ~ResetDiskResponse() = default;
 };
+class ResetSystemRequestLoginCredentials : public Darabonba::Model {
+public:
+  shared_ptr<string> keyPairName{};
+  shared_ptr<string> password{};
+
+  ResetSystemRequestLoginCredentials() {}
+
+  explicit ResetSystemRequestLoginCredentials(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keyPairName) {
+      res["KeyPairName"] = boost::any(*keyPairName);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("KeyPairName") != m.end() && !m["KeyPairName"].empty()) {
+      keyPairName = make_shared<string>(boost::any_cast<string>(m["KeyPairName"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+  }
+
+
+  virtual ~ResetSystemRequestLoginCredentials() = default;
+};
 class ResetSystemRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceId{};
+  shared_ptr<ResetSystemRequestLoginCredentials> loginCredentials{};
   shared_ptr<string> regionId{};
 
   ResetSystemRequest() {}
@@ -16964,6 +17001,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (loginCredentials) {
+      res["LoginCredentials"] = loginCredentials ? boost::any(loginCredentials->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -16979,6 +17019,13 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LoginCredentials") != m.end() && !m["LoginCredentials"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LoginCredentials"].type()) {
+        ResetSystemRequestLoginCredentials model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LoginCredentials"]));
+        loginCredentials = make_shared<ResetSystemRequestLoginCredentials>(model1);
+      }
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
