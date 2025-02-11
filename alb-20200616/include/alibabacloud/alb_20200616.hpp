@@ -6799,6 +6799,7 @@ public:
   shared_ptr<bool> crossZoneEnabled{};
   shared_ptr<bool> dryRun{};
   shared_ptr<CreateServerGroupRequestHealthCheckConfig> healthCheckConfig{};
+  shared_ptr<bool> ipv6Enabled{};
   shared_ptr<string> protocol{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> scheduler{};
@@ -6836,6 +6837,9 @@ public:
     }
     if (healthCheckConfig) {
       res["HealthCheckConfig"] = healthCheckConfig ? boost::any(healthCheckConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ipv6Enabled) {
+      res["Ipv6Enabled"] = boost::any(*ipv6Enabled);
     }
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
@@ -6903,6 +6907,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HealthCheckConfig"]));
         healthCheckConfig = make_shared<CreateServerGroupRequestHealthCheckConfig>(model1);
       }
+    }
+    if (m.find("Ipv6Enabled") != m.end() && !m["Ipv6Enabled"].empty()) {
+      ipv6Enabled = make_shared<bool>(boost::any_cast<bool>(m["Ipv6Enabled"]));
     }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
