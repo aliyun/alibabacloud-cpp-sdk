@@ -22242,6 +22242,144 @@ public:
 
   virtual ~HangupCallResponse() = default;
 };
+class HangupOperateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> callId{};
+  shared_ptr<bool> immediateHangup{};
+
+  HangupOperateRequest() {}
+
+  explicit HangupOperateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callId) {
+      res["CallId"] = boost::any(*callId);
+    }
+    if (immediateHangup) {
+      res["ImmediateHangup"] = boost::any(*immediateHangup);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CallId") != m.end() && !m["CallId"].empty()) {
+      callId = make_shared<string>(boost::any_cast<string>(m["CallId"]));
+    }
+    if (m.find("ImmediateHangup") != m.end() && !m["ImmediateHangup"].empty()) {
+      immediateHangup = make_shared<bool>(boost::any_cast<bool>(m["ImmediateHangup"]));
+    }
+  }
+
+
+  virtual ~HangupOperateRequest() = default;
+};
+class HangupOperateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> mesage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> result{};
+
+  HangupOperateResponseBody() {}
+
+  explicit HangupOperateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (mesage) {
+      res["Mesage"] = boost::any(*mesage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Mesage") != m.end() && !m["Mesage"].empty()) {
+      mesage = make_shared<string>(boost::any_cast<string>(m["Mesage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
+    }
+  }
+
+
+  virtual ~HangupOperateResponseBody() = default;
+};
+class HangupOperateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<HangupOperateResponseBody> body{};
+
+  HangupOperateResponse() {}
+
+  explicit HangupOperateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        HangupOperateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<HangupOperateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~HangupOperateResponse() = default;
+};
 class HangupThirdCallRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountName{};
@@ -36236,6 +36374,8 @@ public:
   HangUpDoubleCallResponse hangUpDoubleCall(shared_ptr<HangUpDoubleCallRequest> request);
   HangupCallResponse hangupCallWithOptions(shared_ptr<HangupCallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   HangupCallResponse hangupCall(shared_ptr<HangupCallRequest> request);
+  HangupOperateResponse hangupOperateWithOptions(shared_ptr<HangupOperateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  HangupOperateResponse hangupOperate(shared_ptr<HangupOperateRequest> request);
   HangupThirdCallResponse hangupThirdCallWithOptions(shared_ptr<HangupThirdCallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   HangupThirdCallResponse hangupThirdCall(shared_ptr<HangupThirdCallRequest> request);
   HoldCallResponse holdCallWithOptions(shared_ptr<HoldCallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
