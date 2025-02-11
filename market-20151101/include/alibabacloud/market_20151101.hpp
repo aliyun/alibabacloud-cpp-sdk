@@ -1782,6 +1782,530 @@ public:
 
   virtual ~DescribeDistributionProductsLinkResponse() = default;
 };
+class DescribeImageInstanceForIsvRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> customerPk{};
+  shared_ptr<string> ecsInstanceId{};
+
+  DescribeImageInstanceForIsvRequest() {}
+
+  explicit DescribeImageInstanceForIsvRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customerPk) {
+      res["CustomerPk"] = boost::any(*customerPk);
+    }
+    if (ecsInstanceId) {
+      res["EcsInstanceId"] = boost::any(*ecsInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomerPk") != m.end() && !m["CustomerPk"].empty()) {
+      customerPk = make_shared<long>(boost::any_cast<long>(m["CustomerPk"]));
+    }
+    if (m.find("EcsInstanceId") != m.end() && !m["EcsInstanceId"].empty()) {
+      ecsInstanceId = make_shared<string>(boost::any_cast<string>(m["EcsInstanceId"]));
+    }
+  }
+
+
+  virtual ~DescribeImageInstanceForIsvRequest() = default;
+};
+class DescribeImageInstanceForIsvResponseBodyModulesPropertiesPropertyValues : public Darabonba::Model {
+public:
+  shared_ptr<string> displayName{};
+  shared_ptr<string> max{};
+  shared_ptr<string> min{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> step{};
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+
+  DescribeImageInstanceForIsvResponseBodyModulesPropertiesPropertyValues() {}
+
+  explicit DescribeImageInstanceForIsvResponseBodyModulesPropertiesPropertyValues(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (displayName) {
+      res["DisplayName"] = boost::any(*displayName);
+    }
+    if (max) {
+      res["Max"] = boost::any(*max);
+    }
+    if (min) {
+      res["Min"] = boost::any(*min);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (step) {
+      res["Step"] = boost::any(*step);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
+      displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
+    }
+    if (m.find("Max") != m.end() && !m["Max"].empty()) {
+      max = make_shared<string>(boost::any_cast<string>(m["Max"]));
+    }
+    if (m.find("Min") != m.end() && !m["Min"].empty()) {
+      min = make_shared<string>(boost::any_cast<string>(m["Min"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("Step") != m.end() && !m["Step"].empty()) {
+      step = make_shared<string>(boost::any_cast<string>(m["Step"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeImageInstanceForIsvResponseBodyModulesPropertiesPropertyValues() = default;
+};
+class DescribeImageInstanceForIsvResponseBodyModulesProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> displayUnit{};
+  shared_ptr<string> key{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<DescribeImageInstanceForIsvResponseBodyModulesPropertiesPropertyValues>> propertyValues{};
+  shared_ptr<string> showType{};
+
+  DescribeImageInstanceForIsvResponseBodyModulesProperties() {}
+
+  explicit DescribeImageInstanceForIsvResponseBodyModulesProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (displayUnit) {
+      res["DisplayUnit"] = boost::any(*displayUnit);
+    }
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (propertyValues) {
+      vector<boost::any> temp1;
+      for(auto item1:*propertyValues){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PropertyValues"] = boost::any(temp1);
+    }
+    if (showType) {
+      res["ShowType"] = boost::any(*showType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisplayUnit") != m.end() && !m["DisplayUnit"].empty()) {
+      displayUnit = make_shared<string>(boost::any_cast<string>(m["DisplayUnit"]));
+    }
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PropertyValues") != m.end() && !m["PropertyValues"].empty()) {
+      if (typeid(vector<boost::any>) == m["PropertyValues"].type()) {
+        vector<DescribeImageInstanceForIsvResponseBodyModulesPropertiesPropertyValues> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PropertyValues"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeImageInstanceForIsvResponseBodyModulesPropertiesPropertyValues model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        propertyValues = make_shared<vector<DescribeImageInstanceForIsvResponseBodyModulesPropertiesPropertyValues>>(expect1);
+      }
+    }
+    if (m.find("ShowType") != m.end() && !m["ShowType"].empty()) {
+      showType = make_shared<string>(boost::any_cast<string>(m["ShowType"]));
+    }
+  }
+
+
+  virtual ~DescribeImageInstanceForIsvResponseBodyModulesProperties() = default;
+};
+class DescribeImageInstanceForIsvResponseBodyModules : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<DescribeImageInstanceForIsvResponseBodyModulesProperties>> properties{};
+
+  DescribeImageInstanceForIsvResponseBodyModules() {}
+
+  explicit DescribeImageInstanceForIsvResponseBodyModules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (properties) {
+      vector<boost::any> temp1;
+      for(auto item1:*properties){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Properties"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
+      if (typeid(vector<boost::any>) == m["Properties"].type()) {
+        vector<DescribeImageInstanceForIsvResponseBodyModulesProperties> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Properties"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeImageInstanceForIsvResponseBodyModulesProperties model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        properties = make_shared<vector<DescribeImageInstanceForIsvResponseBodyModulesProperties>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeImageInstanceForIsvResponseBodyModules() = default;
+};
+class DescribeImageInstanceForIsvResponseBodyRelationalData : public Darabonba::Model {
+public:
+  shared_ptr<string> serviceStatus{};
+
+  DescribeImageInstanceForIsvResponseBodyRelationalData() {}
+
+  explicit DescribeImageInstanceForIsvResponseBodyRelationalData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (serviceStatus) {
+      res["ServiceStatus"] = boost::any(*serviceStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ServiceStatus") != m.end() && !m["ServiceStatus"].empty()) {
+      serviceStatus = make_shared<string>(boost::any_cast<string>(m["ServiceStatus"]));
+    }
+  }
+
+
+  virtual ~DescribeImageInstanceForIsvResponseBodyRelationalData() = default;
+};
+class DescribeImageInstanceForIsvResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> activeAddress{};
+  shared_ptr<string> appJson{};
+  shared_ptr<string> autoRenewal{};
+  shared_ptr<long> beganOn{};
+  shared_ptr<string> componentJson{};
+  shared_ptr<string> constraints{};
+  shared_ptr<long> createdOn{};
+  shared_ptr<long> endOn{};
+  shared_ptr<string> extendJson{};
+  shared_ptr<string> hostJson{};
+  shared_ptr<long> instanceId{};
+  shared_ptr<bool> isTrial{};
+  shared_ptr<string> licenseCode{};
+  shared_ptr<vector<DescribeImageInstanceForIsvResponseBodyModules>> modules{};
+  shared_ptr<long> orderId{};
+  shared_ptr<string> productCode{};
+  shared_ptr<string> productName{};
+  shared_ptr<string> productSkuCode{};
+  shared_ptr<string> productType{};
+  shared_ptr<DescribeImageInstanceForIsvResponseBodyRelationalData> relationalData{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+  shared_ptr<string> supplierName{};
+
+  DescribeImageInstanceForIsvResponseBody() {}
+
+  explicit DescribeImageInstanceForIsvResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (activeAddress) {
+      res["ActiveAddress"] = boost::any(*activeAddress);
+    }
+    if (appJson) {
+      res["AppJson"] = boost::any(*appJson);
+    }
+    if (autoRenewal) {
+      res["AutoRenewal"] = boost::any(*autoRenewal);
+    }
+    if (beganOn) {
+      res["BeganOn"] = boost::any(*beganOn);
+    }
+    if (componentJson) {
+      res["ComponentJson"] = boost::any(*componentJson);
+    }
+    if (constraints) {
+      res["Constraints"] = boost::any(*constraints);
+    }
+    if (createdOn) {
+      res["CreatedOn"] = boost::any(*createdOn);
+    }
+    if (endOn) {
+      res["EndOn"] = boost::any(*endOn);
+    }
+    if (extendJson) {
+      res["ExtendJson"] = boost::any(*extendJson);
+    }
+    if (hostJson) {
+      res["HostJson"] = boost::any(*hostJson);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (isTrial) {
+      res["IsTrial"] = boost::any(*isTrial);
+    }
+    if (licenseCode) {
+      res["LicenseCode"] = boost::any(*licenseCode);
+    }
+    if (modules) {
+      vector<boost::any> temp1;
+      for(auto item1:*modules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Modules"] = boost::any(temp1);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
+    }
+    if (productName) {
+      res["ProductName"] = boost::any(*productName);
+    }
+    if (productSkuCode) {
+      res["ProductSkuCode"] = boost::any(*productSkuCode);
+    }
+    if (productType) {
+      res["ProductType"] = boost::any(*productType);
+    }
+    if (relationalData) {
+      res["RelationalData"] = relationalData ? boost::any(relationalData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (supplierName) {
+      res["SupplierName"] = boost::any(*supplierName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActiveAddress") != m.end() && !m["ActiveAddress"].empty()) {
+      activeAddress = make_shared<string>(boost::any_cast<string>(m["ActiveAddress"]));
+    }
+    if (m.find("AppJson") != m.end() && !m["AppJson"].empty()) {
+      appJson = make_shared<string>(boost::any_cast<string>(m["AppJson"]));
+    }
+    if (m.find("AutoRenewal") != m.end() && !m["AutoRenewal"].empty()) {
+      autoRenewal = make_shared<string>(boost::any_cast<string>(m["AutoRenewal"]));
+    }
+    if (m.find("BeganOn") != m.end() && !m["BeganOn"].empty()) {
+      beganOn = make_shared<long>(boost::any_cast<long>(m["BeganOn"]));
+    }
+    if (m.find("ComponentJson") != m.end() && !m["ComponentJson"].empty()) {
+      componentJson = make_shared<string>(boost::any_cast<string>(m["ComponentJson"]));
+    }
+    if (m.find("Constraints") != m.end() && !m["Constraints"].empty()) {
+      constraints = make_shared<string>(boost::any_cast<string>(m["Constraints"]));
+    }
+    if (m.find("CreatedOn") != m.end() && !m["CreatedOn"].empty()) {
+      createdOn = make_shared<long>(boost::any_cast<long>(m["CreatedOn"]));
+    }
+    if (m.find("EndOn") != m.end() && !m["EndOn"].empty()) {
+      endOn = make_shared<long>(boost::any_cast<long>(m["EndOn"]));
+    }
+    if (m.find("ExtendJson") != m.end() && !m["ExtendJson"].empty()) {
+      extendJson = make_shared<string>(boost::any_cast<string>(m["ExtendJson"]));
+    }
+    if (m.find("HostJson") != m.end() && !m["HostJson"].empty()) {
+      hostJson = make_shared<string>(boost::any_cast<string>(m["HostJson"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
+    }
+    if (m.find("IsTrial") != m.end() && !m["IsTrial"].empty()) {
+      isTrial = make_shared<bool>(boost::any_cast<bool>(m["IsTrial"]));
+    }
+    if (m.find("LicenseCode") != m.end() && !m["LicenseCode"].empty()) {
+      licenseCode = make_shared<string>(boost::any_cast<string>(m["LicenseCode"]));
+    }
+    if (m.find("Modules") != m.end() && !m["Modules"].empty()) {
+      if (typeid(vector<boost::any>) == m["Modules"].type()) {
+        vector<DescribeImageInstanceForIsvResponseBodyModules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Modules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeImageInstanceForIsvResponseBodyModules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        modules = make_shared<vector<DescribeImageInstanceForIsvResponseBodyModules>>(expect1);
+      }
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    }
+    if (m.find("ProductSkuCode") != m.end() && !m["ProductSkuCode"].empty()) {
+      productSkuCode = make_shared<string>(boost::any_cast<string>(m["ProductSkuCode"]));
+    }
+    if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
+      productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
+    }
+    if (m.find("RelationalData") != m.end() && !m["RelationalData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RelationalData"].type()) {
+        DescribeImageInstanceForIsvResponseBodyRelationalData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RelationalData"]));
+        relationalData = make_shared<DescribeImageInstanceForIsvResponseBodyRelationalData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SupplierName") != m.end() && !m["SupplierName"].empty()) {
+      supplierName = make_shared<string>(boost::any_cast<string>(m["SupplierName"]));
+    }
+  }
+
+
+  virtual ~DescribeImageInstanceForIsvResponseBody() = default;
+};
+class DescribeImageInstanceForIsvResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeImageInstanceForIsvResponseBody> body{};
+
+  DescribeImageInstanceForIsvResponse() {}
+
+  explicit DescribeImageInstanceForIsvResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeImageInstanceForIsvResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeImageInstanceForIsvResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeImageInstanceForIsvResponse() = default;
+};
 class DescribeInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -7774,6 +8298,8 @@ public:
   DescribeDistributionProductsResponse describeDistributionProducts(shared_ptr<DescribeDistributionProductsRequest> request);
   DescribeDistributionProductsLinkResponse describeDistributionProductsLinkWithOptions(shared_ptr<DescribeDistributionProductsLinkRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDistributionProductsLinkResponse describeDistributionProductsLink(shared_ptr<DescribeDistributionProductsLinkRequest> request);
+  DescribeImageInstanceForIsvResponse describeImageInstanceForIsvWithOptions(shared_ptr<DescribeImageInstanceForIsvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeImageInstanceForIsvResponse describeImageInstanceForIsv(shared_ptr<DescribeImageInstanceForIsvRequest> request);
   DescribeInstanceResponse describeInstanceWithOptions(shared_ptr<DescribeInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstanceResponse describeInstance(shared_ptr<DescribeInstanceRequest> request);
   DescribeInstanceForIsvResponse describeInstanceForIsvWithOptions(shared_ptr<DescribeInstanceForIsvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
