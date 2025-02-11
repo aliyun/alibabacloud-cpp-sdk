@@ -2052,6 +2052,9 @@ CreateDesktopsResponse Alibabacloud_Ecd20200930::Client::createDesktopsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->savingPlanId)) {
+    query->insert(pair<string, string>("SavingPlanId", *request->savingPlanId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->snapshotPolicyId)) {
     query->insert(pair<string, string>("SnapshotPolicyId", *request->snapshotPolicyId));
   }

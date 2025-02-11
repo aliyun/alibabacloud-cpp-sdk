@@ -7858,6 +7858,7 @@ public:
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> savingPlanId{};
   shared_ptr<string> snapshotPolicyId{};
   shared_ptr<vector<CreateDesktopsRequestTag>> tag{};
   shared_ptr<string> timerGroupId{};
@@ -7954,6 +7955,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (savingPlanId) {
+      res["SavingPlanId"] = boost::any(*savingPlanId);
     }
     if (snapshotPolicyId) {
       res["SnapshotPolicyId"] = boost::any(*snapshotPolicyId);
@@ -8097,6 +8101,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SavingPlanId") != m.end() && !m["SavingPlanId"].empty()) {
+      savingPlanId = make_shared<string>(boost::any_cast<string>(m["SavingPlanId"]));
     }
     if (m.find("SnapshotPolicyId") != m.end() && !m["SnapshotPolicyId"].empty()) {
       snapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["SnapshotPolicyId"]));
@@ -8446,6 +8453,7 @@ public:
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> savingPlanId{};
   shared_ptr<string> snapshotPolicyId{};
   shared_ptr<vector<CreateDesktopsShrinkRequestTag>> tag{};
   shared_ptr<string> timerGroupId{};
@@ -8542,6 +8550,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (savingPlanId) {
+      res["SavingPlanId"] = boost::any(*savingPlanId);
     }
     if (snapshotPolicyId) {
       res["SnapshotPolicyId"] = boost::any(*snapshotPolicyId);
@@ -8681,6 +8692,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SavingPlanId") != m.end() && !m["SavingPlanId"].empty()) {
+      savingPlanId = make_shared<string>(boost::any_cast<string>(m["SavingPlanId"]));
     }
     if (m.find("SnapshotPolicyId") != m.end() && !m["SnapshotPolicyId"].empty()) {
       snapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["SnapshotPolicyId"]));
