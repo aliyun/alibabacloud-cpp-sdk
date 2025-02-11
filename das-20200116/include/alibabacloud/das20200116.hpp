@@ -7840,6 +7840,7 @@ class DescribeSlowLogHistogramAsyncResponseBodyDataData : public Darabonba::Mode
 public:
   shared_ptr<vector<double>> avgCPUTime{};
   shared_ptr<vector<double>> avgDocExamined{};
+  shared_ptr<vector<double>> avgFrows{};
   shared_ptr<vector<double>> avgIOWrites{};
   shared_ptr<vector<double>> avgKeysExamined{};
   shared_ptr<vector<double>> avgLastRowsCountAffected{};
@@ -7847,13 +7848,16 @@ public:
   shared_ptr<vector<double>> avgLogicalIOReads{};
   shared_ptr<vector<double>> avgPhysicalIOReads{};
   shared_ptr<vector<double>> avgReturnNum{};
+  shared_ptr<vector<double>> avgRows{};
   shared_ptr<vector<double>> avgRowsCountAffected{};
   shared_ptr<vector<double>> avgRowsExamined{};
   shared_ptr<vector<double>> avgRowsSent{};
   shared_ptr<vector<double>> avgRt{};
+  shared_ptr<vector<double>> avgScnt{};
   shared_ptr<vector<double>> CPUTime{};
   shared_ptr<vector<long>> count{};
   shared_ptr<vector<long>> docExamined{};
+  shared_ptr<vector<long>> frows{};
   shared_ptr<vector<long>> IOWrites{};
   shared_ptr<vector<DescribeSlowLogHistogramAsyncResponseBodyDataDataItem>> item{};
   shared_ptr<vector<long>> keysExamined{};
@@ -7862,6 +7866,7 @@ public:
   shared_ptr<vector<long>> logicalIOReads{};
   shared_ptr<vector<double>> maxCPUTime{};
   shared_ptr<vector<long>> maxDocExamined{};
+  shared_ptr<vector<long>> maxFrows{};
   shared_ptr<vector<long>> maxIOWrites{};
   shared_ptr<vector<long>> maxKeysExamined{};
   shared_ptr<vector<long>> maxLastRowsCountAffected{};
@@ -7869,16 +7874,20 @@ public:
   shared_ptr<vector<long>> maxLogicalIOReads{};
   shared_ptr<vector<long>> maxPhysicalIOReads{};
   shared_ptr<vector<long>> maxReturnNum{};
+  shared_ptr<vector<long>> maxRows{};
   shared_ptr<vector<long>> maxRowsCountAffected{};
   shared_ptr<vector<long>> maxRowsExamined{};
   shared_ptr<vector<long>> maxRowsSent{};
   shared_ptr<vector<double>> maxRt{};
+  shared_ptr<vector<long>> maxScnt{};
   shared_ptr<vector<long>> physicalIOReads{};
   shared_ptr<vector<long>> returnNum{};
+  shared_ptr<vector<long>> rows{};
   shared_ptr<vector<long>> rowsCountAffected{};
   shared_ptr<vector<long>> rowsExamined{};
   shared_ptr<vector<long>> rowsSent{};
   shared_ptr<vector<double>> rt{};
+  shared_ptr<vector<long>> scnt{};
   shared_ptr<long> total{};
   shared_ptr<vector<long>> ts{};
   shared_ptr<vector<long>> tsEnd{};
@@ -7898,6 +7907,9 @@ public:
     }
     if (avgDocExamined) {
       res["AvgDocExamined"] = boost::any(*avgDocExamined);
+    }
+    if (avgFrows) {
+      res["AvgFrows"] = boost::any(*avgFrows);
     }
     if (avgIOWrites) {
       res["AvgIOWrites"] = boost::any(*avgIOWrites);
@@ -7920,6 +7932,9 @@ public:
     if (avgReturnNum) {
       res["AvgReturnNum"] = boost::any(*avgReturnNum);
     }
+    if (avgRows) {
+      res["AvgRows"] = boost::any(*avgRows);
+    }
     if (avgRowsCountAffected) {
       res["AvgRowsCountAffected"] = boost::any(*avgRowsCountAffected);
     }
@@ -7932,6 +7947,9 @@ public:
     if (avgRt) {
       res["AvgRt"] = boost::any(*avgRt);
     }
+    if (avgScnt) {
+      res["AvgScnt"] = boost::any(*avgScnt);
+    }
     if (CPUTime) {
       res["CPUTime"] = boost::any(*CPUTime);
     }
@@ -7940,6 +7958,9 @@ public:
     }
     if (docExamined) {
       res["DocExamined"] = boost::any(*docExamined);
+    }
+    if (frows) {
+      res["Frows"] = boost::any(*frows);
     }
     if (IOWrites) {
       res["IOWrites"] = boost::any(*IOWrites);
@@ -7969,6 +7990,9 @@ public:
     if (maxDocExamined) {
       res["MaxDocExamined"] = boost::any(*maxDocExamined);
     }
+    if (maxFrows) {
+      res["MaxFrows"] = boost::any(*maxFrows);
+    }
     if (maxIOWrites) {
       res["MaxIOWrites"] = boost::any(*maxIOWrites);
     }
@@ -7990,6 +8014,9 @@ public:
     if (maxReturnNum) {
       res["MaxReturnNum"] = boost::any(*maxReturnNum);
     }
+    if (maxRows) {
+      res["MaxRows"] = boost::any(*maxRows);
+    }
     if (maxRowsCountAffected) {
       res["MaxRowsCountAffected"] = boost::any(*maxRowsCountAffected);
     }
@@ -8002,11 +8029,17 @@ public:
     if (maxRt) {
       res["MaxRt"] = boost::any(*maxRt);
     }
+    if (maxScnt) {
+      res["MaxScnt"] = boost::any(*maxScnt);
+    }
     if (physicalIOReads) {
       res["PhysicalIOReads"] = boost::any(*physicalIOReads);
     }
     if (returnNum) {
       res["ReturnNum"] = boost::any(*returnNum);
+    }
+    if (rows) {
+      res["Rows"] = boost::any(*rows);
     }
     if (rowsCountAffected) {
       res["RowsCountAffected"] = boost::any(*rowsCountAffected);
@@ -8019,6 +8052,9 @@ public:
     }
     if (rt) {
       res["Rt"] = boost::any(*rt);
+    }
+    if (scnt) {
+      res["Scnt"] = boost::any(*scnt);
     }
     if (total) {
       res["Total"] = boost::any(*total);
@@ -8052,6 +8088,16 @@ public:
         }
       }
       avgDocExamined = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("AvgFrows") != m.end() && !m["AvgFrows"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgFrows"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgFrows"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgFrows = make_shared<vector<double>>(toVec1);
     }
     if (m.find("AvgIOWrites") != m.end() && !m["AvgIOWrites"].empty()) {
       vector<double> toVec1;
@@ -8123,6 +8169,16 @@ public:
       }
       avgReturnNum = make_shared<vector<double>>(toVec1);
     }
+    if (m.find("AvgRows") != m.end() && !m["AvgRows"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgRows"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgRows"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgRows = make_shared<vector<double>>(toVec1);
+    }
     if (m.find("AvgRowsCountAffected") != m.end() && !m["AvgRowsCountAffected"].empty()) {
       vector<double> toVec1;
       if (typeid(vector<boost::any>) == m["AvgRowsCountAffected"].type()) {
@@ -8163,6 +8219,16 @@ public:
       }
       avgRt = make_shared<vector<double>>(toVec1);
     }
+    if (m.find("AvgScnt") != m.end() && !m["AvgScnt"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["AvgScnt"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AvgScnt"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      avgScnt = make_shared<vector<double>>(toVec1);
+    }
     if (m.find("CPUTime") != m.end() && !m["CPUTime"].empty()) {
       vector<double> toVec1;
       if (typeid(vector<boost::any>) == m["CPUTime"].type()) {
@@ -8192,6 +8258,16 @@ public:
         }
       }
       docExamined = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Frows") != m.end() && !m["Frows"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Frows"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Frows"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      frows = make_shared<vector<long>>(toVec1);
     }
     if (m.find("IOWrites") != m.end() && !m["IOWrites"].empty()) {
       vector<long> toVec1;
@@ -8276,6 +8352,16 @@ public:
       }
       maxDocExamined = make_shared<vector<long>>(toVec1);
     }
+    if (m.find("MaxFrows") != m.end() && !m["MaxFrows"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxFrows"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxFrows"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxFrows = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("MaxIOWrites") != m.end() && !m["MaxIOWrites"].empty()) {
       vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["MaxIOWrites"].type()) {
@@ -8346,6 +8432,16 @@ public:
       }
       maxReturnNum = make_shared<vector<long>>(toVec1);
     }
+    if (m.find("MaxRows") != m.end() && !m["MaxRows"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxRows"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxRows"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxRows = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("MaxRowsCountAffected") != m.end() && !m["MaxRowsCountAffected"].empty()) {
       vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["MaxRowsCountAffected"].type()) {
@@ -8386,6 +8482,16 @@ public:
       }
       maxRt = make_shared<vector<double>>(toVec1);
     }
+    if (m.find("MaxScnt") != m.end() && !m["MaxScnt"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxScnt"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxScnt"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maxScnt = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("PhysicalIOReads") != m.end() && !m["PhysicalIOReads"].empty()) {
       vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["PhysicalIOReads"].type()) {
@@ -8405,6 +8511,16 @@ public:
         }
       }
       returnNum = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Rows") != m.end() && !m["Rows"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Rows"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Rows"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      rows = make_shared<vector<long>>(toVec1);
     }
     if (m.find("RowsCountAffected") != m.end() && !m["RowsCountAffected"].empty()) {
       vector<long> toVec1;
@@ -8445,6 +8561,16 @@ public:
         }
       }
       rt = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("Scnt") != m.end() && !m["Scnt"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Scnt"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Scnt"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      scnt = make_shared<vector<long>>(toVec1);
     }
     if (m.find("Total") != m.end() && !m["Total"].empty()) {
       total = make_shared<long>(boost::any_cast<long>(m["Total"]));
@@ -9204,7 +9330,9 @@ class DescribeSlowLogStatisticResponseBodyDataDataLogs : public Darabonba::Model
 public:
   shared_ptr<string> accountName{};
   shared_ptr<double> avgCPUTime{};
+  shared_ptr<double> avgCPUTimeSeconds{};
   shared_ptr<double> avgDocExamined{};
+  shared_ptr<double> avgFrows{};
   shared_ptr<double> avgIOWrites{};
   shared_ptr<double> avgKeysExamined{};
   shared_ptr<double> avgLastRowsCountAffected{};
@@ -9215,10 +9343,13 @@ public:
   shared_ptr<double> avgQueryTime{};
   shared_ptr<double> avgQueryTimeSeconds{};
   shared_ptr<double> avgReturnNum{};
+  shared_ptr<double> avgRows{};
   shared_ptr<double> avgRowsCountAffected{};
   shared_ptr<double> avgRowsExamined{};
   shared_ptr<double> avgRowsSent{};
+  shared_ptr<double> avgScnt{};
   shared_ptr<double> CPUTime{};
+  shared_ptr<double> CPUTimeSeconds{};
   shared_ptr<string> command{};
   shared_ptr<long> count{};
   shared_ptr<double> countRate{};
@@ -9227,6 +9358,7 @@ public:
   shared_ptr<string> dbInstanceName{};
   shared_ptr<long> docExamined{};
   shared_ptr<long> docsExamined{};
+  shared_ptr<long> frows{};
   shared_ptr<DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram> histogram{};
   shared_ptr<string> hostAddress{};
   shared_ptr<string> hostInsId{};
@@ -9239,7 +9371,9 @@ public:
   shared_ptr<double> lockTimeSeconds{};
   shared_ptr<long> logicalIOReads{};
   shared_ptr<double> maxCPUTime{};
+  shared_ptr<double> maxCPUTimeSeconds{};
   shared_ptr<long> maxDocExamined{};
+  shared_ptr<long> maxFrows{};
   shared_ptr<long> maxIOWrites{};
   shared_ptr<long> maxKeysExamined{};
   shared_ptr<long> maxLastRowsCountAffected{};
@@ -9250,9 +9384,11 @@ public:
   shared_ptr<double> maxQueryTime{};
   shared_ptr<double> maxQueryTimeSeconds{};
   shared_ptr<long> maxReturnNum{};
+  shared_ptr<long> maxRows{};
   shared_ptr<long> maxRowsCountAffected{};
   shared_ptr<long> maxRowsExamined{};
   shared_ptr<long> maxRowsSent{};
+  shared_ptr<long> maxScnt{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> nodeType{};
   shared_ptr<string> opType{};
@@ -9266,11 +9402,13 @@ public:
   shared_ptr<double> queryTimeSeconds{};
   shared_ptr<string> returnItemNumbers{};
   shared_ptr<long> returnNum{};
+  shared_ptr<long> rows{};
   shared_ptr<long> rowsCountAffected{};
   shared_ptr<long> rowsExamined{};
   shared_ptr<long> rowsSent{};
   shared_ptr<string> SQLText{};
   shared_ptr<string> scheme{};
+  shared_ptr<long> scnt{};
   shared_ptr<string> sqlId{};
   shared_ptr<DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag> sqlTag{};
   shared_ptr<string> sqlType{};
@@ -9297,8 +9435,14 @@ public:
     if (avgCPUTime) {
       res["AvgCPUTime"] = boost::any(*avgCPUTime);
     }
+    if (avgCPUTimeSeconds) {
+      res["AvgCPUTimeSeconds"] = boost::any(*avgCPUTimeSeconds);
+    }
     if (avgDocExamined) {
       res["AvgDocExamined"] = boost::any(*avgDocExamined);
+    }
+    if (avgFrows) {
+      res["AvgFrows"] = boost::any(*avgFrows);
     }
     if (avgIOWrites) {
       res["AvgIOWrites"] = boost::any(*avgIOWrites);
@@ -9330,6 +9474,9 @@ public:
     if (avgReturnNum) {
       res["AvgReturnNum"] = boost::any(*avgReturnNum);
     }
+    if (avgRows) {
+      res["AvgRows"] = boost::any(*avgRows);
+    }
     if (avgRowsCountAffected) {
       res["AvgRowsCountAffected"] = boost::any(*avgRowsCountAffected);
     }
@@ -9339,8 +9486,14 @@ public:
     if (avgRowsSent) {
       res["AvgRowsSent"] = boost::any(*avgRowsSent);
     }
+    if (avgScnt) {
+      res["AvgScnt"] = boost::any(*avgScnt);
+    }
     if (CPUTime) {
       res["CPUTime"] = boost::any(*CPUTime);
+    }
+    if (CPUTimeSeconds) {
+      res["CPUTimeSeconds"] = boost::any(*CPUTimeSeconds);
     }
     if (command) {
       res["Command"] = boost::any(*command);
@@ -9365,6 +9518,9 @@ public:
     }
     if (docsExamined) {
       res["DocsExamined"] = boost::any(*docsExamined);
+    }
+    if (frows) {
+      res["Frows"] = boost::any(*frows);
     }
     if (histogram) {
       res["Histogram"] = histogram ? boost::any(histogram->toMap()) : boost::any(map<string,boost::any>({}));
@@ -9402,8 +9558,14 @@ public:
     if (maxCPUTime) {
       res["MaxCPUTime"] = boost::any(*maxCPUTime);
     }
+    if (maxCPUTimeSeconds) {
+      res["MaxCPUTimeSeconds"] = boost::any(*maxCPUTimeSeconds);
+    }
     if (maxDocExamined) {
       res["MaxDocExamined"] = boost::any(*maxDocExamined);
+    }
+    if (maxFrows) {
+      res["MaxFrows"] = boost::any(*maxFrows);
     }
     if (maxIOWrites) {
       res["MaxIOWrites"] = boost::any(*maxIOWrites);
@@ -9435,6 +9597,9 @@ public:
     if (maxReturnNum) {
       res["MaxReturnNum"] = boost::any(*maxReturnNum);
     }
+    if (maxRows) {
+      res["MaxRows"] = boost::any(*maxRows);
+    }
     if (maxRowsCountAffected) {
       res["MaxRowsCountAffected"] = boost::any(*maxRowsCountAffected);
     }
@@ -9443,6 +9608,9 @@ public:
     }
     if (maxRowsSent) {
       res["MaxRowsSent"] = boost::any(*maxRowsSent);
+    }
+    if (maxScnt) {
+      res["MaxScnt"] = boost::any(*maxScnt);
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
@@ -9483,6 +9651,9 @@ public:
     if (returnNum) {
       res["ReturnNum"] = boost::any(*returnNum);
     }
+    if (rows) {
+      res["Rows"] = boost::any(*rows);
+    }
     if (rowsCountAffected) {
       res["RowsCountAffected"] = boost::any(*rowsCountAffected);
     }
@@ -9497,6 +9668,9 @@ public:
     }
     if (scheme) {
       res["Scheme"] = boost::any(*scheme);
+    }
+    if (scnt) {
+      res["Scnt"] = boost::any(*scnt);
     }
     if (sqlId) {
       res["SqlId"] = boost::any(*sqlId);
@@ -9539,8 +9713,14 @@ public:
     if (m.find("AvgCPUTime") != m.end() && !m["AvgCPUTime"].empty()) {
       avgCPUTime = make_shared<double>(boost::any_cast<double>(m["AvgCPUTime"]));
     }
+    if (m.find("AvgCPUTimeSeconds") != m.end() && !m["AvgCPUTimeSeconds"].empty()) {
+      avgCPUTimeSeconds = make_shared<double>(boost::any_cast<double>(m["AvgCPUTimeSeconds"]));
+    }
     if (m.find("AvgDocExamined") != m.end() && !m["AvgDocExamined"].empty()) {
       avgDocExamined = make_shared<double>(boost::any_cast<double>(m["AvgDocExamined"]));
+    }
+    if (m.find("AvgFrows") != m.end() && !m["AvgFrows"].empty()) {
+      avgFrows = make_shared<double>(boost::any_cast<double>(m["AvgFrows"]));
     }
     if (m.find("AvgIOWrites") != m.end() && !m["AvgIOWrites"].empty()) {
       avgIOWrites = make_shared<double>(boost::any_cast<double>(m["AvgIOWrites"]));
@@ -9572,6 +9752,9 @@ public:
     if (m.find("AvgReturnNum") != m.end() && !m["AvgReturnNum"].empty()) {
       avgReturnNum = make_shared<double>(boost::any_cast<double>(m["AvgReturnNum"]));
     }
+    if (m.find("AvgRows") != m.end() && !m["AvgRows"].empty()) {
+      avgRows = make_shared<double>(boost::any_cast<double>(m["AvgRows"]));
+    }
     if (m.find("AvgRowsCountAffected") != m.end() && !m["AvgRowsCountAffected"].empty()) {
       avgRowsCountAffected = make_shared<double>(boost::any_cast<double>(m["AvgRowsCountAffected"]));
     }
@@ -9581,8 +9764,14 @@ public:
     if (m.find("AvgRowsSent") != m.end() && !m["AvgRowsSent"].empty()) {
       avgRowsSent = make_shared<double>(boost::any_cast<double>(m["AvgRowsSent"]));
     }
+    if (m.find("AvgScnt") != m.end() && !m["AvgScnt"].empty()) {
+      avgScnt = make_shared<double>(boost::any_cast<double>(m["AvgScnt"]));
+    }
     if (m.find("CPUTime") != m.end() && !m["CPUTime"].empty()) {
       CPUTime = make_shared<double>(boost::any_cast<double>(m["CPUTime"]));
+    }
+    if (m.find("CPUTimeSeconds") != m.end() && !m["CPUTimeSeconds"].empty()) {
+      CPUTimeSeconds = make_shared<double>(boost::any_cast<double>(m["CPUTimeSeconds"]));
     }
     if (m.find("Command") != m.end() && !m["Command"].empty()) {
       command = make_shared<string>(boost::any_cast<string>(m["Command"]));
@@ -9607,6 +9796,9 @@ public:
     }
     if (m.find("DocsExamined") != m.end() && !m["DocsExamined"].empty()) {
       docsExamined = make_shared<long>(boost::any_cast<long>(m["DocsExamined"]));
+    }
+    if (m.find("Frows") != m.end() && !m["Frows"].empty()) {
+      frows = make_shared<long>(boost::any_cast<long>(m["Frows"]));
     }
     if (m.find("Histogram") != m.end() && !m["Histogram"].empty()) {
       if (typeid(map<string, boost::any>) == m["Histogram"].type()) {
@@ -9648,8 +9840,14 @@ public:
     if (m.find("MaxCPUTime") != m.end() && !m["MaxCPUTime"].empty()) {
       maxCPUTime = make_shared<double>(boost::any_cast<double>(m["MaxCPUTime"]));
     }
+    if (m.find("MaxCPUTimeSeconds") != m.end() && !m["MaxCPUTimeSeconds"].empty()) {
+      maxCPUTimeSeconds = make_shared<double>(boost::any_cast<double>(m["MaxCPUTimeSeconds"]));
+    }
     if (m.find("MaxDocExamined") != m.end() && !m["MaxDocExamined"].empty()) {
       maxDocExamined = make_shared<long>(boost::any_cast<long>(m["MaxDocExamined"]));
+    }
+    if (m.find("MaxFrows") != m.end() && !m["MaxFrows"].empty()) {
+      maxFrows = make_shared<long>(boost::any_cast<long>(m["MaxFrows"]));
     }
     if (m.find("MaxIOWrites") != m.end() && !m["MaxIOWrites"].empty()) {
       maxIOWrites = make_shared<long>(boost::any_cast<long>(m["MaxIOWrites"]));
@@ -9681,6 +9879,9 @@ public:
     if (m.find("MaxReturnNum") != m.end() && !m["MaxReturnNum"].empty()) {
       maxReturnNum = make_shared<long>(boost::any_cast<long>(m["MaxReturnNum"]));
     }
+    if (m.find("MaxRows") != m.end() && !m["MaxRows"].empty()) {
+      maxRows = make_shared<long>(boost::any_cast<long>(m["MaxRows"]));
+    }
     if (m.find("MaxRowsCountAffected") != m.end() && !m["MaxRowsCountAffected"].empty()) {
       maxRowsCountAffected = make_shared<long>(boost::any_cast<long>(m["MaxRowsCountAffected"]));
     }
@@ -9689,6 +9890,9 @@ public:
     }
     if (m.find("MaxRowsSent") != m.end() && !m["MaxRowsSent"].empty()) {
       maxRowsSent = make_shared<long>(boost::any_cast<long>(m["MaxRowsSent"]));
+    }
+    if (m.find("MaxScnt") != m.end() && !m["MaxScnt"].empty()) {
+      maxScnt = make_shared<long>(boost::any_cast<long>(m["MaxScnt"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
@@ -9729,6 +9933,9 @@ public:
     if (m.find("ReturnNum") != m.end() && !m["ReturnNum"].empty()) {
       returnNum = make_shared<long>(boost::any_cast<long>(m["ReturnNum"]));
     }
+    if (m.find("Rows") != m.end() && !m["Rows"].empty()) {
+      rows = make_shared<long>(boost::any_cast<long>(m["Rows"]));
+    }
     if (m.find("RowsCountAffected") != m.end() && !m["RowsCountAffected"].empty()) {
       rowsCountAffected = make_shared<long>(boost::any_cast<long>(m["RowsCountAffected"]));
     }
@@ -9743,6 +9950,9 @@ public:
     }
     if (m.find("Scheme") != m.end() && !m["Scheme"].empty()) {
       scheme = make_shared<string>(boost::any_cast<string>(m["Scheme"]));
+    }
+    if (m.find("Scnt") != m.end() && !m["Scnt"].empty()) {
+      scnt = make_shared<long>(boost::any_cast<long>(m["Scnt"]));
     }
     if (m.find("SqlId") != m.end() && !m["SqlId"].empty()) {
       sqlId = make_shared<string>(boost::any_cast<string>(m["SqlId"]));
