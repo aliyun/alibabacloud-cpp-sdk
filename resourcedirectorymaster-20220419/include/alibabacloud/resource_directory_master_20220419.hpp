@@ -6085,6 +6085,7 @@ public:
   shared_ptr<string> identityInformation{};
   shared_ptr<string> masterAccountId{};
   shared_ptr<string> masterAccountName{};
+  shared_ptr<string> memberAccountDisplayNameSyncStatus{};
   shared_ptr<string> memberDeletionStatus{};
   shared_ptr<string> resourceDirectoryId{};
   shared_ptr<string> rootFolderId{};
@@ -6114,6 +6115,9 @@ public:
     if (masterAccountName) {
       res["MasterAccountName"] = boost::any(*masterAccountName);
     }
+    if (memberAccountDisplayNameSyncStatus) {
+      res["MemberAccountDisplayNameSyncStatus"] = boost::any(*memberAccountDisplayNameSyncStatus);
+    }
     if (memberDeletionStatus) {
       res["MemberDeletionStatus"] = boost::any(*memberDeletionStatus);
     }
@@ -6141,6 +6145,9 @@ public:
     }
     if (m.find("MasterAccountName") != m.end() && !m["MasterAccountName"].empty()) {
       masterAccountName = make_shared<string>(boost::any_cast<string>(m["MasterAccountName"]));
+    }
+    if (m.find("MemberAccountDisplayNameSyncStatus") != m.end() && !m["MemberAccountDisplayNameSyncStatus"].empty()) {
+      memberAccountDisplayNameSyncStatus = make_shared<string>(boost::any_cast<string>(m["MemberAccountDisplayNameSyncStatus"]));
     }
     if (m.find("MemberDeletionStatus") != m.end() && !m["MemberDeletionStatus"].empty()) {
       memberDeletionStatus = make_shared<string>(boost::any_cast<string>(m["MemberDeletionStatus"]));
@@ -7692,12 +7699,49 @@ public:
 
   virtual ~ListAncestorsResponse() = default;
 };
+class ListControlPoliciesRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListControlPoliciesRequestTag() {}
+
+  explicit ListControlPoliciesRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListControlPoliciesRequestTag() = default;
+};
 class ListControlPoliciesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> language{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> policyType{};
+  shared_ptr<vector<ListControlPoliciesRequestTag>> tag{};
 
   ListControlPoliciesRequest() {}
 
@@ -7721,6 +7765,13 @@ public:
     if (policyType) {
       res["PolicyType"] = boost::any(*policyType);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -7737,10 +7788,102 @@ public:
     if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
       policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListControlPoliciesRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListControlPoliciesRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListControlPoliciesRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListControlPoliciesRequest() = default;
+};
+class ListControlPoliciesResponseBodyControlPoliciesControlPolicyTagsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListControlPoliciesResponseBodyControlPoliciesControlPolicyTagsTag() {}
+
+  explicit ListControlPoliciesResponseBodyControlPoliciesControlPolicyTagsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListControlPoliciesResponseBodyControlPoliciesControlPolicyTagsTag() = default;
+};
+class ListControlPoliciesResponseBodyControlPoliciesControlPolicyTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListControlPoliciesResponseBodyControlPoliciesControlPolicyTagsTag>> tag{};
+
+  ListControlPoliciesResponseBodyControlPoliciesControlPolicyTags() {}
+
+  explicit ListControlPoliciesResponseBodyControlPoliciesControlPolicyTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListControlPoliciesResponseBodyControlPoliciesControlPolicyTagsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListControlPoliciesResponseBodyControlPoliciesControlPolicyTagsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListControlPoliciesResponseBodyControlPoliciesControlPolicyTagsTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListControlPoliciesResponseBodyControlPoliciesControlPolicyTags() = default;
 };
 class ListControlPoliciesResponseBodyControlPoliciesControlPolicy : public Darabonba::Model {
 public:
@@ -7751,6 +7894,7 @@ public:
   shared_ptr<string> policyId{};
   shared_ptr<string> policyName{};
   shared_ptr<string> policyType{};
+  shared_ptr<ListControlPoliciesResponseBodyControlPoliciesControlPolicyTags> tags{};
   shared_ptr<string> updateDate{};
 
   ListControlPoliciesResponseBodyControlPoliciesControlPolicy() {}
@@ -7784,6 +7928,9 @@ public:
     if (policyType) {
       res["PolicyType"] = boost::any(*policyType);
     }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (updateDate) {
       res["UpdateDate"] = boost::any(*updateDate);
     }
@@ -7811,6 +7958,13 @@ public:
     }
     if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
       policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        ListControlPoliciesResponseBodyControlPoliciesControlPolicyTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<ListControlPoliciesResponseBodyControlPoliciesControlPolicyTags>(model1);
+      }
     }
     if (m.find("UpdateDate") != m.end() && !m["UpdateDate"].empty()) {
       updateDate = make_shared<string>(boost::any_cast<string>(m["UpdateDate"]));
