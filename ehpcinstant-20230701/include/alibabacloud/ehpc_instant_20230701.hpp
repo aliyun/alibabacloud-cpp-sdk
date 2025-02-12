@@ -517,6 +517,75 @@ public:
 
   virtual ~CreateJobRequestDeploymentPolicy() = default;
 };
+class CreateJobRequestSecurityPolicySecurityGroup : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> securityGroupIds{};
+
+  CreateJobRequestSecurityPolicySecurityGroup() {}
+
+  explicit CreateJobRequestSecurityPolicySecurityGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (securityGroupIds) {
+      res["SecurityGroupIds"] = boost::any(*securityGroupIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SecurityGroupIds") != m.end() && !m["SecurityGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateJobRequestSecurityPolicySecurityGroup() = default;
+};
+class CreateJobRequestSecurityPolicy : public Darabonba::Model {
+public:
+  shared_ptr<CreateJobRequestSecurityPolicySecurityGroup> securityGroup{};
+
+  CreateJobRequestSecurityPolicy() {}
+
+  explicit CreateJobRequestSecurityPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (securityGroup) {
+      res["SecurityGroup"] = securityGroup ? boost::any(securityGroup->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SecurityGroup") != m.end() && !m["SecurityGroup"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityGroup"].type()) {
+        CreateJobRequestSecurityPolicySecurityGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroup"]));
+        securityGroup = make_shared<CreateJobRequestSecurityPolicySecurityGroup>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateJobRequestSecurityPolicy() = default;
+};
 class CreateJobRequestTasksExecutorPolicyArraySpec : public Darabonba::Model {
 public:
   shared_ptr<long> indexEnd{};
@@ -1083,6 +1152,7 @@ public:
   shared_ptr<string> jobDescription{};
   shared_ptr<string> jobName{};
   shared_ptr<string> jobScheduler{};
+  shared_ptr<CreateJobRequestSecurityPolicy> securityPolicy{};
   shared_ptr<vector<CreateJobRequestTasks>> tasks{};
 
   CreateJobRequest() {}
@@ -1106,6 +1176,9 @@ public:
     }
     if (jobScheduler) {
       res["JobScheduler"] = boost::any(*jobScheduler);
+    }
+    if (securityPolicy) {
+      res["SecurityPolicy"] = securityPolicy ? boost::any(securityPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (tasks) {
       vector<boost::any> temp1;
@@ -1134,6 +1207,13 @@ public:
     if (m.find("JobScheduler") != m.end() && !m["JobScheduler"].empty()) {
       jobScheduler = make_shared<string>(boost::any_cast<string>(m["JobScheduler"]));
     }
+    if (m.find("SecurityPolicy") != m.end() && !m["SecurityPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityPolicy"].type()) {
+        CreateJobRequestSecurityPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityPolicy"]));
+        securityPolicy = make_shared<CreateJobRequestSecurityPolicy>(model1);
+      }
+    }
     if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
       if (typeid(vector<boost::any>) == m["Tasks"].type()) {
         vector<CreateJobRequestTasks> expect1;
@@ -1158,6 +1238,7 @@ public:
   shared_ptr<string> jobDescription{};
   shared_ptr<string> jobName{};
   shared_ptr<string> jobScheduler{};
+  shared_ptr<string> securityPolicyShrink{};
   shared_ptr<string> tasksShrink{};
 
   CreateJobShrinkRequest() {}
@@ -1182,6 +1263,9 @@ public:
     if (jobScheduler) {
       res["JobScheduler"] = boost::any(*jobScheduler);
     }
+    if (securityPolicyShrink) {
+      res["SecurityPolicy"] = boost::any(*securityPolicyShrink);
+    }
     if (tasksShrink) {
       res["Tasks"] = boost::any(*tasksShrink);
     }
@@ -1200,6 +1284,9 @@ public:
     }
     if (m.find("JobScheduler") != m.end() && !m["JobScheduler"].empty()) {
       jobScheduler = make_shared<string>(boost::any_cast<string>(m["JobScheduler"]));
+    }
+    if (m.find("SecurityPolicy") != m.end() && !m["SecurityPolicy"].empty()) {
+      securityPolicyShrink = make_shared<string>(boost::any_cast<string>(m["SecurityPolicy"]));
     }
     if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
       tasksShrink = make_shared<string>(boost::any_cast<string>(m["Tasks"]));
@@ -4193,8 +4280,8 @@ public:
 class ListExecutorsRequest : public Darabonba::Model {
 public:
   shared_ptr<ListExecutorsRequestFilter> filter{};
-  shared_ptr<string> pageNumber{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
 
   ListExecutorsRequest() {}
 
@@ -4227,10 +4314,10 @@ public:
       }
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
-      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
   }
 
@@ -4240,8 +4327,8 @@ public:
 class ListExecutorsShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filterShrink{};
-  shared_ptr<string> pageNumber{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
 
   ListExecutorsShrinkRequest() {}
 
@@ -4270,10 +4357,10 @@ public:
       filterShrink = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
-      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
   }
 
@@ -4411,10 +4498,12 @@ public:
 };
 class ListExecutorsResponseBodyExecutors : public Darabonba::Model {
 public:
+  shared_ptr<string> appName{};
   shared_ptr<long> arrayIndex{};
   shared_ptr<string> createTime{};
   shared_ptr<string> endTime{};
   shared_ptr<string> executorId{};
+  shared_ptr<string> expirationTime{};
   shared_ptr<vector<string>> externalIpAddress{};
   shared_ptr<vector<string>> hostName{};
   shared_ptr<string> image{};
@@ -4441,6 +4530,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
     if (arrayIndex) {
       res["ArrayIndex"] = boost::any(*arrayIndex);
     }
@@ -4452,6 +4544,9 @@ public:
     }
     if (executorId) {
       res["ExecutorId"] = boost::any(*executorId);
+    }
+    if (expirationTime) {
+      res["ExpirationTime"] = boost::any(*expirationTime);
     }
     if (externalIpAddress) {
       res["ExternalIpAddress"] = boost::any(*externalIpAddress);
@@ -4506,6 +4601,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
     if (m.find("ArrayIndex") != m.end() && !m["ArrayIndex"].empty()) {
       arrayIndex = make_shared<long>(boost::any_cast<long>(m["ArrayIndex"]));
     }
@@ -4517,6 +4615,9 @@ public:
     }
     if (m.find("ExecutorId") != m.end() && !m["ExecutorId"].empty()) {
       executorId = make_shared<string>(boost::any_cast<string>(m["ExecutorId"]));
+    }
+    if (m.find("ExpirationTime") != m.end() && !m["ExpirationTime"].empty()) {
+      expirationTime = make_shared<string>(boost::any_cast<string>(m["ExpirationTime"]));
     }
     if (m.find("ExternalIpAddress") != m.end() && !m["ExternalIpAddress"].empty()) {
       vector<string> toVec1;
@@ -4606,8 +4707,8 @@ public:
 class ListExecutorsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<ListExecutorsResponseBodyExecutors>> executors{};
-  shared_ptr<string> pageNumber{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
   shared_ptr<string> totalCount{};
 
@@ -4658,10 +4759,10 @@ public:
       }
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
-      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -5114,8 +5215,8 @@ public:
 class ListJobExecutorsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> jobId{};
-  shared_ptr<string> pageNumber{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> taskName{};
 
   ListJobExecutorsRequest() {}
@@ -5148,10 +5249,10 @@ public:
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
-      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
       taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
@@ -5274,6 +5375,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> endTime{};
   shared_ptr<string> executorId{};
+  shared_ptr<string> expirationTime{};
   shared_ptr<vector<string>> externalIpAddress{};
   shared_ptr<vector<string>> hostName{};
   shared_ptr<vector<string>> ipAddress{};
@@ -5303,6 +5405,9 @@ public:
     }
     if (executorId) {
       res["ExecutorId"] = boost::any(*executorId);
+    }
+    if (expirationTime) {
+      res["ExpirationTime"] = boost::any(*expirationTime);
     }
     if (externalIpAddress) {
       res["ExternalIpAddress"] = boost::any(*externalIpAddress);
@@ -5344,6 +5449,9 @@ public:
     }
     if (m.find("ExecutorId") != m.end() && !m["ExecutorId"].empty()) {
       executorId = make_shared<string>(boost::any_cast<string>(m["ExecutorId"]));
+    }
+    if (m.find("ExpirationTime") != m.end() && !m["ExpirationTime"].empty()) {
+      expirationTime = make_shared<string>(boost::any_cast<string>(m["ExpirationTime"]));
     }
     if (m.find("ExternalIpAddress") != m.end() && !m["ExternalIpAddress"].empty()) {
       vector<string> toVec1;
@@ -5407,8 +5515,8 @@ public:
   shared_ptr<ListJobExecutorsResponseBodyExecutorStatus> executorStatus{};
   shared_ptr<vector<ListJobExecutorsResponseBodyExecutors>> executors{};
   shared_ptr<string> jobId{};
-  shared_ptr<string> pageNumber{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
   shared_ptr<string> taskName{};
   shared_ptr<string> totalCount{};
@@ -5479,10 +5587,10 @@ public:
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
-      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -5646,8 +5754,8 @@ public:
 class ListJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<ListJobsRequestFilter> filter{};
-  shared_ptr<string> pageNumber{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<ListJobsRequestSortBy> sortBy{};
 
   ListJobsRequest() {}
@@ -5684,10 +5792,10 @@ public:
       }
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
-      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
       if (typeid(map<string, boost::any>) == m["SortBy"].type()) {
@@ -5704,8 +5812,8 @@ public:
 class ListJobsShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filterShrink{};
-  shared_ptr<string> pageNumber{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> sortByShrink{};
 
   ListJobsShrinkRequest() {}
@@ -5738,10 +5846,10 @@ public:
       filterShrink = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
-      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
       sortByShrink = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
@@ -5789,6 +5897,7 @@ public:
 };
 class ListJobsResponseBodyJobList : public Darabonba::Model {
 public:
+  shared_ptr<string> appName{};
   shared_ptr<string> createTime{};
   shared_ptr<string> endTime{};
   shared_ptr<long> executorCount{};
@@ -5812,6 +5921,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -5856,6 +5968,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
