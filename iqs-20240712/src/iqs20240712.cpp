@@ -112,6 +112,50 @@ CommonQueryBySceneResponse Alibabacloud_IQS20240712::Client::commonQueryByScene(
   return commonQueryBySceneWithOptions(request, headers, runtime);
 }
 
+DrivingDirectionResponse Alibabacloud_IQS20240712::Client::drivingDirectionWithOptions(shared_ptr<DrivingDirectionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationLatitude)) {
+    query->insert(pair<string, string>("destinationLatitude", *request->destinationLatitude));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationLongitude)) {
+    query->insert(pair<string, string>("destinationLongitude", *request->destinationLongitude));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->originLatitude)) {
+    query->insert(pair<string, string>("originLatitude", *request->originLatitude));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->originLongitude)) {
+    query->insert(pair<string, string>("originLongitude", *request->originLongitude));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DrivingDirection"))},
+    {"version", boost::any(string("2024-07-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/ipaas/v1/direction/driving"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DrivingDirectionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DrivingDirectionResponse(execute(params, req, runtime));
+  }
+}
+
+DrivingDirectionResponse Alibabacloud_IQS20240712::Client::drivingDirection(shared_ptr<DrivingDirectionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return drivingDirectionWithOptions(request, headers, runtime);
+}
+
 DrivingDirectionNovaResponse Alibabacloud_IQS20240712::Client::drivingDirectionNovaWithOptions(shared_ptr<DrivingDirectionNovaRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
