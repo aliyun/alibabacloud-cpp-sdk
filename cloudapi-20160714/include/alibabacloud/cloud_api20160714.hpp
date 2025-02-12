@@ -44213,6 +44213,7 @@ public:
   shared_ptr<string> groupName{};
   shared_ptr<string> passthroughHeaders{};
   shared_ptr<string> rpcPattern{};
+  shared_ptr<string> rpsLimitForServerless{};
   shared_ptr<string> securityToken{};
   shared_ptr<string> supportSSE{};
   shared_ptr<vector<ModifyApiGroupRequestTag>> tag{};
@@ -44263,6 +44264,9 @@ public:
     }
     if (rpcPattern) {
       res["RpcPattern"] = boost::any(*rpcPattern);
+    }
+    if (rpsLimitForServerless) {
+      res["RpsLimitForServerless"] = boost::any(*rpsLimitForServerless);
     }
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
@@ -44319,6 +44323,9 @@ public:
     }
     if (m.find("RpcPattern") != m.end() && !m["RpcPattern"].empty()) {
       rpcPattern = make_shared<string>(boost::any_cast<string>(m["RpcPattern"]));
+    }
+    if (m.find("RpsLimitForServerless") != m.end() && !m["RpsLimitForServerless"].empty()) {
+      rpsLimitForServerless = make_shared<string>(boost::any_cast<string>(m["RpsLimitForServerless"]));
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
