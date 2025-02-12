@@ -3647,6 +3647,7 @@ class DeleteAutoCcBlacklistRequest : public Darabonba::Model {
 public:
   shared_ptr<string> blacklist{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> queryType{};
 
   DeleteAutoCcBlacklistRequest() {}
 
@@ -3664,6 +3665,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (queryType) {
+      res["QueryType"] = boost::any(*queryType);
+    }
     return res;
   }
 
@@ -3673,6 +3677,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("QueryType") != m.end() && !m["QueryType"].empty()) {
+      queryType = make_shared<string>(boost::any_cast<string>(m["QueryType"]));
     }
   }
 
@@ -5615,6 +5622,7 @@ public:
   shared_ptr<string> keyWord{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> queryType{};
 
   DescribeAutoCcBlacklistRequest() {}
 
@@ -5638,6 +5646,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (queryType) {
+      res["QueryType"] = boost::any(*queryType);
+    }
     return res;
   }
 
@@ -5653,6 +5664,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("QueryType") != m.end() && !m["QueryType"].empty()) {
+      queryType = make_shared<string>(boost::any_cast<string>(m["QueryType"]));
     }
   }
 
@@ -10825,6 +10839,8 @@ public:
   shared_ptr<long> status403{};
   shared_ptr<long> status404{};
   shared_ptr<long> status405{};
+  shared_ptr<long> status410{};
+  shared_ptr<long> status499{};
   shared_ptr<long> status4XX{};
   shared_ptr<long> status501{};
   shared_ptr<long> status502{};
@@ -10862,6 +10878,12 @@ public:
     }
     if (status405) {
       res["Status405"] = boost::any(*status405);
+    }
+    if (status410) {
+      res["Status410"] = boost::any(*status410);
+    }
+    if (status499) {
+      res["Status499"] = boost::any(*status499);
     }
     if (status4XX) {
       res["Status4XX"] = boost::any(*status4XX);
@@ -10905,6 +10927,12 @@ public:
     }
     if (m.find("Status405") != m.end() && !m["Status405"].empty()) {
       status405 = make_shared<long>(boost::any_cast<long>(m["Status405"]));
+    }
+    if (m.find("Status410") != m.end() && !m["Status410"].empty()) {
+      status410 = make_shared<long>(boost::any_cast<long>(m["Status410"]));
+    }
+    if (m.find("Status499") != m.end() && !m["Status499"].empty()) {
+      status499 = make_shared<long>(boost::any_cast<long>(m["Status499"]));
     }
     if (m.find("Status4XX") != m.end() && !m["Status4XX"].empty()) {
       status4XX = make_shared<long>(boost::any_cast<long>(m["Status4XX"]));
@@ -11054,6 +11082,8 @@ public:
   shared_ptr<long> status403{};
   shared_ptr<long> status404{};
   shared_ptr<long> status405{};
+  shared_ptr<long> status410{};
+  shared_ptr<long> status499{};
   shared_ptr<long> status4XX{};
   shared_ptr<long> status501{};
   shared_ptr<long> status502{};
@@ -11092,6 +11122,12 @@ public:
     }
     if (status405) {
       res["Status405"] = boost::any(*status405);
+    }
+    if (status410) {
+      res["Status410"] = boost::any(*status410);
+    }
+    if (status499) {
+      res["Status499"] = boost::any(*status499);
     }
     if (status4XX) {
       res["Status4XX"] = boost::any(*status4XX);
@@ -11138,6 +11174,12 @@ public:
     }
     if (m.find("Status405") != m.end() && !m["Status405"].empty()) {
       status405 = make_shared<long>(boost::any_cast<long>(m["Status405"]));
+    }
+    if (m.find("Status410") != m.end() && !m["Status410"].empty()) {
+      status410 = make_shared<long>(boost::any_cast<long>(m["Status410"]));
+    }
+    if (m.find("Status499") != m.end() && !m["Status499"].empty()) {
+      status499 = make_shared<long>(boost::any_cast<long>(m["Status499"]));
     }
     if (m.find("Status4XX") != m.end() && !m["Status4XX"].empty()) {
       status4XX = make_shared<long>(boost::any_cast<long>(m["Status4XX"]));
@@ -30092,6 +30134,221 @@ public:
 
   virtual ~ModifyHttp2EnableResponse() = default;
 };
+class ModifyInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> addressType{};
+  shared_ptr<string> bandwidth{};
+  shared_ptr<string> baseBandwidth{};
+  shared_ptr<string> domainCount{};
+  shared_ptr<string> editionSale{};
+  shared_ptr<string> functionVersion{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> modifyType{};
+  shared_ptr<string> normalBandwidth{};
+  shared_ptr<string> normalQps{};
+  shared_ptr<string> portCount{};
+  shared_ptr<string> productPlan{};
+  shared_ptr<string> productType{};
+  shared_ptr<string> serviceBandwidth{};
+  shared_ptr<string> servicePartner{};
+
+  ModifyInstanceRequest() {}
+
+  explicit ModifyInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addressType) {
+      res["AddressType"] = boost::any(*addressType);
+    }
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
+    if (baseBandwidth) {
+      res["BaseBandwidth"] = boost::any(*baseBandwidth);
+    }
+    if (domainCount) {
+      res["DomainCount"] = boost::any(*domainCount);
+    }
+    if (editionSale) {
+      res["EditionSale"] = boost::any(*editionSale);
+    }
+    if (functionVersion) {
+      res["FunctionVersion"] = boost::any(*functionVersion);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (modifyType) {
+      res["ModifyType"] = boost::any(*modifyType);
+    }
+    if (normalBandwidth) {
+      res["NormalBandwidth"] = boost::any(*normalBandwidth);
+    }
+    if (normalQps) {
+      res["NormalQps"] = boost::any(*normalQps);
+    }
+    if (portCount) {
+      res["PortCount"] = boost::any(*portCount);
+    }
+    if (productPlan) {
+      res["ProductPlan"] = boost::any(*productPlan);
+    }
+    if (productType) {
+      res["ProductType"] = boost::any(*productType);
+    }
+    if (serviceBandwidth) {
+      res["ServiceBandwidth"] = boost::any(*serviceBandwidth);
+    }
+    if (servicePartner) {
+      res["ServicePartner"] = boost::any(*servicePartner);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
+      addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
+    }
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<string>(boost::any_cast<string>(m["Bandwidth"]));
+    }
+    if (m.find("BaseBandwidth") != m.end() && !m["BaseBandwidth"].empty()) {
+      baseBandwidth = make_shared<string>(boost::any_cast<string>(m["BaseBandwidth"]));
+    }
+    if (m.find("DomainCount") != m.end() && !m["DomainCount"].empty()) {
+      domainCount = make_shared<string>(boost::any_cast<string>(m["DomainCount"]));
+    }
+    if (m.find("EditionSale") != m.end() && !m["EditionSale"].empty()) {
+      editionSale = make_shared<string>(boost::any_cast<string>(m["EditionSale"]));
+    }
+    if (m.find("FunctionVersion") != m.end() && !m["FunctionVersion"].empty()) {
+      functionVersion = make_shared<string>(boost::any_cast<string>(m["FunctionVersion"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ModifyType") != m.end() && !m["ModifyType"].empty()) {
+      modifyType = make_shared<string>(boost::any_cast<string>(m["ModifyType"]));
+    }
+    if (m.find("NormalBandwidth") != m.end() && !m["NormalBandwidth"].empty()) {
+      normalBandwidth = make_shared<string>(boost::any_cast<string>(m["NormalBandwidth"]));
+    }
+    if (m.find("NormalQps") != m.end() && !m["NormalQps"].empty()) {
+      normalQps = make_shared<string>(boost::any_cast<string>(m["NormalQps"]));
+    }
+    if (m.find("PortCount") != m.end() && !m["PortCount"].empty()) {
+      portCount = make_shared<string>(boost::any_cast<string>(m["PortCount"]));
+    }
+    if (m.find("ProductPlan") != m.end() && !m["ProductPlan"].empty()) {
+      productPlan = make_shared<string>(boost::any_cast<string>(m["ProductPlan"]));
+    }
+    if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
+      productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
+    }
+    if (m.find("ServiceBandwidth") != m.end() && !m["ServiceBandwidth"].empty()) {
+      serviceBandwidth = make_shared<string>(boost::any_cast<string>(m["ServiceBandwidth"]));
+    }
+    if (m.find("ServicePartner") != m.end() && !m["ServicePartner"].empty()) {
+      servicePartner = make_shared<string>(boost::any_cast<string>(m["ServicePartner"]));
+    }
+  }
+
+
+  virtual ~ModifyInstanceRequest() = default;
+};
+class ModifyInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<string> requestId{};
+
+  ModifyInstanceResponseBody() {}
+
+  explicit ModifyInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyInstanceResponseBody() = default;
+};
+class ModifyInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyInstanceResponseBody> body{};
+
+  ModifyInstanceResponse() {}
+
+  explicit ModifyInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyInstanceResponse() = default;
+};
 class ModifyInstanceRemarkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -33663,6 +33920,8 @@ public:
   ModifyHealthCheckConfigResponse modifyHealthCheckConfig(shared_ptr<ModifyHealthCheckConfigRequest> request);
   ModifyHttp2EnableResponse modifyHttp2EnableWithOptions(shared_ptr<ModifyHttp2EnableRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyHttp2EnableResponse modifyHttp2Enable(shared_ptr<ModifyHttp2EnableRequest> request);
+  ModifyInstanceResponse modifyInstanceWithOptions(shared_ptr<ModifyInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyInstanceResponse modifyInstance(shared_ptr<ModifyInstanceRequest> request);
   ModifyInstanceRemarkResponse modifyInstanceRemarkWithOptions(shared_ptr<ModifyInstanceRemarkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyInstanceRemarkResponse modifyInstanceRemark(shared_ptr<ModifyInstanceRemarkRequest> request);
   ModifyNetworkRuleAttributeResponse modifyNetworkRuleAttributeWithOptions(shared_ptr<ModifyNetworkRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
