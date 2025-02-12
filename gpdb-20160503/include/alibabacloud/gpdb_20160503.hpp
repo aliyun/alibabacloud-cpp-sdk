@@ -2406,6 +2406,7 @@ public:
   shared_ptr<long> idleTime{};
   shared_ptr<string> instanceNetworkType{};
   shared_ptr<string> instanceSpec{};
+  shared_ptr<string> masterAISpec{};
   shared_ptr<long> masterCU{};
   shared_ptr<string> masterNodeNum{};
   shared_ptr<long> ownerId{};
@@ -2493,6 +2494,9 @@ public:
     }
     if (instanceSpec) {
       res["InstanceSpec"] = boost::any(*instanceSpec);
+    }
+    if (masterAISpec) {
+      res["MasterAISpec"] = boost::any(*masterAISpec);
     }
     if (masterCU) {
       res["MasterCU"] = boost::any(*masterCU);
@@ -2630,6 +2634,9 @@ public:
     }
     if (m.find("InstanceSpec") != m.end() && !m["InstanceSpec"].empty()) {
       instanceSpec = make_shared<string>(boost::any_cast<string>(m["InstanceSpec"]));
+    }
+    if (m.find("MasterAISpec") != m.end() && !m["MasterAISpec"].empty()) {
+      masterAISpec = make_shared<string>(boost::any_cast<string>(m["MasterAISpec"]));
     }
     if (m.find("MasterCU") != m.end() && !m["MasterCU"].empty()) {
       masterCU = make_shared<long>(boost::any_cast<long>(m["MasterCU"]));
@@ -11539,6 +11546,7 @@ public:
   shared_ptr<string> lockReason{};
   shared_ptr<string> maintainEndTime{};
   shared_ptr<string> maintainStartTime{};
+  shared_ptr<string> masterAISpec{};
   shared_ptr<long> masterCU{};
   shared_ptr<long> masterNodeNum{};
   shared_ptr<long> maxConnections{};
@@ -11556,6 +11564,7 @@ public:
   shared_ptr<string> securityIPList{};
   shared_ptr<string> segDiskPerformanceLevel{};
   shared_ptr<long> segNodeNum{};
+  shared_ptr<string> segmentAISpec{};
   shared_ptr<long> segmentCounts{};
   shared_ptr<string> serverlessMode{};
   shared_ptr<long> serverlessResource{};
@@ -11681,6 +11690,9 @@ public:
     if (maintainStartTime) {
       res["MaintainStartTime"] = boost::any(*maintainStartTime);
     }
+    if (masterAISpec) {
+      res["MasterAISpec"] = boost::any(*masterAISpec);
+    }
     if (masterCU) {
       res["MasterCU"] = boost::any(*masterCU);
     }
@@ -11731,6 +11743,9 @@ public:
     }
     if (segNodeNum) {
       res["SegNodeNum"] = boost::any(*segNodeNum);
+    }
+    if (segmentAISpec) {
+      res["SegmentAISpec"] = boost::any(*segmentAISpec);
     }
     if (segmentCounts) {
       res["SegmentCounts"] = boost::any(*segmentCounts);
@@ -11880,6 +11895,9 @@ public:
     if (m.find("MaintainStartTime") != m.end() && !m["MaintainStartTime"].empty()) {
       maintainStartTime = make_shared<string>(boost::any_cast<string>(m["MaintainStartTime"]));
     }
+    if (m.find("MasterAISpec") != m.end() && !m["MasterAISpec"].empty()) {
+      masterAISpec = make_shared<string>(boost::any_cast<string>(m["MasterAISpec"]));
+    }
     if (m.find("MasterCU") != m.end() && !m["MasterCU"].empty()) {
       masterCU = make_shared<long>(boost::any_cast<long>(m["MasterCU"]));
     }
@@ -11930,6 +11948,9 @@ public:
     }
     if (m.find("SegNodeNum") != m.end() && !m["SegNodeNum"].empty()) {
       segNodeNum = make_shared<long>(boost::any_cast<long>(m["SegNodeNum"]));
+    }
+    if (m.find("SegmentAISpec") != m.end() && !m["SegmentAISpec"].empty()) {
+      segmentAISpec = make_shared<string>(boost::any_cast<string>(m["SegmentAISpec"]));
     }
     if (m.find("SegmentCounts") != m.end() && !m["SegmentCounts"].empty()) {
       segmentCounts = make_shared<long>(boost::any_cast<long>(m["SegmentCounts"]));
@@ -36074,6 +36095,7 @@ class ModifyMasterSpecRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceDescription{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> masterAISpec{};
   shared_ptr<long> masterCU{};
   shared_ptr<string> resourceGroupId{};
 
@@ -36093,6 +36115,9 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (masterAISpec) {
+      res["MasterAISpec"] = boost::any(*masterAISpec);
+    }
     if (masterCU) {
       res["MasterCU"] = boost::any(*masterCU);
     }
@@ -36108,6 +36133,9 @@ public:
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("MasterAISpec") != m.end() && !m["MasterAISpec"].empty()) {
+      masterAISpec = make_shared<string>(boost::any_cast<string>(m["MasterAISpec"]));
     }
     if (m.find("MasterCU") != m.end() && !m["MasterCU"].empty()) {
       masterCU = make_shared<long>(boost::any_cast<long>(m["MasterCU"]));

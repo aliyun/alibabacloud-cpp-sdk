@@ -738,6 +738,9 @@ CreateDBInstanceResponse Alibabacloud_Gpdb20160503::Client::createDBInstanceWith
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceSpec)) {
     query->insert(pair<string, string>("InstanceSpec", *request->instanceSpec));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->masterAISpec)) {
+    query->insert(pair<string, string>("MasterAISpec", *request->masterAISpec));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->masterCU)) {
     query->insert(pair<string, long>("MasterCU", *request->masterCU));
   }
@@ -7798,6 +7801,9 @@ ModifyMasterSpecResponse Alibabacloud_Gpdb20160503::Client::modifyMasterSpecWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->masterAISpec)) {
+    query->insert(pair<string, string>("MasterAISpec", *request->masterAISpec));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->masterCU)) {
     query->insert(pair<string, long>("MasterCU", *request->masterCU));
