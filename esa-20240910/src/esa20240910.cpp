@@ -573,6 +573,32 @@ BlockObjectResponse Alibabacloud_ESA20240910::Client::blockObject(shared_ptr<Blo
   return blockObjectWithOptions(request, runtime);
 }
 
+CheckAssumeSlrRoleResponse Alibabacloud_ESA20240910::Client::checkAssumeSlrRoleWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CheckAssumeSlrRole"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CheckAssumeSlrRoleResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CheckAssumeSlrRoleResponse(execute(params, req, runtime));
+  }
+}
+
+CheckAssumeSlrRoleResponse Alibabacloud_ESA20240910::Client::checkAssumeSlrRole() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return checkAssumeSlrRoleWithOptions(runtime);
+}
+
 CheckSiteNameResponse Alibabacloud_ESA20240910::Client::checkSiteNameWithOptions(shared_ptr<CheckSiteNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -874,6 +900,9 @@ CreateCompressionRuleResponse Alibabacloud_ESA20240910::Client::createCompressio
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->siteVersion)) {
     query->insert(pair<string, long>("SiteVersion", *request->siteVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->zstd)) {
+    query->insert(pair<string, string>("Zstd", *request->zstd));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2404,6 +2433,32 @@ CreateSiteDeliveryTaskResponse Alibabacloud_ESA20240910::Client::createSiteDeliv
 CreateSiteDeliveryTaskResponse Alibabacloud_ESA20240910::Client::createSiteDeliveryTask(shared_ptr<CreateSiteDeliveryTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createSiteDeliveryTaskWithOptions(request, runtime);
+}
+
+CreateSlrRoleForRealtimeLogResponse Alibabacloud_ESA20240910::Client::createSlrRoleForRealtimeLogWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateSlrRoleForRealtimeLog"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateSlrRoleForRealtimeLogResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateSlrRoleForRealtimeLogResponse(execute(params, req, runtime));
+  }
+}
+
+CreateSlrRoleForRealtimeLogResponse Alibabacloud_ESA20240910::Client::createSlrRoleForRealtimeLog() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createSlrRoleForRealtimeLogWithOptions(runtime);
 }
 
 CreateUserDeliveryTaskResponse Alibabacloud_ESA20240910::Client::createUserDeliveryTaskWithOptions(shared_ptr<CreateUserDeliveryTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -9033,6 +9088,9 @@ UpdateCompressionRuleResponse Alibabacloud_ESA20240910::Client::updateCompressio
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->siteId)) {
     query->insert(pair<string, long>("SiteId", *request->siteId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->zstd)) {
+    query->insert(pair<string, string>("Zstd", *request->zstd));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

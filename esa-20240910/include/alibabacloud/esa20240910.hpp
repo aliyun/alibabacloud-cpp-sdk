@@ -5032,6 +5032,101 @@ public:
 
   virtual ~BlockObjectResponse() = default;
 };
+class CheckAssumeSlrRoleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMsg{};
+  shared_ptr<string> isExist{};
+  shared_ptr<string> requestId{};
+
+  CheckAssumeSlrRoleResponseBody() {}
+
+  explicit CheckAssumeSlrRoleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (isExist) {
+      res["IsExist"] = boost::any(*isExist);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("IsExist") != m.end() && !m["IsExist"].empty()) {
+      isExist = make_shared<string>(boost::any_cast<string>(m["IsExist"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CheckAssumeSlrRoleResponseBody() = default;
+};
+class CheckAssumeSlrRoleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CheckAssumeSlrRoleResponseBody> body{};
+
+  CheckAssumeSlrRoleResponse() {}
+
+  explicit CheckAssumeSlrRoleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CheckAssumeSlrRoleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CheckAssumeSlrRoleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckAssumeSlrRoleResponse() = default;
+};
 class CheckSiteNameRequest : public Darabonba::Model {
 public:
   shared_ptr<string> siteName{};
@@ -6079,6 +6174,7 @@ public:
   shared_ptr<string> ruleName{};
   shared_ptr<long> siteId{};
   shared_ptr<long> siteVersion{};
+  shared_ptr<string> zstd{};
 
   CreateCompressionRuleRequest() {}
 
@@ -6111,6 +6207,9 @@ public:
     if (siteVersion) {
       res["SiteVersion"] = boost::any(*siteVersion);
     }
+    if (zstd) {
+      res["Zstd"] = boost::any(*zstd);
+    }
     return res;
   }
 
@@ -6135,6 +6234,9 @@ public:
     }
     if (m.find("SiteVersion") != m.end() && !m["SiteVersion"].empty()) {
       siteVersion = make_shared<long>(boost::any_cast<long>(m["SiteVersion"]));
+    }
+    if (m.find("Zstd") != m.end() && !m["Zstd"].empty()) {
+      zstd = make_shared<string>(boost::any_cast<string>(m["Zstd"]));
     }
   }
 
@@ -13423,6 +13525,87 @@ public:
 
   virtual ~CreateSiteDeliveryTaskResponse() = default;
 };
+class CreateSlrRoleForRealtimeLogResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateSlrRoleForRealtimeLogResponseBody() {}
+
+  explicit CreateSlrRoleForRealtimeLogResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateSlrRoleForRealtimeLogResponseBody() = default;
+};
+class CreateSlrRoleForRealtimeLogResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateSlrRoleForRealtimeLogResponseBody> body{};
+
+  CreateSlrRoleForRealtimeLogResponse() {}
+
+  explicit CreateSlrRoleForRealtimeLogResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSlrRoleForRealtimeLogResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSlrRoleForRealtimeLogResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSlrRoleForRealtimeLogResponse() = default;
+};
 class CreateUserDeliveryTaskRequestHttpDeliveryStandardAuthParam : public Darabonba::Model {
 public:
   shared_ptr<long> expiredTime{};
@@ -14592,6 +14775,7 @@ public:
 class CreateWaitingRoomResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
+  shared_ptr<string> waitingRoomId{};
 
   CreateWaitingRoomResponseBody() {}
 
@@ -14606,12 +14790,18 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (waitingRoomId) {
+      res["WaitingRoomId"] = boost::any(*waitingRoomId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("WaitingRoomId") != m.end() && !m["WaitingRoomId"].empty()) {
+      waitingRoomId = make_shared<string>(boost::any_cast<string>(m["WaitingRoomId"]));
     }
   }
 
@@ -14835,6 +15025,7 @@ public:
 class CreateWaitingRoomEventResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
+  shared_ptr<long> waitingRoomEventId{};
 
   CreateWaitingRoomEventResponseBody() {}
 
@@ -14849,12 +15040,18 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (waitingRoomEventId) {
+      res["WaitingRoomEventId"] = boost::any(*waitingRoomEventId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("WaitingRoomEventId") != m.end() && !m["WaitingRoomEventId"].empty()) {
+      waitingRoomEventId = make_shared<long>(boost::any_cast<long>(m["WaitingRoomEventId"]));
     }
   }
 
@@ -14973,6 +15170,7 @@ public:
 class CreateWaitingRoomRuleResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
+  shared_ptr<long> waitingRoomRuleId{};
 
   CreateWaitingRoomRuleResponseBody() {}
 
@@ -14987,12 +15185,18 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (waitingRoomRuleId) {
+      res["WaitingRoomRuleId"] = boost::any(*waitingRoomRuleId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("WaitingRoomRuleId") != m.end() && !m["WaitingRoomRuleId"].empty()) {
+      waitingRoomRuleId = make_shared<long>(boost::any_cast<long>(m["WaitingRoomRuleId"]));
     }
   }
 
@@ -24138,6 +24342,7 @@ public:
   shared_ptr<string> ruleName{};
   shared_ptr<long> sequence{};
   shared_ptr<long> siteVersion{};
+  shared_ptr<string> zstd{};
 
   GetCompressionRuleResponseBody() {}
 
@@ -24179,6 +24384,9 @@ public:
     if (siteVersion) {
       res["SiteVersion"] = boost::any(*siteVersion);
     }
+    if (zstd) {
+      res["Zstd"] = boost::any(*zstd);
+    }
     return res;
   }
 
@@ -24212,6 +24420,9 @@ public:
     }
     if (m.find("SiteVersion") != m.end() && !m["SiteVersion"].empty()) {
       siteVersion = make_shared<long>(boost::any_cast<long>(m["SiteVersion"]));
+    }
+    if (m.find("Zstd") != m.end() && !m["Zstd"].empty()) {
+      zstd = make_shared<string>(boost::any_cast<string>(m["Zstd"]));
     }
   }
 
@@ -37372,6 +37583,7 @@ public:
   shared_ptr<string> ruleName{};
   shared_ptr<long> sequence{};
   shared_ptr<long> siteVersion{};
+  shared_ptr<string> zstd{};
 
   ListCompressionRulesResponseBodyConfigs() {}
 
@@ -37410,6 +37622,9 @@ public:
     if (siteVersion) {
       res["SiteVersion"] = boost::any(*siteVersion);
     }
+    if (zstd) {
+      res["Zstd"] = boost::any(*zstd);
+    }
     return res;
   }
 
@@ -37440,6 +37655,9 @@ public:
     }
     if (m.find("SiteVersion") != m.end() && !m["SiteVersion"].empty()) {
       siteVersion = make_shared<long>(boost::any_cast<long>(m["SiteVersion"]));
+    }
+    if (m.find("Zstd") != m.end() && !m["Zstd"].empty()) {
+      zstd = make_shared<string>(boost::any_cast<string>(m["Zstd"]));
     }
   }
 
@@ -48424,6 +48642,7 @@ public:
   shared_ptr<string> sortBy{};
   shared_ptr<string> sortOrder{};
   shared_ptr<string> status{};
+  shared_ptr<string> subscribeType{};
 
   ListUserRatePlanInstancesRequest() {}
 
@@ -48459,6 +48678,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (subscribeType) {
+      res["SubscribeType"] = boost::any(*subscribeType);
+    }
     return res;
   }
 
@@ -48486,6 +48708,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubscribeType") != m.end() && !m["SubscribeType"].empty()) {
+      subscribeType = make_shared<string>(boost::any_cast<string>(m["SubscribeType"]));
     }
   }
 
@@ -48561,6 +48786,7 @@ public:
   shared_ptr<string> smartRoutingRequest{};
   shared_ptr<string> staticRequest{};
   shared_ptr<string> status{};
+  shared_ptr<string> subscribeType{};
 
   ListUserRatePlanInstancesResponseBodyInstanceInfo() {}
 
@@ -48648,6 +48874,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (subscribeType) {
+      res["SubscribeType"] = boost::any(*subscribeType);
+    }
     return res;
   }
 
@@ -48733,6 +48962,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubscribeType") != m.end() && !m["SubscribeType"].empty()) {
+      subscribeType = make_shared<string>(boost::any_cast<string>(m["SubscribeType"]));
     }
   }
 
@@ -54461,6 +54693,7 @@ public:
   shared_ptr<string> ruleEnable{};
   shared_ptr<string> ruleName{};
   shared_ptr<long> siteId{};
+  shared_ptr<string> zstd{};
 
   UpdateCompressionRuleRequest() {}
 
@@ -54493,6 +54726,9 @@ public:
     if (siteId) {
       res["SiteId"] = boost::any(*siteId);
     }
+    if (zstd) {
+      res["Zstd"] = boost::any(*zstd);
+    }
     return res;
   }
 
@@ -54517,6 +54753,9 @@ public:
     }
     if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
       siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
+    }
+    if (m.find("Zstd") != m.end() && !m["Zstd"].empty()) {
+      zstd = make_shared<string>(boost::any_cast<string>(m["Zstd"]));
     }
   }
 
@@ -62231,6 +62470,8 @@ public:
   BatchPutKvWithHighCapacityResponse batchPutKvWithHighCapacityAdvance(shared_ptr<BatchPutKvWithHighCapacityAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BlockObjectResponse blockObjectWithOptions(shared_ptr<BlockObjectRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BlockObjectResponse blockObject(shared_ptr<BlockObjectRequest> request);
+  CheckAssumeSlrRoleResponse checkAssumeSlrRoleWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CheckAssumeSlrRoleResponse checkAssumeSlrRole();
   CheckSiteNameResponse checkSiteNameWithOptions(shared_ptr<CheckSiteNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckSiteNameResponse checkSiteName(shared_ptr<CheckSiteNameRequest> request);
   CheckSiteProjectNameResponse checkSiteProjectNameWithOptions(shared_ptr<CheckSiteProjectNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -62301,6 +62542,8 @@ public:
   CreateSiteCustomLogResponse createSiteCustomLog(shared_ptr<CreateSiteCustomLogRequest> request);
   CreateSiteDeliveryTaskResponse createSiteDeliveryTaskWithOptions(shared_ptr<CreateSiteDeliveryTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSiteDeliveryTaskResponse createSiteDeliveryTask(shared_ptr<CreateSiteDeliveryTaskRequest> request);
+  CreateSlrRoleForRealtimeLogResponse createSlrRoleForRealtimeLogWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSlrRoleForRealtimeLogResponse createSlrRoleForRealtimeLog();
   CreateUserDeliveryTaskResponse createUserDeliveryTaskWithOptions(shared_ptr<CreateUserDeliveryTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateUserDeliveryTaskResponse createUserDeliveryTask(shared_ptr<CreateUserDeliveryTaskRequest> request);
   CreateWaitingRoomResponse createWaitingRoomWithOptions(shared_ptr<CreateWaitingRoomRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
