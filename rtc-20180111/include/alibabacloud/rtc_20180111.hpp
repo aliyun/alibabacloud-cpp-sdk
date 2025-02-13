@@ -22753,6 +22753,35 @@ public:
 
   virtual ~StartCloudRecordRequestPanesTexts() = default;
 };
+class StartCloudRecordRequestPanesWhiteboard : public Darabonba::Model {
+public:
+  shared_ptr<string> whiteboardId{};
+
+  StartCloudRecordRequestPanesWhiteboard() {}
+
+  explicit StartCloudRecordRequestPanesWhiteboard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (whiteboardId) {
+      res["WhiteboardId"] = boost::any(*whiteboardId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WhiteboardId") != m.end() && !m["WhiteboardId"].empty()) {
+      whiteboardId = make_shared<string>(boost::any_cast<string>(m["WhiteboardId"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordRequestPanesWhiteboard() = default;
+};
 class StartCloudRecordRequestPanes : public Darabonba::Model {
 public:
   shared_ptr<vector<StartCloudRecordRequestPanesImages>> images{};
@@ -22761,6 +22790,7 @@ public:
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<StartCloudRecordRequestPanesTexts>> texts{};
+  shared_ptr<StartCloudRecordRequestPanesWhiteboard> whiteboard{};
 
   StartCloudRecordRequestPanes() {}
 
@@ -22797,6 +22827,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (whiteboard) {
+      res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -22838,6 +22871,13 @@ public:
           }
         }
         texts = make_shared<vector<StartCloudRecordRequestPanesTexts>>(expect1);
+      }
+    }
+    if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
+        StartCloudRecordRequestPanesWhiteboard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Whiteboard"]));
+        whiteboard = make_shared<StartCloudRecordRequestPanesWhiteboard>(model1);
       }
     }
   }
@@ -23974,6 +24014,35 @@ public:
 
   virtual ~StartCloudRecordShrinkRequestPanesTexts() = default;
 };
+class StartCloudRecordShrinkRequestPanesWhiteboard : public Darabonba::Model {
+public:
+  shared_ptr<string> whiteboardId{};
+
+  StartCloudRecordShrinkRequestPanesWhiteboard() {}
+
+  explicit StartCloudRecordShrinkRequestPanesWhiteboard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (whiteboardId) {
+      res["WhiteboardId"] = boost::any(*whiteboardId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WhiteboardId") != m.end() && !m["WhiteboardId"].empty()) {
+      whiteboardId = make_shared<string>(boost::any_cast<string>(m["WhiteboardId"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordShrinkRequestPanesWhiteboard() = default;
+};
 class StartCloudRecordShrinkRequestPanes : public Darabonba::Model {
 public:
   shared_ptr<vector<StartCloudRecordShrinkRequestPanesImages>> images{};
@@ -23982,6 +24051,7 @@ public:
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<StartCloudRecordShrinkRequestPanesTexts>> texts{};
+  shared_ptr<StartCloudRecordShrinkRequestPanesWhiteboard> whiteboard{};
 
   StartCloudRecordShrinkRequestPanes() {}
 
@@ -24018,6 +24088,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (whiteboard) {
+      res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -24059,6 +24132,13 @@ public:
           }
         }
         texts = make_shared<vector<StartCloudRecordShrinkRequestPanesTexts>>(expect1);
+      }
+    }
+    if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
+        StartCloudRecordShrinkRequestPanesWhiteboard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Whiteboard"]));
+        whiteboard = make_shared<StartCloudRecordShrinkRequestPanesWhiteboard>(model1);
       }
     }
   }
@@ -26851,6 +26931,35 @@ public:
 
   virtual ~StartStreamingOutRequestPanesTexts() = default;
 };
+class StartStreamingOutRequestPanesWhiteboard : public Darabonba::Model {
+public:
+  shared_ptr<string> whiteboardId{};
+
+  StartStreamingOutRequestPanesWhiteboard() {}
+
+  explicit StartStreamingOutRequestPanesWhiteboard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (whiteboardId) {
+      res["WhiteboardId"] = boost::any(*whiteboardId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WhiteboardId") != m.end() && !m["WhiteboardId"].empty()) {
+      whiteboardId = make_shared<string>(boost::any_cast<string>(m["WhiteboardId"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutRequestPanesWhiteboard() = default;
+};
 class StartStreamingOutRequestPanes : public Darabonba::Model {
 public:
   shared_ptr<vector<StartStreamingOutRequestPanesImages>> images{};
@@ -26859,6 +26968,7 @@ public:
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<StartStreamingOutRequestPanesTexts>> texts{};
+  shared_ptr<StartStreamingOutRequestPanesWhiteboard> whiteboard{};
 
   StartStreamingOutRequestPanes() {}
 
@@ -26895,6 +27005,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (whiteboard) {
+      res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -26936,6 +27049,13 @@ public:
           }
         }
         texts = make_shared<vector<StartStreamingOutRequestPanesTexts>>(expect1);
+      }
+    }
+    if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
+        StartStreamingOutRequestPanesWhiteboard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Whiteboard"]));
+        whiteboard = make_shared<StartStreamingOutRequestPanesWhiteboard>(model1);
       }
     }
   }
@@ -28011,6 +28131,35 @@ public:
 
   virtual ~StartStreamingOutShrinkRequestPanesTexts() = default;
 };
+class StartStreamingOutShrinkRequestPanesWhiteboard : public Darabonba::Model {
+public:
+  shared_ptr<string> whiteboardId{};
+
+  StartStreamingOutShrinkRequestPanesWhiteboard() {}
+
+  explicit StartStreamingOutShrinkRequestPanesWhiteboard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (whiteboardId) {
+      res["WhiteboardId"] = boost::any(*whiteboardId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WhiteboardId") != m.end() && !m["WhiteboardId"].empty()) {
+      whiteboardId = make_shared<string>(boost::any_cast<string>(m["WhiteboardId"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutShrinkRequestPanesWhiteboard() = default;
+};
 class StartStreamingOutShrinkRequestPanes : public Darabonba::Model {
 public:
   shared_ptr<vector<StartStreamingOutShrinkRequestPanesImages>> images{};
@@ -28019,6 +28168,7 @@ public:
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<StartStreamingOutShrinkRequestPanesTexts>> texts{};
+  shared_ptr<StartStreamingOutShrinkRequestPanesWhiteboard> whiteboard{};
 
   StartStreamingOutShrinkRequestPanes() {}
 
@@ -28055,6 +28205,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (whiteboard) {
+      res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -28096,6 +28249,13 @@ public:
           }
         }
         texts = make_shared<vector<StartStreamingOutShrinkRequestPanesTexts>>(expect1);
+      }
+    }
+    if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
+        StartStreamingOutShrinkRequestPanesWhiteboard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Whiteboard"]));
+        whiteboard = make_shared<StartStreamingOutShrinkRequestPanesWhiteboard>(model1);
       }
     }
   }
@@ -30429,6 +30589,35 @@ public:
 
   virtual ~UpdateCloudRecordRequestPanesTexts() = default;
 };
+class UpdateCloudRecordRequestPanesWhiteboard : public Darabonba::Model {
+public:
+  shared_ptr<string> whiteboardId{};
+
+  UpdateCloudRecordRequestPanesWhiteboard() {}
+
+  explicit UpdateCloudRecordRequestPanesWhiteboard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (whiteboardId) {
+      res["WhiteboardId"] = boost::any(*whiteboardId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WhiteboardId") != m.end() && !m["WhiteboardId"].empty()) {
+      whiteboardId = make_shared<string>(boost::any_cast<string>(m["WhiteboardId"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordRequestPanesWhiteboard() = default;
+};
 class UpdateCloudRecordRequestPanes : public Darabonba::Model {
 public:
   shared_ptr<vector<UpdateCloudRecordRequestPanesImages>> images{};
@@ -30437,6 +30626,7 @@ public:
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<UpdateCloudRecordRequestPanesTexts>> texts{};
+  shared_ptr<UpdateCloudRecordRequestPanesWhiteboard> whiteboard{};
 
   UpdateCloudRecordRequestPanes() {}
 
@@ -30473,6 +30663,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (whiteboard) {
+      res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -30514,6 +30707,13 @@ public:
           }
         }
         texts = make_shared<vector<UpdateCloudRecordRequestPanesTexts>>(expect1);
+      }
+    }
+    if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
+        UpdateCloudRecordRequestPanesWhiteboard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Whiteboard"]));
+        whiteboard = make_shared<UpdateCloudRecordRequestPanesWhiteboard>(model1);
       }
     }
   }
@@ -31521,6 +31721,35 @@ public:
 
   virtual ~UpdateCloudRecordShrinkRequestPanesTexts() = default;
 };
+class UpdateCloudRecordShrinkRequestPanesWhiteboard : public Darabonba::Model {
+public:
+  shared_ptr<string> whiteboardId{};
+
+  UpdateCloudRecordShrinkRequestPanesWhiteboard() {}
+
+  explicit UpdateCloudRecordShrinkRequestPanesWhiteboard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (whiteboardId) {
+      res["WhiteboardId"] = boost::any(*whiteboardId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WhiteboardId") != m.end() && !m["WhiteboardId"].empty()) {
+      whiteboardId = make_shared<string>(boost::any_cast<string>(m["WhiteboardId"]));
+    }
+  }
+
+
+  virtual ~UpdateCloudRecordShrinkRequestPanesWhiteboard() = default;
+};
 class UpdateCloudRecordShrinkRequestPanes : public Darabonba::Model {
 public:
   shared_ptr<vector<UpdateCloudRecordShrinkRequestPanesImages>> images{};
@@ -31529,6 +31758,7 @@ public:
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<UpdateCloudRecordShrinkRequestPanesTexts>> texts{};
+  shared_ptr<UpdateCloudRecordShrinkRequestPanesWhiteboard> whiteboard{};
 
   UpdateCloudRecordShrinkRequestPanes() {}
 
@@ -31565,6 +31795,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (whiteboard) {
+      res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -31606,6 +31839,13 @@ public:
           }
         }
         texts = make_shared<vector<UpdateCloudRecordShrinkRequestPanesTexts>>(expect1);
+      }
+    }
+    if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
+        UpdateCloudRecordShrinkRequestPanesWhiteboard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Whiteboard"]));
+        whiteboard = make_shared<UpdateCloudRecordShrinkRequestPanesWhiteboard>(model1);
       }
     }
   }
@@ -34671,6 +34911,35 @@ public:
 
   virtual ~UpdateStreamingOutRequestPanesTexts() = default;
 };
+class UpdateStreamingOutRequestPanesWhiteboard : public Darabonba::Model {
+public:
+  shared_ptr<string> whiteboardId{};
+
+  UpdateStreamingOutRequestPanesWhiteboard() {}
+
+  explicit UpdateStreamingOutRequestPanesWhiteboard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (whiteboardId) {
+      res["WhiteboardId"] = boost::any(*whiteboardId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WhiteboardId") != m.end() && !m["WhiteboardId"].empty()) {
+      whiteboardId = make_shared<string>(boost::any_cast<string>(m["WhiteboardId"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutRequestPanesWhiteboard() = default;
+};
 class UpdateStreamingOutRequestPanes : public Darabonba::Model {
 public:
   shared_ptr<vector<UpdateStreamingOutRequestPanesImages>> images{};
@@ -34679,6 +34948,7 @@ public:
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<UpdateStreamingOutRequestPanesTexts>> texts{};
+  shared_ptr<UpdateStreamingOutRequestPanesWhiteboard> whiteboard{};
 
   UpdateStreamingOutRequestPanes() {}
 
@@ -34715,6 +34985,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (whiteboard) {
+      res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -34756,6 +35029,13 @@ public:
           }
         }
         texts = make_shared<vector<UpdateStreamingOutRequestPanesTexts>>(expect1);
+      }
+    }
+    if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
+        UpdateStreamingOutRequestPanesWhiteboard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Whiteboard"]));
+        whiteboard = make_shared<UpdateStreamingOutRequestPanesWhiteboard>(model1);
       }
     }
   }
@@ -35763,6 +36043,35 @@ public:
 
   virtual ~UpdateStreamingOutShrinkRequestPanesTexts() = default;
 };
+class UpdateStreamingOutShrinkRequestPanesWhiteboard : public Darabonba::Model {
+public:
+  shared_ptr<string> whiteboardId{};
+
+  UpdateStreamingOutShrinkRequestPanesWhiteboard() {}
+
+  explicit UpdateStreamingOutShrinkRequestPanesWhiteboard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (whiteboardId) {
+      res["WhiteboardId"] = boost::any(*whiteboardId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WhiteboardId") != m.end() && !m["WhiteboardId"].empty()) {
+      whiteboardId = make_shared<string>(boost::any_cast<string>(m["WhiteboardId"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamingOutShrinkRequestPanesWhiteboard() = default;
+};
 class UpdateStreamingOutShrinkRequestPanes : public Darabonba::Model {
 public:
   shared_ptr<vector<UpdateStreamingOutShrinkRequestPanesImages>> images{};
@@ -35771,6 +36080,7 @@ public:
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<UpdateStreamingOutShrinkRequestPanesTexts>> texts{};
+  shared_ptr<UpdateStreamingOutShrinkRequestPanesWhiteboard> whiteboard{};
 
   UpdateStreamingOutShrinkRequestPanes() {}
 
@@ -35807,6 +36117,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (whiteboard) {
+      res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -35848,6 +36161,13 @@ public:
           }
         }
         texts = make_shared<vector<UpdateStreamingOutShrinkRequestPanesTexts>>(expect1);
+      }
+    }
+    if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
+        UpdateStreamingOutShrinkRequestPanesWhiteboard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Whiteboard"]));
+        whiteboard = make_shared<UpdateStreamingOutShrinkRequestPanesWhiteboard>(model1);
       }
     }
   }
