@@ -513,7 +513,6 @@ public:
   shared_ptr<bool> ha{};
   shared_ptr<CreateInstanceRequestHaResourceSpec> haResourceSpec{};
   shared_ptr<vector<string>> haVSwitchIds{};
-  shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> monitorType{};
   shared_ptr<string> pricingCycle{};
@@ -526,7 +525,6 @@ public:
   shared_ptr<bool> usePromotionCode{};
   shared_ptr<vector<string>> vSwitchIds{};
   shared_ptr<string> vpcId{};
-  shared_ptr<string> zoneId{};
 
   CreateInstanceRequest() {}
 
@@ -561,9 +559,6 @@ public:
     }
     if (haVSwitchIds) {
       res["HaVSwitchIds"] = boost::any(*haVSwitchIds);
-    }
-    if (haZoneId) {
-      res["HaZoneId"] = boost::any(*haZoneId);
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
@@ -605,9 +600,6 @@ public:
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
-    if (zoneId) {
-      res["ZoneId"] = boost::any(*zoneId);
-    }
     return res;
   }
 
@@ -646,9 +638,6 @@ public:
         }
       }
       haVSwitchIds = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
-      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
@@ -711,9 +700,6 @@ public:
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
-    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
-      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
-    }
   }
 
 
@@ -729,7 +715,6 @@ public:
   shared_ptr<bool> ha{};
   shared_ptr<string> haResourceSpecShrink{};
   shared_ptr<string> haVSwitchIdsShrink{};
-  shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> monitorType{};
   shared_ptr<string> pricingCycle{};
@@ -742,7 +727,6 @@ public:
   shared_ptr<bool> usePromotionCode{};
   shared_ptr<string> vSwitchIdsShrink{};
   shared_ptr<string> vpcId{};
-  shared_ptr<string> zoneId{};
 
   CreateInstanceShrinkRequest() {}
 
@@ -777,9 +761,6 @@ public:
     }
     if (haVSwitchIdsShrink) {
       res["HaVSwitchIds"] = boost::any(*haVSwitchIdsShrink);
-    }
-    if (haZoneId) {
-      res["HaZoneId"] = boost::any(*haZoneId);
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
@@ -817,9 +798,6 @@ public:
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
-    if (zoneId) {
-      res["ZoneId"] = boost::any(*zoneId);
-    }
     return res;
   }
 
@@ -847,9 +825,6 @@ public:
     }
     if (m.find("HaVSwitchIds") != m.end() && !m["HaVSwitchIds"].empty()) {
       haVSwitchIdsShrink = make_shared<string>(boost::any_cast<string>(m["HaVSwitchIds"]));
-    }
-    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
-      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
@@ -886,9 +861,6 @@ public:
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
-    }
-    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
-      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
     }
   }
 
@@ -2057,6 +2029,12 @@ public:
 class DescribeInstancesResponseBodyInstancesClusterUsedResources : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
+  shared_ptr<double> elasticUsedCpu{};
+  shared_ptr<double> elasticUsedMemory{};
+  shared_ptr<double> elasticUsedResource{};
+  shared_ptr<double> guaranteedUsedCpu{};
+  shared_ptr<double> guaranteedUsedMemory{};
+  shared_ptr<double> guaranteedUsedResource{};
   shared_ptr<bool> ha{};
   shared_ptr<double> haUsedCpu{};
   shared_ptr<double> haUsedMemory{};
@@ -2077,6 +2055,24 @@ public:
     map<string, boost::any> res;
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (elasticUsedCpu) {
+      res["ElasticUsedCpu"] = boost::any(*elasticUsedCpu);
+    }
+    if (elasticUsedMemory) {
+      res["ElasticUsedMemory"] = boost::any(*elasticUsedMemory);
+    }
+    if (elasticUsedResource) {
+      res["ElasticUsedResource"] = boost::any(*elasticUsedResource);
+    }
+    if (guaranteedUsedCpu) {
+      res["GuaranteedUsedCpu"] = boost::any(*guaranteedUsedCpu);
+    }
+    if (guaranteedUsedMemory) {
+      res["GuaranteedUsedMemory"] = boost::any(*guaranteedUsedMemory);
+    }
+    if (guaranteedUsedResource) {
+      res["GuaranteedUsedResource"] = boost::any(*guaranteedUsedResource);
     }
     if (ha) {
       res["Ha"] = boost::any(*ha);
@@ -2105,6 +2101,24 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ElasticUsedCpu") != m.end() && !m["ElasticUsedCpu"].empty()) {
+      elasticUsedCpu = make_shared<double>(boost::any_cast<double>(m["ElasticUsedCpu"]));
+    }
+    if (m.find("ElasticUsedMemory") != m.end() && !m["ElasticUsedMemory"].empty()) {
+      elasticUsedMemory = make_shared<double>(boost::any_cast<double>(m["ElasticUsedMemory"]));
+    }
+    if (m.find("ElasticUsedResource") != m.end() && !m["ElasticUsedResource"].empty()) {
+      elasticUsedResource = make_shared<double>(boost::any_cast<double>(m["ElasticUsedResource"]));
+    }
+    if (m.find("GuaranteedUsedCpu") != m.end() && !m["GuaranteedUsedCpu"].empty()) {
+      guaranteedUsedCpu = make_shared<double>(boost::any_cast<double>(m["GuaranteedUsedCpu"]));
+    }
+    if (m.find("GuaranteedUsedMemory") != m.end() && !m["GuaranteedUsedMemory"].empty()) {
+      guaranteedUsedMemory = make_shared<double>(boost::any_cast<double>(m["GuaranteedUsedMemory"]));
+    }
+    if (m.find("GuaranteedUsedResource") != m.end() && !m["GuaranteedUsedResource"].empty()) {
+      guaranteedUsedResource = make_shared<double>(boost::any_cast<double>(m["GuaranteedUsedResource"]));
     }
     if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
       ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
@@ -2167,6 +2181,42 @@ public:
 
 
   virtual ~DescribeInstancesResponseBodyInstancesClusterUsedStorage() = default;
+};
+class DescribeInstancesResponseBodyInstancesElasticResourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> memoryGB{};
+
+  DescribeInstancesResponseBodyInstancesElasticResourceSpec() {}
+
+  explicit DescribeInstancesResponseBodyInstancesElasticResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memoryGB) {
+      res["MemoryGB"] = boost::any(*memoryGB);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
+      memoryGB = make_shared<long>(boost::any_cast<long>(m["MemoryGB"]));
+    }
+  }
+
+
+  virtual ~DescribeInstancesResponseBodyInstancesElasticResourceSpec() = default;
 };
 class DescribeInstancesResponseBodyInstancesHaResourceSpec : public Darabonba::Model {
 public:
@@ -2674,13 +2724,17 @@ public:
 };
 class DescribeInstancesResponseBodyInstances : public Darabonba::Model {
 public:
+  shared_ptr<bool> ansm{};
   shared_ptr<string> architectureType{};
   shared_ptr<string> askClusterId{};
   shared_ptr<string> chargeType{};
   shared_ptr<DescribeInstancesResponseBodyInstancesClusterState> clusterState{};
   shared_ptr<string> clusterStatus{};
-  shared_ptr<vector<DescribeInstancesResponseBodyInstancesClusterUsedResources>> clusterUsedResources{};
+  shared_ptr<DescribeInstancesResponseBodyInstancesClusterUsedResources> clusterUsedResources{};
   shared_ptr<DescribeInstancesResponseBodyInstancesClusterUsedStorage> clusterUsedStorage{};
+  shared_ptr<bool> elastic{};
+  shared_ptr<string> elasticOrderState{};
+  shared_ptr<DescribeInstancesResponseBodyInstancesElasticResourceSpec> elasticResourceSpec{};
   shared_ptr<bool> ha{};
   shared_ptr<DescribeInstancesResponseBodyInstancesHaResourceSpec> haResourceSpec{};
   shared_ptr<vector<string>> haVSwitchIds{};
@@ -2717,6 +2771,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ansm) {
+      res["Ansm"] = boost::any(*ansm);
+    }
     if (architectureType) {
       res["ArchitectureType"] = boost::any(*architectureType);
     }
@@ -2733,14 +2790,19 @@ public:
       res["ClusterStatus"] = boost::any(*clusterStatus);
     }
     if (clusterUsedResources) {
-      vector<boost::any> temp1;
-      for(auto item1:*clusterUsedResources){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["ClusterUsedResources"] = boost::any(temp1);
+      res["ClusterUsedResources"] = clusterUsedResources ? boost::any(clusterUsedResources->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (clusterUsedStorage) {
       res["ClusterUsedStorage"] = clusterUsedStorage ? boost::any(clusterUsedStorage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (elastic) {
+      res["Elastic"] = boost::any(*elastic);
+    }
+    if (elasticOrderState) {
+      res["ElasticOrderState"] = boost::any(*elasticOrderState);
+    }
+    if (elasticResourceSpec) {
+      res["ElasticResourceSpec"] = elasticResourceSpec ? boost::any(elasticResourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ha) {
       res["Ha"] = boost::any(*ha);
@@ -2837,6 +2899,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ansm") != m.end() && !m["Ansm"].empty()) {
+      ansm = make_shared<bool>(boost::any_cast<bool>(m["Ansm"]));
+    }
     if (m.find("ArchitectureType") != m.end() && !m["ArchitectureType"].empty()) {
       architectureType = make_shared<string>(boost::any_cast<string>(m["ArchitectureType"]));
     }
@@ -2857,16 +2922,10 @@ public:
       clusterStatus = make_shared<string>(boost::any_cast<string>(m["ClusterStatus"]));
     }
     if (m.find("ClusterUsedResources") != m.end() && !m["ClusterUsedResources"].empty()) {
-      if (typeid(vector<boost::any>) == m["ClusterUsedResources"].type()) {
-        vector<DescribeInstancesResponseBodyInstancesClusterUsedResources> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["ClusterUsedResources"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeInstancesResponseBodyInstancesClusterUsedResources model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        clusterUsedResources = make_shared<vector<DescribeInstancesResponseBodyInstancesClusterUsedResources>>(expect1);
+      if (typeid(map<string, boost::any>) == m["ClusterUsedResources"].type()) {
+        DescribeInstancesResponseBodyInstancesClusterUsedResources model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ClusterUsedResources"]));
+        clusterUsedResources = make_shared<DescribeInstancesResponseBodyInstancesClusterUsedResources>(model1);
       }
     }
     if (m.find("ClusterUsedStorage") != m.end() && !m["ClusterUsedStorage"].empty()) {
@@ -2874,6 +2933,19 @@ public:
         DescribeInstancesResponseBodyInstancesClusterUsedStorage model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ClusterUsedStorage"]));
         clusterUsedStorage = make_shared<DescribeInstancesResponseBodyInstancesClusterUsedStorage>(model1);
+      }
+    }
+    if (m.find("Elastic") != m.end() && !m["Elastic"].empty()) {
+      elastic = make_shared<bool>(boost::any_cast<bool>(m["Elastic"]));
+    }
+    if (m.find("ElasticOrderState") != m.end() && !m["ElasticOrderState"].empty()) {
+      elasticOrderState = make_shared<string>(boost::any_cast<string>(m["ElasticOrderState"]));
+    }
+    if (m.find("ElasticResourceSpec") != m.end() && !m["ElasticResourceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ElasticResourceSpec"].type()) {
+        DescribeInstancesResponseBodyInstancesElasticResourceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ElasticResourceSpec"]));
+        elasticResourceSpec = make_shared<DescribeInstancesResponseBodyInstancesElasticResourceSpec>(model1);
       }
     }
     if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
@@ -3359,6 +3431,78 @@ public:
 
   virtual ~DescribeNamespacesShrinkRequest() = default;
 };
+class DescribeNamespacesResponseBodyNamespacesElasticResourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> memoryGB{};
+
+  DescribeNamespacesResponseBodyNamespacesElasticResourceSpec() {}
+
+  explicit DescribeNamespacesResponseBodyNamespacesElasticResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memoryGB) {
+      res["MemoryGB"] = boost::any(*memoryGB);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
+      memoryGB = make_shared<long>(boost::any_cast<long>(m["MemoryGB"]));
+    }
+  }
+
+
+  virtual ~DescribeNamespacesResponseBodyNamespacesElasticResourceSpec() = default;
+};
+class DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> memoryGB{};
+
+  DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec() {}
+
+  explicit DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memoryGB) {
+      res["MemoryGB"] = boost::any(*memoryGB);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
+      memoryGB = make_shared<long>(boost::any_cast<long>(m["MemoryGB"]));
+    }
+  }
+
+
+  virtual ~DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec() = default;
+};
 class DescribeNamespacesResponseBodyNamespacesResourceSpec : public Darabonba::Model {
 public:
   shared_ptr<long> cpu{};
@@ -3476,8 +3620,10 @@ public:
 };
 class DescribeNamespacesResponseBodyNamespaces : public Darabonba::Model {
 public:
+  shared_ptr<DescribeNamespacesResponseBodyNamespacesElasticResourceSpec> elasticResourceSpec{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
+  shared_ptr<DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec> guaranteedResourceSpec{};
   shared_ptr<bool> ha{};
   shared_ptr<string> namespace_{};
   shared_ptr<DescribeNamespacesResponseBodyNamespacesResourceSpec> resourceSpec{};
@@ -3495,11 +3641,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (elasticResourceSpec) {
+      res["ElasticResourceSpec"] = elasticResourceSpec ? boost::any(elasticResourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
     }
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (guaranteedResourceSpec) {
+      res["GuaranteedResourceSpec"] = guaranteedResourceSpec ? boost::any(guaranteedResourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ha) {
       res["Ha"] = boost::any(*ha);
@@ -3527,11 +3679,25 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ElasticResourceSpec") != m.end() && !m["ElasticResourceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ElasticResourceSpec"].type()) {
+        DescribeNamespacesResponseBodyNamespacesElasticResourceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ElasticResourceSpec"]));
+        elasticResourceSpec = make_shared<DescribeNamespacesResponseBodyNamespacesElasticResourceSpec>(model1);
+      }
+    }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
+    }
+    if (m.find("GuaranteedResourceSpec") != m.end() && !m["GuaranteedResourceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GuaranteedResourceSpec"].type()) {
+        DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GuaranteedResourceSpec"]));
+        guaranteedResourceSpec = make_shared<DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec>(model1);
+      }
     }
     if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
       ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
@@ -5660,7 +5826,6 @@ public:
   shared_ptr<bool> usePromotionCode{};
   shared_ptr<vector<string>> vSwitchIds{};
   shared_ptr<string> vpcId{};
-  shared_ptr<string> zoneId{};
 
   QueryCreateInstancePriceRequest() {}
 
@@ -5719,9 +5884,6 @@ public:
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
-    }
-    if (zoneId) {
-      res["ZoneId"] = boost::any(*zoneId);
     }
     return res;
   }
@@ -5794,9 +5956,6 @@ public:
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
-    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
-      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
-    }
   }
 
 
@@ -5820,7 +5979,6 @@ public:
   shared_ptr<bool> usePromotionCode{};
   shared_ptr<string> vSwitchIdsShrink{};
   shared_ptr<string> vpcId{};
-  shared_ptr<string> zoneId{};
 
   QueryCreateInstancePriceShrinkRequest() {}
 
@@ -5880,9 +6038,6 @@ public:
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
-    if (zoneId) {
-      res["ZoneId"] = boost::any(*zoneId);
-    }
     return res;
   }
 
@@ -5934,9 +6089,6 @@ public:
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
-    }
-    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
-      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
     }
   }
 
@@ -6407,7 +6559,6 @@ public:
   shared_ptr<bool> ha{};
   shared_ptr<QueryModifyInstancePriceRequestHaResourceSpec> haResourceSpec{};
   shared_ptr<vector<string>> haVSwitchIds{};
-  shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> promotionCode{};
   shared_ptr<string> region{};
@@ -6432,9 +6583,6 @@ public:
     }
     if (haVSwitchIds) {
       res["HaVSwitchIds"] = boost::any(*haVSwitchIds);
-    }
-    if (haZoneId) {
-      res["HaZoneId"] = boost::any(*haZoneId);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -6475,9 +6623,6 @@ public:
       }
       haVSwitchIds = make_shared<vector<string>>(toVec1);
     }
-    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
-      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
-    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -6507,7 +6652,6 @@ public:
   shared_ptr<bool> ha{};
   shared_ptr<string> haResourceSpecShrink{};
   shared_ptr<string> haVSwitchIdsShrink{};
-  shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> promotionCode{};
   shared_ptr<string> region{};
@@ -6532,9 +6676,6 @@ public:
     }
     if (haVSwitchIdsShrink) {
       res["HaVSwitchIds"] = boost::any(*haVSwitchIdsShrink);
-    }
-    if (haZoneId) {
-      res["HaZoneId"] = boost::any(*haZoneId);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -6563,9 +6704,6 @@ public:
     }
     if (m.find("HaVSwitchIds") != m.end() && !m["HaVSwitchIds"].empty()) {
       haVSwitchIdsShrink = make_shared<string>(boost::any_cast<string>(m["HaVSwitchIds"]));
-    }
-    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
-      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
