@@ -58519,6 +58519,1438 @@ public:
 
   virtual ~InviteUsersResponse() = default;
 };
+class InvokeAssistantHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountId{};
+
+  InvokeAssistantHeaders() {}
+
+  explicit InvokeAssistantHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantHeaders() = default;
+};
+class InvokeAssistantRequestContentCardCallback : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> userId{};
+
+  InvokeAssistantRequestContentCardCallback() {}
+
+  explicit InvokeAssistantRequestContentCardCallback(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (templateId) {
+      res["templateId"] = boost::any(*templateId);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("templateId") != m.end() && !m["templateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["templateId"]));
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequestContentCardCallback() = default;
+};
+class InvokeAssistantRequestContentDingCard : public Darabonba::Model {
+public:
+  shared_ptr<string> cardDesc{};
+  shared_ptr<string> content{};
+  shared_ptr<string> contentType{};
+  shared_ptr<bool> finished{};
+  shared_ptr<string> templateId{};
+
+  InvokeAssistantRequestContentDingCard() {}
+
+  explicit InvokeAssistantRequestContentDingCard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cardDesc) {
+      res["cardDesc"] = boost::any(*cardDesc);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (contentType) {
+      res["contentType"] = boost::any(*contentType);
+    }
+    if (finished) {
+      res["finished"] = boost::any(*finished);
+    }
+    if (templateId) {
+      res["templateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cardDesc") != m.end() && !m["cardDesc"].empty()) {
+      cardDesc = make_shared<string>(boost::any_cast<string>(m["cardDesc"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("contentType") != m.end() && !m["contentType"].empty()) {
+      contentType = make_shared<string>(boost::any_cast<string>(m["contentType"]));
+    }
+    if (m.find("finished") != m.end() && !m["finished"].empty()) {
+      finished = make_shared<bool>(boost::any_cast<bool>(m["finished"]));
+    }
+    if (m.find("templateId") != m.end() && !m["templateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["templateId"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequestContentDingCard() = default;
+};
+class InvokeAssistantRequestContentImageUrl : public Darabonba::Model {
+public:
+  shared_ptr<string> detail{};
+  shared_ptr<string> imageDesc{};
+  shared_ptr<string> url{};
+
+  InvokeAssistantRequestContentImageUrl() {}
+
+  explicit InvokeAssistantRequestContentImageUrl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detail) {
+      res["detail"] = boost::any(*detail);
+    }
+    if (imageDesc) {
+      res["imageDesc"] = boost::any(*imageDesc);
+    }
+    if (url) {
+      res["url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("detail") != m.end() && !m["detail"].empty()) {
+      detail = make_shared<string>(boost::any_cast<string>(m["detail"]));
+    }
+    if (m.find("imageDesc") != m.end() && !m["imageDesc"].empty()) {
+      imageDesc = make_shared<string>(boost::any_cast<string>(m["imageDesc"]));
+    }
+    if (m.find("url") != m.end() && !m["url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["url"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequestContentImageUrl() = default;
+};
+class InvokeAssistantRequestContentMarkdown : public Darabonba::Model {
+public:
+  shared_ptr<string> value{};
+
+  InvokeAssistantRequestContentMarkdown() {}
+
+  explicit InvokeAssistantRequestContentMarkdown(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequestContentMarkdown() = default;
+};
+class InvokeAssistantRequestContentText : public Darabonba::Model {
+public:
+  shared_ptr<string> value{};
+
+  InvokeAssistantRequestContentText() {}
+
+  explicit InvokeAssistantRequestContentText(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequestContentText() = default;
+};
+class InvokeAssistantRequestContent : public Darabonba::Model {
+public:
+  shared_ptr<InvokeAssistantRequestContentCardCallback> cardCallback{};
+  shared_ptr<InvokeAssistantRequestContentDingCard> dingCard{};
+  shared_ptr<InvokeAssistantRequestContentImageUrl> imageUrl{};
+  shared_ptr<InvokeAssistantRequestContentMarkdown> markdown{};
+  shared_ptr<InvokeAssistantRequestContentText> text{};
+  shared_ptr<string> type{};
+
+  InvokeAssistantRequestContent() {}
+
+  explicit InvokeAssistantRequestContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cardCallback) {
+      res["cardCallback"] = cardCallback ? boost::any(cardCallback->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dingCard) {
+      res["dingCard"] = dingCard ? boost::any(dingCard->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (imageUrl) {
+      res["imageUrl"] = imageUrl ? boost::any(imageUrl->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (markdown) {
+      res["markdown"] = markdown ? boost::any(markdown->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (text) {
+      res["text"] = text ? boost::any(text->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cardCallback") != m.end() && !m["cardCallback"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cardCallback"].type()) {
+        InvokeAssistantRequestContentCardCallback model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cardCallback"]));
+        cardCallback = make_shared<InvokeAssistantRequestContentCardCallback>(model1);
+      }
+    }
+    if (m.find("dingCard") != m.end() && !m["dingCard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["dingCard"].type()) {
+        InvokeAssistantRequestContentDingCard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["dingCard"]));
+        dingCard = make_shared<InvokeAssistantRequestContentDingCard>(model1);
+      }
+    }
+    if (m.find("imageUrl") != m.end() && !m["imageUrl"].empty()) {
+      if (typeid(map<string, boost::any>) == m["imageUrl"].type()) {
+        InvokeAssistantRequestContentImageUrl model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["imageUrl"]));
+        imageUrl = make_shared<InvokeAssistantRequestContentImageUrl>(model1);
+      }
+    }
+    if (m.find("markdown") != m.end() && !m["markdown"].empty()) {
+      if (typeid(map<string, boost::any>) == m["markdown"].type()) {
+        InvokeAssistantRequestContentMarkdown model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["markdown"]));
+        markdown = make_shared<InvokeAssistantRequestContentMarkdown>(model1);
+      }
+    }
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      if (typeid(map<string, boost::any>) == m["text"].type()) {
+        InvokeAssistantRequestContentText model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["text"]));
+        text = make_shared<InvokeAssistantRequestContentText>(model1);
+      }
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequestContent() = default;
+};
+class InvokeAssistantRequestHistoryContentCardCallback : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> userId{};
+
+  InvokeAssistantRequestHistoryContentCardCallback() {}
+
+  explicit InvokeAssistantRequestHistoryContentCardCallback(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (templateId) {
+      res["templateId"] = boost::any(*templateId);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("templateId") != m.end() && !m["templateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["templateId"]));
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequestHistoryContentCardCallback() = default;
+};
+class InvokeAssistantRequestHistoryContentDingCard : public Darabonba::Model {
+public:
+  shared_ptr<string> cardDesc{};
+  shared_ptr<string> content{};
+  shared_ptr<string> contentType{};
+  shared_ptr<bool> finished{};
+  shared_ptr<string> templateId{};
+
+  InvokeAssistantRequestHistoryContentDingCard() {}
+
+  explicit InvokeAssistantRequestHistoryContentDingCard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cardDesc) {
+      res["cardDesc"] = boost::any(*cardDesc);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (contentType) {
+      res["contentType"] = boost::any(*contentType);
+    }
+    if (finished) {
+      res["finished"] = boost::any(*finished);
+    }
+    if (templateId) {
+      res["templateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cardDesc") != m.end() && !m["cardDesc"].empty()) {
+      cardDesc = make_shared<string>(boost::any_cast<string>(m["cardDesc"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("contentType") != m.end() && !m["contentType"].empty()) {
+      contentType = make_shared<string>(boost::any_cast<string>(m["contentType"]));
+    }
+    if (m.find("finished") != m.end() && !m["finished"].empty()) {
+      finished = make_shared<bool>(boost::any_cast<bool>(m["finished"]));
+    }
+    if (m.find("templateId") != m.end() && !m["templateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["templateId"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequestHistoryContentDingCard() = default;
+};
+class InvokeAssistantRequestHistoryContentImageUrl : public Darabonba::Model {
+public:
+  shared_ptr<string> detail{};
+  shared_ptr<string> imageDesc{};
+  shared_ptr<string> url{};
+
+  InvokeAssistantRequestHistoryContentImageUrl() {}
+
+  explicit InvokeAssistantRequestHistoryContentImageUrl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detail) {
+      res["detail"] = boost::any(*detail);
+    }
+    if (imageDesc) {
+      res["imageDesc"] = boost::any(*imageDesc);
+    }
+    if (url) {
+      res["url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("detail") != m.end() && !m["detail"].empty()) {
+      detail = make_shared<string>(boost::any_cast<string>(m["detail"]));
+    }
+    if (m.find("imageDesc") != m.end() && !m["imageDesc"].empty()) {
+      imageDesc = make_shared<string>(boost::any_cast<string>(m["imageDesc"]));
+    }
+    if (m.find("url") != m.end() && !m["url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["url"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequestHistoryContentImageUrl() = default;
+};
+class InvokeAssistantRequestHistoryContentMarkdown : public Darabonba::Model {
+public:
+  shared_ptr<string> value{};
+
+  InvokeAssistantRequestHistoryContentMarkdown() {}
+
+  explicit InvokeAssistantRequestHistoryContentMarkdown(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequestHistoryContentMarkdown() = default;
+};
+class InvokeAssistantRequestHistoryContentText : public Darabonba::Model {
+public:
+  shared_ptr<string> value{};
+
+  InvokeAssistantRequestHistoryContentText() {}
+
+  explicit InvokeAssistantRequestHistoryContentText(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequestHistoryContentText() = default;
+};
+class InvokeAssistantRequestHistoryContent : public Darabonba::Model {
+public:
+  shared_ptr<InvokeAssistantRequestHistoryContentCardCallback> cardCallback{};
+  shared_ptr<InvokeAssistantRequestHistoryContentDingCard> dingCard{};
+  shared_ptr<InvokeAssistantRequestHistoryContentImageUrl> imageUrl{};
+  shared_ptr<InvokeAssistantRequestHistoryContentMarkdown> markdown{};
+  shared_ptr<InvokeAssistantRequestHistoryContentText> text{};
+  shared_ptr<string> type{};
+
+  InvokeAssistantRequestHistoryContent() {}
+
+  explicit InvokeAssistantRequestHistoryContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cardCallback) {
+      res["cardCallback"] = cardCallback ? boost::any(cardCallback->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dingCard) {
+      res["dingCard"] = dingCard ? boost::any(dingCard->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (imageUrl) {
+      res["imageUrl"] = imageUrl ? boost::any(imageUrl->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (markdown) {
+      res["markdown"] = markdown ? boost::any(markdown->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (text) {
+      res["text"] = text ? boost::any(text->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cardCallback") != m.end() && !m["cardCallback"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cardCallback"].type()) {
+        InvokeAssistantRequestHistoryContentCardCallback model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cardCallback"]));
+        cardCallback = make_shared<InvokeAssistantRequestHistoryContentCardCallback>(model1);
+      }
+    }
+    if (m.find("dingCard") != m.end() && !m["dingCard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["dingCard"].type()) {
+        InvokeAssistantRequestHistoryContentDingCard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["dingCard"]));
+        dingCard = make_shared<InvokeAssistantRequestHistoryContentDingCard>(model1);
+      }
+    }
+    if (m.find("imageUrl") != m.end() && !m["imageUrl"].empty()) {
+      if (typeid(map<string, boost::any>) == m["imageUrl"].type()) {
+        InvokeAssistantRequestHistoryContentImageUrl model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["imageUrl"]));
+        imageUrl = make_shared<InvokeAssistantRequestHistoryContentImageUrl>(model1);
+      }
+    }
+    if (m.find("markdown") != m.end() && !m["markdown"].empty()) {
+      if (typeid(map<string, boost::any>) == m["markdown"].type()) {
+        InvokeAssistantRequestHistoryContentMarkdown model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["markdown"]));
+        markdown = make_shared<InvokeAssistantRequestHistoryContentMarkdown>(model1);
+      }
+    }
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      if (typeid(map<string, boost::any>) == m["text"].type()) {
+        InvokeAssistantRequestHistoryContentText model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["text"]));
+        text = make_shared<InvokeAssistantRequestHistoryContentText>(model1);
+      }
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequestHistoryContent() = default;
+};
+class InvokeAssistantRequestHistory : public Darabonba::Model {
+public:
+  shared_ptr<vector<InvokeAssistantRequestHistoryContent>> content{};
+  shared_ptr<string> role{};
+
+  InvokeAssistantRequestHistory() {}
+
+  explicit InvokeAssistantRequestHistory(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      vector<boost::any> temp1;
+      for(auto item1:*content){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["content"] = boost::any(temp1);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      if (typeid(vector<boost::any>) == m["content"].type()) {
+        vector<InvokeAssistantRequestHistoryContent> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["content"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InvokeAssistantRequestHistoryContent model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        content = make_shared<vector<InvokeAssistantRequestHistoryContent>>(expect1);
+      }
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequestHistory() = default;
+};
+class InvokeAssistantRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> assistantId{};
+  shared_ptr<vector<InvokeAssistantRequestContent>> content{};
+  shared_ptr<vector<InvokeAssistantRequestHistory>> history{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<bool> stream{};
+
+  InvokeAssistantRequest() {}
+
+  explicit InvokeAssistantRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assistantId) {
+      res["assistantId"] = boost::any(*assistantId);
+    }
+    if (content) {
+      vector<boost::any> temp1;
+      for(auto item1:*content){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["content"] = boost::any(temp1);
+    }
+    if (history) {
+      vector<boost::any> temp1;
+      for(auto item1:*history){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["history"] = boost::any(temp1);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    if (stream) {
+      res["stream"] = boost::any(*stream);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assistantId") != m.end() && !m["assistantId"].empty()) {
+      assistantId = make_shared<string>(boost::any_cast<string>(m["assistantId"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      if (typeid(vector<boost::any>) == m["content"].type()) {
+        vector<InvokeAssistantRequestContent> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["content"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InvokeAssistantRequestContent model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        content = make_shared<vector<InvokeAssistantRequestContent>>(expect1);
+      }
+    }
+    if (m.find("history") != m.end() && !m["history"].empty()) {
+      if (typeid(vector<boost::any>) == m["history"].type()) {
+        vector<InvokeAssistantRequestHistory> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["history"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InvokeAssistantRequestHistory model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        history = make_shared<vector<InvokeAssistantRequestHistory>>(expect1);
+      }
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("stream") != m.end() && !m["stream"].empty()) {
+      stream = make_shared<bool>(boost::any_cast<bool>(m["stream"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantRequest() = default;
+};
+class InvokeAssistantResponseBodyContentCardCallback : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> userId{};
+
+  InvokeAssistantResponseBodyContentCardCallback() {}
+
+  explicit InvokeAssistantResponseBodyContentCardCallback(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (templateId) {
+      res["templateId"] = boost::any(*templateId);
+    }
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("templateId") != m.end() && !m["templateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["templateId"]));
+    }
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantResponseBodyContentCardCallback() = default;
+};
+class InvokeAssistantResponseBodyContentDingCard : public Darabonba::Model {
+public:
+  shared_ptr<string> cardDesc{};
+  shared_ptr<string> content{};
+  shared_ptr<string> contentType{};
+  shared_ptr<bool> finished{};
+  shared_ptr<string> templateId{};
+
+  InvokeAssistantResponseBodyContentDingCard() {}
+
+  explicit InvokeAssistantResponseBodyContentDingCard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cardDesc) {
+      res["cardDesc"] = boost::any(*cardDesc);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (contentType) {
+      res["contentType"] = boost::any(*contentType);
+    }
+    if (finished) {
+      res["finished"] = boost::any(*finished);
+    }
+    if (templateId) {
+      res["templateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cardDesc") != m.end() && !m["cardDesc"].empty()) {
+      cardDesc = make_shared<string>(boost::any_cast<string>(m["cardDesc"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("contentType") != m.end() && !m["contentType"].empty()) {
+      contentType = make_shared<string>(boost::any_cast<string>(m["contentType"]));
+    }
+    if (m.find("finished") != m.end() && !m["finished"].empty()) {
+      finished = make_shared<bool>(boost::any_cast<bool>(m["finished"]));
+    }
+    if (m.find("templateId") != m.end() && !m["templateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["templateId"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantResponseBodyContentDingCard() = default;
+};
+class InvokeAssistantResponseBodyContentImageUrl : public Darabonba::Model {
+public:
+  shared_ptr<string> detail{};
+  shared_ptr<string> imageDesc{};
+  shared_ptr<string> url{};
+
+  InvokeAssistantResponseBodyContentImageUrl() {}
+
+  explicit InvokeAssistantResponseBodyContentImageUrl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detail) {
+      res["detail"] = boost::any(*detail);
+    }
+    if (imageDesc) {
+      res["imageDesc"] = boost::any(*imageDesc);
+    }
+    if (url) {
+      res["url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("detail") != m.end() && !m["detail"].empty()) {
+      detail = make_shared<string>(boost::any_cast<string>(m["detail"]));
+    }
+    if (m.find("imageDesc") != m.end() && !m["imageDesc"].empty()) {
+      imageDesc = make_shared<string>(boost::any_cast<string>(m["imageDesc"]));
+    }
+    if (m.find("url") != m.end() && !m["url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["url"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantResponseBodyContentImageUrl() = default;
+};
+class InvokeAssistantResponseBodyContentMarkdown : public Darabonba::Model {
+public:
+  shared_ptr<string> value{};
+
+  InvokeAssistantResponseBodyContentMarkdown() {}
+
+  explicit InvokeAssistantResponseBodyContentMarkdown(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantResponseBodyContentMarkdown() = default;
+};
+class InvokeAssistantResponseBodyContentText : public Darabonba::Model {
+public:
+  shared_ptr<string> value{};
+
+  InvokeAssistantResponseBodyContentText() {}
+
+  explicit InvokeAssistantResponseBodyContentText(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantResponseBodyContentText() = default;
+};
+class InvokeAssistantResponseBodyContent : public Darabonba::Model {
+public:
+  shared_ptr<InvokeAssistantResponseBodyContentCardCallback> cardCallback{};
+  shared_ptr<InvokeAssistantResponseBodyContentDingCard> dingCard{};
+  shared_ptr<InvokeAssistantResponseBodyContentImageUrl> imageUrl{};
+  shared_ptr<InvokeAssistantResponseBodyContentMarkdown> markdown{};
+  shared_ptr<InvokeAssistantResponseBodyContentText> text{};
+  shared_ptr<string> type{};
+
+  InvokeAssistantResponseBodyContent() {}
+
+  explicit InvokeAssistantResponseBodyContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cardCallback) {
+      res["cardCallback"] = cardCallback ? boost::any(cardCallback->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dingCard) {
+      res["dingCard"] = dingCard ? boost::any(dingCard->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (imageUrl) {
+      res["imageUrl"] = imageUrl ? boost::any(imageUrl->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (markdown) {
+      res["markdown"] = markdown ? boost::any(markdown->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (text) {
+      res["text"] = text ? boost::any(text->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cardCallback") != m.end() && !m["cardCallback"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cardCallback"].type()) {
+        InvokeAssistantResponseBodyContentCardCallback model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cardCallback"]));
+        cardCallback = make_shared<InvokeAssistantResponseBodyContentCardCallback>(model1);
+      }
+    }
+    if (m.find("dingCard") != m.end() && !m["dingCard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["dingCard"].type()) {
+        InvokeAssistantResponseBodyContentDingCard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["dingCard"]));
+        dingCard = make_shared<InvokeAssistantResponseBodyContentDingCard>(model1);
+      }
+    }
+    if (m.find("imageUrl") != m.end() && !m["imageUrl"].empty()) {
+      if (typeid(map<string, boost::any>) == m["imageUrl"].type()) {
+        InvokeAssistantResponseBodyContentImageUrl model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["imageUrl"]));
+        imageUrl = make_shared<InvokeAssistantResponseBodyContentImageUrl>(model1);
+      }
+    }
+    if (m.find("markdown") != m.end() && !m["markdown"].empty()) {
+      if (typeid(map<string, boost::any>) == m["markdown"].type()) {
+        InvokeAssistantResponseBodyContentMarkdown model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["markdown"]));
+        markdown = make_shared<InvokeAssistantResponseBodyContentMarkdown>(model1);
+      }
+    }
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      if (typeid(map<string, boost::any>) == m["text"].type()) {
+        InvokeAssistantResponseBodyContentText model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["text"]));
+        text = make_shared<InvokeAssistantResponseBodyContentText>(model1);
+      }
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantResponseBodyContent() = default;
+};
+class InvokeAssistantResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<InvokeAssistantResponseBodyContent>> content{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<bool> streamEnd{};
+
+  InvokeAssistantResponseBody() {}
+
+  explicit InvokeAssistantResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      vector<boost::any> temp1;
+      for(auto item1:*content){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["content"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    if (streamEnd) {
+      res["streamEnd"] = boost::any(*streamEnd);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      if (typeid(vector<boost::any>) == m["content"].type()) {
+        vector<InvokeAssistantResponseBodyContent> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["content"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InvokeAssistantResponseBodyContent model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        content = make_shared<vector<InvokeAssistantResponseBodyContent>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("streamEnd") != m.end() && !m["streamEnd"].empty()) {
+      streamEnd = make_shared<bool>(boost::any_cast<bool>(m["streamEnd"]));
+    }
+  }
+
+
+  virtual ~InvokeAssistantResponseBody() = default;
+};
+class InvokeAssistantResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<InvokeAssistantResponseBody> body{};
+
+  InvokeAssistantResponse() {}
+
+  explicit InvokeAssistantResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        InvokeAssistantResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<InvokeAssistantResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InvokeAssistantResponse() = default;
+};
+class InvokeSkillHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  InvokeSkillHeadersAccountContext() {}
+
+  explicit InvokeSkillHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~InvokeSkillHeadersAccountContext() = default;
+};
+class InvokeSkillHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<InvokeSkillHeadersAccountContext> accountContext{};
+
+  InvokeSkillHeaders() {}
+
+  explicit InvokeSkillHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        InvokeSkillHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<InvokeSkillHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InvokeSkillHeaders() = default;
+};
+class InvokeSkillShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  InvokeSkillShrinkHeaders() {}
+
+  explicit InvokeSkillShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~InvokeSkillShrinkHeaders() = default;
+};
+class InvokeSkillRequest : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> params{};
+  shared_ptr<string> skillId{};
+
+  InvokeSkillRequest() {}
+
+  explicit InvokeSkillRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
+    if (skillId) {
+      res["SkillId"] = boost::any(*skillId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Params"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      params = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("SkillId") != m.end() && !m["SkillId"].empty()) {
+      skillId = make_shared<string>(boost::any_cast<string>(m["SkillId"]));
+    }
+  }
+
+
+  virtual ~InvokeSkillRequest() = default;
+};
+class InvokeSkillShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> paramsShrink{};
+  shared_ptr<string> skillId{};
+
+  InvokeSkillShrinkRequest() {}
+
+  explicit InvokeSkillShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (paramsShrink) {
+      res["Params"] = boost::any(*paramsShrink);
+    }
+    if (skillId) {
+      res["SkillId"] = boost::any(*skillId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      paramsShrink = make_shared<string>(boost::any_cast<string>(m["Params"]));
+    }
+    if (m.find("SkillId") != m.end() && !m["SkillId"].empty()) {
+      skillId = make_shared<string>(boost::any_cast<string>(m["SkillId"]));
+    }
+  }
+
+
+  virtual ~InvokeSkillShrinkRequest() = default;
+};
+class InvokeSkillResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<map<string, boost::any>> data{};
+
+  InvokeSkillResponseBody() {}
+
+  explicit InvokeSkillResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["data"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      data = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~InvokeSkillResponseBody() = default;
+};
+class InvokeSkillResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<InvokeSkillResponseBody> body{};
+
+  InvokeSkillResponse() {}
+
+  explicit InvokeSkillResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        InvokeSkillResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<InvokeSkillResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InvokeSkillResponse() = default;
+};
 class ListApplicationHeadersAccountContext : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -101491,6 +102923,10 @@ public:
   InsertRowsBeforeResponse insertRowsBefore(shared_ptr<InsertRowsBeforeRequest> request);
   InviteUsersResponse inviteUsersWithOptions(shared_ptr<InviteUsersRequest> tmpReq, shared_ptr<InviteUsersHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InviteUsersResponse inviteUsers(shared_ptr<InviteUsersRequest> request);
+  InvokeAssistantResponse invokeAssistantWithOptions(shared_ptr<InvokeAssistantRequest> request, shared_ptr<InvokeAssistantHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InvokeAssistantResponse invokeAssistant(shared_ptr<InvokeAssistantRequest> request);
+  InvokeSkillResponse invokeSkillWithOptions(shared_ptr<InvokeSkillRequest> tmpReq, shared_ptr<InvokeSkillHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InvokeSkillResponse invokeSkill(shared_ptr<InvokeSkillRequest> request);
   ListApplicationResponse listApplicationWithOptions(shared_ptr<ListApplicationRequest> request, shared_ptr<ListApplicationHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListApplicationResponse listApplication(shared_ptr<ListApplicationRequest> request);
   ListCalendarsResponse listCalendarsWithOptions(shared_ptr<ListCalendarsRequest> tmpReq, shared_ptr<ListCalendarsHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
