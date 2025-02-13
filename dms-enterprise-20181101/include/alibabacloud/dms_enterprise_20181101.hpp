@@ -240,6 +240,254 @@ public:
 
   virtual ~DLDatabase() = default;
 };
+class DLResourceUri : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> uri{};
+
+  DLResourceUri() {}
+
+  explicit DLResourceUri(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~DLResourceUri() = default;
+};
+class DLFunction : public Darabonba::Model {
+public:
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> className{};
+  shared_ptr<long> createTime{};
+  shared_ptr<long> creatorId{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> functionName{};
+  shared_ptr<string> functionType{};
+  shared_ptr<long> modifierId{};
+  shared_ptr<string> ownerName{};
+  shared_ptr<string> ownerType{};
+  shared_ptr<vector<DLResourceUri>> resourceUris{};
+
+  DLFunction() {}
+
+  explicit DLFunction(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (className) {
+      res["ClassName"] = boost::any(*className);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (creatorId) {
+      res["CreatorId"] = boost::any(*creatorId);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (functionName) {
+      res["FunctionName"] = boost::any(*functionName);
+    }
+    if (functionType) {
+      res["FunctionType"] = boost::any(*functionType);
+    }
+    if (modifierId) {
+      res["ModifierId"] = boost::any(*modifierId);
+    }
+    if (ownerName) {
+      res["OwnerName"] = boost::any(*ownerName);
+    }
+    if (ownerType) {
+      res["OwnerType"] = boost::any(*ownerType);
+    }
+    if (resourceUris) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceUris){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceUris"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("ClassName") != m.end() && !m["ClassName"].empty()) {
+      className = make_shared<string>(boost::any_cast<string>(m["ClassName"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("CreatorId") != m.end() && !m["CreatorId"].empty()) {
+      creatorId = make_shared<long>(boost::any_cast<long>(m["CreatorId"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("FunctionName") != m.end() && !m["FunctionName"].empty()) {
+      functionName = make_shared<string>(boost::any_cast<string>(m["FunctionName"]));
+    }
+    if (m.find("FunctionType") != m.end() && !m["FunctionType"].empty()) {
+      functionType = make_shared<string>(boost::any_cast<string>(m["FunctionType"]));
+    }
+    if (m.find("ModifierId") != m.end() && !m["ModifierId"].empty()) {
+      modifierId = make_shared<long>(boost::any_cast<long>(m["ModifierId"]));
+    }
+    if (m.find("OwnerName") != m.end() && !m["OwnerName"].empty()) {
+      ownerName = make_shared<string>(boost::any_cast<string>(m["OwnerName"]));
+    }
+    if (m.find("OwnerType") != m.end() && !m["OwnerType"].empty()) {
+      ownerType = make_shared<string>(boost::any_cast<string>(m["OwnerType"]));
+    }
+    if (m.find("ResourceUris") != m.end() && !m["ResourceUris"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceUris"].type()) {
+        vector<DLResourceUri> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceUris"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DLResourceUri model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceUris = make_shared<vector<DLResourceUri>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DLFunction() = default;
+};
+class DLFunctionInput : public Darabonba::Model {
+public:
+  shared_ptr<string> className{};
+  shared_ptr<long> createTime{};
+  shared_ptr<long> creatorId{};
+  shared_ptr<string> functionName{};
+  shared_ptr<string> functionType{};
+  shared_ptr<long> modifierId{};
+  shared_ptr<string> ownerName{};
+  shared_ptr<string> ownerType{};
+  shared_ptr<vector<DLResourceUri>> resourceUris{};
+
+  DLFunctionInput() {}
+
+  explicit DLFunctionInput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (className) {
+      res["ClassName"] = boost::any(*className);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (creatorId) {
+      res["CreatorId"] = boost::any(*creatorId);
+    }
+    if (functionName) {
+      res["FunctionName"] = boost::any(*functionName);
+    }
+    if (functionType) {
+      res["FunctionType"] = boost::any(*functionType);
+    }
+    if (modifierId) {
+      res["ModifierId"] = boost::any(*modifierId);
+    }
+    if (ownerName) {
+      res["OwnerName"] = boost::any(*ownerName);
+    }
+    if (ownerType) {
+      res["OwnerType"] = boost::any(*ownerType);
+    }
+    if (resourceUris) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceUris){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceUris"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClassName") != m.end() && !m["ClassName"].empty()) {
+      className = make_shared<string>(boost::any_cast<string>(m["ClassName"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("CreatorId") != m.end() && !m["CreatorId"].empty()) {
+      creatorId = make_shared<long>(boost::any_cast<long>(m["CreatorId"]));
+    }
+    if (m.find("FunctionName") != m.end() && !m["FunctionName"].empty()) {
+      functionName = make_shared<string>(boost::any_cast<string>(m["FunctionName"]));
+    }
+    if (m.find("FunctionType") != m.end() && !m["FunctionType"].empty()) {
+      functionType = make_shared<string>(boost::any_cast<string>(m["FunctionType"]));
+    }
+    if (m.find("ModifierId") != m.end() && !m["ModifierId"].empty()) {
+      modifierId = make_shared<long>(boost::any_cast<long>(m["ModifierId"]));
+    }
+    if (m.find("OwnerName") != m.end() && !m["OwnerName"].empty()) {
+      ownerName = make_shared<string>(boost::any_cast<string>(m["OwnerName"]));
+    }
+    if (m.find("OwnerType") != m.end() && !m["OwnerType"].empty()) {
+      ownerType = make_shared<string>(boost::any_cast<string>(m["OwnerType"]));
+    }
+    if (m.find("ResourceUris") != m.end() && !m["ResourceUris"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceUris"].type()) {
+        vector<DLResourceUri> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceUris"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DLResourceUri model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceUris = make_shared<vector<DLResourceUri>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DLFunctionInput() = default;
+};
 class DLOrder : public Darabonba::Model {
 public:
   shared_ptr<string> col{};
@@ -67398,6 +67646,7 @@ public:
   shared_ptr<string> dataRegion{};
   shared_ptr<string> dbName{};
   shared_ptr<OpenStructDLTableInput> tableInput{};
+  shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
 
   UpdateDataLakeTableRequest() {}
@@ -67422,6 +67671,9 @@ public:
     if (tableInput) {
       res["TableInput"] = tableInput ? boost::any(tableInput->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
@@ -67445,6 +67697,9 @@ public:
         tableInput = make_shared<OpenStructDLTableInput>(model1);
       }
     }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
@@ -67459,6 +67714,7 @@ public:
   shared_ptr<string> dataRegion{};
   shared_ptr<string> dbName{};
   shared_ptr<string> tableInputShrink{};
+  shared_ptr<string> tableName{};
   shared_ptr<long> tid{};
 
   UpdateDataLakeTableShrinkRequest() {}
@@ -67483,6 +67739,9 @@ public:
     if (tableInputShrink) {
       res["TableInput"] = boost::any(*tableInputShrink);
     }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
@@ -67501,6 +67760,9 @@ public:
     }
     if (m.find("TableInput") != m.end() && !m["TableInput"].empty()) {
       tableInputShrink = make_shared<string>(boost::any_cast<string>(m["TableInput"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
@@ -71004,6 +71266,7 @@ public:
   shared_ptr<string> roleNames{};
   shared_ptr<long> tid{};
   shared_ptr<long> uid{};
+  shared_ptr<string> uidString{};
   shared_ptr<string> userNick{};
 
   UpdateUserRequest() {}
@@ -71034,6 +71297,9 @@ public:
     if (uid) {
       res["Uid"] = boost::any(*uid);
     }
+    if (uidString) {
+      res["UidString"] = boost::any(*uidString);
+    }
     if (userNick) {
       res["UserNick"] = boost::any(*userNick);
     }
@@ -71058,6 +71324,9 @@ public:
     }
     if (m.find("Uid") != m.end() && !m["Uid"].empty()) {
       uid = make_shared<long>(boost::any_cast<long>(m["Uid"]));
+    }
+    if (m.find("UidString") != m.end() && !m["UidString"].empty()) {
+      uidString = make_shared<string>(boost::any_cast<string>(m["UidString"]));
     }
     if (m.find("UserNick") != m.end() && !m["UserNick"].empty()) {
       userNick = make_shared<string>(boost::any_cast<string>(m["UserNick"]));

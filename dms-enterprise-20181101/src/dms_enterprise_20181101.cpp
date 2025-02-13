@@ -11156,6 +11156,9 @@ UpdateDataLakeTableResponse Alibabacloud_Dms-enterprise20181101::Client::updateD
   if (!Darabonba_Util::Client::isUnset<string>(request->dbName)) {
     query->insert(pair<string, string>("DbName", *request->dbName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableName)) {
+    query->insert(pair<string, string>("TableName", *request->tableName));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
@@ -12040,6 +12043,9 @@ UpdateUserResponse Alibabacloud_Dms-enterprise20181101::Client::updateUserWithOp
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->uid)) {
     query->insert(pair<string, long>("Uid", *request->uid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uidString)) {
+    query->insert(pair<string, string>("UidString", *request->uidString));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userNick)) {
     query->insert(pair<string, string>("UserNick", *request->userNick));
