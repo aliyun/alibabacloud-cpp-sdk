@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_IMAGESEARCH20201214_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -22,12 +21,16 @@ public:
   shared_ptr<string> instanceName{};
   shared_ptr<long> intAttr{};
   shared_ptr<long> intAttr2{};
+  shared_ptr<long> intAttr3{};
+  shared_ptr<long> intAttr4{};
   shared_ptr<string> picContent{};
   shared_ptr<string> picName{};
   shared_ptr<string> productId{};
   shared_ptr<string> region{};
   shared_ptr<string> strAttr{};
   shared_ptr<string> strAttr2{};
+  shared_ptr<string> strAttr3{};
+  shared_ptr<string> strAttr4{};
 
   AddImageRequest() {}
 
@@ -57,6 +60,12 @@ public:
     if (intAttr2) {
       res["IntAttr2"] = boost::any(*intAttr2);
     }
+    if (intAttr3) {
+      res["IntAttr3"] = boost::any(*intAttr3);
+    }
+    if (intAttr4) {
+      res["IntAttr4"] = boost::any(*intAttr4);
+    }
     if (picContent) {
       res["PicContent"] = boost::any(*picContent);
     }
@@ -74,6 +83,12 @@ public:
     }
     if (strAttr2) {
       res["StrAttr2"] = boost::any(*strAttr2);
+    }
+    if (strAttr3) {
+      res["StrAttr3"] = boost::any(*strAttr3);
+    }
+    if (strAttr4) {
+      res["StrAttr4"] = boost::any(*strAttr4);
     }
     return res;
   }
@@ -97,6 +112,12 @@ public:
     if (m.find("IntAttr2") != m.end() && !m["IntAttr2"].empty()) {
       intAttr2 = make_shared<long>(boost::any_cast<long>(m["IntAttr2"]));
     }
+    if (m.find("IntAttr3") != m.end() && !m["IntAttr3"].empty()) {
+      intAttr3 = make_shared<long>(boost::any_cast<long>(m["IntAttr3"]));
+    }
+    if (m.find("IntAttr4") != m.end() && !m["IntAttr4"].empty()) {
+      intAttr4 = make_shared<long>(boost::any_cast<long>(m["IntAttr4"]));
+    }
     if (m.find("PicContent") != m.end() && !m["PicContent"].empty()) {
       picContent = make_shared<string>(boost::any_cast<string>(m["PicContent"]));
     }
@@ -115,6 +136,12 @@ public:
     if (m.find("StrAttr2") != m.end() && !m["StrAttr2"].empty()) {
       strAttr2 = make_shared<string>(boost::any_cast<string>(m["StrAttr2"]));
     }
+    if (m.find("StrAttr3") != m.end() && !m["StrAttr3"].empty()) {
+      strAttr3 = make_shared<string>(boost::any_cast<string>(m["StrAttr3"]));
+    }
+    if (m.find("StrAttr4") != m.end() && !m["StrAttr4"].empty()) {
+      strAttr4 = make_shared<string>(boost::any_cast<string>(m["StrAttr4"]));
+    }
   }
 
 
@@ -128,12 +155,16 @@ public:
   shared_ptr<string> instanceName{};
   shared_ptr<long> intAttr{};
   shared_ptr<long> intAttr2{};
+  shared_ptr<long> intAttr3{};
+  shared_ptr<long> intAttr4{};
   shared_ptr<Darabonba::Stream> picContentObject{};
   shared_ptr<string> picName{};
   shared_ptr<string> productId{};
   shared_ptr<string> region{};
   shared_ptr<string> strAttr{};
   shared_ptr<string> strAttr2{};
+  shared_ptr<string> strAttr3{};
+  shared_ptr<string> strAttr4{};
 
   AddImageAdvanceRequest() {}
 
@@ -163,6 +194,12 @@ public:
     if (intAttr2) {
       res["IntAttr2"] = boost::any(*intAttr2);
     }
+    if (intAttr3) {
+      res["IntAttr3"] = boost::any(*intAttr3);
+    }
+    if (intAttr4) {
+      res["IntAttr4"] = boost::any(*intAttr4);
+    }
     if (picContentObject) {
       res["PicContent"] = boost::any(*picContentObject);
     }
@@ -180,6 +217,12 @@ public:
     }
     if (strAttr2) {
       res["StrAttr2"] = boost::any(*strAttr2);
+    }
+    if (strAttr3) {
+      res["StrAttr3"] = boost::any(*strAttr3);
+    }
+    if (strAttr4) {
+      res["StrAttr4"] = boost::any(*strAttr4);
     }
     return res;
   }
@@ -203,6 +246,12 @@ public:
     if (m.find("IntAttr2") != m.end() && !m["IntAttr2"].empty()) {
       intAttr2 = make_shared<long>(boost::any_cast<long>(m["IntAttr2"]));
     }
+    if (m.find("IntAttr3") != m.end() && !m["IntAttr3"].empty()) {
+      intAttr3 = make_shared<long>(boost::any_cast<long>(m["IntAttr3"]));
+    }
+    if (m.find("IntAttr4") != m.end() && !m["IntAttr4"].empty()) {
+      intAttr4 = make_shared<long>(boost::any_cast<long>(m["IntAttr4"]));
+    }
     if (m.find("PicContent") != m.end() && !m["PicContent"].empty()) {
       picContentObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["PicContent"]));
     }
@@ -220,6 +269,12 @@ public:
     }
     if (m.find("StrAttr2") != m.end() && !m["StrAttr2"].empty()) {
       strAttr2 = make_shared<string>(boost::any_cast<string>(m["StrAttr2"]));
+    }
+    if (m.find("StrAttr3") != m.end() && !m["StrAttr3"].empty()) {
+      strAttr3 = make_shared<string>(boost::any_cast<string>(m["StrAttr3"]));
+    }
+    if (m.find("StrAttr4") != m.end() && !m["StrAttr4"].empty()) {
+      strAttr4 = make_shared<string>(boost::any_cast<string>(m["StrAttr4"]));
     }
   }
 
@@ -335,17 +390,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -385,9 +430,288 @@ public:
 
   virtual ~AddImageResponse() = default;
 };
-class DeleteImageRequest : public Darabonba::Model {
+class CompareSimilarByImageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceName{};
+  shared_ptr<string> primaryPicContent{};
+  shared_ptr<string> secondaryPicContent{};
+
+  CompareSimilarByImageRequest() {}
+
+  explicit CompareSimilarByImageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (primaryPicContent) {
+      res["PrimaryPicContent"] = boost::any(*primaryPicContent);
+    }
+    if (secondaryPicContent) {
+      res["SecondaryPicContent"] = boost::any(*secondaryPicContent);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("PrimaryPicContent") != m.end() && !m["PrimaryPicContent"].empty()) {
+      primaryPicContent = make_shared<string>(boost::any_cast<string>(m["PrimaryPicContent"]));
+    }
+    if (m.find("SecondaryPicContent") != m.end() && !m["SecondaryPicContent"].empty()) {
+      secondaryPicContent = make_shared<string>(boost::any_cast<string>(m["SecondaryPicContent"]));
+    }
+  }
+
+
+  virtual ~CompareSimilarByImageRequest() = default;
+};
+class CompareSimilarByImageAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceName{};
+  shared_ptr<Darabonba::Stream> primaryPicContentObject{};
+  shared_ptr<Darabonba::Stream> secondaryPicContentObject{};
+
+  CompareSimilarByImageAdvanceRequest() {}
+
+  explicit CompareSimilarByImageAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (primaryPicContentObject) {
+      res["PrimaryPicContent"] = boost::any(*primaryPicContentObject);
+    }
+    if (secondaryPicContentObject) {
+      res["SecondaryPicContent"] = boost::any(*secondaryPicContentObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("PrimaryPicContent") != m.end() && !m["PrimaryPicContent"].empty()) {
+      primaryPicContentObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["PrimaryPicContent"]));
+    }
+    if (m.find("SecondaryPicContent") != m.end() && !m["SecondaryPicContent"].empty()) {
+      secondaryPicContentObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["SecondaryPicContent"]));
+    }
+  }
+
+
+  virtual ~CompareSimilarByImageAdvanceRequest() = default;
+};
+class CompareSimilarByImageResponseBodyAccessDeniedDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> authAction{};
+  shared_ptr<string> authPrincipalDisplayName{};
+  shared_ptr<string> authPrincipalOwnerId{};
+  shared_ptr<string> authPrincipalType{};
+  shared_ptr<string> encodedDiagnosticMessage{};
+  shared_ptr<string> noPermissionType{};
+  shared_ptr<string> policyType{};
+
+  CompareSimilarByImageResponseBodyAccessDeniedDetail() {}
+
+  explicit CompareSimilarByImageResponseBodyAccessDeniedDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authAction) {
+      res["AuthAction"] = boost::any(*authAction);
+    }
+    if (authPrincipalDisplayName) {
+      res["AuthPrincipalDisplayName"] = boost::any(*authPrincipalDisplayName);
+    }
+    if (authPrincipalOwnerId) {
+      res["AuthPrincipalOwnerId"] = boost::any(*authPrincipalOwnerId);
+    }
+    if (authPrincipalType) {
+      res["AuthPrincipalType"] = boost::any(*authPrincipalType);
+    }
+    if (encodedDiagnosticMessage) {
+      res["EncodedDiagnosticMessage"] = boost::any(*encodedDiagnosticMessage);
+    }
+    if (noPermissionType) {
+      res["NoPermissionType"] = boost::any(*noPermissionType);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthAction") != m.end() && !m["AuthAction"].empty()) {
+      authAction = make_shared<string>(boost::any_cast<string>(m["AuthAction"]));
+    }
+    if (m.find("AuthPrincipalDisplayName") != m.end() && !m["AuthPrincipalDisplayName"].empty()) {
+      authPrincipalDisplayName = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalDisplayName"]));
+    }
+    if (m.find("AuthPrincipalOwnerId") != m.end() && !m["AuthPrincipalOwnerId"].empty()) {
+      authPrincipalOwnerId = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalOwnerId"]));
+    }
+    if (m.find("AuthPrincipalType") != m.end() && !m["AuthPrincipalType"].empty()) {
+      authPrincipalType = make_shared<string>(boost::any_cast<string>(m["AuthPrincipalType"]));
+    }
+    if (m.find("EncodedDiagnosticMessage") != m.end() && !m["EncodedDiagnosticMessage"].empty()) {
+      encodedDiagnosticMessage = make_shared<string>(boost::any_cast<string>(m["EncodedDiagnosticMessage"]));
+    }
+    if (m.find("NoPermissionType") != m.end() && !m["NoPermissionType"].empty()) {
+      noPermissionType = make_shared<string>(boost::any_cast<string>(m["NoPermissionType"]));
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
+  }
+
+
+  virtual ~CompareSimilarByImageResponseBodyAccessDeniedDetail() = default;
+};
+class CompareSimilarByImageResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CompareSimilarByImageResponseBodyAccessDeniedDetail> accessDeniedDetail{};
+  shared_ptr<long> code{};
+  shared_ptr<string> msg{};
+  shared_ptr<string> requestId{};
+  shared_ptr<double> score{};
+  shared_ptr<bool> success{};
+
+  CompareSimilarByImageResponseBody() {}
+
+  explicit CompareSimilarByImageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = accessDeniedDetail ? boost::any(accessDeniedDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccessDeniedDetail"].type()) {
+        CompareSimilarByImageResponseBodyAccessDeniedDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDeniedDetail"]));
+        accessDeniedDetail = make_shared<CompareSimilarByImageResponseBodyAccessDeniedDetail>(model1);
+      }
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CompareSimilarByImageResponseBody() = default;
+};
+class CompareSimilarByImageResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CompareSimilarByImageResponseBody> body{};
+
+  CompareSimilarByImageResponse() {}
+
+  explicit CompareSimilarByImageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CompareSimilarByImageResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CompareSimilarByImageResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CompareSimilarByImageResponse() = default;
+};
+class DeleteImageRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filter{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<bool> isDeleteByFilter{};
   shared_ptr<string> picName{};
   shared_ptr<string> productId{};
 
@@ -401,8 +725,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (filter) {
+      res["Filter"] = boost::any(*filter);
+    }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (isDeleteByFilter) {
+      res["IsDeleteByFilter"] = boost::any(*isDeleteByFilter);
     }
     if (picName) {
       res["PicName"] = boost::any(*picName);
@@ -414,8 +744,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("IsDeleteByFilter") != m.end() && !m["IsDeleteByFilter"].empty()) {
+      isDeleteByFilter = make_shared<bool>(boost::any_cast<bool>(m["IsDeleteByFilter"]));
     }
     if (m.find("PicName") != m.end() && !m["PicName"].empty()) {
       picName = make_shared<string>(boost::any_cast<string>(m["PicName"]));
@@ -537,17 +873,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -753,17 +1079,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -927,17 +1243,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1214,17 +1520,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1409,17 +1705,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1764,17 +2050,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1817,6 +2093,7 @@ public:
 class SearchImageByNameRequest : public Darabonba::Model {
 public:
   shared_ptr<long> categoryId{};
+  shared_ptr<bool> distinctProductId{};
   shared_ptr<string> filter{};
   shared_ptr<string> instanceName{};
   shared_ptr<long> num{};
@@ -1836,6 +2113,9 @@ public:
     map<string, boost::any> res;
     if (categoryId) {
       res["CategoryId"] = boost::any(*categoryId);
+    }
+    if (distinctProductId) {
+      res["DistinctProductId"] = boost::any(*distinctProductId);
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
@@ -1861,6 +2141,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
       categoryId = make_shared<long>(boost::any_cast<long>(m["CategoryId"]));
+    }
+    if (m.find("DistinctProductId") != m.end() && !m["DistinctProductId"].empty()) {
+      distinctProductId = make_shared<bool>(boost::any_cast<bool>(m["DistinctProductId"]));
     }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
@@ -1891,12 +2174,16 @@ public:
   shared_ptr<string> customContent{};
   shared_ptr<long> intAttr{};
   shared_ptr<long> intAttr2{};
+  shared_ptr<long> intAttr3{};
+  shared_ptr<long> intAttr4{};
   shared_ptr<string> picName{};
   shared_ptr<string> productId{};
   shared_ptr<double> score{};
   shared_ptr<string> sortExprValues{};
   shared_ptr<string> strAttr{};
   shared_ptr<string> strAttr2{};
+  shared_ptr<string> strAttr3{};
+  shared_ptr<string> strAttr4{};
 
   SearchImageByNameResponseBodyAuctions() {}
 
@@ -1920,6 +2207,12 @@ public:
     if (intAttr2) {
       res["IntAttr2"] = boost::any(*intAttr2);
     }
+    if (intAttr3) {
+      res["IntAttr3"] = boost::any(*intAttr3);
+    }
+    if (intAttr4) {
+      res["IntAttr4"] = boost::any(*intAttr4);
+    }
     if (picName) {
       res["PicName"] = boost::any(*picName);
     }
@@ -1938,6 +2231,12 @@ public:
     if (strAttr2) {
       res["StrAttr2"] = boost::any(*strAttr2);
     }
+    if (strAttr3) {
+      res["StrAttr3"] = boost::any(*strAttr3);
+    }
+    if (strAttr4) {
+      res["StrAttr4"] = boost::any(*strAttr4);
+    }
     return res;
   }
 
@@ -1953,6 +2252,12 @@ public:
     }
     if (m.find("IntAttr2") != m.end() && !m["IntAttr2"].empty()) {
       intAttr2 = make_shared<long>(boost::any_cast<long>(m["IntAttr2"]));
+    }
+    if (m.find("IntAttr3") != m.end() && !m["IntAttr3"].empty()) {
+      intAttr3 = make_shared<long>(boost::any_cast<long>(m["IntAttr3"]));
+    }
+    if (m.find("IntAttr4") != m.end() && !m["IntAttr4"].empty()) {
+      intAttr4 = make_shared<long>(boost::any_cast<long>(m["IntAttr4"]));
     }
     if (m.find("PicName") != m.end() && !m["PicName"].empty()) {
       picName = make_shared<string>(boost::any_cast<string>(m["PicName"]));
@@ -1971,6 +2276,12 @@ public:
     }
     if (m.find("StrAttr2") != m.end() && !m["StrAttr2"].empty()) {
       strAttr2 = make_shared<string>(boost::any_cast<string>(m["StrAttr2"]));
+    }
+    if (m.find("StrAttr3") != m.end() && !m["StrAttr3"].empty()) {
+      strAttr3 = make_shared<string>(boost::any_cast<string>(m["StrAttr3"]));
+    }
+    if (m.find("StrAttr4") != m.end() && !m["StrAttr4"].empty()) {
+      strAttr4 = make_shared<string>(boost::any_cast<string>(m["StrAttr4"]));
     }
   }
 
@@ -2268,17 +2579,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2322,6 +2623,7 @@ class SearchImageByPicRequest : public Darabonba::Model {
 public:
   shared_ptr<long> categoryId{};
   shared_ptr<bool> crop{};
+  shared_ptr<bool> distinctProductId{};
   shared_ptr<string> filter{};
   shared_ptr<string> instanceName{};
   shared_ptr<long> num{};
@@ -2344,6 +2646,9 @@ public:
     }
     if (crop) {
       res["Crop"] = boost::any(*crop);
+    }
+    if (distinctProductId) {
+      res["DistinctProductId"] = boost::any(*distinctProductId);
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
@@ -2373,6 +2678,9 @@ public:
     if (m.find("Crop") != m.end() && !m["Crop"].empty()) {
       crop = make_shared<bool>(boost::any_cast<bool>(m["Crop"]));
     }
+    if (m.find("DistinctProductId") != m.end() && !m["DistinctProductId"].empty()) {
+      distinctProductId = make_shared<bool>(boost::any_cast<bool>(m["DistinctProductId"]));
+    }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
@@ -2400,6 +2708,7 @@ class SearchImageByPicAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> categoryId{};
   shared_ptr<bool> crop{};
+  shared_ptr<bool> distinctProductId{};
   shared_ptr<string> filter{};
   shared_ptr<string> instanceName{};
   shared_ptr<long> num{};
@@ -2422,6 +2731,9 @@ public:
     }
     if (crop) {
       res["Crop"] = boost::any(*crop);
+    }
+    if (distinctProductId) {
+      res["DistinctProductId"] = boost::any(*distinctProductId);
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
@@ -2450,6 +2762,9 @@ public:
     }
     if (m.find("Crop") != m.end() && !m["Crop"].empty()) {
       crop = make_shared<bool>(boost::any_cast<bool>(m["Crop"]));
+    }
+    if (m.find("DistinctProductId") != m.end() && !m["DistinctProductId"].empty()) {
+      distinctProductId = make_shared<bool>(boost::any_cast<bool>(m["DistinctProductId"]));
     }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
@@ -2480,12 +2795,16 @@ public:
   shared_ptr<string> customContent{};
   shared_ptr<long> intAttr{};
   shared_ptr<long> intAttr2{};
+  shared_ptr<long> intAttr3{};
+  shared_ptr<long> intAttr4{};
   shared_ptr<string> picName{};
   shared_ptr<string> productId{};
   shared_ptr<double> score{};
   shared_ptr<string> sortExprValues{};
   shared_ptr<string> strAttr{};
   shared_ptr<string> strAttr2{};
+  shared_ptr<string> strAttr3{};
+  shared_ptr<string> strAttr4{};
 
   SearchImageByPicResponseBodyAuctions() {}
 
@@ -2509,6 +2828,12 @@ public:
     if (intAttr2) {
       res["IntAttr2"] = boost::any(*intAttr2);
     }
+    if (intAttr3) {
+      res["IntAttr3"] = boost::any(*intAttr3);
+    }
+    if (intAttr4) {
+      res["IntAttr4"] = boost::any(*intAttr4);
+    }
     if (picName) {
       res["PicName"] = boost::any(*picName);
     }
@@ -2527,6 +2852,12 @@ public:
     if (strAttr2) {
       res["StrAttr2"] = boost::any(*strAttr2);
     }
+    if (strAttr3) {
+      res["StrAttr3"] = boost::any(*strAttr3);
+    }
+    if (strAttr4) {
+      res["StrAttr4"] = boost::any(*strAttr4);
+    }
     return res;
   }
 
@@ -2542,6 +2873,12 @@ public:
     }
     if (m.find("IntAttr2") != m.end() && !m["IntAttr2"].empty()) {
       intAttr2 = make_shared<long>(boost::any_cast<long>(m["IntAttr2"]));
+    }
+    if (m.find("IntAttr3") != m.end() && !m["IntAttr3"].empty()) {
+      intAttr3 = make_shared<long>(boost::any_cast<long>(m["IntAttr3"]));
+    }
+    if (m.find("IntAttr4") != m.end() && !m["IntAttr4"].empty()) {
+      intAttr4 = make_shared<long>(boost::any_cast<long>(m["IntAttr4"]));
     }
     if (m.find("PicName") != m.end() && !m["PicName"].empty()) {
       picName = make_shared<string>(boost::any_cast<string>(m["PicName"]));
@@ -2560,6 +2897,12 @@ public:
     }
     if (m.find("StrAttr2") != m.end() && !m["StrAttr2"].empty()) {
       strAttr2 = make_shared<string>(boost::any_cast<string>(m["StrAttr2"]));
+    }
+    if (m.find("StrAttr3") != m.end() && !m["StrAttr3"].empty()) {
+      strAttr3 = make_shared<string>(boost::any_cast<string>(m["StrAttr3"]));
+    }
+    if (m.find("StrAttr4") != m.end() && !m["StrAttr4"].empty()) {
+      strAttr4 = make_shared<string>(boost::any_cast<string>(m["StrAttr4"]));
     }
   }
 
@@ -2857,17 +3200,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2913,10 +3246,14 @@ public:
   shared_ptr<string> instanceName{};
   shared_ptr<long> intAttr{};
   shared_ptr<long> intAttr2{};
+  shared_ptr<long> intAttr3{};
+  shared_ptr<long> intAttr4{};
   shared_ptr<string> picName{};
   shared_ptr<string> productId{};
   shared_ptr<string> strAttr{};
   shared_ptr<string> strAttr2{};
+  shared_ptr<string> strAttr3{};
+  shared_ptr<string> strAttr4{};
 
   UpdateImageRequest() {}
 
@@ -2940,6 +3277,12 @@ public:
     if (intAttr2) {
       res["IntAttr2"] = boost::any(*intAttr2);
     }
+    if (intAttr3) {
+      res["IntAttr3"] = boost::any(*intAttr3);
+    }
+    if (intAttr4) {
+      res["IntAttr4"] = boost::any(*intAttr4);
+    }
     if (picName) {
       res["PicName"] = boost::any(*picName);
     }
@@ -2951,6 +3294,12 @@ public:
     }
     if (strAttr2) {
       res["StrAttr2"] = boost::any(*strAttr2);
+    }
+    if (strAttr3) {
+      res["StrAttr3"] = boost::any(*strAttr3);
+    }
+    if (strAttr4) {
+      res["StrAttr4"] = boost::any(*strAttr4);
     }
     return res;
   }
@@ -2968,6 +3317,12 @@ public:
     if (m.find("IntAttr2") != m.end() && !m["IntAttr2"].empty()) {
       intAttr2 = make_shared<long>(boost::any_cast<long>(m["IntAttr2"]));
     }
+    if (m.find("IntAttr3") != m.end() && !m["IntAttr3"].empty()) {
+      intAttr3 = make_shared<long>(boost::any_cast<long>(m["IntAttr3"]));
+    }
+    if (m.find("IntAttr4") != m.end() && !m["IntAttr4"].empty()) {
+      intAttr4 = make_shared<long>(boost::any_cast<long>(m["IntAttr4"]));
+    }
     if (m.find("PicName") != m.end() && !m["PicName"].empty()) {
       picName = make_shared<string>(boost::any_cast<string>(m["PicName"]));
     }
@@ -2979,6 +3334,12 @@ public:
     }
     if (m.find("StrAttr2") != m.end() && !m["StrAttr2"].empty()) {
       strAttr2 = make_shared<string>(boost::any_cast<string>(m["StrAttr2"]));
+    }
+    if (m.find("StrAttr3") != m.end() && !m["StrAttr3"].empty()) {
+      strAttr3 = make_shared<string>(boost::any_cast<string>(m["StrAttr3"]));
+    }
+    if (m.find("StrAttr4") != m.end() && !m["StrAttr4"].empty()) {
+      strAttr4 = make_shared<string>(boost::any_cast<string>(m["StrAttr4"]));
     }
   }
 
@@ -3047,17 +3408,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3110,6 +3461,9 @@ public:
   AddImageResponse addImageWithOptions(shared_ptr<AddImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddImageResponse addImage(shared_ptr<AddImageRequest> request);
   AddImageResponse addImageAdvance(shared_ptr<AddImageAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CompareSimilarByImageResponse compareSimilarByImageWithOptions(shared_ptr<CompareSimilarByImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CompareSimilarByImageResponse compareSimilarByImage(shared_ptr<CompareSimilarByImageRequest> request);
+  CompareSimilarByImageResponse compareSimilarByImageAdvance(shared_ptr<CompareSimilarByImageAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteImageResponse deleteImageWithOptions(shared_ptr<DeleteImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteImageResponse deleteImage(shared_ptr<DeleteImageRequest> request);
   DetailResponse detailWithOptions(shared_ptr<DetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
