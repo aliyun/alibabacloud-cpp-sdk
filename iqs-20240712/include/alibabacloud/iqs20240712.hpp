@@ -809,11 +809,7 @@ public:
 };
 class BicyclingDirectionNovaResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
   shared_ptr<BicyclingDirectionNovaResponseBodyData> data{};
-  shared_ptr<long> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -827,20 +823,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["code"] = boost::any(*code);
-    }
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (errorCode) {
-      res["errorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["errorMessage"] = boost::any(*errorMessage);
-    }
-    if (message) {
-      res["message"] = boost::any(*message);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -852,24 +836,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["code"]));
-    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(map<string, boost::any>) == m["data"].type()) {
         BicyclingDirectionNovaResponseBodyData model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
         data = make_shared<BicyclingDirectionNovaResponseBodyData>(model1);
       }
-    }
-    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
-      errorCode = make_shared<long>(boost::any_cast<long>(m["errorCode"]));
-    }
-    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
-    }
-    if (m.find("message") != m.end() && !m["message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["message"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -1885,11 +1857,7 @@ public:
 };
 class DrivingDirectionNovaResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
   shared_ptr<DrivingDirectionNovaResponseBodyData> data{};
-  shared_ptr<long> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -1903,20 +1871,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["code"] = boost::any(*code);
-    }
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (errorCode) {
-      res["errorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["errorMessage"] = boost::any(*errorMessage);
-    }
-    if (message) {
-      res["message"] = boost::any(*message);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -1928,24 +1884,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["code"]));
-    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(map<string, boost::any>) == m["data"].type()) {
         DrivingDirectionNovaResponseBodyData model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
         data = make_shared<DrivingDirectionNovaResponseBodyData>(model1);
       }
-    }
-    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
-      errorCode = make_shared<long>(boost::any_cast<long>(m["errorCode"]));
-    }
-    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
-    }
-    if (m.find("message") != m.end() && !m["message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["message"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -2432,11 +2376,7 @@ public:
 };
 class ElectrobikeDirectionNovaResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
   shared_ptr<ElectrobikeDirectionNovaResponseBodyData> data{};
-  shared_ptr<long> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -2450,20 +2390,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["code"] = boost::any(*code);
-    }
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (errorCode) {
-      res["errorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["errorMessage"] = boost::any(*errorMessage);
-    }
-    if (message) {
-      res["message"] = boost::any(*message);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -2475,24 +2403,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["code"]));
-    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(map<string, boost::any>) == m["data"].type()) {
         ElectrobikeDirectionNovaResponseBodyData model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
         data = make_shared<ElectrobikeDirectionNovaResponseBodyData>(model1);
       }
-    }
-    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
-      errorCode = make_shared<long>(boost::any_cast<long>(m["errorCode"]));
-    }
-    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
-    }
-    if (m.find("message") != m.end() && !m["message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["message"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -2734,11 +2650,7 @@ public:
 };
 class GeoCodeResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
   shared_ptr<vector<GeoCodeResponseBodyData>> data{};
-  shared_ptr<long> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -2752,24 +2664,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["code"] = boost::any(*code);
-    }
     if (data) {
       vector<boost::any> temp1;
       for(auto item1:*data){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["data"] = boost::any(temp1);
-    }
-    if (errorCode) {
-      res["errorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["errorMessage"] = boost::any(*errorMessage);
-    }
-    if (message) {
-      res["message"] = boost::any(*message);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -2781,9 +2681,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["code"]));
-    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(vector<boost::any>) == m["data"].type()) {
         vector<GeoCodeResponseBodyData> expect1;
@@ -2796,15 +2693,6 @@ public:
         }
         data = make_shared<vector<GeoCodeResponseBodyData>>(expect1);
       }
-    }
-    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
-      errorCode = make_shared<long>(boost::any_cast<long>(m["errorCode"]));
-    }
-    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
-    }
-    if (m.find("message") != m.end() && !m["message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["message"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -3222,11 +3110,7 @@ public:
 };
 class NearbySearchNovaResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
   shared_ptr<vector<NearbySearchNovaResponseBodyData>> data{};
-  shared_ptr<long> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -3240,24 +3124,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["code"] = boost::any(*code);
-    }
     if (data) {
       vector<boost::any> temp1;
       for(auto item1:*data){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["data"] = boost::any(temp1);
-    }
-    if (errorCode) {
-      res["errorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["errorMessage"] = boost::any(*errorMessage);
-    }
-    if (message) {
-      res["message"] = boost::any(*message);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -3269,9 +3141,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["code"]));
-    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(vector<boost::any>) == m["data"].type()) {
         vector<NearbySearchNovaResponseBodyData> expect1;
@@ -3284,15 +3153,6 @@ public:
         }
         data = make_shared<vector<NearbySearchNovaResponseBodyData>>(expect1);
       }
-    }
-    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
-      errorCode = make_shared<long>(boost::any_cast<long>(m["errorCode"]));
-    }
-    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
-    }
-    if (m.find("message") != m.end() && !m["message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["message"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -3689,11 +3549,7 @@ public:
 };
 class PlaceSearchNovaResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
   shared_ptr<vector<PlaceSearchNovaResponseBodyData>> data{};
-  shared_ptr<long> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -3707,24 +3563,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["code"] = boost::any(*code);
-    }
     if (data) {
       vector<boost::any> temp1;
       for(auto item1:*data){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["data"] = boost::any(temp1);
-    }
-    if (errorCode) {
-      res["errorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["errorMessage"] = boost::any(*errorMessage);
-    }
-    if (message) {
-      res["message"] = boost::any(*message);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -3736,9 +3580,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["code"]));
-    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(vector<boost::any>) == m["data"].type()) {
         vector<PlaceSearchNovaResponseBodyData> expect1;
@@ -3751,15 +3592,6 @@ public:
         }
         data = make_shared<vector<PlaceSearchNovaResponseBodyData>>(expect1);
       }
-    }
-    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
-      errorCode = make_shared<long>(boost::any_cast<long>(m["errorCode"]));
-    }
-    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
-    }
-    if (m.find("message") != m.end() && !m["message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["message"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -4817,11 +4649,7 @@ public:
 };
 class RgeoCodeResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
   shared_ptr<RgeoCodeResponseBodyData> data{};
-  shared_ptr<long> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -4835,20 +4663,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["code"] = boost::any(*code);
-    }
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (errorCode) {
-      res["errorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["errorMessage"] = boost::any(*errorMessage);
-    }
-    if (message) {
-      res["message"] = boost::any(*message);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -4860,24 +4676,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["code"]));
-    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(map<string, boost::any>) == m["data"].type()) {
         RgeoCodeResponseBodyData model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
         data = make_shared<RgeoCodeResponseBodyData>(model1);
       }
-    }
-    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
-      errorCode = make_shared<long>(boost::any_cast<long>(m["errorCode"]));
-    }
-    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
-    }
-    if (m.find("message") != m.end() && !m["message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["message"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -6605,11 +6409,7 @@ public:
 };
 class TransitIntegratedDirectionResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
   shared_ptr<TransitIntegratedDirectionResponseBodyData> data{};
-  shared_ptr<long> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -6623,20 +6423,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["code"] = boost::any(*code);
-    }
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (errorCode) {
-      res["errorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["errorMessage"] = boost::any(*errorMessage);
-    }
-    if (message) {
-      res["message"] = boost::any(*message);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -6648,24 +6436,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["code"]));
-    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(map<string, boost::any>) == m["data"].type()) {
         TransitIntegratedDirectionResponseBodyData model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
         data = make_shared<TransitIntegratedDirectionResponseBodyData>(model1);
       }
-    }
-    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
-      errorCode = make_shared<long>(boost::any_cast<long>(m["errorCode"]));
-    }
-    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
-    }
-    if (m.find("message") != m.end() && !m["message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["message"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -7152,11 +6928,7 @@ public:
 };
 class WalkingDirectionNovaResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
   shared_ptr<WalkingDirectionNovaResponseBodyData> data{};
-  shared_ptr<long> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -7170,20 +6942,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["code"] = boost::any(*code);
-    }
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (errorCode) {
-      res["errorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["errorMessage"] = boost::any(*errorMessage);
-    }
-    if (message) {
-      res["message"] = boost::any(*message);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -7195,24 +6955,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["code"]));
-    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(map<string, boost::any>) == m["data"].type()) {
         WalkingDirectionNovaResponseBodyData model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
         data = make_shared<WalkingDirectionNovaResponseBodyData>(model1);
       }
-    }
-    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
-      errorCode = make_shared<long>(boost::any_cast<long>(m["errorCode"]));
-    }
-    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
-    }
-    if (m.find("message") != m.end() && !m["message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["message"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
