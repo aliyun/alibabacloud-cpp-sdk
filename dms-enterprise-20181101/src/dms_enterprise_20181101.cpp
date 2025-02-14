@@ -1401,6 +1401,61 @@ CreateDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::crea
   return createDataLakeDatabaseWithOptions(request, runtime);
 }
 
+CreateDataLakeFunctionResponse Alibabacloud_Dms-enterprise20181101::Client::createDataLakeFunctionWithOptions(shared_ptr<CreateDataLakeFunctionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDataLakeFunctionShrinkRequest> request = make_shared<CreateDataLakeFunctionShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<DLFunctionInput>(tmpReq->functionInput)) {
+    request->functionInputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->functionInput, make_shared<string>("FunctionInput"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->catalogName)) {
+    query->insert(pair<string, string>("CatalogName", *request->catalogName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataRegion)) {
+    query->insert(pair<string, string>("DataRegion", *request->dataRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbName)) {
+    query->insert(pair<string, string>("DbName", *request->dbName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
+    query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->functionInputShrink)) {
+    body->insert(pair<string, string>("FunctionInput", *request->functionInputShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDataLakeFunction"))},
+    {"version", boost::any(string("2018-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateDataLakeFunctionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateDataLakeFunctionResponse(execute(params, req, runtime));
+  }
+}
+
+CreateDataLakeFunctionResponse Alibabacloud_Dms-enterprise20181101::Client::createDataLakeFunction(shared_ptr<CreateDataLakeFunctionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDataLakeFunctionWithOptions(request, runtime);
+}
+
 CreateDataLakePartitionResponse Alibabacloud_Dms-enterprise20181101::Client::createDataLakePartitionWithOptions(shared_ptr<CreateDataLakePartitionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateDataLakePartitionShrinkRequest> request = make_shared<CreateDataLakePartitionShrinkRequest>();
@@ -2717,6 +2772,54 @@ DeleteDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::dele
 DeleteDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::deleteDataLakeDatabase(shared_ptr<DeleteDataLakeDatabaseRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteDataLakeDatabaseWithOptions(request, runtime);
+}
+
+DeleteDataLakeFunctionResponse Alibabacloud_Dms-enterprise20181101::Client::deleteDataLakeFunctionWithOptions(shared_ptr<DeleteDataLakeFunctionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->catalogName)) {
+    query->insert(pair<string, string>("CatalogName", *request->catalogName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataRegion)) {
+    query->insert(pair<string, string>("DataRegion", *request->dataRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbName)) {
+    query->insert(pair<string, string>("DbName", *request->dbName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->functionName)) {
+    query->insert(pair<string, string>("FunctionName", *request->functionName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
+    query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDataLakeFunction"))},
+    {"version", boost::any(string("2018-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteDataLakeFunctionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteDataLakeFunctionResponse(execute(params, req, runtime));
+  }
+}
+
+DeleteDataLakeFunctionResponse Alibabacloud_Dms-enterprise20181101::Client::deleteDataLakeFunction(shared_ptr<DeleteDataLakeFunctionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteDataLakeFunctionWithOptions(request, runtime);
 }
 
 DeleteDataLakePartitionResponse Alibabacloud_Dms-enterprise20181101::Client::deleteDataLakePartitionWithOptions(shared_ptr<DeleteDataLakePartitionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4548,6 +4651,54 @@ GetDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::getData
 GetDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::getDataLakeDatabase(shared_ptr<GetDataLakeDatabaseRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getDataLakeDatabaseWithOptions(request, runtime);
+}
+
+GetDataLakeFunctionResponse Alibabacloud_Dms-enterprise20181101::Client::getDataLakeFunctionWithOptions(shared_ptr<GetDataLakeFunctionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->catalogName)) {
+    query->insert(pair<string, string>("CatalogName", *request->catalogName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataRegion)) {
+    query->insert(pair<string, string>("DataRegion", *request->dataRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbName)) {
+    query->insert(pair<string, string>("DbName", *request->dbName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->functionName)) {
+    query->insert(pair<string, string>("FunctionName", *request->functionName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
+    query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDataLakeFunction"))},
+    {"version", boost::any(string("2018-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetDataLakeFunctionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetDataLakeFunctionResponse(execute(params, req, runtime));
+  }
+}
+
+GetDataLakeFunctionResponse Alibabacloud_Dms-enterprise20181101::Client::getDataLakeFunction(shared_ptr<GetDataLakeFunctionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getDataLakeFunctionWithOptions(request, runtime);
 }
 
 GetDataLakePartitionResponse Alibabacloud_Dms-enterprise20181101::Client::getDataLakePartitionWithOptions(shared_ptr<GetDataLakePartitionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -7129,6 +7280,108 @@ ListDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::listDa
 ListDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::listDataLakeDatabase(shared_ptr<ListDataLakeDatabaseRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listDataLakeDatabaseWithOptions(request, runtime);
+}
+
+ListDataLakeFunctionResponse Alibabacloud_Dms-enterprise20181101::Client::listDataLakeFunctionWithOptions(shared_ptr<ListDataLakeFunctionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->catalogName)) {
+    query->insert(pair<string, string>("CatalogName", *request->catalogName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataRegion)) {
+    query->insert(pair<string, string>("DataRegion", *request->dataRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbName)) {
+    query->insert(pair<string, string>("DbName", *request->dbName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->functionNamePattern)) {
+    query->insert(pair<string, string>("FunctionNamePattern", *request->functionNamePattern));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
+    query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDataLakeFunction"))},
+    {"version", boost::any(string("2018-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListDataLakeFunctionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListDataLakeFunctionResponse(execute(params, req, runtime));
+  }
+}
+
+ListDataLakeFunctionResponse Alibabacloud_Dms-enterprise20181101::Client::listDataLakeFunction(shared_ptr<ListDataLakeFunctionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDataLakeFunctionWithOptions(request, runtime);
+}
+
+ListDataLakeFunctionNameResponse Alibabacloud_Dms-enterprise20181101::Client::listDataLakeFunctionNameWithOptions(shared_ptr<ListDataLakeFunctionNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->catalogName)) {
+    query->insert(pair<string, string>("CatalogName", *request->catalogName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataRegion)) {
+    query->insert(pair<string, string>("DataRegion", *request->dataRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbName)) {
+    query->insert(pair<string, string>("DbName", *request->dbName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->functionNamePattern)) {
+    query->insert(pair<string, string>("FunctionNamePattern", *request->functionNamePattern));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
+    query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDataLakeFunctionName"))},
+    {"version", boost::any(string("2018-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListDataLakeFunctionNameResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListDataLakeFunctionNameResponse(execute(params, req, runtime));
+  }
+}
+
+ListDataLakeFunctionNameResponse Alibabacloud_Dms-enterprise20181101::Client::listDataLakeFunctionName(shared_ptr<ListDataLakeFunctionNameRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDataLakeFunctionNameWithOptions(request, runtime);
 }
 
 ListDataLakePartitionResponse Alibabacloud_Dms-enterprise20181101::Client::listDataLakePartitionWithOptions(shared_ptr<ListDataLakePartitionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -11082,6 +11335,64 @@ UpdateDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::upda
 UpdateDataLakeDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::updateDataLakeDatabase(shared_ptr<UpdateDataLakeDatabaseRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateDataLakeDatabaseWithOptions(request, runtime);
+}
+
+UpdateDataLakeFunctionResponse Alibabacloud_Dms-enterprise20181101::Client::updateDataLakeFunctionWithOptions(shared_ptr<UpdateDataLakeFunctionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateDataLakeFunctionShrinkRequest> request = make_shared<UpdateDataLakeFunctionShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<DLFunctionInput>(tmpReq->functionInput)) {
+    request->functionInputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->functionInput, make_shared<string>("FunctionInput"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->catalogName)) {
+    query->insert(pair<string, string>("CatalogName", *request->catalogName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataRegion)) {
+    query->insert(pair<string, string>("DataRegion", *request->dataRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbName)) {
+    query->insert(pair<string, string>("DbName", *request->dbName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->functionName)) {
+    query->insert(pair<string, string>("FunctionName", *request->functionName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
+    query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->workspaceId)) {
+    query->insert(pair<string, long>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->functionInputShrink)) {
+    body->insert(pair<string, string>("FunctionInput", *request->functionInputShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateDataLakeFunction"))},
+    {"version", boost::any(string("2018-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateDataLakeFunctionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateDataLakeFunctionResponse(execute(params, req, runtime));
+  }
+}
+
+UpdateDataLakeFunctionResponse Alibabacloud_Dms-enterprise20181101::Client::updateDataLakeFunction(shared_ptr<UpdateDataLakeFunctionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateDataLakeFunctionWithOptions(request, runtime);
 }
 
 UpdateDataLakePartitionResponse Alibabacloud_Dms-enterprise20181101::Client::updateDataLakePartitionWithOptions(shared_ptr<UpdateDataLakePartitionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
