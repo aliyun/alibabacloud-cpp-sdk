@@ -393,6 +393,7 @@ public:
   shared_ptr<string> destinationLongitude{};
   shared_ptr<string> originLatitude{};
   shared_ptr<string> originLongitude{};
+  shared_ptr<bool> showPolyline{};
 
   BicyclingDirectionNovaRequest() {}
 
@@ -416,6 +417,9 @@ public:
     if (originLongitude) {
       res["originLongitude"] = boost::any(*originLongitude);
     }
+    if (showPolyline) {
+      res["showPolyline"] = boost::any(*showPolyline);
+    }
     return res;
   }
 
@@ -431,6 +435,9 @@ public:
     }
     if (m.find("originLongitude") != m.end() && !m["originLongitude"].empty()) {
       originLongitude = make_shared<string>(boost::any_cast<string>(m["originLongitude"]));
+    }
+    if (m.find("showPolyline") != m.end() && !m["showPolyline"].empty()) {
+      showPolyline = make_shared<bool>(boost::any_cast<bool>(m["showPolyline"]));
     }
   }
 
@@ -1429,6 +1436,7 @@ public:
   shared_ptr<string> originLatitude{};
   shared_ptr<string> originLongitude{};
   shared_ptr<string> plate{};
+  shared_ptr<bool> showPolyline{};
 
   DrivingDirectionNovaRequest() {}
 
@@ -1458,6 +1466,9 @@ public:
     if (plate) {
       res["plate"] = boost::any(*plate);
     }
+    if (showPolyline) {
+      res["showPolyline"] = boost::any(*showPolyline);
+    }
     return res;
   }
 
@@ -1479,6 +1490,9 @@ public:
     }
     if (m.find("plate") != m.end() && !m["plate"].empty()) {
       plate = make_shared<string>(boost::any_cast<string>(m["plate"]));
+    }
+    if (m.find("showPolyline") != m.end() && !m["showPolyline"].empty()) {
+      showPolyline = make_shared<bool>(boost::any_cast<bool>(m["showPolyline"]));
     }
   }
 
@@ -1960,6 +1974,7 @@ public:
   shared_ptr<string> destinationLongitude{};
   shared_ptr<string> originLatitude{};
   shared_ptr<string> originLongitude{};
+  shared_ptr<bool> showPolyline{};
 
   ElectrobikeDirectionNovaRequest() {}
 
@@ -1983,6 +1998,9 @@ public:
     if (originLongitude) {
       res["originLongitude"] = boost::any(*originLongitude);
     }
+    if (showPolyline) {
+      res["showPolyline"] = boost::any(*showPolyline);
+    }
     return res;
   }
 
@@ -1998,6 +2016,9 @@ public:
     }
     if (m.find("originLongitude") != m.end() && !m["originLongitude"].empty()) {
       originLongitude = make_shared<string>(boost::any_cast<string>(m["originLongitude"]));
+    }
+    if (m.find("showPolyline") != m.end() && !m["showPolyline"].empty()) {
+      showPolyline = make_shared<bool>(boost::any_cast<bool>(m["showPolyline"]));
     }
   }
 
@@ -4754,6 +4775,7 @@ public:
   shared_ptr<string> originCity{};
   shared_ptr<string> originLatitude{};
   shared_ptr<string> originLongitude{};
+  shared_ptr<bool> showPolyline{};
 
   TransitIntegratedDirectionRequest() {}
 
@@ -4783,6 +4805,9 @@ public:
     if (originLongitude) {
       res["originLongitude"] = boost::any(*originLongitude);
     }
+    if (showPolyline) {
+      res["showPolyline"] = boost::any(*showPolyline);
+    }
     return res;
   }
 
@@ -4804,6 +4829,9 @@ public:
     }
     if (m.find("originLongitude") != m.end() && !m["originLongitude"].empty()) {
       originLongitude = make_shared<string>(boost::any_cast<string>(m["originLongitude"]));
+    }
+    if (m.find("showPolyline") != m.end() && !m["showPolyline"].empty()) {
+      showPolyline = make_shared<bool>(boost::any_cast<bool>(m["showPolyline"]));
     }
   }
 
@@ -6512,6 +6540,7 @@ public:
   shared_ptr<string> destinationLongitude{};
   shared_ptr<string> originLatitude{};
   shared_ptr<string> originLongitude{};
+  shared_ptr<bool> showPolyline{};
 
   WalkingDirectionNovaRequest() {}
 
@@ -6535,6 +6564,9 @@ public:
     if (originLongitude) {
       res["originLongitude"] = boost::any(*originLongitude);
     }
+    if (showPolyline) {
+      res["showPolyline"] = boost::any(*showPolyline);
+    }
     return res;
   }
 
@@ -6550,6 +6582,9 @@ public:
     }
     if (m.find("originLongitude") != m.end() && !m["originLongitude"].empty()) {
       originLongitude = make_shared<string>(boost::any_cast<string>(m["originLongitude"]));
+    }
+    if (m.find("showPolyline") != m.end() && !m["showPolyline"].empty()) {
+      showPolyline = make_shared<bool>(boost::any_cast<bool>(m["showPolyline"]));
     }
   }
 

@@ -52,6 +52,9 @@ BicyclingDirectionNovaResponse Alibabacloud_IQS20240712::Client::bicyclingDirect
   if (!Darabonba_Util::Client::isUnset<string>(request->originLongitude)) {
     query->insert(pair<string, string>("originLongitude", *request->originLongitude));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->showPolyline)) {
+    query->insert(pair<string, bool>("showPolyline", *request->showPolyline));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -177,6 +180,9 @@ DrivingDirectionNovaResponse Alibabacloud_IQS20240712::Client::drivingDirectionN
   if (!Darabonba_Util::Client::isUnset<string>(request->plate)) {
     query->insert(pair<string, string>("plate", *request->plate));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->showPolyline)) {
+    query->insert(pair<string, bool>("showPolyline", *request->showPolyline));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -220,6 +226,9 @@ ElectrobikeDirectionNovaResponse Alibabacloud_IQS20240712::Client::electrobikeDi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->originLongitude)) {
     query->insert(pair<string, string>("originLongitude", *request->originLongitude));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->showPolyline)) {
+    query->insert(pair<string, bool>("showPolyline", *request->showPolyline));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -642,6 +651,9 @@ TransitIntegratedDirectionResponse Alibabacloud_IQS20240712::Client::transitInte
   if (!Darabonba_Util::Client::isUnset<string>(request->originLongitude)) {
     query->insert(pair<string, string>("originLongitude", *request->originLongitude));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->showPolyline)) {
+    query->insert(pair<string, bool>("showPolyline", *request->showPolyline));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -685,6 +697,9 @@ WalkingDirectionNovaResponse Alibabacloud_IQS20240712::Client::walkingDirectionN
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->originLongitude)) {
     query->insert(pair<string, string>("originLongitude", *request->originLongitude));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->showPolyline)) {
+    query->insert(pair<string, bool>("showPolyline", *request->showPolyline));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
