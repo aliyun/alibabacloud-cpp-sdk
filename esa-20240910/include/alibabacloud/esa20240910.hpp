@@ -9112,54 +9112,12 @@ public:
 
   virtual ~CreateLoadBalancerRequestRules() = default;
 };
-class CreateLoadBalancerRequestSessionAffinityAttributes : public Darabonba::Model {
-public:
-  shared_ptr<string> sameSite{};
-  shared_ptr<string> secure{};
-  shared_ptr<string> zeroDowntimeFailover{};
-
-  CreateLoadBalancerRequestSessionAffinityAttributes() {}
-
-  explicit CreateLoadBalancerRequestSessionAffinityAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (sameSite) {
-      res["SameSite"] = boost::any(*sameSite);
-    }
-    if (secure) {
-      res["Secure"] = boost::any(*secure);
-    }
-    if (zeroDowntimeFailover) {
-      res["ZeroDowntimeFailover"] = boost::any(*zeroDowntimeFailover);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("SameSite") != m.end() && !m["SameSite"].empty()) {
-      sameSite = make_shared<string>(boost::any_cast<string>(m["SameSite"]));
-    }
-    if (m.find("Secure") != m.end() && !m["Secure"].empty()) {
-      secure = make_shared<string>(boost::any_cast<string>(m["Secure"]));
-    }
-    if (m.find("ZeroDowntimeFailover") != m.end() && !m["ZeroDowntimeFailover"].empty()) {
-      zeroDowntimeFailover = make_shared<string>(boost::any_cast<string>(m["ZeroDowntimeFailover"]));
-    }
-  }
-
-
-  virtual ~CreateLoadBalancerRequestSessionAffinityAttributes() = default;
-};
 class CreateLoadBalancerRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateLoadBalancerRequestAdaptiveRouting> adaptiveRouting{};
   shared_ptr<vector<long>> defaultPools{};
   shared_ptr<string> description{};
+  shared_ptr<bool> enabled{};
   shared_ptr<long> fallbackPool{};
   shared_ptr<CreateLoadBalancerRequestMonitor> monitor{};
   shared_ptr<string> name{};
@@ -9167,7 +9125,6 @@ public:
   shared_ptr<boost::any> regionPools{};
   shared_ptr<vector<CreateLoadBalancerRequestRules>> rules{};
   shared_ptr<string> sessionAffinity{};
-  shared_ptr<CreateLoadBalancerRequestSessionAffinityAttributes> sessionAffinityAttributes{};
   shared_ptr<long> siteId{};
   shared_ptr<string> steeringPolicy{};
   shared_ptr<boost::any> subRegionPools{};
@@ -9191,6 +9148,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
     }
     if (fallbackPool) {
       res["FallbackPool"] = boost::any(*fallbackPool);
@@ -9216,9 +9176,6 @@ public:
     }
     if (sessionAffinity) {
       res["SessionAffinity"] = boost::any(*sessionAffinity);
-    }
-    if (sessionAffinityAttributes) {
-      res["SessionAffinityAttributes"] = sessionAffinityAttributes ? boost::any(sessionAffinityAttributes->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (siteId) {
       res["SiteId"] = boost::any(*siteId);
@@ -9255,6 +9212,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
     }
     if (m.find("FallbackPool") != m.end() && !m["FallbackPool"].empty()) {
       fallbackPool = make_shared<long>(boost::any_cast<long>(m["FallbackPool"]));
@@ -9295,13 +9255,6 @@ public:
     if (m.find("SessionAffinity") != m.end() && !m["SessionAffinity"].empty()) {
       sessionAffinity = make_shared<string>(boost::any_cast<string>(m["SessionAffinity"]));
     }
-    if (m.find("SessionAffinityAttributes") != m.end() && !m["SessionAffinityAttributes"].empty()) {
-      if (typeid(map<string, boost::any>) == m["SessionAffinityAttributes"].type()) {
-        CreateLoadBalancerRequestSessionAffinityAttributes model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SessionAffinityAttributes"]));
-        sessionAffinityAttributes = make_shared<CreateLoadBalancerRequestSessionAffinityAttributes>(model1);
-      }
-    }
     if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
       siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
     }
@@ -9324,6 +9277,7 @@ public:
   shared_ptr<string> adaptiveRoutingShrink{};
   shared_ptr<string> defaultPoolsShrink{};
   shared_ptr<string> description{};
+  shared_ptr<bool> enabled{};
   shared_ptr<long> fallbackPool{};
   shared_ptr<string> monitorShrink{};
   shared_ptr<string> name{};
@@ -9331,7 +9285,6 @@ public:
   shared_ptr<boost::any> regionPools{};
   shared_ptr<string> rulesShrink{};
   shared_ptr<string> sessionAffinity{};
-  shared_ptr<string> sessionAffinityAttributesShrink{};
   shared_ptr<long> siteId{};
   shared_ptr<string> steeringPolicy{};
   shared_ptr<boost::any> subRegionPools{};
@@ -9356,6 +9309,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
     if (fallbackPool) {
       res["FallbackPool"] = boost::any(*fallbackPool);
     }
@@ -9376,9 +9332,6 @@ public:
     }
     if (sessionAffinity) {
       res["SessionAffinity"] = boost::any(*sessionAffinity);
-    }
-    if (sessionAffinityAttributesShrink) {
-      res["SessionAffinityAttributes"] = boost::any(*sessionAffinityAttributesShrink);
     }
     if (siteId) {
       res["SiteId"] = boost::any(*siteId);
@@ -9405,6 +9358,9 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
     if (m.find("FallbackPool") != m.end() && !m["FallbackPool"].empty()) {
       fallbackPool = make_shared<long>(boost::any_cast<long>(m["FallbackPool"]));
     }
@@ -9425,9 +9381,6 @@ public:
     }
     if (m.find("SessionAffinity") != m.end() && !m["SessionAffinity"].empty()) {
       sessionAffinity = make_shared<string>(boost::any_cast<string>(m["SessionAffinity"]));
-    }
-    if (m.find("SessionAffinityAttributes") != m.end() && !m["SessionAffinityAttributes"].empty()) {
-      sessionAffinityAttributesShrink = make_shared<string>(boost::any_cast<string>(m["SessionAffinityAttributes"]));
     }
     if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
       siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
@@ -21799,6 +21752,130 @@ public:
 
 
   virtual ~DescribePurgeTasksResponse() = default;
+};
+class DescribeRatePlanInstanceStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  DescribeRatePlanInstanceStatusRequest() {}
+
+  explicit DescribeRatePlanInstanceStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~DescribeRatePlanInstanceStatusRequest() = default;
+};
+class DescribeRatePlanInstanceStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceStatus{};
+  shared_ptr<string> requestId{};
+
+  DescribeRatePlanInstanceStatusResponseBody() {}
+
+  explicit DescribeRatePlanInstanceStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceStatus) {
+      res["InstanceStatus"] = boost::any(*instanceStatus);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceStatus") != m.end() && !m["InstanceStatus"].empty()) {
+      instanceStatus = make_shared<string>(boost::any_cast<string>(m["InstanceStatus"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeRatePlanInstanceStatusResponseBody() = default;
+};
+class DescribeRatePlanInstanceStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeRatePlanInstanceStatusResponseBody> body{};
+
+  DescribeRatePlanInstanceStatusResponse() {}
+
+  explicit DescribeRatePlanInstanceStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeRatePlanInstanceStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeRatePlanInstanceStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRatePlanInstanceStatusResponse() = default;
 };
 class DisableCustomScenePolicyRequest : public Darabonba::Model {
 public:
@@ -43146,49 +43223,6 @@ public:
 
   virtual ~ListLoadBalancersResponseBodyLoadBalancersRules() = default;
 };
-class ListLoadBalancersResponseBodyLoadBalancersSessionAffinityAttributes : public Darabonba::Model {
-public:
-  shared_ptr<string> sameSite{};
-  shared_ptr<string> secure{};
-  shared_ptr<string> zeroDowntimeFailover{};
-
-  ListLoadBalancersResponseBodyLoadBalancersSessionAffinityAttributes() {}
-
-  explicit ListLoadBalancersResponseBodyLoadBalancersSessionAffinityAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (sameSite) {
-      res["SameSite"] = boost::any(*sameSite);
-    }
-    if (secure) {
-      res["Secure"] = boost::any(*secure);
-    }
-    if (zeroDowntimeFailover) {
-      res["ZeroDowntimeFailover"] = boost::any(*zeroDowntimeFailover);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("SameSite") != m.end() && !m["SameSite"].empty()) {
-      sameSite = make_shared<string>(boost::any_cast<string>(m["SameSite"]));
-    }
-    if (m.find("Secure") != m.end() && !m["Secure"].empty()) {
-      secure = make_shared<string>(boost::any_cast<string>(m["Secure"]));
-    }
-    if (m.find("ZeroDowntimeFailover") != m.end() && !m["ZeroDowntimeFailover"].empty()) {
-      zeroDowntimeFailover = make_shared<string>(boost::any_cast<string>(m["ZeroDowntimeFailover"]));
-    }
-  }
-
-
-  virtual ~ListLoadBalancersResponseBodyLoadBalancersSessionAffinityAttributes() = default;
-};
 class ListLoadBalancersResponseBodyLoadBalancers : public Darabonba::Model {
 public:
   shared_ptr<ListLoadBalancersResponseBodyLoadBalancersAdaptiveRouting> adaptiveRouting{};
@@ -43203,7 +43237,6 @@ public:
   shared_ptr<boost::any> regionPools{};
   shared_ptr<vector<ListLoadBalancersResponseBodyLoadBalancersRules>> rules{};
   shared_ptr<string> sessionAffinity{};
-  shared_ptr<ListLoadBalancersResponseBodyLoadBalancersSessionAffinityAttributes> sessionAffinityAttributes{};
   shared_ptr<long> siteId{};
   shared_ptr<string> status{};
   shared_ptr<string> steeringPolicy{};
@@ -43259,9 +43292,6 @@ public:
     }
     if (sessionAffinity) {
       res["SessionAffinity"] = boost::any(*sessionAffinity);
-    }
-    if (sessionAffinityAttributes) {
-      res["SessionAffinityAttributes"] = sessionAffinityAttributes ? boost::any(sessionAffinityAttributes->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (siteId) {
       res["SiteId"] = boost::any(*siteId);
@@ -43346,13 +43376,6 @@ public:
     }
     if (m.find("SessionAffinity") != m.end() && !m["SessionAffinity"].empty()) {
       sessionAffinity = make_shared<string>(boost::any_cast<string>(m["SessionAffinity"]));
-    }
-    if (m.find("SessionAffinityAttributes") != m.end() && !m["SessionAffinityAttributes"].empty()) {
-      if (typeid(map<string, boost::any>) == m["SessionAffinityAttributes"].type()) {
-        ListLoadBalancersResponseBodyLoadBalancersSessionAffinityAttributes model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SessionAffinityAttributes"]));
-        sessionAffinityAttributes = make_shared<ListLoadBalancersResponseBodyLoadBalancersSessionAffinityAttributes>(model1);
-      }
     }
     if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
       siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
@@ -51715,6 +51738,186 @@ public:
 
   virtual ~PublishRoutineCodeVersionResponse() = default;
 };
+class PurchaseRatePlanRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoPay{};
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<string> chargeType{};
+  shared_ptr<string> coverage{};
+  shared_ptr<long> period{};
+  shared_ptr<string> planCode{};
+  shared_ptr<string> planName{};
+  shared_ptr<string> siteName{};
+  shared_ptr<string> type{};
+
+  PurchaseRatePlanRequest() {}
+
+  explicit PurchaseRatePlanRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (coverage) {
+      res["Coverage"] = boost::any(*coverage);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (planCode) {
+      res["PlanCode"] = boost::any(*planCode);
+    }
+    if (planName) {
+      res["PlanName"] = boost::any(*planName);
+    }
+    if (siteName) {
+      res["SiteName"] = boost::any(*siteName);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("Coverage") != m.end() && !m["Coverage"].empty()) {
+      coverage = make_shared<string>(boost::any_cast<string>(m["Coverage"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("PlanCode") != m.end() && !m["PlanCode"].empty()) {
+      planCode = make_shared<string>(boost::any_cast<string>(m["PlanCode"]));
+    }
+    if (m.find("PlanName") != m.end() && !m["PlanName"].empty()) {
+      planName = make_shared<string>(boost::any_cast<string>(m["PlanName"]));
+    }
+    if (m.find("SiteName") != m.end() && !m["SiteName"].empty()) {
+      siteName = make_shared<string>(boost::any_cast<string>(m["SiteName"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~PurchaseRatePlanRequest() = default;
+};
+class PurchaseRatePlanResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+
+  PurchaseRatePlanResponseBody() {}
+
+  explicit PurchaseRatePlanResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~PurchaseRatePlanResponseBody() = default;
+};
+class PurchaseRatePlanResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PurchaseRatePlanResponseBody> body{};
+
+  PurchaseRatePlanResponse() {}
+
+  explicit PurchaseRatePlanResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PurchaseRatePlanResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PurchaseRatePlanResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PurchaseRatePlanResponse() = default;
+};
 class PurgeCachesRequestContentCacheKeys : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -53014,7 +53217,6 @@ public:
   shared_ptr<string> securityToken{};
   shared_ptr<long> siteId{};
   shared_ptr<string> type{};
-  shared_ptr<bool> update{};
 
   SetCertificateRequest() {}
 
@@ -53056,9 +53258,6 @@ public:
     if (type) {
       res["Type"] = boost::any(*type);
     }
-    if (update) {
-      res["Update"] = boost::any(*update);
-    }
     return res;
   }
 
@@ -53092,9 +53291,6 @@ public:
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-    if (m.find("Update") != m.end() && !m["Update"].empty()) {
-      update = make_shared<bool>(boost::any_cast<bool>(m["Update"]));
     }
   }
 
@@ -56364,151 +56560,6 @@ public:
 
   virtual ~UpdateImageTransformResponse() = default;
 };
-class UpdateKvNamespaceRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> namespace_{};
-  shared_ptr<string> title{};
-
-  UpdateKvNamespaceRequest() {}
-
-  explicit UpdateKvNamespaceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (namespace_) {
-      res["Namespace"] = boost::any(*namespace_);
-    }
-    if (title) {
-      res["Title"] = boost::any(*title);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
-      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
-    }
-    if (m.find("Title") != m.end() && !m["Title"].empty()) {
-      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
-    }
-  }
-
-
-  virtual ~UpdateKvNamespaceRequest() = default;
-};
-class UpdateKvNamespaceResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> description{};
-  shared_ptr<string> namespace_{};
-  shared_ptr<string> namespaceId{};
-  shared_ptr<string> requestId{};
-  shared_ptr<string> status{};
-
-  UpdateKvNamespaceResponseBody() {}
-
-  explicit UpdateKvNamespaceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (description) {
-      res["Description"] = boost::any(*description);
-    }
-    if (namespace_) {
-      res["Namespace"] = boost::any(*namespace_);
-    }
-    if (namespaceId) {
-      res["NamespaceId"] = boost::any(*namespaceId);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Description") != m.end() && !m["Description"].empty()) {
-      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
-    }
-    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
-      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
-    }
-    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
-      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
-    }
-  }
-
-
-  virtual ~UpdateKvNamespaceResponseBody() = default;
-};
-class UpdateKvNamespaceResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<UpdateKvNamespaceResponseBody> body{};
-
-  UpdateKvNamespaceResponse() {}
-
-  explicit UpdateKvNamespaceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        UpdateKvNamespaceResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<UpdateKvNamespaceResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~UpdateKvNamespaceResponse() = default;
-};
 class UpdateListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -56991,54 +57042,12 @@ public:
 
   virtual ~UpdateLoadBalancerRequestRules() = default;
 };
-class UpdateLoadBalancerRequestSessionAffinityAttributes : public Darabonba::Model {
-public:
-  shared_ptr<string> sameSite{};
-  shared_ptr<string> secure{};
-  shared_ptr<string> zeroDowntimeFailover{};
-
-  UpdateLoadBalancerRequestSessionAffinityAttributes() {}
-
-  explicit UpdateLoadBalancerRequestSessionAffinityAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (sameSite) {
-      res["SameSite"] = boost::any(*sameSite);
-    }
-    if (secure) {
-      res["Secure"] = boost::any(*secure);
-    }
-    if (zeroDowntimeFailover) {
-      res["ZeroDowntimeFailover"] = boost::any(*zeroDowntimeFailover);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("SameSite") != m.end() && !m["SameSite"].empty()) {
-      sameSite = make_shared<string>(boost::any_cast<string>(m["SameSite"]));
-    }
-    if (m.find("Secure") != m.end() && !m["Secure"].empty()) {
-      secure = make_shared<string>(boost::any_cast<string>(m["Secure"]));
-    }
-    if (m.find("ZeroDowntimeFailover") != m.end() && !m["ZeroDowntimeFailover"].empty()) {
-      zeroDowntimeFailover = make_shared<string>(boost::any_cast<string>(m["ZeroDowntimeFailover"]));
-    }
-  }
-
-
-  virtual ~UpdateLoadBalancerRequestSessionAffinityAttributes() = default;
-};
 class UpdateLoadBalancerRequest : public Darabonba::Model {
 public:
   shared_ptr<UpdateLoadBalancerRequestAdaptiveRouting> adaptiveRouting{};
   shared_ptr<vector<long>> defaultPools{};
   shared_ptr<string> description{};
+  shared_ptr<bool> enabled{};
   shared_ptr<long> fallbackPool{};
   shared_ptr<long> id{};
   shared_ptr<UpdateLoadBalancerRequestMonitor> monitor{};
@@ -57046,7 +57055,6 @@ public:
   shared_ptr<boost::any> regionPools{};
   shared_ptr<vector<UpdateLoadBalancerRequestRules>> rules{};
   shared_ptr<string> sessionAffinity{};
-  shared_ptr<UpdateLoadBalancerRequestSessionAffinityAttributes> sessionAffinityAttributes{};
   shared_ptr<long> siteId{};
   shared_ptr<string> steeringPolicy{};
   shared_ptr<boost::any> subRegionPools{};
@@ -57070,6 +57078,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
     }
     if (fallbackPool) {
       res["FallbackPool"] = boost::any(*fallbackPool);
@@ -57095,9 +57106,6 @@ public:
     }
     if (sessionAffinity) {
       res["SessionAffinity"] = boost::any(*sessionAffinity);
-    }
-    if (sessionAffinityAttributes) {
-      res["SessionAffinityAttributes"] = sessionAffinityAttributes ? boost::any(sessionAffinityAttributes->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (siteId) {
       res["SiteId"] = boost::any(*siteId);
@@ -57134,6 +57142,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
     }
     if (m.find("FallbackPool") != m.end() && !m["FallbackPool"].empty()) {
       fallbackPool = make_shared<long>(boost::any_cast<long>(m["FallbackPool"]));
@@ -57174,13 +57185,6 @@ public:
     if (m.find("SessionAffinity") != m.end() && !m["SessionAffinity"].empty()) {
       sessionAffinity = make_shared<string>(boost::any_cast<string>(m["SessionAffinity"]));
     }
-    if (m.find("SessionAffinityAttributes") != m.end() && !m["SessionAffinityAttributes"].empty()) {
-      if (typeid(map<string, boost::any>) == m["SessionAffinityAttributes"].type()) {
-        UpdateLoadBalancerRequestSessionAffinityAttributes model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SessionAffinityAttributes"]));
-        sessionAffinityAttributes = make_shared<UpdateLoadBalancerRequestSessionAffinityAttributes>(model1);
-      }
-    }
     if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
       siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
     }
@@ -57203,6 +57207,7 @@ public:
   shared_ptr<string> adaptiveRoutingShrink{};
   shared_ptr<string> defaultPoolsShrink{};
   shared_ptr<string> description{};
+  shared_ptr<bool> enabled{};
   shared_ptr<long> fallbackPool{};
   shared_ptr<long> id{};
   shared_ptr<string> monitorShrink{};
@@ -57210,7 +57215,6 @@ public:
   shared_ptr<boost::any> regionPools{};
   shared_ptr<string> rulesShrink{};
   shared_ptr<string> sessionAffinity{};
-  shared_ptr<string> sessionAffinityAttributesShrink{};
   shared_ptr<long> siteId{};
   shared_ptr<string> steeringPolicy{};
   shared_ptr<boost::any> subRegionPools{};
@@ -57235,6 +57239,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
     if (fallbackPool) {
       res["FallbackPool"] = boost::any(*fallbackPool);
     }
@@ -57255,9 +57262,6 @@ public:
     }
     if (sessionAffinity) {
       res["SessionAffinity"] = boost::any(*sessionAffinity);
-    }
-    if (sessionAffinityAttributesShrink) {
-      res["SessionAffinityAttributes"] = boost::any(*sessionAffinityAttributesShrink);
     }
     if (siteId) {
       res["SiteId"] = boost::any(*siteId);
@@ -57284,6 +57288,9 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
     if (m.find("FallbackPool") != m.end() && !m["FallbackPool"].empty()) {
       fallbackPool = make_shared<long>(boost::any_cast<long>(m["FallbackPool"]));
     }
@@ -57304,9 +57311,6 @@ public:
     }
     if (m.find("SessionAffinity") != m.end() && !m["SessionAffinity"].empty()) {
       sessionAffinity = make_shared<string>(boost::any_cast<string>(m["SessionAffinity"]));
-    }
-    if (m.find("SessionAffinityAttributes") != m.end() && !m["SessionAffinityAttributes"].empty()) {
-      sessionAffinityAttributesShrink = make_shared<string>(boost::any_cast<string>(m["SessionAffinityAttributes"]));
     }
     if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
       siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
@@ -58595,6 +58599,165 @@ public:
 
 
   virtual ~UpdatePageResponse() = default;
+};
+class UpdateRatePlanSpecRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoPay{};
+  shared_ptr<string> chargeType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> orderType{};
+  shared_ptr<string> targetPlanCode{};
+  shared_ptr<string> targetPlanName{};
+
+  UpdateRatePlanSpecRequest() {}
+
+  explicit UpdateRatePlanSpecRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (orderType) {
+      res["OrderType"] = boost::any(*orderType);
+    }
+    if (targetPlanCode) {
+      res["TargetPlanCode"] = boost::any(*targetPlanCode);
+    }
+    if (targetPlanName) {
+      res["TargetPlanName"] = boost::any(*targetPlanName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
+      orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
+    }
+    if (m.find("TargetPlanCode") != m.end() && !m["TargetPlanCode"].empty()) {
+      targetPlanCode = make_shared<string>(boost::any_cast<string>(m["TargetPlanCode"]));
+    }
+    if (m.find("TargetPlanName") != m.end() && !m["TargetPlanName"].empty()) {
+      targetPlanName = make_shared<string>(boost::any_cast<string>(m["TargetPlanName"]));
+    }
+  }
+
+
+  virtual ~UpdateRatePlanSpecRequest() = default;
+};
+class UpdateRatePlanSpecResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+
+  UpdateRatePlanSpecResponseBody() {}
+
+  explicit UpdateRatePlanSpecResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateRatePlanSpecResponseBody() = default;
+};
+class UpdateRatePlanSpecResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateRatePlanSpecResponseBody> body{};
+
+  UpdateRatePlanSpecResponse() {}
+
+  explicit UpdateRatePlanSpecResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateRatePlanSpecResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateRatePlanSpecResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateRatePlanSpecResponse() = default;
 };
 class UpdateRecordRequestAuthConf : public Darabonba::Model {
 public:
@@ -62648,6 +62811,8 @@ public:
   DescribePreloadTasksResponse describePreloadTasks(shared_ptr<DescribePreloadTasksRequest> request);
   DescribePurgeTasksResponse describePurgeTasksWithOptions(shared_ptr<DescribePurgeTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePurgeTasksResponse describePurgeTasks(shared_ptr<DescribePurgeTasksRequest> request);
+  DescribeRatePlanInstanceStatusResponse describeRatePlanInstanceStatusWithOptions(shared_ptr<DescribeRatePlanInstanceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeRatePlanInstanceStatusResponse describeRatePlanInstanceStatus(shared_ptr<DescribeRatePlanInstanceStatusRequest> request);
   DisableCustomScenePolicyResponse disableCustomScenePolicyWithOptions(shared_ptr<DisableCustomScenePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableCustomScenePolicyResponse disableCustomScenePolicy(shared_ptr<DisableCustomScenePolicyRequest> request);
   EditSiteWafSettingsResponse editSiteWafSettingsWithOptions(shared_ptr<EditSiteWafSettingsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -62884,6 +63049,8 @@ public:
   PublishEdgeContainerAppVersionResponse publishEdgeContainerAppVersion(shared_ptr<PublishEdgeContainerAppVersionRequest> request);
   PublishRoutineCodeVersionResponse publishRoutineCodeVersionWithOptions(shared_ptr<PublishRoutineCodeVersionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PublishRoutineCodeVersionResponse publishRoutineCodeVersion(shared_ptr<PublishRoutineCodeVersionRequest> request);
+  PurchaseRatePlanResponse purchaseRatePlanWithOptions(shared_ptr<PurchaseRatePlanRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PurchaseRatePlanResponse purchaseRatePlan(shared_ptr<PurchaseRatePlanRequest> request);
   PurgeCachesResponse purgeCachesWithOptions(shared_ptr<PurgeCachesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PurgeCachesResponse purgeCaches(shared_ptr<PurgeCachesRequest> request);
   PutKvResponse putKvWithOptions(shared_ptr<PutKvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -62937,8 +63104,6 @@ public:
   UpdateIPv6Response updateIPv6(shared_ptr<UpdateIPv6Request> request);
   UpdateImageTransformResponse updateImageTransformWithOptions(shared_ptr<UpdateImageTransformRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateImageTransformResponse updateImageTransform(shared_ptr<UpdateImageTransformRequest> request);
-  UpdateKvNamespaceResponse updateKvNamespaceWithOptions(shared_ptr<UpdateKvNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateKvNamespaceResponse updateKvNamespace(shared_ptr<UpdateKvNamespaceRequest> request);
   UpdateListResponse updateListWithOptions(shared_ptr<UpdateListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateListResponse updateList(shared_ptr<UpdateListRequest> request);
   UpdateLoadBalancerResponse updateLoadBalancerWithOptions(shared_ptr<UpdateLoadBalancerRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -62957,6 +63122,8 @@ public:
   UpdateOriginRuleResponse updateOriginRule(shared_ptr<UpdateOriginRuleRequest> request);
   UpdatePageResponse updatePageWithOptions(shared_ptr<UpdatePageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePageResponse updatePage(shared_ptr<UpdatePageRequest> request);
+  UpdateRatePlanSpecResponse updateRatePlanSpecWithOptions(shared_ptr<UpdateRatePlanSpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateRatePlanSpecResponse updateRatePlanSpec(shared_ptr<UpdateRatePlanSpecRequest> request);
   UpdateRecordResponse updateRecordWithOptions(shared_ptr<UpdateRecordRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateRecordResponse updateRecord(shared_ptr<UpdateRecordRequest> request);
   UpdateRedirectRuleResponse updateRedirectRuleWithOptions(shared_ptr<UpdateRedirectRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
