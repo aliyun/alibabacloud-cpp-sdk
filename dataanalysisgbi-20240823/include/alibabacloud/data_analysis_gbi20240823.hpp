@@ -2778,7 +2778,7 @@ public:
   shared_ptr<string> query{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> specificationType{};
-  shared_ptr<map<string, boost::any>> userParams{};
+  shared_ptr<boost::any> userParams{};
 
   RunDataAnalysisRequest() {}
 
@@ -2835,12 +2835,7 @@ public:
       specificationType = make_shared<string>(boost::any_cast<string>(m["specificationType"]));
     }
     if (m.find("userParams") != m.end() && !m["userParams"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["userParams"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      userParams = make_shared<map<string, boost::any>>(toMap1);
+      userParams = make_shared<boost::any>(boost::any_cast<boost::any>(m["userParams"]));
     }
   }
 
