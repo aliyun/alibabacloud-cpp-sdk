@@ -13,6 +13,186 @@
 using namespace std;
 
 namespace Alibabacloud_ExpressConnectRouter20230901 {
+class ActivateFlowLogRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ecrId{};
+  shared_ptr<string> flowLogId{};
+
+  ActivateFlowLogRequest() {}
+
+  explicit ActivateFlowLogRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ecrId) {
+      res["EcrId"] = boost::any(*ecrId);
+    }
+    if (flowLogId) {
+      res["FlowLogId"] = boost::any(*flowLogId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
+      ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
+    }
+    if (m.find("FlowLogId") != m.end() && !m["FlowLogId"].empty()) {
+      flowLogId = make_shared<string>(boost::any_cast<string>(m["FlowLogId"]));
+    }
+  }
+
+
+  virtual ~ActivateFlowLogRequest() = default;
+};
+class ActivateFlowLogResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ActivateFlowLogResponseBody() {}
+
+  explicit ActivateFlowLogResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ActivateFlowLogResponseBody() = default;
+};
+class ActivateFlowLogResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ActivateFlowLogResponseBody> body{};
+
+  ActivateFlowLogResponse() {}
+
+  explicit ActivateFlowLogResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ActivateFlowLogResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ActivateFlowLogResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ActivateFlowLogResponse() = default;
+};
 class AttachExpressConnectRouterChildInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> childInstanceId{};
@@ -20,6 +200,7 @@ public:
   shared_ptr<string> childInstanceRegionId{};
   shared_ptr<string> childInstanceType{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ecrId{};
 
@@ -48,6 +229,9 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
     }
@@ -72,6 +256,9 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
@@ -429,14 +616,14 @@ public:
 
   virtual ~CheckAddRegionToExpressConnectRouterResponse() = default;
 };
-class CreateExpressConnectRouterRequestTags : public Darabonba::Model {
+class CreateExpressConnectRouterRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
   shared_ptr<string> value{};
 
-  CreateExpressConnectRouterRequestTags() {}
+  CreateExpressConnectRouterRequestTag() {}
 
-  explicit CreateExpressConnectRouterRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit CreateExpressConnectRouterRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -463,7 +650,7 @@ public:
   }
 
 
-  virtual ~CreateExpressConnectRouterRequestTags() = default;
+  virtual ~CreateExpressConnectRouterRequestTag() = default;
 };
 class CreateExpressConnectRouterRequest : public Darabonba::Model {
 public:
@@ -473,7 +660,7 @@ public:
   shared_ptr<bool> dryRun{};
   shared_ptr<string> name{};
   shared_ptr<string> resourceGroupId{};
-  shared_ptr<vector<CreateExpressConnectRouterRequestTags>> tags{};
+  shared_ptr<vector<CreateExpressConnectRouterRequestTag>> tag{};
 
   CreateExpressConnectRouterRequest() {}
 
@@ -503,12 +690,12 @@ public:
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
-    if (tags) {
+    if (tag) {
       vector<boost::any> temp1;
-      for(auto item1:*tags){
+      for(auto item1:*tag){
         temp1.push_back(boost::any(item1.toMap()));
       }
-      res["Tags"] = boost::any(temp1);
+      res["Tag"] = boost::any(temp1);
     }
     return res;
   }
@@ -532,17 +719,17 @@ public:
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
-    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
-      if (typeid(vector<boost::any>) == m["Tags"].type()) {
-        vector<CreateExpressConnectRouterRequestTags> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateExpressConnectRouterRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            CreateExpressConnectRouterRequestTags model2;
+            CreateExpressConnectRouterRequestTag model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        tags = make_shared<vector<CreateExpressConnectRouterRequestTags>>(expect1);
+        tag = make_shared<vector<CreateExpressConnectRouterRequestTag>>(expect1);
       }
     }
   }
@@ -690,10 +877,12 @@ public:
 class CreateExpressConnectRouterAssociationRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> allowedPrefixes{};
+  shared_ptr<string> allowedPrefixesMode{};
   shared_ptr<string> associationRegionId{};
   shared_ptr<string> cenId{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> createAttachment{};
+  shared_ptr<string> description{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ecrId{};
   shared_ptr<string> transitRouterId{};
@@ -714,6 +903,9 @@ public:
     if (allowedPrefixes) {
       res["AllowedPrefixes"] = boost::any(*allowedPrefixes);
     }
+    if (allowedPrefixesMode) {
+      res["AllowedPrefixesMode"] = boost::any(*allowedPrefixesMode);
+    }
     if (associationRegionId) {
       res["AssociationRegionId"] = boost::any(*associationRegionId);
     }
@@ -725,6 +917,9 @@ public:
     }
     if (createAttachment) {
       res["CreateAttachment"] = boost::any(*createAttachment);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
@@ -758,6 +953,9 @@ public:
       }
       allowedPrefixes = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("AllowedPrefixesMode") != m.end() && !m["AllowedPrefixesMode"].empty()) {
+      allowedPrefixesMode = make_shared<string>(boost::any_cast<string>(m["AllowedPrefixesMode"]));
+    }
     if (m.find("AssociationRegionId") != m.end() && !m["AssociationRegionId"].empty()) {
       associationRegionId = make_shared<string>(boost::any_cast<string>(m["AssociationRegionId"]));
     }
@@ -769,6 +967,9 @@ public:
     }
     if (m.find("CreateAttachment") != m.end() && !m["CreateAttachment"].empty()) {
       createAttachment = make_shared<bool>(boost::any_cast<bool>(m["CreateAttachment"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
@@ -929,6 +1130,422 @@ public:
 
 
   virtual ~CreateExpressConnectRouterAssociationResponse() = default;
+};
+class CreateFlowLogRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ecrId{};
+  shared_ptr<string> flowLogName{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<long> interval{};
+  shared_ptr<string> logStoreName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> samplingRate{};
+
+  CreateFlowLogRequest() {}
+
+  explicit CreateFlowLogRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ecrId) {
+      res["EcrId"] = boost::any(*ecrId);
+    }
+    if (flowLogName) {
+      res["FlowLogName"] = boost::any(*flowLogName);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (logStoreName) {
+      res["LogStoreName"] = boost::any(*logStoreName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (samplingRate) {
+      res["SamplingRate"] = boost::any(*samplingRate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
+      ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
+    }
+    if (m.find("FlowLogName") != m.end() && !m["FlowLogName"].empty()) {
+      flowLogName = make_shared<string>(boost::any_cast<string>(m["FlowLogName"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("LogStoreName") != m.end() && !m["LogStoreName"].empty()) {
+      logStoreName = make_shared<string>(boost::any_cast<string>(m["LogStoreName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SamplingRate") != m.end() && !m["SamplingRate"].empty()) {
+      samplingRate = make_shared<string>(boost::any_cast<string>(m["SamplingRate"]));
+    }
+  }
+
+
+  virtual ~CreateFlowLogRequest() = default;
+};
+class CreateFlowLogResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<string> flowLogId{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateFlowLogResponseBody() {}
+
+  explicit CreateFlowLogResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (flowLogId) {
+      res["FlowLogId"] = boost::any(*flowLogId);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("FlowLogId") != m.end() && !m["FlowLogId"].empty()) {
+      flowLogId = make_shared<string>(boost::any_cast<string>(m["FlowLogId"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateFlowLogResponseBody() = default;
+};
+class CreateFlowLogResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateFlowLogResponseBody> body{};
+
+  CreateFlowLogResponse() {}
+
+  explicit CreateFlowLogResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateFlowLogResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateFlowLogResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateFlowLogResponse() = default;
+};
+class DeactivateFlowLogRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ecrId{};
+  shared_ptr<string> flowLogId{};
+
+  DeactivateFlowLogRequest() {}
+
+  explicit DeactivateFlowLogRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ecrId) {
+      res["EcrId"] = boost::any(*ecrId);
+    }
+    if (flowLogId) {
+      res["FlowLogId"] = boost::any(*flowLogId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
+      ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
+    }
+    if (m.find("FlowLogId") != m.end() && !m["FlowLogId"].empty()) {
+      flowLogId = make_shared<string>(boost::any_cast<string>(m["FlowLogId"]));
+    }
+  }
+
+
+  virtual ~DeactivateFlowLogRequest() = default;
+};
+class DeactivateFlowLogResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeactivateFlowLogResponseBody() {}
+
+  explicit DeactivateFlowLogResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeactivateFlowLogResponseBody() = default;
+};
+class DeactivateFlowLogResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeactivateFlowLogResponseBody> body{};
+
+  DeactivateFlowLogResponse() {}
+
+  explicit DeactivateFlowLogResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeactivateFlowLogResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeactivateFlowLogResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeactivateFlowLogResponse() = default;
 };
 class DeleteExpressConnectRouterRequest : public Darabonba::Model {
 public:
@@ -1290,6 +1907,186 @@ public:
 
   virtual ~DeleteExpressConnectRouterAssociationResponse() = default;
 };
+class DeleteFlowlogRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ecrId{};
+  shared_ptr<string> flowLogId{};
+
+  DeleteFlowlogRequest() {}
+
+  explicit DeleteFlowlogRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ecrId) {
+      res["EcrId"] = boost::any(*ecrId);
+    }
+    if (flowLogId) {
+      res["FlowLogId"] = boost::any(*flowLogId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
+      ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
+    }
+    if (m.find("FlowLogId") != m.end() && !m["FlowLogId"].empty()) {
+      flowLogId = make_shared<string>(boost::any_cast<string>(m["FlowLogId"]));
+    }
+  }
+
+
+  virtual ~DeleteFlowlogRequest() = default;
+};
+class DeleteFlowlogResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteFlowlogResponseBody() {}
+
+  explicit DeleteFlowlogResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteFlowlogResponseBody() = default;
+};
+class DeleteFlowlogResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteFlowlogResponseBody> body{};
+
+  DeleteFlowlogResponse() {}
+
+  explicit DeleteFlowlogResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteFlowlogResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteFlowlogResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteFlowlogResponse() = default;
+};
 class DescribeDisabledExpressConnectRouterRouteEntriesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -1576,14 +2373,14 @@ public:
 
   virtual ~DescribeDisabledExpressConnectRouterRouteEntriesResponse() = default;
 };
-class DescribeExpressConnectRouterRequestTagModels : public Darabonba::Model {
+class DescribeExpressConnectRouterRequestTag : public Darabonba::Model {
 public:
-  shared_ptr<string> tagKey{};
-  shared_ptr<string> tagValue{};
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
 
-  DescribeExpressConnectRouterRequestTagModels() {}
+  DescribeExpressConnectRouterRequestTag() {}
 
-  explicit DescribeExpressConnectRouterRequestTagModels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit DescribeExpressConnectRouterRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -1591,26 +2388,26 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (tagKey) {
-      res["TagKey"] = boost::any(*tagKey);
+    if (key) {
+      res["Key"] = boost::any(*key);
     }
-    if (tagValue) {
-      res["TagValue"] = boost::any(*tagValue);
+    if (value) {
+      res["Value"] = boost::any(*value);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
-      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
     }
-    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
-      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
     }
   }
 
 
-  virtual ~DescribeExpressConnectRouterRequestTagModels() = default;
+  virtual ~DescribeExpressConnectRouterRequestTag() = default;
 };
 class DescribeExpressConnectRouterRequest : public Darabonba::Model {
 public:
@@ -1621,7 +2418,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> resourceGroupId{};
-  shared_ptr<vector<DescribeExpressConnectRouterRequestTagModels>> tagModels{};
+  shared_ptr<vector<DescribeExpressConnectRouterRequestTag>> tag{};
 
   DescribeExpressConnectRouterRequest() {}
 
@@ -1654,12 +2451,12 @@ public:
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
-    if (tagModels) {
+    if (tag) {
       vector<boost::any> temp1;
-      for(auto item1:*tagModels){
+      for(auto item1:*tag){
         temp1.push_back(boost::any(item1.toMap()));
       }
-      res["TagModels"] = boost::any(temp1);
+      res["Tag"] = boost::any(temp1);
     }
     return res;
   }
@@ -1686,17 +2483,17 @@ public:
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
-    if (m.find("TagModels") != m.end() && !m["TagModels"].empty()) {
-      if (typeid(vector<boost::any>) == m["TagModels"].type()) {
-        vector<DescribeExpressConnectRouterRequestTagModels> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagModels"])){
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeExpressConnectRouterRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeExpressConnectRouterRequestTagModels model2;
+            DescribeExpressConnectRouterRequestTag model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        tagModels = make_shared<vector<DescribeExpressConnectRouterRequestTagModels>>(expect1);
+        tag = make_shared<vector<DescribeExpressConnectRouterRequestTag>>(expect1);
       }
     }
   }
@@ -1706,13 +2503,6 @@ public:
 };
 class DescribeExpressConnectRouterResponseBodyEcrListTags : public Darabonba::Model {
 public:
-  shared_ptr<long> aliUid{};
-  shared_ptr<long> category{};
-  shared_ptr<long> id{};
-  shared_ptr<string> regionNo{};
-  shared_ptr<string> resourceId{};
-  shared_ptr<string> resuorceType{};
-  shared_ptr<long> scope{};
   shared_ptr<string> tagKey{};
   shared_ptr<string> tagValue{};
 
@@ -1726,27 +2516,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (aliUid) {
-      res["AliUid"] = boost::any(*aliUid);
-    }
-    if (category) {
-      res["Category"] = boost::any(*category);
-    }
-    if (id) {
-      res["Id"] = boost::any(*id);
-    }
-    if (regionNo) {
-      res["RegionNo"] = boost::any(*regionNo);
-    }
-    if (resourceId) {
-      res["ResourceId"] = boost::any(*resourceId);
-    }
-    if (resuorceType) {
-      res["ResuorceType"] = boost::any(*resuorceType);
-    }
-    if (scope) {
-      res["Scope"] = boost::any(*scope);
-    }
     if (tagKey) {
       res["TagKey"] = boost::any(*tagKey);
     }
@@ -1757,27 +2526,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AliUid") != m.end() && !m["AliUid"].empty()) {
-      aliUid = make_shared<long>(boost::any_cast<long>(m["AliUid"]));
-    }
-    if (m.find("Category") != m.end() && !m["Category"].empty()) {
-      category = make_shared<long>(boost::any_cast<long>(m["Category"]));
-    }
-    if (m.find("Id") != m.end() && !m["Id"].empty()) {
-      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
-    }
-    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
-      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
-    }
-    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
-      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
-    }
-    if (m.find("ResuorceType") != m.end() && !m["ResuorceType"].empty()) {
-      resuorceType = make_shared<string>(boost::any_cast<string>(m["ResuorceType"]));
-    }
-    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
-      scope = make_shared<long>(boost::any_cast<long>(m["Scope"]));
-    }
     if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
       tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
     }
@@ -2434,9 +3182,11 @@ public:
 class DescribeExpressConnectRouterAssociationResponseBodyAssociationList : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> allowedPrefixes{};
+  shared_ptr<string> allowedPrefixesMode{};
   shared_ptr<string> associationId{};
   shared_ptr<string> associationNodeType{};
   shared_ptr<string> cenId{};
+  shared_ptr<string> description{};
   shared_ptr<string> ecrId{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
@@ -2461,6 +3211,9 @@ public:
     if (allowedPrefixes) {
       res["AllowedPrefixes"] = boost::any(*allowedPrefixes);
     }
+    if (allowedPrefixesMode) {
+      res["AllowedPrefixesMode"] = boost::any(*allowedPrefixesMode);
+    }
     if (associationId) {
       res["AssociationId"] = boost::any(*associationId);
     }
@@ -2469,6 +3222,9 @@ public:
     }
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (ecrId) {
       res["EcrId"] = boost::any(*ecrId);
@@ -2514,6 +3270,9 @@ public:
       }
       allowedPrefixes = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("AllowedPrefixesMode") != m.end() && !m["AllowedPrefixesMode"].empty()) {
+      allowedPrefixesMode = make_shared<string>(boost::any_cast<string>(m["AllowedPrefixesMode"]));
+    }
     if (m.find("AssociationId") != m.end() && !m["AssociationId"].empty()) {
       associationId = make_shared<string>(boost::any_cast<string>(m["AssociationId"]));
     }
@@ -2522,6 +3281,9 @@ public:
     }
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
       ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
@@ -2822,6 +3584,7 @@ public:
   shared_ptr<long> childInstanceOwnerId{};
   shared_ptr<string> childInstanceRegionId{};
   shared_ptr<string> childInstanceType{};
+  shared_ptr<string> description{};
   shared_ptr<string> ecrId{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
@@ -2853,6 +3616,9 @@ public:
     }
     if (childInstanceType) {
       res["ChildInstanceType"] = boost::any(*childInstanceType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (ecrId) {
       res["EcrId"] = boost::any(*ecrId);
@@ -2890,6 +3656,9 @@ public:
     }
     if (m.find("ChildInstanceType") != m.end() && !m["ChildInstanceType"].empty()) {
       childInstanceType = make_shared<string>(boost::any_cast<string>(m["ChildInstanceType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
       ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
@@ -3600,6 +4369,7 @@ public:
   shared_ptr<string> asPath{};
   shared_ptr<string> community{};
   shared_ptr<string> destinationCidrBlock{};
+  shared_ptr<long> med{};
   shared_ptr<string> nexthopInstanceId{};
   shared_ptr<string> nexthopInstanceRegionId{};
   shared_ptr<string> status{};
@@ -3623,6 +4393,9 @@ public:
     if (destinationCidrBlock) {
       res["DestinationCidrBlock"] = boost::any(*destinationCidrBlock);
     }
+    if (med) {
+      res["Med"] = boost::any(*med);
+    }
     if (nexthopInstanceId) {
       res["NexthopInstanceId"] = boost::any(*nexthopInstanceId);
     }
@@ -3644,6 +4417,9 @@ public:
     }
     if (m.find("DestinationCidrBlock") != m.end() && !m["DestinationCidrBlock"].empty()) {
       destinationCidrBlock = make_shared<string>(boost::any_cast<string>(m["DestinationCidrBlock"]));
+    }
+    if (m.find("Med") != m.end() && !m["Med"].empty()) {
+      med = make_shared<long>(boost::any_cast<long>(m["Med"]));
     }
     if (m.find("NexthopInstanceId") != m.end() && !m["NexthopInstanceId"].empty()) {
       nexthopInstanceId = make_shared<string>(boost::any_cast<string>(m["NexthopInstanceId"]));
@@ -3831,6 +4607,454 @@ public:
 
   virtual ~DescribeExpressConnectRouterRouteEntriesResponse() = default;
 };
+class DescribeFlowLogsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ecrId{};
+  shared_ptr<string> flowLogId{};
+  shared_ptr<string> flowLogName{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> logStoreName{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> projectName{};
+
+  DescribeFlowLogsRequest() {}
+
+  explicit DescribeFlowLogsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ecrId) {
+      res["EcrId"] = boost::any(*ecrId);
+    }
+    if (flowLogId) {
+      res["FlowLogId"] = boost::any(*flowLogId);
+    }
+    if (flowLogName) {
+      res["FlowLogName"] = boost::any(*flowLogName);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (logStoreName) {
+      res["LogStoreName"] = boost::any(*logStoreName);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
+      ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
+    }
+    if (m.find("FlowLogId") != m.end() && !m["FlowLogId"].empty()) {
+      flowLogId = make_shared<string>(boost::any_cast<string>(m["FlowLogId"]));
+    }
+    if (m.find("FlowLogName") != m.end() && !m["FlowLogName"].empty()) {
+      flowLogName = make_shared<string>(boost::any_cast<string>(m["FlowLogName"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LogStoreName") != m.end() && !m["LogStoreName"].empty()) {
+      logStoreName = make_shared<string>(boost::any_cast<string>(m["LogStoreName"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+  }
+
+
+  virtual ~DescribeFlowLogsRequest() = default;
+};
+class DescribeFlowLogsResponseBodyFlowLogsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeFlowLogsResponseBodyFlowLogsTags() {}
+
+  explicit DescribeFlowLogsResponseBodyFlowLogsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeFlowLogsResponseBodyFlowLogsTags() = default;
+};
+class DescribeFlowLogsResponseBodyFlowLogs : public Darabonba::Model {
+public:
+  shared_ptr<string> creationTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> ecrId{};
+  shared_ptr<string> flowLogId{};
+  shared_ptr<string> flowLogName{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<long> interval{};
+  shared_ptr<string> logStoreName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> samplingRate{};
+  shared_ptr<string> slsRegionId{};
+  shared_ptr<string> status{};
+  shared_ptr<vector<DescribeFlowLogsResponseBodyFlowLogsTags>> tags{};
+
+  DescribeFlowLogsResponseBodyFlowLogs() {}
+
+  explicit DescribeFlowLogsResponseBodyFlowLogs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (ecrId) {
+      res["EcrId"] = boost::any(*ecrId);
+    }
+    if (flowLogId) {
+      res["FlowLogId"] = boost::any(*flowLogId);
+    }
+    if (flowLogName) {
+      res["FlowLogName"] = boost::any(*flowLogName);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (logStoreName) {
+      res["LogStoreName"] = boost::any(*logStoreName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (samplingRate) {
+      res["SamplingRate"] = boost::any(*samplingRate);
+    }
+    if (slsRegionId) {
+      res["SlsRegionId"] = boost::any(*slsRegionId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
+      ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
+    }
+    if (m.find("FlowLogId") != m.end() && !m["FlowLogId"].empty()) {
+      flowLogId = make_shared<string>(boost::any_cast<string>(m["FlowLogId"]));
+    }
+    if (m.find("FlowLogName") != m.end() && !m["FlowLogName"].empty()) {
+      flowLogName = make_shared<string>(boost::any_cast<string>(m["FlowLogName"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("LogStoreName") != m.end() && !m["LogStoreName"].empty()) {
+      logStoreName = make_shared<string>(boost::any_cast<string>(m["LogStoreName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SamplingRate") != m.end() && !m["SamplingRate"].empty()) {
+      samplingRate = make_shared<string>(boost::any_cast<string>(m["SamplingRate"]));
+    }
+    if (m.find("SlsRegionId") != m.end() && !m["SlsRegionId"].empty()) {
+      slsRegionId = make_shared<string>(boost::any_cast<string>(m["SlsRegionId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeFlowLogsResponseBodyFlowLogsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeFlowLogsResponseBodyFlowLogsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeFlowLogsResponseBodyFlowLogsTags>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeFlowLogsResponseBodyFlowLogs() = default;
+};
+class DescribeFlowLogsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<vector<DescribeFlowLogsResponseBodyFlowLogs>> flowLogs{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> message{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> totalCount{};
+
+  DescribeFlowLogsResponseBody() {}
+
+  explicit DescribeFlowLogsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (flowLogs) {
+      vector<boost::any> temp1;
+      for(auto item1:*flowLogs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FlowLogs"] = boost::any(temp1);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("FlowLogs") != m.end() && !m["FlowLogs"].empty()) {
+      if (typeid(vector<boost::any>) == m["FlowLogs"].type()) {
+        vector<DescribeFlowLogsResponseBodyFlowLogs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FlowLogs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeFlowLogsResponseBodyFlowLogs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        flowLogs = make_shared<vector<DescribeFlowLogsResponseBodyFlowLogs>>(expect1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeFlowLogsResponseBody() = default;
+};
+class DescribeFlowLogsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeFlowLogsResponseBody> body{};
+
+  DescribeFlowLogsResponse() {}
+
+  explicit DescribeFlowLogsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeFlowLogsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeFlowLogsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeFlowLogsResponse() = default;
+};
 class DescribeInstanceGrantedToExpressConnectRouterRequestTagModels : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -3869,6 +5093,7 @@ public:
 };
 class DescribeInstanceGrantedToExpressConnectRouterRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> callerType{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ecrId{};
@@ -3891,6 +5116,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (callerType) {
+      res["CallerType"] = boost::any(*callerType);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -3932,6 +5160,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CallerType") != m.end() && !m["CallerType"].empty()) {
+      callerType = make_shared<string>(boost::any_cast<string>(m["CallerType"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -3983,6 +5214,7 @@ public:
 class DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGrantedInstanceList : public Darabonba::Model {
 public:
   shared_ptr<string> ecrId{};
+  shared_ptr<string> ecrOwnerAliUid{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> grantId{};
@@ -4005,6 +5237,9 @@ public:
     map<string, boost::any> res;
     if (ecrId) {
       res["EcrId"] = boost::any(*ecrId);
+    }
+    if (ecrOwnerAliUid) {
+      res["EcrOwnerAliUid"] = boost::any(*ecrOwnerAliUid);
     }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
@@ -4039,6 +5274,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
       ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
+    }
+    if (m.find("EcrOwnerAliUid") != m.end() && !m["EcrOwnerAliUid"].empty()) {
+      ecrOwnerAliUid = make_shared<string>(boost::any_cast<string>(m["EcrOwnerAliUid"]));
     }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
@@ -5836,6 +7074,7 @@ public:
 class ModifyExpressConnectRouterAssociationAllowedPrefixRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> allowedPrefixes{};
+  shared_ptr<string> allowedPrefixesMode{};
   shared_ptr<string> associationId{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
@@ -5854,6 +7093,9 @@ public:
     map<string, boost::any> res;
     if (allowedPrefixes) {
       res["AllowedPrefixes"] = boost::any(*allowedPrefixes);
+    }
+    if (allowedPrefixesMode) {
+      res["AllowedPrefixesMode"] = boost::any(*allowedPrefixesMode);
     }
     if (associationId) {
       res["AssociationId"] = boost::any(*associationId);
@@ -5883,6 +7125,9 @@ public:
         }
       }
       allowedPrefixes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AllowedPrefixesMode") != m.end() && !m["AllowedPrefixesMode"].empty()) {
+      allowedPrefixesMode = make_shared<string>(boost::any_cast<string>(m["AllowedPrefixesMode"]));
     }
     if (m.find("AssociationId") != m.end() && !m["AssociationId"].empty()) {
       associationId = make_shared<string>(boost::any_cast<string>(m["AssociationId"]));
@@ -6263,6 +7508,214 @@ public:
 
 
   virtual ~ModifyExpressConnectRouterInterRegionTransitModeResponse() = default;
+};
+class ModifyFlowLogAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ecrId{};
+  shared_ptr<string> flowLogId{};
+  shared_ptr<string> flowLogName{};
+  shared_ptr<long> interval{};
+  shared_ptr<string> samplingRate{};
+
+  ModifyFlowLogAttributeRequest() {}
+
+  explicit ModifyFlowLogAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ecrId) {
+      res["EcrId"] = boost::any(*ecrId);
+    }
+    if (flowLogId) {
+      res["FlowLogId"] = boost::any(*flowLogId);
+    }
+    if (flowLogName) {
+      res["FlowLogName"] = boost::any(*flowLogName);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (samplingRate) {
+      res["SamplingRate"] = boost::any(*samplingRate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
+      ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
+    }
+    if (m.find("FlowLogId") != m.end() && !m["FlowLogId"].empty()) {
+      flowLogId = make_shared<string>(boost::any_cast<string>(m["FlowLogId"]));
+    }
+    if (m.find("FlowLogName") != m.end() && !m["FlowLogName"].empty()) {
+      flowLogName = make_shared<string>(boost::any_cast<string>(m["FlowLogName"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("SamplingRate") != m.end() && !m["SamplingRate"].empty()) {
+      samplingRate = make_shared<string>(boost::any_cast<string>(m["SamplingRate"]));
+    }
+  }
+
+
+  virtual ~ModifyFlowLogAttributeRequest() = default;
+};
+class ModifyFlowLogAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<string> code{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ModifyFlowLogAttributeResponseBody() {}
+
+  explicit ModifyFlowLogAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ModifyFlowLogAttributeResponseBody() = default;
+};
+class ModifyFlowLogAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyFlowLogAttributeResponseBody> body{};
+
+  ModifyFlowLogAttributeResponse() {}
+
+  explicit ModifyFlowLogAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyFlowLogAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyFlowLogAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyFlowLogAttributeResponse() = default;
 };
 class MoveResourceGroupRequest : public Darabonba::Model {
 public:
@@ -7203,6 +8656,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  ActivateFlowLogResponse activateFlowLogWithOptions(shared_ptr<ActivateFlowLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ActivateFlowLogResponse activateFlowLog(shared_ptr<ActivateFlowLogRequest> request);
   AttachExpressConnectRouterChildInstanceResponse attachExpressConnectRouterChildInstanceWithOptions(shared_ptr<AttachExpressConnectRouterChildInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachExpressConnectRouterChildInstanceResponse attachExpressConnectRouterChildInstance(shared_ptr<AttachExpressConnectRouterChildInstanceRequest> request);
   CheckAddRegionToExpressConnectRouterResponse checkAddRegionToExpressConnectRouterWithOptions(shared_ptr<CheckAddRegionToExpressConnectRouterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7211,10 +8666,16 @@ public:
   CreateExpressConnectRouterResponse createExpressConnectRouter(shared_ptr<CreateExpressConnectRouterRequest> request);
   CreateExpressConnectRouterAssociationResponse createExpressConnectRouterAssociationWithOptions(shared_ptr<CreateExpressConnectRouterAssociationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateExpressConnectRouterAssociationResponse createExpressConnectRouterAssociation(shared_ptr<CreateExpressConnectRouterAssociationRequest> request);
+  CreateFlowLogResponse createFlowLogWithOptions(shared_ptr<CreateFlowLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateFlowLogResponse createFlowLog(shared_ptr<CreateFlowLogRequest> request);
+  DeactivateFlowLogResponse deactivateFlowLogWithOptions(shared_ptr<DeactivateFlowLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeactivateFlowLogResponse deactivateFlowLog(shared_ptr<DeactivateFlowLogRequest> request);
   DeleteExpressConnectRouterResponse deleteExpressConnectRouterWithOptions(shared_ptr<DeleteExpressConnectRouterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteExpressConnectRouterResponse deleteExpressConnectRouter(shared_ptr<DeleteExpressConnectRouterRequest> request);
   DeleteExpressConnectRouterAssociationResponse deleteExpressConnectRouterAssociationWithOptions(shared_ptr<DeleteExpressConnectRouterAssociationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteExpressConnectRouterAssociationResponse deleteExpressConnectRouterAssociation(shared_ptr<DeleteExpressConnectRouterAssociationRequest> request);
+  DeleteFlowlogResponse deleteFlowlogWithOptions(shared_ptr<DeleteFlowlogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteFlowlogResponse deleteFlowlog(shared_ptr<DeleteFlowlogRequest> request);
   DescribeDisabledExpressConnectRouterRouteEntriesResponse describeDisabledExpressConnectRouterRouteEntriesWithOptions(shared_ptr<DescribeDisabledExpressConnectRouterRouteEntriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDisabledExpressConnectRouterRouteEntriesResponse describeDisabledExpressConnectRouterRouteEntries(shared_ptr<DescribeDisabledExpressConnectRouterRouteEntriesRequest> request);
   DescribeExpressConnectRouterResponse describeExpressConnectRouterWithOptions(shared_ptr<DescribeExpressConnectRouterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7231,6 +8692,8 @@ public:
   DescribeExpressConnectRouterRegionResponse describeExpressConnectRouterRegion(shared_ptr<DescribeExpressConnectRouterRegionRequest> request);
   DescribeExpressConnectRouterRouteEntriesResponse describeExpressConnectRouterRouteEntriesWithOptions(shared_ptr<DescribeExpressConnectRouterRouteEntriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeExpressConnectRouterRouteEntriesResponse describeExpressConnectRouterRouteEntries(shared_ptr<DescribeExpressConnectRouterRouteEntriesRequest> request);
+  DescribeFlowLogsResponse describeFlowLogsWithOptions(shared_ptr<DescribeFlowLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeFlowLogsResponse describeFlowLogs(shared_ptr<DescribeFlowLogsRequest> request);
   DescribeInstanceGrantedToExpressConnectRouterResponse describeInstanceGrantedToExpressConnectRouterWithOptions(shared_ptr<DescribeInstanceGrantedToExpressConnectRouterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstanceGrantedToExpressConnectRouterResponse describeInstanceGrantedToExpressConnectRouter(shared_ptr<DescribeInstanceGrantedToExpressConnectRouterRequest> request);
   DetachExpressConnectRouterChildInstanceResponse detachExpressConnectRouterChildInstanceWithOptions(shared_ptr<DetachExpressConnectRouterChildInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7253,6 +8716,8 @@ public:
   ModifyExpressConnectRouterAssociationAllowedPrefixResponse modifyExpressConnectRouterAssociationAllowedPrefix(shared_ptr<ModifyExpressConnectRouterAssociationAllowedPrefixRequest> request);
   ModifyExpressConnectRouterInterRegionTransitModeResponse modifyExpressConnectRouterInterRegionTransitModeWithOptions(shared_ptr<ModifyExpressConnectRouterInterRegionTransitModeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyExpressConnectRouterInterRegionTransitModeResponse modifyExpressConnectRouterInterRegionTransitMode(shared_ptr<ModifyExpressConnectRouterInterRegionTransitModeRequest> request);
+  ModifyFlowLogAttributeResponse modifyFlowLogAttributeWithOptions(shared_ptr<ModifyFlowLogAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyFlowLogAttributeResponse modifyFlowLogAttribute(shared_ptr<ModifyFlowLogAttributeRequest> request);
   MoveResourceGroupResponse moveResourceGroupWithOptions(shared_ptr<MoveResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   MoveResourceGroupResponse moveResourceGroup(shared_ptr<MoveResourceGroupRequest> request);
   RevokeInstanceFromExpressConnectRouterResponse revokeInstanceFromExpressConnectRouterWithOptions(shared_ptr<RevokeInstanceFromExpressConnectRouterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

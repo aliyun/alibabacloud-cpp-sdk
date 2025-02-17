@@ -37,6 +37,48 @@ string Alibabacloud_ExpressConnectRouter20230901::Client::getEndpoint(shared_ptr
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+ActivateFlowLogResponse Alibabacloud_ExpressConnectRouter20230901::Client::activateFlowLogWithOptions(shared_ptr<ActivateFlowLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    body->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecrId)) {
+    body->insert(pair<string, string>("EcrId", *request->ecrId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowLogId)) {
+    body->insert(pair<string, string>("FlowLogId", *request->flowLogId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ActivateFlowLog"))},
+    {"version", boost::any(string("2023-09-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ActivateFlowLogResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ActivateFlowLogResponse(execute(params, req, runtime));
+  }
+}
+
+ActivateFlowLogResponse Alibabacloud_ExpressConnectRouter20230901::Client::activateFlowLog(shared_ptr<ActivateFlowLogRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return activateFlowLogWithOptions(request, runtime);
+}
+
 AttachExpressConnectRouterChildInstanceResponse Alibabacloud_ExpressConnectRouter20230901::Client::attachExpressConnectRouterChildInstanceWithOptions(shared_ptr<AttachExpressConnectRouterChildInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -54,6 +96,9 @@ AttachExpressConnectRouterChildInstanceResponse Alibabacloud_ExpressConnectRoute
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     body->insert(pair<string, bool>("DryRun", *request->dryRun));
@@ -75,7 +120,12 @@ AttachExpressConnectRouterChildInstanceResponse Alibabacloud_ExpressConnectRoute
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AttachExpressConnectRouterChildInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AttachExpressConnectRouterChildInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AttachExpressConnectRouterChildInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 AttachExpressConnectRouterChildInstanceResponse Alibabacloud_ExpressConnectRouter20230901::Client::attachExpressConnectRouterChildInstance(shared_ptr<AttachExpressConnectRouterChildInstanceRequest> request) {
@@ -112,7 +162,12 @@ CheckAddRegionToExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CheckAddRegionToExpressConnectRouterResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CheckAddRegionToExpressConnectRouterResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CheckAddRegionToExpressConnectRouterResponse(execute(params, req, runtime));
+  }
 }
 
 CheckAddRegionToExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::checkAddRegionToExpressConnectRouter(shared_ptr<CheckAddRegionToExpressConnectRouterRequest> request) {
@@ -141,8 +196,8 @@ CreateExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Cl
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateExpressConnectRouterRequestTags>>(request->tags)) {
-    body->insert(pair<string, vector<CreateExpressConnectRouterRequestTags>>("Tags", *request->tags));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateExpressConnectRouterRequestTag>>(request->tag)) {
+    body->insert(pair<string, vector<CreateExpressConnectRouterRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -158,7 +213,12 @@ CreateExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Cl
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateExpressConnectRouterResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateExpressConnectRouterResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateExpressConnectRouterResponse(execute(params, req, runtime));
+  }
 }
 
 CreateExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::createExpressConnectRouter(shared_ptr<CreateExpressConnectRouterRequest> request) {
@@ -172,6 +232,9 @@ CreateExpressConnectRouterAssociationResponse Alibabacloud_ExpressConnectRouter2
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->allowedPrefixes)) {
     body->insert(pair<string, vector<string>>("AllowedPrefixes", *request->allowedPrefixes));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->allowedPrefixesMode)) {
+    body->insert(pair<string, string>("AllowedPrefixesMode", *request->allowedPrefixesMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->associationRegionId)) {
     body->insert(pair<string, string>("AssociationRegionId", *request->associationRegionId));
   }
@@ -183,6 +246,9 @@ CreateExpressConnectRouterAssociationResponse Alibabacloud_ExpressConnectRouter2
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->createAttachment)) {
     body->insert(pair<string, bool>("CreateAttachment", *request->createAttachment));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     body->insert(pair<string, bool>("DryRun", *request->dryRun));
@@ -216,12 +282,124 @@ CreateExpressConnectRouterAssociationResponse Alibabacloud_ExpressConnectRouter2
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateExpressConnectRouterAssociationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateExpressConnectRouterAssociationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateExpressConnectRouterAssociationResponse(execute(params, req, runtime));
+  }
 }
 
 CreateExpressConnectRouterAssociationResponse Alibabacloud_ExpressConnectRouter20230901::Client::createExpressConnectRouterAssociation(shared_ptr<CreateExpressConnectRouterAssociationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createExpressConnectRouterAssociationWithOptions(request, runtime);
+}
+
+CreateFlowLogResponse Alibabacloud_ExpressConnectRouter20230901::Client::createFlowLogWithOptions(shared_ptr<CreateFlowLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
+    query->insert(pair<string, string>("InstanceType", *request->instanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->interval)) {
+    query->insert(pair<string, long>("Interval", *request->interval));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logStoreName)) {
+    query->insert(pair<string, string>("LogStoreName", *request->logStoreName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    query->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->samplingRate)) {
+    query->insert(pair<string, string>("SamplingRate", *request->samplingRate));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    body->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecrId)) {
+    body->insert(pair<string, string>("EcrId", *request->ecrId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowLogName)) {
+    body->insert(pair<string, string>("FlowLogName", *request->flowLogName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateFlowLog"))},
+    {"version", boost::any(string("2023-09-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateFlowLogResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateFlowLogResponse(execute(params, req, runtime));
+  }
+}
+
+CreateFlowLogResponse Alibabacloud_ExpressConnectRouter20230901::Client::createFlowLog(shared_ptr<CreateFlowLogRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createFlowLogWithOptions(request, runtime);
+}
+
+DeactivateFlowLogResponse Alibabacloud_ExpressConnectRouter20230901::Client::deactivateFlowLogWithOptions(shared_ptr<DeactivateFlowLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    body->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecrId)) {
+    body->insert(pair<string, string>("EcrId", *request->ecrId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowLogId)) {
+    body->insert(pair<string, string>("FlowLogId", *request->flowLogId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeactivateFlowLog"))},
+    {"version", boost::any(string("2023-09-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeactivateFlowLogResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeactivateFlowLogResponse(execute(params, req, runtime));
+  }
+}
+
+DeactivateFlowLogResponse Alibabacloud_ExpressConnectRouter20230901::Client::deactivateFlowLog(shared_ptr<DeactivateFlowLogRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deactivateFlowLogWithOptions(request, runtime);
 }
 
 DeleteExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::deleteExpressConnectRouterWithOptions(shared_ptr<DeleteExpressConnectRouterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -250,7 +428,12 @@ DeleteExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Cl
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteExpressConnectRouterResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteExpressConnectRouterResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteExpressConnectRouterResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::deleteExpressConnectRouter(shared_ptr<DeleteExpressConnectRouterRequest> request) {
@@ -290,12 +473,61 @@ DeleteExpressConnectRouterAssociationResponse Alibabacloud_ExpressConnectRouter2
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteExpressConnectRouterAssociationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteExpressConnectRouterAssociationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteExpressConnectRouterAssociationResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteExpressConnectRouterAssociationResponse Alibabacloud_ExpressConnectRouter20230901::Client::deleteExpressConnectRouterAssociation(shared_ptr<DeleteExpressConnectRouterAssociationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteExpressConnectRouterAssociationWithOptions(request, runtime);
+}
+
+DeleteFlowlogResponse Alibabacloud_ExpressConnectRouter20230901::Client::deleteFlowlogWithOptions(shared_ptr<DeleteFlowlogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowLogId)) {
+    query->insert(pair<string, string>("FlowLogId", *request->flowLogId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    body->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecrId)) {
+    body->insert(pair<string, string>("EcrId", *request->ecrId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteFlowlog"))},
+    {"version", boost::any(string("2023-09-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteFlowlogResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteFlowlogResponse(execute(params, req, runtime));
+  }
+}
+
+DeleteFlowlogResponse Alibabacloud_ExpressConnectRouter20230901::Client::deleteFlowlog(shared_ptr<DeleteFlowlogRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteFlowlogWithOptions(request, runtime);
 }
 
 DescribeDisabledExpressConnectRouterRouteEntriesResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeDisabledExpressConnectRouterRouteEntriesWithOptions(shared_ptr<DescribeDisabledExpressConnectRouterRouteEntriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -330,7 +562,12 @@ DescribeDisabledExpressConnectRouterRouteEntriesResponse Alibabacloud_ExpressCon
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeDisabledExpressConnectRouterRouteEntriesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeDisabledExpressConnectRouterRouteEntriesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeDisabledExpressConnectRouterRouteEntriesResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeDisabledExpressConnectRouterRouteEntriesResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeDisabledExpressConnectRouterRouteEntries(shared_ptr<DescribeDisabledExpressConnectRouterRouteEntriesRequest> request) {
@@ -362,8 +599,8 @@ DescribeExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<DescribeExpressConnectRouterRequestTagModels>>(request->tagModels)) {
-    body->insert(pair<string, vector<DescribeExpressConnectRouterRequestTagModels>>("TagModels", *request->tagModels));
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeExpressConnectRouterRequestTag>>(request->tag)) {
+    body->insert(pair<string, vector<DescribeExpressConnectRouterRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -379,7 +616,12 @@ DescribeExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeExpressConnectRouterResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeExpressConnectRouterResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeExpressConnectRouterResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeExpressConnectRouter(shared_ptr<DescribeExpressConnectRouterRequest> request) {
@@ -422,7 +664,12 @@ DescribeExpressConnectRouterAllowedPrefixHistoryResponse Alibabacloud_ExpressCon
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeExpressConnectRouterAllowedPrefixHistoryResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeExpressConnectRouterAllowedPrefixHistoryResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeExpressConnectRouterAllowedPrefixHistoryResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeExpressConnectRouterAllowedPrefixHistoryResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeExpressConnectRouterAllowedPrefixHistory(shared_ptr<DescribeExpressConnectRouterAllowedPrefixHistoryRequest> request) {
@@ -480,7 +727,12 @@ DescribeExpressConnectRouterAssociationResponse Alibabacloud_ExpressConnectRoute
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeExpressConnectRouterAssociationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeExpressConnectRouterAssociationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeExpressConnectRouterAssociationResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeExpressConnectRouterAssociationResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeExpressConnectRouterAssociation(shared_ptr<DescribeExpressConnectRouterAssociationRequest> request) {
@@ -532,7 +784,12 @@ DescribeExpressConnectRouterChildInstanceResponse Alibabacloud_ExpressConnectRou
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeExpressConnectRouterChildInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeExpressConnectRouterChildInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeExpressConnectRouterChildInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeExpressConnectRouterChildInstanceResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeExpressConnectRouterChildInstance(shared_ptr<DescribeExpressConnectRouterChildInstanceRequest> request) {
@@ -566,7 +823,12 @@ DescribeExpressConnectRouterInterRegionTransitModeResponse Alibabacloud_ExpressC
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeExpressConnectRouterInterRegionTransitModeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeExpressConnectRouterInterRegionTransitModeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeExpressConnectRouterInterRegionTransitModeResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeExpressConnectRouterInterRegionTransitModeResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeExpressConnectRouterInterRegionTransitMode(shared_ptr<DescribeExpressConnectRouterInterRegionTransitModeRequest> request) {
@@ -600,7 +862,12 @@ DescribeExpressConnectRouterRegionResponse Alibabacloud_ExpressConnectRouter2023
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeExpressConnectRouterRegionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeExpressConnectRouterRegionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeExpressConnectRouterRegionResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeExpressConnectRouterRegionResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeExpressConnectRouterRegion(shared_ptr<DescribeExpressConnectRouterRegionRequest> request) {
@@ -655,7 +922,12 @@ DescribeExpressConnectRouterRouteEntriesResponse Alibabacloud_ExpressConnectRout
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeExpressConnectRouterRouteEntriesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeExpressConnectRouterRouteEntriesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeExpressConnectRouterRouteEntriesResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeExpressConnectRouterRouteEntriesResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeExpressConnectRouterRouteEntries(shared_ptr<DescribeExpressConnectRouterRouteEntriesRequest> request) {
@@ -663,9 +935,74 @@ DescribeExpressConnectRouterRouteEntriesResponse Alibabacloud_ExpressConnectRout
   return describeExpressConnectRouterRouteEntriesWithOptions(request, runtime);
 }
 
+DescribeFlowLogsResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeFlowLogsWithOptions(shared_ptr<DescribeFlowLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowLogId)) {
+    query->insert(pair<string, string>("FlowLogId", *request->flowLogId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowLogName)) {
+    query->insert(pair<string, string>("FlowLogName", *request->flowLogName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logStoreName)) {
+    query->insert(pair<string, string>("LogStoreName", *request->logStoreName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    query->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    body->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecrId)) {
+    body->insert(pair<string, string>("EcrId", *request->ecrId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeFlowLogs"))},
+    {"version", boost::any(string("2023-09-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeFlowLogsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeFlowLogsResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeFlowLogsResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeFlowLogs(shared_ptr<DescribeFlowLogsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeFlowLogsWithOptions(request, runtime);
+}
+
 DescribeInstanceGrantedToExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeInstanceGrantedToExpressConnectRouterWithOptions(shared_ptr<DescribeInstanceGrantedToExpressConnectRouterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->callerType)) {
+    body->insert(pair<string, string>("CallerType", *request->callerType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -713,7 +1050,12 @@ DescribeInstanceGrantedToExpressConnectRouterResponse Alibabacloud_ExpressConnec
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeInstanceGrantedToExpressConnectRouterResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeInstanceGrantedToExpressConnectRouterResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeInstanceGrantedToExpressConnectRouterResponse(execute(params, req, runtime));
+  }
 }
 
 DescribeInstanceGrantedToExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeInstanceGrantedToExpressConnectRouter(shared_ptr<DescribeInstanceGrantedToExpressConnectRouterRequest> request) {
@@ -753,7 +1095,12 @@ DetachExpressConnectRouterChildInstanceResponse Alibabacloud_ExpressConnectRoute
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DetachExpressConnectRouterChildInstanceResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DetachExpressConnectRouterChildInstanceResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DetachExpressConnectRouterChildInstanceResponse(execute(params, req, runtime));
+  }
 }
 
 DetachExpressConnectRouterChildInstanceResponse Alibabacloud_ExpressConnectRouter20230901::Client::detachExpressConnectRouterChildInstance(shared_ptr<DetachExpressConnectRouterChildInstanceRequest> request) {
@@ -793,7 +1140,12 @@ DisableExpressConnectRouterRouteEntriesResponse Alibabacloud_ExpressConnectRoute
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DisableExpressConnectRouterRouteEntriesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DisableExpressConnectRouterRouteEntriesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DisableExpressConnectRouterRouteEntriesResponse(execute(params, req, runtime));
+  }
 }
 
 DisableExpressConnectRouterRouteEntriesResponse Alibabacloud_ExpressConnectRouter20230901::Client::disableExpressConnectRouterRouteEntries(shared_ptr<DisableExpressConnectRouterRouteEntriesRequest> request) {
@@ -833,7 +1185,12 @@ EnableExpressConnectRouterRouteEntriesResponse Alibabacloud_ExpressConnectRouter
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return EnableExpressConnectRouterRouteEntriesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return EnableExpressConnectRouterRouteEntriesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return EnableExpressConnectRouterRouteEntriesResponse(execute(params, req, runtime));
+  }
 }
 
 EnableExpressConnectRouterRouteEntriesResponse Alibabacloud_ExpressConnectRouter20230901::Client::enableExpressConnectRouterRouteEntries(shared_ptr<EnableExpressConnectRouterRouteEntriesRequest> request) {
@@ -867,7 +1224,12 @@ ForceDeleteExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter2023090
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ForceDeleteExpressConnectRouterResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ForceDeleteExpressConnectRouterResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ForceDeleteExpressConnectRouterResponse(execute(params, req, runtime));
+  }
 }
 
 ForceDeleteExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::forceDeleteExpressConnectRouter(shared_ptr<ForceDeleteExpressConnectRouterRequest> request) {
@@ -913,7 +1275,12 @@ GrantInstanceToExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter202
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GrantInstanceToExpressConnectRouterResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GrantInstanceToExpressConnectRouterResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GrantInstanceToExpressConnectRouterResponse(execute(params, req, runtime));
+  }
 }
 
 GrantInstanceToExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::grantInstanceToExpressConnectRouter(shared_ptr<GrantInstanceToExpressConnectRouterRequest> request) {
@@ -944,7 +1311,12 @@ ListExpressConnectRouterSupportedRegionResponse Alibabacloud_ExpressConnectRoute
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListExpressConnectRouterSupportedRegionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListExpressConnectRouterSupportedRegionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListExpressConnectRouterSupportedRegionResponse(execute(params, req, runtime));
+  }
 }
 
 ListExpressConnectRouterSupportedRegionResponse Alibabacloud_ExpressConnectRouter20230901::Client::listExpressConnectRouterSupportedRegion(shared_ptr<ListExpressConnectRouterSupportedRegionRequest> request) {
@@ -984,7 +1356,12 @@ ListTagResourcesResponse Alibabacloud_ExpressConnectRouter20230901::Client::list
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListTagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListTagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListTagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 ListTagResourcesResponse Alibabacloud_ExpressConnectRouter20230901::Client::listTagResources(shared_ptr<ListTagResourcesRequest> request) {
@@ -1024,7 +1401,12 @@ ModifyExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Cl
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ModifyExpressConnectRouterResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ModifyExpressConnectRouterResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ModifyExpressConnectRouterResponse(execute(params, req, runtime));
+  }
 }
 
 ModifyExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::modifyExpressConnectRouter(shared_ptr<ModifyExpressConnectRouterRequest> request) {
@@ -1037,6 +1419,9 @@ ModifyExpressConnectRouterAssociationAllowedPrefixResponse Alibabacloud_ExpressC
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->allowedPrefixes)) {
     body->insert(pair<string, vector<string>>("AllowedPrefixes", *request->allowedPrefixes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->allowedPrefixesMode)) {
+    body->insert(pair<string, string>("AllowedPrefixesMode", *request->allowedPrefixesMode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->associationId)) {
     body->insert(pair<string, string>("AssociationId", *request->associationId));
@@ -1067,7 +1452,12 @@ ModifyExpressConnectRouterAssociationAllowedPrefixResponse Alibabacloud_ExpressC
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ModifyExpressConnectRouterAssociationAllowedPrefixResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ModifyExpressConnectRouterAssociationAllowedPrefixResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ModifyExpressConnectRouterAssociationAllowedPrefixResponse(execute(params, req, runtime));
+  }
 }
 
 ModifyExpressConnectRouterAssociationAllowedPrefixResponse Alibabacloud_ExpressConnectRouter20230901::Client::modifyExpressConnectRouterAssociationAllowedPrefix(shared_ptr<ModifyExpressConnectRouterAssociationAllowedPrefixRequest> request) {
@@ -1104,12 +1494,73 @@ ModifyExpressConnectRouterInterRegionTransitModeResponse Alibabacloud_ExpressCon
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ModifyExpressConnectRouterInterRegionTransitModeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ModifyExpressConnectRouterInterRegionTransitModeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ModifyExpressConnectRouterInterRegionTransitModeResponse(execute(params, req, runtime));
+  }
 }
 
 ModifyExpressConnectRouterInterRegionTransitModeResponse Alibabacloud_ExpressConnectRouter20230901::Client::modifyExpressConnectRouterInterRegionTransitMode(shared_ptr<ModifyExpressConnectRouterInterRegionTransitModeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyExpressConnectRouterInterRegionTransitModeWithOptions(request, runtime);
+}
+
+ModifyFlowLogAttributeResponse Alibabacloud_ExpressConnectRouter20230901::Client::modifyFlowLogAttributeWithOptions(shared_ptr<ModifyFlowLogAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowLogId)) {
+    query->insert(pair<string, string>("FlowLogId", *request->flowLogId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->interval)) {
+    query->insert(pair<string, long>("Interval", *request->interval));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->samplingRate)) {
+    query->insert(pair<string, string>("SamplingRate", *request->samplingRate));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    body->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecrId)) {
+    body->insert(pair<string, string>("EcrId", *request->ecrId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowLogName)) {
+    body->insert(pair<string, string>("FlowLogName", *request->flowLogName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyFlowLogAttribute"))},
+    {"version", boost::any(string("2023-09-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ModifyFlowLogAttributeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ModifyFlowLogAttributeResponse(execute(params, req, runtime));
+  }
+}
+
+ModifyFlowLogAttributeResponse Alibabacloud_ExpressConnectRouter20230901::Client::modifyFlowLogAttribute(shared_ptr<ModifyFlowLogAttributeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyFlowLogAttributeWithOptions(request, runtime);
 }
 
 MoveResourceGroupResponse Alibabacloud_ExpressConnectRouter20230901::Client::moveResourceGroupWithOptions(shared_ptr<MoveResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1144,7 +1595,12 @@ MoveResourceGroupResponse Alibabacloud_ExpressConnectRouter20230901::Client::mov
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return MoveResourceGroupResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return MoveResourceGroupResponse(callApi(params, req, runtime));
+  }
+  else {
+    return MoveResourceGroupResponse(execute(params, req, runtime));
+  }
 }
 
 MoveResourceGroupResponse Alibabacloud_ExpressConnectRouter20230901::Client::moveResourceGroup(shared_ptr<MoveResourceGroupRequest> request) {
@@ -1190,7 +1646,12 @@ RevokeInstanceFromExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RevokeInstanceFromExpressConnectRouterResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RevokeInstanceFromExpressConnectRouterResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RevokeInstanceFromExpressConnectRouterResponse(execute(params, req, runtime));
+  }
 }
 
 RevokeInstanceFromExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::revokeInstanceFromExpressConnectRouter(shared_ptr<RevokeInstanceFromExpressConnectRouterRequest> request) {
@@ -1224,7 +1685,12 @@ SynchronizeExpressConnectRouterInterRegionBandwidthResponse Alibabacloud_Express
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SynchronizeExpressConnectRouterInterRegionBandwidthResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SynchronizeExpressConnectRouterInterRegionBandwidthResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SynchronizeExpressConnectRouterInterRegionBandwidthResponse(execute(params, req, runtime));
+  }
 }
 
 SynchronizeExpressConnectRouterInterRegionBandwidthResponse Alibabacloud_ExpressConnectRouter20230901::Client::synchronizeExpressConnectRouterInterRegionBandwidth(shared_ptr<SynchronizeExpressConnectRouterInterRegionBandwidthRequest> request) {
@@ -1264,7 +1730,12 @@ TagResourcesResponse Alibabacloud_ExpressConnectRouter20230901::Client::tagResou
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return TagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return TagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return TagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 TagResourcesResponse Alibabacloud_ExpressConnectRouter20230901::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
@@ -1307,7 +1778,12 @@ UntagResourcesResponse Alibabacloud_ExpressConnectRouter20230901::Client::untagR
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UntagResourcesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UntagResourcesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UntagResourcesResponse(execute(params, req, runtime));
+  }
 }
 
 UntagResourcesResponse Alibabacloud_ExpressConnectRouter20230901::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
