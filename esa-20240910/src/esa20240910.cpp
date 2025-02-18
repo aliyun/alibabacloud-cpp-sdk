@@ -4288,6 +4288,36 @@ DescribeDDoSL7QpsListResponse Alibabacloud_ESA20240910::Client::describeDDoSL7Qp
   return describeDDoSL7QpsListWithOptions(request, runtime);
 }
 
+DescribeEdgeContainerAppStatsResponse Alibabacloud_ESA20240910::Client::describeEdgeContainerAppStatsWithOptions(shared_ptr<DescribeEdgeContainerAppStatsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeEdgeContainerAppStats"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeEdgeContainerAppStatsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeEdgeContainerAppStatsResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeEdgeContainerAppStatsResponse Alibabacloud_ESA20240910::Client::describeEdgeContainerAppStats(shared_ptr<DescribeEdgeContainerAppStatsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeEdgeContainerAppStatsWithOptions(request, runtime);
+}
+
 DescribeHttpDDoSAttackIntelligentProtectionResponse Alibabacloud_ESA20240910::Client::describeHttpDDoSAttackIntelligentProtectionWithOptions(shared_ptr<DescribeHttpDDoSAttackIntelligentProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4972,6 +5002,36 @@ GetEdgeContainerAppResponse Alibabacloud_ESA20240910::Client::getEdgeContainerAp
 GetEdgeContainerAppResponse Alibabacloud_ESA20240910::Client::getEdgeContainerApp(shared_ptr<GetEdgeContainerAppRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getEdgeContainerAppWithOptions(request, runtime);
+}
+
+GetEdgeContainerAppLogRiverResponse Alibabacloud_ESA20240910::Client::getEdgeContainerAppLogRiverWithOptions(shared_ptr<GetEdgeContainerAppLogRiverRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetEdgeContainerAppLogRiver"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetEdgeContainerAppLogRiverResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetEdgeContainerAppLogRiverResponse(execute(params, req, runtime));
+  }
+}
+
+GetEdgeContainerAppLogRiverResponse Alibabacloud_ESA20240910::Client::getEdgeContainerAppLogRiver(shared_ptr<GetEdgeContainerAppLogRiverRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getEdgeContainerAppLogRiverWithOptions(request, runtime);
 }
 
 GetEdgeContainerAppStatusResponse Alibabacloud_ESA20240910::Client::getEdgeContainerAppStatusWithOptions(shared_ptr<GetEdgeContainerAppStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -9285,6 +9345,45 @@ UpdateDevelopmentModeResponse Alibabacloud_ESA20240910::Client::updateDevelopmen
 UpdateDevelopmentModeResponse Alibabacloud_ESA20240910::Client::updateDevelopmentMode(shared_ptr<UpdateDevelopmentModeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateDevelopmentModeWithOptions(request, runtime);
+}
+
+UpdateEdgeContainerAppLogRiverResponse Alibabacloud_ESA20240910::Client::updateEdgeContainerAppLogRiverWithOptions(shared_ptr<UpdateEdgeContainerAppLogRiverRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->path)) {
+    query->insert(pair<string, string>("Path", *request->path));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->stdout)) {
+    query->insert(pair<string, bool>("Stdout", *request->stdout));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateEdgeContainerAppLogRiver"))},
+    {"version", boost::any(string("2024-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateEdgeContainerAppLogRiverResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateEdgeContainerAppLogRiverResponse(execute(params, req, runtime));
+  }
+}
+
+UpdateEdgeContainerAppLogRiverResponse Alibabacloud_ESA20240910::Client::updateEdgeContainerAppLogRiver(shared_ptr<UpdateEdgeContainerAppLogRiverRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateEdgeContainerAppLogRiverWithOptions(request, runtime);
 }
 
 UpdateHttpRequestHeaderModificationRuleResponse Alibabacloud_ESA20240910::Client::updateHttpRequestHeaderModificationRuleWithOptions(shared_ptr<UpdateHttpRequestHeaderModificationRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

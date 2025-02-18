@@ -20880,6 +20880,306 @@ public:
 
   virtual ~DescribeDDoSL7QpsListResponse() = default;
 };
+class DescribeEdgeContainerAppStatsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> app{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> fields{};
+  shared_ptr<string> isp{};
+  shared_ptr<string> locate{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> tenant{};
+
+  DescribeEdgeContainerAppStatsRequest() {}
+
+  explicit DescribeEdgeContainerAppStatsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (app) {
+      res["App"] = boost::any(*app);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (fields) {
+      res["Fields"] = boost::any(*fields);
+    }
+    if (isp) {
+      res["Isp"] = boost::any(*isp);
+    }
+    if (locate) {
+      res["Locate"] = boost::any(*locate);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (tenant) {
+      res["Tenant"] = boost::any(*tenant);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("App") != m.end() && !m["App"].empty()) {
+      app = make_shared<string>(boost::any_cast<string>(m["App"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Fields") != m.end() && !m["Fields"].empty()) {
+      fields = make_shared<string>(boost::any_cast<string>(m["Fields"]));
+    }
+    if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
+      isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
+    }
+    if (m.find("Locate") != m.end() && !m["Locate"].empty()) {
+      locate = make_shared<string>(boost::any_cast<string>(m["Locate"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Tenant") != m.end() && !m["Tenant"].empty()) {
+      tenant = make_shared<string>(boost::any_cast<string>(m["Tenant"]));
+    }
+  }
+
+
+  virtual ~DescribeEdgeContainerAppStatsRequest() = default;
+};
+class DescribeEdgeContainerAppStatsResponseBodyPoints : public Darabonba::Model {
+public:
+  shared_ptr<double> containerCpuUsageSecondsQuotaRate{};
+  shared_ptr<double> containerCpuUsageSecondsTotal{};
+  shared_ptr<double> containerFsReadsBytesAvg{};
+  shared_ptr<double> containerFsWritesBytesAvg{};
+  shared_ptr<double> containerMemoryRss{};
+  shared_ptr<double> containerMemoryRssQuotaRate{};
+  shared_ptr<double> podReadyRate{};
+  shared_ptr<string> time{};
+
+  DescribeEdgeContainerAppStatsResponseBodyPoints() {}
+
+  explicit DescribeEdgeContainerAppStatsResponseBodyPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (containerCpuUsageSecondsQuotaRate) {
+      res["ContainerCpuUsageSecondsQuotaRate"] = boost::any(*containerCpuUsageSecondsQuotaRate);
+    }
+    if (containerCpuUsageSecondsTotal) {
+      res["ContainerCpuUsageSecondsTotal"] = boost::any(*containerCpuUsageSecondsTotal);
+    }
+    if (containerFsReadsBytesAvg) {
+      res["ContainerFsReadsBytesAvg"] = boost::any(*containerFsReadsBytesAvg);
+    }
+    if (containerFsWritesBytesAvg) {
+      res["ContainerFsWritesBytesAvg"] = boost::any(*containerFsWritesBytesAvg);
+    }
+    if (containerMemoryRss) {
+      res["ContainerMemoryRss"] = boost::any(*containerMemoryRss);
+    }
+    if (containerMemoryRssQuotaRate) {
+      res["ContainerMemoryRssQuotaRate"] = boost::any(*containerMemoryRssQuotaRate);
+    }
+    if (podReadyRate) {
+      res["PodReadyRate"] = boost::any(*podReadyRate);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContainerCpuUsageSecondsQuotaRate") != m.end() && !m["ContainerCpuUsageSecondsQuotaRate"].empty()) {
+      containerCpuUsageSecondsQuotaRate = make_shared<double>(boost::any_cast<double>(m["ContainerCpuUsageSecondsQuotaRate"]));
+    }
+    if (m.find("ContainerCpuUsageSecondsTotal") != m.end() && !m["ContainerCpuUsageSecondsTotal"].empty()) {
+      containerCpuUsageSecondsTotal = make_shared<double>(boost::any_cast<double>(m["ContainerCpuUsageSecondsTotal"]));
+    }
+    if (m.find("ContainerFsReadsBytesAvg") != m.end() && !m["ContainerFsReadsBytesAvg"].empty()) {
+      containerFsReadsBytesAvg = make_shared<double>(boost::any_cast<double>(m["ContainerFsReadsBytesAvg"]));
+    }
+    if (m.find("ContainerFsWritesBytesAvg") != m.end() && !m["ContainerFsWritesBytesAvg"].empty()) {
+      containerFsWritesBytesAvg = make_shared<double>(boost::any_cast<double>(m["ContainerFsWritesBytesAvg"]));
+    }
+    if (m.find("ContainerMemoryRss") != m.end() && !m["ContainerMemoryRss"].empty()) {
+      containerMemoryRss = make_shared<double>(boost::any_cast<double>(m["ContainerMemoryRss"]));
+    }
+    if (m.find("ContainerMemoryRssQuotaRate") != m.end() && !m["ContainerMemoryRssQuotaRate"].empty()) {
+      containerMemoryRssQuotaRate = make_shared<double>(boost::any_cast<double>(m["ContainerMemoryRssQuotaRate"]));
+    }
+    if (m.find("PodReadyRate") != m.end() && !m["PodReadyRate"].empty()) {
+      podReadyRate = make_shared<double>(boost::any_cast<double>(m["PodReadyRate"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["Time"]));
+    }
+  }
+
+
+  virtual ~DescribeEdgeContainerAppStatsResponseBodyPoints() = default;
+};
+class DescribeEdgeContainerAppStatsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<double> cpuUsageSecondsQuotaRateAvg{};
+  shared_ptr<double> cpuUsageSecondsTotalAvg{};
+  shared_ptr<double> fsReadsBytesAvgAvg{};
+  shared_ptr<double> fsWritesBytesAvgAvg{};
+  shared_ptr<double> memoryRssAvg{};
+  shared_ptr<double> memoryRssQuotaRateAvg{};
+  shared_ptr<double> podReadyRateAvg{};
+  shared_ptr<vector<DescribeEdgeContainerAppStatsResponseBodyPoints>> points{};
+  shared_ptr<string> requestId{};
+
+  DescribeEdgeContainerAppStatsResponseBody() {}
+
+  explicit DescribeEdgeContainerAppStatsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpuUsageSecondsQuotaRateAvg) {
+      res["CpuUsageSecondsQuotaRateAvg"] = boost::any(*cpuUsageSecondsQuotaRateAvg);
+    }
+    if (cpuUsageSecondsTotalAvg) {
+      res["CpuUsageSecondsTotalAvg"] = boost::any(*cpuUsageSecondsTotalAvg);
+    }
+    if (fsReadsBytesAvgAvg) {
+      res["FsReadsBytesAvgAvg"] = boost::any(*fsReadsBytesAvgAvg);
+    }
+    if (fsWritesBytesAvgAvg) {
+      res["FsWritesBytesAvgAvg"] = boost::any(*fsWritesBytesAvgAvg);
+    }
+    if (memoryRssAvg) {
+      res["MemoryRssAvg"] = boost::any(*memoryRssAvg);
+    }
+    if (memoryRssQuotaRateAvg) {
+      res["MemoryRssQuotaRateAvg"] = boost::any(*memoryRssQuotaRateAvg);
+    }
+    if (podReadyRateAvg) {
+      res["PodReadyRateAvg"] = boost::any(*podReadyRateAvg);
+    }
+    if (points) {
+      vector<boost::any> temp1;
+      for(auto item1:*points){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Points"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CpuUsageSecondsQuotaRateAvg") != m.end() && !m["CpuUsageSecondsQuotaRateAvg"].empty()) {
+      cpuUsageSecondsQuotaRateAvg = make_shared<double>(boost::any_cast<double>(m["CpuUsageSecondsQuotaRateAvg"]));
+    }
+    if (m.find("CpuUsageSecondsTotalAvg") != m.end() && !m["CpuUsageSecondsTotalAvg"].empty()) {
+      cpuUsageSecondsTotalAvg = make_shared<double>(boost::any_cast<double>(m["CpuUsageSecondsTotalAvg"]));
+    }
+    if (m.find("FsReadsBytesAvgAvg") != m.end() && !m["FsReadsBytesAvgAvg"].empty()) {
+      fsReadsBytesAvgAvg = make_shared<double>(boost::any_cast<double>(m["FsReadsBytesAvgAvg"]));
+    }
+    if (m.find("FsWritesBytesAvgAvg") != m.end() && !m["FsWritesBytesAvgAvg"].empty()) {
+      fsWritesBytesAvgAvg = make_shared<double>(boost::any_cast<double>(m["FsWritesBytesAvgAvg"]));
+    }
+    if (m.find("MemoryRssAvg") != m.end() && !m["MemoryRssAvg"].empty()) {
+      memoryRssAvg = make_shared<double>(boost::any_cast<double>(m["MemoryRssAvg"]));
+    }
+    if (m.find("MemoryRssQuotaRateAvg") != m.end() && !m["MemoryRssQuotaRateAvg"].empty()) {
+      memoryRssQuotaRateAvg = make_shared<double>(boost::any_cast<double>(m["MemoryRssQuotaRateAvg"]));
+    }
+    if (m.find("PodReadyRateAvg") != m.end() && !m["PodReadyRateAvg"].empty()) {
+      podReadyRateAvg = make_shared<double>(boost::any_cast<double>(m["PodReadyRateAvg"]));
+    }
+    if (m.find("Points") != m.end() && !m["Points"].empty()) {
+      if (typeid(vector<boost::any>) == m["Points"].type()) {
+        vector<DescribeEdgeContainerAppStatsResponseBodyPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Points"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEdgeContainerAppStatsResponseBodyPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        points = make_shared<vector<DescribeEdgeContainerAppStatsResponseBodyPoints>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeEdgeContainerAppStatsResponseBody() = default;
+};
+class DescribeEdgeContainerAppStatsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeEdgeContainerAppStatsResponseBody> body{};
+
+  DescribeEdgeContainerAppStatsResponse() {}
+
+  explicit DescribeEdgeContainerAppStatsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeEdgeContainerAppStatsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeEdgeContainerAppStatsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeEdgeContainerAppStatsResponse() = default;
+};
 class DescribeHttpDDoSAttackIntelligentProtectionRequest : public Darabonba::Model {
 public:
   shared_ptr<long> siteId{};
@@ -25004,6 +25304,130 @@ public:
 
 
   virtual ~GetEdgeContainerAppResponse() = default;
+};
+class GetEdgeContainerAppLogRiverRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+
+  GetEdgeContainerAppLogRiverRequest() {}
+
+  explicit GetEdgeContainerAppLogRiverRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+  }
+
+
+  virtual ~GetEdgeContainerAppLogRiverRequest() = default;
+};
+class GetEdgeContainerAppLogRiverResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> path{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> stdout{};
+
+  GetEdgeContainerAppLogRiverResponseBody() {}
+
+  explicit GetEdgeContainerAppLogRiverResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (stdout) {
+      res["Stdout"] = boost::any(*stdout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Stdout") != m.end() && !m["Stdout"].empty()) {
+      stdout = make_shared<bool>(boost::any_cast<bool>(m["Stdout"]));
+    }
+  }
+
+
+  virtual ~GetEdgeContainerAppLogRiverResponseBody() = default;
+};
+class GetEdgeContainerAppLogRiverResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetEdgeContainerAppLogRiverResponseBody> body{};
+
+  GetEdgeContainerAppLogRiverResponse() {}
+
+  explicit GetEdgeContainerAppLogRiverResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetEdgeContainerAppLogRiverResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetEdgeContainerAppLogRiverResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetEdgeContainerAppLogRiverResponse() = default;
 };
 class GetEdgeContainerAppStatusRequest : public Darabonba::Model {
 public:
@@ -55350,6 +55774,144 @@ public:
 
   virtual ~UpdateDevelopmentModeResponse() = default;
 };
+class UpdateEdgeContainerAppLogRiverRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> path{};
+  shared_ptr<bool> stdout{};
+
+  UpdateEdgeContainerAppLogRiverRequest() {}
+
+  explicit UpdateEdgeContainerAppLogRiverRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    if (stdout) {
+      res["Stdout"] = boost::any(*stdout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+    if (m.find("Stdout") != m.end() && !m["Stdout"].empty()) {
+      stdout = make_shared<bool>(boost::any_cast<bool>(m["Stdout"]));
+    }
+  }
+
+
+  virtual ~UpdateEdgeContainerAppLogRiverRequest() = default;
+};
+class UpdateEdgeContainerAppLogRiverResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> path{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> stdout{};
+
+  UpdateEdgeContainerAppLogRiverResponseBody() {}
+
+  explicit UpdateEdgeContainerAppLogRiverResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (stdout) {
+      res["Stdout"] = boost::any(*stdout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Stdout") != m.end() && !m["Stdout"].empty()) {
+      stdout = make_shared<bool>(boost::any_cast<bool>(m["Stdout"]));
+    }
+  }
+
+
+  virtual ~UpdateEdgeContainerAppLogRiverResponseBody() = default;
+};
+class UpdateEdgeContainerAppLogRiverResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateEdgeContainerAppLogRiverResponseBody> body{};
+
+  UpdateEdgeContainerAppLogRiverResponse() {}
+
+  explicit UpdateEdgeContainerAppLogRiverResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateEdgeContainerAppLogRiverResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateEdgeContainerAppLogRiverResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateEdgeContainerAppLogRiverResponse() = default;
+};
 class UpdateHttpRequestHeaderModificationRuleRequestRequestHeaderModification : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -62801,6 +63363,8 @@ public:
   DescribeDDoSBpsListResponse describeDDoSBpsList(shared_ptr<DescribeDDoSBpsListRequest> request);
   DescribeDDoSL7QpsListResponse describeDDoSL7QpsListWithOptions(shared_ptr<DescribeDDoSL7QpsListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDDoSL7QpsListResponse describeDDoSL7QpsList(shared_ptr<DescribeDDoSL7QpsListRequest> request);
+  DescribeEdgeContainerAppStatsResponse describeEdgeContainerAppStatsWithOptions(shared_ptr<DescribeEdgeContainerAppStatsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeEdgeContainerAppStatsResponse describeEdgeContainerAppStats(shared_ptr<DescribeEdgeContainerAppStatsRequest> request);
   DescribeHttpDDoSAttackIntelligentProtectionResponse describeHttpDDoSAttackIntelligentProtectionWithOptions(shared_ptr<DescribeHttpDDoSAttackIntelligentProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeHttpDDoSAttackIntelligentProtectionResponse describeHttpDDoSAttackIntelligentProtection(shared_ptr<DescribeHttpDDoSAttackIntelligentProtectionRequest> request);
   DescribeHttpDDoSAttackProtectionResponse describeHttpDDoSAttackProtectionWithOptions(shared_ptr<DescribeHttpDDoSAttackProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -62845,6 +63409,8 @@ public:
   GetDevelopmentModeResponse getDevelopmentMode(shared_ptr<GetDevelopmentModeRequest> request);
   GetEdgeContainerAppResponse getEdgeContainerAppWithOptions(shared_ptr<GetEdgeContainerAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetEdgeContainerAppResponse getEdgeContainerApp(shared_ptr<GetEdgeContainerAppRequest> request);
+  GetEdgeContainerAppLogRiverResponse getEdgeContainerAppLogRiverWithOptions(shared_ptr<GetEdgeContainerAppLogRiverRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetEdgeContainerAppLogRiverResponse getEdgeContainerAppLogRiver(shared_ptr<GetEdgeContainerAppLogRiverRequest> request);
   GetEdgeContainerAppStatusResponse getEdgeContainerAppStatusWithOptions(shared_ptr<GetEdgeContainerAppStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetEdgeContainerAppStatusResponse getEdgeContainerAppStatus(shared_ptr<GetEdgeContainerAppStatusRequest> request);
   GetEdgeContainerAppVersionResponse getEdgeContainerAppVersionWithOptions(shared_ptr<GetEdgeContainerAppVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -63092,6 +63658,8 @@ public:
   UpdateCustomScenePolicyResponse updateCustomScenePolicy(shared_ptr<UpdateCustomScenePolicyRequest> request);
   UpdateDevelopmentModeResponse updateDevelopmentModeWithOptions(shared_ptr<UpdateDevelopmentModeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateDevelopmentModeResponse updateDevelopmentMode(shared_ptr<UpdateDevelopmentModeRequest> request);
+  UpdateEdgeContainerAppLogRiverResponse updateEdgeContainerAppLogRiverWithOptions(shared_ptr<UpdateEdgeContainerAppLogRiverRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateEdgeContainerAppLogRiverResponse updateEdgeContainerAppLogRiver(shared_ptr<UpdateEdgeContainerAppLogRiverRequest> request);
   UpdateHttpRequestHeaderModificationRuleResponse updateHttpRequestHeaderModificationRuleWithOptions(shared_ptr<UpdateHttpRequestHeaderModificationRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateHttpRequestHeaderModificationRuleResponse updateHttpRequestHeaderModificationRule(shared_ptr<UpdateHttpRequestHeaderModificationRuleRequest> request);
   UpdateHttpResponseHeaderModificationRuleResponse updateHttpResponseHeaderModificationRuleWithOptions(shared_ptr<UpdateHttpResponseHeaderModificationRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
