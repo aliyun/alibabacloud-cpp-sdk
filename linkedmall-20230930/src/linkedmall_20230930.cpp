@@ -109,7 +109,12 @@ CancelRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::cancelRefundO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CancelRefundOrderResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CancelRefundOrderResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CancelRefundOrderResponse(execute(params, req, runtime));
+  }
 }
 
 CancelRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::cancelRefundOrder(shared_ptr<string> disputeId) {
@@ -135,7 +140,12 @@ ConfirmDisburseResponse Alibabacloud_Linkedmall20230930::Client::confirmDisburse
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ConfirmDisburseResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ConfirmDisburseResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ConfirmDisburseResponse(execute(params, req, runtime));
+  }
 }
 
 ConfirmDisburseResponse Alibabacloud_Linkedmall20230930::Client::confirmDisburse(shared_ptr<ConfirmDisburseRequest> request) {
@@ -161,7 +171,12 @@ CreateGoodsShippingNoticeResponse Alibabacloud_Linkedmall20230930::Client::creat
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateGoodsShippingNoticeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateGoodsShippingNoticeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateGoodsShippingNoticeResponse(execute(params, req, runtime));
+  }
 }
 
 CreateGoodsShippingNoticeResponse Alibabacloud_Linkedmall20230930::Client::createGoodsShippingNotice(shared_ptr<CreateGoodsShippingNoticeRequest> request) {
@@ -187,7 +202,12 @@ CreatePurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::createPurch
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreatePurchaseOrderResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreatePurchaseOrderResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreatePurchaseOrderResponse(execute(params, req, runtime));
+  }
 }
 
 CreatePurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::createPurchaseOrder(shared_ptr<CreatePurchaseOrderRequest> request) {
@@ -213,7 +233,12 @@ CreateRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::createRefundO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateRefundOrderResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateRefundOrderResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateRefundOrderResponse(execute(params, req, runtime));
+  }
 }
 
 CreateRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::createRefundOrder(shared_ptr<CreateRefundOrderRequest> request) {
@@ -237,7 +262,12 @@ GetOrderResponse Alibabacloud_Linkedmall20230930::Client::getOrderWithOptions(sh
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetOrderResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetOrderResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetOrderResponse(execute(params, req, runtime));
+  }
 }
 
 GetOrderResponse Alibabacloud_Linkedmall20230930::Client::getOrder(shared_ptr<string> orderId) {
@@ -261,7 +291,12 @@ GetPurchaseOrderStatusResponse Alibabacloud_Linkedmall20230930::Client::getPurch
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetPurchaseOrderStatusResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetPurchaseOrderStatusResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetPurchaseOrderStatusResponse(execute(params, req, runtime));
+  }
 }
 
 GetPurchaseOrderStatusResponse Alibabacloud_Linkedmall20230930::Client::getPurchaseOrderStatus(shared_ptr<string> purchaseOrderId) {
@@ -285,7 +320,12 @@ GetPurchaserShopResponse Alibabacloud_Linkedmall20230930::Client::getPurchaserSh
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetPurchaserShopResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetPurchaserShopResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetPurchaserShopResponse(execute(params, req, runtime));
+  }
 }
 
 GetPurchaserShopResponse Alibabacloud_Linkedmall20230930::Client::getPurchaserShop(shared_ptr<string> purchaserId) {
@@ -309,7 +349,12 @@ GetRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::getRefundOrderWi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetRefundOrderResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetRefundOrderResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetRefundOrderResponse(execute(params, req, runtime));
+  }
 }
 
 GetRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::getRefundOrder(shared_ptr<string> disputeId) {
@@ -345,7 +390,12 @@ GetSelectionProductResponse Alibabacloud_Linkedmall20230930::Client::getSelectio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetSelectionProductResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetSelectionProductResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetSelectionProductResponse(execute(params, req, runtime));
+  }
 }
 
 GetSelectionProductResponse Alibabacloud_Linkedmall20230930::Client::getSelectionProduct(shared_ptr<string> productId, shared_ptr<GetSelectionProductRequest> request) {
@@ -381,7 +431,12 @@ GetSelectionProductSaleInfoResponse Alibabacloud_Linkedmall20230930::Client::get
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetSelectionProductSaleInfoResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetSelectionProductSaleInfoResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetSelectionProductSaleInfoResponse(execute(params, req, runtime));
+  }
 }
 
 GetSelectionProductSaleInfoResponse Alibabacloud_Linkedmall20230930::Client::getSelectionProductSaleInfo(shared_ptr<string> productId, shared_ptr<GetSelectionProductSaleInfoRequest> request) {
@@ -407,7 +462,12 @@ ListCategoriesResponse Alibabacloud_Linkedmall20230930::Client::listCategoriesWi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListCategoriesResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListCategoriesResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListCategoriesResponse(execute(params, req, runtime));
+  }
 }
 
 ListCategoriesResponse Alibabacloud_Linkedmall20230930::Client::listCategories(shared_ptr<ListCategoriesRequest> request) {
@@ -431,7 +491,12 @@ ListLogisticsOrdersResponse Alibabacloud_Linkedmall20230930::Client::listLogisti
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListLogisticsOrdersResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListLogisticsOrdersResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListLogisticsOrdersResponse(execute(params, req, runtime));
+  }
 }
 
 ListLogisticsOrdersResponse Alibabacloud_Linkedmall20230930::Client::listLogisticsOrders(shared_ptr<string> orderId) {
@@ -464,7 +529,12 @@ ListPurchaserShopsResponse Alibabacloud_Linkedmall20230930::Client::listPurchase
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListPurchaserShopsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListPurchaserShopsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListPurchaserShopsResponse(execute(params, req, runtime));
+  }
 }
 
 ListPurchaserShopsResponse Alibabacloud_Linkedmall20230930::Client::listPurchaserShops(shared_ptr<ListPurchaserShopsRequest> request) {
@@ -490,7 +560,12 @@ ListSelectionProductSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::l
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListSelectionProductSaleInfosResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListSelectionProductSaleInfosResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListSelectionProductSaleInfosResponse(execute(params, req, runtime));
+  }
 }
 
 ListSelectionProductSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listSelectionProductSaleInfos(shared_ptr<ListSelectionProductSaleInfosRequest> request) {
@@ -526,7 +601,12 @@ ListSelectionProductsResponse Alibabacloud_Linkedmall20230930::Client::listSelec
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListSelectionProductsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListSelectionProductsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListSelectionProductsResponse(execute(params, req, runtime));
+  }
 }
 
 ListSelectionProductsResponse Alibabacloud_Linkedmall20230930::Client::listSelectionProducts(shared_ptr<ListSelectionProductsRequest> request) {
@@ -552,7 +632,12 @@ ListSelectionSkuSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listS
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListSelectionSkuSaleInfosResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return ListSelectionSkuSaleInfosResponse(callApi(params, req, runtime));
+  }
+  else {
+    return ListSelectionSkuSaleInfosResponse(execute(params, req, runtime));
+  }
 }
 
 ListSelectionSkuSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listSelectionSkuSaleInfos(shared_ptr<ListSelectionSkuSaleInfosRequest> request) {
@@ -578,7 +663,12 @@ QueryChildDivisionCodeResponse Alibabacloud_Linkedmall20230930::Client::queryChi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QueryChildDivisionCodeResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryChildDivisionCodeResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryChildDivisionCodeResponse(execute(params, req, runtime));
+  }
 }
 
 QueryChildDivisionCodeResponse Alibabacloud_Linkedmall20230930::Client::queryChildDivisionCode(shared_ptr<QueryChildDivisionCodeRequest> request) {
@@ -604,7 +694,12 @@ QueryOrdersResponse Alibabacloud_Linkedmall20230930::Client::queryOrdersWithOpti
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return QueryOrdersResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return QueryOrdersResponse(callApi(params, req, runtime));
+  }
+  else {
+    return QueryOrdersResponse(execute(params, req, runtime));
+  }
 }
 
 QueryOrdersResponse Alibabacloud_Linkedmall20230930::Client::queryOrders(shared_ptr<QueryOrdersRequest> request) {
@@ -630,7 +725,12 @@ RenderPurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::renderPurch
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RenderPurchaseOrderResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RenderPurchaseOrderResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RenderPurchaseOrderResponse(execute(params, req, runtime));
+  }
 }
 
 RenderPurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::renderPurchaseOrder(shared_ptr<RenderPurchaseOrderRequest> request) {
@@ -656,13 +756,216 @@ RenderRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::renderRefundO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RenderRefundOrderResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RenderRefundOrderResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RenderRefundOrderResponse(execute(params, req, runtime));
+  }
 }
 
 RenderRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::renderRefundOrder(shared_ptr<RenderRefundOrderRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return renderRefundOrderWithOptions(request, headers, runtime);
+}
+
+SearchProductsResponse Alibabacloud_Linkedmall20230930::Client::searchProductsWithOptions(shared_ptr<SearchProductsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->brandName)) {
+    body->insert(pair<string, string>("brandName", *request->brandName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->categoryIds)) {
+    body->insert(pair<string, vector<string>>("categoryIds", *request->categoryIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->createEndTime)) {
+    body->insert(pair<string, string>("createEndTime", *request->createEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->createStartTime)) {
+    body->insert(pair<string, string>("createStartTime", *request->createStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->distributionHighPrice)) {
+    body->insert(pair<string, long>("distributionHighPrice", *request->distributionHighPrice));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->distributionHighPriceRatio)) {
+    body->insert(pair<string, long>("distributionHighPriceRatio", *request->distributionHighPriceRatio));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->distributionLowPrice)) {
+    body->insert(pair<string, long>("distributionLowPrice", *request->distributionLowPrice));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->distributionLowPriceRatio)) {
+    body->insert(pair<string, long>("distributionLowPriceRatio", *request->distributionLowPriceRatio));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->highMarkPrice)) {
+    body->insert(pair<string, long>("highMarkPrice", *request->highMarkPrice));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->highPrice)) {
+    body->insert(pair<string, long>("highPrice", *request->highPrice));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->inGroup)) {
+    body->insert(pair<string, bool>("inGroup", *request->inGroup));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inGroupEndTime)) {
+    body->insert(pair<string, string>("inGroupEndTime", *request->inGroupEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inGroupStartTime)) {
+    body->insert(pair<string, string>("inGroupStartTime", *request->inGroupStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inventoryRiskLevel)) {
+    body->insert(pair<string, string>("inventoryRiskLevel", *request->inventoryRiskLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lmItemId)) {
+    body->insert(pair<string, string>("lmItemId", *request->lmItemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->lowMarkPrice)) {
+    body->insert(pair<string, long>("lowMarkPrice", *request->lowMarkPrice));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->lowPrice)) {
+    body->insert(pair<string, long>("lowPrice", *request->lowPrice));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modifyEndTime)) {
+    body->insert(pair<string, string>("modifyEndTime", *request->modifyEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modifyStartTime)) {
+    body->insert(pair<string, string>("modifyStartTime", *request->modifyStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
+    body->insert(pair<string, string>("orderBy", *request->orderBy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderDirection)) {
+    body->insert(pair<string, string>("orderDirection", *request->orderDirection));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    body->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->platform)) {
+    body->insert(pair<string, string>("platform", *request->platform));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productId)) {
+    body->insert(pair<string, string>("productId", *request->productId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productName)) {
+    body->insert(pair<string, string>("productName", *request->productName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productStatus)) {
+    body->insert(pair<string, string>("productStatus", *request->productStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->purchaserId)) {
+    body->insert(pair<string, string>("purchaserId", *request->purchaserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taxRate)) {
+    body->insert(pair<string, string>("taxRate", *request->taxRate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tradeModeAndCredit)) {
+    body->insert(pair<string, string>("tradeModeAndCredit", *request->tradeModeAndCredit));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SearchProducts"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/selection-group/product/command/searchProduct"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SearchProductsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SearchProductsResponse(execute(params, req, runtime));
+  }
+}
+
+SearchProductsResponse Alibabacloud_Linkedmall20230930::Client::searchProducts(shared_ptr<SearchProductsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return searchProductsWithOptions(request, headers, runtime);
+}
+
+SelectionGroupAddProductResponse Alibabacloud_Linkedmall20230930::Client::selectionGroupAddProductWithOptions(shared_ptr<SelectionGroupAddProductRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->productIds)) {
+    body->insert(pair<string, vector<string>>("productIds", *request->productIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->purchaserId)) {
+    body->insert(pair<string, string>("purchaserId", *request->purchaserId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SelectionGroupAddProduct"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/selection-group/product/command/addProduct"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SelectionGroupAddProductResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SelectionGroupAddProductResponse(execute(params, req, runtime));
+  }
+}
+
+SelectionGroupAddProductResponse Alibabacloud_Linkedmall20230930::Client::selectionGroupAddProduct(shared_ptr<SelectionGroupAddProductRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return selectionGroupAddProductWithOptions(request, headers, runtime);
+}
+
+SelectionGroupRemoveProductResponse Alibabacloud_Linkedmall20230930::Client::selectionGroupRemoveProductWithOptions(shared_ptr<SelectionGroupRemoveProductRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->productIds)) {
+    body->insert(pair<string, vector<string>>("productIds", *request->productIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->purchaserId)) {
+    body->insert(pair<string, string>("purchaserId", *request->purchaserId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SelectionGroupRemoveProduct"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/selection-group/product/command/removeProduct"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SelectionGroupRemoveProductResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SelectionGroupRemoveProductResponse(execute(params, req, runtime));
+  }
+}
+
+SelectionGroupRemoveProductResponse Alibabacloud_Linkedmall20230930::Client::selectionGroupRemoveProduct(shared_ptr<SelectionGroupRemoveProductRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return selectionGroupRemoveProductWithOptions(request, headers, runtime);
 }
 
 SplitPurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::splitPurchaseOrderWithOptions(shared_ptr<SplitPurchaseOrderRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -682,7 +985,12 @@ SplitPurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::splitPurchas
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return SplitPurchaseOrderResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SplitPurchaseOrderResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SplitPurchaseOrderResponse(execute(params, req, runtime));
+  }
 }
 
 SplitPurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::splitPurchaseOrder(shared_ptr<SplitPurchaseOrderRequest> request) {

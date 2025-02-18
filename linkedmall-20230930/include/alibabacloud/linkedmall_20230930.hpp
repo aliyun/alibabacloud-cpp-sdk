@@ -501,6 +501,360 @@ public:
 
   virtual ~DeliveryInfo() = default;
 };
+class DistributionSku : public Darabonba::Model {
+public:
+  shared_ptr<string> aliasTitle{};
+  shared_ptr<string> barCode{};
+  shared_ptr<long> creditPeriod{};
+  shared_ptr<long> dxPrice{};
+  shared_ptr<bool> hasCredit{};
+  shared_ptr<bool> hasInvoice{};
+  shared_ptr<long> jxPrice{};
+  shared_ptr<string> picUrl{};
+  shared_ptr<long> quantity{};
+  shared_ptr<string> skuId{};
+  shared_ptr<string> skuStatus{};
+  shared_ptr<string> taxCode{};
+  shared_ptr<long> taxRate{};
+  shared_ptr<string> title{};
+
+  DistributionSku() {}
+
+  explicit DistributionSku(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliasTitle) {
+      res["aliasTitle"] = boost::any(*aliasTitle);
+    }
+    if (barCode) {
+      res["barCode"] = boost::any(*barCode);
+    }
+    if (creditPeriod) {
+      res["creditPeriod"] = boost::any(*creditPeriod);
+    }
+    if (dxPrice) {
+      res["dxPrice"] = boost::any(*dxPrice);
+    }
+    if (hasCredit) {
+      res["hasCredit"] = boost::any(*hasCredit);
+    }
+    if (hasInvoice) {
+      res["hasInvoice"] = boost::any(*hasInvoice);
+    }
+    if (jxPrice) {
+      res["jxPrice"] = boost::any(*jxPrice);
+    }
+    if (picUrl) {
+      res["picUrl"] = boost::any(*picUrl);
+    }
+    if (quantity) {
+      res["quantity"] = boost::any(*quantity);
+    }
+    if (skuId) {
+      res["skuId"] = boost::any(*skuId);
+    }
+    if (skuStatus) {
+      res["skuStatus"] = boost::any(*skuStatus);
+    }
+    if (taxCode) {
+      res["taxCode"] = boost::any(*taxCode);
+    }
+    if (taxRate) {
+      res["taxRate"] = boost::any(*taxRate);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aliasTitle") != m.end() && !m["aliasTitle"].empty()) {
+      aliasTitle = make_shared<string>(boost::any_cast<string>(m["aliasTitle"]));
+    }
+    if (m.find("barCode") != m.end() && !m["barCode"].empty()) {
+      barCode = make_shared<string>(boost::any_cast<string>(m["barCode"]));
+    }
+    if (m.find("creditPeriod") != m.end() && !m["creditPeriod"].empty()) {
+      creditPeriod = make_shared<long>(boost::any_cast<long>(m["creditPeriod"]));
+    }
+    if (m.find("dxPrice") != m.end() && !m["dxPrice"].empty()) {
+      dxPrice = make_shared<long>(boost::any_cast<long>(m["dxPrice"]));
+    }
+    if (m.find("hasCredit") != m.end() && !m["hasCredit"].empty()) {
+      hasCredit = make_shared<bool>(boost::any_cast<bool>(m["hasCredit"]));
+    }
+    if (m.find("hasInvoice") != m.end() && !m["hasInvoice"].empty()) {
+      hasInvoice = make_shared<bool>(boost::any_cast<bool>(m["hasInvoice"]));
+    }
+    if (m.find("jxPrice") != m.end() && !m["jxPrice"].empty()) {
+      jxPrice = make_shared<long>(boost::any_cast<long>(m["jxPrice"]));
+    }
+    if (m.find("picUrl") != m.end() && !m["picUrl"].empty()) {
+      picUrl = make_shared<string>(boost::any_cast<string>(m["picUrl"]));
+    }
+    if (m.find("quantity") != m.end() && !m["quantity"].empty()) {
+      quantity = make_shared<long>(boost::any_cast<long>(m["quantity"]));
+    }
+    if (m.find("skuId") != m.end() && !m["skuId"].empty()) {
+      skuId = make_shared<string>(boost::any_cast<string>(m["skuId"]));
+    }
+    if (m.find("skuStatus") != m.end() && !m["skuStatus"].empty()) {
+      skuStatus = make_shared<string>(boost::any_cast<string>(m["skuStatus"]));
+    }
+    if (m.find("taxCode") != m.end() && !m["taxCode"].empty()) {
+      taxCode = make_shared<string>(boost::any_cast<string>(m["taxCode"]));
+    }
+    if (m.find("taxRate") != m.end() && !m["taxRate"].empty()) {
+      taxRate = make_shared<long>(boost::any_cast<long>(m["taxRate"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~DistributionSku() = default;
+};
+class DistributionProduct : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryChain{};
+  shared_ptr<long> categoryLeafId{};
+  shared_ptr<string> categoryLeafName{};
+  shared_ptr<string> channelCode{};
+  shared_ptr<string> distributeStatus{};
+  shared_ptr<string> picUrl{};
+  shared_ptr<string> productId{};
+  shared_ptr<string> sellerId{};
+  shared_ptr<string> shortTitle{};
+  shared_ptr<vector<DistributionSku>> skus{};
+  shared_ptr<string> title{};
+  shared_ptr<string> whiteBackgroundPicUrl{};
+
+  DistributionProduct() {}
+
+  explicit DistributionProduct(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryChain) {
+      res["categoryChain"] = boost::any(*categoryChain);
+    }
+    if (categoryLeafId) {
+      res["categoryLeafId"] = boost::any(*categoryLeafId);
+    }
+    if (categoryLeafName) {
+      res["categoryLeafName"] = boost::any(*categoryLeafName);
+    }
+    if (channelCode) {
+      res["channelCode"] = boost::any(*channelCode);
+    }
+    if (distributeStatus) {
+      res["distributeStatus"] = boost::any(*distributeStatus);
+    }
+    if (picUrl) {
+      res["picUrl"] = boost::any(*picUrl);
+    }
+    if (productId) {
+      res["productId"] = boost::any(*productId);
+    }
+    if (sellerId) {
+      res["sellerId"] = boost::any(*sellerId);
+    }
+    if (shortTitle) {
+      res["shortTitle"] = boost::any(*shortTitle);
+    }
+    if (skus) {
+      vector<boost::any> temp1;
+      for(auto item1:*skus){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["skus"] = boost::any(temp1);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    if (whiteBackgroundPicUrl) {
+      res["whiteBackgroundPicUrl"] = boost::any(*whiteBackgroundPicUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("categoryChain") != m.end() && !m["categoryChain"].empty()) {
+      categoryChain = make_shared<string>(boost::any_cast<string>(m["categoryChain"]));
+    }
+    if (m.find("categoryLeafId") != m.end() && !m["categoryLeafId"].empty()) {
+      categoryLeafId = make_shared<long>(boost::any_cast<long>(m["categoryLeafId"]));
+    }
+    if (m.find("categoryLeafName") != m.end() && !m["categoryLeafName"].empty()) {
+      categoryLeafName = make_shared<string>(boost::any_cast<string>(m["categoryLeafName"]));
+    }
+    if (m.find("channelCode") != m.end() && !m["channelCode"].empty()) {
+      channelCode = make_shared<string>(boost::any_cast<string>(m["channelCode"]));
+    }
+    if (m.find("distributeStatus") != m.end() && !m["distributeStatus"].empty()) {
+      distributeStatus = make_shared<string>(boost::any_cast<string>(m["distributeStatus"]));
+    }
+    if (m.find("picUrl") != m.end() && !m["picUrl"].empty()) {
+      picUrl = make_shared<string>(boost::any_cast<string>(m["picUrl"]));
+    }
+    if (m.find("productId") != m.end() && !m["productId"].empty()) {
+      productId = make_shared<string>(boost::any_cast<string>(m["productId"]));
+    }
+    if (m.find("sellerId") != m.end() && !m["sellerId"].empty()) {
+      sellerId = make_shared<string>(boost::any_cast<string>(m["sellerId"]));
+    }
+    if (m.find("shortTitle") != m.end() && !m["shortTitle"].empty()) {
+      shortTitle = make_shared<string>(boost::any_cast<string>(m["shortTitle"]));
+    }
+    if (m.find("skus") != m.end() && !m["skus"].empty()) {
+      if (typeid(vector<boost::any>) == m["skus"].type()) {
+        vector<DistributionSku> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["skus"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DistributionSku model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        skus = make_shared<vector<DistributionSku>>(expect1);
+      }
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+    if (m.find("whiteBackgroundPicUrl") != m.end() && !m["whiteBackgroundPicUrl"].empty()) {
+      whiteBackgroundPicUrl = make_shared<string>(boost::any_cast<string>(m["whiteBackgroundPicUrl"]));
+    }
+  }
+
+
+  virtual ~DistributionProduct() = default;
+};
+class DistributeProductCommand : public Darabonba::Model {
+public:
+  shared_ptr<string> lmShopId{};
+  shared_ptr<vector<DistributionProduct>> products{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> requestTime{};
+  shared_ptr<string> requestUser{};
+
+  DistributeProductCommand() {}
+
+  explicit DistributeProductCommand(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lmShopId) {
+      res["lmShopId"] = boost::any(*lmShopId);
+    }
+    if (products) {
+      vector<boost::any> temp1;
+      for(auto item1:*products){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["products"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (requestTime) {
+      res["requestTime"] = boost::any(*requestTime);
+    }
+    if (requestUser) {
+      res["requestUser"] = boost::any(*requestUser);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("lmShopId") != m.end() && !m["lmShopId"].empty()) {
+      lmShopId = make_shared<string>(boost::any_cast<string>(m["lmShopId"]));
+    }
+    if (m.find("products") != m.end() && !m["products"].empty()) {
+      if (typeid(vector<boost::any>) == m["products"].type()) {
+        vector<DistributionProduct> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["products"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DistributionProduct model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        products = make_shared<vector<DistributionProduct>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("requestTime") != m.end() && !m["requestTime"].empty()) {
+      requestTime = make_shared<string>(boost::any_cast<string>(m["requestTime"]));
+    }
+    if (m.find("requestUser") != m.end() && !m["requestUser"].empty()) {
+      requestUser = make_shared<string>(boost::any_cast<string>(m["requestUser"]));
+    }
+  }
+
+
+  virtual ~DistributeProductCommand() = default;
+};
+class DistributeProductResult : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DistributeProductResult() {}
+
+  explicit DistributeProductResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~DistributeProductResult() = default;
+};
 class DistributionMaxRefundFee : public Darabonba::Model {
 public:
   shared_ptr<long> maxRefundFee{};
@@ -1070,6 +1424,70 @@ public:
 
 
   virtual ~GeneralBillPageResult() = default;
+};
+class GetDistributionProductResult : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<vector<DistributionProduct>> products{};
+  shared_ptr<string> requestId{};
+
+  GetDistributionProductResult() {}
+
+  explicit GetDistributionProductResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (products) {
+      vector<boost::any> temp1;
+      for(auto item1:*products){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["products"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("products") != m.end() && !m["products"].empty()) {
+      if (typeid(vector<boost::any>) == m["products"].type()) {
+        vector<DistributionProduct> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["products"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DistributionProduct model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        products = make_shared<vector<DistributionProduct>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~GetDistributionProductResult() = default;
 };
 class Good : public Darabonba::Model {
 public:
@@ -2438,6 +2856,7 @@ class Sku : public Darabonba::Model {
 public:
   shared_ptr<string> barcode{};
   shared_ptr<bool> canSell{};
+  shared_ptr<long> discountRetailPrice{};
   shared_ptr<string> divisionCode{};
   shared_ptr<string> fuzzyQuantity{};
   shared_ptr<long> markPrice{};
@@ -2470,6 +2889,9 @@ public:
     }
     if (canSell) {
       res["canSell"] = boost::any(*canSell);
+    }
+    if (discountRetailPrice) {
+      res["discountRetailPrice"] = boost::any(*discountRetailPrice);
     }
     if (divisionCode) {
       res["divisionCode"] = boost::any(*divisionCode);
@@ -2532,6 +2954,9 @@ public:
     }
     if (m.find("canSell") != m.end() && !m["canSell"].empty()) {
       canSell = make_shared<bool>(boost::any_cast<bool>(m["canSell"]));
+    }
+    if (m.find("discountRetailPrice") != m.end() && !m["discountRetailPrice"].empty()) {
+      discountRetailPrice = make_shared<long>(boost::any_cast<long>(m["discountRetailPrice"]));
     }
     if (m.find("divisionCode") != m.end() && !m["divisionCode"].empty()) {
       divisionCode = make_shared<string>(boost::any_cast<string>(m["divisionCode"]));
@@ -2607,6 +3032,7 @@ public:
   shared_ptr<vector<ProductExtendProperty>> extendProperties{};
   shared_ptr<string> fuzzyQuantity{};
   shared_ptr<vector<string>> images{};
+  shared_ptr<bool> inGroup{};
   shared_ptr<vector<LimitRule>> limitRules{};
   shared_ptr<string> lmItemId{};
   shared_ptr<string> picUrl{};
@@ -2668,6 +3094,9 @@ public:
     }
     if (images) {
       res["images"] = boost::any(*images);
+    }
+    if (inGroup) {
+      res["inGroup"] = boost::any(*inGroup);
     }
     if (limitRules) {
       vector<boost::any> temp1;
@@ -2790,6 +3219,9 @@ public:
         }
       }
       images = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("inGroup") != m.end() && !m["inGroup"].empty()) {
+      inGroup = make_shared<bool>(boost::any_cast<bool>(m["inGroup"]));
     }
     if (m.find("limitRules") != m.end() && !m["limitRules"].empty()) {
       if (typeid(vector<boost::any>) == m["limitRules"].type()) {
@@ -4882,6 +5314,127 @@ public:
 
   virtual ~SkuSaleInfoListResult() = default;
 };
+class StopDistributionCommand : public Darabonba::Model {
+public:
+  shared_ptr<string> lmShopId{};
+  shared_ptr<string> productId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> requestTime{};
+  shared_ptr<string> requestUser{};
+
+  StopDistributionCommand() {}
+
+  explicit StopDistributionCommand(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lmShopId) {
+      res["lmShopId"] = boost::any(*lmShopId);
+    }
+    if (productId) {
+      res["productId"] = boost::any(*productId);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (requestTime) {
+      res["requestTime"] = boost::any(*requestTime);
+    }
+    if (requestUser) {
+      res["requestUser"] = boost::any(*requestUser);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("lmShopId") != m.end() && !m["lmShopId"].empty()) {
+      lmShopId = make_shared<string>(boost::any_cast<string>(m["lmShopId"]));
+    }
+    if (m.find("productId") != m.end() && !m["productId"].empty()) {
+      productId = make_shared<string>(boost::any_cast<string>(m["productId"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("requestTime") != m.end() && !m["requestTime"].empty()) {
+      requestTime = make_shared<string>(boost::any_cast<string>(m["requestTime"]));
+    }
+    if (m.find("requestUser") != m.end() && !m["requestUser"].empty()) {
+      requestUser = make_shared<string>(boost::any_cast<string>(m["requestUser"]));
+    }
+  }
+
+
+  virtual ~StopDistributionCommand() = default;
+};
+class StopDistributionResult : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<vector<DistributionProduct>> products{};
+  shared_ptr<string> requestId{};
+
+  StopDistributionResult() {}
+
+  explicit StopDistributionResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (products) {
+      vector<boost::any> temp1;
+      for(auto item1:*products){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["products"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("products") != m.end() && !m["products"].empty()) {
+      if (typeid(vector<boost::any>) == m["products"].type()) {
+        vector<DistributionProduct> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["products"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DistributionProduct model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        products = make_shared<vector<DistributionProduct>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~StopDistributionResult() = default;
+};
 class CancelRefundOrderResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -6488,6 +7041,884 @@ public:
 
   virtual ~RenderRefundOrderResponse() = default;
 };
+class SearchProductsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> brandName{};
+  shared_ptr<vector<string>> categoryIds{};
+  shared_ptr<string> createEndTime{};
+  shared_ptr<string> createStartTime{};
+  shared_ptr<long> distributionHighPrice{};
+  shared_ptr<long> distributionHighPriceRatio{};
+  shared_ptr<long> distributionLowPrice{};
+  shared_ptr<long> distributionLowPriceRatio{};
+  shared_ptr<long> highMarkPrice{};
+  shared_ptr<long> highPrice{};
+  shared_ptr<bool> inGroup{};
+  shared_ptr<string> inGroupEndTime{};
+  shared_ptr<string> inGroupStartTime{};
+  shared_ptr<string> inventoryRiskLevel{};
+  shared_ptr<string> lmItemId{};
+  shared_ptr<long> lowMarkPrice{};
+  shared_ptr<long> lowPrice{};
+  shared_ptr<string> modifyEndTime{};
+  shared_ptr<string> modifyStartTime{};
+  shared_ptr<string> orderBy{};
+  shared_ptr<string> orderDirection{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> platform{};
+  shared_ptr<string> productId{};
+  shared_ptr<string> productName{};
+  shared_ptr<string> productStatus{};
+  shared_ptr<string> purchaserId{};
+  shared_ptr<string> taxRate{};
+  shared_ptr<string> tradeModeAndCredit{};
+
+  SearchProductsRequest() {}
+
+  explicit SearchProductsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (brandName) {
+      res["brandName"] = boost::any(*brandName);
+    }
+    if (categoryIds) {
+      res["categoryIds"] = boost::any(*categoryIds);
+    }
+    if (createEndTime) {
+      res["createEndTime"] = boost::any(*createEndTime);
+    }
+    if (createStartTime) {
+      res["createStartTime"] = boost::any(*createStartTime);
+    }
+    if (distributionHighPrice) {
+      res["distributionHighPrice"] = boost::any(*distributionHighPrice);
+    }
+    if (distributionHighPriceRatio) {
+      res["distributionHighPriceRatio"] = boost::any(*distributionHighPriceRatio);
+    }
+    if (distributionLowPrice) {
+      res["distributionLowPrice"] = boost::any(*distributionLowPrice);
+    }
+    if (distributionLowPriceRatio) {
+      res["distributionLowPriceRatio"] = boost::any(*distributionLowPriceRatio);
+    }
+    if (highMarkPrice) {
+      res["highMarkPrice"] = boost::any(*highMarkPrice);
+    }
+    if (highPrice) {
+      res["highPrice"] = boost::any(*highPrice);
+    }
+    if (inGroup) {
+      res["inGroup"] = boost::any(*inGroup);
+    }
+    if (inGroupEndTime) {
+      res["inGroupEndTime"] = boost::any(*inGroupEndTime);
+    }
+    if (inGroupStartTime) {
+      res["inGroupStartTime"] = boost::any(*inGroupStartTime);
+    }
+    if (inventoryRiskLevel) {
+      res["inventoryRiskLevel"] = boost::any(*inventoryRiskLevel);
+    }
+    if (lmItemId) {
+      res["lmItemId"] = boost::any(*lmItemId);
+    }
+    if (lowMarkPrice) {
+      res["lowMarkPrice"] = boost::any(*lowMarkPrice);
+    }
+    if (lowPrice) {
+      res["lowPrice"] = boost::any(*lowPrice);
+    }
+    if (modifyEndTime) {
+      res["modifyEndTime"] = boost::any(*modifyEndTime);
+    }
+    if (modifyStartTime) {
+      res["modifyStartTime"] = boost::any(*modifyStartTime);
+    }
+    if (orderBy) {
+      res["orderBy"] = boost::any(*orderBy);
+    }
+    if (orderDirection) {
+      res["orderDirection"] = boost::any(*orderDirection);
+    }
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    if (platform) {
+      res["platform"] = boost::any(*platform);
+    }
+    if (productId) {
+      res["productId"] = boost::any(*productId);
+    }
+    if (productName) {
+      res["productName"] = boost::any(*productName);
+    }
+    if (productStatus) {
+      res["productStatus"] = boost::any(*productStatus);
+    }
+    if (purchaserId) {
+      res["purchaserId"] = boost::any(*purchaserId);
+    }
+    if (taxRate) {
+      res["taxRate"] = boost::any(*taxRate);
+    }
+    if (tradeModeAndCredit) {
+      res["tradeModeAndCredit"] = boost::any(*tradeModeAndCredit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("brandName") != m.end() && !m["brandName"].empty()) {
+      brandName = make_shared<string>(boost::any_cast<string>(m["brandName"]));
+    }
+    if (m.find("categoryIds") != m.end() && !m["categoryIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["categoryIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["categoryIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      categoryIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("createEndTime") != m.end() && !m["createEndTime"].empty()) {
+      createEndTime = make_shared<string>(boost::any_cast<string>(m["createEndTime"]));
+    }
+    if (m.find("createStartTime") != m.end() && !m["createStartTime"].empty()) {
+      createStartTime = make_shared<string>(boost::any_cast<string>(m["createStartTime"]));
+    }
+    if (m.find("distributionHighPrice") != m.end() && !m["distributionHighPrice"].empty()) {
+      distributionHighPrice = make_shared<long>(boost::any_cast<long>(m["distributionHighPrice"]));
+    }
+    if (m.find("distributionHighPriceRatio") != m.end() && !m["distributionHighPriceRatio"].empty()) {
+      distributionHighPriceRatio = make_shared<long>(boost::any_cast<long>(m["distributionHighPriceRatio"]));
+    }
+    if (m.find("distributionLowPrice") != m.end() && !m["distributionLowPrice"].empty()) {
+      distributionLowPrice = make_shared<long>(boost::any_cast<long>(m["distributionLowPrice"]));
+    }
+    if (m.find("distributionLowPriceRatio") != m.end() && !m["distributionLowPriceRatio"].empty()) {
+      distributionLowPriceRatio = make_shared<long>(boost::any_cast<long>(m["distributionLowPriceRatio"]));
+    }
+    if (m.find("highMarkPrice") != m.end() && !m["highMarkPrice"].empty()) {
+      highMarkPrice = make_shared<long>(boost::any_cast<long>(m["highMarkPrice"]));
+    }
+    if (m.find("highPrice") != m.end() && !m["highPrice"].empty()) {
+      highPrice = make_shared<long>(boost::any_cast<long>(m["highPrice"]));
+    }
+    if (m.find("inGroup") != m.end() && !m["inGroup"].empty()) {
+      inGroup = make_shared<bool>(boost::any_cast<bool>(m["inGroup"]));
+    }
+    if (m.find("inGroupEndTime") != m.end() && !m["inGroupEndTime"].empty()) {
+      inGroupEndTime = make_shared<string>(boost::any_cast<string>(m["inGroupEndTime"]));
+    }
+    if (m.find("inGroupStartTime") != m.end() && !m["inGroupStartTime"].empty()) {
+      inGroupStartTime = make_shared<string>(boost::any_cast<string>(m["inGroupStartTime"]));
+    }
+    if (m.find("inventoryRiskLevel") != m.end() && !m["inventoryRiskLevel"].empty()) {
+      inventoryRiskLevel = make_shared<string>(boost::any_cast<string>(m["inventoryRiskLevel"]));
+    }
+    if (m.find("lmItemId") != m.end() && !m["lmItemId"].empty()) {
+      lmItemId = make_shared<string>(boost::any_cast<string>(m["lmItemId"]));
+    }
+    if (m.find("lowMarkPrice") != m.end() && !m["lowMarkPrice"].empty()) {
+      lowMarkPrice = make_shared<long>(boost::any_cast<long>(m["lowMarkPrice"]));
+    }
+    if (m.find("lowPrice") != m.end() && !m["lowPrice"].empty()) {
+      lowPrice = make_shared<long>(boost::any_cast<long>(m["lowPrice"]));
+    }
+    if (m.find("modifyEndTime") != m.end() && !m["modifyEndTime"].empty()) {
+      modifyEndTime = make_shared<string>(boost::any_cast<string>(m["modifyEndTime"]));
+    }
+    if (m.find("modifyStartTime") != m.end() && !m["modifyStartTime"].empty()) {
+      modifyStartTime = make_shared<string>(boost::any_cast<string>(m["modifyStartTime"]));
+    }
+    if (m.find("orderBy") != m.end() && !m["orderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["orderBy"]));
+    }
+    if (m.find("orderDirection") != m.end() && !m["orderDirection"].empty()) {
+      orderDirection = make_shared<string>(boost::any_cast<string>(m["orderDirection"]));
+    }
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+    if (m.find("platform") != m.end() && !m["platform"].empty()) {
+      platform = make_shared<string>(boost::any_cast<string>(m["platform"]));
+    }
+    if (m.find("productId") != m.end() && !m["productId"].empty()) {
+      productId = make_shared<string>(boost::any_cast<string>(m["productId"]));
+    }
+    if (m.find("productName") != m.end() && !m["productName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["productName"]));
+    }
+    if (m.find("productStatus") != m.end() && !m["productStatus"].empty()) {
+      productStatus = make_shared<string>(boost::any_cast<string>(m["productStatus"]));
+    }
+    if (m.find("purchaserId") != m.end() && !m["purchaserId"].empty()) {
+      purchaserId = make_shared<string>(boost::any_cast<string>(m["purchaserId"]));
+    }
+    if (m.find("taxRate") != m.end() && !m["taxRate"].empty()) {
+      taxRate = make_shared<string>(boost::any_cast<string>(m["taxRate"]));
+    }
+    if (m.find("tradeModeAndCredit") != m.end() && !m["tradeModeAndCredit"].empty()) {
+      tradeModeAndCredit = make_shared<string>(boost::any_cast<string>(m["tradeModeAndCredit"]));
+    }
+  }
+
+
+  virtual ~SearchProductsRequest() = default;
+};
+class SearchProductsResponseBodyProductsCategoryChain : public Darabonba::Model {
+public:
+  shared_ptr<long> categoryId{};
+  shared_ptr<bool> level{};
+  shared_ptr<string> name{};
+  shared_ptr<long> parentId{};
+
+  SearchProductsResponseBodyProductsCategoryChain() {}
+
+  explicit SearchProductsResponseBodyProductsCategoryChain(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryId) {
+      res["categoryId"] = boost::any(*categoryId);
+    }
+    if (level) {
+      res["level"] = boost::any(*level);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (parentId) {
+      res["parentId"] = boost::any(*parentId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("categoryId") != m.end() && !m["categoryId"].empty()) {
+      categoryId = make_shared<long>(boost::any_cast<long>(m["categoryId"]));
+    }
+    if (m.find("level") != m.end() && !m["level"].empty()) {
+      level = make_shared<bool>(boost::any_cast<bool>(m["level"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("parentId") != m.end() && !m["parentId"].empty()) {
+      parentId = make_shared<long>(boost::any_cast<long>(m["parentId"]));
+    }
+  }
+
+
+  virtual ~SearchProductsResponseBodyProductsCategoryChain() = default;
+};
+class SearchProductsResponseBodyProducts : public Darabonba::Model {
+public:
+  shared_ptr<string> bandName{};
+  shared_ptr<string> canNotSellReason{};
+  shared_ptr<bool> canSell{};
+  shared_ptr<vector<SearchProductsResponseBodyProductsCategoryChain>> categoryChain{};
+  shared_ptr<vector<string>> credit{};
+  shared_ptr<string> diffPrice{};
+  shared_ptr<string> distributionPrice{};
+  shared_ptr<string> distributionPriceRatio{};
+  shared_ptr<string> externalPlatformType{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<bool> inGroup{};
+  shared_ptr<string> inGroupTime{};
+  shared_ptr<string> inventoryRiskLevel{};
+  shared_ptr<string> invoiceType{};
+  shared_ptr<string> lmItemId{};
+  shared_ptr<string> picUrl{};
+  shared_ptr<string> platformPrice{};
+  shared_ptr<string> platformReservePrice{};
+  shared_ptr<string> productId{};
+  shared_ptr<string> productName{};
+  shared_ptr<string> shopName{};
+  shared_ptr<string> soldQuantity{};
+  shared_ptr<string> taxCode{};
+  shared_ptr<long> taxRate{};
+  shared_ptr<string> tradeMode{};
+
+  SearchProductsResponseBodyProducts() {}
+
+  explicit SearchProductsResponseBodyProducts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandName) {
+      res["bandName"] = boost::any(*bandName);
+    }
+    if (canNotSellReason) {
+      res["canNotSellReason"] = boost::any(*canNotSellReason);
+    }
+    if (canSell) {
+      res["canSell"] = boost::any(*canSell);
+    }
+    if (categoryChain) {
+      vector<boost::any> temp1;
+      for(auto item1:*categoryChain){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["categoryChain"] = boost::any(temp1);
+    }
+    if (credit) {
+      res["credit"] = boost::any(*credit);
+    }
+    if (diffPrice) {
+      res["diffPrice"] = boost::any(*diffPrice);
+    }
+    if (distributionPrice) {
+      res["distributionPrice"] = boost::any(*distributionPrice);
+    }
+    if (distributionPriceRatio) {
+      res["distributionPriceRatio"] = boost::any(*distributionPriceRatio);
+    }
+    if (externalPlatformType) {
+      res["externalPlatformType"] = boost::any(*externalPlatformType);
+    }
+    if (gmtCreate) {
+      res["gmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["gmtModified"] = boost::any(*gmtModified);
+    }
+    if (inGroup) {
+      res["inGroup"] = boost::any(*inGroup);
+    }
+    if (inGroupTime) {
+      res["inGroupTime"] = boost::any(*inGroupTime);
+    }
+    if (inventoryRiskLevel) {
+      res["inventoryRiskLevel"] = boost::any(*inventoryRiskLevel);
+    }
+    if (invoiceType) {
+      res["invoiceType"] = boost::any(*invoiceType);
+    }
+    if (lmItemId) {
+      res["lmItemId"] = boost::any(*lmItemId);
+    }
+    if (picUrl) {
+      res["picUrl"] = boost::any(*picUrl);
+    }
+    if (platformPrice) {
+      res["platformPrice"] = boost::any(*platformPrice);
+    }
+    if (platformReservePrice) {
+      res["platformReservePrice"] = boost::any(*platformReservePrice);
+    }
+    if (productId) {
+      res["productId"] = boost::any(*productId);
+    }
+    if (productName) {
+      res["productName"] = boost::any(*productName);
+    }
+    if (shopName) {
+      res["shopName"] = boost::any(*shopName);
+    }
+    if (soldQuantity) {
+      res["soldQuantity"] = boost::any(*soldQuantity);
+    }
+    if (taxCode) {
+      res["taxCode"] = boost::any(*taxCode);
+    }
+    if (taxRate) {
+      res["taxRate"] = boost::any(*taxRate);
+    }
+    if (tradeMode) {
+      res["tradeMode"] = boost::any(*tradeMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("bandName") != m.end() && !m["bandName"].empty()) {
+      bandName = make_shared<string>(boost::any_cast<string>(m["bandName"]));
+    }
+    if (m.find("canNotSellReason") != m.end() && !m["canNotSellReason"].empty()) {
+      canNotSellReason = make_shared<string>(boost::any_cast<string>(m["canNotSellReason"]));
+    }
+    if (m.find("canSell") != m.end() && !m["canSell"].empty()) {
+      canSell = make_shared<bool>(boost::any_cast<bool>(m["canSell"]));
+    }
+    if (m.find("categoryChain") != m.end() && !m["categoryChain"].empty()) {
+      if (typeid(vector<boost::any>) == m["categoryChain"].type()) {
+        vector<SearchProductsResponseBodyProductsCategoryChain> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["categoryChain"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SearchProductsResponseBodyProductsCategoryChain model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        categoryChain = make_shared<vector<SearchProductsResponseBodyProductsCategoryChain>>(expect1);
+      }
+    }
+    if (m.find("credit") != m.end() && !m["credit"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["credit"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["credit"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      credit = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("diffPrice") != m.end() && !m["diffPrice"].empty()) {
+      diffPrice = make_shared<string>(boost::any_cast<string>(m["diffPrice"]));
+    }
+    if (m.find("distributionPrice") != m.end() && !m["distributionPrice"].empty()) {
+      distributionPrice = make_shared<string>(boost::any_cast<string>(m["distributionPrice"]));
+    }
+    if (m.find("distributionPriceRatio") != m.end() && !m["distributionPriceRatio"].empty()) {
+      distributionPriceRatio = make_shared<string>(boost::any_cast<string>(m["distributionPriceRatio"]));
+    }
+    if (m.find("externalPlatformType") != m.end() && !m["externalPlatformType"].empty()) {
+      externalPlatformType = make_shared<string>(boost::any_cast<string>(m["externalPlatformType"]));
+    }
+    if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmtCreate"]));
+    }
+    if (m.find("gmtModified") != m.end() && !m["gmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["gmtModified"]));
+    }
+    if (m.find("inGroup") != m.end() && !m["inGroup"].empty()) {
+      inGroup = make_shared<bool>(boost::any_cast<bool>(m["inGroup"]));
+    }
+    if (m.find("inGroupTime") != m.end() && !m["inGroupTime"].empty()) {
+      inGroupTime = make_shared<string>(boost::any_cast<string>(m["inGroupTime"]));
+    }
+    if (m.find("inventoryRiskLevel") != m.end() && !m["inventoryRiskLevel"].empty()) {
+      inventoryRiskLevel = make_shared<string>(boost::any_cast<string>(m["inventoryRiskLevel"]));
+    }
+    if (m.find("invoiceType") != m.end() && !m["invoiceType"].empty()) {
+      invoiceType = make_shared<string>(boost::any_cast<string>(m["invoiceType"]));
+    }
+    if (m.find("lmItemId") != m.end() && !m["lmItemId"].empty()) {
+      lmItemId = make_shared<string>(boost::any_cast<string>(m["lmItemId"]));
+    }
+    if (m.find("picUrl") != m.end() && !m["picUrl"].empty()) {
+      picUrl = make_shared<string>(boost::any_cast<string>(m["picUrl"]));
+    }
+    if (m.find("platformPrice") != m.end() && !m["platformPrice"].empty()) {
+      platformPrice = make_shared<string>(boost::any_cast<string>(m["platformPrice"]));
+    }
+    if (m.find("platformReservePrice") != m.end() && !m["platformReservePrice"].empty()) {
+      platformReservePrice = make_shared<string>(boost::any_cast<string>(m["platformReservePrice"]));
+    }
+    if (m.find("productId") != m.end() && !m["productId"].empty()) {
+      productId = make_shared<string>(boost::any_cast<string>(m["productId"]));
+    }
+    if (m.find("productName") != m.end() && !m["productName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["productName"]));
+    }
+    if (m.find("shopName") != m.end() && !m["shopName"].empty()) {
+      shopName = make_shared<string>(boost::any_cast<string>(m["shopName"]));
+    }
+    if (m.find("soldQuantity") != m.end() && !m["soldQuantity"].empty()) {
+      soldQuantity = make_shared<string>(boost::any_cast<string>(m["soldQuantity"]));
+    }
+    if (m.find("taxCode") != m.end() && !m["taxCode"].empty()) {
+      taxCode = make_shared<string>(boost::any_cast<string>(m["taxCode"]));
+    }
+    if (m.find("taxRate") != m.end() && !m["taxRate"].empty()) {
+      taxRate = make_shared<long>(boost::any_cast<long>(m["taxRate"]));
+    }
+    if (m.find("tradeMode") != m.end() && !m["tradeMode"].empty()) {
+      tradeMode = make_shared<string>(boost::any_cast<string>(m["tradeMode"]));
+    }
+  }
+
+
+  virtual ~SearchProductsResponseBodyProducts() = default;
+};
+class SearchProductsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<SearchProductsResponseBodyProducts>> products{};
+  shared_ptr<long> total{};
+
+  SearchProductsResponseBody() {}
+
+  explicit SearchProductsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (products) {
+      vector<boost::any> temp1;
+      for(auto item1:*products){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["products"] = boost::any(temp1);
+    }
+    if (total) {
+      res["total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("products") != m.end() && !m["products"].empty()) {
+      if (typeid(vector<boost::any>) == m["products"].type()) {
+        vector<SearchProductsResponseBodyProducts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["products"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SearchProductsResponseBodyProducts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        products = make_shared<vector<SearchProductsResponseBodyProducts>>(expect1);
+      }
+    }
+    if (m.find("total") != m.end() && !m["total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["total"]));
+    }
+  }
+
+
+  virtual ~SearchProductsResponseBody() = default;
+};
+class SearchProductsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SearchProductsResponseBody> body{};
+
+  SearchProductsResponse() {}
+
+  explicit SearchProductsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SearchProductsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SearchProductsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SearchProductsResponse() = default;
+};
+class SelectionGroupAddProductRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> productIds{};
+  shared_ptr<string> purchaserId{};
+
+  SelectionGroupAddProductRequest() {}
+
+  explicit SelectionGroupAddProductRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (productIds) {
+      res["productIds"] = boost::any(*productIds);
+    }
+    if (purchaserId) {
+      res["purchaserId"] = boost::any(*purchaserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("productIds") != m.end() && !m["productIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["productIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["productIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      productIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("purchaserId") != m.end() && !m["purchaserId"].empty()) {
+      purchaserId = make_shared<string>(boost::any_cast<string>(m["purchaserId"]));
+    }
+  }
+
+
+  virtual ~SelectionGroupAddProductRequest() = default;
+};
+class SelectionGroupAddProductResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> productIds{};
+
+  SelectionGroupAddProductResponseBody() {}
+
+  explicit SelectionGroupAddProductResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (productIds) {
+      res["productIds"] = boost::any(*productIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("productIds") != m.end() && !m["productIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["productIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["productIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      productIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~SelectionGroupAddProductResponseBody() = default;
+};
+class SelectionGroupAddProductResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SelectionGroupAddProductResponseBody> body{};
+
+  SelectionGroupAddProductResponse() {}
+
+  explicit SelectionGroupAddProductResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SelectionGroupAddProductResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SelectionGroupAddProductResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SelectionGroupAddProductResponse() = default;
+};
+class SelectionGroupRemoveProductRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> productIds{};
+  shared_ptr<string> purchaserId{};
+
+  SelectionGroupRemoveProductRequest() {}
+
+  explicit SelectionGroupRemoveProductRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (productIds) {
+      res["productIds"] = boost::any(*productIds);
+    }
+    if (purchaserId) {
+      res["purchaserId"] = boost::any(*purchaserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("productIds") != m.end() && !m["productIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["productIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["productIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      productIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("purchaserId") != m.end() && !m["purchaserId"].empty()) {
+      purchaserId = make_shared<string>(boost::any_cast<string>(m["purchaserId"]));
+    }
+  }
+
+
+  virtual ~SelectionGroupRemoveProductRequest() = default;
+};
+class SelectionGroupRemoveProductResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> productIds{};
+
+  SelectionGroupRemoveProductResponseBody() {}
+
+  explicit SelectionGroupRemoveProductResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (productIds) {
+      res["productIds"] = boost::any(*productIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("productIds") != m.end() && !m["productIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["productIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["productIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      productIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~SelectionGroupRemoveProductResponseBody() = default;
+};
+class SelectionGroupRemoveProductResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SelectionGroupRemoveProductResponseBody> body{};
+
+  SelectionGroupRemoveProductResponse() {}
+
+  explicit SelectionGroupRemoveProductResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SelectionGroupRemoveProductResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SelectionGroupRemoveProductResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SelectionGroupRemoveProductResponse() = default;
+};
 class SplitPurchaseOrderRequest : public Darabonba::Model {
 public:
   shared_ptr<PurchaseOrderRenderQuery> body{};
@@ -6631,6 +8062,12 @@ public:
   RenderPurchaseOrderResponse renderPurchaseOrder(shared_ptr<RenderPurchaseOrderRequest> request);
   RenderRefundOrderResponse renderRefundOrderWithOptions(shared_ptr<RenderRefundOrderRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RenderRefundOrderResponse renderRefundOrder(shared_ptr<RenderRefundOrderRequest> request);
+  SearchProductsResponse searchProductsWithOptions(shared_ptr<SearchProductsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SearchProductsResponse searchProducts(shared_ptr<SearchProductsRequest> request);
+  SelectionGroupAddProductResponse selectionGroupAddProductWithOptions(shared_ptr<SelectionGroupAddProductRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SelectionGroupAddProductResponse selectionGroupAddProduct(shared_ptr<SelectionGroupAddProductRequest> request);
+  SelectionGroupRemoveProductResponse selectionGroupRemoveProductWithOptions(shared_ptr<SelectionGroupRemoveProductRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SelectionGroupRemoveProductResponse selectionGroupRemoveProduct(shared_ptr<SelectionGroupRemoveProductRequest> request);
   SplitPurchaseOrderResponse splitPurchaseOrderWithOptions(shared_ptr<SplitPurchaseOrderRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SplitPurchaseOrderResponse splitPurchaseOrder(shared_ptr<SplitPurchaseOrderRequest> request);
 
