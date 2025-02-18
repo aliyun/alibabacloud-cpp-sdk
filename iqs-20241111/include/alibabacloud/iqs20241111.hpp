@@ -151,6 +151,7 @@ public:
   shared_ptr<long> publishTime{};
   shared_ptr<double> score{};
   shared_ptr<string> siteLabel{};
+  shared_ptr<string> snippet{};
   shared_ptr<string> title{};
 
   ScorePageItem() {}
@@ -211,6 +212,9 @@ public:
     }
     if (siteLabel) {
       res["siteLabel"] = boost::any(*siteLabel);
+    }
+    if (snippet) {
+      res["snippet"] = boost::any(*snippet);
     }
     if (title) {
       res["title"] = boost::any(*title);
@@ -278,6 +282,9 @@ public:
     }
     if (m.find("siteLabel") != m.end() && !m["siteLabel"].empty()) {
       siteLabel = make_shared<string>(boost::any_cast<string>(m["siteLabel"]));
+    }
+    if (m.find("snippet") != m.end() && !m["snippet"].empty()) {
+      snippet = make_shared<string>(boost::any_cast<string>(m["snippet"]));
     }
     if (m.find("title") != m.end() && !m["title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["title"]));
