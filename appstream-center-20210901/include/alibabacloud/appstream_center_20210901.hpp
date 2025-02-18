@@ -6860,9 +6860,11 @@ public:
   shared_ptr<string> appInstanceGroupId{};
   shared_ptr<string> appInstanceId{};
   shared_ptr<ListAppInstancesResponseBodyAppInstanceModelsBindInfo> bindInfo{};
+  shared_ptr<string> chargeType{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> mainEthPublicIp{};
+  shared_ptr<string> nodeId{};
   shared_ptr<string> sessionStatus{};
   shared_ptr<string> status{};
 
@@ -6885,6 +6887,9 @@ public:
     if (bindInfo) {
       res["BindInfo"] = bindInfo ? boost::any(bindInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
     }
@@ -6893,6 +6898,9 @@ public:
     }
     if (mainEthPublicIp) {
       res["MainEthPublicIp"] = boost::any(*mainEthPublicIp);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
     }
     if (sessionStatus) {
       res["SessionStatus"] = boost::any(*sessionStatus);
@@ -6917,6 +6925,9 @@ public:
         bindInfo = make_shared<ListAppInstancesResponseBodyAppInstanceModelsBindInfo>(model1);
       }
     }
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
     }
@@ -6925,6 +6936,9 @@ public:
     }
     if (m.find("MainEthPublicIp") != m.end() && !m["MainEthPublicIp"].empty()) {
       mainEthPublicIp = make_shared<string>(boost::any_cast<string>(m["MainEthPublicIp"]));
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
     }
     if (m.find("SessionStatus") != m.end() && !m["SessionStatus"].empty()) {
       sessionStatus = make_shared<string>(boost::any_cast<string>(m["SessionStatus"]));
@@ -8919,6 +8933,42 @@ public:
 
   virtual ~ModifyAppInstanceGroupAttributeRequestSecurityPolicy() = default;
 };
+class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile : public Darabonba::Model {
+public:
+  shared_ptr<string> fileSystemId{};
+  shared_ptr<bool> userProfileSwitch{};
+
+  ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile() {}
+
+  explicit ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    if (userProfileSwitch) {
+      res["UserProfileSwitch"] = boost::any(*userProfileSwitch);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("UserProfileSwitch") != m.end() && !m["UserProfileSwitch"].empty()) {
+      userProfileSwitch = make_shared<bool>(boost::any_cast<bool>(m["UserProfileSwitch"]));
+    }
+  }
+
+
+  virtual ~ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile() = default;
+};
 class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollow : public Darabonba::Model {
 public:
   shared_ptr<string> fileSystemId{};
@@ -8958,6 +9008,7 @@ public:
 class ModifyAppInstanceGroupAttributeRequestStoragePolicy : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> storageTypeList{};
+  shared_ptr<ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile> userProfile{};
   shared_ptr<ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollow> userProfileFollow{};
 
   ModifyAppInstanceGroupAttributeRequestStoragePolicy() {}
@@ -8972,6 +9023,9 @@ public:
     map<string, boost::any> res;
     if (storageTypeList) {
       res["StorageTypeList"] = boost::any(*storageTypeList);
+    }
+    if (userProfile) {
+      res["UserProfile"] = userProfile ? boost::any(userProfile->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (userProfileFollow) {
       res["UserProfileFollow"] = userProfileFollow ? boost::any(userProfileFollow->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8989,6 +9043,13 @@ public:
         }
       }
       storageTypeList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("UserProfile") != m.end() && !m["UserProfile"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserProfile"].type()) {
+        ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserProfile"]));
+        userProfile = make_shared<ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile>(model1);
+      }
     }
     if (m.find("UserProfileFollow") != m.end() && !m["UserProfileFollow"].empty()) {
       if (typeid(map<string, boost::any>) == m["UserProfileFollow"].type()) {
