@@ -3546,6 +3546,8 @@ public:
   shared_ptr<string> issuer{};
   shared_ptr<string> key{};
   shared_ptr<string> name{};
+  shared_ptr<long> notAfter{};
+  shared_ptr<long> notBefore{};
   shared_ptr<long> orderId{};
   shared_ptr<string> orgName{};
   shared_ptr<string> province{};
@@ -3625,6 +3627,12 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (notAfter) {
+      res["NotAfter"] = boost::any(*notAfter);
+    }
+    if (notBefore) {
+      res["NotBefore"] = boost::any(*notBefore);
     }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
@@ -3726,6 +3734,12 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NotAfter") != m.end() && !m["NotAfter"].empty()) {
+      notAfter = make_shared<long>(boost::any_cast<long>(m["NotAfter"]));
+    }
+    if (m.find("NotBefore") != m.end() && !m["NotBefore"].empty()) {
+      notBefore = make_shared<long>(boost::any_cast<long>(m["NotBefore"]));
     }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
@@ -8502,6 +8516,7 @@ class UploadUserCertificateResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> certId{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceId{};
 
   UploadUserCertificateResponseBody() {}
 
@@ -8519,6 +8534,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
     return res;
   }
 
@@ -8528,6 +8546,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
   }
 
