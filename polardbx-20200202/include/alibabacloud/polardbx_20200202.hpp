@@ -10274,6 +10274,7 @@ public:
   shared_ptr<string> secondaryZone{};
   shared_ptr<string> secondsBehindMaster{};
   shared_ptr<string> status{};
+  shared_ptr<string> taskStatus{};
   shared_ptr<string> tertiaryZone{};
   shared_ptr<string> zoneId{};
 
@@ -10335,6 +10336,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (taskStatus) {
+      res["TaskStatus"] = boost::any(*taskStatus);
+    }
     if (tertiaryZone) {
       res["TertiaryZone"] = boost::any(*tertiaryZone);
     }
@@ -10392,6 +10396,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TaskStatus") != m.end() && !m["TaskStatus"].empty()) {
+      taskStatus = make_shared<string>(boost::any_cast<string>(m["TaskStatus"]));
     }
     if (m.find("TertiaryZone") != m.end() && !m["TertiaryZone"].empty()) {
       tertiaryZone = make_shared<string>(boost::any_cast<string>(m["TertiaryZone"]));
@@ -16123,6 +16130,7 @@ public:
   shared_ptr<string> DBInstanceName{};
   shared_ptr<string> regionId{};
   shared_ptr<string> switchMode{};
+  shared_ptr<long> taskTimeout{};
 
   SwitchGdnMemberRoleRequest() {}
 
@@ -16143,6 +16151,9 @@ public:
     if (switchMode) {
       res["SwitchMode"] = boost::any(*switchMode);
     }
+    if (taskTimeout) {
+      res["TaskTimeout"] = boost::any(*taskTimeout);
+    }
     return res;
   }
 
@@ -16155,6 +16166,9 @@ public:
     }
     if (m.find("SwitchMode") != m.end() && !m["SwitchMode"].empty()) {
       switchMode = make_shared<string>(boost::any_cast<string>(m["SwitchMode"]));
+    }
+    if (m.find("TaskTimeout") != m.end() && !m["TaskTimeout"].empty()) {
+      taskTimeout = make_shared<long>(boost::any_cast<long>(m["TaskTimeout"]));
     }
   }
 
