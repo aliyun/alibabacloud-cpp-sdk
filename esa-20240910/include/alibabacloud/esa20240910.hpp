@@ -33329,6 +33329,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> nameServerList{};
+  shared_ptr<string> offlineReason{};
   shared_ptr<string> planName{};
   shared_ptr<string> planSpecName{};
   shared_ptr<string> resourceGroupId{};
@@ -33368,6 +33369,9 @@ public:
     }
     if (nameServerList) {
       res["NameServerList"] = boost::any(*nameServerList);
+    }
+    if (offlineReason) {
+      res["OfflineReason"] = boost::any(*offlineReason);
     }
     if (planName) {
       res["PlanName"] = boost::any(*planName);
@@ -33423,6 +33427,9 @@ public:
     }
     if (m.find("NameServerList") != m.end() && !m["NameServerList"].empty()) {
       nameServerList = make_shared<string>(boost::any_cast<string>(m["NameServerList"]));
+    }
+    if (m.find("OfflineReason") != m.end() && !m["OfflineReason"].empty()) {
+      offlineReason = make_shared<string>(boost::any_cast<string>(m["OfflineReason"]));
     }
     if (m.find("PlanName") != m.end() && !m["PlanName"].empty()) {
       planName = make_shared<string>(boost::any_cast<string>(m["PlanName"]));
@@ -48078,6 +48085,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> nameServerList{};
+  shared_ptr<string> offlineReason{};
   shared_ptr<string> planName{};
   shared_ptr<string> planSpecName{};
   shared_ptr<string> resourceGroupId{};
@@ -48116,6 +48124,9 @@ public:
     }
     if (nameServerList) {
       res["NameServerList"] = boost::any(*nameServerList);
+    }
+    if (offlineReason) {
+      res["OfflineReason"] = boost::any(*offlineReason);
     }
     if (planName) {
       res["PlanName"] = boost::any(*planName);
@@ -48168,6 +48179,9 @@ public:
     }
     if (m.find("NameServerList") != m.end() && !m["NameServerList"].empty()) {
       nameServerList = make_shared<string>(boost::any_cast<string>(m["NameServerList"]));
+    }
+    if (m.find("OfflineReason") != m.end() && !m["OfflineReason"].empty()) {
+      offlineReason = make_shared<string>(boost::any_cast<string>(m["OfflineReason"]));
     }
     if (m.find("PlanName") != m.end() && !m["PlanName"].empty()) {
       planName = make_shared<string>(boost::any_cast<string>(m["PlanName"]));
