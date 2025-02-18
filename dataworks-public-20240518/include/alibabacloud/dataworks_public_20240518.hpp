@@ -16736,6 +16736,8 @@ public:
   shared_ptr<long> failoverId{};
   shared_ptr<long> id{};
   shared_ptr<long> instanceId{};
+  shared_ptr<string> nodeType{};
+  shared_ptr<long> pageNumber{};
 
   GetDIJobLogRequest() {}
 
@@ -16759,6 +16761,12 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (nodeType) {
+      res["NodeType"] = boost::any(*nodeType);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
     return res;
   }
 
@@ -16774,6 +16782,12 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
+    }
+    if (m.find("NodeType") != m.end() && !m["NodeType"].empty()) {
+      nodeType = make_shared<string>(boost::any_cast<string>(m["NodeType"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
   }
 
@@ -20136,6 +20150,7 @@ public:
   shared_ptr<string> owner{};
   shared_ptr<long> projectId{};
   shared_ptr<string> spec{};
+  shared_ptr<long> taskId{};
 
   GetNodeResponseBodyNode() {}
 
@@ -20168,6 +20183,9 @@ public:
     if (spec) {
       res["Spec"] = boost::any(*spec);
     }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
     return res;
   }
 
@@ -20192,6 +20210,9 @@ public:
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<long>(boost::any_cast<long>(m["TaskId"]));
     }
   }
 
@@ -24689,6 +24710,7 @@ public:
 class GetWorkflowDefinitionRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
+  shared_ptr<bool> includeScriptContent{};
   shared_ptr<long> projectId{};
 
   GetWorkflowDefinitionRequest() {}
@@ -24704,6 +24726,9 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (includeScriptContent) {
+      res["IncludeScriptContent"] = boost::any(*includeScriptContent);
+    }
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
     }
@@ -24713,6 +24738,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IncludeScriptContent") != m.end() && !m["IncludeScriptContent"].empty()) {
+      includeScriptContent = make_shared<bool>(boost::any_cast<bool>(m["IncludeScriptContent"]));
     }
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
@@ -24731,6 +24759,7 @@ public:
   shared_ptr<string> owner{};
   shared_ptr<long> projectId{};
   shared_ptr<string> spec{};
+  shared_ptr<long> workflowId{};
 
   GetWorkflowDefinitionResponseBodyWorkflowDefinition() {}
 
@@ -24763,6 +24792,9 @@ public:
     if (spec) {
       res["Spec"] = boost::any(*spec);
     }
+    if (workflowId) {
+      res["WorkflowId"] = boost::any(*workflowId);
+    }
     return res;
   }
 
@@ -24787,6 +24819,9 @@ public:
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
+    }
+    if (m.find("WorkflowId") != m.end() && !m["WorkflowId"].empty()) {
+      workflowId = make_shared<long>(boost::any_cast<long>(m["WorkflowId"]));
     }
   }
 
