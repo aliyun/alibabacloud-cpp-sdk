@@ -64,6 +64,56 @@ public:
 
   virtual ~Addon() = default;
 };
+class ContainerdConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> insecureRegistries{};
+  shared_ptr<vector<string>> registryMirrors{};
+
+  ContainerdConfig() {}
+
+  explicit ContainerdConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (insecureRegistries) {
+      res["insecureRegistries"] = boost::any(*insecureRegistries);
+    }
+    if (registryMirrors) {
+      res["registryMirrors"] = boost::any(*registryMirrors);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("insecureRegistries") != m.end() && !m["insecureRegistries"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["insecureRegistries"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["insecureRegistries"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      insecureRegistries = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("registryMirrors") != m.end() && !m["registryMirrors"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["registryMirrors"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["registryMirrors"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      registryMirrors = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ContainerdConfig() = default;
+};
 class DataDisk : public Darabonba::Model {
 public:
   shared_ptr<bool> autoFormat{};
@@ -26949,6 +26999,7 @@ public:
 };
 class ModifyNodePoolNodeConfigRequest : public Darabonba::Model {
 public:
+  shared_ptr<ContainerdConfig> containerdConfig{};
   shared_ptr<KubeletConfig> kubeletConfig{};
   shared_ptr<ModifyNodePoolNodeConfigRequestOsConfig> osConfig{};
   shared_ptr<ModifyNodePoolNodeConfigRequestRollingPolicy> rollingPolicy{};
@@ -26963,6 +27014,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (containerdConfig) {
+      res["containerd_config"] = containerdConfig ? boost::any(containerdConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (kubeletConfig) {
       res["kubelet_config"] = kubeletConfig ? boost::any(kubeletConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -26976,6 +27030,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("containerd_config") != m.end() && !m["containerd_config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["containerd_config"].type()) {
+        ContainerdConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["containerd_config"]));
+        containerdConfig = make_shared<ContainerdConfig>(model1);
+      }
+    }
     if (m.find("kubelet_config") != m.end() && !m["kubelet_config"].empty()) {
       if (typeid(map<string, boost::any>) == m["kubelet_config"].type()) {
         KubeletConfig model1;

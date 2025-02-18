@@ -4336,6 +4336,9 @@ ModifyNodePoolNodeConfigResponse Alibabacloud_CS20151215::Client::modifyNodePool
                                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<ContainerdConfig>(request->containerdConfig)) {
+    body->insert(pair<string, ContainerdConfig>("containerd_config", *request->containerdConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<KubeletConfig>(request->kubeletConfig)) {
     body->insert(pair<string, KubeletConfig>("kubelet_config", *request->kubeletConfig));
   }
