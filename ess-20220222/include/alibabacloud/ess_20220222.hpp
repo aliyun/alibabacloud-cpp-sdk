@@ -8132,6 +8132,7 @@ public:
   shared_ptr<bool> compensateWithOnDemand{};
   shared_ptr<long> onDemandBaseCapacity{};
   shared_ptr<long> onDemandPercentageAboveBaseCapacity{};
+  shared_ptr<string> priceComparisonMode{};
   shared_ptr<bool> spotAutoReplaceOnDemand{};
 
   CreateScalingGroupRequestCapacityOptions() {}
@@ -8153,6 +8154,9 @@ public:
     if (onDemandPercentageAboveBaseCapacity) {
       res["OnDemandPercentageAboveBaseCapacity"] = boost::any(*onDemandPercentageAboveBaseCapacity);
     }
+    if (priceComparisonMode) {
+      res["PriceComparisonMode"] = boost::any(*priceComparisonMode);
+    }
     if (spotAutoReplaceOnDemand) {
       res["SpotAutoReplaceOnDemand"] = boost::any(*spotAutoReplaceOnDemand);
     }
@@ -8168,6 +8172,9 @@ public:
     }
     if (m.find("OnDemandPercentageAboveBaseCapacity") != m.end() && !m["OnDemandPercentageAboveBaseCapacity"].empty()) {
       onDemandPercentageAboveBaseCapacity = make_shared<long>(boost::any_cast<long>(m["OnDemandPercentageAboveBaseCapacity"]));
+    }
+    if (m.find("PriceComparisonMode") != m.end() && !m["PriceComparisonMode"].empty()) {
+      priceComparisonMode = make_shared<string>(boost::any_cast<string>(m["PriceComparisonMode"]));
     }
     if (m.find("SpotAutoReplaceOnDemand") != m.end() && !m["SpotAutoReplaceOnDemand"].empty()) {
       spotAutoReplaceOnDemand = make_shared<bool>(boost::any_cast<bool>(m["SpotAutoReplaceOnDemand"]));
@@ -22863,6 +22870,7 @@ public:
   shared_ptr<bool> compensateWithOnDemand{};
   shared_ptr<long> onDemandBaseCapacity{};
   shared_ptr<long> onDemandPercentageAboveBaseCapacity{};
+  shared_ptr<string> priceComparisonMode{};
   shared_ptr<bool> spotAutoReplaceOnDemand{};
 
   DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions() {}
@@ -22884,6 +22892,9 @@ public:
     if (onDemandPercentageAboveBaseCapacity) {
       res["OnDemandPercentageAboveBaseCapacity"] = boost::any(*onDemandPercentageAboveBaseCapacity);
     }
+    if (priceComparisonMode) {
+      res["PriceComparisonMode"] = boost::any(*priceComparisonMode);
+    }
     if (spotAutoReplaceOnDemand) {
       res["SpotAutoReplaceOnDemand"] = boost::any(*spotAutoReplaceOnDemand);
     }
@@ -22899,6 +22910,9 @@ public:
     }
     if (m.find("OnDemandPercentageAboveBaseCapacity") != m.end() && !m["OnDemandPercentageAboveBaseCapacity"].empty()) {
       onDemandPercentageAboveBaseCapacity = make_shared<long>(boost::any_cast<long>(m["OnDemandPercentageAboveBaseCapacity"]));
+    }
+    if (m.find("PriceComparisonMode") != m.end() && !m["PriceComparisonMode"].empty()) {
+      priceComparisonMode = make_shared<string>(boost::any_cast<string>(m["PriceComparisonMode"]));
     }
     if (m.find("SpotAutoReplaceOnDemand") != m.end() && !m["SpotAutoReplaceOnDemand"].empty()) {
       spotAutoReplaceOnDemand = make_shared<bool>(boost::any_cast<bool>(m["SpotAutoReplaceOnDemand"]));
@@ -34908,6 +34922,7 @@ public:
   shared_ptr<bool> compensateWithOnDemand{};
   shared_ptr<long> onDemandBaseCapacity{};
   shared_ptr<long> onDemandPercentageAboveBaseCapacity{};
+  shared_ptr<string> priceComparisonMode{};
   shared_ptr<bool> spotAutoReplaceOnDemand{};
 
   ModifyScalingGroupRequestCapacityOptions() {}
@@ -34929,6 +34944,9 @@ public:
     if (onDemandPercentageAboveBaseCapacity) {
       res["OnDemandPercentageAboveBaseCapacity"] = boost::any(*onDemandPercentageAboveBaseCapacity);
     }
+    if (priceComparisonMode) {
+      res["PriceComparisonMode"] = boost::any(*priceComparisonMode);
+    }
     if (spotAutoReplaceOnDemand) {
       res["SpotAutoReplaceOnDemand"] = boost::any(*spotAutoReplaceOnDemand);
     }
@@ -34944,6 +34962,9 @@ public:
     }
     if (m.find("OnDemandPercentageAboveBaseCapacity") != m.end() && !m["OnDemandPercentageAboveBaseCapacity"].empty()) {
       onDemandPercentageAboveBaseCapacity = make_shared<long>(boost::any_cast<long>(m["OnDemandPercentageAboveBaseCapacity"]));
+    }
+    if (m.find("PriceComparisonMode") != m.end() && !m["PriceComparisonMode"].empty()) {
+      priceComparisonMode = make_shared<string>(boost::any_cast<string>(m["PriceComparisonMode"]));
     }
     if (m.find("SpotAutoReplaceOnDemand") != m.end() && !m["SpotAutoReplaceOnDemand"].empty()) {
       spotAutoReplaceOnDemand = make_shared<bool>(boost::any_cast<bool>(m["SpotAutoReplaceOnDemand"]));
