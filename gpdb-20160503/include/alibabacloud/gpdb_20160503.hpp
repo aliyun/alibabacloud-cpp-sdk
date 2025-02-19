@@ -2351,6 +2351,42 @@ public:
 
   virtual ~CreateCollectionResponse() = default;
 };
+class CreateDBInstanceRequestAINodeSpecInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> AINodeNum{};
+  shared_ptr<string> AINodeSpec{};
+
+  CreateDBInstanceRequestAINodeSpecInfos() {}
+
+  explicit CreateDBInstanceRequestAINodeSpecInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (AINodeNum) {
+      res["AINodeNum"] = boost::any(*AINodeNum);
+    }
+    if (AINodeSpec) {
+      res["AINodeSpec"] = boost::any(*AINodeSpec);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AINodeNum") != m.end() && !m["AINodeNum"].empty()) {
+      AINodeNum = make_shared<string>(boost::any_cast<string>(m["AINodeNum"]));
+    }
+    if (m.find("AINodeSpec") != m.end() && !m["AINodeSpec"].empty()) {
+      AINodeSpec = make_shared<string>(boost::any_cast<string>(m["AINodeSpec"]));
+    }
+  }
+
+
+  virtual ~CreateDBInstanceRequestAINodeSpecInfos() = default;
+};
 class CreateDBInstanceRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -2389,6 +2425,7 @@ public:
 };
 class CreateDBInstanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<CreateDBInstanceRequestAINodeSpecInfos>> AINodeSpecInfos{};
   shared_ptr<string> backupId{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> createSampleData{};
@@ -2444,6 +2481,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (AINodeSpecInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*AINodeSpecInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AINodeSpecInfos"] = boost::any(temp1);
+    }
     if (backupId) {
       res["BackupId"] = boost::any(*backupId);
     }
@@ -2584,6 +2628,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AINodeSpecInfos") != m.end() && !m["AINodeSpecInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["AINodeSpecInfos"].type()) {
+        vector<CreateDBInstanceRequestAINodeSpecInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AINodeSpecInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateDBInstanceRequestAINodeSpecInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        AINodeSpecInfos = make_shared<vector<CreateDBInstanceRequestAINodeSpecInfos>>(expect1);
+      }
+    }
     if (m.find("BackupId") != m.end() && !m["BackupId"].empty()) {
       backupId = make_shared<string>(boost::any_cast<string>(m["BackupId"]));
     }

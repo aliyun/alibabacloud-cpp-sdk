@@ -687,6 +687,9 @@ CreateCollectionResponse Alibabacloud_Gpdb20160503::Client::createCollection(sha
 CreateDBInstanceResponse Alibabacloud_Gpdb20160503::Client::createDBInstanceWithOptions(shared_ptr<CreateDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CreateDBInstanceRequestAINodeSpecInfos>>(request->AINodeSpecInfos)) {
+    query->insert(pair<string, vector<CreateDBInstanceRequestAINodeSpecInfos>>("AINodeSpecInfos", *request->AINodeSpecInfos));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->backupId)) {
     query->insert(pair<string, string>("BackupId", *request->backupId));
   }
