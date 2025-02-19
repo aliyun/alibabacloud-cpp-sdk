@@ -73,7 +73,12 @@ DeleteSymRecordsResponse Alibabacloud_Umeng-apm20220214::Client::deleteSymRecord
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DeleteSymRecordsResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DeleteSymRecordsResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DeleteSymRecordsResponse(execute(params, req, runtime));
+  }
 }
 
 DeleteSymRecordsResponse Alibabacloud_Umeng-apm20220214::Client::deleteSymRecords(shared_ptr<DeleteSymRecordsRequest> request) {
@@ -115,7 +120,12 @@ GetH5PageTrendResponse Alibabacloud_Umeng-apm20220214::Client::getH5PageTrendWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetH5PageTrendResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetH5PageTrendResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetH5PageTrendResponse(execute(params, req, runtime));
+  }
 }
 
 GetH5PageTrendResponse Alibabacloud_Umeng-apm20220214::Client::getH5PageTrend(shared_ptr<GetH5PageTrendRequest> request) {
@@ -157,7 +167,12 @@ GetLaunchTrendResponse Alibabacloud_Umeng-apm20220214::Client::getLaunchTrendWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetLaunchTrendResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetLaunchTrendResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetLaunchTrendResponse(execute(params, req, runtime));
+  }
 }
 
 GetLaunchTrendResponse Alibabacloud_Umeng-apm20220214::Client::getLaunchTrend(shared_ptr<GetLaunchTrendRequest> request) {
@@ -199,7 +214,12 @@ GetNativePageTrendResponse Alibabacloud_Umeng-apm20220214::Client::getNativePage
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetNativePageTrendResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetNativePageTrendResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetNativePageTrendResponse(execute(params, req, runtime));
+  }
 }
 
 GetNativePageTrendResponse Alibabacloud_Umeng-apm20220214::Client::getNativePageTrend(shared_ptr<GetNativePageTrendRequest> request) {
@@ -241,7 +261,12 @@ GetNetworkTrendResponse Alibabacloud_Umeng-apm20220214::Client::getNetworkTrendW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetNetworkTrendResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetNetworkTrendResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetNetworkTrendResponse(execute(params, req, runtime));
+  }
 }
 
 GetNetworkTrendResponse Alibabacloud_Umeng-apm20220214::Client::getNetworkTrend(shared_ptr<GetNetworkTrendRequest> request) {
@@ -283,7 +308,12 @@ GetStatTrendResponse Alibabacloud_Umeng-apm20220214::Client::getStatTrendWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetStatTrendResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetStatTrendResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetStatTrendResponse(execute(params, req, runtime));
+  }
 }
 
 GetStatTrendResponse Alibabacloud_Umeng-apm20220214::Client::getStatTrend(shared_ptr<GetStatTrendRequest> request) {
@@ -325,7 +355,12 @@ GetSymUploadParamResponse Alibabacloud_Umeng-apm20220214::Client::getSymUploadPa
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetSymUploadParamResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetSymUploadParamResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetSymUploadParamResponse(execute(params, req, runtime));
+  }
 }
 
 GetSymUploadParamResponse Alibabacloud_Umeng-apm20220214::Client::getSymUploadParam(shared_ptr<GetSymUploadParamRequest> request) {
@@ -361,7 +396,12 @@ GetTodayStatTrendResponse Alibabacloud_Umeng-apm20220214::Client::getTodayStatTr
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetTodayStatTrendResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetTodayStatTrendResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetTodayStatTrendResponse(execute(params, req, runtime));
+  }
 }
 
 GetTodayStatTrendResponse Alibabacloud_Umeng-apm20220214::Client::getTodayStatTrend(shared_ptr<GetTodayStatTrendRequest> request) {
@@ -397,7 +437,12 @@ UpdateAlertPlanResponse Alibabacloud_Umeng-apm20220214::Client::updateAlertPlanW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateAlertPlanResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateAlertPlanResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateAlertPlanResponse(execute(params, req, runtime));
+  }
 }
 
 UpdateAlertPlanResponse Alibabacloud_Umeng-apm20220214::Client::updateAlertPlan(shared_ptr<UpdateAlertPlanRequest> request) {
@@ -442,7 +487,12 @@ UploadSymbolFileResponse Alibabacloud_Umeng-apm20220214::Client::uploadSymbolFil
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UploadSymbolFileResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UploadSymbolFileResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UploadSymbolFileResponse(execute(params, req, runtime));
+  }
 }
 
 UploadSymbolFileResponse Alibabacloud_Umeng-apm20220214::Client::uploadSymbolFile(shared_ptr<UploadSymbolFileRequest> request) {
