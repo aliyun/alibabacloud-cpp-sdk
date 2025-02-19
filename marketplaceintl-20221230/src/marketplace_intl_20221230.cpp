@@ -60,7 +60,12 @@ PushMeteringDataResponse Alibabacloud_MarketplaceIntl20221230::Client::pushMeter
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PushMeteringDataResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return PushMeteringDataResponse(callApi(params, req, runtime));
+  }
+  else {
+    return PushMeteringDataResponse(execute(params, req, runtime));
+  }
 }
 
 PushMeteringDataResponse Alibabacloud_MarketplaceIntl20221230::Client::pushMeteringData(shared_ptr<PushMeteringDataRequest> request) {
