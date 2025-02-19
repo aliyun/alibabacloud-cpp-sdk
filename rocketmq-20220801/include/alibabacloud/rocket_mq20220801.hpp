@@ -67,6 +67,7 @@ public:
 class AddDisasterRecoveryItemRequestTopics : public Darabonba::Model {
 public:
   shared_ptr<string> consumerGroupId{};
+  shared_ptr<string> deliveryOrderType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> regionId{};
@@ -84,6 +85,9 @@ public:
     map<string, boost::any> res;
     if (consumerGroupId) {
       res["consumerGroupId"] = boost::any(*consumerGroupId);
+    }
+    if (deliveryOrderType) {
+      res["deliveryOrderType"] = boost::any(*deliveryOrderType);
     }
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
@@ -103,6 +107,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("consumerGroupId") != m.end() && !m["consumerGroupId"].empty()) {
       consumerGroupId = make_shared<string>(boost::any_cast<string>(m["consumerGroupId"]));
+    }
+    if (m.find("deliveryOrderType") != m.end() && !m["deliveryOrderType"].empty()) {
+      deliveryOrderType = make_shared<string>(boost::any_cast<string>(m["deliveryOrderType"]));
     }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
@@ -905,8 +912,6 @@ public:
 class CreateInstanceRequestProductInfo : public Darabonba::Model {
 public:
   shared_ptr<bool> autoScaling{};
-  shared_ptr<string> chargeType{};
-  shared_ptr<string> intranetSpec{};
   shared_ptr<long> messageRetentionTime{};
   shared_ptr<string> msgProcessSpec{};
   shared_ptr<double> sendReceiveRatio{};
@@ -925,12 +930,6 @@ public:
     map<string, boost::any> res;
     if (autoScaling) {
       res["autoScaling"] = boost::any(*autoScaling);
-    }
-    if (chargeType) {
-      res["chargeType"] = boost::any(*chargeType);
-    }
-    if (intranetSpec) {
-      res["intranetSpec"] = boost::any(*intranetSpec);
     }
     if (messageRetentionTime) {
       res["messageRetentionTime"] = boost::any(*messageRetentionTime);
@@ -953,12 +952,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("autoScaling") != m.end() && !m["autoScaling"].empty()) {
       autoScaling = make_shared<bool>(boost::any_cast<bool>(m["autoScaling"]));
-    }
-    if (m.find("chargeType") != m.end() && !m["chargeType"].empty()) {
-      chargeType = make_shared<string>(boost::any_cast<string>(m["chargeType"]));
-    }
-    if (m.find("intranetSpec") != m.end() && !m["intranetSpec"].empty()) {
-      intranetSpec = make_shared<string>(boost::any_cast<string>(m["intranetSpec"]));
     }
     if (m.find("messageRetentionTime") != m.end() && !m["messageRetentionTime"].empty()) {
       messageRetentionTime = make_shared<long>(boost::any_cast<long>(m["messageRetentionTime"]));
@@ -1477,7 +1470,7 @@ public:
 };
 class CreateInstanceAclRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> actions{};
+  shared_ptr<vector<string>> actions{};
   shared_ptr<string> decision{};
   shared_ptr<vector<string>> ipWhitelists{};
   shared_ptr<string> resourceName{};
@@ -1513,7 +1506,14 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("actions") != m.end() && !m["actions"].empty()) {
-      actions = make_shared<string>(boost::any_cast<string>(m["actions"]));
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["actions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["actions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      actions = make_shared<vector<string>>(toVec1);
     }
     if (m.find("decision") != m.end() && !m["decision"].empty()) {
       decision = make_shared<string>(boost::any_cast<string>(m["decision"]));
@@ -2912,6 +2912,7 @@ public:
 class DeleteInstanceIpWhitelistRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ipWhitelist{};
+  shared_ptr<vector<string>> ipWhitelists{};
 
   DeleteInstanceIpWhitelistRequest() {}
 
@@ -2926,6 +2927,9 @@ public:
     if (ipWhitelist) {
       res["ipWhitelist"] = boost::any(*ipWhitelist);
     }
+    if (ipWhitelists) {
+      res["ipWhitelists"] = boost::any(*ipWhitelists);
+    }
     return res;
   }
 
@@ -2933,10 +2937,56 @@ public:
     if (m.find("ipWhitelist") != m.end() && !m["ipWhitelist"].empty()) {
       ipWhitelist = make_shared<string>(boost::any_cast<string>(m["ipWhitelist"]));
     }
+    if (m.find("ipWhitelists") != m.end() && !m["ipWhitelists"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ipWhitelists"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ipWhitelists"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipWhitelists = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~DeleteInstanceIpWhitelistRequest() = default;
+};
+class DeleteInstanceIpWhitelistShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ipWhitelist{};
+  shared_ptr<string> ipWhitelistsShrink{};
+
+  DeleteInstanceIpWhitelistShrinkRequest() {}
+
+  explicit DeleteInstanceIpWhitelistShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipWhitelist) {
+      res["ipWhitelist"] = boost::any(*ipWhitelist);
+    }
+    if (ipWhitelistsShrink) {
+      res["ipWhitelists"] = boost::any(*ipWhitelistsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ipWhitelist") != m.end() && !m["ipWhitelist"].empty()) {
+      ipWhitelist = make_shared<string>(boost::any_cast<string>(m["ipWhitelist"]));
+    }
+    if (m.find("ipWhitelists") != m.end() && !m["ipWhitelists"].empty()) {
+      ipWhitelistsShrink = make_shared<string>(boost::any_cast<string>(m["ipWhitelists"]));
+    }
+  }
+
+
+  virtual ~DeleteInstanceIpWhitelistShrinkRequest() = default;
 };
 class DeleteInstanceIpWhitelistResponseBody : public Darabonba::Model {
 public:
@@ -3255,6 +3305,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> deliveryOrderType{};
   shared_ptr<string> instanceId{};
+  shared_ptr<long> maxReceiveTps{};
   shared_ptr<string> regionId{};
   shared_ptr<string> remark{};
   shared_ptr<string> status{};
@@ -3284,6 +3335,9 @@ public:
     }
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
+    }
+    if (maxReceiveTps) {
+      res["maxReceiveTps"] = boost::any(*maxReceiveTps);
     }
     if (regionId) {
       res["regionId"] = boost::any(*regionId);
@@ -3319,6 +3373,9 @@ public:
     }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("maxReceiveTps") != m.end() && !m["maxReceiveTps"].empty()) {
+      maxReceiveTps = make_shared<long>(boost::any_cast<long>(m["maxReceiveTps"]));
     }
     if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
@@ -3470,6 +3527,35 @@ public:
 
 
   virtual ~GetConsumerGroupResponse() = default;
+};
+class GetConsumerGroupLagRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> topicName{};
+
+  GetConsumerGroupLagRequest() {}
+
+  explicit GetConsumerGroupLagRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (topicName) {
+      res["topicName"] = boost::any(*topicName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("topicName") != m.end() && !m["topicName"].empty()) {
+      topicName = make_shared<string>(boost::any_cast<string>(m["topicName"]));
+    }
+  }
+
+
+  virtual ~GetConsumerGroupLagRequest() = default;
 };
 class GetConsumerGroupLagResponseBodyDataTotalLag : public Darabonba::Model {
 public:
@@ -5394,6 +5480,7 @@ public:
 };
 class GetInstanceAccountResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> accountStatus{};
   shared_ptr<string> password{};
   shared_ptr<string> username{};
 
@@ -5407,6 +5494,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountStatus) {
+      res["accountStatus"] = boost::any(*accountStatus);
+    }
     if (password) {
       res["password"] = boost::any(*password);
     }
@@ -5417,6 +5507,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountStatus") != m.end() && !m["accountStatus"].empty()) {
+      accountStatus = make_shared<string>(boost::any_cast<string>(m["accountStatus"]));
+    }
     if (m.find("password") != m.end() && !m["password"].empty()) {
       password = make_shared<string>(boost::any_cast<string>(m["password"]));
     }
@@ -5561,6 +5654,524 @@ public:
 
 
   virtual ~GetInstanceAccountResponse() = default;
+};
+class GetInstanceAclRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceType{};
+
+  GetInstanceAclRequest() {}
+
+  explicit GetInstanceAclRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceName) {
+      res["resourceName"] = boost::any(*resourceName);
+    }
+    if (resourceType) {
+      res["resourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("resourceName") != m.end() && !m["resourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["resourceName"]));
+    }
+    if (m.find("resourceType") != m.end() && !m["resourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["resourceType"]));
+    }
+  }
+
+
+  virtual ~GetInstanceAclRequest() = default;
+};
+class GetInstanceAclResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> aclType{};
+  shared_ptr<vector<string>> actions{};
+  shared_ptr<string> decision{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<vector<string>> ipWhitelists{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> username{};
+
+  GetInstanceAclResponseBodyData() {}
+
+  explicit GetInstanceAclResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclType) {
+      res["aclType"] = boost::any(*aclType);
+    }
+    if (actions) {
+      res["actions"] = boost::any(*actions);
+    }
+    if (decision) {
+      res["decision"] = boost::any(*decision);
+    }
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (ipWhitelists) {
+      res["ipWhitelists"] = boost::any(*ipWhitelists);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    if (resourceName) {
+      res["resourceName"] = boost::any(*resourceName);
+    }
+    if (resourceType) {
+      res["resourceType"] = boost::any(*resourceType);
+    }
+    if (username) {
+      res["username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aclType") != m.end() && !m["aclType"].empty()) {
+      aclType = make_shared<string>(boost::any_cast<string>(m["aclType"]));
+    }
+    if (m.find("actions") != m.end() && !m["actions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["actions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["actions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      actions = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("decision") != m.end() && !m["decision"].empty()) {
+      decision = make_shared<string>(boost::any_cast<string>(m["decision"]));
+    }
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("ipWhitelists") != m.end() && !m["ipWhitelists"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ipWhitelists"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ipWhitelists"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipWhitelists = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+    if (m.find("resourceName") != m.end() && !m["resourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["resourceName"]));
+    }
+    if (m.find("resourceType") != m.end() && !m["resourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["resourceType"]));
+    }
+    if (m.find("username") != m.end() && !m["username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["username"]));
+    }
+  }
+
+
+  virtual ~GetInstanceAclResponseBodyData() = default;
+};
+class GetInstanceAclResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetInstanceAclResponseBodyData> data{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetInstanceAclResponseBody() {}
+
+  explicit GetInstanceAclResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dynamicCode) {
+      res["dynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["dynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        GetInstanceAclResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<GetInstanceAclResponseBodyData>(model1);
+      }
+    }
+    if (m.find("dynamicCode") != m.end() && !m["dynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["dynamicCode"]));
+    }
+    if (m.find("dynamicMessage") != m.end() && !m["dynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["dynamicMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~GetInstanceAclResponseBody() = default;
+};
+class GetInstanceAclResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetInstanceAclResponseBody> body{};
+
+  GetInstanceAclResponse() {}
+
+  explicit GetInstanceAclResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetInstanceAclResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetInstanceAclResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetInstanceAclResponse() = default;
+};
+class GetInstanceIpWhitelistRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> ipWhitelists{};
+
+  GetInstanceIpWhitelistRequest() {}
+
+  explicit GetInstanceIpWhitelistRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipWhitelists) {
+      res["ipWhitelists"] = boost::any(*ipWhitelists);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ipWhitelists") != m.end() && !m["ipWhitelists"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ipWhitelists"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ipWhitelists"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipWhitelists = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetInstanceIpWhitelistRequest() = default;
+};
+class GetInstanceIpWhitelistShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ipWhitelistsShrink{};
+
+  GetInstanceIpWhitelistShrinkRequest() {}
+
+  explicit GetInstanceIpWhitelistShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipWhitelistsShrink) {
+      res["ipWhitelists"] = boost::any(*ipWhitelistsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ipWhitelists") != m.end() && !m["ipWhitelists"].empty()) {
+      ipWhitelistsShrink = make_shared<string>(boost::any_cast<string>(m["ipWhitelists"]));
+    }
+  }
+
+
+  virtual ~GetInstanceIpWhitelistShrinkRequest() = default;
+};
+class GetInstanceIpWhitelistResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<vector<string>> ipWhitelists{};
+  shared_ptr<string> regionId{};
+
+  GetInstanceIpWhitelistResponseBodyData() {}
+
+  explicit GetInstanceIpWhitelistResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (ipWhitelists) {
+      res["ipWhitelists"] = boost::any(*ipWhitelists);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("ipWhitelists") != m.end() && !m["ipWhitelists"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ipWhitelists"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ipWhitelists"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipWhitelists = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+  }
+
+
+  virtual ~GetInstanceIpWhitelistResponseBodyData() = default;
+};
+class GetInstanceIpWhitelistResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetInstanceIpWhitelistResponseBodyData> data{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetInstanceIpWhitelistResponseBody() {}
+
+  explicit GetInstanceIpWhitelistResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dynamicCode) {
+      res["dynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["dynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (httpStatusCode) {
+      res["httpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        GetInstanceIpWhitelistResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<GetInstanceIpWhitelistResponseBodyData>(model1);
+      }
+    }
+    if (m.find("dynamicCode") != m.end() && !m["dynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["dynamicCode"]));
+    }
+    if (m.find("dynamicMessage") != m.end() && !m["dynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["dynamicMessage"]));
+    }
+    if (m.find("httpStatusCode") != m.end() && !m["httpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["httpStatusCode"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~GetInstanceIpWhitelistResponseBody() = default;
+};
+class GetInstanceIpWhitelistResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetInstanceIpWhitelistResponseBody> body{};
+
+  GetInstanceIpWhitelistResponse() {}
+
+  explicit GetInstanceIpWhitelistResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetInstanceIpWhitelistResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetInstanceIpWhitelistResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetInstanceIpWhitelistResponse() = default;
 };
 class GetMessageDetailResponseBodyData : public Darabonba::Model {
 public:
@@ -6107,6 +6718,7 @@ public:
   shared_ptr<string> delayStatus{};
   shared_ptr<vector<GetTraceResponseBodyDataBrokerInfoOperations>> operations{};
   shared_ptr<string> presetDelayTime{};
+  shared_ptr<string> recallResult{};
 
   GetTraceResponseBodyDataBrokerInfo() {}
 
@@ -6131,6 +6743,9 @@ public:
     if (presetDelayTime) {
       res["presetDelayTime"] = boost::any(*presetDelayTime);
     }
+    if (recallResult) {
+      res["recallResult"] = boost::any(*recallResult);
+    }
     return res;
   }
 
@@ -6153,6 +6768,9 @@ public:
     }
     if (m.find("presetDelayTime") != m.end() && !m["presetDelayTime"].empty()) {
       presetDelayTime = make_shared<string>(boost::any_cast<string>(m["presetDelayTime"]));
+    }
+    if (m.find("recallResult") != m.end() && !m["recallResult"].empty()) {
+      recallResult = make_shared<string>(boost::any_cast<string>(m["recallResult"]));
     }
   }
 
@@ -6554,6 +7172,7 @@ public:
   shared_ptr<long> produceDuration{};
   shared_ptr<string> produceStatus{};
   shared_ptr<string> produceTime{};
+  shared_ptr<string> recallTime{};
   shared_ptr<string> userName{};
 
   GetTraceResponseBodyDataProducerInfoRecords() {}
@@ -6590,6 +7209,9 @@ public:
     if (produceTime) {
       res["produceTime"] = boost::any(*produceTime);
     }
+    if (recallTime) {
+      res["recallTime"] = boost::any(*recallTime);
+    }
     if (userName) {
       res["userName"] = boost::any(*userName);
     }
@@ -6620,6 +7242,9 @@ public:
     }
     if (m.find("produceTime") != m.end() && !m["produceTime"].empty()) {
       produceTime = make_shared<string>(boost::any_cast<string>(m["produceTime"]));
+    }
+    if (m.find("recallTime") != m.end() && !m["recallTime"].empty()) {
+      recallTime = make_shared<string>(boost::any_cast<string>(m["recallTime"]));
     }
     if (m.find("userName") != m.end() && !m["userName"].empty()) {
       userName = make_shared<string>(boost::any_cast<string>(m["userName"]));
@@ -13204,7 +13829,7 @@ public:
 };
 class UpdateInstanceAclRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> actions{};
+  shared_ptr<vector<string>> actions{};
   shared_ptr<string> decision{};
   shared_ptr<vector<string>> ipWhitelists{};
   shared_ptr<string> resourceName{};
@@ -13240,7 +13865,14 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("actions") != m.end() && !m["actions"].empty()) {
-      actions = make_shared<string>(boost::any_cast<string>(m["actions"]));
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["actions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["actions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      actions = make_shared<vector<string>>(toVec1);
     }
     if (m.find("decision") != m.end() && !m["decision"].empty()) {
       decision = make_shared<string>(boost::any_cast<string>(m["decision"]));
@@ -13982,7 +14614,7 @@ public:
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteInstanceAclResponse deleteInstanceAcl(shared_ptr<string> instanceId, shared_ptr<string> username, shared_ptr<DeleteInstanceAclRequest> request);
   DeleteInstanceIpWhitelistResponse deleteInstanceIpWhitelistWithOptions(shared_ptr<string> instanceId,
-                                                                         shared_ptr<DeleteInstanceIpWhitelistRequest> request,
+                                                                         shared_ptr<DeleteInstanceIpWhitelistRequest> tmpReq,
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteInstanceIpWhitelistResponse deleteInstanceIpWhitelist(shared_ptr<string> instanceId, shared_ptr<DeleteInstanceIpWhitelistRequest> request);
@@ -13998,9 +14630,10 @@ public:
   GetConsumerGroupResponse getConsumerGroup(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId);
   GetConsumerGroupLagResponse getConsumerGroupLagWithOptions(shared_ptr<string> instanceId,
                                                              shared_ptr<string> consumerGroupId,
+                                                             shared_ptr<GetConsumerGroupLagRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetConsumerGroupLagResponse getConsumerGroupLag(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId);
+  GetConsumerGroupLagResponse getConsumerGroupLag(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId, shared_ptr<GetConsumerGroupLagRequest> request);
   GetConsumerGroupSubscriptionResponse getConsumerGroupSubscriptionWithOptions(shared_ptr<string> instanceId,
                                                                                shared_ptr<string> consumerGroupId,
                                                                                shared_ptr<string> topicName,
@@ -14020,6 +14653,17 @@ public:
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetInstanceAccountResponse getInstanceAccount(shared_ptr<string> instanceId, shared_ptr<GetInstanceAccountRequest> request);
+  GetInstanceAclResponse getInstanceAclWithOptions(shared_ptr<string> instanceId,
+                                                   shared_ptr<string> username,
+                                                   shared_ptr<GetInstanceAclRequest> request,
+                                                   shared_ptr<map<string, string>> headers,
+                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetInstanceAclResponse getInstanceAcl(shared_ptr<string> instanceId, shared_ptr<string> username, shared_ptr<GetInstanceAclRequest> request);
+  GetInstanceIpWhitelistResponse getInstanceIpWhitelistWithOptions(shared_ptr<string> instanceId,
+                                                                   shared_ptr<GetInstanceIpWhitelistRequest> tmpReq,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetInstanceIpWhitelistResponse getInstanceIpWhitelist(shared_ptr<string> instanceId, shared_ptr<GetInstanceIpWhitelistRequest> request);
   GetMessageDetailResponse getMessageDetailWithOptions(shared_ptr<string> instanceId,
                                                        shared_ptr<string> topicName,
                                                        shared_ptr<string> messageId,
