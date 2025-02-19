@@ -1616,6 +1616,8 @@ public:
   shared_ptr<string> imageNameExtension{};
   shared_ptr<vector<string>> imageNames{};
   shared_ptr<vector<string>> imageUrls{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertImageToExcelJobRequest() {}
 
@@ -1638,6 +1640,12 @@ public:
     }
     if (imageUrls) {
       res["ImageUrls"] = boost::any(*imageUrls);
+    }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
     }
     return res;
   }
@@ -1669,6 +1677,12 @@ public:
       }
       imageUrls = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
   }
 
 
@@ -1680,6 +1694,8 @@ public:
   shared_ptr<string> imageNameExtension{};
   shared_ptr<string> imageNamesShrink{};
   shared_ptr<string> imageUrlsShrink{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertImageToExcelJobShrinkRequest() {}
 
@@ -1703,6 +1719,12 @@ public:
     if (imageUrlsShrink) {
       res["ImageUrls"] = boost::any(*imageUrlsShrink);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -1718,6 +1740,12 @@ public:
     }
     if (m.find("ImageUrls") != m.end() && !m["ImageUrls"].empty()) {
       imageUrlsShrink = make_shared<string>(boost::any_cast<string>(m["ImageUrls"]));
+    }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
   }
 
@@ -1864,6 +1892,8 @@ public:
   shared_ptr<string> imageNameExtension{};
   shared_ptr<vector<string>> imageNames{};
   shared_ptr<vector<string>> imageUrls{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertImageToMarkdownJobRequest() {}
 
@@ -1883,6 +1913,12 @@ public:
     }
     if (imageUrls) {
       res["ImageUrls"] = boost::any(*imageUrls);
+    }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
     }
     return res;
   }
@@ -1911,6 +1947,12 @@ public:
       }
       imageUrls = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
   }
 
 
@@ -1921,6 +1963,8 @@ public:
   shared_ptr<string> imageNameExtension{};
   shared_ptr<string> imageNamesShrink{};
   shared_ptr<string> imageUrlsShrink{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertImageToMarkdownJobShrinkRequest() {}
 
@@ -1941,6 +1985,12 @@ public:
     if (imageUrlsShrink) {
       res["ImageUrls"] = boost::any(*imageUrlsShrink);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -1953,6 +2003,12 @@ public:
     }
     if (m.find("ImageUrls") != m.end() && !m["ImageUrls"].empty()) {
       imageUrlsShrink = make_shared<string>(boost::any_cast<string>(m["ImageUrls"]));
+    }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
   }
 
@@ -2099,6 +2155,8 @@ public:
   shared_ptr<string> imageNameExtension{};
   shared_ptr<vector<string>> imageNames{};
   shared_ptr<vector<string>> imageUrls{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertImageToPdfJobRequest() {}
 
@@ -2118,6 +2176,12 @@ public:
     }
     if (imageUrls) {
       res["ImageUrls"] = boost::any(*imageUrls);
+    }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
     }
     return res;
   }
@@ -2146,6 +2210,12 @@ public:
       }
       imageUrls = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
   }
 
 
@@ -2156,6 +2226,8 @@ public:
   shared_ptr<string> imageNameExtension{};
   shared_ptr<string> imageNamesShrink{};
   shared_ptr<string> imageUrlsShrink{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertImageToPdfJobShrinkRequest() {}
 
@@ -2176,6 +2248,12 @@ public:
     if (imageUrlsShrink) {
       res["ImageUrls"] = boost::any(*imageUrlsShrink);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -2188,6 +2266,12 @@ public:
     }
     if (m.find("ImageUrls") != m.end() && !m["ImageUrls"].empty()) {
       imageUrlsShrink = make_shared<string>(boost::any_cast<string>(m["ImageUrls"]));
+    }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
   }
 
@@ -2334,6 +2418,8 @@ public:
   shared_ptr<string> imageNameExtension{};
   shared_ptr<vector<string>> imageNames{};
   shared_ptr<vector<string>> imageUrls{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertImageToWordJobRequest() {}
 
@@ -2353,6 +2439,12 @@ public:
     }
     if (imageUrls) {
       res["ImageUrls"] = boost::any(*imageUrls);
+    }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
     }
     return res;
   }
@@ -2381,6 +2473,12 @@ public:
       }
       imageUrls = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
   }
 
 
@@ -2391,6 +2489,8 @@ public:
   shared_ptr<string> imageNameExtension{};
   shared_ptr<string> imageNamesShrink{};
   shared_ptr<string> imageUrlsShrink{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertImageToWordJobShrinkRequest() {}
 
@@ -2411,6 +2511,12 @@ public:
     if (imageUrlsShrink) {
       res["ImageUrls"] = boost::any(*imageUrlsShrink);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -2423,6 +2529,12 @@ public:
     }
     if (m.find("ImageUrls") != m.end() && !m["ImageUrls"].empty()) {
       imageUrlsShrink = make_shared<string>(boost::any_cast<string>(m["ImageUrls"]));
+    }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
   }
 
@@ -2570,6 +2682,8 @@ public:
   shared_ptr<string> fileUrl{};
   shared_ptr<bool> forceExportInnerImage{};
   shared_ptr<bool> forceMergeExcel{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertPdfToExcelJobRequest() {}
 
@@ -2593,6 +2707,12 @@ public:
     if (forceMergeExcel) {
       res["ForceMergeExcel"] = boost::any(*forceMergeExcel);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -2609,6 +2729,12 @@ public:
     if (m.find("ForceMergeExcel") != m.end() && !m["ForceMergeExcel"].empty()) {
       forceMergeExcel = make_shared<bool>(boost::any_cast<bool>(m["ForceMergeExcel"]));
     }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
   }
 
 
@@ -2620,6 +2746,8 @@ public:
   shared_ptr<Darabonba::Stream> fileUrlObject{};
   shared_ptr<bool> forceExportInnerImage{};
   shared_ptr<bool> forceMergeExcel{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertPdfToExcelJobAdvanceRequest() {}
 
@@ -2643,6 +2771,12 @@ public:
     if (forceMergeExcel) {
       res["ForceMergeExcel"] = boost::any(*forceMergeExcel);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -2658,6 +2792,12 @@ public:
     }
     if (m.find("ForceMergeExcel") != m.end() && !m["ForceMergeExcel"].empty()) {
       forceMergeExcel = make_shared<bool>(boost::any_cast<bool>(m["ForceMergeExcel"]));
+    }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
   }
 
@@ -2803,6 +2943,8 @@ class SubmitConvertPdfToImageJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileUrl{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertPdfToImageJobRequest() {}
 
@@ -2820,6 +2962,12 @@ public:
     if (fileUrl) {
       res["FileUrl"] = boost::any(*fileUrl);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -2830,6 +2978,12 @@ public:
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
     }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
   }
 
 
@@ -2839,6 +2993,8 @@ class SubmitConvertPdfToImageJobAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertPdfToImageJobAdvanceRequest() {}
 
@@ -2856,6 +3012,12 @@ public:
     if (fileUrlObject) {
       res["FileUrl"] = boost::any(*fileUrlObject);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -2865,6 +3027,12 @@ public:
     }
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
   }
 
@@ -3010,6 +3178,8 @@ class SubmitConvertPdfToMarkdownJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileUrl{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertPdfToMarkdownJobRequest() {}
 
@@ -3027,6 +3197,12 @@ public:
     if (fileUrl) {
       res["FileUrl"] = boost::any(*fileUrl);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -3037,6 +3213,12 @@ public:
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
     }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
   }
 
 
@@ -3046,6 +3228,8 @@ class SubmitConvertPdfToMarkdownJobAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertPdfToMarkdownJobAdvanceRequest() {}
 
@@ -3063,6 +3247,12 @@ public:
     if (fileUrlObject) {
       res["FileUrl"] = boost::any(*fileUrlObject);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -3072,6 +3262,12 @@ public:
     }
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
   }
 
@@ -3218,6 +3414,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileUrl{};
   shared_ptr<bool> forceExportInnerImage{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertPdfToWordJobRequest() {}
 
@@ -3238,6 +3436,12 @@ public:
     if (forceExportInnerImage) {
       res["ForceExportInnerImage"] = boost::any(*forceExportInnerImage);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -3251,6 +3455,12 @@ public:
     if (m.find("ForceExportInnerImage") != m.end() && !m["ForceExportInnerImage"].empty()) {
       forceExportInnerImage = make_shared<bool>(boost::any_cast<bool>(m["ForceExportInnerImage"]));
     }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
   }
 
 
@@ -3261,6 +3471,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
   shared_ptr<bool> forceExportInnerImage{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitConvertPdfToWordJobAdvanceRequest() {}
 
@@ -3281,6 +3493,12 @@ public:
     if (forceExportInnerImage) {
       res["ForceExportInnerImage"] = boost::any(*forceExportInnerImage);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -3293,6 +3511,12 @@ public:
     }
     if (m.find("ForceExportInnerImage") != m.end() && !m["ForceExportInnerImage"].empty()) {
       forceExportInnerImage = make_shared<bool>(boost::any_cast<bool>(m["ForceExportInnerImage"]));
+    }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
   }
 
@@ -3440,6 +3664,8 @@ public:
   shared_ptr<string> fileNameExtension{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> imageStrategy{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
   shared_ptr<bool> revealMarkdown{};
   shared_ptr<bool> useUrlResponseBody{};
 
@@ -3465,6 +3691,12 @@ public:
     if (imageStrategy) {
       res["ImageStrategy"] = boost::any(*imageStrategy);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     if (revealMarkdown) {
       res["RevealMarkdown"] = boost::any(*revealMarkdown);
     }
@@ -3487,6 +3719,12 @@ public:
     if (m.find("ImageStrategy") != m.end() && !m["ImageStrategy"].empty()) {
       imageStrategy = make_shared<string>(boost::any_cast<string>(m["ImageStrategy"]));
     }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
     if (m.find("RevealMarkdown") != m.end() && !m["RevealMarkdown"].empty()) {
       revealMarkdown = make_shared<bool>(boost::any_cast<bool>(m["RevealMarkdown"]));
     }
@@ -3504,6 +3742,8 @@ public:
   shared_ptr<string> fileNameExtension{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
   shared_ptr<string> imageStrategy{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
   shared_ptr<bool> revealMarkdown{};
   shared_ptr<bool> useUrlResponseBody{};
 
@@ -3529,6 +3769,12 @@ public:
     if (imageStrategy) {
       res["ImageStrategy"] = boost::any(*imageStrategy);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     if (revealMarkdown) {
       res["RevealMarkdown"] = boost::any(*revealMarkdown);
     }
@@ -3550,6 +3796,12 @@ public:
     }
     if (m.find("ImageStrategy") != m.end() && !m["ImageStrategy"].empty()) {
       imageStrategy = make_shared<string>(boost::any_cast<string>(m["ImageStrategy"]));
+    }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
     if (m.find("RevealMarkdown") != m.end() && !m["RevealMarkdown"].empty()) {
       revealMarkdown = make_shared<bool>(boost::any_cast<bool>(m["RevealMarkdown"]));
@@ -3685,6 +3937,8 @@ public:
   shared_ptr<string> fileUrl{};
   shared_ptr<bool> formulaEnhancement{};
   shared_ptr<bool> llmEnhancement{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitDocParserJobRequest() {}
 
@@ -3711,6 +3965,12 @@ public:
     if (llmEnhancement) {
       res["LlmEnhancement"] = boost::any(*llmEnhancement);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -3730,6 +3990,12 @@ public:
     if (m.find("LlmEnhancement") != m.end() && !m["LlmEnhancement"].empty()) {
       llmEnhancement = make_shared<bool>(boost::any_cast<bool>(m["LlmEnhancement"]));
     }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
   }
 
 
@@ -3742,6 +4008,8 @@ public:
   shared_ptr<Darabonba::Stream> fileUrlObject{};
   shared_ptr<bool> formulaEnhancement{};
   shared_ptr<bool> llmEnhancement{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitDocParserJobAdvanceRequest() {}
 
@@ -3768,6 +4036,12 @@ public:
     if (llmEnhancement) {
       res["LlmEnhancement"] = boost::any(*llmEnhancement);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -3786,6 +4060,12 @@ public:
     }
     if (m.find("LlmEnhancement") != m.end() && !m["LlmEnhancement"].empty()) {
       llmEnhancement = make_shared<bool>(boost::any_cast<bool>(m["LlmEnhancement"]));
+    }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
   }
 
@@ -3934,6 +4214,8 @@ public:
   shared_ptr<string> fileNameExtension{};
   shared_ptr<string> fileUrl{};
   shared_ptr<bool> formulaEnhancement{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
   shared_ptr<string> structureType{};
 
   SubmitDocStructureJobRequest() {}
@@ -3961,6 +4243,12 @@ public:
     if (formulaEnhancement) {
       res["FormulaEnhancement"] = boost::any(*formulaEnhancement);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
     }
@@ -3983,6 +4271,12 @@ public:
     if (m.find("FormulaEnhancement") != m.end() && !m["FormulaEnhancement"].empty()) {
       formulaEnhancement = make_shared<bool>(boost::any_cast<bool>(m["FormulaEnhancement"]));
     }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
     }
@@ -3998,6 +4292,8 @@ public:
   shared_ptr<string> fileNameExtension{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
   shared_ptr<bool> formulaEnhancement{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
   shared_ptr<string> structureType{};
 
   SubmitDocStructureJobAdvanceRequest() {}
@@ -4025,6 +4321,12 @@ public:
     if (formulaEnhancement) {
       res["FormulaEnhancement"] = boost::any(*formulaEnhancement);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
     }
@@ -4046,6 +4348,12 @@ public:
     }
     if (m.find("FormulaEnhancement") != m.end() && !m["FormulaEnhancement"].empty()) {
       formulaEnhancement = make_shared<bool>(boost::any_cast<bool>(m["FormulaEnhancement"]));
+    }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
@@ -4195,6 +4503,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileNameExtension{};
   shared_ptr<string> fileUrl{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitDocumentExtractJobRequest() {}
 
@@ -4215,6 +4525,12 @@ public:
     if (fileUrl) {
       res["FileUrl"] = boost::any(*fileUrl);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -4228,6 +4544,12 @@ public:
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
     }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
   }
 
 
@@ -4238,6 +4560,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileNameExtension{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitDocumentExtractJobAdvanceRequest() {}
 
@@ -4258,6 +4582,12 @@ public:
     if (fileUrlObject) {
       res["FileUrl"] = boost::any(*fileUrlObject);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -4270,6 +4600,12 @@ public:
     }
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
   }
 
@@ -4416,6 +4752,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileNameExtension{};
   shared_ptr<string> fileUrl{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitTableUnderstandingJobRequest() {}
 
@@ -4436,6 +4774,12 @@ public:
     if (fileUrl) {
       res["FileUrl"] = boost::any(*fileUrl);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -4449,6 +4793,12 @@ public:
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
     }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
+    }
   }
 
 
@@ -4459,6 +4809,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileNameExtension{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<string> ossBucket{};
+  shared_ptr<string> ossEndpoint{};
 
   SubmitTableUnderstandingJobAdvanceRequest() {}
 
@@ -4479,6 +4831,12 @@ public:
     if (fileUrlObject) {
       res["FileUrl"] = boost::any(*fileUrlObject);
     }
+    if (ossBucket) {
+      res["OssBucket"] = boost::any(*ossBucket);
+    }
+    if (ossEndpoint) {
+      res["OssEndpoint"] = boost::any(*ossEndpoint);
+    }
     return res;
   }
 
@@ -4491,6 +4849,12 @@ public:
     }
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("OssBucket") != m.end() && !m["OssBucket"].empty()) {
+      ossBucket = make_shared<string>(boost::any_cast<string>(m["OssBucket"]));
+    }
+    if (m.find("OssEndpoint") != m.end() && !m["OssEndpoint"].empty()) {
+      ossEndpoint = make_shared<string>(boost::any_cast<string>(m["OssEndpoint"]));
     }
   }
 
