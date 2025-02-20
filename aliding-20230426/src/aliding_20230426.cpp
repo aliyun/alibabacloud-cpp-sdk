@@ -2863,6 +2863,9 @@ CreateTodoTaskResponse Alibabacloud_Aliding20230426::Client::createTodoTaskWithO
   if (!Darabonba_Util::Client::isUnset<CreateTodoTaskRequestTenantContext>(tmpReq->tenantContext)) {
     request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateTodoTaskRequestActionList>>(tmpReq->actionList)) {
+    request->actionListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->actionList, make_shared<string>("actionList"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateTodoTaskRequestContentFieldList>>(tmpReq->contentFieldList)) {
     request->contentFieldListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->contentFieldList, make_shared<string>("contentFieldList"), make_shared<string>("json")));
   }
@@ -2885,6 +2888,9 @@ CreateTodoTaskResponse Alibabacloud_Aliding20230426::Client::createTodoTaskWithO
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
     body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->actionListShrink)) {
+    body->insert(pair<string, string>("actionList", *request->actionListShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->contentFieldListShrink)) {
     body->insert(pair<string, string>("contentFieldList", *request->contentFieldListShrink));
@@ -12939,6 +12945,64 @@ SubscribeCalendarResponse Alibabacloud_Aliding20230426::Client::subscribeCalenda
   return subscribeCalendarWithOptions(request, headers, runtime);
 }
 
+SubscribeEventResponse Alibabacloud_Aliding20230426::Client::subscribeEventWithOptions(shared_ptr<SubscribeEventRequest> tmpReq, shared_ptr<SubscribeEventHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubscribeEventShrinkRequest> request = make_shared<SubscribeEventShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<SubscribeEventShrinkHeaders> headers = make_shared<SubscribeEventShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<SubscribeEventHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<SubscribeEventRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    body->insert(pair<string, string>("Scope", *request->scope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scopeId)) {
+    body->insert(pair<string, string>("ScopeId", *request->scopeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubscribeEvent"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/documents/subscribeEvent"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return SubscribeEventResponse(callApi(params, req, runtime));
+  }
+  else {
+    return SubscribeEventResponse(execute(params, req, runtime));
+  }
+}
+
+SubscribeEventResponse Alibabacloud_Aliding20230426::Client::subscribeEvent(shared_ptr<SubscribeEventRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<SubscribeEventHeaders> headers = make_shared<SubscribeEventHeaders>();
+  return subscribeEventWithOptions(request, headers, runtime);
+}
+
 SyncDingTypeResponse Alibabacloud_Aliding20230426::Client::syncDingTypeWithOptions(shared_ptr<SyncDingTypeRequest> tmpReq, shared_ptr<SyncDingTypeHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<SyncDingTypeShrinkRequest> request = make_shared<SyncDingTypeShrinkRequest>();
@@ -13180,6 +13244,64 @@ UnsubscribeCalendarResponse Alibabacloud_Aliding20230426::Client::unsubscribeCal
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<UnsubscribeCalendarHeaders> headers = make_shared<UnsubscribeCalendarHeaders>();
   return unsubscribeCalendarWithOptions(request, headers, runtime);
+}
+
+UnsubscribeEventResponse Alibabacloud_Aliding20230426::Client::unsubscribeEventWithOptions(shared_ptr<UnsubscribeEventRequest> tmpReq, shared_ptr<UnsubscribeEventHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UnsubscribeEventShrinkRequest> request = make_shared<UnsubscribeEventShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<UnsubscribeEventShrinkHeaders> headers = make_shared<UnsubscribeEventShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<UnsubscribeEventHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<UnsubscribeEventRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    body->insert(pair<string, string>("Scope", *request->scope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scopeId)) {
+    body->insert(pair<string, string>("ScopeId", *request->scopeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UnsubscribeEvent"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/documents/unsubscribeEvent"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UnsubscribeEventResponse(callApi(params, req, runtime));
+  }
+  else {
+    return UnsubscribeEventResponse(execute(params, req, runtime));
+  }
+}
+
+UnsubscribeEventResponse Alibabacloud_Aliding20230426::Client::unsubscribeEvent(shared_ptr<UnsubscribeEventRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<UnsubscribeEventHeaders> headers = make_shared<UnsubscribeEventHeaders>();
+  return unsubscribeEventWithOptions(request, headers, runtime);
 }
 
 UpdateFormDataResponse Alibabacloud_Aliding20230426::Client::updateFormDataWithOptions(shared_ptr<UpdateFormDataRequest> request, shared_ptr<UpdateFormDataHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
