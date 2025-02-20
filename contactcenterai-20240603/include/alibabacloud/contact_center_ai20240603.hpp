@@ -1679,6 +1679,372 @@ public:
 
   virtual ~CreateTaskResponse() = default;
 };
+class CreateVocabRequestWordWeightList : public Darabonba::Model {
+public:
+  shared_ptr<long> weight{};
+  shared_ptr<string> word{};
+
+  CreateVocabRequestWordWeightList() {}
+
+  explicit CreateVocabRequestWordWeightList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (weight) {
+      res["weight"] = boost::any(*weight);
+    }
+    if (word) {
+      res["word"] = boost::any(*word);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("weight") != m.end() && !m["weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["weight"]));
+    }
+    if (m.find("word") != m.end() && !m["word"].empty()) {
+      word = make_shared<string>(boost::any_cast<string>(m["word"]));
+    }
+  }
+
+
+  virtual ~CreateVocabRequestWordWeightList() = default;
+};
+class CreateVocabRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> audioModelCode{};
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<CreateVocabRequestWordWeightList>> wordWeightList{};
+  shared_ptr<string> workspaceId{};
+
+  CreateVocabRequest() {}
+
+  explicit CreateVocabRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (audioModelCode) {
+      res["audioModelCode"] = boost::any(*audioModelCode);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (wordWeightList) {
+      vector<boost::any> temp1;
+      for(auto item1:*wordWeightList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["wordWeightList"] = boost::any(temp1);
+    }
+    if (workspaceId) {
+      res["workspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("audioModelCode") != m.end() && !m["audioModelCode"].empty()) {
+      audioModelCode = make_shared<string>(boost::any_cast<string>(m["audioModelCode"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("wordWeightList") != m.end() && !m["wordWeightList"].empty()) {
+      if (typeid(vector<boost::any>) == m["wordWeightList"].type()) {
+        vector<CreateVocabRequestWordWeightList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["wordWeightList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateVocabRequestWordWeightList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        wordWeightList = make_shared<vector<CreateVocabRequestWordWeightList>>(expect1);
+      }
+    }
+    if (m.find("workspaceId") != m.end() && !m["workspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["workspaceId"]));
+    }
+  }
+
+
+  virtual ~CreateVocabRequest() = default;
+};
+class CreateVocabResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> vocabularyId{};
+
+  CreateVocabResponseBodyData() {}
+
+  explicit CreateVocabResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vocabularyId) {
+      res["vocabularyId"] = boost::any(*vocabularyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("vocabularyId") != m.end() && !m["vocabularyId"].empty()) {
+      vocabularyId = make_shared<string>(boost::any_cast<string>(m["vocabularyId"]));
+    }
+  }
+
+
+  virtual ~CreateVocabResponseBodyData() = default;
+};
+class CreateVocabResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CreateVocabResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  CreateVocabResponseBody() {}
+
+  explicit CreateVocabResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        CreateVocabResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<CreateVocabResponseBodyData>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["success"]));
+    }
+  }
+
+
+  virtual ~CreateVocabResponseBody() = default;
+};
+class CreateVocabResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateVocabResponseBody> body{};
+
+  CreateVocabResponse() {}
+
+  explicit CreateVocabResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateVocabResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateVocabResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateVocabResponse() = default;
+};
+class DeleteVocabRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> vocabularyId{};
+  shared_ptr<string> workspaceId{};
+
+  DeleteVocabRequest() {}
+
+  explicit DeleteVocabRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vocabularyId) {
+      res["vocabularyId"] = boost::any(*vocabularyId);
+    }
+    if (workspaceId) {
+      res["workspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("vocabularyId") != m.end() && !m["vocabularyId"].empty()) {
+      vocabularyId = make_shared<string>(boost::any_cast<string>(m["vocabularyId"]));
+    }
+    if (m.find("workspaceId") != m.end() && !m["workspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["workspaceId"]));
+    }
+  }
+
+
+  virtual ~DeleteVocabRequest() = default;
+};
+class DeleteVocabResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> data{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  DeleteVocabResponseBody() {}
+
+  explicit DeleteVocabResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["data"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["success"]));
+    }
+  }
+
+
+  virtual ~DeleteVocabResponseBody() = default;
+};
+class DeleteVocabResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteVocabResponseBody> body{};
+
+  DeleteVocabResponse() {}
+
+  explicit DeleteVocabResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteVocabResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteVocabResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteVocabResponse() = default;
+};
 class GetTaskResultRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> requiredFieldList{};
@@ -1998,6 +2364,493 @@ public:
 
 
   virtual ~GetTaskResultResponse() = default;
+};
+class GetVocabRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> vocabularyId{};
+  shared_ptr<string> workspaceId{};
+
+  GetVocabRequest() {}
+
+  explicit GetVocabRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vocabularyId) {
+      res["vocabularyId"] = boost::any(*vocabularyId);
+    }
+    if (workspaceId) {
+      res["workspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("vocabularyId") != m.end() && !m["vocabularyId"].empty()) {
+      vocabularyId = make_shared<string>(boost::any_cast<string>(m["vocabularyId"]));
+    }
+    if (m.find("workspaceId") != m.end() && !m["workspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["workspaceId"]));
+    }
+  }
+
+
+  virtual ~GetVocabRequest() = default;
+};
+class GetVocabResponseBodyDataWordWeightList : public Darabonba::Model {
+public:
+  shared_ptr<long> weight{};
+  shared_ptr<string> word{};
+
+  GetVocabResponseBodyDataWordWeightList() {}
+
+  explicit GetVocabResponseBodyDataWordWeightList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (weight) {
+      res["weight"] = boost::any(*weight);
+    }
+    if (word) {
+      res["word"] = boost::any(*word);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("weight") != m.end() && !m["weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["weight"]));
+    }
+    if (m.find("word") != m.end() && !m["word"].empty()) {
+      word = make_shared<string>(boost::any_cast<string>(m["word"]));
+    }
+  }
+
+
+  virtual ~GetVocabResponseBodyDataWordWeightList() = default;
+};
+class GetVocabResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> audioModelCode{};
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> vocabularyId{};
+  shared_ptr<vector<GetVocabResponseBodyDataWordWeightList>> wordWeightList{};
+
+  GetVocabResponseBodyData() {}
+
+  explicit GetVocabResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (audioModelCode) {
+      res["audioModelCode"] = boost::any(*audioModelCode);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (vocabularyId) {
+      res["vocabularyId"] = boost::any(*vocabularyId);
+    }
+    if (wordWeightList) {
+      vector<boost::any> temp1;
+      for(auto item1:*wordWeightList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["wordWeightList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("audioModelCode") != m.end() && !m["audioModelCode"].empty()) {
+      audioModelCode = make_shared<string>(boost::any_cast<string>(m["audioModelCode"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("vocabularyId") != m.end() && !m["vocabularyId"].empty()) {
+      vocabularyId = make_shared<string>(boost::any_cast<string>(m["vocabularyId"]));
+    }
+    if (m.find("wordWeightList") != m.end() && !m["wordWeightList"].empty()) {
+      if (typeid(vector<boost::any>) == m["wordWeightList"].type()) {
+        vector<GetVocabResponseBodyDataWordWeightList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["wordWeightList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetVocabResponseBodyDataWordWeightList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        wordWeightList = make_shared<vector<GetVocabResponseBodyDataWordWeightList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetVocabResponseBodyData() = default;
+};
+class GetVocabResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetVocabResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  GetVocabResponseBody() {}
+
+  explicit GetVocabResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        GetVocabResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<GetVocabResponseBodyData>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["success"]));
+    }
+  }
+
+
+  virtual ~GetVocabResponseBody() = default;
+};
+class GetVocabResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetVocabResponseBody> body{};
+
+  GetVocabResponse() {}
+
+  explicit GetVocabResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetVocabResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetVocabResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetVocabResponse() = default;
+};
+class ListVocabRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> workspaceId{};
+
+  ListVocabRequest() {}
+
+  explicit ListVocabRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (workspaceId) {
+      res["workspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("workspaceId") != m.end() && !m["workspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["workspaceId"]));
+    }
+  }
+
+
+  virtual ~ListVocabRequest() = default;
+};
+class ListVocabResponseBodyDataWordWeightList : public Darabonba::Model {
+public:
+  shared_ptr<long> weight{};
+  shared_ptr<string> word{};
+
+  ListVocabResponseBodyDataWordWeightList() {}
+
+  explicit ListVocabResponseBodyDataWordWeightList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (weight) {
+      res["weight"] = boost::any(*weight);
+    }
+    if (word) {
+      res["word"] = boost::any(*word);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("weight") != m.end() && !m["weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["weight"]));
+    }
+    if (m.find("word") != m.end() && !m["word"].empty()) {
+      word = make_shared<string>(boost::any_cast<string>(m["word"]));
+    }
+  }
+
+
+  virtual ~ListVocabResponseBodyDataWordWeightList() = default;
+};
+class ListVocabResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> audioModelCode{};
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> vocabularyId{};
+  shared_ptr<vector<ListVocabResponseBodyDataWordWeightList>> wordWeightList{};
+
+  ListVocabResponseBodyData() {}
+
+  explicit ListVocabResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (audioModelCode) {
+      res["audioModelCode"] = boost::any(*audioModelCode);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (vocabularyId) {
+      res["vocabularyId"] = boost::any(*vocabularyId);
+    }
+    if (wordWeightList) {
+      vector<boost::any> temp1;
+      for(auto item1:*wordWeightList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["wordWeightList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("audioModelCode") != m.end() && !m["audioModelCode"].empty()) {
+      audioModelCode = make_shared<string>(boost::any_cast<string>(m["audioModelCode"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("vocabularyId") != m.end() && !m["vocabularyId"].empty()) {
+      vocabularyId = make_shared<string>(boost::any_cast<string>(m["vocabularyId"]));
+    }
+    if (m.find("wordWeightList") != m.end() && !m["wordWeightList"].empty()) {
+      if (typeid(vector<boost::any>) == m["wordWeightList"].type()) {
+        vector<ListVocabResponseBodyDataWordWeightList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["wordWeightList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListVocabResponseBodyDataWordWeightList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        wordWeightList = make_shared<vector<ListVocabResponseBodyDataWordWeightList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListVocabResponseBodyData() = default;
+};
+class ListVocabResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListVocabResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  ListVocabResponseBody() {}
+
+  explicit ListVocabResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<ListVocabResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListVocabResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListVocabResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["success"]));
+    }
+  }
+
+
+  virtual ~ListVocabResponseBody() = default;
+};
+class ListVocabResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListVocabResponseBody> body{};
+
+  ListVocabResponse() {}
+
+  explicit ListVocabResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListVocabResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListVocabResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListVocabResponse() = default;
 };
 class RunCompletionRequestDialogueSentences : public Darabonba::Model {
 public:
@@ -2703,6 +3556,208 @@ public:
 
   virtual ~RunCompletionMessageResponse() = default;
 };
+class UpdateVocabRequestWordWeightList : public Darabonba::Model {
+public:
+  shared_ptr<long> weight{};
+  shared_ptr<string> word{};
+
+  UpdateVocabRequestWordWeightList() {}
+
+  explicit UpdateVocabRequestWordWeightList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (weight) {
+      res["weight"] = boost::any(*weight);
+    }
+    if (word) {
+      res["word"] = boost::any(*word);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("weight") != m.end() && !m["weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["weight"]));
+    }
+    if (m.find("word") != m.end() && !m["word"].empty()) {
+      word = make_shared<string>(boost::any_cast<string>(m["word"]));
+    }
+  }
+
+
+  virtual ~UpdateVocabRequestWordWeightList() = default;
+};
+class UpdateVocabRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> vocabularyId{};
+  shared_ptr<vector<UpdateVocabRequestWordWeightList>> wordWeightList{};
+  shared_ptr<string> workspaceId{};
+
+  UpdateVocabRequest() {}
+
+  explicit UpdateVocabRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (vocabularyId) {
+      res["vocabularyId"] = boost::any(*vocabularyId);
+    }
+    if (wordWeightList) {
+      vector<boost::any> temp1;
+      for(auto item1:*wordWeightList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["wordWeightList"] = boost::any(temp1);
+    }
+    if (workspaceId) {
+      res["workspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("vocabularyId") != m.end() && !m["vocabularyId"].empty()) {
+      vocabularyId = make_shared<string>(boost::any_cast<string>(m["vocabularyId"]));
+    }
+    if (m.find("wordWeightList") != m.end() && !m["wordWeightList"].empty()) {
+      if (typeid(vector<boost::any>) == m["wordWeightList"].type()) {
+        vector<UpdateVocabRequestWordWeightList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["wordWeightList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateVocabRequestWordWeightList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        wordWeightList = make_shared<vector<UpdateVocabRequestWordWeightList>>(expect1);
+      }
+    }
+    if (m.find("workspaceId") != m.end() && !m["workspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["workspaceId"]));
+    }
+  }
+
+
+  virtual ~UpdateVocabRequest() = default;
+};
+class UpdateVocabResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> data{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  UpdateVocabResponseBody() {}
+
+  explicit UpdateVocabResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["data"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["success"]));
+    }
+  }
+
+
+  virtual ~UpdateVocabResponseBody() = default;
+};
+class UpdateVocabResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateVocabResponseBody> body{};
+
+  UpdateVocabResponse() {}
+
+  explicit UpdateVocabResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateVocabResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateVocabResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateVocabResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -2731,8 +3786,16 @@ public:
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTaskResponse createTask(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<CreateTaskRequest> request);
+  CreateVocabResponse createVocabWithOptions(shared_ptr<CreateVocabRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateVocabResponse createVocab(shared_ptr<CreateVocabRequest> request);
+  DeleteVocabResponse deleteVocabWithOptions(shared_ptr<DeleteVocabRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteVocabResponse deleteVocab(shared_ptr<DeleteVocabRequest> request);
   GetTaskResultResponse getTaskResultWithOptions(shared_ptr<GetTaskResultRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTaskResultResponse getTaskResult(shared_ptr<GetTaskResultRequest> request);
+  GetVocabResponse getVocabWithOptions(shared_ptr<GetVocabRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetVocabResponse getVocab(shared_ptr<GetVocabRequest> request);
+  ListVocabResponse listVocabWithOptions(shared_ptr<ListVocabRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListVocabResponse listVocab(shared_ptr<ListVocabRequest> request);
   RunCompletionResponse runCompletionWithOptions(shared_ptr<string> workspaceId,
                                                  shared_ptr<string> appId,
                                                  shared_ptr<RunCompletionRequest> request,
@@ -2745,6 +3808,8 @@ public:
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunCompletionMessageResponse runCompletionMessage(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<RunCompletionMessageRequest> request);
+  UpdateVocabResponse updateVocabWithOptions(shared_ptr<UpdateVocabRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateVocabResponse updateVocab(shared_ptr<UpdateVocabRequest> request);
 
   virtual ~Client() = default;
 };
