@@ -98,7 +98,12 @@ AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyz
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AnalyzeConversationResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AnalyzeConversationResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AnalyzeConversationResponse(execute(params, req, runtime));
+  }
 }
 
 AnalyzeConversationResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeConversation(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<AnalyzeConversationRequest> request) {
@@ -138,7 +143,12 @@ AnalyzeImageResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeImageW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return AnalyzeImageResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return AnalyzeImageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return AnalyzeImageResponse(execute(params, req, runtime));
+  }
 }
 
 AnalyzeImageResponse Alibabacloud_ContactCenterAI20240603::Client::analyzeImage(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<AnalyzeImageRequest> request) {
@@ -196,7 +206,12 @@ CreateTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createTaskWithO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateTaskResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return CreateTaskResponse(callApi(params, req, runtime));
+  }
+  else {
+    return CreateTaskResponse(execute(params, req, runtime));
+  }
 }
 
 CreateTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createTask(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<CreateTaskRequest> request) {
@@ -234,7 +249,12 @@ GetTaskResultResponse Alibabacloud_ContactCenterAI20240603::Client::getTaskResul
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetTaskResultResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetTaskResultResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetTaskResultResponse(execute(params, req, runtime));
+  }
 }
 
 GetTaskResultResponse Alibabacloud_ContactCenterAI20240603::Client::getTaskResult(shared_ptr<GetTaskResultRequest> request) {
@@ -283,7 +303,12 @@ RunCompletionResponse Alibabacloud_ContactCenterAI20240603::Client::runCompletio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RunCompletionResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RunCompletionResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RunCompletionResponse(execute(params, req, runtime));
+  }
 }
 
 RunCompletionResponse Alibabacloud_ContactCenterAI20240603::Client::runCompletion(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<RunCompletionRequest> request) {
@@ -323,7 +348,12 @@ RunCompletionMessageResponse Alibabacloud_ContactCenterAI20240603::Client::runCo
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RunCompletionMessageResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return RunCompletionMessageResponse(callApi(params, req, runtime));
+  }
+  else {
+    return RunCompletionMessageResponse(execute(params, req, runtime));
+  }
 }
 
 RunCompletionMessageResponse Alibabacloud_ContactCenterAI20240603::Client::runCompletionMessage(shared_ptr<string> workspaceId, shared_ptr<string> appId, shared_ptr<RunCompletionMessageRequest> request) {

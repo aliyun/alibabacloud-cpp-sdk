@@ -1339,6 +1339,7 @@ public:
   shared_ptr<string> level{};
   shared_ptr<long> serviceChannel{};
   shared_ptr<vector<string>> serviceChannelKeywords{};
+  shared_ptr<string> vocabularyId{};
   shared_ptr<string> voiceFileUrl{};
 
   CreateTaskRequestTranscription() {}
@@ -1371,6 +1372,9 @@ public:
     }
     if (serviceChannelKeywords) {
       res["serviceChannelKeywords"] = boost::any(*serviceChannelKeywords);
+    }
+    if (vocabularyId) {
+      res["vocabularyId"] = boost::any(*vocabularyId);
     }
     if (voiceFileUrl) {
       res["voiceFileUrl"] = boost::any(*voiceFileUrl);
@@ -1406,6 +1410,9 @@ public:
         }
       }
       serviceChannelKeywords = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("vocabularyId") != m.end() && !m["vocabularyId"].empty()) {
+      vocabularyId = make_shared<string>(boost::any_cast<string>(m["vocabularyId"]));
     }
     if (m.find("voiceFileUrl") != m.end() && !m["voiceFileUrl"].empty()) {
       voiceFileUrl = make_shared<string>(boost::any_cast<string>(m["voiceFileUrl"]));
