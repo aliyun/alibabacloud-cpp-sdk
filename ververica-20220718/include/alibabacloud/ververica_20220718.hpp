@@ -2691,7 +2691,7 @@ public:
 };
 class Event : public Darabonba::Model {
 public:
-  shared_ptr<long> createdAt{};
+  shared_ptr<string> createdAt{};
   shared_ptr<string> deploymentId{};
   shared_ptr<string> eventId{};
   shared_ptr<string> eventName{};
@@ -2739,7 +2739,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("createdAt") != m.end() && !m["createdAt"].empty()) {
-      createdAt = make_shared<long>(boost::any_cast<long>(m["createdAt"]));
+      createdAt = make_shared<string>(boost::any_cast<string>(m["createdAt"]));
     }
     if (m.find("deploymentId") != m.end() && !m["deploymentId"].empty()) {
       deploymentId = make_shared<string>(boost::any_cast<string>(m["deploymentId"]));
@@ -3681,6 +3681,255 @@ public:
 
 
   virtual ~Job() = default;
+};
+class JobDiagnosisSymptom : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> recommendation{};
+
+  JobDiagnosisSymptom() {}
+
+  explicit JobDiagnosisSymptom(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (recommendation) {
+      res["recommendation"] = boost::any(*recommendation);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("recommendation") != m.end() && !m["recommendation"].empty()) {
+      recommendation = make_shared<string>(boost::any_cast<string>(m["recommendation"]));
+    }
+  }
+
+
+  virtual ~JobDiagnosisSymptom() = default;
+};
+class JobDiagnosisSymptoms : public Darabonba::Model {
+public:
+  shared_ptr<JobDiagnosisSymptom> autopilot{};
+  shared_ptr<vector<JobDiagnosisSymptom>> others{};
+  shared_ptr<vector<JobDiagnosisSymptom>> runtime{};
+  shared_ptr<vector<JobDiagnosisSymptom>> startup{};
+  shared_ptr<vector<JobDiagnosisSymptom>> state{};
+  shared_ptr<vector<JobDiagnosisSymptom>> troubleshooting{};
+
+  JobDiagnosisSymptoms() {}
+
+  explicit JobDiagnosisSymptoms(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autopilot) {
+      res["autopilot"] = autopilot ? boost::any(autopilot->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (others) {
+      vector<boost::any> temp1;
+      for(auto item1:*others){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["others"] = boost::any(temp1);
+    }
+    if (runtime) {
+      vector<boost::any> temp1;
+      for(auto item1:*runtime){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["runtime"] = boost::any(temp1);
+    }
+    if (startup) {
+      vector<boost::any> temp1;
+      for(auto item1:*startup){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["startup"] = boost::any(temp1);
+    }
+    if (state) {
+      vector<boost::any> temp1;
+      for(auto item1:*state){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["state"] = boost::any(temp1);
+    }
+    if (troubleshooting) {
+      vector<boost::any> temp1;
+      for(auto item1:*troubleshooting){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["troubleshooting"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("autopilot") != m.end() && !m["autopilot"].empty()) {
+      if (typeid(map<string, boost::any>) == m["autopilot"].type()) {
+        JobDiagnosisSymptom model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["autopilot"]));
+        autopilot = make_shared<JobDiagnosisSymptom>(model1);
+      }
+    }
+    if (m.find("others") != m.end() && !m["others"].empty()) {
+      if (typeid(vector<boost::any>) == m["others"].type()) {
+        vector<JobDiagnosisSymptom> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["others"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            JobDiagnosisSymptom model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        others = make_shared<vector<JobDiagnosisSymptom>>(expect1);
+      }
+    }
+    if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
+      if (typeid(vector<boost::any>) == m["runtime"].type()) {
+        vector<JobDiagnosisSymptom> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["runtime"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            JobDiagnosisSymptom model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        runtime = make_shared<vector<JobDiagnosisSymptom>>(expect1);
+      }
+    }
+    if (m.find("startup") != m.end() && !m["startup"].empty()) {
+      if (typeid(vector<boost::any>) == m["startup"].type()) {
+        vector<JobDiagnosisSymptom> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["startup"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            JobDiagnosisSymptom model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        startup = make_shared<vector<JobDiagnosisSymptom>>(expect1);
+      }
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      if (typeid(vector<boost::any>) == m["state"].type()) {
+        vector<JobDiagnosisSymptom> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["state"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            JobDiagnosisSymptom model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        state = make_shared<vector<JobDiagnosisSymptom>>(expect1);
+      }
+    }
+    if (m.find("troubleshooting") != m.end() && !m["troubleshooting"].empty()) {
+      if (typeid(vector<boost::any>) == m["troubleshooting"].type()) {
+        vector<JobDiagnosisSymptom> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["troubleshooting"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            JobDiagnosisSymptom model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        troubleshooting = make_shared<vector<JobDiagnosisSymptom>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~JobDiagnosisSymptoms() = default;
+};
+class JobDiagnosis : public Darabonba::Model {
+public:
+  shared_ptr<string> diagnoseId{};
+  shared_ptr<long> diagnoseTime{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> riskLevel{};
+  shared_ptr<JobDiagnosisSymptoms> symptoms{};
+  shared_ptr<string> workspace{};
+
+  JobDiagnosis() {}
+
+  explicit JobDiagnosis(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diagnoseId) {
+      res["diagnoseId"] = boost::any(*diagnoseId);
+    }
+    if (diagnoseTime) {
+      res["diagnoseTime"] = boost::any(*diagnoseTime);
+    }
+    if (namespace_) {
+      res["namespace"] = boost::any(*namespace_);
+    }
+    if (riskLevel) {
+      res["riskLevel"] = boost::any(*riskLevel);
+    }
+    if (symptoms) {
+      res["symptoms"] = symptoms ? boost::any(symptoms->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (workspace) {
+      res["workspace"] = boost::any(*workspace);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("diagnoseId") != m.end() && !m["diagnoseId"].empty()) {
+      diagnoseId = make_shared<string>(boost::any_cast<string>(m["diagnoseId"]));
+    }
+    if (m.find("diagnoseTime") != m.end() && !m["diagnoseTime"].empty()) {
+      diagnoseTime = make_shared<long>(boost::any_cast<long>(m["diagnoseTime"]));
+    }
+    if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
+    }
+    if (m.find("riskLevel") != m.end() && !m["riskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["riskLevel"]));
+    }
+    if (m.find("symptoms") != m.end() && !m["symptoms"].empty()) {
+      if (typeid(map<string, boost::any>) == m["symptoms"].type()) {
+        JobDiagnosisSymptoms model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["symptoms"]));
+        symptoms = make_shared<JobDiagnosisSymptoms>(model1);
+      }
+    }
+    if (m.find("workspace") != m.end() && !m["workspace"].empty()) {
+      workspace = make_shared<string>(boost::any_cast<string>(m["workspace"]));
+    }
+  }
+
+
+  virtual ~JobDiagnosis() = default;
 };
 class JobInfo : public Darabonba::Model {
 public:
@@ -13002,6 +13251,7 @@ public:
 };
 class GetJobResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<Job> data{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
@@ -13019,6 +13269,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["accessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -13041,6 +13294,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessDeniedDetail") != m.end() && !m["accessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["accessDeniedDetail"]));
+    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(map<string, boost::any>) == m["data"].type()) {
         Job model1;
@@ -15921,6 +16177,7 @@ public:
 };
 class ListJobsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<vector<Job>> data{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
@@ -15941,6 +16198,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["accessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (data) {
       vector<boost::any> temp1;
       for(auto item1:*data){
@@ -15976,6 +16236,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessDeniedDetail") != m.end() && !m["accessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["accessDeniedDetail"]));
+    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(vector<boost::any>) == m["data"].type()) {
         vector<Job> expect1;
@@ -17882,6 +18145,7 @@ public:
 };
 class StartJobResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<Job> data{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
@@ -17899,6 +18163,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["accessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -17921,6 +18188,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessDeniedDetail") != m.end() && !m["accessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["accessDeniedDetail"]));
+    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(map<string, boost::any>) == m["data"].type()) {
         Job model1;
@@ -18076,6 +18346,7 @@ public:
 };
 class StartJobWithParamsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<Job> data{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
@@ -18093,6 +18364,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["accessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -18115,6 +18389,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessDeniedDetail") != m.end() && !m["accessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["accessDeniedDetail"]));
+    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(map<string, boost::any>) == m["data"].type()) {
         Job model1;
@@ -18581,6 +18858,7 @@ public:
 };
 class StopJobResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<Job> data{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
@@ -18598,6 +18876,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["accessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -18620,6 +18901,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessDeniedDetail") != m.end() && !m["accessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["accessDeniedDetail"]));
+    }
     if (m.find("data") != m.end() && !m["data"].empty()) {
       if (typeid(map<string, boost::any>) == m["data"].type()) {
         Job model1;
