@@ -3717,6 +3717,9 @@ StartCloudRecordResponse Alibabacloud_Rtc20180111::Client::startCloudRecordWithO
   if (!Darabonba_Util::Client::isUnset<StartCloudRecordShrinkRequestRegionColor>(request->regionColor)) {
     query->insert(pair<string, StartCloudRecordShrinkRequestRegionColor>("RegionColor", *request->regionColor));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->reservePaneForNoCameraUser)) {
+    query->insert(pair<string, bool>("ReservePaneForNoCameraUser", *request->reservePaneForNoCameraUser));
+  }
   if (!Darabonba_Util::Client::isUnset<StartCloudRecordShrinkRequestStorageConfig>(request->storageConfig)) {
     query->insert(pair<string, StartCloudRecordShrinkRequestStorageConfig>("StorageConfig", *request->storageConfig));
   }
@@ -4004,6 +4007,15 @@ StartStreamingOutResponse Alibabacloud_Rtc20180111::Client::startStreamingOutWit
   }
   if (!Darabonba_Util::Client::isUnset<StartStreamingOutShrinkRequestRegionColor>(request->regionColor)) {
     query->insert(pair<string, StartStreamingOutShrinkRequestRegionColor>("RegionColor", *request->regionColor));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->reservePaneForNoCameraUser)) {
+    query->insert(pair<string, bool>("ReservePaneForNoCameraUser", *request->reservePaneForNoCameraUser));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->startWithoutChannel)) {
+    query->insert(pair<string, bool>("StartWithoutChannel", *request->startWithoutChannel));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startWithoutChannelWaitTime)) {
+    query->insert(pair<string, long>("StartWithoutChannelWaitTime", *request->startWithoutChannelWaitTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("TaskId", *request->taskId));

@@ -22787,9 +22787,11 @@ public:
   shared_ptr<vector<StartCloudRecordRequestPanesImages>> images{};
   shared_ptr<long> paneCropMode{};
   shared_ptr<long> paneId{};
+  shared_ptr<bool> reservePaneForOfflineUser{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<StartCloudRecordRequestPanesTexts>> texts{};
+  shared_ptr<string> videoOrder{};
   shared_ptr<StartCloudRecordRequestPanesWhiteboard> whiteboard{};
 
   StartCloudRecordRequestPanes() {}
@@ -22815,6 +22817,9 @@ public:
     if (paneId) {
       res["PaneId"] = boost::any(*paneId);
     }
+    if (reservePaneForOfflineUser) {
+      res["ReservePaneForOfflineUser"] = boost::any(*reservePaneForOfflineUser);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -22827,6 +22832,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (videoOrder) {
+      res["VideoOrder"] = boost::any(*videoOrder);
     }
     if (whiteboard) {
       res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
@@ -22854,6 +22862,9 @@ public:
     if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
       paneId = make_shared<long>(boost::any_cast<long>(m["PaneId"]));
     }
+    if (m.find("ReservePaneForOfflineUser") != m.end() && !m["ReservePaneForOfflineUser"].empty()) {
+      reservePaneForOfflineUser = make_shared<bool>(boost::any_cast<bool>(m["ReservePaneForOfflineUser"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
@@ -22872,6 +22883,9 @@ public:
         }
         texts = make_shared<vector<StartCloudRecordRequestPanesTexts>>(expect1);
       }
+    }
+    if (m.find("VideoOrder") != m.end() && !m["VideoOrder"].empty()) {
+      videoOrder = make_shared<string>(boost::any_cast<string>(m["VideoOrder"]));
     }
     if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
       if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
@@ -22932,6 +22946,7 @@ class StartCloudRecordRequestStorageConfig : public Darabonba::Model {
 public:
   shared_ptr<string> accessKey{};
   shared_ptr<string> bucket{};
+  shared_ptr<string> endpoint{};
   shared_ptr<long> region{};
   shared_ptr<string> secretKey{};
   shared_ptr<long> vendor{};
@@ -22952,6 +22967,9 @@ public:
     if (bucket) {
       res["Bucket"] = boost::any(*bucket);
     }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -22970,6 +22988,9 @@ public:
     }
     if (m.find("Bucket") != m.end() && !m["Bucket"].empty()) {
       bucket = make_shared<string>(boost::any_cast<string>(m["Bucket"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<long>(boost::any_cast<long>(m["Region"]));
@@ -23196,6 +23217,7 @@ public:
   shared_ptr<StartCloudRecordRequestLayoutSpecifiedUsers> layoutSpecifiedUsers{};
   shared_ptr<vector<StartCloudRecordRequestPanes>> panes{};
   shared_ptr<StartCloudRecordRequestRegionColor> regionColor{};
+  shared_ptr<bool> reservePaneForNoCameraUser{};
   shared_ptr<StartCloudRecordRequestStorageConfig> storageConfig{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateId{};
@@ -23253,6 +23275,9 @@ public:
     }
     if (regionColor) {
       res["RegionColor"] = regionColor ? boost::any(regionColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (reservePaneForNoCameraUser) {
+      res["ReservePaneForNoCameraUser"] = boost::any(*reservePaneForNoCameraUser);
     }
     if (storageConfig) {
       res["StorageConfig"] = storageConfig ? boost::any(storageConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -23348,6 +23373,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RegionColor"]));
         regionColor = make_shared<StartCloudRecordRequestRegionColor>(model1);
       }
+    }
+    if (m.find("ReservePaneForNoCameraUser") != m.end() && !m["ReservePaneForNoCameraUser"].empty()) {
+      reservePaneForNoCameraUser = make_shared<bool>(boost::any_cast<bool>(m["ReservePaneForNoCameraUser"]));
     }
     if (m.find("StorageConfig") != m.end() && !m["StorageConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["StorageConfig"].type()) {
@@ -24048,9 +24076,11 @@ public:
   shared_ptr<vector<StartCloudRecordShrinkRequestPanesImages>> images{};
   shared_ptr<long> paneCropMode{};
   shared_ptr<long> paneId{};
+  shared_ptr<bool> reservePaneForOfflineUser{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<StartCloudRecordShrinkRequestPanesTexts>> texts{};
+  shared_ptr<string> videoOrder{};
   shared_ptr<StartCloudRecordShrinkRequestPanesWhiteboard> whiteboard{};
 
   StartCloudRecordShrinkRequestPanes() {}
@@ -24076,6 +24106,9 @@ public:
     if (paneId) {
       res["PaneId"] = boost::any(*paneId);
     }
+    if (reservePaneForOfflineUser) {
+      res["ReservePaneForOfflineUser"] = boost::any(*reservePaneForOfflineUser);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -24088,6 +24121,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (videoOrder) {
+      res["VideoOrder"] = boost::any(*videoOrder);
     }
     if (whiteboard) {
       res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
@@ -24115,6 +24151,9 @@ public:
     if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
       paneId = make_shared<long>(boost::any_cast<long>(m["PaneId"]));
     }
+    if (m.find("ReservePaneForOfflineUser") != m.end() && !m["ReservePaneForOfflineUser"].empty()) {
+      reservePaneForOfflineUser = make_shared<bool>(boost::any_cast<bool>(m["ReservePaneForOfflineUser"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
@@ -24133,6 +24172,9 @@ public:
         }
         texts = make_shared<vector<StartCloudRecordShrinkRequestPanesTexts>>(expect1);
       }
+    }
+    if (m.find("VideoOrder") != m.end() && !m["VideoOrder"].empty()) {
+      videoOrder = make_shared<string>(boost::any_cast<string>(m["VideoOrder"]));
     }
     if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
       if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
@@ -24193,6 +24235,7 @@ class StartCloudRecordShrinkRequestStorageConfig : public Darabonba::Model {
 public:
   shared_ptr<string> accessKey{};
   shared_ptr<string> bucket{};
+  shared_ptr<string> endpoint{};
   shared_ptr<long> region{};
   shared_ptr<string> secretKey{};
   shared_ptr<long> vendor{};
@@ -24213,6 +24256,9 @@ public:
     if (bucket) {
       res["Bucket"] = boost::any(*bucket);
     }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -24231,6 +24277,9 @@ public:
     }
     if (m.find("Bucket") != m.end() && !m["Bucket"].empty()) {
       bucket = make_shared<string>(boost::any_cast<string>(m["Bucket"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<long>(boost::any_cast<long>(m["Region"]));
@@ -24457,6 +24506,7 @@ public:
   shared_ptr<string> layoutSpecifiedUsersShrink{};
   shared_ptr<vector<StartCloudRecordShrinkRequestPanes>> panes{};
   shared_ptr<StartCloudRecordShrinkRequestRegionColor> regionColor{};
+  shared_ptr<bool> reservePaneForNoCameraUser{};
   shared_ptr<StartCloudRecordShrinkRequestStorageConfig> storageConfig{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateId{};
@@ -24514,6 +24564,9 @@ public:
     }
     if (regionColor) {
       res["RegionColor"] = regionColor ? boost::any(regionColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (reservePaneForNoCameraUser) {
+      res["ReservePaneForNoCameraUser"] = boost::any(*reservePaneForNoCameraUser);
     }
     if (storageConfig) {
       res["StorageConfig"] = storageConfig ? boost::any(storageConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -24605,6 +24658,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RegionColor"]));
         regionColor = make_shared<StartCloudRecordShrinkRequestRegionColor>(model1);
       }
+    }
+    if (m.find("ReservePaneForNoCameraUser") != m.end() && !m["ReservePaneForNoCameraUser"].empty()) {
+      reservePaneForNoCameraUser = make_shared<bool>(boost::any_cast<bool>(m["ReservePaneForNoCameraUser"]));
     }
     if (m.find("StorageConfig") != m.end() && !m["StorageConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["StorageConfig"].type()) {
@@ -26965,9 +27021,11 @@ public:
   shared_ptr<vector<StartStreamingOutRequestPanesImages>> images{};
   shared_ptr<long> paneCropMode{};
   shared_ptr<string> paneId{};
+  shared_ptr<bool> reservePaneForOfflineUser{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<StartStreamingOutRequestPanesTexts>> texts{};
+  shared_ptr<string> videoOrder{};
   shared_ptr<StartStreamingOutRequestPanesWhiteboard> whiteboard{};
 
   StartStreamingOutRequestPanes() {}
@@ -26993,6 +27051,9 @@ public:
     if (paneId) {
       res["PaneId"] = boost::any(*paneId);
     }
+    if (reservePaneForOfflineUser) {
+      res["ReservePaneForOfflineUser"] = boost::any(*reservePaneForOfflineUser);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -27005,6 +27066,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (videoOrder) {
+      res["VideoOrder"] = boost::any(*videoOrder);
     }
     if (whiteboard) {
       res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
@@ -27032,6 +27096,9 @@ public:
     if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
       paneId = make_shared<string>(boost::any_cast<string>(m["PaneId"]));
     }
+    if (m.find("ReservePaneForOfflineUser") != m.end() && !m["ReservePaneForOfflineUser"].empty()) {
+      reservePaneForOfflineUser = make_shared<bool>(boost::any_cast<bool>(m["ReservePaneForOfflineUser"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
@@ -27050,6 +27117,9 @@ public:
         }
         texts = make_shared<vector<StartStreamingOutRequestPanesTexts>>(expect1);
       }
+    }
+    if (m.find("VideoOrder") != m.end() && !m["VideoOrder"].empty()) {
+      videoOrder = make_shared<string>(boost::any_cast<string>(m["VideoOrder"]));
     }
     if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
       if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
@@ -27317,6 +27387,9 @@ public:
   shared_ptr<StartStreamingOutRequestLayoutSpecifiedUsers> layoutSpecifiedUsers{};
   shared_ptr<vector<StartStreamingOutRequestPanes>> panes{};
   shared_ptr<StartStreamingOutRequestRegionColor> regionColor{};
+  shared_ptr<bool> reservePaneForNoCameraUser{};
+  shared_ptr<bool> startWithoutChannel{};
+  shared_ptr<long> startWithoutChannelWaitTime{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateId{};
   shared_ptr<vector<StartStreamingOutRequestTexts>> texts{};
@@ -27374,6 +27447,15 @@ public:
     }
     if (regionColor) {
       res["RegionColor"] = regionColor ? boost::any(regionColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (reservePaneForNoCameraUser) {
+      res["ReservePaneForNoCameraUser"] = boost::any(*reservePaneForNoCameraUser);
+    }
+    if (startWithoutChannel) {
+      res["StartWithoutChannel"] = boost::any(*startWithoutChannel);
+    }
+    if (startWithoutChannelWaitTime) {
+      res["StartWithoutChannelWaitTime"] = boost::any(*startWithoutChannelWaitTime);
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
@@ -27469,6 +27551,15 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RegionColor"]));
         regionColor = make_shared<StartStreamingOutRequestRegionColor>(model1);
       }
+    }
+    if (m.find("ReservePaneForNoCameraUser") != m.end() && !m["ReservePaneForNoCameraUser"].empty()) {
+      reservePaneForNoCameraUser = make_shared<bool>(boost::any_cast<bool>(m["ReservePaneForNoCameraUser"]));
+    }
+    if (m.find("StartWithoutChannel") != m.end() && !m["StartWithoutChannel"].empty()) {
+      startWithoutChannel = make_shared<bool>(boost::any_cast<bool>(m["StartWithoutChannel"]));
+    }
+    if (m.find("StartWithoutChannelWaitTime") != m.end() && !m["StartWithoutChannelWaitTime"].empty()) {
+      startWithoutChannelWaitTime = make_shared<long>(boost::any_cast<long>(m["StartWithoutChannelWaitTime"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
@@ -28165,9 +28256,11 @@ public:
   shared_ptr<vector<StartStreamingOutShrinkRequestPanesImages>> images{};
   shared_ptr<long> paneCropMode{};
   shared_ptr<string> paneId{};
+  shared_ptr<bool> reservePaneForOfflineUser{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<StartStreamingOutShrinkRequestPanesTexts>> texts{};
+  shared_ptr<string> videoOrder{};
   shared_ptr<StartStreamingOutShrinkRequestPanesWhiteboard> whiteboard{};
 
   StartStreamingOutShrinkRequestPanes() {}
@@ -28193,6 +28286,9 @@ public:
     if (paneId) {
       res["PaneId"] = boost::any(*paneId);
     }
+    if (reservePaneForOfflineUser) {
+      res["ReservePaneForOfflineUser"] = boost::any(*reservePaneForOfflineUser);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -28205,6 +28301,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (videoOrder) {
+      res["VideoOrder"] = boost::any(*videoOrder);
     }
     if (whiteboard) {
       res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
@@ -28232,6 +28331,9 @@ public:
     if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
       paneId = make_shared<string>(boost::any_cast<string>(m["PaneId"]));
     }
+    if (m.find("ReservePaneForOfflineUser") != m.end() && !m["ReservePaneForOfflineUser"].empty()) {
+      reservePaneForOfflineUser = make_shared<bool>(boost::any_cast<bool>(m["ReservePaneForOfflineUser"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
@@ -28250,6 +28352,9 @@ public:
         }
         texts = make_shared<vector<StartStreamingOutShrinkRequestPanesTexts>>(expect1);
       }
+    }
+    if (m.find("VideoOrder") != m.end() && !m["VideoOrder"].empty()) {
+      videoOrder = make_shared<string>(boost::any_cast<string>(m["VideoOrder"]));
     }
     if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
       if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
@@ -28517,6 +28622,9 @@ public:
   shared_ptr<string> layoutSpecifiedUsersShrink{};
   shared_ptr<vector<StartStreamingOutShrinkRequestPanes>> panes{};
   shared_ptr<StartStreamingOutShrinkRequestRegionColor> regionColor{};
+  shared_ptr<bool> reservePaneForNoCameraUser{};
+  shared_ptr<bool> startWithoutChannel{};
+  shared_ptr<long> startWithoutChannelWaitTime{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateId{};
   shared_ptr<vector<StartStreamingOutShrinkRequestTexts>> texts{};
@@ -28574,6 +28682,15 @@ public:
     }
     if (regionColor) {
       res["RegionColor"] = regionColor ? boost::any(regionColor->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (reservePaneForNoCameraUser) {
+      res["ReservePaneForNoCameraUser"] = boost::any(*reservePaneForNoCameraUser);
+    }
+    if (startWithoutChannel) {
+      res["StartWithoutChannel"] = boost::any(*startWithoutChannel);
+    }
+    if (startWithoutChannelWaitTime) {
+      res["StartWithoutChannelWaitTime"] = boost::any(*startWithoutChannelWaitTime);
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
@@ -28665,6 +28782,15 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RegionColor"]));
         regionColor = make_shared<StartStreamingOutShrinkRequestRegionColor>(model1);
       }
+    }
+    if (m.find("ReservePaneForNoCameraUser") != m.end() && !m["ReservePaneForNoCameraUser"].empty()) {
+      reservePaneForNoCameraUser = make_shared<bool>(boost::any_cast<bool>(m["ReservePaneForNoCameraUser"]));
+    }
+    if (m.find("StartWithoutChannel") != m.end() && !m["StartWithoutChannel"].empty()) {
+      startWithoutChannel = make_shared<bool>(boost::any_cast<bool>(m["StartWithoutChannel"]));
+    }
+    if (m.find("StartWithoutChannelWaitTime") != m.end() && !m["StartWithoutChannelWaitTime"].empty()) {
+      startWithoutChannelWaitTime = make_shared<long>(boost::any_cast<long>(m["StartWithoutChannelWaitTime"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
@@ -30623,9 +30749,11 @@ public:
   shared_ptr<vector<UpdateCloudRecordRequestPanesImages>> images{};
   shared_ptr<long> paneCropMode{};
   shared_ptr<long> paneId{};
+  shared_ptr<bool> reservePaneForOfflineUser{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<UpdateCloudRecordRequestPanesTexts>> texts{};
+  shared_ptr<string> videoOrder{};
   shared_ptr<UpdateCloudRecordRequestPanesWhiteboard> whiteboard{};
 
   UpdateCloudRecordRequestPanes() {}
@@ -30651,6 +30779,9 @@ public:
     if (paneId) {
       res["PaneId"] = boost::any(*paneId);
     }
+    if (reservePaneForOfflineUser) {
+      res["ReservePaneForOfflineUser"] = boost::any(*reservePaneForOfflineUser);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -30663,6 +30794,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (videoOrder) {
+      res["VideoOrder"] = boost::any(*videoOrder);
     }
     if (whiteboard) {
       res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
@@ -30690,6 +30824,9 @@ public:
     if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
       paneId = make_shared<long>(boost::any_cast<long>(m["PaneId"]));
     }
+    if (m.find("ReservePaneForOfflineUser") != m.end() && !m["ReservePaneForOfflineUser"].empty()) {
+      reservePaneForOfflineUser = make_shared<bool>(boost::any_cast<bool>(m["ReservePaneForOfflineUser"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
@@ -30708,6 +30845,9 @@ public:
         }
         texts = make_shared<vector<UpdateCloudRecordRequestPanesTexts>>(expect1);
       }
+    }
+    if (m.find("VideoOrder") != m.end() && !m["VideoOrder"].empty()) {
+      videoOrder = make_shared<string>(boost::any_cast<string>(m["VideoOrder"]));
     }
     if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
       if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
@@ -31755,9 +31895,11 @@ public:
   shared_ptr<vector<UpdateCloudRecordShrinkRequestPanesImages>> images{};
   shared_ptr<long> paneCropMode{};
   shared_ptr<long> paneId{};
+  shared_ptr<bool> reservePaneForOfflineUser{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<UpdateCloudRecordShrinkRequestPanesTexts>> texts{};
+  shared_ptr<string> videoOrder{};
   shared_ptr<UpdateCloudRecordShrinkRequestPanesWhiteboard> whiteboard{};
 
   UpdateCloudRecordShrinkRequestPanes() {}
@@ -31783,6 +31925,9 @@ public:
     if (paneId) {
       res["PaneId"] = boost::any(*paneId);
     }
+    if (reservePaneForOfflineUser) {
+      res["ReservePaneForOfflineUser"] = boost::any(*reservePaneForOfflineUser);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -31795,6 +31940,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (videoOrder) {
+      res["VideoOrder"] = boost::any(*videoOrder);
     }
     if (whiteboard) {
       res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
@@ -31822,6 +31970,9 @@ public:
     if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
       paneId = make_shared<long>(boost::any_cast<long>(m["PaneId"]));
     }
+    if (m.find("ReservePaneForOfflineUser") != m.end() && !m["ReservePaneForOfflineUser"].empty()) {
+      reservePaneForOfflineUser = make_shared<bool>(boost::any_cast<bool>(m["ReservePaneForOfflineUser"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
@@ -31840,6 +31991,9 @@ public:
         }
         texts = make_shared<vector<UpdateCloudRecordShrinkRequestPanesTexts>>(expect1);
       }
+    }
+    if (m.find("VideoOrder") != m.end() && !m["VideoOrder"].empty()) {
+      videoOrder = make_shared<string>(boost::any_cast<string>(m["VideoOrder"]));
     }
     if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
       if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
@@ -34945,9 +35099,11 @@ public:
   shared_ptr<vector<UpdateStreamingOutRequestPanesImages>> images{};
   shared_ptr<long> paneCropMode{};
   shared_ptr<long> paneId{};
+  shared_ptr<bool> reservePaneForOfflineUser{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<UpdateStreamingOutRequestPanesTexts>> texts{};
+  shared_ptr<string> videoOrder{};
   shared_ptr<UpdateStreamingOutRequestPanesWhiteboard> whiteboard{};
 
   UpdateStreamingOutRequestPanes() {}
@@ -34973,6 +35129,9 @@ public:
     if (paneId) {
       res["PaneId"] = boost::any(*paneId);
     }
+    if (reservePaneForOfflineUser) {
+      res["ReservePaneForOfflineUser"] = boost::any(*reservePaneForOfflineUser);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -34985,6 +35144,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (videoOrder) {
+      res["VideoOrder"] = boost::any(*videoOrder);
     }
     if (whiteboard) {
       res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
@@ -35012,6 +35174,9 @@ public:
     if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
       paneId = make_shared<long>(boost::any_cast<long>(m["PaneId"]));
     }
+    if (m.find("ReservePaneForOfflineUser") != m.end() && !m["ReservePaneForOfflineUser"].empty()) {
+      reservePaneForOfflineUser = make_shared<bool>(boost::any_cast<bool>(m["ReservePaneForOfflineUser"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
@@ -35030,6 +35195,9 @@ public:
         }
         texts = make_shared<vector<UpdateStreamingOutRequestPanesTexts>>(expect1);
       }
+    }
+    if (m.find("VideoOrder") != m.end() && !m["VideoOrder"].empty()) {
+      videoOrder = make_shared<string>(boost::any_cast<string>(m["VideoOrder"]));
     }
     if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
       if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
@@ -36077,9 +36245,11 @@ public:
   shared_ptr<vector<UpdateStreamingOutShrinkRequestPanesImages>> images{};
   shared_ptr<long> paneCropMode{};
   shared_ptr<long> paneId{};
+  shared_ptr<bool> reservePaneForOfflineUser{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
   shared_ptr<vector<UpdateStreamingOutShrinkRequestPanesTexts>> texts{};
+  shared_ptr<string> videoOrder{};
   shared_ptr<UpdateStreamingOutShrinkRequestPanesWhiteboard> whiteboard{};
 
   UpdateStreamingOutShrinkRequestPanes() {}
@@ -36105,6 +36275,9 @@ public:
     if (paneId) {
       res["PaneId"] = boost::any(*paneId);
     }
+    if (reservePaneForOfflineUser) {
+      res["ReservePaneForOfflineUser"] = boost::any(*reservePaneForOfflineUser);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -36117,6 +36290,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Texts"] = boost::any(temp1);
+    }
+    if (videoOrder) {
+      res["VideoOrder"] = boost::any(*videoOrder);
     }
     if (whiteboard) {
       res["Whiteboard"] = whiteboard ? boost::any(whiteboard->toMap()) : boost::any(map<string,boost::any>({}));
@@ -36144,6 +36320,9 @@ public:
     if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
       paneId = make_shared<long>(boost::any_cast<long>(m["PaneId"]));
     }
+    if (m.find("ReservePaneForOfflineUser") != m.end() && !m["ReservePaneForOfflineUser"].empty()) {
+      reservePaneForOfflineUser = make_shared<bool>(boost::any_cast<bool>(m["ReservePaneForOfflineUser"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
@@ -36162,6 +36341,9 @@ public:
         }
         texts = make_shared<vector<UpdateStreamingOutShrinkRequestPanesTexts>>(expect1);
       }
+    }
+    if (m.find("VideoOrder") != m.end() && !m["VideoOrder"].empty()) {
+      videoOrder = make_shared<string>(boost::any_cast<string>(m["VideoOrder"]));
     }
     if (m.find("Whiteboard") != m.end() && !m["Whiteboard"].empty()) {
       if (typeid(map<string, boost::any>) == m["Whiteboard"].type()) {
