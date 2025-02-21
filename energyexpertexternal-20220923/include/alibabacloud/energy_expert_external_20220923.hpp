@@ -942,6 +942,385 @@ public:
 
   virtual ~OrgEmission() = default;
 };
+class AnalyzeVlRealtimeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> fileUrl{};
+  shared_ptr<string> language{};
+  shared_ptr<string> templateId{};
+
+  AnalyzeVlRealtimeRequest() {}
+
+  explicit AnalyzeVlRealtimeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileUrl) {
+      res["fileUrl"] = boost::any(*fileUrl);
+    }
+    if (language) {
+      res["language"] = boost::any(*language);
+    }
+    if (templateId) {
+      res["templateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("fileUrl") != m.end() && !m["fileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["fileUrl"]));
+    }
+    if (m.find("language") != m.end() && !m["language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["language"]));
+    }
+    if (m.find("templateId") != m.end() && !m["templateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["templateId"]));
+    }
+  }
+
+
+  virtual ~AnalyzeVlRealtimeRequest() = default;
+};
+class AnalyzeVlRealtimeAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<string> language{};
+  shared_ptr<string> templateId{};
+
+  AnalyzeVlRealtimeAdvanceRequest() {}
+
+  explicit AnalyzeVlRealtimeAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileUrlObject) {
+      res["fileUrl"] = boost::any(*fileUrlObject);
+    }
+    if (language) {
+      res["language"] = boost::any(*language);
+    }
+    if (templateId) {
+      res["templateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("fileUrl") != m.end() && !m["fileUrl"].empty()) {
+      fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["fileUrl"]));
+    }
+    if (m.find("language") != m.end() && !m["language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["language"]));
+    }
+    if (m.find("templateId") != m.end() && !m["templateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["templateId"]));
+    }
+  }
+
+
+  virtual ~AnalyzeVlRealtimeAdvanceRequest() = default;
+};
+class AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence : public Darabonba::Model {
+public:
+  shared_ptr<double> keyConfidence{};
+  shared_ptr<double> valueConfidence{};
+
+  AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence() {}
+
+  explicit AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keyConfidence) {
+      res["keyConfidence"] = boost::any(*keyConfidence);
+    }
+    if (valueConfidence) {
+      res["valueConfidence"] = boost::any(*valueConfidence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("keyConfidence") != m.end() && !m["keyConfidence"].empty()) {
+      keyConfidence = make_shared<double>(boost::any_cast<double>(m["keyConfidence"]));
+    }
+    if (m.find("valueConfidence") != m.end() && !m["valueConfidence"].empty()) {
+      valueConfidence = make_shared<double>(boost::any_cast<double>(m["valueConfidence"]));
+    }
+  }
+
+
+  virtual ~AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence() = default;
+};
+class AnalyzeVlRealtimeResponseBodyDataKvListInfoContext : public Darabonba::Model {
+public:
+  shared_ptr<AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence> confidence{};
+  shared_ptr<vector<ContentItem>> key{};
+  shared_ptr<vector<ContentItem>> value{};
+
+  AnalyzeVlRealtimeResponseBodyDataKvListInfoContext() {}
+
+  explicit AnalyzeVlRealtimeResponseBodyDataKvListInfoContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["confidence"] = confidence ? boost::any(confidence->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (key) {
+      vector<boost::any> temp1;
+      for(auto item1:*key){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["key"] = boost::any(temp1);
+    }
+    if (value) {
+      vector<boost::any> temp1;
+      for(auto item1:*value){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["value"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("confidence") != m.end() && !m["confidence"].empty()) {
+      if (typeid(map<string, boost::any>) == m["confidence"].type()) {
+        AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["confidence"]));
+        confidence = make_shared<AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence>(model1);
+      }
+    }
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      if (typeid(vector<boost::any>) == m["key"].type()) {
+        vector<ContentItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["key"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ContentItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        key = make_shared<vector<ContentItem>>(expect1);
+      }
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      if (typeid(vector<boost::any>) == m["value"].type()) {
+        vector<ContentItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["value"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ContentItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        value = make_shared<vector<ContentItem>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~AnalyzeVlRealtimeResponseBodyDataKvListInfoContext() = default;
+};
+class AnalyzeVlRealtimeResponseBodyDataKvListInfo : public Darabonba::Model {
+public:
+  shared_ptr<AnalyzeVlRealtimeResponseBodyDataKvListInfoContext> context{};
+  shared_ptr<string> keyName{};
+  shared_ptr<string> keyValue{};
+
+  AnalyzeVlRealtimeResponseBodyDataKvListInfo() {}
+
+  explicit AnalyzeVlRealtimeResponseBodyDataKvListInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (context) {
+      res["context"] = context ? boost::any(context->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (keyName) {
+      res["keyName"] = boost::any(*keyName);
+    }
+    if (keyValue) {
+      res["keyValue"] = boost::any(*keyValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("context") != m.end() && !m["context"].empty()) {
+      if (typeid(map<string, boost::any>) == m["context"].type()) {
+        AnalyzeVlRealtimeResponseBodyDataKvListInfoContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["context"]));
+        context = make_shared<AnalyzeVlRealtimeResponseBodyDataKvListInfoContext>(model1);
+      }
+    }
+    if (m.find("keyName") != m.end() && !m["keyName"].empty()) {
+      keyName = make_shared<string>(boost::any_cast<string>(m["keyName"]));
+    }
+    if (m.find("keyValue") != m.end() && !m["keyValue"].empty()) {
+      keyValue = make_shared<string>(boost::any_cast<string>(m["keyValue"]));
+    }
+  }
+
+
+  virtual ~AnalyzeVlRealtimeResponseBodyDataKvListInfo() = default;
+};
+class AnalyzeVlRealtimeResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<AnalyzeVlRealtimeResponseBodyDataKvListInfo>> kvListInfo{};
+
+  AnalyzeVlRealtimeResponseBodyData() {}
+
+  explicit AnalyzeVlRealtimeResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (kvListInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*kvListInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["kvListInfo"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("kvListInfo") != m.end() && !m["kvListInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["kvListInfo"].type()) {
+        vector<AnalyzeVlRealtimeResponseBodyDataKvListInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["kvListInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AnalyzeVlRealtimeResponseBodyDataKvListInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        kvListInfo = make_shared<vector<AnalyzeVlRealtimeResponseBodyDataKvListInfo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~AnalyzeVlRealtimeResponseBodyData() = default;
+};
+class AnalyzeVlRealtimeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<AnalyzeVlRealtimeResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  AnalyzeVlRealtimeResponseBody() {}
+
+  explicit AnalyzeVlRealtimeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        AnalyzeVlRealtimeResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<AnalyzeVlRealtimeResponseBodyData>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~AnalyzeVlRealtimeResponseBody() = default;
+};
+class AnalyzeVlRealtimeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AnalyzeVlRealtimeResponseBody> body{};
+
+  AnalyzeVlRealtimeResponse() {}
+
+  explicit AnalyzeVlRealtimeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AnalyzeVlRealtimeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AnalyzeVlRealtimeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AnalyzeVlRealtimeResponse() = default;
+};
 class BatchSaveInstructionStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> factoryId{};
@@ -10268,6 +10647,9 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AnalyzeVlRealtimeResponse analyzeVlRealtimeWithOptions(shared_ptr<AnalyzeVlRealtimeRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AnalyzeVlRealtimeResponse analyzeVlRealtime(shared_ptr<AnalyzeVlRealtimeRequest> request);
+  AnalyzeVlRealtimeResponse analyzeVlRealtimeAdvance(shared_ptr<AnalyzeVlRealtimeAdvanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchSaveInstructionStatusResponse batchSaveInstructionStatusWithOptions(shared_ptr<BatchSaveInstructionStatusRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchSaveInstructionStatusResponse batchSaveInstructionStatus(shared_ptr<BatchSaveInstructionStatusRequest> request);
   BatchUpdateSystemRunningPlanResponse batchUpdateSystemRunningPlanWithOptions(shared_ptr<BatchUpdateSystemRunningPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
