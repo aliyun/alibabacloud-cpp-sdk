@@ -777,6 +777,41 @@ FinishAICoachTaskSessionResponse Alibabacloud_IntelligentCreation20240313::Clien
   return finishAICoachTaskSessionWithOptions(request, headers, runtime);
 }
 
+GetAICoachScriptResponse Alibabacloud_IntelligentCreation20240313::Client::getAICoachScriptWithOptions(shared_ptr<GetAICoachScriptRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->scriptRecordId)) {
+    query->insert(pair<string, string>("scriptRecordId", *request->scriptRecordId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAICoachScript"))},
+    {"version", boost::any(string("2024-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/aicoach/getScript"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetAICoachScriptResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetAICoachScriptResponse(execute(params, req, runtime));
+  }
+}
+
+GetAICoachScriptResponse Alibabacloud_IntelligentCreation20240313::Client::getAICoachScript(shared_ptr<GetAICoachScriptRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getAICoachScriptWithOptions(request, headers, runtime);
+}
+
 GetAICoachTaskSessionHistoryResponse Alibabacloud_IntelligentCreation20240313::Client::getAICoachTaskSessionHistoryWithOptions(shared_ptr<GetAICoachTaskSessionHistoryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1813,6 +1848,9 @@ SendSdkMessageResponse Alibabacloud_IntelligentCreation20240313::Client::sendSdk
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->data)) {
     body->insert(pair<string, string>("data", *request->data));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->header)) {
+    body->insert(pair<string, string>("header", *request->header));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->moduleName)) {
     body->insert(pair<string, string>("moduleName", *request->moduleName));

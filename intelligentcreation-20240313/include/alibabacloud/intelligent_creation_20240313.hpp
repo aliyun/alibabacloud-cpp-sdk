@@ -2767,10 +2767,21 @@ public:
 };
 class CreateAICoachTaskSessionResponseBodyScriptInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> agentIconUrl{};
+  shared_ptr<string> characterName{};
+  shared_ptr<bool> dialogueTextFlag{};
+  shared_ptr<bool> dialogueTipFlag{};
   shared_ptr<string> initiator{};
+  shared_ptr<vector<string>> inputTypeList{};
   shared_ptr<long> maxDuration{};
   shared_ptr<string> scriptDesc{};
   shared_ptr<string> scriptName{};
+  shared_ptr<string> scriptRecordId{};
+  shared_ptr<long> scriptType{};
+  shared_ptr<string> sparringTipContent{};
+  shared_ptr<string> sparringTipTitle{};
+  shared_ptr<bool> studentThinkTimeFlag{};
+  shared_ptr<long> studentThinkTimeLimit{};
 
   CreateAICoachTaskSessionResponseBodyScriptInfo() {}
 
@@ -2782,8 +2793,23 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentIconUrl) {
+      res["agentIconUrl"] = boost::any(*agentIconUrl);
+    }
+    if (characterName) {
+      res["characterName"] = boost::any(*characterName);
+    }
+    if (dialogueTextFlag) {
+      res["dialogueTextFlag"] = boost::any(*dialogueTextFlag);
+    }
+    if (dialogueTipFlag) {
+      res["dialogueTipFlag"] = boost::any(*dialogueTipFlag);
+    }
     if (initiator) {
       res["initiator"] = boost::any(*initiator);
+    }
+    if (inputTypeList) {
+      res["inputTypeList"] = boost::any(*inputTypeList);
     }
     if (maxDuration) {
       res["maxDuration"] = boost::any(*maxDuration);
@@ -2794,12 +2820,52 @@ public:
     if (scriptName) {
       res["scriptName"] = boost::any(*scriptName);
     }
+    if (scriptRecordId) {
+      res["scriptRecordId"] = boost::any(*scriptRecordId);
+    }
+    if (scriptType) {
+      res["scriptType"] = boost::any(*scriptType);
+    }
+    if (sparringTipContent) {
+      res["sparringTipContent"] = boost::any(*sparringTipContent);
+    }
+    if (sparringTipTitle) {
+      res["sparringTipTitle"] = boost::any(*sparringTipTitle);
+    }
+    if (studentThinkTimeFlag) {
+      res["studentThinkTimeFlag"] = boost::any(*studentThinkTimeFlag);
+    }
+    if (studentThinkTimeLimit) {
+      res["studentThinkTimeLimit"] = boost::any(*studentThinkTimeLimit);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("agentIconUrl") != m.end() && !m["agentIconUrl"].empty()) {
+      agentIconUrl = make_shared<string>(boost::any_cast<string>(m["agentIconUrl"]));
+    }
+    if (m.find("characterName") != m.end() && !m["characterName"].empty()) {
+      characterName = make_shared<string>(boost::any_cast<string>(m["characterName"]));
+    }
+    if (m.find("dialogueTextFlag") != m.end() && !m["dialogueTextFlag"].empty()) {
+      dialogueTextFlag = make_shared<bool>(boost::any_cast<bool>(m["dialogueTextFlag"]));
+    }
+    if (m.find("dialogueTipFlag") != m.end() && !m["dialogueTipFlag"].empty()) {
+      dialogueTipFlag = make_shared<bool>(boost::any_cast<bool>(m["dialogueTipFlag"]));
+    }
     if (m.find("initiator") != m.end() && !m["initiator"].empty()) {
       initiator = make_shared<string>(boost::any_cast<string>(m["initiator"]));
+    }
+    if (m.find("inputTypeList") != m.end() && !m["inputTypeList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["inputTypeList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["inputTypeList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      inputTypeList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("maxDuration") != m.end() && !m["maxDuration"].empty()) {
       maxDuration = make_shared<long>(boost::any_cast<long>(m["maxDuration"]));
@@ -2809,6 +2875,24 @@ public:
     }
     if (m.find("scriptName") != m.end() && !m["scriptName"].empty()) {
       scriptName = make_shared<string>(boost::any_cast<string>(m["scriptName"]));
+    }
+    if (m.find("scriptRecordId") != m.end() && !m["scriptRecordId"].empty()) {
+      scriptRecordId = make_shared<string>(boost::any_cast<string>(m["scriptRecordId"]));
+    }
+    if (m.find("scriptType") != m.end() && !m["scriptType"].empty()) {
+      scriptType = make_shared<long>(boost::any_cast<long>(m["scriptType"]));
+    }
+    if (m.find("sparringTipContent") != m.end() && !m["sparringTipContent"].empty()) {
+      sparringTipContent = make_shared<string>(boost::any_cast<string>(m["sparringTipContent"]));
+    }
+    if (m.find("sparringTipTitle") != m.end() && !m["sparringTipTitle"].empty()) {
+      sparringTipTitle = make_shared<string>(boost::any_cast<string>(m["sparringTipTitle"]));
+    }
+    if (m.find("studentThinkTimeFlag") != m.end() && !m["studentThinkTimeFlag"].empty()) {
+      studentThinkTimeFlag = make_shared<bool>(boost::any_cast<bool>(m["studentThinkTimeFlag"]));
+    }
+    if (m.find("studentThinkTimeLimit") != m.end() && !m["studentThinkTimeLimit"].empty()) {
+      studentThinkTimeLimit = make_shared<long>(boost::any_cast<long>(m["studentThinkTimeLimit"]));
     }
   }
 
@@ -2821,6 +2905,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<CreateAICoachTaskSessionResponseBodyScriptInfo> scriptInfo{};
   shared_ptr<string> sessionId{};
+  shared_ptr<long> sessionStatus{};
   shared_ptr<string> token{};
   shared_ptr<string> webSocketUrl{};
 
@@ -2845,6 +2930,9 @@ public:
     }
     if (sessionId) {
       res["sessionId"] = boost::any(*sessionId);
+    }
+    if (sessionStatus) {
+      res["sessionStatus"] = boost::any(*sessionStatus);
     }
     if (token) {
       res["token"] = boost::any(*token);
@@ -2871,6 +2959,9 @@ public:
     }
     if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("sessionStatus") != m.end() && !m["sessionStatus"].empty()) {
+      sessionStatus = make_shared<long>(boost::any_cast<long>(m["sessionStatus"]));
     }
     if (m.find("token") != m.end() && !m["token"].empty()) {
       token = make_shared<string>(boost::any_cast<string>(m["token"]));
@@ -4155,6 +4246,801 @@ public:
 
   virtual ~FinishAICoachTaskSessionResponse() = default;
 };
+class GetAICoachScriptRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> scriptRecordId{};
+
+  GetAICoachScriptRequest() {}
+
+  explicit GetAICoachScriptRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (scriptRecordId) {
+      res["scriptRecordId"] = boost::any(*scriptRecordId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("scriptRecordId") != m.end() && !m["scriptRecordId"].empty()) {
+      scriptRecordId = make_shared<string>(boost::any_cast<string>(m["scriptRecordId"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptRequest() = default;
+};
+class GetAICoachScriptResponseBodyCompleteStrategy : public Darabonba::Model {
+public:
+  shared_ptr<long> abnormalQuitSessionExpired{};
+  shared_ptr<bool> abnormalQuitSessionExpiredFlag{};
+  shared_ptr<bool> clickCompleteAutoEnd{};
+  shared_ptr<long> duration{};
+  shared_ptr<bool> durationFlag{};
+  shared_ptr<bool> fullCoverageAutoEnd{};
+
+  GetAICoachScriptResponseBodyCompleteStrategy() {}
+
+  explicit GetAICoachScriptResponseBodyCompleteStrategy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abnormalQuitSessionExpired) {
+      res["abnormalQuitSessionExpired"] = boost::any(*abnormalQuitSessionExpired);
+    }
+    if (abnormalQuitSessionExpiredFlag) {
+      res["abnormalQuitSessionExpiredFlag"] = boost::any(*abnormalQuitSessionExpiredFlag);
+    }
+    if (clickCompleteAutoEnd) {
+      res["clickCompleteAutoEnd"] = boost::any(*clickCompleteAutoEnd);
+    }
+    if (duration) {
+      res["duration"] = boost::any(*duration);
+    }
+    if (durationFlag) {
+      res["durationFlag"] = boost::any(*durationFlag);
+    }
+    if (fullCoverageAutoEnd) {
+      res["fullCoverageAutoEnd"] = boost::any(*fullCoverageAutoEnd);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("abnormalQuitSessionExpired") != m.end() && !m["abnormalQuitSessionExpired"].empty()) {
+      abnormalQuitSessionExpired = make_shared<long>(boost::any_cast<long>(m["abnormalQuitSessionExpired"]));
+    }
+    if (m.find("abnormalQuitSessionExpiredFlag") != m.end() && !m["abnormalQuitSessionExpiredFlag"].empty()) {
+      abnormalQuitSessionExpiredFlag = make_shared<bool>(boost::any_cast<bool>(m["abnormalQuitSessionExpiredFlag"]));
+    }
+    if (m.find("clickCompleteAutoEnd") != m.end() && !m["clickCompleteAutoEnd"].empty()) {
+      clickCompleteAutoEnd = make_shared<bool>(boost::any_cast<bool>(m["clickCompleteAutoEnd"]));
+    }
+    if (m.find("duration") != m.end() && !m["duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["duration"]));
+    }
+    if (m.find("durationFlag") != m.end() && !m["durationFlag"].empty()) {
+      durationFlag = make_shared<bool>(boost::any_cast<bool>(m["durationFlag"]));
+    }
+    if (m.find("fullCoverageAutoEnd") != m.end() && !m["fullCoverageAutoEnd"].empty()) {
+      fullCoverageAutoEnd = make_shared<bool>(boost::any_cast<bool>(m["fullCoverageAutoEnd"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyCompleteStrategy() = default;
+};
+class GetAICoachScriptResponseBodyPointDeductionRuleList : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<vector<string>> punishmentTypes{};
+  shared_ptr<string> ruleValue{};
+  shared_ptr<long> weight{};
+
+  GetAICoachScriptResponseBodyPointDeductionRuleList() {}
+
+  explicit GetAICoachScriptResponseBodyPointDeductionRuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (punishmentTypes) {
+      res["punishmentTypes"] = boost::any(*punishmentTypes);
+    }
+    if (ruleValue) {
+      res["ruleValue"] = boost::any(*ruleValue);
+    }
+    if (weight) {
+      res["weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("punishmentTypes") != m.end() && !m["punishmentTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["punishmentTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["punishmentTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      punishmentTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ruleValue") != m.end() && !m["ruleValue"].empty()) {
+      ruleValue = make_shared<string>(boost::any_cast<string>(m["ruleValue"]));
+    }
+    if (m.find("weight") != m.end() && !m["weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["weight"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyPointDeductionRuleList() = default;
+};
+class GetAICoachScriptResponseBodyPointsAnswerListParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  GetAICoachScriptResponseBodyPointsAnswerListParameters() {}
+
+  explicit GetAICoachScriptResponseBodyPointsAnswerListParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyPointsAnswerListParameters() = default;
+};
+class GetAICoachScriptResponseBodyPointsAnswerList : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<vector<GetAICoachScriptResponseBodyPointsAnswerListParameters>> parameters{};
+  shared_ptr<string> type{};
+  shared_ptr<long> weight{};
+
+  GetAICoachScriptResponseBodyPointsAnswerList() {}
+
+  explicit GetAICoachScriptResponseBodyPointsAnswerList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (parameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*parameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["parameters"] = boost::any(temp1);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (weight) {
+      res["weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("parameters") != m.end() && !m["parameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["parameters"].type()) {
+        vector<GetAICoachScriptResponseBodyPointsAnswerListParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["parameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAICoachScriptResponseBodyPointsAnswerListParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        parameters = make_shared<vector<GetAICoachScriptResponseBodyPointsAnswerListParameters>>(expect1);
+      }
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("weight") != m.end() && !m["weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["weight"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyPointsAnswerList() = default;
+};
+class GetAICoachScriptResponseBodyPoints : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetAICoachScriptResponseBodyPointsAnswerList>> answerList{};
+  shared_ptr<vector<string>> knowledgeList{};
+  shared_ptr<string> name{};
+  shared_ptr<string> questionDescription{};
+  shared_ptr<long> sortNo{};
+  shared_ptr<long> weight{};
+
+  GetAICoachScriptResponseBodyPoints() {}
+
+  explicit GetAICoachScriptResponseBodyPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerList) {
+      vector<boost::any> temp1;
+      for(auto item1:*answerList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["answerList"] = boost::any(temp1);
+    }
+    if (knowledgeList) {
+      res["knowledgeList"] = boost::any(*knowledgeList);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (questionDescription) {
+      res["questionDescription"] = boost::any(*questionDescription);
+    }
+    if (sortNo) {
+      res["sortNo"] = boost::any(*sortNo);
+    }
+    if (weight) {
+      res["weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("answerList") != m.end() && !m["answerList"].empty()) {
+      if (typeid(vector<boost::any>) == m["answerList"].type()) {
+        vector<GetAICoachScriptResponseBodyPointsAnswerList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["answerList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAICoachScriptResponseBodyPointsAnswerList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        answerList = make_shared<vector<GetAICoachScriptResponseBodyPointsAnswerList>>(expect1);
+      }
+    }
+    if (m.find("knowledgeList") != m.end() && !m["knowledgeList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["knowledgeList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["knowledgeList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      knowledgeList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("questionDescription") != m.end() && !m["questionDescription"].empty()) {
+      questionDescription = make_shared<string>(boost::any_cast<string>(m["questionDescription"]));
+    }
+    if (m.find("sortNo") != m.end() && !m["sortNo"].empty()) {
+      sortNo = make_shared<long>(boost::any_cast<long>(m["sortNo"]));
+    }
+    if (m.find("weight") != m.end() && !m["weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["weight"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyPoints() = default;
+};
+class GetAICoachScriptResponseBodySampleDialogueList : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> role{};
+
+  GetAICoachScriptResponseBodySampleDialogueList() {}
+
+  explicit GetAICoachScriptResponseBodySampleDialogueList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodySampleDialogueList() = default;
+};
+class GetAICoachScriptResponseBodyWeights : public Darabonba::Model {
+public:
+  shared_ptr<long> abilityEvaluation{};
+  shared_ptr<bool> abilityEvaluationEnabled{};
+  shared_ptr<long> assessmentPoint{};
+  shared_ptr<long> expressiveness{};
+  shared_ptr<bool> expressivenessEnabled{};
+  shared_ptr<long> pointDeductionRule{};
+  shared_ptr<bool> pointDeductionRuleEnabled{};
+  shared_ptr<long> standard{};
+  shared_ptr<bool> standardEnabled{};
+
+  GetAICoachScriptResponseBodyWeights() {}
+
+  explicit GetAICoachScriptResponseBodyWeights(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abilityEvaluation) {
+      res["abilityEvaluation"] = boost::any(*abilityEvaluation);
+    }
+    if (abilityEvaluationEnabled) {
+      res["abilityEvaluationEnabled"] = boost::any(*abilityEvaluationEnabled);
+    }
+    if (assessmentPoint) {
+      res["assessmentPoint"] = boost::any(*assessmentPoint);
+    }
+    if (expressiveness) {
+      res["expressiveness"] = boost::any(*expressiveness);
+    }
+    if (expressivenessEnabled) {
+      res["expressivenessEnabled"] = boost::any(*expressivenessEnabled);
+    }
+    if (pointDeductionRule) {
+      res["pointDeductionRule"] = boost::any(*pointDeductionRule);
+    }
+    if (pointDeductionRuleEnabled) {
+      res["pointDeductionRuleEnabled"] = boost::any(*pointDeductionRuleEnabled);
+    }
+    if (standard) {
+      res["standard"] = boost::any(*standard);
+    }
+    if (standardEnabled) {
+      res["standardEnabled"] = boost::any(*standardEnabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("abilityEvaluation") != m.end() && !m["abilityEvaluation"].empty()) {
+      abilityEvaluation = make_shared<long>(boost::any_cast<long>(m["abilityEvaluation"]));
+    }
+    if (m.find("abilityEvaluationEnabled") != m.end() && !m["abilityEvaluationEnabled"].empty()) {
+      abilityEvaluationEnabled = make_shared<bool>(boost::any_cast<bool>(m["abilityEvaluationEnabled"]));
+    }
+    if (m.find("assessmentPoint") != m.end() && !m["assessmentPoint"].empty()) {
+      assessmentPoint = make_shared<long>(boost::any_cast<long>(m["assessmentPoint"]));
+    }
+    if (m.find("expressiveness") != m.end() && !m["expressiveness"].empty()) {
+      expressiveness = make_shared<long>(boost::any_cast<long>(m["expressiveness"]));
+    }
+    if (m.find("expressivenessEnabled") != m.end() && !m["expressivenessEnabled"].empty()) {
+      expressivenessEnabled = make_shared<bool>(boost::any_cast<bool>(m["expressivenessEnabled"]));
+    }
+    if (m.find("pointDeductionRule") != m.end() && !m["pointDeductionRule"].empty()) {
+      pointDeductionRule = make_shared<long>(boost::any_cast<long>(m["pointDeductionRule"]));
+    }
+    if (m.find("pointDeductionRuleEnabled") != m.end() && !m["pointDeductionRuleEnabled"].empty()) {
+      pointDeductionRuleEnabled = make_shared<bool>(boost::any_cast<bool>(m["pointDeductionRuleEnabled"]));
+    }
+    if (m.find("standard") != m.end() && !m["standard"].empty()) {
+      standard = make_shared<long>(boost::any_cast<long>(m["standard"]));
+    }
+    if (m.find("standardEnabled") != m.end() && !m["standardEnabled"].empty()) {
+      standardEnabled = make_shared<bool>(boost::any_cast<bool>(m["standardEnabled"]));
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBodyWeights() = default;
+};
+class GetAICoachScriptResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> assessmentScope{};
+  shared_ptr<GetAICoachScriptResponseBodyCompleteStrategy> completeStrategy{};
+  shared_ptr<string> coverUrl{};
+  shared_ptr<long> dialogueInputTextLimit{};
+  shared_ptr<bool> dialogueTextFlag{};
+  shared_ptr<bool> dialogueTipFlag{};
+  shared_ptr<long> dialogueVoiceLimit{};
+  shared_ptr<bool> evaluateReportFlag{};
+  shared_ptr<map<string, long>> expressiveness{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<string> initiator{};
+  shared_ptr<vector<string>> interactionInputTypes{};
+  shared_ptr<long> interactionType{};
+  shared_ptr<string> introduce{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> orderAckFlag{};
+  shared_ptr<vector<GetAICoachScriptResponseBodyPointDeductionRuleList>> pointDeductionRuleList{};
+  shared_ptr<vector<GetAICoachScriptResponseBodyPoints>> points{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<GetAICoachScriptResponseBodySampleDialogueList>> sampleDialogueList{};
+  shared_ptr<string> scriptRecordId{};
+  shared_ptr<string> sparringTipContent{};
+  shared_ptr<string> sparringTipTitle{};
+  shared_ptr<long> status{};
+  shared_ptr<bool> studentThinkTimeFlag{};
+  shared_ptr<long> studentThinkTimeLimit{};
+  shared_ptr<long> type{};
+  shared_ptr<GetAICoachScriptResponseBodyWeights> weights{};
+
+  GetAICoachScriptResponseBody() {}
+
+  explicit GetAICoachScriptResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assessmentScope) {
+      res["assessmentScope"] = boost::any(*assessmentScope);
+    }
+    if (completeStrategy) {
+      res["completeStrategy"] = completeStrategy ? boost::any(completeStrategy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (coverUrl) {
+      res["coverUrl"] = boost::any(*coverUrl);
+    }
+    if (dialogueInputTextLimit) {
+      res["dialogueInputTextLimit"] = boost::any(*dialogueInputTextLimit);
+    }
+    if (dialogueTextFlag) {
+      res["dialogueTextFlag"] = boost::any(*dialogueTextFlag);
+    }
+    if (dialogueTipFlag) {
+      res["dialogueTipFlag"] = boost::any(*dialogueTipFlag);
+    }
+    if (dialogueVoiceLimit) {
+      res["dialogueVoiceLimit"] = boost::any(*dialogueVoiceLimit);
+    }
+    if (evaluateReportFlag) {
+      res["evaluateReportFlag"] = boost::any(*evaluateReportFlag);
+    }
+    if (expressiveness) {
+      res["expressiveness"] = boost::any(*expressiveness);
+    }
+    if (gmtCreate) {
+      res["gmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["gmtModified"] = boost::any(*gmtModified);
+    }
+    if (initiator) {
+      res["initiator"] = boost::any(*initiator);
+    }
+    if (interactionInputTypes) {
+      res["interactionInputTypes"] = boost::any(*interactionInputTypes);
+    }
+    if (interactionType) {
+      res["interactionType"] = boost::any(*interactionType);
+    }
+    if (introduce) {
+      res["introduce"] = boost::any(*introduce);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (orderAckFlag) {
+      res["orderAckFlag"] = boost::any(*orderAckFlag);
+    }
+    if (pointDeductionRuleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*pointDeductionRuleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["pointDeductionRuleList"] = boost::any(temp1);
+    }
+    if (points) {
+      vector<boost::any> temp1;
+      for(auto item1:*points){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["points"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (sampleDialogueList) {
+      vector<boost::any> temp1;
+      for(auto item1:*sampleDialogueList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["sampleDialogueList"] = boost::any(temp1);
+    }
+    if (scriptRecordId) {
+      res["scriptRecordId"] = boost::any(*scriptRecordId);
+    }
+    if (sparringTipContent) {
+      res["sparringTipContent"] = boost::any(*sparringTipContent);
+    }
+    if (sparringTipTitle) {
+      res["sparringTipTitle"] = boost::any(*sparringTipTitle);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (studentThinkTimeFlag) {
+      res["studentThinkTimeFlag"] = boost::any(*studentThinkTimeFlag);
+    }
+    if (studentThinkTimeLimit) {
+      res["studentThinkTimeLimit"] = boost::any(*studentThinkTimeLimit);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (weights) {
+      res["weights"] = weights ? boost::any(weights->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assessmentScope") != m.end() && !m["assessmentScope"].empty()) {
+      assessmentScope = make_shared<string>(boost::any_cast<string>(m["assessmentScope"]));
+    }
+    if (m.find("completeStrategy") != m.end() && !m["completeStrategy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["completeStrategy"].type()) {
+        GetAICoachScriptResponseBodyCompleteStrategy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["completeStrategy"]));
+        completeStrategy = make_shared<GetAICoachScriptResponseBodyCompleteStrategy>(model1);
+      }
+    }
+    if (m.find("coverUrl") != m.end() && !m["coverUrl"].empty()) {
+      coverUrl = make_shared<string>(boost::any_cast<string>(m["coverUrl"]));
+    }
+    if (m.find("dialogueInputTextLimit") != m.end() && !m["dialogueInputTextLimit"].empty()) {
+      dialogueInputTextLimit = make_shared<long>(boost::any_cast<long>(m["dialogueInputTextLimit"]));
+    }
+    if (m.find("dialogueTextFlag") != m.end() && !m["dialogueTextFlag"].empty()) {
+      dialogueTextFlag = make_shared<bool>(boost::any_cast<bool>(m["dialogueTextFlag"]));
+    }
+    if (m.find("dialogueTipFlag") != m.end() && !m["dialogueTipFlag"].empty()) {
+      dialogueTipFlag = make_shared<bool>(boost::any_cast<bool>(m["dialogueTipFlag"]));
+    }
+    if (m.find("dialogueVoiceLimit") != m.end() && !m["dialogueVoiceLimit"].empty()) {
+      dialogueVoiceLimit = make_shared<long>(boost::any_cast<long>(m["dialogueVoiceLimit"]));
+    }
+    if (m.find("evaluateReportFlag") != m.end() && !m["evaluateReportFlag"].empty()) {
+      evaluateReportFlag = make_shared<bool>(boost::any_cast<bool>(m["evaluateReportFlag"]));
+    }
+    if (m.find("expressiveness") != m.end() && !m["expressiveness"].empty()) {
+      map<string, long> map1 = boost::any_cast<map<string, long>>(m["expressiveness"]);
+      map<string, long> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      expressiveness = make_shared<map<string, long>>(toMap1);
+    }
+    if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmtCreate"]));
+    }
+    if (m.find("gmtModified") != m.end() && !m["gmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["gmtModified"]));
+    }
+    if (m.find("initiator") != m.end() && !m["initiator"].empty()) {
+      initiator = make_shared<string>(boost::any_cast<string>(m["initiator"]));
+    }
+    if (m.find("interactionInputTypes") != m.end() && !m["interactionInputTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["interactionInputTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["interactionInputTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      interactionInputTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("interactionType") != m.end() && !m["interactionType"].empty()) {
+      interactionType = make_shared<long>(boost::any_cast<long>(m["interactionType"]));
+    }
+    if (m.find("introduce") != m.end() && !m["introduce"].empty()) {
+      introduce = make_shared<string>(boost::any_cast<string>(m["introduce"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("orderAckFlag") != m.end() && !m["orderAckFlag"].empty()) {
+      orderAckFlag = make_shared<bool>(boost::any_cast<bool>(m["orderAckFlag"]));
+    }
+    if (m.find("pointDeductionRuleList") != m.end() && !m["pointDeductionRuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["pointDeductionRuleList"].type()) {
+        vector<GetAICoachScriptResponseBodyPointDeductionRuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["pointDeductionRuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAICoachScriptResponseBodyPointDeductionRuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        pointDeductionRuleList = make_shared<vector<GetAICoachScriptResponseBodyPointDeductionRuleList>>(expect1);
+      }
+    }
+    if (m.find("points") != m.end() && !m["points"].empty()) {
+      if (typeid(vector<boost::any>) == m["points"].type()) {
+        vector<GetAICoachScriptResponseBodyPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["points"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAICoachScriptResponseBodyPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        points = make_shared<vector<GetAICoachScriptResponseBodyPoints>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("sampleDialogueList") != m.end() && !m["sampleDialogueList"].empty()) {
+      if (typeid(vector<boost::any>) == m["sampleDialogueList"].type()) {
+        vector<GetAICoachScriptResponseBodySampleDialogueList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["sampleDialogueList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAICoachScriptResponseBodySampleDialogueList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sampleDialogueList = make_shared<vector<GetAICoachScriptResponseBodySampleDialogueList>>(expect1);
+      }
+    }
+    if (m.find("scriptRecordId") != m.end() && !m["scriptRecordId"].empty()) {
+      scriptRecordId = make_shared<string>(boost::any_cast<string>(m["scriptRecordId"]));
+    }
+    if (m.find("sparringTipContent") != m.end() && !m["sparringTipContent"].empty()) {
+      sparringTipContent = make_shared<string>(boost::any_cast<string>(m["sparringTipContent"]));
+    }
+    if (m.find("sparringTipTitle") != m.end() && !m["sparringTipTitle"].empty()) {
+      sparringTipTitle = make_shared<string>(boost::any_cast<string>(m["sparringTipTitle"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["status"]));
+    }
+    if (m.find("studentThinkTimeFlag") != m.end() && !m["studentThinkTimeFlag"].empty()) {
+      studentThinkTimeFlag = make_shared<bool>(boost::any_cast<bool>(m["studentThinkTimeFlag"]));
+    }
+    if (m.find("studentThinkTimeLimit") != m.end() && !m["studentThinkTimeLimit"].empty()) {
+      studentThinkTimeLimit = make_shared<long>(boost::any_cast<long>(m["studentThinkTimeLimit"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["type"]));
+    }
+    if (m.find("weights") != m.end() && !m["weights"].empty()) {
+      if (typeid(map<string, boost::any>) == m["weights"].type()) {
+        GetAICoachScriptResponseBodyWeights model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["weights"]));
+        weights = make_shared<GetAICoachScriptResponseBodyWeights>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponseBody() = default;
+};
+class GetAICoachScriptResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAICoachScriptResponseBody> body{};
+
+  GetAICoachScriptResponse() {}
+
+  explicit GetAICoachScriptResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAICoachScriptResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAICoachScriptResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAICoachScriptResponse() = default;
+};
 class GetAICoachTaskSessionHistoryRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
@@ -4267,6 +5153,7 @@ public:
   shared_ptr<vector<GetAICoachTaskSessionHistoryResponseBodyConversationList>> conversationList{};
   shared_ptr<long> duration{};
   shared_ptr<string> endTime{};
+  shared_ptr<long> pauseDuration{};
   shared_ptr<string> requestId{};
   shared_ptr<string> scriptName{};
   shared_ptr<string> startTime{};
@@ -4296,6 +5183,9 @@ public:
     }
     if (endTime) {
       res["endTime"] = boost::any(*endTime);
+    }
+    if (pauseDuration) {
+      res["pauseDuration"] = boost::any(*pauseDuration);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -4337,6 +5227,9 @@ public:
     }
     if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
+    if (m.find("pauseDuration") != m.end() && !m["pauseDuration"].empty()) {
+      pauseDuration = make_shared<long>(boost::any_cast<long>(m["pauseDuration"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -9210,6 +10103,7 @@ public:
 class SendSdkMessageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> data{};
+  shared_ptr<string> header{};
   shared_ptr<string> moduleName{};
   shared_ptr<string> operationName{};
   shared_ptr<string> userId{};
@@ -9227,6 +10121,9 @@ public:
     if (data) {
       res["data"] = boost::any(*data);
     }
+    if (header) {
+      res["header"] = boost::any(*header);
+    }
     if (moduleName) {
       res["moduleName"] = boost::any(*moduleName);
     }
@@ -9242,6 +10139,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("data") != m.end() && !m["data"].empty()) {
       data = make_shared<string>(boost::any_cast<string>(m["data"]));
+    }
+    if (m.find("header") != m.end() && !m["header"].empty()) {
+      header = make_shared<string>(boost::any_cast<string>(m["header"]));
     }
     if (m.find("moduleName") != m.end() && !m["moduleName"].empty()) {
       moduleName = make_shared<string>(boost::any_cast<string>(m["moduleName"]));
@@ -10645,6 +11545,8 @@ public:
   DeleteIndividuationTextResponse deleteIndividuationText(shared_ptr<DeleteIndividuationTextRequest> request);
   FinishAICoachTaskSessionResponse finishAICoachTaskSessionWithOptions(shared_ptr<FinishAICoachTaskSessionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FinishAICoachTaskSessionResponse finishAICoachTaskSession(shared_ptr<FinishAICoachTaskSessionRequest> request);
+  GetAICoachScriptResponse getAICoachScriptWithOptions(shared_ptr<GetAICoachScriptRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAICoachScriptResponse getAICoachScript(shared_ptr<GetAICoachScriptRequest> request);
   GetAICoachTaskSessionHistoryResponse getAICoachTaskSessionHistoryWithOptions(shared_ptr<GetAICoachTaskSessionHistoryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAICoachTaskSessionHistoryResponse getAICoachTaskSessionHistory(shared_ptr<GetAICoachTaskSessionHistoryRequest> request);
   GetAICoachTaskSessionReportResponse getAICoachTaskSessionReportWithOptions(shared_ptr<GetAICoachTaskSessionReportRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
