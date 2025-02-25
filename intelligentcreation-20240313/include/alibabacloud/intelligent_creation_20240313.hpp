@@ -4501,6 +4501,7 @@ public:
   shared_ptr<vector<GetAICoachScriptResponseBodyPointsAnswerList>> answerList{};
   shared_ptr<vector<string>> knowledgeList{};
   shared_ptr<string> name{};
+  shared_ptr<string> pointId{};
   shared_ptr<string> questionDescription{};
   shared_ptr<long> sortNo{};
   shared_ptr<long> weight{};
@@ -4527,6 +4528,9 @@ public:
     }
     if (name) {
       res["name"] = boost::any(*name);
+    }
+    if (pointId) {
+      res["pointId"] = boost::any(*pointId);
     }
     if (questionDescription) {
       res["questionDescription"] = boost::any(*questionDescription);
@@ -4566,6 +4570,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("pointId") != m.end() && !m["pointId"].empty()) {
+      pointId = make_shared<string>(boost::any_cast<string>(m["pointId"]));
     }
     if (m.find("questionDescription") != m.end() && !m["questionDescription"].empty()) {
       questionDescription = make_shared<string>(boost::any_cast<string>(m["questionDescription"]));
