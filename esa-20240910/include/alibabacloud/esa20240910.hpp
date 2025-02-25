@@ -36233,8 +36233,9 @@ public:
 };
 class ListCacheReserveInstancesResponseBodyInstanceInfo : public Darabonba::Model {
 public:
-  shared_ptr<string> cacheReserveCapacity{};
+  shared_ptr<long> cacheReserveCapacity{};
   shared_ptr<string> cacheReserveRegion{};
+  shared_ptr<string> chargeType{};
   shared_ptr<string> createTime{};
   shared_ptr<long> duration{};
   shared_ptr<string> expireTime{};
@@ -36257,6 +36258,9 @@ public:
     if (cacheReserveRegion) {
       res["CacheReserveRegion"] = boost::any(*cacheReserveRegion);
     }
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -36277,10 +36281,13 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CacheReserveCapacity") != m.end() && !m["CacheReserveCapacity"].empty()) {
-      cacheReserveCapacity = make_shared<string>(boost::any_cast<string>(m["CacheReserveCapacity"]));
+      cacheReserveCapacity = make_shared<long>(boost::any_cast<long>(m["CacheReserveCapacity"]));
     }
     if (m.find("CacheReserveRegion") != m.end() && !m["CacheReserveRegion"].empty()) {
       cacheReserveRegion = make_shared<string>(boost::any_cast<string>(m["CacheReserveRegion"]));
+    }
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
@@ -52178,6 +52185,7 @@ public:
 };
 class PurchaseRatePlanRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> amount{};
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<string> chargeType{};
@@ -52198,6 +52206,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (amount) {
+      res["Amount"] = boost::any(*amount);
+    }
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
     }
@@ -52229,6 +52240,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
+      amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
     }

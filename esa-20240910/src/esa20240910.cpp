@@ -8324,6 +8324,9 @@ PublishRoutineCodeVersionResponse Alibabacloud_ESA20240910::Client::publishRouti
 PurchaseRatePlanResponse Alibabacloud_ESA20240910::Client::purchaseRatePlanWithOptions(shared_ptr<PurchaseRatePlanRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->amount)) {
+    query->insert(pair<string, long>("Amount", *request->amount));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
     query->insert(pair<string, bool>("AutoPay", *request->autoPay));
   }
