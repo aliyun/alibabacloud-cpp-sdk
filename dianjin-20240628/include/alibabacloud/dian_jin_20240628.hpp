@@ -9743,8 +9743,10 @@ public:
   shared_ptr<long> dialogMemoryTurns{};
   shared_ptr<map<string, boost::any>> metaData{};
   shared_ptr<bool> recommend{};
+  shared_ptr<string> scriptContentPlayed{};
   shared_ptr<string> sessionId{};
   shared_ptr<bool> stream{};
+  shared_ptr<bool> userVad{};
 
   RealTimeDialogRequest() {}
 
@@ -9778,11 +9780,17 @@ public:
     if (recommend) {
       res["recommend"] = boost::any(*recommend);
     }
+    if (scriptContentPlayed) {
+      res["scriptContentPlayed"] = boost::any(*scriptContentPlayed);
+    }
     if (sessionId) {
       res["sessionId"] = boost::any(*sessionId);
     }
     if (stream) {
       res["stream"] = boost::any(*stream);
+    }
+    if (userVad) {
+      res["userVad"] = boost::any(*userVad);
     }
     return res;
   }
@@ -9821,11 +9829,17 @@ public:
     if (m.find("recommend") != m.end() && !m["recommend"].empty()) {
       recommend = make_shared<bool>(boost::any_cast<bool>(m["recommend"]));
     }
+    if (m.find("scriptContentPlayed") != m.end() && !m["scriptContentPlayed"].empty()) {
+      scriptContentPlayed = make_shared<string>(boost::any_cast<string>(m["scriptContentPlayed"]));
+    }
     if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
     }
     if (m.find("stream") != m.end() && !m["stream"].empty()) {
       stream = make_shared<bool>(boost::any_cast<bool>(m["stream"]));
+    }
+    if (m.find("userVad") != m.end() && !m["userVad"].empty()) {
+      userVad = make_shared<bool>(boost::any_cast<bool>(m["userVad"]));
     }
   }
 
@@ -9840,6 +9854,7 @@ public:
   shared_ptr<string> intentionCode{};
   shared_ptr<string> intentionName{};
   shared_ptr<string> intentionScript{};
+  shared_ptr<bool> interrupt{};
   shared_ptr<string> recommendIntention{};
   shared_ptr<string> recommendScript{};
   shared_ptr<string> selfDirectedScript{};
@@ -9873,6 +9888,9 @@ public:
     if (intentionScript) {
       res["intentionScript"] = boost::any(*intentionScript);
     }
+    if (interrupt) {
+      res["interrupt"] = boost::any(*interrupt);
+    }
     if (recommendIntention) {
       res["recommendIntention"] = boost::any(*recommendIntention);
     }
@@ -9907,6 +9925,9 @@ public:
     if (m.find("intentionScript") != m.end() && !m["intentionScript"].empty()) {
       intentionScript = make_shared<string>(boost::any_cast<string>(m["intentionScript"]));
     }
+    if (m.find("interrupt") != m.end() && !m["interrupt"].empty()) {
+      interrupt = make_shared<bool>(boost::any_cast<bool>(m["interrupt"]));
+    }
     if (m.find("recommendIntention") != m.end() && !m["recommendIntention"].empty()) {
       recommendIntention = make_shared<string>(boost::any_cast<string>(m["recommendIntention"]));
     }
@@ -9932,6 +9953,7 @@ public:
   shared_ptr<string> intentionCode{};
   shared_ptr<string> intentionName{};
   shared_ptr<string> intentionScript{};
+  shared_ptr<bool> interrupt{};
   shared_ptr<string> recommendIntention{};
   shared_ptr<string> recommendScript{};
   shared_ptr<string> selfDirectedScript{};
@@ -9965,6 +9987,9 @@ public:
     if (intentionScript) {
       res["intentionScript"] = boost::any(*intentionScript);
     }
+    if (interrupt) {
+      res["interrupt"] = boost::any(*interrupt);
+    }
     if (recommendIntention) {
       res["recommendIntention"] = boost::any(*recommendIntention);
     }
@@ -9998,6 +10023,9 @@ public:
     }
     if (m.find("intentionScript") != m.end() && !m["intentionScript"].empty()) {
       intentionScript = make_shared<string>(boost::any_cast<string>(m["intentionScript"]));
+    }
+    if (m.find("interrupt") != m.end() && !m["interrupt"].empty()) {
+      interrupt = make_shared<bool>(boost::any_cast<bool>(m["interrupt"]));
     }
     if (m.find("recommendIntention") != m.end() && !m["recommendIntention"].empty()) {
       recommendIntention = make_shared<string>(boost::any_cast<string>(m["recommendIntention"]));

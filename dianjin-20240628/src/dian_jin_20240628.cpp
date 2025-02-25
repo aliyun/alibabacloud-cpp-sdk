@@ -1394,11 +1394,17 @@ RealTimeDialogResponse Alibabacloud_DianJin20240628::Client::realTimeDialogWithO
   if (!Darabonba_Util::Client::isUnset<bool>(request->recommend)) {
     body->insert(pair<string, bool>("recommend", *request->recommend));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scriptContentPlayed)) {
+    body->insert(pair<string, string>("scriptContentPlayed", *request->scriptContentPlayed));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     body->insert(pair<string, string>("sessionId", *request->sessionId));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
     body->insert(pair<string, bool>("stream", *request->stream));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->userVad)) {
+    body->insert(pair<string, bool>("userVad", *request->userVad));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
