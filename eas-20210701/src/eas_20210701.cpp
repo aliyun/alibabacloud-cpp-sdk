@@ -1647,6 +1647,46 @@ DescribeGroupEndpointsResponse Alibabacloud_Eas20210701::Client::describeGroupEn
   return describeGroupEndpointsWithOptions(ClusterId, GroupName, headers, runtime);
 }
 
+DescribeMachineSpecResponse Alibabacloud_Eas20210701::Client::describeMachineSpecWithOptions(shared_ptr<DescribeMachineSpecRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DescribeMachineSpecShrinkRequest> request = make_shared<DescribeMachineSpecShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceTypes)) {
+    request->instanceTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceTypes, make_shared<string>("InstanceTypes"), make_shared<string>("simple")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceTypesShrink)) {
+    query->insert(pair<string, string>("InstanceTypes", *request->instanceTypesShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeMachineSpec"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/public/instance_types"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return DescribeMachineSpecResponse(callApi(params, req, runtime));
+  }
+  else {
+    return DescribeMachineSpecResponse(execute(params, req, runtime));
+  }
+}
+
+DescribeMachineSpecResponse Alibabacloud_Eas20210701::Client::describeMachineSpec(shared_ptr<DescribeMachineSpecRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return describeMachineSpecWithOptions(request, headers, runtime);
+}
+
 DescribeResourceResponse Alibabacloud_Eas20210701::Client::describeResourceWithOptions(shared_ptr<string> ClusterId,
                                                                                        shared_ptr<string> ResourceId,
                                                                                        shared_ptr<map<string, string>> headers,

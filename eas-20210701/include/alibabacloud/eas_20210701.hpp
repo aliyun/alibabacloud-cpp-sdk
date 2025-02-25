@@ -7343,6 +7343,336 @@ public:
 
   virtual ~DescribeGroupEndpointsResponse() = default;
 };
+class DescribeMachineSpecRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> instanceTypes{};
+
+  DescribeMachineSpecRequest() {}
+
+  explicit DescribeMachineSpecRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceTypes) {
+      res["InstanceTypes"] = boost::any(*instanceTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceTypes") != m.end() && !m["InstanceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeMachineSpecRequest() = default;
+};
+class DescribeMachineSpecShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceTypesShrink{};
+
+  DescribeMachineSpecShrinkRequest() {}
+
+  explicit DescribeMachineSpecShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceTypesShrink) {
+      res["InstanceTypes"] = boost::any(*instanceTypesShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceTypes") != m.end() && !m["InstanceTypes"].empty()) {
+      instanceTypesShrink = make_shared<string>(boost::any_cast<string>(m["InstanceTypes"]));
+    }
+  }
+
+
+  virtual ~DescribeMachineSpecShrinkRequest() = default;
+};
+class DescribeMachineSpecResponseBodyInstanceMetas : public Darabonba::Model {
+public:
+  shared_ptr<long> CPU{};
+  shared_ptr<string> GPU{};
+  shared_ptr<long> GPUAmount{};
+  shared_ptr<double> GPUMemory{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<bool> isAvailable{};
+  shared_ptr<double> memory{};
+  shared_ptr<double> nonProtectSpotDiscount{};
+  shared_ptr<double> spotDiscount{};
+  shared_ptr<string> stockStatus{};
+  shared_ptr<string> vendor{};
+
+  DescribeMachineSpecResponseBodyInstanceMetas() {}
+
+  explicit DescribeMachineSpecResponseBodyInstanceMetas(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (CPU) {
+      res["CPU"] = boost::any(*CPU);
+    }
+    if (GPU) {
+      res["GPU"] = boost::any(*GPU);
+    }
+    if (GPUAmount) {
+      res["GPUAmount"] = boost::any(*GPUAmount);
+    }
+    if (GPUMemory) {
+      res["GPUMemory"] = boost::any(*GPUMemory);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (isAvailable) {
+      res["IsAvailable"] = boost::any(*isAvailable);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (nonProtectSpotDiscount) {
+      res["NonProtectSpotDiscount"] = boost::any(*nonProtectSpotDiscount);
+    }
+    if (spotDiscount) {
+      res["SpotDiscount"] = boost::any(*spotDiscount);
+    }
+    if (stockStatus) {
+      res["StockStatus"] = boost::any(*stockStatus);
+    }
+    if (vendor) {
+      res["Vendor"] = boost::any(*vendor);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CPU") != m.end() && !m["CPU"].empty()) {
+      CPU = make_shared<long>(boost::any_cast<long>(m["CPU"]));
+    }
+    if (m.find("GPU") != m.end() && !m["GPU"].empty()) {
+      GPU = make_shared<string>(boost::any_cast<string>(m["GPU"]));
+    }
+    if (m.find("GPUAmount") != m.end() && !m["GPUAmount"].empty()) {
+      GPUAmount = make_shared<long>(boost::any_cast<long>(m["GPUAmount"]));
+    }
+    if (m.find("GPUMemory") != m.end() && !m["GPUMemory"].empty()) {
+      GPUMemory = make_shared<double>(boost::any_cast<double>(m["GPUMemory"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("IsAvailable") != m.end() && !m["IsAvailable"].empty()) {
+      isAvailable = make_shared<bool>(boost::any_cast<bool>(m["IsAvailable"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+    if (m.find("NonProtectSpotDiscount") != m.end() && !m["NonProtectSpotDiscount"].empty()) {
+      nonProtectSpotDiscount = make_shared<double>(boost::any_cast<double>(m["NonProtectSpotDiscount"]));
+    }
+    if (m.find("SpotDiscount") != m.end() && !m["SpotDiscount"].empty()) {
+      spotDiscount = make_shared<double>(boost::any_cast<double>(m["SpotDiscount"]));
+    }
+    if (m.find("StockStatus") != m.end() && !m["StockStatus"].empty()) {
+      stockStatus = make_shared<string>(boost::any_cast<string>(m["StockStatus"]));
+    }
+    if (m.find("Vendor") != m.end() && !m["Vendor"].empty()) {
+      vendor = make_shared<string>(boost::any_cast<string>(m["Vendor"]));
+    }
+  }
+
+
+  virtual ~DescribeMachineSpecResponseBodyInstanceMetas() = default;
+};
+class DescribeMachineSpecResponseBodyTypes : public Darabonba::Model {
+public:
+  shared_ptr<long> CPU{};
+  shared_ptr<vector<long>> memory{};
+
+  DescribeMachineSpecResponseBodyTypes() {}
+
+  explicit DescribeMachineSpecResponseBodyTypes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (CPU) {
+      res["CPU"] = boost::any(*CPU);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CPU") != m.end() && !m["CPU"].empty()) {
+      CPU = make_shared<long>(boost::any_cast<long>(m["CPU"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Memory"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Memory"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      memory = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeMachineSpecResponseBodyTypes() = default;
+};
+class DescribeMachineSpecResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeMachineSpecResponseBodyInstanceMetas>> instanceMetas{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeMachineSpecResponseBodyTypes>> types{};
+
+  DescribeMachineSpecResponseBody() {}
+
+  explicit DescribeMachineSpecResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceMetas) {
+      vector<boost::any> temp1;
+      for(auto item1:*instanceMetas){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InstanceMetas"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (types) {
+      vector<boost::any> temp1;
+      for(auto item1:*types){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Types"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceMetas") != m.end() && !m["InstanceMetas"].empty()) {
+      if (typeid(vector<boost::any>) == m["InstanceMetas"].type()) {
+        vector<DescribeMachineSpecResponseBodyInstanceMetas> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InstanceMetas"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMachineSpecResponseBodyInstanceMetas model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        instanceMetas = make_shared<vector<DescribeMachineSpecResponseBodyInstanceMetas>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Types") != m.end() && !m["Types"].empty()) {
+      if (typeid(vector<boost::any>) == m["Types"].type()) {
+        vector<DescribeMachineSpecResponseBodyTypes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Types"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMachineSpecResponseBodyTypes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        types = make_shared<vector<DescribeMachineSpecResponseBodyTypes>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMachineSpecResponseBody() = default;
+};
+class DescribeMachineSpecResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeMachineSpecResponseBody> body{};
+
+  DescribeMachineSpecResponse() {}
+
+  explicit DescribeMachineSpecResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeMachineSpecResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeMachineSpecResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMachineSpecResponse() = default;
+};
 class DescribeResourceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -17511,6 +17841,8 @@ public:
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeGroupEndpointsResponse describeGroupEndpoints(shared_ptr<string> ClusterId, shared_ptr<string> GroupName);
+  DescribeMachineSpecResponse describeMachineSpecWithOptions(shared_ptr<DescribeMachineSpecRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeMachineSpecResponse describeMachineSpec(shared_ptr<DescribeMachineSpecRequest> request);
   DescribeResourceResponse describeResourceWithOptions(shared_ptr<string> ClusterId,
                                                        shared_ptr<string> ResourceId,
                                                        shared_ptr<map<string, string>> headers,
