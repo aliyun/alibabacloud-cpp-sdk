@@ -164,6 +164,9 @@ CreateTaskResponse Alibabacloud_ContactCenterAI20240603::Client::createTaskWithO
                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->customPrompt)) {
+    body->insert(pair<string, string>("customPrompt", *request->customPrompt));
+  }
   if (!Darabonba_Util::Client::isUnset<CreateTaskRequestDialogue>(request->dialogue)) {
     body->insert(pair<string, CreateTaskRequestDialogue>("dialogue", *request->dialogue));
   }

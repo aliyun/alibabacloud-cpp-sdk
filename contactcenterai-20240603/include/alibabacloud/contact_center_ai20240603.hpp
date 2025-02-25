@@ -1424,6 +1424,7 @@ public:
 };
 class CreateTaskRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> customPrompt{};
   shared_ptr<CreateTaskRequestDialogue> dialogue{};
   shared_ptr<CreateTaskRequestExamples> examples{};
   shared_ptr<vector<CreateTaskRequestFields>> fields{};
@@ -1444,6 +1445,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (customPrompt) {
+      res["customPrompt"] = boost::any(*customPrompt);
+    }
     if (dialogue) {
       res["dialogue"] = dialogue ? boost::any(dialogue->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1479,6 +1483,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("customPrompt") != m.end() && !m["customPrompt"].empty()) {
+      customPrompt = make_shared<string>(boost::any_cast<string>(m["customPrompt"]));
+    }
     if (m.find("dialogue") != m.end() && !m["dialogue"].empty()) {
       if (typeid(map<string, boost::any>) == m["dialogue"].type()) {
         CreateTaskRequestDialogue model1;
