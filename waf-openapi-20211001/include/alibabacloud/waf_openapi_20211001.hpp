@@ -5762,6 +5762,7 @@ public:
   shared_ptr<long> lastestTs{};
   shared_ptr<string> matchedHost{};
   shared_ptr<string> note{};
+  shared_ptr<vector<string>> resources{};
 
   DescribeApisecApiResourcesResponseBodyData() {}
 
@@ -5839,6 +5840,9 @@ public:
     if (note) {
       res["Note"] = boost::any(*note);
     }
+    if (resources) {
+      res["Resources"] = boost::any(*resources);
+    }
     return res;
   }
 
@@ -5915,6 +5919,16 @@ public:
     }
     if (m.find("Note") != m.end() && !m["Note"].empty()) {
       note = make_shared<string>(boost::any_cast<string>(m["Note"]));
+    }
+    if (m.find("Resources") != m.end() && !m["Resources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Resources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Resources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resources = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -6669,6 +6683,7 @@ public:
   shared_ptr<string> attackCntInfo{};
   shared_ptr<string> attackIp{};
   shared_ptr<string> attackIpInfo{};
+  shared_ptr<vector<string>> attackIps{};
   shared_ptr<long> endTs{};
   shared_ptr<string> eventId{};
   shared_ptr<string> eventInfo{};
@@ -6718,6 +6733,9 @@ public:
     }
     if (attackIpInfo) {
       res["AttackIpInfo"] = boost::any(*attackIpInfo);
+    }
+    if (attackIps) {
+      res["AttackIps"] = boost::any(*attackIps);
     }
     if (endTs) {
       res["EndTs"] = boost::any(*endTs);
@@ -6791,6 +6809,16 @@ public:
     }
     if (m.find("AttackIpInfo") != m.end() && !m["AttackIpInfo"].empty()) {
       attackIpInfo = make_shared<string>(boost::any_cast<string>(m["AttackIpInfo"]));
+    }
+    if (m.find("AttackIps") != m.end() && !m["AttackIps"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AttackIps"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AttackIps"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      attackIps = make_shared<vector<string>>(toVec1);
     }
     if (m.find("EndTs") != m.end() && !m["EndTs"].empty()) {
       endTs = make_shared<long>(boost::any_cast<long>(m["EndTs"]));
@@ -8708,6 +8736,7 @@ public:
 };
 class DescribeApisecStatisticsResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> actioned{};
   shared_ptr<long> api{};
   shared_ptr<long> confirmed{};
   shared_ptr<long> domain{};
@@ -8734,6 +8763,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (actioned) {
+      res["Actioned"] = boost::any(*actioned);
+    }
     if (api) {
       res["Api"] = boost::any(*api);
     }
@@ -8783,6 +8815,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Actioned") != m.end() && !m["Actioned"].empty()) {
+      actioned = make_shared<long>(boost::any_cast<long>(m["Actioned"]));
+    }
     if (m.find("Api") != m.end() && !m["Api"].empty()) {
       api = make_shared<long>(boost::any_cast<long>(m["Api"]));
     }
@@ -11428,6 +11463,42 @@ public:
 
   virtual ~DescribeDefenseResourceRequest() = default;
 };
+class DescribeDefenseResourceResponseBodyResourceResponseHeaders : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeDefenseResourceResponseBodyResourceResponseHeaders() {}
+
+  explicit DescribeDefenseResourceResponseBodyResourceResponseHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeDefenseResourceResponseBodyResourceResponseHeaders() = default;
+};
 class DescribeDefenseResourceResponseBodyResource : public Darabonba::Model {
 public:
   shared_ptr<long> acwCookieStatus{};
@@ -11445,6 +11516,7 @@ public:
   shared_ptr<string> resourceGroup{};
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<string> resourceOrigin{};
+  shared_ptr<vector<DescribeDefenseResourceResponseBodyResourceResponseHeaders>> responseHeaders{};
   shared_ptr<long> xffStatus{};
 
   DescribeDefenseResourceResponseBodyResource() {}
@@ -11501,6 +11573,13 @@ public:
     }
     if (resourceOrigin) {
       res["ResourceOrigin"] = boost::any(*resourceOrigin);
+    }
+    if (responseHeaders) {
+      vector<boost::any> temp1;
+      for(auto item1:*responseHeaders){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResponseHeaders"] = boost::any(temp1);
     }
     if (xffStatus) {
       res["XffStatus"] = boost::any(*xffStatus);
@@ -11565,6 +11644,19 @@ public:
     }
     if (m.find("ResourceOrigin") != m.end() && !m["ResourceOrigin"].empty()) {
       resourceOrigin = make_shared<string>(boost::any_cast<string>(m["ResourceOrigin"]));
+    }
+    if (m.find("ResponseHeaders") != m.end() && !m["ResponseHeaders"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResponseHeaders"].type()) {
+        vector<DescribeDefenseResourceResponseBodyResourceResponseHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResponseHeaders"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDefenseResourceResponseBodyResourceResponseHeaders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        responseHeaders = make_shared<vector<DescribeDefenseResourceResponseBodyResourceResponseHeaders>>(expect1);
+      }
     }
     if (m.find("XffStatus") != m.end() && !m["XffStatus"].empty()) {
       xffStatus = make_shared<long>(boost::any_cast<long>(m["XffStatus"]));
@@ -12827,6 +12919,42 @@ public:
 
   virtual ~DescribeDefenseResourcesRequest() = default;
 };
+class DescribeDefenseResourcesResponseBodyResourcesResponseHeaders : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeDefenseResourcesResponseBodyResourcesResponseHeaders() {}
+
+  explicit DescribeDefenseResourcesResponseBodyResourcesResponseHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeDefenseResourcesResponseBodyResourcesResponseHeaders() = default;
+};
 class DescribeDefenseResourcesResponseBodyResources : public Darabonba::Model {
 public:
   shared_ptr<long> acwCookieStatus{};
@@ -12844,6 +12972,7 @@ public:
   shared_ptr<string> resourceGroup{};
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<string> resourceOrigin{};
+  shared_ptr<vector<DescribeDefenseResourcesResponseBodyResourcesResponseHeaders>> responseHeaders{};
   shared_ptr<long> xffStatus{};
 
   DescribeDefenseResourcesResponseBodyResources() {}
@@ -12900,6 +13029,13 @@ public:
     }
     if (resourceOrigin) {
       res["ResourceOrigin"] = boost::any(*resourceOrigin);
+    }
+    if (responseHeaders) {
+      vector<boost::any> temp1;
+      for(auto item1:*responseHeaders){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResponseHeaders"] = boost::any(temp1);
     }
     if (xffStatus) {
       res["XffStatus"] = boost::any(*xffStatus);
@@ -12964,6 +13100,19 @@ public:
     }
     if (m.find("ResourceOrigin") != m.end() && !m["ResourceOrigin"].empty()) {
       resourceOrigin = make_shared<string>(boost::any_cast<string>(m["ResourceOrigin"]));
+    }
+    if (m.find("ResponseHeaders") != m.end() && !m["ResponseHeaders"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResponseHeaders"].type()) {
+        vector<DescribeDefenseResourcesResponseBodyResourcesResponseHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResponseHeaders"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDefenseResourcesResponseBodyResourcesResponseHeaders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        responseHeaders = make_shared<vector<DescribeDefenseResourcesResponseBodyResourcesResponseHeaders>>(expect1);
+      }
     }
     if (m.find("XffStatus") != m.end() && !m["XffStatus"].empty()) {
       xffStatus = make_shared<long>(boost::any_cast<long>(m["XffStatus"]));
@@ -31461,6 +31610,42 @@ public:
 
   virtual ~ModifyDefenseResourceGroupResponse() = default;
 };
+class ModifyDefenseResourceXffRequestResponseHeaders : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ModifyDefenseResourceXffRequestResponseHeaders() {}
+
+  explicit ModifyDefenseResourceXffRequestResponseHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ModifyDefenseResourceXffRequestResponseHeaders() = default;
+};
 class ModifyDefenseResourceXffRequest : public Darabonba::Model {
 public:
   shared_ptr<long> acwCookieStatus{};
@@ -31471,6 +31656,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resource{};
   shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<vector<ModifyDefenseResourceXffRequestResponseHeaders>> responseHeaders{};
   shared_ptr<long> xffStatus{};
 
   ModifyDefenseResourceXffRequest() {}
@@ -31506,6 +31692,13 @@ public:
     }
     if (resourceManagerResourceGroupId) {
       res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (responseHeaders) {
+      vector<boost::any> temp1;
+      for(auto item1:*responseHeaders){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResponseHeaders"] = boost::any(temp1);
     }
     if (xffStatus) {
       res["XffStatus"] = boost::any(*xffStatus);
@@ -31544,6 +31737,19 @@ public:
     }
     if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
       resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+    if (m.find("ResponseHeaders") != m.end() && !m["ResponseHeaders"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResponseHeaders"].type()) {
+        vector<ModifyDefenseResourceXffRequestResponseHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResponseHeaders"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyDefenseResourceXffRequestResponseHeaders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        responseHeaders = make_shared<vector<ModifyDefenseResourceXffRequestResponseHeaders>>(expect1);
+      }
     }
     if (m.find("XffStatus") != m.end() && !m["XffStatus"].empty()) {
       xffStatus = make_shared<long>(boost::any_cast<long>(m["XffStatus"]));
