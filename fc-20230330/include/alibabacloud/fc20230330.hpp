@@ -4165,6 +4165,127 @@ public:
 
   virtual ~Function() = default;
 };
+class InstanceEventItem : public Darabonba::Model {
+public:
+  shared_ptr<vector<InstanceEventItem>> children{};
+  shared_ptr<string> level{};
+  shared_ptr<string> message{};
+  shared_ptr<string> time{};
+  shared_ptr<string> type{};
+
+  InstanceEventItem() {}
+
+  explicit InstanceEventItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (children) {
+      vector<boost::any> temp1;
+      for(auto item1:*children){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["children"] = boost::any(temp1);
+    }
+    if (level) {
+      res["level"] = boost::any(*level);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("children") != m.end() && !m["children"].empty()) {
+      if (typeid(vector<boost::any>) == m["children"].type()) {
+        vector<InstanceEventItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["children"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InstanceEventItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        children = make_shared<vector<InstanceEventItem>>(expect1);
+      }
+    }
+    if (m.find("level") != m.end() && !m["level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["level"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["time"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~InstanceEventItem() = default;
+};
+class GetInstanceLifecycleEventsOutput : public Darabonba::Model {
+public:
+  shared_ptr<vector<InstanceEventItem>> events{};
+  shared_ptr<string> requestId{};
+
+  GetInstanceLifecycleEventsOutput() {}
+
+  explicit GetInstanceLifecycleEventsOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (events) {
+      vector<boost::any> temp1;
+      for(auto item1:*events){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["events"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("events") != m.end() && !m["events"].empty()) {
+      if (typeid(vector<boost::any>) == m["events"].type()) {
+        vector<InstanceEventItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["events"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InstanceEventItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        events = make_shared<vector<InstanceEventItem>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~GetInstanceLifecycleEventsOutput() = default;
+};
 class GetResourceTagsOutput : public Darabonba::Model {
 public:
   shared_ptr<string> resouceType{};
@@ -4308,7 +4429,11 @@ public:
 };
 class InstanceInfo : public Darabonba::Model {
 public:
+  shared_ptr<long> createdTimeMs{};
+  shared_ptr<long> destroyedTimeMs{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> qualifier{};
+  shared_ptr<string> status{};
   shared_ptr<string> versionId{};
 
   InstanceInfo() {}
@@ -4321,8 +4446,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (createdTimeMs) {
+      res["createdTimeMs"] = boost::any(*createdTimeMs);
+    }
+    if (destroyedTimeMs) {
+      res["destroyedTimeMs"] = boost::any(*destroyedTimeMs);
+    }
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
+    }
+    if (qualifier) {
+      res["qualifier"] = boost::any(*qualifier);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
     }
     if (versionId) {
       res["versionId"] = boost::any(*versionId);
@@ -4331,8 +4468,20 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("createdTimeMs") != m.end() && !m["createdTimeMs"].empty()) {
+      createdTimeMs = make_shared<long>(boost::any_cast<long>(m["createdTimeMs"]));
+    }
+    if (m.find("destroyedTimeMs") != m.end() && !m["destroyedTimeMs"].empty()) {
+      destroyedTimeMs = make_shared<long>(boost::any_cast<long>(m["destroyedTimeMs"]));
+    }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
+      qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
     }
     if (m.find("versionId") != m.end() && !m["versionId"].empty()) {
       versionId = make_shared<string>(boost::any_cast<string>(m["versionId"]));
@@ -4827,6 +4976,7 @@ public:
 class ListInstancesOutput : public Darabonba::Model {
 public:
   shared_ptr<vector<InstanceInfo>> instances{};
+  shared_ptr<string> requestId{};
 
   ListInstancesOutput() {}
 
@@ -4845,6 +4995,9 @@ public:
       }
       res["instances"] = boost::any(temp1);
     }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -4861,6 +5014,9 @@ public:
         }
         instances = make_shared<vector<InstanceInfo>>(expect1);
       }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
   }
 
@@ -6831,6 +6987,118 @@ public:
 
 
   virtual ~UpdateTriggerInput() = default;
+};
+class OpenStructDescribeRegionsOutputRegionsRegion : public Darabonba::Model {
+public:
+  shared_ptr<string> localName{};
+  shared_ptr<string> regionId{};
+
+  OpenStructDescribeRegionsOutputRegionsRegion() {}
+
+  explicit OpenStructDescribeRegionsOutputRegionsRegion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (localName) {
+      res["LocalName"] = boost::any(*localName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LocalName") != m.end() && !m["LocalName"].empty()) {
+      localName = make_shared<string>(boost::any_cast<string>(m["LocalName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~OpenStructDescribeRegionsOutputRegionsRegion() = default;
+};
+class OpenStructDescribeRegionsOutputRegions : public Darabonba::Model {
+public:
+  shared_ptr<vector<OpenStructDescribeRegionsOutputRegionsRegion>> region{};
+
+  OpenStructDescribeRegionsOutputRegions() {}
+
+  explicit OpenStructDescribeRegionsOutputRegions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (region) {
+      vector<boost::any> temp1;
+      for(auto item1:*region){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Region"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      if (typeid(vector<boost::any>) == m["Region"].type()) {
+        vector<OpenStructDescribeRegionsOutputRegionsRegion> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Region"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OpenStructDescribeRegionsOutputRegionsRegion model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        region = make_shared<vector<OpenStructDescribeRegionsOutputRegionsRegion>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~OpenStructDescribeRegionsOutputRegions() = default;
+};
+class OpenStructDescribeRegionsOutput : public Darabonba::Model {
+public:
+  shared_ptr<OpenStructDescribeRegionsOutputRegions> regions{};
+
+  OpenStructDescribeRegionsOutput() {}
+
+  explicit OpenStructDescribeRegionsOutput(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regions) {
+      res["Regions"] = regions ? boost::any(regions->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Regions") != m.end() && !m["Regions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Regions"].type()) {
+        OpenStructDescribeRegionsOutputRegions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Regions"]));
+        regions = make_shared<OpenStructDescribeRegionsOutputRegions>(model1);
+      }
+    }
+  }
+
+
+  virtual ~OpenStructDescribeRegionsOutput() = default;
 };
 class CreateAliasRequest : public Darabonba::Model {
 public:
@@ -9371,7 +9639,13 @@ public:
 };
 class ListInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> endTimeMs{};
+  shared_ptr<vector<string>> instanceIds{};
+  shared_ptr<vector<string>> instanceStatus{};
+  shared_ptr<string> limit{};
   shared_ptr<string> qualifier{};
+  shared_ptr<string> startKey{};
+  shared_ptr<long> startTimeMs{};
   shared_ptr<bool> withAllActive{};
 
   ListInstancesRequest() {}
@@ -9384,8 +9658,26 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endTimeMs) {
+      res["endTimeMs"] = boost::any(*endTimeMs);
+    }
+    if (instanceIds) {
+      res["instanceIds"] = boost::any(*instanceIds);
+    }
+    if (instanceStatus) {
+      res["instanceStatus"] = boost::any(*instanceStatus);
+    }
+    if (limit) {
+      res["limit"] = boost::any(*limit);
+    }
     if (qualifier) {
       res["qualifier"] = boost::any(*qualifier);
+    }
+    if (startKey) {
+      res["startKey"] = boost::any(*startKey);
+    }
+    if (startTimeMs) {
+      res["startTimeMs"] = boost::any(*startTimeMs);
     }
     if (withAllActive) {
       res["withAllActive"] = boost::any(*withAllActive);
@@ -9394,8 +9686,40 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("endTimeMs") != m.end() && !m["endTimeMs"].empty()) {
+      endTimeMs = make_shared<long>(boost::any_cast<long>(m["endTimeMs"]));
+    }
+    if (m.find("instanceIds") != m.end() && !m["instanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["instanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["instanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("instanceStatus") != m.end() && !m["instanceStatus"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["instanceStatus"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["instanceStatus"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceStatus = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("limit") != m.end() && !m["limit"].empty()) {
+      limit = make_shared<string>(boost::any_cast<string>(m["limit"]));
+    }
     if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
       qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
+    }
+    if (m.find("startKey") != m.end() && !m["startKey"].empty()) {
+      startKey = make_shared<string>(boost::any_cast<string>(m["startKey"]));
+    }
+    if (m.find("startTimeMs") != m.end() && !m["startTimeMs"].empty()) {
+      startTimeMs = make_shared<long>(boost::any_cast<long>(m["startTimeMs"]));
     }
     if (m.find("withAllActive") != m.end() && !m["withAllActive"].empty()) {
       withAllActive = make_shared<bool>(boost::any_cast<bool>(m["withAllActive"]));
@@ -9404,6 +9728,84 @@ public:
 
 
   virtual ~ListInstancesRequest() = default;
+};
+class ListInstancesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> endTimeMs{};
+  shared_ptr<string> instanceIdsShrink{};
+  shared_ptr<string> instanceStatusShrink{};
+  shared_ptr<string> limit{};
+  shared_ptr<string> qualifier{};
+  shared_ptr<string> startKey{};
+  shared_ptr<long> startTimeMs{};
+  shared_ptr<bool> withAllActive{};
+
+  ListInstancesShrinkRequest() {}
+
+  explicit ListInstancesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTimeMs) {
+      res["endTimeMs"] = boost::any(*endTimeMs);
+    }
+    if (instanceIdsShrink) {
+      res["instanceIds"] = boost::any(*instanceIdsShrink);
+    }
+    if (instanceStatusShrink) {
+      res["instanceStatus"] = boost::any(*instanceStatusShrink);
+    }
+    if (limit) {
+      res["limit"] = boost::any(*limit);
+    }
+    if (qualifier) {
+      res["qualifier"] = boost::any(*qualifier);
+    }
+    if (startKey) {
+      res["startKey"] = boost::any(*startKey);
+    }
+    if (startTimeMs) {
+      res["startTimeMs"] = boost::any(*startTimeMs);
+    }
+    if (withAllActive) {
+      res["withAllActive"] = boost::any(*withAllActive);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("endTimeMs") != m.end() && !m["endTimeMs"].empty()) {
+      endTimeMs = make_shared<long>(boost::any_cast<long>(m["endTimeMs"]));
+    }
+    if (m.find("instanceIds") != m.end() && !m["instanceIds"].empty()) {
+      instanceIdsShrink = make_shared<string>(boost::any_cast<string>(m["instanceIds"]));
+    }
+    if (m.find("instanceStatus") != m.end() && !m["instanceStatus"].empty()) {
+      instanceStatusShrink = make_shared<string>(boost::any_cast<string>(m["instanceStatus"]));
+    }
+    if (m.find("limit") != m.end() && !m["limit"].empty()) {
+      limit = make_shared<string>(boost::any_cast<string>(m["limit"]));
+    }
+    if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
+      qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
+    }
+    if (m.find("startKey") != m.end() && !m["startKey"].empty()) {
+      startKey = make_shared<string>(boost::any_cast<string>(m["startKey"]));
+    }
+    if (m.find("startTimeMs") != m.end() && !m["startTimeMs"].empty()) {
+      startTimeMs = make_shared<long>(boost::any_cast<long>(m["startTimeMs"]));
+    }
+    if (m.find("withAllActive") != m.end() && !m["withAllActive"].empty()) {
+      withAllActive = make_shared<bool>(boost::any_cast<bool>(m["withAllActive"]));
+    }
+  }
+
+
+  virtual ~ListInstancesShrinkRequest() = default;
 };
 class ListInstancesResponse : public Darabonba::Model {
 public:
@@ -11340,7 +11742,7 @@ public:
   ListFunctionsResponse listFunctionsWithOptions(shared_ptr<ListFunctionsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListFunctionsResponse listFunctions(shared_ptr<ListFunctionsRequest> request);
   ListInstancesResponse listInstancesWithOptions(shared_ptr<string> functionName,
-                                                 shared_ptr<ListInstancesRequest> request,
+                                                 shared_ptr<ListInstancesRequest> tmpReq,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInstancesResponse listInstances(shared_ptr<string> functionName, shared_ptr<ListInstancesRequest> request);
