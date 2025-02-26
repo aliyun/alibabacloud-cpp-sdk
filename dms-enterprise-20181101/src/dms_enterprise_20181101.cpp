@@ -1720,6 +1720,9 @@ CreateDifyInstanceResponse Alibabacloud_Dms-enterprise20181101::Client::createDi
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gpuNodeSpec)) {
+    query->insert(pair<string, string>("GpuNodeSpec", *request->gpuNodeSpec));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->kvStoreAccount)) {
     query->insert(pair<string, string>("KvStoreAccount", *request->kvStoreAccount));
   }
@@ -1743,6 +1746,12 @@ CreateDifyInstanceResponse Alibabacloud_Dms-enterprise20181101::Client::createDi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->kvStoreType)) {
     query->insert(pair<string, string>("KvStoreType", *request->kvStoreType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelId)) {
+    query->insert(pair<string, string>("ModelId", *request->modelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelOption)) {
+    query->insert(pair<string, string>("ModelOption", *request->modelOption));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ossPath)) {
     query->insert(pair<string, string>("OssPath", *request->ossPath));
@@ -11814,6 +11823,44 @@ UpdateTaskContentResponse Alibabacloud_Dms-enterprise20181101::Client::updateTas
 UpdateTaskContentResponse Alibabacloud_Dms-enterprise20181101::Client::updateTaskContent(shared_ptr<UpdateTaskContentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateTaskContentWithOptions(request, runtime);
+}
+
+UpdateTaskContentV2Response Alibabacloud_Dms-enterprise20181101::Client::updateTaskContentV2WithOptions(shared_ptr<UpdateTaskContentV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeId)) {
+    query->insert(pair<string, string>("NodeId", *request->nodeId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeContent)) {
+    body->insert(pair<string, string>("NodeContent", *request->nodeContent));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateTaskContentV2"))},
+    {"version", boost::any(string("2018-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return UpdateTaskContentV2Response(callApi(params, req, runtime));
+  }
+  else {
+    return UpdateTaskContentV2Response(execute(params, req, runtime));
+  }
+}
+
+UpdateTaskContentV2Response Alibabacloud_Dms-enterprise20181101::Client::updateTaskContentV2(shared_ptr<UpdateTaskContentV2Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateTaskContentV2WithOptions(request, runtime);
 }
 
 UpdateTaskFlowConstantsResponse Alibabacloud_Dms-enterprise20181101::Client::updateTaskFlowConstantsWithOptions(shared_ptr<UpdateTaskFlowConstantsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
