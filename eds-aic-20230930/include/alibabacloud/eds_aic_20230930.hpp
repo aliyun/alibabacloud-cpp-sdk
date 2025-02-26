@@ -1112,6 +1112,42 @@ public:
 
   virtual ~CheckResourceStockResponse() = default;
 };
+class CreateAndroidInstanceGroupRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateAndroidInstanceGroupRequestTag() {}
+
+  explicit CreateAndroidInstanceGroupRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateAndroidInstanceGroupRequestTag() = default;
+};
 class CreateAndroidInstanceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<long> amount{};
@@ -1120,16 +1156,19 @@ public:
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> enableIpv6{};
   shared_ptr<bool> gpuAcceleration{};
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceGroupName{};
   shared_ptr<string> instanceGroupSpec{};
+  shared_ptr<long> ipv6Bandwidth{};
   shared_ptr<string> keyPairId{};
   shared_ptr<long> numberOfInstances{};
   shared_ptr<string> officeSiteId{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
   shared_ptr<string> policyGroupId{};
+  shared_ptr<vector<CreateAndroidInstanceGroupRequestTag>> tag{};
   shared_ptr<string> vSwitchId{};
 
   CreateAndroidInstanceGroupRequest() {}
@@ -1160,6 +1199,9 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (enableIpv6) {
+      res["EnableIpv6"] = boost::any(*enableIpv6);
+    }
     if (gpuAcceleration) {
       res["GpuAcceleration"] = boost::any(*gpuAcceleration);
     }
@@ -1171,6 +1213,9 @@ public:
     }
     if (instanceGroupSpec) {
       res["InstanceGroupSpec"] = boost::any(*instanceGroupSpec);
+    }
+    if (ipv6Bandwidth) {
+      res["Ipv6Bandwidth"] = boost::any(*ipv6Bandwidth);
     }
     if (keyPairId) {
       res["KeyPairId"] = boost::any(*keyPairId);
@@ -1189,6 +1234,13 @@ public:
     }
     if (policyGroupId) {
       res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -1215,6 +1267,9 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("EnableIpv6") != m.end() && !m["EnableIpv6"].empty()) {
+      enableIpv6 = make_shared<bool>(boost::any_cast<bool>(m["EnableIpv6"]));
+    }
     if (m.find("GpuAcceleration") != m.end() && !m["GpuAcceleration"].empty()) {
       gpuAcceleration = make_shared<bool>(boost::any_cast<bool>(m["GpuAcceleration"]));
     }
@@ -1226,6 +1281,9 @@ public:
     }
     if (m.find("InstanceGroupSpec") != m.end() && !m["InstanceGroupSpec"].empty()) {
       instanceGroupSpec = make_shared<string>(boost::any_cast<string>(m["InstanceGroupSpec"]));
+    }
+    if (m.find("Ipv6Bandwidth") != m.end() && !m["Ipv6Bandwidth"].empty()) {
+      ipv6Bandwidth = make_shared<long>(boost::any_cast<long>(m["Ipv6Bandwidth"]));
     }
     if (m.find("KeyPairId") != m.end() && !m["KeyPairId"].empty()) {
       keyPairId = make_shared<string>(boost::any_cast<string>(m["KeyPairId"]));
@@ -1244,6 +1302,19 @@ public:
     }
     if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
       policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateAndroidInstanceGroupRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAndroidInstanceGroupRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateAndroidInstanceGroupRequestTag>>(expect1);
+      }
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -1419,10 +1490,75 @@ public:
 
   virtual ~CreateAndroidInstanceGroupResponse() = default;
 };
+class CreateAppRequestCustomAppInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> apkSize{};
+  shared_ptr<string> downloadUrl{};
+  shared_ptr<string> md5{};
+  shared_ptr<string> packageName{};
+  shared_ptr<string> version{};
+  shared_ptr<string> versionCode{};
+
+  CreateAppRequestCustomAppInfo() {}
+
+  explicit CreateAppRequestCustomAppInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apkSize) {
+      res["ApkSize"] = boost::any(*apkSize);
+    }
+    if (downloadUrl) {
+      res["DownloadUrl"] = boost::any(*downloadUrl);
+    }
+    if (md5) {
+      res["Md5"] = boost::any(*md5);
+    }
+    if (packageName) {
+      res["PackageName"] = boost::any(*packageName);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    if (versionCode) {
+      res["VersionCode"] = boost::any(*versionCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApkSize") != m.end() && !m["ApkSize"].empty()) {
+      apkSize = make_shared<string>(boost::any_cast<string>(m["ApkSize"]));
+    }
+    if (m.find("DownloadUrl") != m.end() && !m["DownloadUrl"].empty()) {
+      downloadUrl = make_shared<string>(boost::any_cast<string>(m["DownloadUrl"]));
+    }
+    if (m.find("Md5") != m.end() && !m["Md5"].empty()) {
+      md5 = make_shared<string>(boost::any_cast<string>(m["Md5"]));
+    }
+    if (m.find("PackageName") != m.end() && !m["PackageName"].empty()) {
+      packageName = make_shared<string>(boost::any_cast<string>(m["PackageName"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+    if (m.find("VersionCode") != m.end() && !m["VersionCode"].empty()) {
+      versionCode = make_shared<string>(boost::any_cast<string>(m["VersionCode"]));
+    }
+  }
+
+
+  virtual ~CreateAppRequestCustomAppInfo() = default;
+};
 class CreateAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appName{};
   shared_ptr<string> bizRegionId{};
+  shared_ptr<CreateAppRequestCustomAppInfo> customAppInfo{};
   shared_ptr<string> description{};
   shared_ptr<string> fileName{};
   shared_ptr<string> filePath{};
@@ -1445,6 +1581,9 @@ public:
     }
     if (bizRegionId) {
       res["BizRegionId"] = boost::any(*bizRegionId);
+    }
+    if (customAppInfo) {
+      res["CustomAppInfo"] = customAppInfo ? boost::any(customAppInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -1474,6 +1613,13 @@ public:
     if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
       bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
     }
+    if (m.find("CustomAppInfo") != m.end() && !m["CustomAppInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomAppInfo"].type()) {
+        CreateAppRequestCustomAppInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomAppInfo"]));
+        customAppInfo = make_shared<CreateAppRequestCustomAppInfo>(model1);
+      }
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -1496,6 +1642,91 @@ public:
 
 
   virtual ~CreateAppRequest() = default;
+};
+class CreateAppShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appName{};
+  shared_ptr<string> bizRegionId{};
+  shared_ptr<string> customAppInfoShrink{};
+  shared_ptr<string> description{};
+  shared_ptr<string> fileName{};
+  shared_ptr<string> filePath{};
+  shared_ptr<string> iconUrl{};
+  shared_ptr<string> installParam{};
+  shared_ptr<string> ossAppUrl{};
+
+  CreateAppShrinkRequest() {}
+
+  explicit CreateAppShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (bizRegionId) {
+      res["BizRegionId"] = boost::any(*bizRegionId);
+    }
+    if (customAppInfoShrink) {
+      res["CustomAppInfo"] = boost::any(*customAppInfoShrink);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (filePath) {
+      res["FilePath"] = boost::any(*filePath);
+    }
+    if (iconUrl) {
+      res["IconUrl"] = boost::any(*iconUrl);
+    }
+    if (installParam) {
+      res["InstallParam"] = boost::any(*installParam);
+    }
+    if (ossAppUrl) {
+      res["OssAppUrl"] = boost::any(*ossAppUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
+      bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
+    }
+    if (m.find("CustomAppInfo") != m.end() && !m["CustomAppInfo"].empty()) {
+      customAppInfoShrink = make_shared<string>(boost::any_cast<string>(m["CustomAppInfo"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FilePath") != m.end() && !m["FilePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["FilePath"]));
+    }
+    if (m.find("IconUrl") != m.end() && !m["IconUrl"].empty()) {
+      iconUrl = make_shared<string>(boost::any_cast<string>(m["IconUrl"]));
+    }
+    if (m.find("InstallParam") != m.end() && !m["InstallParam"].empty()) {
+      installParam = make_shared<string>(boost::any_cast<string>(m["InstallParam"]));
+    }
+    if (m.find("OssAppUrl") != m.end() && !m["OssAppUrl"].empty()) {
+      ossAppUrl = make_shared<string>(boost::any_cast<string>(m["OssAppUrl"]));
+    }
+  }
+
+
+  virtual ~CreateAppShrinkRequest() = default;
 };
 class CreateAppResponseBody : public Darabonba::Model {
 public:
@@ -3916,10 +4147,12 @@ public:
   shared_ptr<string> keyPairId{};
   shared_ptr<long> memory{};
   shared_ptr<string> networkInterfaceIp{};
+  shared_ptr<string> networkInterfaceIpv6Address{};
   shared_ptr<string> officeSiteId{};
   shared_ptr<string> persistentAppInstanceId{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> publicIpAddress{};
+  shared_ptr<string> publicIpv6Address{};
   shared_ptr<long> rate{};
   shared_ptr<string> regionId{};
   shared_ptr<string> renderingType{};
@@ -4003,6 +4236,9 @@ public:
     if (networkInterfaceIp) {
       res["NetworkInterfaceIp"] = boost::any(*networkInterfaceIp);
     }
+    if (networkInterfaceIpv6Address) {
+      res["NetworkInterfaceIpv6Address"] = boost::any(*networkInterfaceIpv6Address);
+    }
     if (officeSiteId) {
       res["OfficeSiteId"] = boost::any(*officeSiteId);
     }
@@ -4014,6 +4250,9 @@ public:
     }
     if (publicIpAddress) {
       res["PublicIpAddress"] = boost::any(*publicIpAddress);
+    }
+    if (publicIpv6Address) {
+      res["PublicIpv6Address"] = boost::any(*publicIpv6Address);
     }
     if (rate) {
       res["Rate"] = boost::any(*rate);
@@ -4111,6 +4350,9 @@ public:
     if (m.find("NetworkInterfaceIp") != m.end() && !m["NetworkInterfaceIp"].empty()) {
       networkInterfaceIp = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceIp"]));
     }
+    if (m.find("NetworkInterfaceIpv6Address") != m.end() && !m["NetworkInterfaceIpv6Address"].empty()) {
+      networkInterfaceIpv6Address = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceIpv6Address"]));
+    }
     if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
       officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
     }
@@ -4122,6 +4364,9 @@ public:
     }
     if (m.find("PublicIpAddress") != m.end() && !m["PublicIpAddress"].empty()) {
       publicIpAddress = make_shared<string>(boost::any_cast<string>(m["PublicIpAddress"]));
+    }
+    if (m.find("PublicIpv6Address") != m.end() && !m["PublicIpv6Address"].empty()) {
+      publicIpv6Address = make_shared<string>(boost::any_cast<string>(m["PublicIpv6Address"]));
     }
     if (m.find("Rate") != m.end() && !m["Rate"].empty()) {
       rate = make_shared<long>(boost::any_cast<long>(m["Rate"]));
@@ -6854,6 +7099,123 @@ public:
 
   virtual ~DetachKeyPairResponse() = default;
 };
+class DisconnectAndroidInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> instanceIds{};
+
+  DisconnectAndroidInstanceRequest() {}
+
+  explicit DisconnectAndroidInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DisconnectAndroidInstanceRequest() = default;
+};
+class DisconnectAndroidInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DisconnectAndroidInstanceResponseBody() {}
+
+  explicit DisconnectAndroidInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DisconnectAndroidInstanceResponseBody() = default;
+};
+class DisconnectAndroidInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DisconnectAndroidInstanceResponseBody> body{};
+
+  DisconnectAndroidInstanceResponse() {}
+
+  explicit DisconnectAndroidInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DisconnectAndroidInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DisconnectAndroidInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DisconnectAndroidInstanceResponse() = default;
+};
 class DistributeImageRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> distributeRegionList{};
@@ -7116,6 +7478,130 @@ public:
 
   virtual ~DowngradeAndroidInstanceGroupResponse() = default;
 };
+class EndCoordinationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> coordinatorUserId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> ownerUserId{};
+
+  EndCoordinationRequest() {}
+
+  explicit EndCoordinationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (coordinatorUserId) {
+      res["CoordinatorUserId"] = boost::any(*coordinatorUserId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ownerUserId) {
+      res["OwnerUserId"] = boost::any(*ownerUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CoordinatorUserId") != m.end() && !m["CoordinatorUserId"].empty()) {
+      coordinatorUserId = make_shared<string>(boost::any_cast<string>(m["CoordinatorUserId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OwnerUserId") != m.end() && !m["OwnerUserId"].empty()) {
+      ownerUserId = make_shared<string>(boost::any_cast<string>(m["OwnerUserId"]));
+    }
+  }
+
+
+  virtual ~EndCoordinationRequest() = default;
+};
+class EndCoordinationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  EndCoordinationResponseBody() {}
+
+  explicit EndCoordinationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~EndCoordinationResponseBody() = default;
+};
+class EndCoordinationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EndCoordinationResponseBody> body{};
+
+  EndCoordinationResponse() {}
+
+  explicit EndCoordinationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EndCoordinationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EndCoordinationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EndCoordinationResponse() = default;
+};
 class FetchFileRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIdList{};
@@ -7324,6 +7810,130 @@ public:
 
 
   virtual ~FetchFileResponse() = default;
+};
+class GenerateCoordinationCodeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> ownerUserId{};
+
+  GenerateCoordinationCodeRequest() {}
+
+  explicit GenerateCoordinationCodeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ownerUserId) {
+      res["OwnerUserId"] = boost::any(*ownerUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OwnerUserId") != m.end() && !m["OwnerUserId"].empty()) {
+      ownerUserId = make_shared<string>(boost::any_cast<string>(m["OwnerUserId"]));
+    }
+  }
+
+
+  virtual ~GenerateCoordinationCodeRequest() = default;
+};
+class GenerateCoordinationCodeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> coordinatorCode{};
+  shared_ptr<string> requestId{};
+
+  GenerateCoordinationCodeResponseBody() {}
+
+  explicit GenerateCoordinationCodeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (coordinatorCode) {
+      res["CoordinatorCode"] = boost::any(*coordinatorCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CoordinatorCode") != m.end() && !m["CoordinatorCode"].empty()) {
+      coordinatorCode = make_shared<string>(boost::any_cast<string>(m["CoordinatorCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GenerateCoordinationCodeResponseBody() = default;
+};
+class GenerateCoordinationCodeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GenerateCoordinationCodeResponseBody> body{};
+
+  GenerateCoordinationCodeResponse() {}
+
+  explicit GenerateCoordinationCodeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GenerateCoordinationCodeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GenerateCoordinationCodeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateCoordinationCodeResponse() = default;
 };
 class ImportKeyPairRequest : public Darabonba::Model {
 public:
@@ -9982,6 +10592,191 @@ public:
 
   virtual ~SendFileResponse() = default;
 };
+class SetAdbSecureRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> instanceIds{};
+  shared_ptr<long> status{};
+
+  SetAdbSecureRequest() {}
+
+  explicit SetAdbSecureRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~SetAdbSecureRequest() = default;
+};
+class SetAdbSecureResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> failCount{};
+  shared_ptr<vector<string>> instanceIds{};
+  shared_ptr<long> totalCount{};
+
+  SetAdbSecureResponseBodyData() {}
+
+  explicit SetAdbSecureResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failCount) {
+      res["FailCount"] = boost::any(*failCount);
+    }
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailCount") != m.end() && !m["FailCount"].empty()) {
+      failCount = make_shared<long>(boost::any_cast<long>(m["FailCount"]));
+    }
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~SetAdbSecureResponseBodyData() = default;
+};
+class SetAdbSecureResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<SetAdbSecureResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  SetAdbSecureResponseBody() {}
+
+  explicit SetAdbSecureResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        SetAdbSecureResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<SetAdbSecureResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetAdbSecureResponseBody() = default;
+};
+class SetAdbSecureResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetAdbSecureResponseBody> body{};
+
+  SetAdbSecureResponse() {}
+
+  explicit SetAdbSecureResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetAdbSecureResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetAdbSecureResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetAdbSecureResponse() = default;
+};
 class StartAndroidInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIds{};
@@ -10776,7 +11571,7 @@ public:
   CheckResourceStockResponse checkResourceStock(shared_ptr<CheckResourceStockRequest> request);
   CreateAndroidInstanceGroupResponse createAndroidInstanceGroupWithOptions(shared_ptr<CreateAndroidInstanceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAndroidInstanceGroupResponse createAndroidInstanceGroup(shared_ptr<CreateAndroidInstanceGroupRequest> request);
-  CreateAppResponse createAppWithOptions(shared_ptr<CreateAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAppResponse createAppWithOptions(shared_ptr<CreateAppRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAppResponse createApp(shared_ptr<CreateAppRequest> request);
   CreateCustomImageResponse createCustomImageWithOptions(shared_ptr<CreateCustomImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCustomImageResponse createCustomImage(shared_ptr<CreateCustomImageRequest> request);
@@ -10818,12 +11613,18 @@ public:
   DescribeTasksResponse describeTasks(shared_ptr<DescribeTasksRequest> request);
   DetachKeyPairResponse detachKeyPairWithOptions(shared_ptr<DetachKeyPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachKeyPairResponse detachKeyPair(shared_ptr<DetachKeyPairRequest> request);
+  DisconnectAndroidInstanceResponse disconnectAndroidInstanceWithOptions(shared_ptr<DisconnectAndroidInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DisconnectAndroidInstanceResponse disconnectAndroidInstance(shared_ptr<DisconnectAndroidInstanceRequest> request);
   DistributeImageResponse distributeImageWithOptions(shared_ptr<DistributeImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DistributeImageResponse distributeImage(shared_ptr<DistributeImageRequest> request);
   DowngradeAndroidInstanceGroupResponse downgradeAndroidInstanceGroupWithOptions(shared_ptr<DowngradeAndroidInstanceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DowngradeAndroidInstanceGroupResponse downgradeAndroidInstanceGroup(shared_ptr<DowngradeAndroidInstanceGroupRequest> request);
+  EndCoordinationResponse endCoordinationWithOptions(shared_ptr<EndCoordinationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EndCoordinationResponse endCoordination(shared_ptr<EndCoordinationRequest> request);
   FetchFileResponse fetchFileWithOptions(shared_ptr<FetchFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FetchFileResponse fetchFile(shared_ptr<FetchFileRequest> request);
+  GenerateCoordinationCodeResponse generateCoordinationCodeWithOptions(shared_ptr<GenerateCoordinationCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateCoordinationCodeResponse generateCoordinationCode(shared_ptr<GenerateCoordinationCodeRequest> request);
   ImportKeyPairResponse importKeyPairWithOptions(shared_ptr<ImportKeyPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportKeyPairResponse importKeyPair(shared_ptr<ImportKeyPairRequest> request);
   InstallAppResponse installAppWithOptions(shared_ptr<InstallAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -10854,6 +11655,8 @@ public:
   RunCommandResponse runCommand(shared_ptr<RunCommandRequest> request);
   SendFileResponse sendFileWithOptions(shared_ptr<SendFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SendFileResponse sendFile(shared_ptr<SendFileRequest> request);
+  SetAdbSecureResponse setAdbSecureWithOptions(shared_ptr<SetAdbSecureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetAdbSecureResponse setAdbSecure(shared_ptr<SetAdbSecureRequest> request);
   StartAndroidInstanceResponse startAndroidInstanceWithOptions(shared_ptr<StartAndroidInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartAndroidInstanceResponse startAndroidInstance(shared_ptr<StartAndroidInstanceRequest> request);
   StopAndroidInstanceResponse stopAndroidInstanceWithOptions(shared_ptr<StopAndroidInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
