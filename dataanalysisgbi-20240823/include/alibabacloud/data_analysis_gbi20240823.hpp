@@ -2773,6 +2773,7 @@ public:
 };
 class RunDataAnalysisRequest : public Darabonba::Model {
 public:
+  shared_ptr<boost::any> agentCtrlParams{};
   shared_ptr<vector<string>> dataRole{};
   shared_ptr<bool> generateSqlOnly{};
   shared_ptr<string> query{};
@@ -2790,6 +2791,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentCtrlParams) {
+      res["agentCtrlParams"] = boost::any(*agentCtrlParams);
+    }
     if (dataRole) {
       res["dataRole"] = boost::any(*dataRole);
     }
@@ -2812,6 +2816,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("agentCtrlParams") != m.end() && !m["agentCtrlParams"].empty()) {
+      agentCtrlParams = make_shared<boost::any>(boost::any_cast<boost::any>(m["agentCtrlParams"]));
+    }
     if (m.find("dataRole") != m.end() && !m["dataRole"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["dataRole"].type()) {

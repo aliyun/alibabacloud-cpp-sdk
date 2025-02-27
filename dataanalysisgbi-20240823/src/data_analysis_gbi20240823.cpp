@@ -812,6 +812,9 @@ RunDataAnalysisResponse Alibabacloud_DataAnalysisGBI20240823::Client::runDataAna
                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<boost::any>(request->agentCtrlParams)) {
+    body->insert(pair<string, boost::any>("agentCtrlParams", *request->agentCtrlParams));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->dataRole)) {
     body->insert(pair<string, vector<string>>("dataRole", *request->dataRole));
   }
