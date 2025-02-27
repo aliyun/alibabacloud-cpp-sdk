@@ -1030,6 +1030,7 @@ public:
 };
 class GenericAdvancedSearchRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> industry{};
   shared_ptr<string> query{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> timeRange{};
@@ -1044,6 +1045,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (industry) {
+      res["industry"] = boost::any(*industry);
+    }
     if (query) {
       res["query"] = boost::any(*query);
     }
@@ -1057,6 +1061,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("industry") != m.end() && !m["industry"].empty()) {
+      industry = make_shared<string>(boost::any_cast<string>(m["industry"]));
+    }
     if (m.find("query") != m.end() && !m["query"].empty()) {
       query = make_shared<string>(boost::any_cast<string>(m["query"]));
     }

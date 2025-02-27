@@ -87,6 +87,9 @@ AiSearchResponse Alibabacloud_IQS20241111::Client::aiSearch(shared_ptr<AiSearchR
 GenericAdvancedSearchResponse Alibabacloud_IQS20241111::Client::genericAdvancedSearchWithOptions(shared_ptr<GenericAdvancedSearchRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->industry)) {
+    query->insert(pair<string, string>("industry", *request->industry));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
     query->insert(pair<string, string>("query", *request->query));
   }
