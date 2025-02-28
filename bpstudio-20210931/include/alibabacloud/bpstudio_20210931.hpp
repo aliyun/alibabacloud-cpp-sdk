@@ -1660,6 +1660,99 @@ public:
 
   virtual ~GetApplicationResponseBodyDataChecklist() = default;
 };
+class GetApplicationResponseBodyDataComplianceListRules : public Darabonba::Model {
+public:
+  shared_ptr<string> ruleDetail{};
+  shared_ptr<string> ruleId{};
+
+  GetApplicationResponseBodyDataComplianceListRules() {}
+
+  explicit GetApplicationResponseBodyDataComplianceListRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ruleDetail) {
+      res["ruleDetail"] = boost::any(*ruleDetail);
+    }
+    if (ruleId) {
+      res["ruleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ruleDetail") != m.end() && !m["ruleDetail"].empty()) {
+      ruleDetail = make_shared<string>(boost::any_cast<string>(m["ruleDetail"]));
+    }
+    if (m.find("ruleId") != m.end() && !m["ruleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["ruleId"]));
+    }
+  }
+
+
+  virtual ~GetApplicationResponseBodyDataComplianceListRules() = default;
+};
+class GetApplicationResponseBodyDataComplianceList : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceCode{};
+  shared_ptr<string> resourceName{};
+  shared_ptr<vector<GetApplicationResponseBodyDataComplianceListRules>> rules{};
+
+  GetApplicationResponseBodyDataComplianceList() {}
+
+  explicit GetApplicationResponseBodyDataComplianceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceCode) {
+      res["ResourceCode"] = boost::any(*resourceCode);
+    }
+    if (resourceName) {
+      res["ResourceName"] = boost::any(*resourceName);
+    }
+    if (rules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Rules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceCode") != m.end() && !m["ResourceCode"].empty()) {
+      resourceCode = make_shared<string>(boost::any_cast<string>(m["ResourceCode"]));
+    }
+    if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
+    }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(vector<boost::any>) == m["Rules"].type()) {
+        vector<GetApplicationResponseBodyDataComplianceListRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Rules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetApplicationResponseBodyDataComplianceListRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rules = make_shared<vector<GetApplicationResponseBodyDataComplianceListRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetApplicationResponseBodyDataComplianceList() = default;
+};
 class GetApplicationResponseBodyDataPriceList : public Darabonba::Model {
 public:
   shared_ptr<string> chargeType{};
@@ -1869,6 +1962,7 @@ class GetApplicationResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> applicationId{};
   shared_ptr<vector<GetApplicationResponseBodyDataChecklist>> checklist{};
+  shared_ptr<vector<GetApplicationResponseBodyDataComplianceList>> complianceList{};
   shared_ptr<string> createTime{};
   shared_ptr<double> deployPercent{};
   shared_ptr<string> description{};
@@ -1900,6 +1994,13 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Checklist"] = boost::any(temp1);
+    }
+    if (complianceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*complianceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ComplianceList"] = boost::any(temp1);
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
@@ -1960,6 +2061,19 @@ public:
           }
         }
         checklist = make_shared<vector<GetApplicationResponseBodyDataChecklist>>(expect1);
+      }
+    }
+    if (m.find("ComplianceList") != m.end() && !m["ComplianceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ComplianceList"].type()) {
+        vector<GetApplicationResponseBodyDataComplianceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ComplianceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetApplicationResponseBodyDataComplianceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        complianceList = make_shared<vector<GetApplicationResponseBodyDataComplianceList>>(expect1);
       }
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
@@ -6571,7 +6685,7 @@ public:
   shared_ptr<vector<ValuateTemplateRequestInstances>> instances{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> templateId{};
-  shared_ptr<map<string, string>> variables{};
+  shared_ptr<map<string, boost::any>> variables{};
 
   ValuateTemplateRequest() {}
 
@@ -6635,12 +6749,12 @@ public:
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
     if (m.find("Variables") != m.end() && !m["Variables"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Variables"]);
-      map<string, string> toMap1;
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Variables"]);
+      map<string, boost::any> toMap1;
       for (auto item:map1) {
          toMap1[item.first] = item.second;
       }
-      variables = make_shared<map<string, string>>(toMap1);
+      variables = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
