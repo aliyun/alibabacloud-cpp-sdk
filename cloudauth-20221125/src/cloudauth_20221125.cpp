@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -82,12 +81,74 @@ EntElementVerifyResponse Alibabacloud_Cloudauth20221125::Client::entElementVerif
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return EntElementVerifyResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return EntElementVerifyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return EntElementVerifyResponse(execute(params, req, runtime));
+  }
 }
 
 EntElementVerifyResponse Alibabacloud_Cloudauth20221125::Client::entElementVerify(shared_ptr<EntElementVerifyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return entElementVerifyWithOptions(request, runtime);
+}
+
+EntElementVerifyV2Response Alibabacloud_Cloudauth20221125::Client::entElementVerifyV2WithOptions(shared_ptr<EntElementVerifyV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->entName)) {
+    query->insert(pair<string, string>("EntName", *request->entName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->infoVerifyType)) {
+    query->insert(pair<string, string>("InfoVerifyType", *request->infoVerifyType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->legalPersonCertNo)) {
+    query->insert(pair<string, string>("LegalPersonCertNo", *request->legalPersonCertNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->legalPersonName)) {
+    query->insert(pair<string, string>("LegalPersonName", *request->legalPersonName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->licenseNo)) {
+    query->insert(pair<string, string>("LicenseNo", *request->licenseNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
+    query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->merchantUserId)) {
+    query->insert(pair<string, string>("MerchantUserId", *request->merchantUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneCode)) {
+    query->insert(pair<string, string>("SceneCode", *request->sceneCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userAuthorization)) {
+    query->insert(pair<string, string>("UserAuthorization", *request->userAuthorization));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EntElementVerifyV2"))},
+    {"version", boost::any(string("2022-11-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return EntElementVerifyV2Response(callApi(params, req, runtime));
+  }
+  else {
+    return EntElementVerifyV2Response(execute(params, req, runtime));
+  }
+}
+
+EntElementVerifyV2Response Alibabacloud_Cloudauth20221125::Client::entElementVerifyV2(shared_ptr<EntElementVerifyV2Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return entElementVerifyV2WithOptions(request, runtime);
 }
 
 EntRiskQueryResponse Alibabacloud_Cloudauth20221125::Client::entRiskQueryWithOptions(shared_ptr<EntRiskQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -125,7 +186,12 @@ EntRiskQueryResponse Alibabacloud_Cloudauth20221125::Client::entRiskQueryWithOpt
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return EntRiskQueryResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return EntRiskQueryResponse(callApi(params, req, runtime));
+  }
+  else {
+    return EntRiskQueryResponse(execute(params, req, runtime));
+  }
 }
 
 EntRiskQueryResponse Alibabacloud_Cloudauth20221125::Client::entRiskQuery(shared_ptr<EntRiskQueryRequest> request) {
@@ -189,7 +255,12 @@ EntVerifyResponse Alibabacloud_Cloudauth20221125::Client::entVerifyWithOptions(s
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return EntVerifyResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return EntVerifyResponse(callApi(params, req, runtime));
+  }
+  else {
+    return EntVerifyResponse(execute(params, req, runtime));
+  }
 }
 
 EntVerifyResponse Alibabacloud_Cloudauth20221125::Client::entVerify(shared_ptr<EntVerifyRequest> request) {

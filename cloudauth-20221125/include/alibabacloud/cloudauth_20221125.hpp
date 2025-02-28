@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_CLOUDAUTH20221125_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -222,17 +221,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -271,6 +260,247 @@ public:
 
 
   virtual ~EntElementVerifyResponse() = default;
+};
+class EntElementVerifyV2Request : public Darabonba::Model {
+public:
+  shared_ptr<string> entName{};
+  shared_ptr<string> infoVerifyType{};
+  shared_ptr<string> legalPersonCertNo{};
+  shared_ptr<string> legalPersonName{};
+  shared_ptr<string> licenseNo{};
+  shared_ptr<string> merchantBizId{};
+  shared_ptr<string> merchantUserId{};
+  shared_ptr<string> sceneCode{};
+  shared_ptr<string> userAuthorization{};
+
+  EntElementVerifyV2Request() {}
+
+  explicit EntElementVerifyV2Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entName) {
+      res["EntName"] = boost::any(*entName);
+    }
+    if (infoVerifyType) {
+      res["InfoVerifyType"] = boost::any(*infoVerifyType);
+    }
+    if (legalPersonCertNo) {
+      res["LegalPersonCertNo"] = boost::any(*legalPersonCertNo);
+    }
+    if (legalPersonName) {
+      res["LegalPersonName"] = boost::any(*legalPersonName);
+    }
+    if (licenseNo) {
+      res["LicenseNo"] = boost::any(*licenseNo);
+    }
+    if (merchantBizId) {
+      res["MerchantBizId"] = boost::any(*merchantBizId);
+    }
+    if (merchantUserId) {
+      res["MerchantUserId"] = boost::any(*merchantUserId);
+    }
+    if (sceneCode) {
+      res["SceneCode"] = boost::any(*sceneCode);
+    }
+    if (userAuthorization) {
+      res["UserAuthorization"] = boost::any(*userAuthorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EntName") != m.end() && !m["EntName"].empty()) {
+      entName = make_shared<string>(boost::any_cast<string>(m["EntName"]));
+    }
+    if (m.find("InfoVerifyType") != m.end() && !m["InfoVerifyType"].empty()) {
+      infoVerifyType = make_shared<string>(boost::any_cast<string>(m["InfoVerifyType"]));
+    }
+    if (m.find("LegalPersonCertNo") != m.end() && !m["LegalPersonCertNo"].empty()) {
+      legalPersonCertNo = make_shared<string>(boost::any_cast<string>(m["LegalPersonCertNo"]));
+    }
+    if (m.find("LegalPersonName") != m.end() && !m["LegalPersonName"].empty()) {
+      legalPersonName = make_shared<string>(boost::any_cast<string>(m["LegalPersonName"]));
+    }
+    if (m.find("LicenseNo") != m.end() && !m["LicenseNo"].empty()) {
+      licenseNo = make_shared<string>(boost::any_cast<string>(m["LicenseNo"]));
+    }
+    if (m.find("MerchantBizId") != m.end() && !m["MerchantBizId"].empty()) {
+      merchantBizId = make_shared<string>(boost::any_cast<string>(m["MerchantBizId"]));
+    }
+    if (m.find("MerchantUserId") != m.end() && !m["MerchantUserId"].empty()) {
+      merchantUserId = make_shared<string>(boost::any_cast<string>(m["MerchantUserId"]));
+    }
+    if (m.find("SceneCode") != m.end() && !m["SceneCode"].empty()) {
+      sceneCode = make_shared<string>(boost::any_cast<string>(m["SceneCode"]));
+    }
+    if (m.find("UserAuthorization") != m.end() && !m["UserAuthorization"].empty()) {
+      userAuthorization = make_shared<string>(boost::any_cast<string>(m["UserAuthorization"]));
+    }
+  }
+
+
+  virtual ~EntElementVerifyV2Request() = default;
+};
+class EntElementVerifyV2ResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> bizCode{};
+  shared_ptr<string> openTime{};
+  shared_ptr<string> reasonDetail{};
+  shared_ptr<string> status{};
+
+  EntElementVerifyV2ResponseBodyResult() {}
+
+  explicit EntElementVerifyV2ResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizCode) {
+      res["BizCode"] = boost::any(*bizCode);
+    }
+    if (openTime) {
+      res["OpenTime"] = boost::any(*openTime);
+    }
+    if (reasonDetail) {
+      res["ReasonDetail"] = boost::any(*reasonDetail);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizCode") != m.end() && !m["BizCode"].empty()) {
+      bizCode = make_shared<string>(boost::any_cast<string>(m["BizCode"]));
+    }
+    if (m.find("OpenTime") != m.end() && !m["OpenTime"].empty()) {
+      openTime = make_shared<string>(boost::any_cast<string>(m["OpenTime"]));
+    }
+    if (m.find("ReasonDetail") != m.end() && !m["ReasonDetail"].empty()) {
+      reasonDetail = make_shared<string>(boost::any_cast<string>(m["ReasonDetail"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~EntElementVerifyV2ResponseBodyResult() = default;
+};
+class EntElementVerifyV2ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<EntElementVerifyV2ResponseBodyResult> result{};
+
+  EntElementVerifyV2ResponseBody() {}
+
+  explicit EntElementVerifyV2ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        EntElementVerifyV2ResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<EntElementVerifyV2ResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EntElementVerifyV2ResponseBody() = default;
+};
+class EntElementVerifyV2Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EntElementVerifyV2ResponseBody> body{};
+
+  EntElementVerifyV2Response() {}
+
+  explicit EntElementVerifyV2Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EntElementVerifyV2ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EntElementVerifyV2ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EntElementVerifyV2Response() = default;
 };
 class EntRiskQueryRequest : public Darabonba::Model {
 public:
@@ -544,17 +774,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -892,17 +1112,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -954,6 +1164,8 @@ public:
                      shared_ptr<string> endpoint);
   EntElementVerifyResponse entElementVerifyWithOptions(shared_ptr<EntElementVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EntElementVerifyResponse entElementVerify(shared_ptr<EntElementVerifyRequest> request);
+  EntElementVerifyV2Response entElementVerifyV2WithOptions(shared_ptr<EntElementVerifyV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EntElementVerifyV2Response entElementVerifyV2(shared_ptr<EntElementVerifyV2Request> request);
   EntRiskQueryResponse entRiskQueryWithOptions(shared_ptr<EntRiskQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EntRiskQueryResponse entRiskQuery(shared_ptr<EntRiskQueryRequest> request);
   EntVerifyResponse entVerifyWithOptions(shared_ptr<EntVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
