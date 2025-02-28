@@ -14,6 +14,71 @@
 using namespace std;
 
 namespace Alibabacloud_PaiRecService20221213 {
+class TrafficControlTaskTrafficInfoTargetTrafficsDataValue : public Darabonba::Model {
+public:
+  shared_ptr<double> traffic{};
+  shared_ptr<long> recordTime{};
+
+  TrafficControlTaskTrafficInfoTargetTrafficsDataValue() {}
+
+  explicit TrafficControlTaskTrafficInfoTargetTrafficsDataValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (traffic) {
+      res["Traffic"] = boost::any(*traffic);
+    }
+    if (recordTime) {
+      res["RecordTime"] = boost::any(*recordTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Traffic") != m.end() && !m["Traffic"].empty()) {
+      traffic = make_shared<double>(boost::any_cast<double>(m["Traffic"]));
+    }
+    if (m.find("RecordTime") != m.end() && !m["RecordTime"].empty()) {
+      recordTime = make_shared<long>(boost::any_cast<long>(m["RecordTime"]));
+    }
+  }
+
+
+  virtual ~TrafficControlTaskTrafficInfoTargetTrafficsDataValue() = default;
+};
+class TrafficControlTaskTrafficInfoTaskTrafficsValue : public Darabonba::Model {
+public:
+  shared_ptr<double> traffic{};
+
+  TrafficControlTaskTrafficInfoTaskTrafficsValue() {}
+
+  explicit TrafficControlTaskTrafficInfoTaskTrafficsValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (traffic) {
+      res["Traffic"] = boost::any(*traffic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Traffic") != m.end() && !m["Traffic"].empty()) {
+      traffic = make_shared<double>(boost::any_cast<double>(m["Traffic"]));
+    }
+  }
+
+
+  virtual ~TrafficControlTaskTrafficInfoTaskTrafficsValue() = default;
+};
 class ExperimentReportValue : public Darabonba::Model {
 public:
   shared_ptr<bool> baseline{};
@@ -524,9 +589,148 @@ public:
 
   virtual ~CheckInstanceResourcesResponse() = default;
 };
+class CheckTrafficControlTaskExpressionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> expression{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> tableMetaId{};
+
+  CheckTrafficControlTaskExpressionRequest() {}
+
+  explicit CheckTrafficControlTaskExpressionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expression) {
+      res["Expression"] = boost::any(*expression);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (tableMetaId) {
+      res["TableMetaId"] = boost::any(*tableMetaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Expression") != m.end() && !m["Expression"].empty()) {
+      expression = make_shared<string>(boost::any_cast<string>(m["Expression"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("TableMetaId") != m.end() && !m["TableMetaId"].empty()) {
+      tableMetaId = make_shared<string>(boost::any_cast<string>(m["TableMetaId"]));
+    }
+  }
+
+
+  virtual ~CheckTrafficControlTaskExpressionRequest() = default;
+};
+class CheckTrafficControlTaskExpressionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> isValie{};
+  shared_ptr<string> reason{};
+  shared_ptr<string> requestId{};
+
+  CheckTrafficControlTaskExpressionResponseBody() {}
+
+  explicit CheckTrafficControlTaskExpressionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isValie) {
+      res["IsValie"] = boost::any(*isValie);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsValie") != m.end() && !m["IsValie"].empty()) {
+      isValie = make_shared<bool>(boost::any_cast<bool>(m["IsValie"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CheckTrafficControlTaskExpressionResponseBody() = default;
+};
+class CheckTrafficControlTaskExpressionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CheckTrafficControlTaskExpressionResponseBody> body{};
+
+  CheckTrafficControlTaskExpressionResponse() {}
+
+  explicit CheckTrafficControlTaskExpressionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CheckTrafficControlTaskExpressionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CheckTrafficControlTaskExpressionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckTrafficControlTaskExpressionResponse() = default;
+};
 class CloneEngineConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> configValue{};
+  shared_ptr<string> description{};
   shared_ptr<string> environment{};
   shared_ptr<string> instanceId{};
 
@@ -543,6 +747,9 @@ public:
     if (configValue) {
       res["ConfigValue"] = boost::any(*configValue);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (environment) {
       res["Environment"] = boost::any(*environment);
     }
@@ -555,6 +762,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConfigValue") != m.end() && !m["ConfigValue"].empty()) {
       configValue = make_shared<string>(boost::any_cast<string>(m["ConfigValue"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
       environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
@@ -1921,6 +2131,7 @@ public:
 class CreateEngineConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> configValue{};
+  shared_ptr<string> description{};
   shared_ptr<string> environment{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> name{};
@@ -1938,6 +2149,9 @@ public:
     if (configValue) {
       res["ConfigValue"] = boost::any(*configValue);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (environment) {
       res["Environment"] = boost::any(*environment);
     }
@@ -1953,6 +2167,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConfigValue") != m.end() && !m["ConfigValue"].empty()) {
       configValue = make_shared<string>(boost::any_cast<string>(m["ConfigValue"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
       environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
@@ -2585,6 +2802,12 @@ public:
 class CreateFeatureConsistencyCheckJobConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> compareFeature{};
+  shared_ptr<string> datasetId{};
+  shared_ptr<string> datasetMountPath{};
+  shared_ptr<string> datasetName{};
+  shared_ptr<string> datasetType{};
+  shared_ptr<string> datasetUri{};
+  shared_ptr<string> defaultRoute{};
   shared_ptr<string> easServiceName{};
   shared_ptr<string> easyRecPackagePath{};
   shared_ptr<string> easyRecVersion{};
@@ -2607,15 +2830,22 @@ public:
   shared_ptr<string> itemTablePartitionFieldFormat{};
   shared_ptr<string> name{};
   shared_ptr<string> ossResourceId{};
+  shared_ptr<long> predictWorkerCount{};
+  shared_ptr<long> predictWorkerCpu{};
+  shared_ptr<long> predictWorkerMemory{};
   shared_ptr<double> sampleRate{};
   shared_ptr<string> sceneId{};
+  shared_ptr<string> securityGroupId{};
   shared_ptr<string> serviceId{};
+  shared_ptr<string> switchId{};
   shared_ptr<bool> useFeatureStore{};
   shared_ptr<string> userIdField{};
   shared_ptr<string> userTable{};
   shared_ptr<string> userTablePartitionField{};
   shared_ptr<string> userTablePartitionFieldFormat{};
+  shared_ptr<string> vpcId{};
   shared_ptr<string> workflowName{};
+  shared_ptr<string> workspaceId{};
 
   CreateFeatureConsistencyCheckJobConfigRequest() {}
 
@@ -2629,6 +2859,24 @@ public:
     map<string, boost::any> res;
     if (compareFeature) {
       res["CompareFeature"] = boost::any(*compareFeature);
+    }
+    if (datasetId) {
+      res["DatasetId"] = boost::any(*datasetId);
+    }
+    if (datasetMountPath) {
+      res["DatasetMountPath"] = boost::any(*datasetMountPath);
+    }
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (datasetType) {
+      res["DatasetType"] = boost::any(*datasetType);
+    }
+    if (datasetUri) {
+      res["DatasetUri"] = boost::any(*datasetUri);
+    }
+    if (defaultRoute) {
+      res["DefaultRoute"] = boost::any(*defaultRoute);
     }
     if (easServiceName) {
       res["EasServiceName"] = boost::any(*easServiceName);
@@ -2696,14 +2944,29 @@ public:
     if (ossResourceId) {
       res["OssResourceId"] = boost::any(*ossResourceId);
     }
+    if (predictWorkerCount) {
+      res["PredictWorkerCount"] = boost::any(*predictWorkerCount);
+    }
+    if (predictWorkerCpu) {
+      res["PredictWorkerCpu"] = boost::any(*predictWorkerCpu);
+    }
+    if (predictWorkerMemory) {
+      res["PredictWorkerMemory"] = boost::any(*predictWorkerMemory);
+    }
     if (sampleRate) {
       res["SampleRate"] = boost::any(*sampleRate);
     }
     if (sceneId) {
       res["SceneId"] = boost::any(*sceneId);
     }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (switchId) {
+      res["SwitchId"] = boost::any(*switchId);
     }
     if (useFeatureStore) {
       res["UseFeatureStore"] = boost::any(*useFeatureStore);
@@ -2720,8 +2983,14 @@ public:
     if (userTablePartitionFieldFormat) {
       res["UserTablePartitionFieldFormat"] = boost::any(*userTablePartitionFieldFormat);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     if (workflowName) {
       res["WorkflowName"] = boost::any(*workflowName);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
     }
     return res;
   }
@@ -2729,6 +2998,24 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CompareFeature") != m.end() && !m["CompareFeature"].empty()) {
       compareFeature = make_shared<bool>(boost::any_cast<bool>(m["CompareFeature"]));
+    }
+    if (m.find("DatasetId") != m.end() && !m["DatasetId"].empty()) {
+      datasetId = make_shared<string>(boost::any_cast<string>(m["DatasetId"]));
+    }
+    if (m.find("DatasetMountPath") != m.end() && !m["DatasetMountPath"].empty()) {
+      datasetMountPath = make_shared<string>(boost::any_cast<string>(m["DatasetMountPath"]));
+    }
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("DatasetType") != m.end() && !m["DatasetType"].empty()) {
+      datasetType = make_shared<string>(boost::any_cast<string>(m["DatasetType"]));
+    }
+    if (m.find("DatasetUri") != m.end() && !m["DatasetUri"].empty()) {
+      datasetUri = make_shared<string>(boost::any_cast<string>(m["DatasetUri"]));
+    }
+    if (m.find("DefaultRoute") != m.end() && !m["DefaultRoute"].empty()) {
+      defaultRoute = make_shared<string>(boost::any_cast<string>(m["DefaultRoute"]));
     }
     if (m.find("EasServiceName") != m.end() && !m["EasServiceName"].empty()) {
       easServiceName = make_shared<string>(boost::any_cast<string>(m["EasServiceName"]));
@@ -2796,14 +3083,29 @@ public:
     if (m.find("OssResourceId") != m.end() && !m["OssResourceId"].empty()) {
       ossResourceId = make_shared<string>(boost::any_cast<string>(m["OssResourceId"]));
     }
+    if (m.find("PredictWorkerCount") != m.end() && !m["PredictWorkerCount"].empty()) {
+      predictWorkerCount = make_shared<long>(boost::any_cast<long>(m["PredictWorkerCount"]));
+    }
+    if (m.find("PredictWorkerCpu") != m.end() && !m["PredictWorkerCpu"].empty()) {
+      predictWorkerCpu = make_shared<long>(boost::any_cast<long>(m["PredictWorkerCpu"]));
+    }
+    if (m.find("PredictWorkerMemory") != m.end() && !m["PredictWorkerMemory"].empty()) {
+      predictWorkerMemory = make_shared<long>(boost::any_cast<long>(m["PredictWorkerMemory"]));
+    }
     if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
       sampleRate = make_shared<double>(boost::any_cast<double>(m["SampleRate"]));
     }
     if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
       sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
     }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("SwitchId") != m.end() && !m["SwitchId"].empty()) {
+      switchId = make_shared<string>(boost::any_cast<string>(m["SwitchId"]));
     }
     if (m.find("UseFeatureStore") != m.end() && !m["UseFeatureStore"].empty()) {
       useFeatureStore = make_shared<bool>(boost::any_cast<bool>(m["UseFeatureStore"]));
@@ -2820,8 +3122,14 @@ public:
     if (m.find("UserTablePartitionFieldFormat") != m.end() && !m["UserTablePartitionFieldFormat"].empty()) {
       userTablePartitionFieldFormat = make_shared<string>(boost::any_cast<string>(m["UserTablePartitionFieldFormat"]));
     }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
     if (m.find("WorkflowName") != m.end() && !m["WorkflowName"].empty()) {
       workflowName = make_shared<string>(boost::any_cast<string>(m["WorkflowName"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -4812,7 +5120,10 @@ public:
   shared_ptr<string> itemConditionType{};
   shared_ptr<string> itemTableMetaId{};
   shared_ptr<string> name{};
+  shared_ptr<string> preExperimentIds{};
+  shared_ptr<string> prodExperimentIds{};
   shared_ptr<string> sceneId{};
+  shared_ptr<string> serviceId{};
   shared_ptr<string> startTime{};
   shared_ptr<string> statisBehaviorConditionArray{};
   shared_ptr<string> statisBehaviorConditionExpress{};
@@ -4872,8 +5183,17 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (preExperimentIds) {
+      res["PreExperimentIds"] = boost::any(*preExperimentIds);
+    }
+    if (prodExperimentIds) {
+      res["ProdExperimentIds"] = boost::any(*prodExperimentIds);
+    }
     if (sceneId) {
       res["SceneId"] = boost::any(*sceneId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -4949,8 +5269,17 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("PreExperimentIds") != m.end() && !m["PreExperimentIds"].empty()) {
+      preExperimentIds = make_shared<string>(boost::any_cast<string>(m["PreExperimentIds"]));
+    }
+    if (m.find("ProdExperimentIds") != m.end() && !m["ProdExperimentIds"].empty()) {
+      prodExperimentIds = make_shared<string>(boost::any_cast<string>(m["ProdExperimentIds"]));
+    }
     if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
       sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -7121,6 +7450,7 @@ public:
 };
 class GenerateTrafficControlTaskCodeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> environment{};
   shared_ptr<string> instanceId{};
 
   GenerateTrafficControlTaskCodeRequest() {}
@@ -7133,6 +7463,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (environment) {
+      res["Environment"] = boost::any(*environment);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -7140,6 +7473,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
+      environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -7151,6 +7487,7 @@ public:
 class GenerateTrafficControlTaskCodeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<bool> preNeedConfig{};
   shared_ptr<string> requestId{};
 
   GenerateTrafficControlTaskCodeResponseBody() {}
@@ -7166,6 +7503,9 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (preNeedConfig) {
+      res["PreNeedConfig"] = boost::any(*preNeedConfig);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -7175,6 +7515,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("PreNeedConfig") != m.end() && !m["PreNeedConfig"].empty()) {
+      preNeedConfig = make_shared<bool>(boost::any_cast<bool>(m["PreNeedConfig"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -7925,6 +8268,7 @@ public:
 class GetEngineConfigResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> configValue{};
+  shared_ptr<string> description{};
   shared_ptr<string> environment{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
@@ -7945,6 +8289,9 @@ public:
     map<string, boost::any> res;
     if (configValue) {
       res["ConfigValue"] = boost::any(*configValue);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (environment) {
       res["Environment"] = boost::any(*environment);
@@ -7973,6 +8320,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConfigValue") != m.end() && !m["ConfigValue"].empty()) {
       configValue = make_shared<string>(boost::any_cast<string>(m["ConfigValue"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
       environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
@@ -8715,6 +9065,12 @@ public:
 class GetFeatureConsistencyCheckJobConfigResponseBody : public Darabonba::Model {
 public:
   shared_ptr<bool> compareFeature{};
+  shared_ptr<string> datasetId{};
+  shared_ptr<string> datasetMountPath{};
+  shared_ptr<string> datasetName{};
+  shared_ptr<string> datasetType{};
+  shared_ptr<string> datasetUri{};
+  shared_ptr<string> defaultRoute{};
   shared_ptr<string> easServiceName{};
   shared_ptr<string> easyRecPackagePath{};
   shared_ptr<string> easyRecVersion{};
@@ -8743,19 +9099,26 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> ossBucket{};
   shared_ptr<string> ossResourceId{};
+  shared_ptr<long> predictWorkerCount{};
+  shared_ptr<long> predictWorkerCpu{};
+  shared_ptr<long> predictWorkerMemory{};
   shared_ptr<string> requestId{};
   shared_ptr<string> sampleRate{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> sceneName{};
+  shared_ptr<string> securityGroupId{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<string> status{};
+  shared_ptr<string> switchId{};
   shared_ptr<bool> useFeatureStore{};
   shared_ptr<string> userIdField{};
   shared_ptr<string> userTable{};
   shared_ptr<string> userTablePartitionField{};
   shared_ptr<string> userTablePartitionFieldFormat{};
+  shared_ptr<string> vpcId{};
   shared_ptr<string> workflowName{};
+  shared_ptr<string> workspaceId{};
 
   GetFeatureConsistencyCheckJobConfigResponseBody() {}
 
@@ -8769,6 +9132,24 @@ public:
     map<string, boost::any> res;
     if (compareFeature) {
       res["CompareFeature"] = boost::any(*compareFeature);
+    }
+    if (datasetId) {
+      res["DatasetId"] = boost::any(*datasetId);
+    }
+    if (datasetMountPath) {
+      res["DatasetMountPath"] = boost::any(*datasetMountPath);
+    }
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (datasetType) {
+      res["DatasetType"] = boost::any(*datasetType);
+    }
+    if (datasetUri) {
+      res["DatasetUri"] = boost::any(*datasetUri);
+    }
+    if (defaultRoute) {
+      res["DefaultRoute"] = boost::any(*defaultRoute);
     }
     if (easServiceName) {
       res["EasServiceName"] = boost::any(*easServiceName);
@@ -8854,6 +9235,15 @@ public:
     if (ossResourceId) {
       res["OssResourceId"] = boost::any(*ossResourceId);
     }
+    if (predictWorkerCount) {
+      res["PredictWorkerCount"] = boost::any(*predictWorkerCount);
+    }
+    if (predictWorkerCpu) {
+      res["PredictWorkerCpu"] = boost::any(*predictWorkerCpu);
+    }
+    if (predictWorkerMemory) {
+      res["PredictWorkerMemory"] = boost::any(*predictWorkerMemory);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -8866,6 +9256,9 @@ public:
     if (sceneName) {
       res["SceneName"] = boost::any(*sceneName);
     }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
@@ -8874,6 +9267,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (switchId) {
+      res["SwitchId"] = boost::any(*switchId);
     }
     if (useFeatureStore) {
       res["UseFeatureStore"] = boost::any(*useFeatureStore);
@@ -8890,8 +9286,14 @@ public:
     if (userTablePartitionFieldFormat) {
       res["UserTablePartitionFieldFormat"] = boost::any(*userTablePartitionFieldFormat);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     if (workflowName) {
       res["WorkflowName"] = boost::any(*workflowName);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
     }
     return res;
   }
@@ -8899,6 +9301,24 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CompareFeature") != m.end() && !m["CompareFeature"].empty()) {
       compareFeature = make_shared<bool>(boost::any_cast<bool>(m["CompareFeature"]));
+    }
+    if (m.find("DatasetId") != m.end() && !m["DatasetId"].empty()) {
+      datasetId = make_shared<string>(boost::any_cast<string>(m["DatasetId"]));
+    }
+    if (m.find("DatasetMountPath") != m.end() && !m["DatasetMountPath"].empty()) {
+      datasetMountPath = make_shared<string>(boost::any_cast<string>(m["DatasetMountPath"]));
+    }
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("DatasetType") != m.end() && !m["DatasetType"].empty()) {
+      datasetType = make_shared<string>(boost::any_cast<string>(m["DatasetType"]));
+    }
+    if (m.find("DatasetUri") != m.end() && !m["DatasetUri"].empty()) {
+      datasetUri = make_shared<string>(boost::any_cast<string>(m["DatasetUri"]));
+    }
+    if (m.find("DefaultRoute") != m.end() && !m["DefaultRoute"].empty()) {
+      defaultRoute = make_shared<string>(boost::any_cast<string>(m["DefaultRoute"]));
     }
     if (m.find("EasServiceName") != m.end() && !m["EasServiceName"].empty()) {
       easServiceName = make_shared<string>(boost::any_cast<string>(m["EasServiceName"]));
@@ -8984,6 +9404,15 @@ public:
     if (m.find("OssResourceId") != m.end() && !m["OssResourceId"].empty()) {
       ossResourceId = make_shared<string>(boost::any_cast<string>(m["OssResourceId"]));
     }
+    if (m.find("PredictWorkerCount") != m.end() && !m["PredictWorkerCount"].empty()) {
+      predictWorkerCount = make_shared<long>(boost::any_cast<long>(m["PredictWorkerCount"]));
+    }
+    if (m.find("PredictWorkerCpu") != m.end() && !m["PredictWorkerCpu"].empty()) {
+      predictWorkerCpu = make_shared<long>(boost::any_cast<long>(m["PredictWorkerCpu"]));
+    }
+    if (m.find("PredictWorkerMemory") != m.end() && !m["PredictWorkerMemory"].empty()) {
+      predictWorkerMemory = make_shared<long>(boost::any_cast<long>(m["PredictWorkerMemory"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -8996,6 +9425,9 @@ public:
     if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
       sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
     }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
     }
@@ -9004,6 +9436,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SwitchId") != m.end() && !m["SwitchId"].empty()) {
+      switchId = make_shared<string>(boost::any_cast<string>(m["SwitchId"]));
     }
     if (m.find("UseFeatureStore") != m.end() && !m["UseFeatureStore"].empty()) {
       useFeatureStore = make_shared<bool>(boost::any_cast<bool>(m["UseFeatureStore"]));
@@ -9020,8 +9455,14 @@ public:
     if (m.find("UserTablePartitionFieldFormat") != m.end() && !m["UserTablePartitionFieldFormat"].empty()) {
       userTablePartitionFieldFormat = make_shared<string>(boost::any_cast<string>(m["UserTablePartitionFieldFormat"]));
     }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
     if (m.find("WorkflowName") != m.end() && !m["WorkflowName"].empty()) {
       workflowName = make_shared<string>(boost::any_cast<string>(m["WorkflowName"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -11561,11 +12002,14 @@ public:
   shared_ptr<string> itemConditionType{};
   shared_ptr<string> itemTableMetaId{};
   shared_ptr<string> name{};
+  shared_ptr<string> preExperimentIds{};
   shared_ptr<string> prepubStatus{};
+  shared_ptr<string> prodExperimentIds{};
   shared_ptr<string> productStatus{};
   shared_ptr<string> requestId{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> sceneName{};
+  shared_ptr<string> serviceId{};
   shared_ptr<string> startTime{};
   shared_ptr<string> statisBehaviorConditionArray{};
   shared_ptr<string> statisBehaviorConditionExpress{};
@@ -11632,8 +12076,14 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (preExperimentIds) {
+      res["PreExperimentIds"] = boost::any(*preExperimentIds);
+    }
     if (prepubStatus) {
       res["PrepubStatus"] = boost::any(*prepubStatus);
+    }
+    if (prodExperimentIds) {
+      res["ProdExperimentIds"] = boost::any(*prodExperimentIds);
     }
     if (productStatus) {
       res["ProductStatus"] = boost::any(*productStatus);
@@ -11646,6 +12096,9 @@ public:
     }
     if (sceneName) {
       res["SceneName"] = boost::any(*sceneName);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -11730,8 +12183,14 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("PreExperimentIds") != m.end() && !m["PreExperimentIds"].empty()) {
+      preExperimentIds = make_shared<string>(boost::any_cast<string>(m["PreExperimentIds"]));
+    }
     if (m.find("PrepubStatus") != m.end() && !m["PrepubStatus"].empty()) {
       prepubStatus = make_shared<string>(boost::any_cast<string>(m["PrepubStatus"]));
+    }
+    if (m.find("ProdExperimentIds") != m.end() && !m["ProdExperimentIds"].empty()) {
+      prodExperimentIds = make_shared<string>(boost::any_cast<string>(m["ProdExperimentIds"]));
     }
     if (m.find("ProductStatus") != m.end() && !m["ProductStatus"].empty()) {
       productStatus = make_shared<string>(boost::any_cast<string>(m["ProductStatus"]));
@@ -11744,6 +12203,9 @@ public:
     }
     if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
       sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -11880,7 +12342,7 @@ public:
 };
 class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics : public Darabonba::Model {
 public:
-  shared_ptr<vector<map<string, boost::any>>> data{};
+  shared_ptr<map<string, TrafficControlTaskTrafficInfoTargetTrafficsDataValue>> data{};
   shared_ptr<string> trafficContorlTargetId{};
 
   GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics() {}
@@ -11894,7 +12356,11 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (data) {
-      res["Data"] = boost::any(*data);
+      map<string, boost::any> temp1;
+      for(auto item1:*data){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["Data"] = boost::any(temp1);
     }
     if (trafficContorlTargetId) {
       res["TrafficContorlTargetId"] = boost::any(*trafficContorlTargetId);
@@ -11904,19 +12370,17 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      vector<map<string, boost::any>> toVec1;
-      if (typeid(vector<boost::any>) == m["Data"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Data"]);
-        for (auto item:vec1) {
-          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
-          map<string, boost::any> toMap2;
-          for (auto item:map2) {
-             toMap2[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        map<string, TrafficControlTaskTrafficInfoTargetTrafficsDataValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            TrafficControlTaskTrafficInfoTargetTrafficsDataValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
           }
-           toVec1.push_back(toMap2);
         }
+        data = make_shared<map<string, TrafficControlTaskTrafficInfoTargetTrafficsDataValue>>(expect1);
       }
-      data = make_shared<vector<map<string, boost::any>>>(toVec1);
     }
     if (m.find("TrafficContorlTargetId") != m.end() && !m["TrafficContorlTargetId"].empty()) {
       trafficContorlTargetId = make_shared<string>(boost::any_cast<string>(m["TrafficContorlTargetId"]));
@@ -11929,7 +12393,7 @@ public:
 class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo : public Darabonba::Model {
 public:
   shared_ptr<vector<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics>> targetTraffics{};
-  shared_ptr<map<string, boost::any>> taskTraffics{};
+  shared_ptr<map<string, TrafficControlTaskTrafficInfoTaskTrafficsValue>> taskTraffics{};
 
   GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo() {}
 
@@ -11949,7 +12413,11 @@ public:
       res["TargetTraffics"] = boost::any(temp1);
     }
     if (taskTraffics) {
-      res["TaskTraffics"] = boost::any(*taskTraffics);
+      map<string, boost::any> temp1;
+      for(auto item1:*taskTraffics){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["TaskTraffics"] = boost::any(temp1);
     }
     return res;
   }
@@ -11969,12 +12437,17 @@ public:
       }
     }
     if (m.find("TaskTraffics") != m.end() && !m["TaskTraffics"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["TaskTraffics"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["TaskTraffics"].type()) {
+        map<string, TrafficControlTaskTrafficInfoTaskTrafficsValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["TaskTraffics"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            TrafficControlTaskTrafficInfoTaskTrafficsValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
+        }
+        taskTraffics = make_shared<map<string, TrafficControlTaskTrafficInfoTaskTrafficsValue>>(expect1);
       }
-      taskTraffics = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
@@ -13317,6 +13790,7 @@ public:
 class ListEngineConfigsResponseBodyEngineConfigs : public Darabonba::Model {
 public:
   shared_ptr<string> configValue{};
+  shared_ptr<string> description{};
   shared_ptr<string> engineConfigId{};
   shared_ptr<string> environment{};
   shared_ptr<string> gmtCreateTime{};
@@ -13338,6 +13812,9 @@ public:
     map<string, boost::any> res;
     if (configValue) {
       res["ConfigValue"] = boost::any(*configValue);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (engineConfigId) {
       res["EngineConfigId"] = boost::any(*engineConfigId);
@@ -13369,6 +13846,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConfigValue") != m.end() && !m["ConfigValue"].empty()) {
       configValue = make_shared<string>(boost::any_cast<string>(m["ConfigValue"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("EngineConfigId") != m.end() && !m["EngineConfigId"].empty()) {
       engineConfigId = make_shared<string>(boost::any_cast<string>(m["EngineConfigId"]));
@@ -14203,6 +14683,12 @@ public:
 class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistencyCheckConfigs : public Darabonba::Model {
 public:
   shared_ptr<bool> compareFeature{};
+  shared_ptr<string> datasetId{};
+  shared_ptr<string> datasetMountPath{};
+  shared_ptr<string> datasetName{};
+  shared_ptr<string> datasetType{};
+  shared_ptr<string> datasetUri{};
+  shared_ptr<string> defaultRoute{};
   shared_ptr<string> easServiceName{};
   shared_ptr<string> easyRecPackagePath{};
   shared_ptr<string> easyRecVersion{};
@@ -14232,18 +14718,25 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> ossBucket{};
   shared_ptr<string> ossResourceId{};
+  shared_ptr<long> predictWorkerCount{};
+  shared_ptr<long> predictWorkerCpu{};
+  shared_ptr<long> predictWorkerMemory{};
   shared_ptr<string> sampleRate{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> sceneName{};
+  shared_ptr<string> securityGroupId{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<string> status{};
+  shared_ptr<string> switchId{};
   shared_ptr<string> useFeatureStore{};
   shared_ptr<string> userIdField{};
   shared_ptr<string> userTable{};
   shared_ptr<string> userTablePartitionField{};
   shared_ptr<string> userTablePartitionFieldFormat{};
+  shared_ptr<string> vpcId{};
   shared_ptr<string> workflowName{};
+  shared_ptr<string> workspaceId{};
 
   ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistencyCheckConfigs() {}
 
@@ -14257,6 +14750,24 @@ public:
     map<string, boost::any> res;
     if (compareFeature) {
       res["CompareFeature"] = boost::any(*compareFeature);
+    }
+    if (datasetId) {
+      res["DatasetId"] = boost::any(*datasetId);
+    }
+    if (datasetMountPath) {
+      res["DatasetMountPath"] = boost::any(*datasetMountPath);
+    }
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (datasetType) {
+      res["DatasetType"] = boost::any(*datasetType);
+    }
+    if (datasetUri) {
+      res["DatasetUri"] = boost::any(*datasetUri);
+    }
+    if (defaultRoute) {
+      res["DefaultRoute"] = boost::any(*defaultRoute);
     }
     if (easServiceName) {
       res["EasServiceName"] = boost::any(*easServiceName);
@@ -14345,6 +14856,15 @@ public:
     if (ossResourceId) {
       res["OssResourceId"] = boost::any(*ossResourceId);
     }
+    if (predictWorkerCount) {
+      res["PredictWorkerCount"] = boost::any(*predictWorkerCount);
+    }
+    if (predictWorkerCpu) {
+      res["PredictWorkerCpu"] = boost::any(*predictWorkerCpu);
+    }
+    if (predictWorkerMemory) {
+      res["PredictWorkerMemory"] = boost::any(*predictWorkerMemory);
+    }
     if (sampleRate) {
       res["SampleRate"] = boost::any(*sampleRate);
     }
@@ -14354,6 +14874,9 @@ public:
     if (sceneName) {
       res["SceneName"] = boost::any(*sceneName);
     }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
@@ -14362,6 +14885,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (switchId) {
+      res["SwitchId"] = boost::any(*switchId);
     }
     if (useFeatureStore) {
       res["UseFeatureStore"] = boost::any(*useFeatureStore);
@@ -14378,8 +14904,14 @@ public:
     if (userTablePartitionFieldFormat) {
       res["UserTablePartitionFieldFormat"] = boost::any(*userTablePartitionFieldFormat);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     if (workflowName) {
       res["WorkflowName"] = boost::any(*workflowName);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
     }
     return res;
   }
@@ -14387,6 +14919,24 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CompareFeature") != m.end() && !m["CompareFeature"].empty()) {
       compareFeature = make_shared<bool>(boost::any_cast<bool>(m["CompareFeature"]));
+    }
+    if (m.find("DatasetId") != m.end() && !m["DatasetId"].empty()) {
+      datasetId = make_shared<string>(boost::any_cast<string>(m["DatasetId"]));
+    }
+    if (m.find("DatasetMountPath") != m.end() && !m["DatasetMountPath"].empty()) {
+      datasetMountPath = make_shared<string>(boost::any_cast<string>(m["DatasetMountPath"]));
+    }
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("DatasetType") != m.end() && !m["DatasetType"].empty()) {
+      datasetType = make_shared<string>(boost::any_cast<string>(m["DatasetType"]));
+    }
+    if (m.find("DatasetUri") != m.end() && !m["DatasetUri"].empty()) {
+      datasetUri = make_shared<string>(boost::any_cast<string>(m["DatasetUri"]));
+    }
+    if (m.find("DefaultRoute") != m.end() && !m["DefaultRoute"].empty()) {
+      defaultRoute = make_shared<string>(boost::any_cast<string>(m["DefaultRoute"]));
     }
     if (m.find("EasServiceName") != m.end() && !m["EasServiceName"].empty()) {
       easServiceName = make_shared<string>(boost::any_cast<string>(m["EasServiceName"]));
@@ -14475,6 +15025,15 @@ public:
     if (m.find("OssResourceId") != m.end() && !m["OssResourceId"].empty()) {
       ossResourceId = make_shared<string>(boost::any_cast<string>(m["OssResourceId"]));
     }
+    if (m.find("PredictWorkerCount") != m.end() && !m["PredictWorkerCount"].empty()) {
+      predictWorkerCount = make_shared<long>(boost::any_cast<long>(m["PredictWorkerCount"]));
+    }
+    if (m.find("PredictWorkerCpu") != m.end() && !m["PredictWorkerCpu"].empty()) {
+      predictWorkerCpu = make_shared<long>(boost::any_cast<long>(m["PredictWorkerCpu"]));
+    }
+    if (m.find("PredictWorkerMemory") != m.end() && !m["PredictWorkerMemory"].empty()) {
+      predictWorkerMemory = make_shared<long>(boost::any_cast<long>(m["PredictWorkerMemory"]));
+    }
     if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
       sampleRate = make_shared<string>(boost::any_cast<string>(m["SampleRate"]));
     }
@@ -14484,6 +15043,9 @@ public:
     if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
       sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
     }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
     }
@@ -14492,6 +15054,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SwitchId") != m.end() && !m["SwitchId"].empty()) {
+      switchId = make_shared<string>(boost::any_cast<string>(m["SwitchId"]));
     }
     if (m.find("UseFeatureStore") != m.end() && !m["UseFeatureStore"].empty()) {
       useFeatureStore = make_shared<string>(boost::any_cast<string>(m["UseFeatureStore"]));
@@ -14508,8 +15073,14 @@ public:
     if (m.find("UserTablePartitionFieldFormat") != m.end() && !m["UserTablePartitionFieldFormat"].empty()) {
       userTablePartitionFieldFormat = make_shared<string>(boost::any_cast<string>(m["UserTablePartitionFieldFormat"]));
     }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
     if (m.find("WorkflowName") != m.end() && !m["WorkflowName"].empty()) {
       workflowName = make_shared<string>(boost::any_cast<string>(m["WorkflowName"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -18074,9 +18645,9 @@ public:
   shared_ptr<string> experimentId{};
   shared_ptr<string> itemId{};
   shared_ptr<string> recordTime{};
-  shared_ptr<string> trafficControlTargetAimTraffic{};
-  shared_ptr<string> trafficControlTargetTraffic{};
-  shared_ptr<string> trafficControlTaskTraffic{};
+  shared_ptr<double> trafficControlTargetAimTraffic{};
+  shared_ptr<double> trafficControlTargetTraffic{};
+  shared_ptr<double> trafficControlTaskTraffic{};
 
   ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories() {}
 
@@ -18120,13 +18691,13 @@ public:
       recordTime = make_shared<string>(boost::any_cast<string>(m["RecordTime"]));
     }
     if (m.find("TrafficControlTargetAimTraffic") != m.end() && !m["TrafficControlTargetAimTraffic"].empty()) {
-      trafficControlTargetAimTraffic = make_shared<string>(boost::any_cast<string>(m["TrafficControlTargetAimTraffic"]));
+      trafficControlTargetAimTraffic = make_shared<double>(boost::any_cast<double>(m["TrafficControlTargetAimTraffic"]));
     }
     if (m.find("TrafficControlTargetTraffic") != m.end() && !m["TrafficControlTargetTraffic"].empty()) {
-      trafficControlTargetTraffic = make_shared<string>(boost::any_cast<string>(m["TrafficControlTargetTraffic"]));
+      trafficControlTargetTraffic = make_shared<double>(boost::any_cast<double>(m["TrafficControlTargetTraffic"]));
     }
     if (m.find("TrafficControlTaskTraffic") != m.end() && !m["TrafficControlTaskTraffic"].empty()) {
-      trafficControlTaskTraffic = make_shared<string>(boost::any_cast<string>(m["TrafficControlTaskTraffic"]));
+      trafficControlTaskTraffic = make_shared<double>(boost::any_cast<double>(m["TrafficControlTaskTraffic"]));
     }
   }
 
@@ -18567,10 +19138,13 @@ public:
   shared_ptr<string> itemConditionType{};
   shared_ptr<string> itemTableMetaId{};
   shared_ptr<string> name{};
+  shared_ptr<string> preExperimentIds{};
   shared_ptr<string> prepubStatus{};
+  shared_ptr<string> prodExperimentIds{};
   shared_ptr<string> productStatus{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> sceneName{};
+  shared_ptr<string> serviceId{};
   shared_ptr<string> startTime{};
   shared_ptr<string> statisBahaviorConditionExpress{};
   shared_ptr<string> statisBehaviorConditionArray{};
@@ -18637,8 +19211,14 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (preExperimentIds) {
+      res["PreExperimentIds"] = boost::any(*preExperimentIds);
+    }
     if (prepubStatus) {
       res["PrepubStatus"] = boost::any(*prepubStatus);
+    }
+    if (prodExperimentIds) {
+      res["ProdExperimentIds"] = boost::any(*prodExperimentIds);
     }
     if (productStatus) {
       res["ProductStatus"] = boost::any(*productStatus);
@@ -18648,6 +19228,9 @@ public:
     }
     if (sceneName) {
       res["SceneName"] = boost::any(*sceneName);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -18732,8 +19315,14 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("PreExperimentIds") != m.end() && !m["PreExperimentIds"].empty()) {
+      preExperimentIds = make_shared<string>(boost::any_cast<string>(m["PreExperimentIds"]));
+    }
     if (m.find("PrepubStatus") != m.end() && !m["PrepubStatus"].empty()) {
       prepubStatus = make_shared<string>(boost::any_cast<string>(m["PrepubStatus"]));
+    }
+    if (m.find("ProdExperimentIds") != m.end() && !m["ProdExperimentIds"].empty()) {
+      prodExperimentIds = make_shared<string>(boost::any_cast<string>(m["ProdExperimentIds"]));
     }
     if (m.find("ProductStatus") != m.end() && !m["ProductStatus"].empty()) {
       productStatus = make_shared<string>(boost::any_cast<string>(m["ProductStatus"]));
@@ -18743,6 +19332,9 @@ public:
     }
     if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
       sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -19952,6 +20544,315 @@ public:
 
 
   virtual ~PushResourceRuleResponse() = default;
+};
+class QueryTrafficControlTargetItemReportDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> date{};
+  shared_ptr<string> environment{};
+  shared_ptr<string> instanceId{};
+
+  QueryTrafficControlTargetItemReportDetailRequest() {}
+
+  explicit QueryTrafficControlTargetItemReportDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (date) {
+      res["Date"] = boost::any(*date);
+    }
+    if (environment) {
+      res["Environment"] = boost::any(*environment);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Date") != m.end() && !m["Date"].empty()) {
+      date = make_shared<string>(boost::any_cast<string>(m["Date"]));
+    }
+    if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
+      environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~QueryTrafficControlTargetItemReportDetailRequest() = default;
+};
+class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTailReportDetails : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> features{};
+  shared_ptr<string> itemId{};
+  shared_ptr<string> targetProgress{};
+  shared_ptr<long> targetTraffic{};
+
+  QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTailReportDetails() {}
+
+  explicit QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTailReportDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (features) {
+      res["Features"] = boost::any(*features);
+    }
+    if (itemId) {
+      res["ItemId"] = boost::any(*itemId);
+    }
+    if (targetProgress) {
+      res["TargetProgress"] = boost::any(*targetProgress);
+    }
+    if (targetTraffic) {
+      res["TargetTraffic"] = boost::any(*targetTraffic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Features") != m.end() && !m["Features"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Features"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      features = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
+      itemId = make_shared<string>(boost::any_cast<string>(m["ItemId"]));
+    }
+    if (m.find("TargetProgress") != m.end() && !m["TargetProgress"].empty()) {
+      targetProgress = make_shared<string>(boost::any_cast<string>(m["TargetProgress"]));
+    }
+    if (m.find("TargetTraffic") != m.end() && !m["TargetTraffic"].empty()) {
+      targetTraffic = make_shared<long>(boost::any_cast<long>(m["TargetTraffic"]));
+    }
+  }
+
+
+  virtual ~QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTailReportDetails() = default;
+};
+class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTopReportDetails : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> features{};
+  shared_ptr<string> itemId{};
+  shared_ptr<string> targetProgress{};
+  shared_ptr<long> targetTraffic{};
+
+  QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTopReportDetails() {}
+
+  explicit QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTopReportDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (features) {
+      res["Features"] = boost::any(*features);
+    }
+    if (itemId) {
+      res["ItemId"] = boost::any(*itemId);
+    }
+    if (targetProgress) {
+      res["TargetProgress"] = boost::any(*targetProgress);
+    }
+    if (targetTraffic) {
+      res["TargetTraffic"] = boost::any(*targetTraffic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Features") != m.end() && !m["Features"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Features"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      features = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
+      itemId = make_shared<string>(boost::any_cast<string>(m["ItemId"]));
+    }
+    if (m.find("TargetProgress") != m.end() && !m["TargetProgress"].empty()) {
+      targetProgress = make_shared<string>(boost::any_cast<string>(m["TargetProgress"]));
+    }
+    if (m.find("TargetTraffic") != m.end() && !m["TargetTraffic"].empty()) {
+      targetTraffic = make_shared<long>(boost::any_cast<long>(m["TargetTraffic"]));
+    }
+  }
+
+
+  virtual ~QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTopReportDetails() = default;
+};
+class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetail : public Darabonba::Model {
+public:
+  shared_ptr<vector<QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTailReportDetails>> itemControlTailReportDetails{};
+  shared_ptr<vector<QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTopReportDetails>> itemControlTopReportDetails{};
+
+  QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetail() {}
+
+  explicit QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (itemControlTailReportDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*itemControlTailReportDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ItemControlTailReportDetails"] = boost::any(temp1);
+    }
+    if (itemControlTopReportDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*itemControlTopReportDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ItemControlTopReportDetails"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ItemControlTailReportDetails") != m.end() && !m["ItemControlTailReportDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["ItemControlTailReportDetails"].type()) {
+        vector<QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTailReportDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ItemControlTailReportDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTailReportDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        itemControlTailReportDetails = make_shared<vector<QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTailReportDetails>>(expect1);
+      }
+    }
+    if (m.find("ItemControlTopReportDetails") != m.end() && !m["ItemControlTopReportDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["ItemControlTopReportDetails"].type()) {
+        vector<QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTopReportDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ItemControlTopReportDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTopReportDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        itemControlTopReportDetails = make_shared<vector<QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTopReportDetails>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetail() = default;
+};
+class QueryTrafficControlTargetItemReportDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetail> trafficControlTargetItemReportDetail{};
+
+  QueryTrafficControlTargetItemReportDetailResponseBody() {}
+
+  explicit QueryTrafficControlTargetItemReportDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (trafficControlTargetItemReportDetail) {
+      res["TrafficControlTargetItemReportDetail"] = trafficControlTargetItemReportDetail ? boost::any(trafficControlTargetItemReportDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TrafficControlTargetItemReportDetail") != m.end() && !m["TrafficControlTargetItemReportDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TrafficControlTargetItemReportDetail"].type()) {
+        QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TrafficControlTargetItemReportDetail"]));
+        trafficControlTargetItemReportDetail = make_shared<QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetail>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryTrafficControlTargetItemReportDetailResponseBody() = default;
+};
+class QueryTrafficControlTargetItemReportDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryTrafficControlTargetItemReportDetailResponseBody> body{};
+
+  QueryTrafficControlTargetItemReportDetailResponse() {}
+
+  explicit QueryTrafficControlTargetItemReportDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryTrafficControlTargetItemReportDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryTrafficControlTargetItemReportDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryTrafficControlTargetItemReportDetailResponse() = default;
 };
 class ReleaseTrafficControlTaskRequest : public Darabonba::Model {
 public:
@@ -21647,6 +22548,7 @@ public:
 class UpdateEngineConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> configValue{};
+  shared_ptr<string> description{};
   shared_ptr<string> environment{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> name{};
@@ -21664,6 +22566,9 @@ public:
     if (configValue) {
       res["ConfigValue"] = boost::any(*configValue);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (environment) {
       res["Environment"] = boost::any(*environment);
     }
@@ -21679,6 +22584,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConfigValue") != m.end() && !m["ConfigValue"].empty()) {
       configValue = make_shared<string>(boost::any_cast<string>(m["ConfigValue"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
       environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
@@ -22145,6 +23053,12 @@ public:
 class UpdateFeatureConsistencyCheckJobConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> compareFeature{};
+  shared_ptr<string> datasetId{};
+  shared_ptr<string> datasetMountPath{};
+  shared_ptr<string> datasetName{};
+  shared_ptr<string> datasetType{};
+  shared_ptr<string> datasetUri{};
+  shared_ptr<string> defaultRoute{};
   shared_ptr<string> easServiceName{};
   shared_ptr<string> easyRecPackagePath{};
   shared_ptr<string> easyRecVersion{};
@@ -22168,14 +23082,21 @@ public:
   shared_ptr<string> itemTablePartitionFieldFormat{};
   shared_ptr<string> name{};
   shared_ptr<string> ossResourceId{};
+  shared_ptr<long> predictWorkerCount{};
+  shared_ptr<long> predictWorkerCpu{};
+  shared_ptr<long> predictWorkerMemory{};
   shared_ptr<double> sampleRate{};
   shared_ptr<string> sceneId{};
+  shared_ptr<string> securityGroupId{};
   shared_ptr<string> serviceId{};
+  shared_ptr<string> switchId{};
   shared_ptr<string> userIdField{};
   shared_ptr<string> userTable{};
   shared_ptr<string> userTablePartitionField{};
   shared_ptr<string> userTablePartitionFieldFormat{};
+  shared_ptr<string> vpcId{};
   shared_ptr<string> workflowName{};
+  shared_ptr<string> workspaceId{};
 
   UpdateFeatureConsistencyCheckJobConfigRequest() {}
 
@@ -22189,6 +23110,24 @@ public:
     map<string, boost::any> res;
     if (compareFeature) {
       res["CompareFeature"] = boost::any(*compareFeature);
+    }
+    if (datasetId) {
+      res["DatasetId"] = boost::any(*datasetId);
+    }
+    if (datasetMountPath) {
+      res["DatasetMountPath"] = boost::any(*datasetMountPath);
+    }
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (datasetType) {
+      res["DatasetType"] = boost::any(*datasetType);
+    }
+    if (datasetUri) {
+      res["DatasetUri"] = boost::any(*datasetUri);
+    }
+    if (defaultRoute) {
+      res["DefaultRoute"] = boost::any(*defaultRoute);
     }
     if (easServiceName) {
       res["EasServiceName"] = boost::any(*easServiceName);
@@ -22259,14 +23198,29 @@ public:
     if (ossResourceId) {
       res["OssResourceId"] = boost::any(*ossResourceId);
     }
+    if (predictWorkerCount) {
+      res["PredictWorkerCount"] = boost::any(*predictWorkerCount);
+    }
+    if (predictWorkerCpu) {
+      res["PredictWorkerCpu"] = boost::any(*predictWorkerCpu);
+    }
+    if (predictWorkerMemory) {
+      res["PredictWorkerMemory"] = boost::any(*predictWorkerMemory);
+    }
     if (sampleRate) {
       res["SampleRate"] = boost::any(*sampleRate);
     }
     if (sceneId) {
       res["SceneId"] = boost::any(*sceneId);
     }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (switchId) {
+      res["SwitchId"] = boost::any(*switchId);
     }
     if (userIdField) {
       res["UserIdField"] = boost::any(*userIdField);
@@ -22280,8 +23234,14 @@ public:
     if (userTablePartitionFieldFormat) {
       res["UserTablePartitionFieldFormat"] = boost::any(*userTablePartitionFieldFormat);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     if (workflowName) {
       res["WorkflowName"] = boost::any(*workflowName);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
     }
     return res;
   }
@@ -22289,6 +23249,24 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CompareFeature") != m.end() && !m["CompareFeature"].empty()) {
       compareFeature = make_shared<bool>(boost::any_cast<bool>(m["CompareFeature"]));
+    }
+    if (m.find("DatasetId") != m.end() && !m["DatasetId"].empty()) {
+      datasetId = make_shared<string>(boost::any_cast<string>(m["DatasetId"]));
+    }
+    if (m.find("DatasetMountPath") != m.end() && !m["DatasetMountPath"].empty()) {
+      datasetMountPath = make_shared<string>(boost::any_cast<string>(m["DatasetMountPath"]));
+    }
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("DatasetType") != m.end() && !m["DatasetType"].empty()) {
+      datasetType = make_shared<string>(boost::any_cast<string>(m["DatasetType"]));
+    }
+    if (m.find("DatasetUri") != m.end() && !m["DatasetUri"].empty()) {
+      datasetUri = make_shared<string>(boost::any_cast<string>(m["DatasetUri"]));
+    }
+    if (m.find("DefaultRoute") != m.end() && !m["DefaultRoute"].empty()) {
+      defaultRoute = make_shared<string>(boost::any_cast<string>(m["DefaultRoute"]));
     }
     if (m.find("EasServiceName") != m.end() && !m["EasServiceName"].empty()) {
       easServiceName = make_shared<string>(boost::any_cast<string>(m["EasServiceName"]));
@@ -22359,14 +23337,29 @@ public:
     if (m.find("OssResourceId") != m.end() && !m["OssResourceId"].empty()) {
       ossResourceId = make_shared<string>(boost::any_cast<string>(m["OssResourceId"]));
     }
+    if (m.find("PredictWorkerCount") != m.end() && !m["PredictWorkerCount"].empty()) {
+      predictWorkerCount = make_shared<long>(boost::any_cast<long>(m["PredictWorkerCount"]));
+    }
+    if (m.find("PredictWorkerCpu") != m.end() && !m["PredictWorkerCpu"].empty()) {
+      predictWorkerCpu = make_shared<long>(boost::any_cast<long>(m["PredictWorkerCpu"]));
+    }
+    if (m.find("PredictWorkerMemory") != m.end() && !m["PredictWorkerMemory"].empty()) {
+      predictWorkerMemory = make_shared<long>(boost::any_cast<long>(m["PredictWorkerMemory"]));
+    }
     if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
       sampleRate = make_shared<double>(boost::any_cast<double>(m["SampleRate"]));
     }
     if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
       sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
     }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("SwitchId") != m.end() && !m["SwitchId"].empty()) {
+      switchId = make_shared<string>(boost::any_cast<string>(m["SwitchId"]));
     }
     if (m.find("UserIdField") != m.end() && !m["UserIdField"].empty()) {
       userIdField = make_shared<string>(boost::any_cast<string>(m["UserIdField"]));
@@ -22380,8 +23373,14 @@ public:
     if (m.find("UserTablePartitionFieldFormat") != m.end() && !m["UserTablePartitionFieldFormat"].empty()) {
       userTablePartitionFieldFormat = make_shared<string>(boost::any_cast<string>(m["UserTablePartitionFieldFormat"]));
     }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
     if (m.find("WorkflowName") != m.end() && !m["WorkflowName"].empty()) {
       workflowName = make_shared<string>(boost::any_cast<string>(m["WorkflowName"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -24044,7 +25043,10 @@ public:
   shared_ptr<string> itemConditionType{};
   shared_ptr<string> itemTableMetaId{};
   shared_ptr<string> name{};
+  shared_ptr<string> preExperimentIds{};
+  shared_ptr<string> prodExperimentIds{};
   shared_ptr<string> sceneId{};
+  shared_ptr<string> serviceId{};
   shared_ptr<string> startTime{};
   shared_ptr<string> statisBaeaviorConditionArray{};
   shared_ptr<string> statisBehaviorConditionExpress{};
@@ -24104,8 +25106,17 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (preExperimentIds) {
+      res["PreExperimentIds"] = boost::any(*preExperimentIds);
+    }
+    if (prodExperimentIds) {
+      res["ProdExperimentIds"] = boost::any(*prodExperimentIds);
+    }
     if (sceneId) {
       res["SceneId"] = boost::any(*sceneId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -24181,8 +25192,17 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("PreExperimentIds") != m.end() && !m["PreExperimentIds"].empty()) {
+      preExperimentIds = make_shared<string>(boost::any_cast<string>(m["PreExperimentIds"]));
+    }
+    if (m.find("ProdExperimentIds") != m.end() && !m["ProdExperimentIds"].empty()) {
+      prodExperimentIds = make_shared<string>(boost::any_cast<string>(m["ProdExperimentIds"]));
+    }
     if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
       sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -24719,6 +25739,8 @@ public:
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckInstanceResourcesResponse checkInstanceResources(shared_ptr<string> InstanceId, shared_ptr<CheckInstanceResourcesRequest> request);
+  CheckTrafficControlTaskExpressionResponse checkTrafficControlTaskExpressionWithOptions(shared_ptr<CheckTrafficControlTaskExpressionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CheckTrafficControlTaskExpressionResponse checkTrafficControlTaskExpression(shared_ptr<CheckTrafficControlTaskExpressionRequest> request);
   CloneEngineConfigResponse cloneEngineConfigWithOptions(shared_ptr<string> EngineConfigId,
                                                          shared_ptr<CloneEngineConfigRequest> request,
                                                          shared_ptr<map<string, string>> headers,
@@ -25103,6 +26125,11 @@ public:
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PushResourceRuleResponse pushResourceRule(shared_ptr<string> ResourceRuleId, shared_ptr<PushResourceRuleRequest> request);
+  QueryTrafficControlTargetItemReportDetailResponse queryTrafficControlTargetItemReportDetailWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                                                         shared_ptr<QueryTrafficControlTargetItemReportDetailRequest> request,
+                                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryTrafficControlTargetItemReportDetailResponse queryTrafficControlTargetItemReportDetail(shared_ptr<string> TrafficControlTargetId, shared_ptr<QueryTrafficControlTargetItemReportDetailRequest> request);
   ReleaseTrafficControlTaskResponse releaseTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
                                                                          shared_ptr<ReleaseTrafficControlTaskRequest> request,
                                                                          shared_ptr<map<string, string>> headers,
