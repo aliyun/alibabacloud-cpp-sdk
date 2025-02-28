@@ -13376,6 +13376,174 @@ public:
 
   virtual ~GetJobResponse() = default;
 };
+class GetJobDiagnosisHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> workspace{};
+
+  GetJobDiagnosisHeaders() {}
+
+  explicit GetJobDiagnosisHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (workspace) {
+      res["workspace"] = boost::any(*workspace);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("workspace") != m.end() && !m["workspace"].empty()) {
+      workspace = make_shared<string>(boost::any_cast<string>(m["workspace"]));
+    }
+  }
+
+
+  virtual ~GetJobDiagnosisHeaders() = default;
+};
+class GetJobDiagnosisResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<JobDiagnosis> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> httpCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetJobDiagnosisResponseBody() {}
+
+  explicit GetJobDiagnosisResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["accessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (httpCode) {
+      res["httpCode"] = boost::any(*httpCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessDeniedDetail") != m.end() && !m["accessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["accessDeniedDetail"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        JobDiagnosis model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<JobDiagnosis>(model1);
+      }
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("httpCode") != m.end() && !m["httpCode"].empty()) {
+      httpCode = make_shared<long>(boost::any_cast<long>(m["httpCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~GetJobDiagnosisResponseBody() = default;
+};
+class GetJobDiagnosisResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetJobDiagnosisResponseBody> body{};
+
+  GetJobDiagnosisResponse() {}
+
+  explicit GetJobDiagnosisResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetJobDiagnosisResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetJobDiagnosisResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetJobDiagnosisResponse() = default;
+};
 class GetLatestJobStartLogHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -20685,6 +20853,207 @@ public:
 
   virtual ~UpdateUdfArtifactResponse() = default;
 };
+class UpdateVariableHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> workspace{};
+
+  UpdateVariableHeaders() {}
+
+  explicit UpdateVariableHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (workspace) {
+      res["workspace"] = boost::any(*workspace);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("workspace") != m.end() && !m["workspace"].empty()) {
+      workspace = make_shared<string>(boost::any_cast<string>(m["workspace"]));
+    }
+  }
+
+
+  virtual ~UpdateVariableHeaders() = default;
+};
+class UpdateVariableRequest : public Darabonba::Model {
+public:
+  shared_ptr<Variable> body{};
+
+  UpdateVariableRequest() {}
+
+  explicit UpdateVariableRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        Variable model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<Variable>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateVariableRequest() = default;
+};
+class UpdateVariableResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accessDeniedDetail{};
+  shared_ptr<Variable> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> httpCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateVariableResponseBody() {}
+
+  explicit UpdateVariableResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["accessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (httpCode) {
+      res["httpCode"] = boost::any(*httpCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessDeniedDetail") != m.end() && !m["accessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["accessDeniedDetail"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        Variable model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<Variable>(model1);
+      }
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("httpCode") != m.end() && !m["httpCode"].empty()) {
+      httpCode = make_shared<long>(boost::any_cast<long>(m["httpCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~UpdateVariableResponseBody() = default;
+};
+class UpdateVariableResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateVariableResponseBody> body{};
+
+  UpdateVariableResponse() {}
+
+  explicit UpdateVariableResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateVariableResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateVariableResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateVariableResponse() = default;
+};
 class ValidateSqlStatementHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -21089,6 +21458,12 @@ public:
                                    shared_ptr<GetJobHeaders> headers,
                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetJobResponse getJob(shared_ptr<string> namespace_, shared_ptr<string> jobId);
+  GetJobDiagnosisResponse getJobDiagnosisWithOptions(shared_ptr<string> namespace_,
+                                                     shared_ptr<string> deploymentId,
+                                                     shared_ptr<string> jobId,
+                                                     shared_ptr<GetJobDiagnosisHeaders> headers,
+                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetJobDiagnosisResponse getJobDiagnosis(shared_ptr<string> namespace_, shared_ptr<string> deploymentId, shared_ptr<string> jobId);
   GetLatestJobStartLogResponse getLatestJobStartLogWithOptions(shared_ptr<string> namespace_,
                                                                shared_ptr<string> deploymentId,
                                                                shared_ptr<GetLatestJobStartLogHeaders> headers,
@@ -21272,6 +21647,12 @@ public:
                                                          shared_ptr<UpdateUdfArtifactHeaders> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateUdfArtifactResponse updateUdfArtifact(shared_ptr<string> namespace_, shared_ptr<string> udfArtifactName, shared_ptr<UpdateUdfArtifactRequest> request);
+  UpdateVariableResponse updateVariableWithOptions(shared_ptr<string> namespace_,
+                                                   shared_ptr<string> name,
+                                                   shared_ptr<UpdateVariableRequest> request,
+                                                   shared_ptr<UpdateVariableHeaders> headers,
+                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateVariableResponse updateVariable(shared_ptr<string> namespace_, shared_ptr<string> name, shared_ptr<UpdateVariableRequest> request);
   ValidateSqlStatementResponse validateSqlStatementWithOptions(shared_ptr<string> namespace_,
                                                                shared_ptr<ValidateSqlStatementRequest> request,
                                                                shared_ptr<ValidateSqlStatementHeaders> headers,
