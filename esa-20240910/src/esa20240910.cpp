@@ -1765,11 +1765,17 @@ CreateOriginRuleResponse Alibabacloud_ESA20240910::Client::createOriginRuleWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->originHttpsPort)) {
     query->insert(pair<string, string>("OriginHttpsPort", *request->originHttpsPort));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->originMtls)) {
+    query->insert(pair<string, string>("OriginMtls", *request->originMtls));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->originScheme)) {
     query->insert(pair<string, string>("OriginScheme", *request->originScheme));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->originSni)) {
     query->insert(pair<string, string>("OriginSni", *request->originSni));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->originVerify)) {
+    query->insert(pair<string, string>("OriginVerify", *request->originVerify));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->range)) {
     query->insert(pair<string, string>("Range", *request->range));
@@ -10104,11 +10110,17 @@ UpdateOriginRuleResponse Alibabacloud_ESA20240910::Client::updateOriginRuleWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->originHttpsPort)) {
     query->insert(pair<string, string>("OriginHttpsPort", *request->originHttpsPort));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->originMtls)) {
+    query->insert(pair<string, string>("OriginMtls", *request->originMtls));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->originScheme)) {
     query->insert(pair<string, string>("OriginScheme", *request->originScheme));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->originSni)) {
     query->insert(pair<string, string>("OriginSni", *request->originSni));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->originVerify)) {
+    query->insert(pair<string, string>("OriginVerify", *request->originVerify));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->range)) {
     query->insert(pair<string, string>("Range", *request->range));

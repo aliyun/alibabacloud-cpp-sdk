@@ -1191,6 +1191,35 @@ public:
 
   virtual ~WafRuleConfigRateLimit() = default;
 };
+class WafRuleConfigSecurityLevel : public Darabonba::Model {
+public:
+  shared_ptr<string> value{};
+
+  WafRuleConfigSecurityLevel() {}
+
+  explicit WafRuleConfigSecurityLevel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~WafRuleConfigSecurityLevel() = default;
+};
 class WafTimerPeriods : public Darabonba::Model {
 public:
   shared_ptr<string> end{};
@@ -1405,6 +1434,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> notes{};
   shared_ptr<WafRuleConfigRateLimit> rateLimit{};
+  shared_ptr<WafRuleConfigSecurityLevel> securityLevel{};
   shared_ptr<vector<string>> sigchl{};
   shared_ptr<string> status{};
   shared_ptr<WafTimer> timer{};
@@ -1460,6 +1490,9 @@ public:
     }
     if (rateLimit) {
       res["RateLimit"] = rateLimit ? boost::any(rateLimit->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (securityLevel) {
+      res["SecurityLevel"] = securityLevel ? boost::any(securityLevel->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sigchl) {
       res["Sigchl"] = boost::any(*sigchl);
@@ -1540,6 +1573,13 @@ public:
         WafRuleConfigRateLimit model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RateLimit"]));
         rateLimit = make_shared<WafRuleConfigRateLimit>(model1);
+      }
+    }
+    if (m.find("SecurityLevel") != m.end() && !m["SecurityLevel"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityLevel"].type()) {
+        WafRuleConfigSecurityLevel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityLevel"]));
+        securityLevel = make_shared<WafRuleConfigSecurityLevel>(model1);
       }
     }
     if (m.find("Sigchl") != m.end() && !m["Sigchl"].empty()) {
@@ -10117,8 +10157,10 @@ public:
   shared_ptr<string> originHost{};
   shared_ptr<string> originHttpPort{};
   shared_ptr<string> originHttpsPort{};
+  shared_ptr<string> originMtls{};
   shared_ptr<string> originScheme{};
   shared_ptr<string> originSni{};
+  shared_ptr<string> originVerify{};
   shared_ptr<string> range{};
   shared_ptr<string> rule{};
   shared_ptr<string> ruleEnable{};
@@ -10148,11 +10190,17 @@ public:
     if (originHttpsPort) {
       res["OriginHttpsPort"] = boost::any(*originHttpsPort);
     }
+    if (originMtls) {
+      res["OriginMtls"] = boost::any(*originMtls);
+    }
     if (originScheme) {
       res["OriginScheme"] = boost::any(*originScheme);
     }
     if (originSni) {
       res["OriginSni"] = boost::any(*originSni);
+    }
+    if (originVerify) {
+      res["OriginVerify"] = boost::any(*originVerify);
     }
     if (range) {
       res["Range"] = boost::any(*range);
@@ -10188,11 +10236,17 @@ public:
     if (m.find("OriginHttpsPort") != m.end() && !m["OriginHttpsPort"].empty()) {
       originHttpsPort = make_shared<string>(boost::any_cast<string>(m["OriginHttpsPort"]));
     }
+    if (m.find("OriginMtls") != m.end() && !m["OriginMtls"].empty()) {
+      originMtls = make_shared<string>(boost::any_cast<string>(m["OriginMtls"]));
+    }
     if (m.find("OriginScheme") != m.end() && !m["OriginScheme"].empty()) {
       originScheme = make_shared<string>(boost::any_cast<string>(m["OriginScheme"]));
     }
     if (m.find("OriginSni") != m.end() && !m["OriginSni"].empty()) {
       originSni = make_shared<string>(boost::any_cast<string>(m["OriginSni"]));
+    }
+    if (m.find("OriginVerify") != m.end() && !m["OriginVerify"].empty()) {
+      originVerify = make_shared<string>(boost::any_cast<string>(m["OriginVerify"]));
     }
     if (m.find("Range") != m.end() && !m["Range"].empty()) {
       range = make_shared<string>(boost::any_cast<string>(m["Range"]));
@@ -13380,7 +13434,7 @@ class CreateSiteDeliveryTaskResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> dataCenter{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> siteId{};
+  shared_ptr<long> siteId{};
   shared_ptr<string> taskName{};
 
   CreateSiteDeliveryTaskResponseBody() {}
@@ -13416,7 +13470,7 @@ public:
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("SiteId") != m.end() && !m["SiteId"].empty()) {
-      siteId = make_shared<string>(boost::any_cast<string>(m["SiteId"]));
+      siteId = make_shared<long>(boost::any_cast<long>(m["SiteId"]));
     }
     if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
       taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
@@ -30728,8 +30782,10 @@ public:
   shared_ptr<string> originHost{};
   shared_ptr<string> originHttpPort{};
   shared_ptr<string> originHttpsPort{};
+  shared_ptr<string> originMtls{};
   shared_ptr<string> originScheme{};
   shared_ptr<string> originSni{};
+  shared_ptr<string> originVerify{};
   shared_ptr<string> range{};
   shared_ptr<string> requestId{};
   shared_ptr<string> rule{};
@@ -30766,11 +30822,17 @@ public:
     if (originHttpsPort) {
       res["OriginHttpsPort"] = boost::any(*originHttpsPort);
     }
+    if (originMtls) {
+      res["OriginMtls"] = boost::any(*originMtls);
+    }
     if (originScheme) {
       res["OriginScheme"] = boost::any(*originScheme);
     }
     if (originSni) {
       res["OriginSni"] = boost::any(*originSni);
+    }
+    if (originVerify) {
+      res["OriginVerify"] = boost::any(*originVerify);
     }
     if (range) {
       res["Range"] = boost::any(*range);
@@ -30815,11 +30877,17 @@ public:
     if (m.find("OriginHttpsPort") != m.end() && !m["OriginHttpsPort"].empty()) {
       originHttpsPort = make_shared<string>(boost::any_cast<string>(m["OriginHttpsPort"]));
     }
+    if (m.find("OriginMtls") != m.end() && !m["OriginMtls"].empty()) {
+      originMtls = make_shared<string>(boost::any_cast<string>(m["OriginMtls"]));
+    }
     if (m.find("OriginScheme") != m.end() && !m["OriginScheme"].empty()) {
       originScheme = make_shared<string>(boost::any_cast<string>(m["OriginScheme"]));
     }
     if (m.find("OriginSni") != m.end() && !m["OriginSni"].empty()) {
       originSni = make_shared<string>(boost::any_cast<string>(m["OriginSni"]));
+    }
+    if (m.find("OriginVerify") != m.end() && !m["OriginVerify"].empty()) {
+      originVerify = make_shared<string>(boost::any_cast<string>(m["OriginVerify"]));
     }
     if (m.find("Range") != m.end() && !m["Range"].empty()) {
       range = make_shared<string>(boost::any_cast<string>(m["Range"]));
@@ -35353,7 +35421,9 @@ public:
 class GetWafFilterResponseBodyFilterFieldsLogics : public Darabonba::Model {
 public:
   shared_ptr<long> attributes{};
+  shared_ptr<bool> enable{};
   shared_ptr<string> kind{};
+  shared_ptr<string> minPlan{};
   shared_ptr<bool> negative{};
   shared_ptr<string> operator_{};
   shared_ptr<string> symbol{};
@@ -35374,8 +35444,14 @@ public:
     if (attributes) {
       res["Attributes"] = boost::any(*attributes);
     }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
     if (kind) {
       res["Kind"] = boost::any(*kind);
+    }
+    if (minPlan) {
+      res["MinPlan"] = boost::any(*minPlan);
     }
     if (negative) {
       res["Negative"] = boost::any(*negative);
@@ -35402,8 +35478,14 @@ public:
     if (m.find("Attributes") != m.end() && !m["Attributes"].empty()) {
       attributes = make_shared<long>(boost::any_cast<long>(m["Attributes"]));
     }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
     if (m.find("Kind") != m.end() && !m["Kind"].empty()) {
       kind = make_shared<string>(boost::any_cast<string>(m["Kind"]));
+    }
+    if (m.find("MinPlan") != m.end() && !m["MinPlan"].empty()) {
+      minPlan = make_shared<string>(boost::any_cast<string>(m["MinPlan"]));
     }
     if (m.find("Negative") != m.end() && !m["Negative"].empty()) {
       negative = make_shared<bool>(boost::any_cast<bool>(m["Negative"]));
@@ -35520,9 +35602,11 @@ public:
 };
 class GetWafFilterResponseBodyFilterFields : public Darabonba::Model {
 public:
+  shared_ptr<bool> enable{};
   shared_ptr<string> key{};
   shared_ptr<string> label{};
   shared_ptr<vector<GetWafFilterResponseBodyFilterFieldsLogics>> logics{};
+  shared_ptr<string> minPlan{};
   shared_ptr<GetWafFilterResponseBodyFilterFieldsSelector> selector{};
   shared_ptr<bool> sub{};
   shared_ptr<string> subTip{};
@@ -35537,6 +35621,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
     if (key) {
       res["Key"] = boost::any(*key);
     }
@@ -35549,6 +35636,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Logics"] = boost::any(temp1);
+    }
+    if (minPlan) {
+      res["MinPlan"] = boost::any(*minPlan);
     }
     if (selector) {
       res["Selector"] = selector ? boost::any(selector->toMap()) : boost::any(map<string,boost::any>({}));
@@ -35563,6 +35653,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
     if (m.find("Key") != m.end() && !m["Key"].empty()) {
       key = make_shared<string>(boost::any_cast<string>(m["Key"]));
     }
@@ -35581,6 +35674,9 @@ public:
         }
         logics = make_shared<vector<GetWafFilterResponseBodyFilterFieldsLogics>>(expect1);
       }
+    }
+    if (m.find("MinPlan") != m.end() && !m["MinPlan"].empty()) {
+      minPlan = make_shared<string>(boost::any_cast<string>(m["MinPlan"]));
     }
     if (m.find("Selector") != m.end() && !m["Selector"].empty()) {
       if (typeid(map<string, boost::any>) == m["Selector"].type()) {
@@ -45168,8 +45264,10 @@ public:
   shared_ptr<string> originHost{};
   shared_ptr<string> originHttpPort{};
   shared_ptr<string> originHttpsPort{};
+  shared_ptr<string> originMtls{};
   shared_ptr<string> originScheme{};
   shared_ptr<string> originSni{};
+  shared_ptr<string> originVerify{};
   shared_ptr<string> range{};
   shared_ptr<string> rule{};
   shared_ptr<string> ruleEnable{};
@@ -45205,11 +45303,17 @@ public:
     if (originHttpsPort) {
       res["OriginHttpsPort"] = boost::any(*originHttpsPort);
     }
+    if (originMtls) {
+      res["OriginMtls"] = boost::any(*originMtls);
+    }
     if (originScheme) {
       res["OriginScheme"] = boost::any(*originScheme);
     }
     if (originSni) {
       res["OriginSni"] = boost::any(*originSni);
+    }
+    if (originVerify) {
+      res["OriginVerify"] = boost::any(*originVerify);
     }
     if (range) {
       res["Range"] = boost::any(*range);
@@ -45251,11 +45355,17 @@ public:
     if (m.find("OriginHttpsPort") != m.end() && !m["OriginHttpsPort"].empty()) {
       originHttpsPort = make_shared<string>(boost::any_cast<string>(m["OriginHttpsPort"]));
     }
+    if (m.find("OriginMtls") != m.end() && !m["OriginMtls"].empty()) {
+      originMtls = make_shared<string>(boost::any_cast<string>(m["OriginMtls"]));
+    }
     if (m.find("OriginScheme") != m.end() && !m["OriginScheme"].empty()) {
       originScheme = make_shared<string>(boost::any_cast<string>(m["OriginScheme"]));
     }
     if (m.find("OriginSni") != m.end() && !m["OriginSni"].empty()) {
       originSni = make_shared<string>(boost::any_cast<string>(m["OriginSni"]));
+    }
+    if (m.find("OriginVerify") != m.end() && !m["OriginVerify"].empty()) {
+      originVerify = make_shared<string>(boost::any_cast<string>(m["OriginVerify"]));
     }
     if (m.find("Range") != m.end() && !m["Range"].empty()) {
       range = make_shared<string>(boost::any_cast<string>(m["Range"]));
@@ -58872,8 +58982,10 @@ public:
   shared_ptr<string> originHost{};
   shared_ptr<string> originHttpPort{};
   shared_ptr<string> originHttpsPort{};
+  shared_ptr<string> originMtls{};
   shared_ptr<string> originScheme{};
   shared_ptr<string> originSni{};
+  shared_ptr<string> originVerify{};
   shared_ptr<string> range{};
   shared_ptr<string> rule{};
   shared_ptr<string> ruleEnable{};
@@ -58905,11 +59017,17 @@ public:
     if (originHttpsPort) {
       res["OriginHttpsPort"] = boost::any(*originHttpsPort);
     }
+    if (originMtls) {
+      res["OriginMtls"] = boost::any(*originMtls);
+    }
     if (originScheme) {
       res["OriginScheme"] = boost::any(*originScheme);
     }
     if (originSni) {
       res["OriginSni"] = boost::any(*originSni);
+    }
+    if (originVerify) {
+      res["OriginVerify"] = boost::any(*originVerify);
     }
     if (range) {
       res["Range"] = boost::any(*range);
@@ -58945,11 +59063,17 @@ public:
     if (m.find("OriginHttpsPort") != m.end() && !m["OriginHttpsPort"].empty()) {
       originHttpsPort = make_shared<string>(boost::any_cast<string>(m["OriginHttpsPort"]));
     }
+    if (m.find("OriginMtls") != m.end() && !m["OriginMtls"].empty()) {
+      originMtls = make_shared<string>(boost::any_cast<string>(m["OriginMtls"]));
+    }
     if (m.find("OriginScheme") != m.end() && !m["OriginScheme"].empty()) {
       originScheme = make_shared<string>(boost::any_cast<string>(m["OriginScheme"]));
     }
     if (m.find("OriginSni") != m.end() && !m["OriginSni"].empty()) {
       originSni = make_shared<string>(boost::any_cast<string>(m["OriginSni"]));
+    }
+    if (m.find("OriginVerify") != m.end() && !m["OriginVerify"].empty()) {
+      originVerify = make_shared<string>(boost::any_cast<string>(m["OriginVerify"]));
     }
     if (m.find("Range") != m.end() && !m["Range"].empty()) {
       range = make_shared<string>(boost::any_cast<string>(m["Range"]));
