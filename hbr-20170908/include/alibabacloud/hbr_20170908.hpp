@@ -8524,6 +8524,63 @@ public:
 
   virtual ~DescribeBackupJobs2ResponseBodyBackupJobsBackupJobPaths() = default;
 };
+class DescribeBackupJobs2ResponseBodyBackupJobsBackupJobReport : public Darabonba::Model {
+public:
+  shared_ptr<string> failedFiles{};
+  shared_ptr<string> reportTaskStatus{};
+  shared_ptr<string> skippedFiles{};
+  shared_ptr<string> successFiles{};
+  shared_ptr<string> totalFiles{};
+
+  DescribeBackupJobs2ResponseBodyBackupJobsBackupJobReport() {}
+
+  explicit DescribeBackupJobs2ResponseBodyBackupJobsBackupJobReport(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failedFiles) {
+      res["FailedFiles"] = boost::any(*failedFiles);
+    }
+    if (reportTaskStatus) {
+      res["ReportTaskStatus"] = boost::any(*reportTaskStatus);
+    }
+    if (skippedFiles) {
+      res["SkippedFiles"] = boost::any(*skippedFiles);
+    }
+    if (successFiles) {
+      res["SuccessFiles"] = boost::any(*successFiles);
+    }
+    if (totalFiles) {
+      res["TotalFiles"] = boost::any(*totalFiles);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailedFiles") != m.end() && !m["FailedFiles"].empty()) {
+      failedFiles = make_shared<string>(boost::any_cast<string>(m["FailedFiles"]));
+    }
+    if (m.find("ReportTaskStatus") != m.end() && !m["ReportTaskStatus"].empty()) {
+      reportTaskStatus = make_shared<string>(boost::any_cast<string>(m["ReportTaskStatus"]));
+    }
+    if (m.find("SkippedFiles") != m.end() && !m["SkippedFiles"].empty()) {
+      skippedFiles = make_shared<string>(boost::any_cast<string>(m["SkippedFiles"]));
+    }
+    if (m.find("SuccessFiles") != m.end() && !m["SuccessFiles"].empty()) {
+      successFiles = make_shared<string>(boost::any_cast<string>(m["SuccessFiles"]));
+    }
+    if (m.find("TotalFiles") != m.end() && !m["TotalFiles"].empty()) {
+      totalFiles = make_shared<string>(boost::any_cast<string>(m["TotalFiles"]));
+    }
+  }
+
+
+  virtual ~DescribeBackupJobs2ResponseBodyBackupJobsBackupJobReport() = default;
+};
 class DescribeBackupJobs2ResponseBodyBackupJobsBackupJob : public Darabonba::Model {
 public:
   shared_ptr<long> actualBytes{};
@@ -8564,6 +8621,7 @@ public:
   shared_ptr<string> planId{};
   shared_ptr<string> prefix{};
   shared_ptr<long> progress{};
+  shared_ptr<DescribeBackupJobs2ResponseBodyBackupJobsBackupJobReport> report{};
   shared_ptr<string> sourceType{};
   shared_ptr<long> speed{};
   shared_ptr<string> speedLimit{};
@@ -8696,6 +8754,9 @@ public:
     }
     if (progress) {
       res["Progress"] = boost::any(*progress);
+    }
+    if (report) {
+      res["Report"] = report ? boost::any(report->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
@@ -8850,6 +8911,13 @@ public:
     }
     if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
       progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
+    }
+    if (m.find("Report") != m.end() && !m["Report"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Report"].type()) {
+        DescribeBackupJobs2ResponseBodyBackupJobsBackupJobReport model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Report"]));
+        report = make_shared<DescribeBackupJobs2ResponseBodyBackupJobsBackupJobReport>(model1);
+      }
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
@@ -17065,6 +17133,7 @@ public:
   shared_ptr<string> advancedRetentionType{};
   shared_ptr<string> backupType{};
   shared_ptr<long> bytesTotal{};
+  shared_ptr<bool> canBeDeleted{};
   shared_ptr<long> completeTime{};
   shared_ptr<long> createTime{};
   shared_ptr<long> createdTime{};
@@ -17107,6 +17176,9 @@ public:
     }
     if (bytesTotal) {
       res["BytesTotal"] = boost::any(*bytesTotal);
+    }
+    if (canBeDeleted) {
+      res["CanBeDeleted"] = boost::any(*canBeDeleted);
     }
     if (completeTime) {
       res["CompleteTime"] = boost::any(*completeTime);
@@ -17183,6 +17255,9 @@ public:
     }
     if (m.find("BytesTotal") != m.end() && !m["BytesTotal"].empty()) {
       bytesTotal = make_shared<long>(boost::any_cast<long>(m["BytesTotal"]));
+    }
+    if (m.find("CanBeDeleted") != m.end() && !m["CanBeDeleted"].empty()) {
+      canBeDeleted = make_shared<bool>(boost::any_cast<bool>(m["CanBeDeleted"]));
     }
     if (m.find("CompleteTime") != m.end() && !m["CompleteTime"].empty()) {
       completeTime = make_shared<long>(boost::any_cast<long>(m["CompleteTime"]));
@@ -17612,6 +17687,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<vector<DescribeVaultsRequestTag>> tag{};
   shared_ptr<string> vaultId{};
+  shared_ptr<string> vaultName{};
   shared_ptr<string> vaultRegionId{};
   shared_ptr<string> vaultType{};
 
@@ -17646,6 +17722,9 @@ public:
     }
     if (vaultId) {
       res["VaultId"] = boost::any(*vaultId);
+    }
+    if (vaultName) {
+      res["VaultName"] = boost::any(*vaultName);
     }
     if (vaultRegionId) {
       res["VaultRegionId"] = boost::any(*vaultRegionId);
@@ -17684,6 +17763,9 @@ public:
     }
     if (m.find("VaultId") != m.end() && !m["VaultId"].empty()) {
       vaultId = make_shared<string>(boost::any_cast<string>(m["VaultId"]));
+    }
+    if (m.find("VaultName") != m.end() && !m["VaultName"].empty()) {
+      vaultName = make_shared<string>(boost::any_cast<string>(m["VaultName"]));
     }
     if (m.find("VaultRegionId") != m.end() && !m["VaultRegionId"].empty()) {
       vaultRegionId = make_shared<string>(boost::any_cast<string>(m["VaultRegionId"]));

@@ -2696,6 +2696,9 @@ DescribeVaultsResponse Alibabacloud_Hbr20170908::Client::describeVaultsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->vaultId)) {
     query->insert(pair<string, string>("VaultId", *request->vaultId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vaultName)) {
+    query->insert(pair<string, string>("VaultName", *request->vaultName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vaultRegionId)) {
     query->insert(pair<string, string>("VaultRegionId", *request->vaultRegionId));
   }
