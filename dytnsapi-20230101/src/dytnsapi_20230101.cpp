@@ -77,7 +77,12 @@ GetPhoneNumberIdentificationResultResponse Alibabacloud_Dytnsapi20230101::Client
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetPhoneNumberIdentificationResultResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetPhoneNumberIdentificationResultResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetPhoneNumberIdentificationResultResponse(execute(params, req, runtime));
+  }
 }
 
 GetPhoneNumberIdentificationResultResponse Alibabacloud_Dytnsapi20230101::Client::getPhoneNumberIdentificationResult(shared_ptr<GetPhoneNumberIdentificationResultRequest> request) {
@@ -126,7 +131,12 @@ GetPhoneNumberIdentificationUrlResponse Alibabacloud_Dytnsapi20230101::Client::g
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetPhoneNumberIdentificationUrlResponse(callApi(params, req, runtime));
+  if (Darabonba_Util::Client::isUnset<string>(_signatureVersion) || !Darabonba_Util::Client::equalString(_signatureVersion, make_shared<string>("v4"))) {
+    return GetPhoneNumberIdentificationUrlResponse(callApi(params, req, runtime));
+  }
+  else {
+    return GetPhoneNumberIdentificationUrlResponse(execute(params, req, runtime));
+  }
 }
 
 GetPhoneNumberIdentificationUrlResponse Alibabacloud_Dytnsapi20230101::Client::getPhoneNumberIdentificationUrl(shared_ptr<GetPhoneNumberIdentificationUrlRequest> request) {
