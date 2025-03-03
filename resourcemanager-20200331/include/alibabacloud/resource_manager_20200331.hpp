@@ -1389,6 +1389,250 @@ public:
 
   virtual ~CheckAccountDeleteResponse() = default;
 };
+class CreateAutoGroupingRuleRequestRuleContents : public Darabonba::Model {
+public:
+  shared_ptr<string> autoGroupingScopeCondition{};
+  shared_ptr<string> targetResourceGroupCondition{};
+
+  CreateAutoGroupingRuleRequestRuleContents() {}
+
+  explicit CreateAutoGroupingRuleRequestRuleContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoGroupingScopeCondition) {
+      res["AutoGroupingScopeCondition"] = boost::any(*autoGroupingScopeCondition);
+    }
+    if (targetResourceGroupCondition) {
+      res["TargetResourceGroupCondition"] = boost::any(*targetResourceGroupCondition);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoGroupingScopeCondition") != m.end() && !m["AutoGroupingScopeCondition"].empty()) {
+      autoGroupingScopeCondition = make_shared<string>(boost::any_cast<string>(m["AutoGroupingScopeCondition"]));
+    }
+    if (m.find("TargetResourceGroupCondition") != m.end() && !m["TargetResourceGroupCondition"].empty()) {
+      targetResourceGroupCondition = make_shared<string>(boost::any_cast<string>(m["TargetResourceGroupCondition"]));
+    }
+  }
+
+
+  virtual ~CreateAutoGroupingRuleRequestRuleContents() = default;
+};
+class CreateAutoGroupingRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
+  shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<string> excludeResourceTypesScope{};
+  shared_ptr<string> regionIdsScope{};
+  shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceTypesScope{};
+  shared_ptr<vector<CreateAutoGroupingRuleRequestRuleContents>> ruleContents{};
+  shared_ptr<string> ruleDesc{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> ruleType{};
+
+  CreateAutoGroupingRuleRequest() {}
+
+  explicit CreateAutoGroupingRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
+    if (excludeResourceIdsScope) {
+      res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeResourceTypesScope) {
+      res["ExcludeResourceTypesScope"] = boost::any(*excludeResourceTypesScope);
+    }
+    if (regionIdsScope) {
+      res["RegionIdsScope"] = boost::any(*regionIdsScope);
+    }
+    if (resourceGroupIdsScope) {
+      res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceTypesScope) {
+      res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
+    }
+    if (ruleContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*ruleContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RuleContents"] = boost::any(temp1);
+    }
+    if (ruleDesc) {
+      res["RuleDesc"] = boost::any(*ruleDesc);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
+    if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
+      excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeResourceTypesScope") != m.end() && !m["ExcludeResourceTypesScope"].empty()) {
+      excludeResourceTypesScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceTypesScope"]));
+    }
+    if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
+      regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
+    }
+    if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
+      resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
+      resourceTypesScope = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
+    }
+    if (m.find("RuleContents") != m.end() && !m["RuleContents"].empty()) {
+      if (typeid(vector<boost::any>) == m["RuleContents"].type()) {
+        vector<CreateAutoGroupingRuleRequestRuleContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RuleContents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAutoGroupingRuleRequestRuleContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ruleContents = make_shared<vector<CreateAutoGroupingRuleRequestRuleContents>>(expect1);
+      }
+    }
+    if (m.find("RuleDesc") != m.end() && !m["RuleDesc"].empty()) {
+      ruleDesc = make_shared<string>(boost::any_cast<string>(m["RuleDesc"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+  }
+
+
+  virtual ~CreateAutoGroupingRuleRequest() = default;
+};
+class CreateAutoGroupingRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> ruleId{};
+
+  CreateAutoGroupingRuleResponseBody() {}
+
+  explicit CreateAutoGroupingRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~CreateAutoGroupingRuleResponseBody() = default;
+};
+class CreateAutoGroupingRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateAutoGroupingRuleResponseBody> body{};
+
+  CreateAutoGroupingRuleResponse() {}
+
+  explicit CreateAutoGroupingRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateAutoGroupingRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAutoGroupingRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAutoGroupingRuleResponse() = default;
+};
 class CreateCloudAccountRequest : public Darabonba::Model {
 public:
   shared_ptr<string> displayName{};
@@ -3848,6 +4092,116 @@ public:
 
   virtual ~DeleteAccountResponse() = default;
 };
+class DeleteAutoGroupingRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ruleId{};
+
+  DeleteAutoGroupingRuleRequest() {}
+
+  explicit DeleteAutoGroupingRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~DeleteAutoGroupingRuleRequest() = default;
+};
+class DeleteAutoGroupingRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteAutoGroupingRuleResponseBody() {}
+
+  explicit DeleteAutoGroupingRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteAutoGroupingRuleResponseBody() = default;
+};
+class DeleteAutoGroupingRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAutoGroupingRuleResponseBody> body{};
+
+  DeleteAutoGroupingRuleResponse() {}
+
+  explicit DeleteAutoGroupingRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAutoGroupingRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAutoGroupingRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAutoGroupingRuleResponse() = default;
+};
 class DeleteControlPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> policyId{};
@@ -5331,6 +5685,87 @@ public:
 
   virtual ~DisableAssociatedTransferResponse() = default;
 };
+class DisableAutoGroupingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DisableAutoGroupingResponseBody() {}
+
+  explicit DisableAutoGroupingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DisableAutoGroupingResponseBody() = default;
+};
+class DisableAutoGroupingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DisableAutoGroupingResponseBody> body{};
+
+  DisableAutoGroupingResponse() {}
+
+  explicit DisableAutoGroupingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DisableAutoGroupingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DisableAutoGroupingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DisableAutoGroupingResponse() = default;
+};
 class DisableControlPolicyResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> enablementStatus{};
@@ -5499,6 +5934,87 @@ public:
 
 
   virtual ~EnableAssociatedTransferResponse() = default;
+};
+class EnableAutoGroupingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  EnableAutoGroupingResponseBody() {}
+
+  explicit EnableAutoGroupingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~EnableAutoGroupingResponseBody() = default;
+};
+class EnableAutoGroupingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnableAutoGroupingResponseBody> body{};
+
+  EnableAutoGroupingResponse() {}
+
+  explicit EnableAutoGroupingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnableAutoGroupingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnableAutoGroupingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EnableAutoGroupingResponse() = default;
 };
 class EnableControlPolicyResponseBody : public Darabonba::Model {
 public:
@@ -6611,6 +7127,406 @@ public:
 
 
   virtual ~GetAccountDeletionStatusResponse() = default;
+};
+class GetAutoGroupingRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ruleId{};
+
+  GetAutoGroupingRuleRequest() {}
+
+  explicit GetAutoGroupingRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~GetAutoGroupingRuleRequest() = default;
+};
+class GetAutoGroupingRuleResponseBodyRuleRuleContents : public Darabonba::Model {
+public:
+  shared_ptr<string> autoGroupingScopeCondition{};
+  shared_ptr<string> ruleContentId{};
+  shared_ptr<string> targetResourceGroupCondition{};
+
+  GetAutoGroupingRuleResponseBodyRuleRuleContents() {}
+
+  explicit GetAutoGroupingRuleResponseBodyRuleRuleContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoGroupingScopeCondition) {
+      res["AutoGroupingScopeCondition"] = boost::any(*autoGroupingScopeCondition);
+    }
+    if (ruleContentId) {
+      res["RuleContentId"] = boost::any(*ruleContentId);
+    }
+    if (targetResourceGroupCondition) {
+      res["TargetResourceGroupCondition"] = boost::any(*targetResourceGroupCondition);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoGroupingScopeCondition") != m.end() && !m["AutoGroupingScopeCondition"].empty()) {
+      autoGroupingScopeCondition = make_shared<string>(boost::any_cast<string>(m["AutoGroupingScopeCondition"]));
+    }
+    if (m.find("RuleContentId") != m.end() && !m["RuleContentId"].empty()) {
+      ruleContentId = make_shared<string>(boost::any_cast<string>(m["RuleContentId"]));
+    }
+    if (m.find("TargetResourceGroupCondition") != m.end() && !m["TargetResourceGroupCondition"].empty()) {
+      targetResourceGroupCondition = make_shared<string>(boost::any_cast<string>(m["TargetResourceGroupCondition"]));
+    }
+  }
+
+
+  virtual ~GetAutoGroupingRuleResponseBodyRuleRuleContents() = default;
+};
+class GetAutoGroupingRuleResponseBodyRule : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
+  shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<string> excludeResourceTypesScope{};
+  shared_ptr<string> modifyTime{};
+  shared_ptr<string> regionIdsScope{};
+  shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceTypesScope{};
+  shared_ptr<vector<GetAutoGroupingRuleResponseBodyRuleRuleContents>> ruleContents{};
+  shared_ptr<string> ruleDesc{};
+  shared_ptr<string> ruleId{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> ruleType{};
+
+  GetAutoGroupingRuleResponseBodyRule() {}
+
+  explicit GetAutoGroupingRuleResponseBodyRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
+    if (excludeResourceIdsScope) {
+      res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeResourceTypesScope) {
+      res["ExcludeResourceTypesScope"] = boost::any(*excludeResourceTypesScope);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
+    }
+    if (regionIdsScope) {
+      res["RegionIdsScope"] = boost::any(*regionIdsScope);
+    }
+    if (resourceGroupIdsScope) {
+      res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceTypesScope) {
+      res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
+    }
+    if (ruleContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*ruleContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RuleContents"] = boost::any(temp1);
+    }
+    if (ruleDesc) {
+      res["RuleDesc"] = boost::any(*ruleDesc);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
+    if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
+      excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeResourceTypesScope") != m.end() && !m["ExcludeResourceTypesScope"].empty()) {
+      excludeResourceTypesScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceTypesScope"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
+    }
+    if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
+      regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
+    }
+    if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
+      resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
+      resourceTypesScope = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
+    }
+    if (m.find("RuleContents") != m.end() && !m["RuleContents"].empty()) {
+      if (typeid(vector<boost::any>) == m["RuleContents"].type()) {
+        vector<GetAutoGroupingRuleResponseBodyRuleRuleContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RuleContents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAutoGroupingRuleResponseBodyRuleRuleContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ruleContents = make_shared<vector<GetAutoGroupingRuleResponseBodyRuleRuleContents>>(expect1);
+      }
+    }
+    if (m.find("RuleDesc") != m.end() && !m["RuleDesc"].empty()) {
+      ruleDesc = make_shared<string>(boost::any_cast<string>(m["RuleDesc"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+  }
+
+
+  virtual ~GetAutoGroupingRuleResponseBodyRule() = default;
+};
+class GetAutoGroupingRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<GetAutoGroupingRuleResponseBodyRule> rule{};
+
+  GetAutoGroupingRuleResponseBody() {}
+
+  explicit GetAutoGroupingRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (rule) {
+      res["Rule"] = rule ? boost::any(rule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Rule") != m.end() && !m["Rule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Rule"].type()) {
+        GetAutoGroupingRuleResponseBodyRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Rule"]));
+        rule = make_shared<GetAutoGroupingRuleResponseBodyRule>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAutoGroupingRuleResponseBody() = default;
+};
+class GetAutoGroupingRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAutoGroupingRuleResponseBody> body{};
+
+  GetAutoGroupingRuleResponse() {}
+
+  explicit GetAutoGroupingRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAutoGroupingRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAutoGroupingRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAutoGroupingRuleResponse() = default;
+};
+class GetAutoGroupingStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableExistedResourcesTransfer{};
+  shared_ptr<string> enableStatus{};
+  shared_ptr<string> requestId{};
+
+  GetAutoGroupingStatusResponseBody() {}
+
+  explicit GetAutoGroupingStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableExistedResourcesTransfer) {
+      res["EnableExistedResourcesTransfer"] = boost::any(*enableExistedResourcesTransfer);
+    }
+    if (enableStatus) {
+      res["EnableStatus"] = boost::any(*enableStatus);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableExistedResourcesTransfer") != m.end() && !m["EnableExistedResourcesTransfer"].empty()) {
+      enableExistedResourcesTransfer = make_shared<bool>(boost::any_cast<bool>(m["EnableExistedResourcesTransfer"]));
+    }
+    if (m.find("EnableStatus") != m.end() && !m["EnableStatus"].empty()) {
+      enableStatus = make_shared<string>(boost::any_cast<string>(m["EnableStatus"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetAutoGroupingStatusResponseBody() = default;
+};
+class GetAutoGroupingStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAutoGroupingStatusResponseBody> body{};
+
+  GetAutoGroupingStatusResponse() {}
+
+  explicit GetAutoGroupingStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAutoGroupingStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAutoGroupingStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAutoGroupingStatusResponse() = default;
 };
 class GetControlPolicyRequest : public Darabonba::Model {
 public:
@@ -10685,6 +11601,363 @@ public:
 
 
   virtual ~ListAssociatedTransferSettingResponse() = default;
+};
+class ListAutoGroupingRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> ruleId{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> ruleType{};
+
+  ListAutoGroupingRulesRequest() {}
+
+  explicit ListAutoGroupingRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+  }
+
+
+  virtual ~ListAutoGroupingRulesRequest() = default;
+};
+class ListAutoGroupingRulesResponseBodyRulesRuleContents : public Darabonba::Model {
+public:
+  shared_ptr<string> autoGroupingScopeCondition{};
+  shared_ptr<string> ruleContentId{};
+  shared_ptr<string> targetResourceGroupCondition{};
+
+  ListAutoGroupingRulesResponseBodyRulesRuleContents() {}
+
+  explicit ListAutoGroupingRulesResponseBodyRulesRuleContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoGroupingScopeCondition) {
+      res["AutoGroupingScopeCondition"] = boost::any(*autoGroupingScopeCondition);
+    }
+    if (ruleContentId) {
+      res["RuleContentId"] = boost::any(*ruleContentId);
+    }
+    if (targetResourceGroupCondition) {
+      res["TargetResourceGroupCondition"] = boost::any(*targetResourceGroupCondition);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoGroupingScopeCondition") != m.end() && !m["AutoGroupingScopeCondition"].empty()) {
+      autoGroupingScopeCondition = make_shared<string>(boost::any_cast<string>(m["AutoGroupingScopeCondition"]));
+    }
+    if (m.find("RuleContentId") != m.end() && !m["RuleContentId"].empty()) {
+      ruleContentId = make_shared<string>(boost::any_cast<string>(m["RuleContentId"]));
+    }
+    if (m.find("TargetResourceGroupCondition") != m.end() && !m["TargetResourceGroupCondition"].empty()) {
+      targetResourceGroupCondition = make_shared<string>(boost::any_cast<string>(m["TargetResourceGroupCondition"]));
+    }
+  }
+
+
+  virtual ~ListAutoGroupingRulesResponseBodyRulesRuleContents() = default;
+};
+class ListAutoGroupingRulesResponseBodyRules : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
+  shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<string> excludeResourceTypesScope{};
+  shared_ptr<string> modifyTime{};
+  shared_ptr<string> regionIdsScope{};
+  shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceTypesScope{};
+  shared_ptr<vector<ListAutoGroupingRulesResponseBodyRulesRuleContents>> ruleContents{};
+  shared_ptr<string> ruleDesc{};
+  shared_ptr<string> ruleId{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> ruleType{};
+
+  ListAutoGroupingRulesResponseBodyRules() {}
+
+  explicit ListAutoGroupingRulesResponseBodyRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
+    if (excludeResourceIdsScope) {
+      res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeResourceTypesScope) {
+      res["ExcludeResourceTypesScope"] = boost::any(*excludeResourceTypesScope);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
+    }
+    if (regionIdsScope) {
+      res["RegionIdsScope"] = boost::any(*regionIdsScope);
+    }
+    if (resourceGroupIdsScope) {
+      res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceTypesScope) {
+      res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
+    }
+    if (ruleContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*ruleContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RuleContents"] = boost::any(temp1);
+    }
+    if (ruleDesc) {
+      res["RuleDesc"] = boost::any(*ruleDesc);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
+    if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
+      excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeResourceTypesScope") != m.end() && !m["ExcludeResourceTypesScope"].empty()) {
+      excludeResourceTypesScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceTypesScope"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
+    }
+    if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
+      regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
+    }
+    if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
+      resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
+      resourceTypesScope = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
+    }
+    if (m.find("RuleContents") != m.end() && !m["RuleContents"].empty()) {
+      if (typeid(vector<boost::any>) == m["RuleContents"].type()) {
+        vector<ListAutoGroupingRulesResponseBodyRulesRuleContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RuleContents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAutoGroupingRulesResponseBodyRulesRuleContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ruleContents = make_shared<vector<ListAutoGroupingRulesResponseBodyRulesRuleContents>>(expect1);
+      }
+    }
+    if (m.find("RuleDesc") != m.end() && !m["RuleDesc"].empty()) {
+      ruleDesc = make_shared<string>(boost::any_cast<string>(m["RuleDesc"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+  }
+
+
+  virtual ~ListAutoGroupingRulesResponseBodyRules() = default;
+};
+class ListAutoGroupingRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListAutoGroupingRulesResponseBodyRules>> rules{};
+
+  ListAutoGroupingRulesResponseBody() {}
+
+  explicit ListAutoGroupingRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (rules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Rules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(vector<boost::any>) == m["Rules"].type()) {
+        vector<ListAutoGroupingRulesResponseBodyRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Rules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAutoGroupingRulesResponseBodyRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rules = make_shared<vector<ListAutoGroupingRulesResponseBodyRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListAutoGroupingRulesResponseBody() = default;
+};
+class ListAutoGroupingRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListAutoGroupingRulesResponseBody> body{};
+
+  ListAutoGroupingRulesResponse() {}
+
+  explicit ListAutoGroupingRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListAutoGroupingRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListAutoGroupingRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAutoGroupingRulesResponse() = default;
 };
 class ListControlPoliciesRequest : public Darabonba::Model {
 public:
@@ -18190,6 +19463,360 @@ public:
 
   virtual ~UpdateAssociatedTransferSettingResponse() = default;
 };
+class UpdateAutoGroupingConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableExistingResourcesTransfer{};
+
+  UpdateAutoGroupingConfigRequest() {}
+
+  explicit UpdateAutoGroupingConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableExistingResourcesTransfer) {
+      res["EnableExistingResourcesTransfer"] = boost::any(*enableExistingResourcesTransfer);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableExistingResourcesTransfer") != m.end() && !m["EnableExistingResourcesTransfer"].empty()) {
+      enableExistingResourcesTransfer = make_shared<bool>(boost::any_cast<bool>(m["EnableExistingResourcesTransfer"]));
+    }
+  }
+
+
+  virtual ~UpdateAutoGroupingConfigRequest() = default;
+};
+class UpdateAutoGroupingConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateAutoGroupingConfigResponseBody() {}
+
+  explicit UpdateAutoGroupingConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateAutoGroupingConfigResponseBody() = default;
+};
+class UpdateAutoGroupingConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateAutoGroupingConfigResponseBody> body{};
+
+  UpdateAutoGroupingConfigResponse() {}
+
+  explicit UpdateAutoGroupingConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateAutoGroupingConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateAutoGroupingConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAutoGroupingConfigResponse() = default;
+};
+class UpdateAutoGroupingRuleRequestRuleContents : public Darabonba::Model {
+public:
+  shared_ptr<string> autoGroupingScopeCondition{};
+  shared_ptr<string> ruleContentId{};
+  shared_ptr<string> targetResourceGroupCondition{};
+
+  UpdateAutoGroupingRuleRequestRuleContents() {}
+
+  explicit UpdateAutoGroupingRuleRequestRuleContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoGroupingScopeCondition) {
+      res["AutoGroupingScopeCondition"] = boost::any(*autoGroupingScopeCondition);
+    }
+    if (ruleContentId) {
+      res["RuleContentId"] = boost::any(*ruleContentId);
+    }
+    if (targetResourceGroupCondition) {
+      res["TargetResourceGroupCondition"] = boost::any(*targetResourceGroupCondition);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoGroupingScopeCondition") != m.end() && !m["AutoGroupingScopeCondition"].empty()) {
+      autoGroupingScopeCondition = make_shared<string>(boost::any_cast<string>(m["AutoGroupingScopeCondition"]));
+    }
+    if (m.find("RuleContentId") != m.end() && !m["RuleContentId"].empty()) {
+      ruleContentId = make_shared<string>(boost::any_cast<string>(m["RuleContentId"]));
+    }
+    if (m.find("TargetResourceGroupCondition") != m.end() && !m["TargetResourceGroupCondition"].empty()) {
+      targetResourceGroupCondition = make_shared<string>(boost::any_cast<string>(m["TargetResourceGroupCondition"]));
+    }
+  }
+
+
+  virtual ~UpdateAutoGroupingRuleRequestRuleContents() = default;
+};
+class UpdateAutoGroupingRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
+  shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<string> excludeResourceTypesScope{};
+  shared_ptr<string> regionIdsScope{};
+  shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
+  shared_ptr<string> resourceTypesScope{};
+  shared_ptr<vector<UpdateAutoGroupingRuleRequestRuleContents>> ruleContents{};
+  shared_ptr<string> ruleDesc{};
+  shared_ptr<string> ruleId{};
+  shared_ptr<string> ruleName{};
+
+  UpdateAutoGroupingRuleRequest() {}
+
+  explicit UpdateAutoGroupingRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
+    if (excludeResourceIdsScope) {
+      res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeResourceTypesScope) {
+      res["ExcludeResourceTypesScope"] = boost::any(*excludeResourceTypesScope);
+    }
+    if (regionIdsScope) {
+      res["RegionIdsScope"] = boost::any(*regionIdsScope);
+    }
+    if (resourceGroupIdsScope) {
+      res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
+    if (resourceTypesScope) {
+      res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
+    }
+    if (ruleContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*ruleContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RuleContents"] = boost::any(temp1);
+    }
+    if (ruleDesc) {
+      res["RuleDesc"] = boost::any(*ruleDesc);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
+    if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
+      excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeResourceTypesScope") != m.end() && !m["ExcludeResourceTypesScope"].empty()) {
+      excludeResourceTypesScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceTypesScope"]));
+    }
+    if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
+      regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
+    }
+    if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
+      resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
+    if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
+      resourceTypesScope = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
+    }
+    if (m.find("RuleContents") != m.end() && !m["RuleContents"].empty()) {
+      if (typeid(vector<boost::any>) == m["RuleContents"].type()) {
+        vector<UpdateAutoGroupingRuleRequestRuleContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RuleContents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAutoGroupingRuleRequestRuleContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ruleContents = make_shared<vector<UpdateAutoGroupingRuleRequestRuleContents>>(expect1);
+      }
+    }
+    if (m.find("RuleDesc") != m.end() && !m["RuleDesc"].empty()) {
+      ruleDesc = make_shared<string>(boost::any_cast<string>(m["RuleDesc"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~UpdateAutoGroupingRuleRequest() = default;
+};
+class UpdateAutoGroupingRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateAutoGroupingRuleResponseBody() {}
+
+  explicit UpdateAutoGroupingRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateAutoGroupingRuleResponseBody() = default;
+};
+class UpdateAutoGroupingRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateAutoGroupingRuleResponseBody> body{};
+
+  UpdateAutoGroupingRuleResponse() {}
+
+  explicit UpdateAutoGroupingRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateAutoGroupingRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateAutoGroupingRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAutoGroupingRuleResponse() = default;
+};
 class UpdateControlPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> newDescription{};
@@ -19030,6 +20657,8 @@ public:
   ChangeAccountEmailResponse changeAccountEmail(shared_ptr<ChangeAccountEmailRequest> request);
   CheckAccountDeleteResponse checkAccountDeleteWithOptions(shared_ptr<CheckAccountDeleteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckAccountDeleteResponse checkAccountDelete(shared_ptr<CheckAccountDeleteRequest> request);
+  CreateAutoGroupingRuleResponse createAutoGroupingRuleWithOptions(shared_ptr<CreateAutoGroupingRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAutoGroupingRuleResponse createAutoGroupingRule(shared_ptr<CreateAutoGroupingRuleRequest> request);
   CreateCloudAccountResponse createCloudAccountWithOptions(shared_ptr<CreateCloudAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCloudAccountResponse createCloudAccount(shared_ptr<CreateCloudAccountRequest> request);
   CreateControlPolicyResponse createControlPolicyWithOptions(shared_ptr<CreateControlPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19052,6 +20681,8 @@ public:
   DeclineHandshakeResponse declineHandshake(shared_ptr<DeclineHandshakeRequest> request);
   DeleteAccountResponse deleteAccountWithOptions(shared_ptr<DeleteAccountRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAccountResponse deleteAccount(shared_ptr<DeleteAccountRequest> request);
+  DeleteAutoGroupingRuleResponse deleteAutoGroupingRuleWithOptions(shared_ptr<DeleteAutoGroupingRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAutoGroupingRuleResponse deleteAutoGroupingRule(shared_ptr<DeleteAutoGroupingRuleRequest> request);
   DeleteControlPolicyResponse deleteControlPolicyWithOptions(shared_ptr<DeleteControlPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteControlPolicyResponse deleteControlPolicy(shared_ptr<DeleteControlPolicyRequest> request);
   DeleteFolderResponse deleteFolderWithOptions(shared_ptr<DeleteFolderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19076,10 +20707,14 @@ public:
   DetachPolicyResponse detachPolicy(shared_ptr<DetachPolicyRequest> request);
   DisableAssociatedTransferResponse disableAssociatedTransferWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableAssociatedTransferResponse disableAssociatedTransfer();
+  DisableAutoGroupingResponse disableAutoGroupingWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DisableAutoGroupingResponse disableAutoGrouping();
   DisableControlPolicyResponse disableControlPolicyWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableControlPolicyResponse disableControlPolicy();
   EnableAssociatedTransferResponse enableAssociatedTransferWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableAssociatedTransferResponse enableAssociatedTransfer();
+  EnableAutoGroupingResponse enableAutoGroupingWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnableAutoGroupingResponse enableAutoGrouping();
   EnableControlPolicyResponse enableControlPolicyWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableControlPolicyResponse enableControlPolicy();
   EnableResourceDirectoryResponse enableResourceDirectoryWithOptions(shared_ptr<EnableResourceDirectoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19090,6 +20725,10 @@ public:
   GetAccountDeletionCheckResultResponse getAccountDeletionCheckResult(shared_ptr<GetAccountDeletionCheckResultRequest> request);
   GetAccountDeletionStatusResponse getAccountDeletionStatusWithOptions(shared_ptr<GetAccountDeletionStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAccountDeletionStatusResponse getAccountDeletionStatus(shared_ptr<GetAccountDeletionStatusRequest> request);
+  GetAutoGroupingRuleResponse getAutoGroupingRuleWithOptions(shared_ptr<GetAutoGroupingRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAutoGroupingRuleResponse getAutoGroupingRule(shared_ptr<GetAutoGroupingRuleRequest> request);
+  GetAutoGroupingStatusResponse getAutoGroupingStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAutoGroupingStatusResponse getAutoGroupingStatus();
   GetControlPolicyResponse getControlPolicyWithOptions(shared_ptr<GetControlPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetControlPolicyResponse getControlPolicy(shared_ptr<GetControlPolicyRequest> request);
   GetControlPolicyEnablementStatusResponse getControlPolicyEnablementStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19124,6 +20763,8 @@ public:
   ListAncestorsResponse listAncestors(shared_ptr<ListAncestorsRequest> request);
   ListAssociatedTransferSettingResponse listAssociatedTransferSettingWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAssociatedTransferSettingResponse listAssociatedTransferSetting();
+  ListAutoGroupingRulesResponse listAutoGroupingRulesWithOptions(shared_ptr<ListAutoGroupingRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAutoGroupingRulesResponse listAutoGroupingRules(shared_ptr<ListAutoGroupingRulesRequest> request);
   ListControlPoliciesResponse listControlPoliciesWithOptions(shared_ptr<ListControlPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListControlPoliciesResponse listControlPolicies(shared_ptr<ListControlPoliciesRequest> request);
   ListControlPolicyAttachmentsForTargetResponse listControlPolicyAttachmentsForTargetWithOptions(shared_ptr<ListControlPolicyAttachmentsForTargetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19192,6 +20833,10 @@ public:
   UpdateAccountResponse updateAccount(shared_ptr<UpdateAccountRequest> request);
   UpdateAssociatedTransferSettingResponse updateAssociatedTransferSettingWithOptions(shared_ptr<UpdateAssociatedTransferSettingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAssociatedTransferSettingResponse updateAssociatedTransferSetting(shared_ptr<UpdateAssociatedTransferSettingRequest> request);
+  UpdateAutoGroupingConfigResponse updateAutoGroupingConfigWithOptions(shared_ptr<UpdateAutoGroupingConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateAutoGroupingConfigResponse updateAutoGroupingConfig(shared_ptr<UpdateAutoGroupingConfigRequest> request);
+  UpdateAutoGroupingRuleResponse updateAutoGroupingRuleWithOptions(shared_ptr<UpdateAutoGroupingRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateAutoGroupingRuleResponse updateAutoGroupingRule(shared_ptr<UpdateAutoGroupingRuleRequest> request);
   UpdateControlPolicyResponse updateControlPolicyWithOptions(shared_ptr<UpdateControlPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateControlPolicyResponse updateControlPolicy(shared_ptr<UpdateControlPolicyRequest> request);
   UpdateFolderResponse updateFolderWithOptions(shared_ptr<UpdateFolderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
