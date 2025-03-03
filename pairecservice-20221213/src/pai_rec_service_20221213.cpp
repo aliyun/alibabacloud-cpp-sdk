@@ -105,6 +105,9 @@ BackflowFeatureConsistencyCheckJobDataResponse Alibabacloud_PaiRecService2022121
   if (!Darabonba_Util::Client::isUnset<string>(request->scores)) {
     body->insert(pair<string, string>("Scores", *request->scores));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
+    body->insert(pair<string, string>("ServiceName", *request->serviceName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userFeatures)) {
     body->insert(pair<string, string>("UserFeatures", *request->userFeatures));
   }

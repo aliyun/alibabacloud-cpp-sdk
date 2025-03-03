@@ -246,6 +246,7 @@ public:
   shared_ptr<string> logUserId{};
   shared_ptr<string> sceneName{};
   shared_ptr<string> scores{};
+  shared_ptr<string> serviceName{};
   shared_ptr<string> userFeatures{};
 
   BackflowFeatureConsistencyCheckJobDataRequest() {}
@@ -285,6 +286,9 @@ public:
     if (scores) {
       res["Scores"] = boost::any(*scores);
     }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
     if (userFeatures) {
       res["UserFeatures"] = boost::any(*userFeatures);
     }
@@ -318,6 +322,9 @@ public:
     }
     if (m.find("Scores") != m.end() && !m["Scores"].empty()) {
       scores = make_shared<string>(boost::any_cast<string>(m["Scores"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
     }
     if (m.find("UserFeatures") != m.end() && !m["UserFeatures"].empty()) {
       userFeatures = make_shared<string>(boost::any_cast<string>(m["UserFeatures"]));
